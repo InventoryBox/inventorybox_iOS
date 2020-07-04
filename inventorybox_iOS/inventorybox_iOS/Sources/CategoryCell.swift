@@ -9,5 +9,12 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell {
+    static let identifier: String = "CategoryCell"
     
+    @IBOutlet weak var categoryBtn: UIButton!
+    
+    
+    func setCategories(_ name: String) {
+        categoryBtn.titleLabel?.text = name
+    }
 }

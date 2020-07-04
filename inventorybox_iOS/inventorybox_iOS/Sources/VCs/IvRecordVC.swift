@@ -18,7 +18,7 @@ class IvRecordVC: UIViewController {
         super.viewDidLoad()
         
     }
-
+    
 }
 
 //MARK: - CollectionView
@@ -28,15 +28,13 @@ extension IvRecordVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell else { return UICollectionViewCell() }
-        }
-        musicCell.set(musicList[indexPath.row])
-        return musicCell
+        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCell.identifier, for: indexPath) as? MusicCell else { return UICollectionViewCell() }
+        
+        
+        
         
         
     }
-    
-    
 }
 
 extension IvRecordVC: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
