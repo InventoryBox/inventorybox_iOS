@@ -8,4 +8,6 @@ target 'inventorybox_iOS' do
   # Pods for inventorybox_iOS
   pod 'Alamofire', '~> 4.8.2'
   pod 'Kingfisher', '~> 5.0'
+  pod 'lottie-ios', '~> 3.1.8'
+  pod 'Charts', '~> 3.5.0'
 end
