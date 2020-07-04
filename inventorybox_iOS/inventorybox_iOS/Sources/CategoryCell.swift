@@ -16,5 +16,12 @@ class CategoryCell: UICollectionViewCell {
     
     func setCategories(_ name: String) {
         categoryBtn.titleLabel?.text = name
+        categoryBtn.backgroundColor = .gray
+        categoryBtn.layer.cornerRadius = 10
+        categoryBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
+    @objc func buttonAction() {
+        print("Button Tapped")
     }
 }

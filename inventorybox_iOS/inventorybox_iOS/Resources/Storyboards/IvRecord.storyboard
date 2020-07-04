@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qte-JJ-zsG">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -26,14 +26,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZz-Za-60t">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="lastrecordingBtnDatechange" translatesAutoresizingMaskIntoConstraints="NO" id="K0m-x1-hzL" customClass="TextField" customModule="inventorybox_iOS" customModuleProvider="target">
                                 <rect key="frame" x="91.5" y="17.5" width="14" height="14"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="ell-cz-1Ph"/>
-                                    <constraint firstAttribute="height" constant="14" id="hO9-Uy-5Ly"/>
+                                    <constraint firstAttribute="width" constant="14" id="OeI-cf-UvD"/>
+                                    <constraint firstAttribute="height" constant="14" id="Vur-Uk-g4y"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="lastrecordingBtnDatechange"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIR-YC-chp">
                                 <rect key="frame" x="339" y="58" width="18.5" height="16"/>
                                 <constraints>
@@ -64,17 +65,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-Ew-z5d">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="20"/>
-                                                    <state key="normal" title="adsfasdfasdfas">
+                                                    <rect key="frame" x="0.0" y="10" width="41" height="0.0"/>
+                                                    <state key="normal">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="height" secondItem="A9O-Qd-1Vg" secondAttribute="height" id="10U-oL-wG4"/>
-                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="top" secondItem="A9O-Qd-1Vg" secondAttribute="top" id="E5F-kA-KWb"/>
-                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="leading" secondItem="A9O-Qd-1Vg" secondAttribute="leading" id="Qhj-7h-QKA"/>
-                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="width" secondItem="A9O-Qd-1Vg" secondAttribute="width" id="q94-Wa-AKa"/>
+                                                <constraint firstAttribute="bottom" secondItem="rhe-Ew-z5d" secondAttribute="bottom" constant="10" id="2CB-O4-y7P"/>
+                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="leading" secondItem="A9O-Qd-1Vg" secondAttribute="leading" id="KFD-y1-N8Y"/>
+                                                <constraint firstItem="rhe-Ew-z5d" firstAttribute="top" secondItem="A9O-Qd-1Vg" secondAttribute="top" constant="10" id="YBn-IM-FhD"/>
+                                                <constraint firstAttribute="trailing" secondItem="rhe-Ew-z5d" secondAttribute="trailing" id="cDk-wM-PBT"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="41" height="20"/>
@@ -89,11 +90,11 @@
                         <constraints>
                             <constraint firstItem="NbK-83-moW" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="8m1-Gx-zkH"/>
                             <constraint firstItem="HGp-LR-BC5" firstAttribute="top" secondItem="fMU-Z6-8Ja" secondAttribute="top" constant="11.5" id="BhF-Y8-3st"/>
-                            <constraint firstItem="SZz-Za-60t" firstAttribute="centerY" secondItem="HGp-LR-BC5" secondAttribute="centerY" id="GZt-EU-chV"/>
-                            <constraint firstItem="HGp-LR-BC5" firstAttribute="leading" secondItem="SZz-Za-60t" secondAttribute="trailing" constant="9" id="KHP-vW-He8"/>
                             <constraint firstItem="HGp-LR-BC5" firstAttribute="centerX" secondItem="fMU-Z6-8Ja" secondAttribute="centerX" id="PuS-Pl-x9Y"/>
                             <constraint firstItem="NbK-83-moW" firstAttribute="top" secondItem="HGp-LR-BC5" secondAttribute="bottom" constant="16.5" id="Unv-13-k3o"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="trailing" secondItem="DIR-YC-chp" secondAttribute="trailing" constant="17.600000000000001" id="ZnS-Xa-RKd"/>
+                            <constraint firstItem="K0m-x1-hzL" firstAttribute="centerY" secondItem="HGp-LR-BC5" secondAttribute="centerY" id="c93-3l-yS5"/>
+                            <constraint firstItem="HGp-LR-BC5" firstAttribute="leading" secondItem="K0m-x1-hzL" secondAttribute="trailing" constant="9" id="ee8-yJ-tiJ"/>
                             <constraint firstItem="DIR-YC-chp" firstAttribute="centerY" secondItem="NbK-83-moW" secondAttribute="centerY" id="tVm-RE-nR2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
@@ -101,6 +102,9 @@
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>
                         <outlet property="categoryCollectionView" destination="NbK-83-moW" id="Ueu-Zx-Ibp"/>
+                        <outlet property="categorySettingBtn" destination="DIR-YC-chp" id="oZk-Gr-UgK"/>
+                        <outlet property="dateLabel" destination="HGp-LR-BC5" id="hu7-aF-5oV"/>
+                        <outlet property="datePickerBtn" destination="K0m-x1-hzL" id="Bzk-oY-E8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PW-kM-qZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
