@@ -9,7 +9,8 @@
 import UIKit
 
 class TextField: UITextField {
-
+    
+    // textField 커서 없애기 및 복붙 안되게 만들기 
     override func caretRect(for position: UITextPosition) -> CGRect {
         return CGRect.zero
     }
