@@ -15,25 +15,54 @@ class IvRecordVC: UIViewController {
     @IBOutlet weak var categorySettingBtn: UIButton!
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var inventoryTableView: UITableView!
     
     private let datePicker = UIDatePicker()
     
     // category 통신
-    let categoryArray: [String] = ["전체", "스파게티", "유제품", "파운드류", "원두", "이게정말길게짜는것"]
+    private let categoryArray: [String] = ["전체", "스파게티", "유제품", "파운드류", "원두", "이게정말길게짜는것"]
+    private var inventoryArray: [InventoryInformation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createdDatePicker()
-        
-        // category 통신
-        
-        //        categoryCollectionView.delegate = self
-        //        categoryCollectionView.dataSource = self
+        setInventoryData()
+        setTableView()
+        setBackgroundColor()
+    }
+    
+    private func setBackgroundColor() {
+        self.view.backgroundColor = UIColor.whiteThree
         
     }
     
-    // datePicker 기능
+    private func setTableView() {
+        inventoryTableView.delegate = self
+        inventoryTableView.dataSource = self
+        
+        inventoryTableView.allowsSelection = false
+        inventoryTableView.separatorStyle = .none
+    }
+    
+    private func setInventoryData() {
+        let data1 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data2 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data3 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data4 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data5 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data6 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data7 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data8 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data9 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data10 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        
+        inventoryArray = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
+        
+    }
+    
+    
+    // datePickerBtn event
     private func createdDatePicker() {
         
         datePicker.datePickerMode = .date
@@ -55,6 +84,7 @@ class IvRecordVC: UIViewController {
         
     }
     
+    // doneBtn event
     @objc func donePressed() {
         
         let formatter = DateFormatter()
@@ -71,50 +101,42 @@ class IvRecordVC: UIViewController {
 }
 
 //MARK: - CollectionView
-extension IvRecordVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+
+//MARK: - TableView
+
+extension IvRecordVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return inventoryArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
+            headerCell.backgroundColor = UIColor.whiteThree
+            return headerCell
+        } else {
+            guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCell.identifier, for: indexPath) as? InventoryCell else { return UITableViewCell() }
+            
+            inventoryCell.setInventoryData(inventoryArray[indexPath.row - 1].inventoryImageName, inventoryArray[indexPath.row - 1].inventoryName, inventoryArray[indexPath.row - 1].minimumInventory, inventoryArray[indexPath.row - 1].orderInventory, inventoryArray[indexPath.row - 1].inventoryCount)
+            inventoryCell.backgroundColor = UIColor.whiteThree
+            return inventoryCell
+        }
         
-        return categoryArray.count
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-        
-        categoryCell.setCategories(categoryArray[indexPath.row])
-        
-        return categoryCell
-        
-    }
     
 }
 
-extension IvRecordVC: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+extension IvRecordVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 35
+        } else {
+            return 102
+        }
         
-        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return CGSize() }
-        
-        return CGSize(width: categoryCell.categoryBtn.frame.width, height: categoryCell.categoryBtn.frame.height)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 0
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 10
-        
-    }
-    
 }
