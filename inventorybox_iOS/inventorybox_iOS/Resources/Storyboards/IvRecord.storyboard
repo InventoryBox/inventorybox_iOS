@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,8 +56,36 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k9q-6S-iUY">
+                                        <rect key="frame" x="0.0" y="2" width="41" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NDO-Lx-la2">
+                                            <rect key="frame" x="0.0" y="0.0" width="41" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6u-ER-Ghg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="20"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h6u-ER-Ghg" firstAttribute="leading" secondItem="NDO-Lx-la2" secondAttribute="leading" id="3d7-Id-m8P"/>
+                                                <constraint firstAttribute="trailing" secondItem="h6u-ER-Ghg" secondAttribute="trailing" id="3dl-bO-41A"/>
+                                                <constraint firstItem="h6u-ER-Ghg" firstAttribute="top" secondItem="NDO-Lx-la2" secondAttribute="top" id="GBQ-oF-ZyX"/>
+                                                <constraint firstAttribute="bottom" secondItem="h6u-ER-Ghg" secondAttribute="bottom" id="TMe-OO-hBy"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zs-AR-5hi">
+                                <rect key="frame" x="0.0" y="88" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="9TZ-QR-Xnz"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OEj-wo-URV">
                                 <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -245,13 +274,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zs-AR-5hi">
-                                <rect key="frame" x="0.0" y="88" width="375" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="9TZ-QR-Xnz"/>
-                                </constraints>
-                            </view>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uzn-TC-q7T">
+                                <rect key="frame" x="326" y="606" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="icon"/>
+                                <connections>
+                                    <action selector="scroll:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="RGX-o5-ofn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -279,6 +309,7 @@
                         <outlet property="categorySettingBtn" destination="DIR-YC-chp" id="oZk-Gr-UgK"/>
                         <outlet property="dateLabel" destination="HGp-LR-BC5" id="hu7-aF-5oV"/>
                         <outlet property="datePickerBtn" destination="K0m-x1-hzL" id="Bzk-oY-E8D"/>
+                        <outlet property="goUpBtn" destination="uzn-TC-q7T" id="uLH-N5-LJP"/>
                         <outlet property="inventoryTableView" destination="OEj-wo-URV" id="HLt-mE-epN"/>
                     </connections>
                 </viewController>
@@ -288,6 +319,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon" width="512" height="512"/>
         <image name="lastrecordingBtnDatechange" width="14" height="14"/>
         <image name="lastrecordingBtnFolderplus" width="18.5" height="16.5"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>

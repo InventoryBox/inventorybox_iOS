@@ -13,14 +13,15 @@ class IvRecordVC: UIViewController {
     @IBOutlet weak var datePickerBtn: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categorySettingBtn: UIButton!
+    @IBOutlet weak var goUpBtn: UIButton!
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var inventoryTableView: UITableView!
     
     private let datePicker = UIDatePicker()
     
-    // category 통신
     private let categoryArray: [String] = ["전체", "스파게티", "유제품", "파운드류", "원두", "이게정말길게짜는것"]
+    
     private var inventoryArray: [InventoryInformation] = []
     
     override func viewDidLoad() {
@@ -30,11 +31,26 @@ class IvRecordVC: UIViewController {
         setInventoryData()
         setTableView()
         setBackgroundColor()
+        setBtn()
+    }
+    
+    @IBAction func scroll(_ sender: Any) {
+        // scrollToTop tableView code
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.inventoryTableView.scrollToRow(at: indexPath, at: .top, animated: false)
+    }
+    
+    private func setBtn() {
+        goUpBtn.layer.cornerRadius = goUpBtn.frame.height / 2
+        goUpBtn.layer.shadowOpacity = 0.25
+        goUpBtn.layer.shadowRadius = 5
+        goUpBtn.layer.shadowOffset = CGSize(width: 0, height: 10)
     }
     
     private func setBackgroundColor() {
-        self.view.backgroundColor = UIColor.whiteThree
-        
+//        self.view.layer.shadowOpacity = 22
+//        self.view.layer.shadowRadius = 5
+//        self.view.backgroundColor = UIColor.whiteThree
     }
     
     private func setTableView() {
@@ -96,6 +112,7 @@ class IvRecordVC: UIViewController {
         dateLabel.text = "\(formatter.string(from: datePicker.date))"
         
         self.view.endEditing(true)
+        
     }
     
 }
@@ -107,20 +124,28 @@ class IvRecordVC: UIViewController {
 
 extension IvRecordVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return inventoryArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
-            headerCell.backgroundColor = UIColor.whiteThree
+            
+//            headerCell.backgroundColor = UIColor.whiteThree
+            
             return headerCell
+            
         } else {
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCell.identifier, for: indexPath) as? InventoryCell else { return UITableViewCell() }
             
             inventoryCell.setInventoryData(inventoryArray[indexPath.row - 1].inventoryImageName, inventoryArray[indexPath.row - 1].inventoryName, inventoryArray[indexPath.row - 1].minimumInventory, inventoryArray[indexPath.row - 1].orderInventory, inventoryArray[indexPath.row - 1].inventoryCount)
-            inventoryCell.backgroundColor = UIColor.whiteThree
+            
+//            inventoryCell.backgroundColor = UIColor.whiteThree
+            
             return inventoryCell
+            
         }
         
         
@@ -131,12 +156,16 @@ extension IvRecordVC: UITableViewDataSource {
 
 extension IvRecordVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 35
-        } else {
-            return 102
-        }
         
+        if indexPath.row == 0 {
+            
+            return 35
+            
+        } else {
+            
+            return 102
+            
+        }
         
     }
 }
