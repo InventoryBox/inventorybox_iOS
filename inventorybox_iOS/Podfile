@@ -10,4 +10,6 @@ target 'inventorybox_iOS' do
   pod 'Kingfisher', '~> 5.0'
   pod 'lottie-ios', '~> 3.1.8'
   pod 'Charts', '~> 3.5.0'
+  pod "TTGTagCollectionView", '~> 1.11.1'
+
 end
