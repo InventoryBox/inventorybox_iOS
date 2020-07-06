@@ -11,7 +11,7 @@
         <!--HomeVC-->
         <scene sceneID="CYr-92-b0l">
             <objects>
-                <viewController id="9cC-sg-GrM" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="9cC-sg-GrM" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8uA-15-WCd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

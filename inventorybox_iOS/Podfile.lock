@@ -7,12 +7,14 @@ PODS:
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
   - lottie-ios (3.1.8)
+  - TTGTagCollectionView (1.11.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - Charts (~> 3.5.0)
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
+  - TTGTagCollectionView (~> 1.11.1)
 
 SPEC REPOS:
   trunk:
@@ -20,13 +22,15 @@ SPEC REPOS:
     - Charts
     - Kingfisher
     - lottie-ios
+    - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 7d06a3ce460729694c3880ff93d0fa3529f291eb
+PODFILE CHECKSUM: dae42467f0147b571e7d3971f2ef8efcb1c62b14
 
 COCOAPODS: 1.9.1

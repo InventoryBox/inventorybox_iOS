@@ -23,8 +23,11 @@ class InventoryCell: UITableViewCell {
         super.awakeFromNib()
         
         roundView.layer.cornerRadius = 9
-        roundView.layer.shadowRadius = 5
-        roundView.layer.shadowOpacity = 0.25
+        
+        roundView.layer.shadowRadius = 4.0
+        roundView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        roundView.layer.shadowOpacity = 0.2
+        roundView.layer.masksToBounds = true
         minimumInventoryCountLabel.textColor = UIColor.brownGrey
         
         orderInventoryCountLabel.textColor = UIColor.brownGrey
