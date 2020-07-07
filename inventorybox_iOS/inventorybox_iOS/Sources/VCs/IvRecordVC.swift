@@ -11,6 +11,23 @@ import TTGTagCollectionView
 
 class IvRecordVC: UIViewController {
     
+    static var categories: [String] = ["전체", "액체류", "파우더류", "과일", "채소류", "스파게티 재료들", "아침마다 확인해야 할 것들"]
+    
+    static var inventoryArray: [InventoryInformation] = {
+        
+        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data3 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data4 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data5 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data6 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        
+        return [data1, data2, data3, data4, data5]
+        
+    }()
+    
+    private var inventoryFiltered: [InventoryInformation] = inventoryArray
+    
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var datePickerBtn: UITextField!
@@ -28,18 +45,16 @@ class IvRecordVC: UIViewController {
     
     private let datePicker = UIDatePicker()
     
-    private var inventoryArray: [InventoryInformation] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBtnsCustommed()
         createdDatePicker()
-        setInventoryData()
         setInventoryTableView()
         setBackgroundColor()
         addCategoryCollectionView()
         makeShadowUnderOutView()
+        
     }
     
     @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
@@ -51,19 +66,21 @@ class IvRecordVC: UIViewController {
         }
         categoryEditVC.modalPresentationStyle = .fullScreen
         
-      self.present(categoryEditVC, animated: false, completion: nil)
+        self.present(categoryEditVC, animated: false, completion: nil)
         
     }
+    
     @IBAction func goToIvTodayRecord(_ sender: Any) {
         
         let IvTodayRecord = UIStoryboard.init(name: "IvTodayRecord", bundle: nil)
         guard let IvTodayRecordVC = IvTodayRecord.instantiateViewController(identifier: "IvTodayRecordVC")
-              as? IvTodayRecordVC  else {
-                  return
-          }
-          IvTodayRecordVC.modalPresentationStyle = .fullScreen
-          
+            as? IvTodayRecordVC  else {
+                return
+        }
+        IvTodayRecordVC.modalPresentationStyle = .fullScreen
+        
         self.present(IvTodayRecordVC, animated: true, completion: nil)
+        
     }
     
     
@@ -99,7 +116,7 @@ class IvRecordVC: UIViewController {
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(["전체", "액체류","파우더류", "과일", "채소류"], with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(IvRecordVC.categories, with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -115,17 +132,6 @@ class IvRecordVC: UIViewController {
         inventoryTableView.separatorStyle = .none
     }
     
-    private func setInventoryData() {
-        
-        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data3 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data4 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data5 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        
-        inventoryArray = [data1, data2, data3, data4, data5]
-        
-    }
     
     
     // datePickerBtn event
@@ -140,8 +146,10 @@ class IvRecordVC: UIViewController {
         datePickerBtn.inputView = datePicker
         datePickerLabelBtn.inputView = datePicker
         
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
-        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 53))
+        toolbar.backgroundColor = .yellow
+        toolbar.isTranslucent = true
+        toolbar.barTintColor = .yellow
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         
         toolbar.setItems([doneBtn], animated: true)
@@ -170,12 +178,11 @@ class IvRecordVC: UIViewController {
 //MARK: - CollectionView
 
 
-//MARK: - TableView
-
+//MARK: - InventoryTableView
 extension IvRecordVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inventoryArray.count
+        return inventoryFiltered.count
         
     }
     
@@ -186,14 +193,14 @@ extension IvRecordVC: UITableViewDataSource {
             return headerCell
             
         } else {
+            
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCell.identifier, for: indexPath) as? InventoryCell else { return UITableViewCell() }
             
-            inventoryCell.setInventoryData(inventoryArray[indexPath.row - 1].inventoryImageName, inventoryArray[indexPath.row - 1].inventoryName, inventoryArray[indexPath.row - 1].minimumInventory, inventoryArray[indexPath.row - 1].orderInventory, inventoryArray[indexPath.row - 1].inventoryCount)
+            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, inventoryFiltered[indexPath.row - 1].orderInventory, inventoryFiltered[indexPath.row - 1].inventoryCount)
             
             return inventoryCell
-            
+    
         }
-        
         
     }
     
@@ -216,6 +223,7 @@ extension IvRecordVC: UITableViewDelegate {
     }
 }
 
+//MARK: - TagCollectionView
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
         var check = 0
@@ -226,9 +234,32 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
                 break
             }
         }
+    
         if check == 0 {
             selections.append(tagText)
         }
-        print(selections)
+        
+        // 카테고리 필터링 코드
+        var allCategoryCheck: Bool = false
+        for i in 0..<selections.count {
+            if selections[i] == "전체" {
+                allCategoryCheck = true
+                inventoryFiltered = IvRecordVC.inventoryArray
+                inventoryTableView.reloadData()
+            }
+        }
+        if !allCategoryCheck {
+            inventoryFiltered = []
+            for i in 0..<selections.count {
+                let filterred = IvRecordVC.inventoryArray.filter { (inventory) -> Bool in
+                    return inventory.category == selections[i]
+                }
+                
+                for data in filterred {
+                    inventoryFiltered.append(data)
+                }
+            }
+            inventoryTableView.reloadData()
+        }
     }
 }

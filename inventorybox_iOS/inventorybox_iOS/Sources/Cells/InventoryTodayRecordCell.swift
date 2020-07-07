@@ -24,6 +24,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         makeShadowUnderView()
         makeShadowAroundInventoryView()
         setTextFieldCustommed()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

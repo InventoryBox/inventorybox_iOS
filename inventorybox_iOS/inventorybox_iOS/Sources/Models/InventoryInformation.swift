@@ -14,12 +14,14 @@ struct InventoryInformation {
     var minimumInventory: String
     var orderInventory: String
     var inventoryCount: String
+    var category: String
     
-    init(imageName: String, ivName: String, mInventory: String, oInventory: String, iCount: String) {
+    init(imageName: String, ivName: String, mInventory: String, oInventory: String, iCount: String, categoryNum: String) {
         self.inventoryImageName = imageName
         self.inventoryName = ivName
         self.minimumInventory = mInventory
         self.orderInventory = oInventory
         self.inventoryCount = iCount
+        self.category = categoryNum
     }
 }

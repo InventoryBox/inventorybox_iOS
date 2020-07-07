@@ -7,113 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First IvVC-->
-        <scene sceneID="98i-h0-U0F">
-            <objects>
-                <viewController storyboardIdentifier="FirstIvVC" id="as9-Ou-JXR" customClass="FirstIvVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Vip-Zk-CN2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WI-80-N2e">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-9m-pbX">
-                                        <rect key="frame" x="0.0" y="3" width="375" height="44"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-ul-lVs">
-                                                <rect key="frame" x="119.5" y="12" width="136" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67J-ju-STe" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="146" id="0W9-ch-FhK"/>
-                                                    <constraint firstAttribute="height" constant="20" id="lAm-he-fjH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="lastrecordingBtnDatechange" translatesAutoresizingMaskIntoConstraints="NO" id="7P0-2n-SUd" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="92.5" y="19" width="14" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="f2C-Pp-u0l"/>
-                                                    <constraint firstAttribute="height" constant="14" id="lky-be-bLb"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2v-Wi-ojG">
-                                                <rect key="frame" x="328" y="0.0" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="lZr-N0-bCF"/>
-                                                    <constraint firstAttribute="width" constant="44" id="s2j-od-4wi"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="lastrecordingBtnEdit"/>
-                                                <connections>
-                                                    <action selector="goToIvRecordCategoryEdit:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="UVg-wX-Ops"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="7P0-2n-SUd" firstAttribute="bottom" secondItem="iI5-ul-lVs" secondAttribute="bottom" id="0pc-ma-PGx"/>
-                                            <constraint firstItem="67J-ju-STe" firstAttribute="leading" secondItem="7P0-2n-SUd" secondAttribute="trailing" constant="8" id="1CJ-Cc-zk5"/>
-                                            <constraint firstItem="iI5-ul-lVs" firstAttribute="centerX" secondItem="4tT-9m-pbX" secondAttribute="centerX" id="87o-0D-UqA"/>
-                                            <constraint firstAttribute="trailing" secondItem="L2v-Wi-ojG" secondAttribute="trailing" constant="3" id="Gxl-pl-2O5"/>
-                                            <constraint firstItem="67J-ju-STe" firstAttribute="top" secondItem="4tT-9m-pbX" secondAttribute="top" constant="12" id="fIi-fY-jNP"/>
-                                            <constraint firstItem="iI5-ul-lVs" firstAttribute="top" secondItem="4tT-9m-pbX" secondAttribute="top" constant="12" id="hnw-cH-hsD"/>
-                                            <constraint firstItem="L2v-Wi-ojG" firstAttribute="top" secondItem="4tT-9m-pbX" secondAttribute="top" id="jYf-pc-3Ml"/>
-                                            <constraint firstAttribute="height" constant="44" id="kKh-20-vaj"/>
-                                            <constraint firstItem="67J-ju-STe" firstAttribute="centerX" secondItem="4tT-9m-pbX" secondAttribute="centerX" id="ksb-10-6u4"/>
-                                            <constraint firstAttribute="bottom" secondItem="L2v-Wi-ojG" secondAttribute="bottom" id="tgR-OV-EMm"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="4tT-9m-pbX" firstAttribute="leading" secondItem="8WI-80-N2e" secondAttribute="leading" id="6qN-om-HkW"/>
-                                    <constraint firstItem="4tT-9m-pbX" firstAttribute="top" secondItem="8WI-80-N2e" secondAttribute="top" constant="3" id="W87-Gu-I9L"/>
-                                    <constraint firstAttribute="trailing" secondItem="4tT-9m-pbX" secondAttribute="trailing" id="lOe-7D-pqJ"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGa-yZ-Ngr">
-                                <rect key="frame" x="121" y="382" width="133" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="133" id="GUv-Bo-bJM"/>
-                                    <constraint firstAttribute="height" constant="35" id="aCU-uO-wlC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="재료 등록하기"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="8WI-80-N2e" firstAttribute="top" secondItem="mJx-D9-UwX" secondAttribute="top" id="ATt-Bw-6so"/>
-                            <constraint firstItem="8WI-80-N2e" firstAttribute="width" secondItem="8WI-80-N2e" secondAttribute="height" multiplier="375:87" id="Ap0-qV-138"/>
-                            <constraint firstItem="8WI-80-N2e" firstAttribute="trailing" secondItem="mJx-D9-UwX" secondAttribute="trailing" id="IfZ-9h-6cx"/>
-                            <constraint firstItem="pGa-yZ-Ngr" firstAttribute="top" secondItem="8WI-80-N2e" secondAttribute="bottom" constant="295" id="KPD-J1-iOC"/>
-                            <constraint firstItem="8WI-80-N2e" firstAttribute="width" secondItem="Vip-Zk-CN2" secondAttribute="width" id="Pbd-gJ-tMp"/>
-                            <constraint firstItem="8WI-80-N2e" firstAttribute="leading" secondItem="mJx-D9-UwX" secondAttribute="leading" id="o4O-oX-NrT"/>
-                            <constraint firstItem="pGa-yZ-Ngr" firstAttribute="centerX" secondItem="Vip-Zk-CN2" secondAttribute="centerX" id="pB1-c1-mcj"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="mJx-D9-UwX"/>
-                    </view>
-                    <connections>
-                        <outlet property="dateLabel" destination="iI5-ul-lVs" id="nxT-Je-DrJ"/>
-                        <outlet property="datePickerBtn" destination="7P0-2n-SUd" id="LYo-S2-p1t"/>
-                        <outlet property="datePickerLabelBtn" destination="67J-ju-STe" id="KX2-DY-PTf"/>
-                        <outlet property="outView" destination="8WI-80-N2e" id="D4J-XU-bi6"/>
-                        <outlet property="registerInventoryBtn" destination="pGa-yZ-Ngr" id="Cax-7o-dvm"/>
-                        <outlet property="topView" destination="4tT-9m-pbX" id="dYy-bq-gk9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CSy-2t-ShX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1377" y="258"/>
-        </scene>
         <!--Iv RecordVC-->
         <scene sceneID="zaS-3V-nbX">
             <objects>
@@ -417,93 +310,34 @@
             </objects>
             <point key="canvasLocation" x="-522.39999999999998" y="257.72113943028489"/>
         </scene>
-        <!--No IvVC-->
-        <scene sceneID="cAk-Gz-cFz">
+        <!--View Controller-->
+        <scene sceneID="JE4-GZ-A6t">
             <objects>
-                <viewController storyboardIdentifier="NoIvVC" id="XmL-sM-bxy" customClass="NoIvVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EGp-vB-O8q">
+                <viewController id="dmv-3A-jmW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ey-zU-dqB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2i-4O-VtW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-ve-iRu">
-                                        <rect key="frame" x="0.0" y="3" width="375" height="44"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dN-gb-nlJ">
-                                                <rect key="frame" x="119.5" y="12" width="136" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqO-PR-2GW" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="LAa-lR-rQX"/>
-                                                    <constraint firstAttribute="width" constant="146" id="Ly5-FB-BVz"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="lastrecordingBtnDatechange" translatesAutoresizingMaskIntoConstraints="NO" id="bd0-FQ-XaL" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="92.5" y="19" width="14" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="fzN-9C-Vha"/>
-                                                    <constraint firstAttribute="height" constant="14" id="jzz-pI-4KN"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Lb-dT-1L6">
-                                                <rect key="frame" x="328" y="0.0" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="EPD-dj-eVJ"/>
-                                                    <constraint firstAttribute="width" constant="44" id="Jvv-a0-j4I"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="lastrecordingBtnEdit"/>
-                                                <connections>
-                                                    <action selector="goToIvRecordCategoryEdit:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="G8m-hI-gOW"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="yqO-PR-2GW" firstAttribute="centerX" secondItem="Aho-ve-iRu" secondAttribute="centerX" id="0Gs-L1-zWI"/>
-                                            <constraint firstItem="8dN-gb-nlJ" firstAttribute="centerX" secondItem="Aho-ve-iRu" secondAttribute="centerX" id="2ge-Xb-VY8"/>
-                                            <constraint firstAttribute="height" constant="44" id="Dc0-Ct-UKC"/>
-                                            <constraint firstItem="9Lb-dT-1L6" firstAttribute="top" secondItem="Aho-ve-iRu" secondAttribute="top" id="Jfm-D1-rT7"/>
-                                            <constraint firstItem="yqO-PR-2GW" firstAttribute="top" secondItem="Aho-ve-iRu" secondAttribute="top" constant="12" id="QEL-cP-A9o"/>
-                                            <constraint firstItem="bd0-FQ-XaL" firstAttribute="bottom" secondItem="8dN-gb-nlJ" secondAttribute="bottom" id="Qds-2N-b4e"/>
-                                            <constraint firstAttribute="trailing" secondItem="9Lb-dT-1L6" secondAttribute="trailing" constant="3" id="e4O-GP-XBd"/>
-                                            <constraint firstItem="yqO-PR-2GW" firstAttribute="leading" secondItem="bd0-FQ-XaL" secondAttribute="trailing" constant="8" id="eFC-YW-S8C"/>
-                                            <constraint firstAttribute="bottom" secondItem="9Lb-dT-1L6" secondAttribute="bottom" id="sbP-g9-4dF"/>
-                                            <constraint firstItem="8dN-gb-nlJ" firstAttribute="top" secondItem="Aho-ve-iRu" secondAttribute="top" constant="12" id="sgQ-ja-a8h"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pOw-Id-Qbu">
+                                <rect key="frame" x="-15" y="411" width="240" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="Aho-ve-iRu" firstAttribute="leading" secondItem="o2i-4O-VtW" secondAttribute="leading" id="KDH-3N-R0q"/>
-                                    <constraint firstItem="Aho-ve-iRu" firstAttribute="top" secondItem="o2i-4O-VtW" secondAttribute="top" constant="3" id="bJF-2L-VIo"/>
-                                    <constraint firstAttribute="trailing" secondItem="Aho-ve-iRu" secondAttribute="trailing" id="jDL-bJ-UIc"/>
+                                    <constraint firstAttribute="height" constant="128" id="pAB-pA-waA"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.80808540239726023" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="o2i-4O-VtW" firstAttribute="leading" secondItem="NGB-v6-VVe" secondAttribute="leading" id="8db-U9-4h2"/>
-                            <constraint firstItem="o2i-4O-VtW" firstAttribute="width" secondItem="EGp-vB-O8q" secondAttribute="width" id="Rxe-Ey-uwi"/>
-                            <constraint firstItem="o2i-4O-VtW" firstAttribute="trailing" secondItem="NGB-v6-VVe" secondAttribute="trailing" id="YdB-Iu-z8f"/>
-                            <constraint firstItem="o2i-4O-VtW" firstAttribute="top" secondItem="NGB-v6-VVe" secondAttribute="top" id="bdB-HG-ovf"/>
-                            <constraint firstItem="o2i-4O-VtW" firstAttribute="width" secondItem="o2i-4O-VtW" secondAttribute="height" multiplier="375:87" id="htI-H7-RCq"/>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="leading" secondItem="1Ey-zU-dqB" secondAttribute="leading" id="46p-9b-p0L"/>
+                            <constraint firstItem="apP-ee-xPG" firstAttribute="bottom" secondItem="pOw-Id-Qbu" secondAttribute="bottom" id="4q7-gB-Cvv"/>
+                            <constraint firstItem="apP-ee-xPG" firstAttribute="trailing" secondItem="pOw-Id-Qbu" secondAttribute="trailing" id="w6t-Ns-JSn"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="NGB-v6-VVe"/>
+                        <viewLayoutGuide key="safeArea" id="apP-ee-xPG"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6B5-oN-MMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLW-TO-7fs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="258"/>
+            <point key="canvasLocation" x="201" y="258"/>
         </scene>
     </scenes>
     <resources>
