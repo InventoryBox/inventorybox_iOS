@@ -11,100 +11,103 @@ import TTGTagCollectionView
 
 class IvRecordVC: UIViewController {
     
+    @IBOutlet weak var outView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var datePickerBtn: UITextField!
+    @IBOutlet weak var datePickerLabelBtn: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categorySettingBtn: UIButton!
-    @IBOutlet weak var goUpBtn: UIButton!
-    @IBOutlet weak var oneLineView: UIView!
+    @IBOutlet weak var floatingUpBtn: UIButton!
+    @IBOutlet weak var floatingTodayRecordBtn: UIButton!
     
     @IBOutlet weak var inventoryTableView: UITableView!
     
     let categoryCollectionView = TTGTextTagCollectionView()
+    
     private var selections = [String]()
     
     private let datePicker = UIDatePicker()
-    
-    private let categoryArray: [String] = ["전체", "스파게티", "유제품", "파운드류", "원두", "이게정말길게짜는것"]
     
     private var inventoryArray: [InventoryInformation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBtnsCustommed()
         createdDatePicker()
         setInventoryData()
-        setTableView()
+        setInventoryTableView()
         setBackgroundColor()
-        setBtn()
-        setCategoryCollectionView()
-        setOneLine()
+        addCategoryCollectionView()
+        makeShadowUnderOutView()
     }
     
-    @IBAction func scroll(_ sender: Any) {
-        // scrollToTop tableView code
+    @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
+        
+        let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
+        guard let categoryEditVC = IvRecordCategoryEditST.instantiateViewController(identifier: "IvRecordCategoryEditVC")
+            as? IvRecordCategoryEditVC  else {
+                return
+        }
+        categoryEditVC.modalPresentationStyle = .fullScreen
+        
+      self.present(categoryEditVC, animated: false, completion: nil)
+        
+    }
+    @IBAction func goToIvTodayRecord(_ sender: Any) {
+        
+        let IvTodayRecord = UIStoryboard.init(name: "IvTodayRecord", bundle: nil)
+        guard let IvTodayRecordVC = IvTodayRecord.instantiateViewController(identifier: "IvTodayRecordVC")
+              as? IvTodayRecordVC  else {
+                  return
+          }
+          IvTodayRecordVC.modalPresentationStyle = .fullScreen
+          
+        self.present(IvTodayRecordVC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func scrollUpBtnPressed(_ sender: Any) {
+        
         let indexPath = IndexPath(row: 0, section: 0)
         self.inventoryTableView.scrollToRow(at: indexPath, at: .top, animated: false)
+        
     }
     
-    private func setOneLine() {
-        oneLineView.backgroundColor = UIColor.whiteThree
+    private func setBtnsCustommed() {
+        floatingTodayRecordBtn.layer.cornerRadius = 18
+        floatingTodayRecordBtn.backgroundColor = UIColor.yellow
+        floatingTodayRecordBtn.tintColor = UIColor.white
     }
     
-    private func setCategoryCollectionView() {
-        categoryCollectionView.alignment = .fillByExpandingWidth
-        categoryCollectionView.delegate = self
-        categoryCollectionView.numberOfLines = 1
-        categoryCollectionView.scrollDirection = TTGTagCollectionScrollDirection.horizontal
-        categoryCollectionView.showsHorizontalScrollIndicator = false
+    private func makeShadowUnderOutView() {
+        
+        self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.outView.layer.shadowOpacity = 0.05
+        self.outView.layer.shadowRadius = 2
+        
+    }
+    
+    private func addCategoryCollectionView() {
+        
         view.addSubview(categoryCollectionView)
-        
-        let config = TTGTextTagConfig()
-        config.backgroundColor = UIColor.white
-        config.textColor = UIColor.black
-        config.borderColor = UIColor.veryLightPink
-        config.borderWidth = 1
-        config.cornerRadius = 20
-        config.enableGradientBackground = false
-        config.shadowOpacity = 0
-        config.shadowOffset = CGSize(width: 0, height: 0)
-        config.exactHeight = 24
-        config.selectedBackgroundColor = UIColor.greyishBrown
-        config.selectedCornerRadius = 20
-        config.textFont = UIFont(name: "Helvetica Neue", size: 11.0)
-        categoryCollectionView.addTags(["전체", "액체류", "파우더류", "과일", "차류", "스파게티재료", "항상 체크해야 하는 리스트", "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ","ㅁㅇㄴㄹㄴㅇㅁㄹㅁㄴㅇㄹㅁㄴㄹㅁㅇㄴ"], with: config)
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        categoryCollectionView.delegate = self
+        categoryCollectionView.setCategoryCollectionView()
         
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: self.categorySettingBtn.leadingAnchor, constant: -22).isActive = true
-        NSLayoutConstraint(item: categoryCollectionView,
-                           attribute: .centerY,
-                           relatedBy: .equal,
-                           toItem: categorySettingBtn,
-                           attribute: .centerY,
-                           multiplier: 1.0,
-            constant: 0.0).isActive = true
-
-    }
-    
-    private func setBtn() {
-        goUpBtn.layer.cornerRadius = goUpBtn.frame.height / 2
-        goUpBtn.layer.shadowOpacity = 0.25
-        goUpBtn.layer.shadowRadius = 5
-        goUpBtn.layer.shadowOffset = CGSize(width: 0, height: 10)
+        categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+        categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
+        
+        categoryCollectionView.addTags(["전체", "액체류","파우더류", "과일", "채소류"], with: categoryCollectionView.setCategoryConfig())
+        
     }
     
     private func setBackgroundColor() {
-        //        self.view.layer.shadowOpacity = 22
-        //        self.view.layer.shadowRadius = 5
-//                self.view.backgroundColor = UIColor.whiteThree
+        
     }
     
-    private func setTableView() {
+    private func setInventoryTableView() {
         inventoryTableView.delegate = self
         inventoryTableView.dataSource = self
         
@@ -113,18 +116,14 @@ class IvRecordVC: UIViewController {
     }
     
     private func setInventoryData() {
-        let data1 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data2 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data3 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data4 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data5 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data6 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data7 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data8 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data9 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
-        let data10 = InventoryInformation(imageName: "lastrecordingIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
         
-        inventoryArray = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
+        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data3 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data4 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        let data5 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3")
+        
+        inventoryArray = [data1, data2, data3, data4, data5]
         
     }
     
@@ -139,7 +138,7 @@ class IvRecordVC: UIViewController {
         datePicker.timeZone = NSTimeZone.local
         
         datePickerBtn.inputView = datePicker
-        
+        datePickerLabelBtn.inputView = datePicker
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
         
@@ -148,7 +147,7 @@ class IvRecordVC: UIViewController {
         toolbar.setItems([doneBtn], animated: true)
         
         datePickerBtn.inputAccessoryView = toolbar
-        
+        datePickerLabelBtn.inputAccessoryView = toolbar
     }
     
     // doneBtn event
@@ -184,8 +183,6 @@ extension IvRecordVC: UITableViewDataSource {
         if indexPath.row == 0 {
             guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
             
-            
-            
             return headerCell
             
         } else {
@@ -220,5 +217,18 @@ extension IvRecordVC: UITableViewDelegate {
 }
 
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
-    
+    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        var check = 0
+        for i in 0..<selections.count {
+            if selections[i] == tagText {
+                check = 1
+                selections.remove(at: i)
+                break
+            }
+        }
+        if check == 0 {
+            selections.append(tagText)
+        }
+        print(selections)
+    }
 }
