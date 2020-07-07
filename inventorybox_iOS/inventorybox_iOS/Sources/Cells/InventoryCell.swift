@@ -53,5 +53,6 @@ class InventoryCell: UITableViewCell {
         orderInventoryCountLabel.text = orderInventoryCount
         inventoryCountLabel.text = inventoryCount
     }
+    
 
 }
