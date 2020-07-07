@@ -23,8 +23,8 @@ class TabBarVC: UITabBarController {
         self.tabBar.tintColor = UIColor.yellow
         
         // 1
-        let Home = UIStoryboard.init(name: "Home", bundle: nil)
-        guard let firstTab = Home.instantiateViewController(identifier: "HomeVC")
+        let Homes = UIStoryboard.init(name: "Homes", bundle: nil)
+        guard let firstTab = Homes.instantiateViewController(identifier: "HomeVC")
             as? HomeVC  else {
                 return
         }
