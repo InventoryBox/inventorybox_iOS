@@ -42,15 +42,15 @@ class TabBarVC: UITabBarController {
         secondTab.tabBarItem.image = UIImage(named: "tabbarIcRecordUnselected")
         secondTab.tabBarItem.selectedImage = UIImage(named: "tabbarIcRecordSelected")
         
-        // 3
-        //        let IvGraph = UIStoryboard.init(name: "IvGraph", bundle: nil)
-        //        guard let searchTab = SearchStoryboard.instantiateViewController(identifier: "IvGraphVC")
-        //            as? SearchViewController  else {
-        //            return
-        //        }
-        //        searchTab.tabBarItem.title = "Search"
-        //        searchTab.tabBarItem.image = UIImage(named: "icTabSearch")
-        //        searchTab.tabBarItem.selectedImage = UIImage(named: "icSelectedSearch")
+        //3
+        let IvGraph = UIStoryboard.init(name: "IvGraph", bundle: nil)
+        guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphVC")
+            as? IvGraphVC  else {
+                return
+        }
+        thirdTab.tabBarItem.title = "재고량 추이"
+        thirdTab.tabBarItem.image = UIImage(named: "tabbarIcStatusUnselected")
+        thirdTab.tabBarItem.selectedImage = UIImage(named: "tabbarIcStatusSelected")
         
         // 4
         //        let FourStoryboard = UIStoryboard.init(name: "Four", bundle: nil)
@@ -72,7 +72,9 @@ class TabBarVC: UITabBarController {
         //        mypageTab.tabBarItem.image = UIImage(named: "icTabMypage")
         //        mypageTab.tabBarItem.selectedImage = UIImage(named: "icSelectedMypage")
         
-        let tabs =  [firstTab, secondTab]
+        let tabs =  [firstTab, secondTab, thirdTab]
+        
+        
         tabBar.layer.shadowOpacity = 0.1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
         tabBar.layer.shadowRadius = 3

@@ -16,7 +16,7 @@
         <!--Iv GraphVC-->
         <scene sceneID="d6p-76-N2U">
             <objects>
-                <viewController id="dCX-bC-nvi" customClass="IvGraphVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvGraphVC" id="dCX-bC-nvi" customClass="IvGraphVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFR-Bs-FZK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
