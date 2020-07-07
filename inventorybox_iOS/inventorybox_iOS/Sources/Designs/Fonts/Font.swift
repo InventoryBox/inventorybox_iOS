@@ -15,5 +15,5 @@ enum Font {
     static let smallButtonLabel = UIFont(name: "NotoSansKR-Bold", size: 13)
     static let textField = UIFont(name: "NotoSansKR-Medium", size: 16)
     static let dateLabel = UIFont(name: "NotoSansKR-Medium", size: 16)
-    
 }
+// 아직 등록 안됐습니다~~
