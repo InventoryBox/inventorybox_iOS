@@ -11,7 +11,7 @@
         <!--HomeVC-->
         <scene sceneID="CYr-92-b0l">
             <objects>
-                <viewController id="9cC-sg-GrM" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="9cC-sg-GrM" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8uA-15-WCd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,31 +36,31 @@
                                         <size key="customSize" width="262" height="129"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Home2CVCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Home2CVCell" id="39L-ee-hHK" customClass="Home2CVCell" customModule="inventorybox_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="140.5" width="158" height="130"/>
+                                        <rect key="frame" x="0.0" y="139" width="158" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="i0Y-ao-QiJ">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Tnx-5u-hO6">
                                             <rect key="frame" x="0.0" y="0.0" width="158" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="158" height="130"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Home3CVCell" reuseIdentifier="Home3CVCell" id="6n1-8z-SZJ" customClass="Home3CVCell" customModule="inventorybox_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="250" y="139" width="125" height="133"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Home3CVCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Home3CVCell" id="6n1-8z-SZJ" customClass="Home3CVCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="250" y="140" width="125" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6i0-k3-a5c">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="125" height="133"/>
+                                        <size key="customSize" width="125" height="128"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Home4CVCell" id="ZGD-D0-oJn" customClass="Home4CVCell" customModule="inventorybox_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="282" width="240" height="128"/>
+                                        <rect key="frame" x="0.0" y="279" width="372" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1iH-W9-nBl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="372" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="240" height="128"/>
+                                        <size key="customSize" width="372" height="128"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

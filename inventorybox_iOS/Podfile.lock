@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - BEMCheckBox (1.4.1)
   - Charts (3.5.0):
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
@@ -11,14 +12,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
+  - BEMCheckBox
   - Charts (~> 3.5.0)
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
-  - TTGTagCollectionView
+  - TTGTagCollectionView (~> 1.11.1)
+
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BEMCheckBox
     - Charts
     - Kingfisher
     - lottie-ios
@@ -26,11 +30,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: fb20089b712916eb355763899fc9030a320e90b6
+
+PODFILE CHECKSUM: dfa13c5997cdf333e65d8ce32806445c0c1a9140
+
 
 COCOAPODS: 1.9.1
