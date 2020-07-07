@@ -21,30 +21,37 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thq-pT-dHB">
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8g-up-bDT">
-                                                <rect key="frame" x="119.5" y="12" width="136" height="21"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-iN-Fy6">
+                                                <rect key="frame" x="92.5" y="15" width="14" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="2ro-XO-wgk"/>
+                                                    <constraint firstAttribute="width" constant="14" id="Dfh-W6-jIM"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="lastrecordingBtnDatechange"/>
+                                                <connections>
+                                                    <action selector="openDatePicker:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="1Ut-Kt-7nL"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.26 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
+                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sy7-oS-QgI" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
                                                 <rect key="frame" x="114.5" y="12" width="146" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="Jqb-pB-rbj"/>
-                                                    <constraint firstAttribute="width" constant="146" id="Wbw-kI-sA2"/>
+                                                    <constraint firstAttribute="width" constant="146" id="6tj-25-jKR"/>
+                                                    <constraint firstAttribute="height" constant="20" id="IWD-P6-DVY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="lastrecordingBtnDatechange" translatesAutoresizingMaskIntoConstraints="NO" id="K0m-x1-hzL" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="92.5" y="19" width="14" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="14" id="OeI-cf-UvD"/>
-                                                    <constraint firstAttribute="height" constant="14" id="Vur-Uk-g4y"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openDatePicker:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="9mV-eI-uvj"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pl-Gp-LxH">
                                                 <rect key="frame" x="328" y="0.0" width="44" height="44"/>
                                                 <constraints>
@@ -59,15 +66,17 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="ocT-Zq-xF1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="1Sc-Fl-xUh"/>
                                             <constraint firstAttribute="trailing" secondItem="1Pl-Gp-LxH" secondAttribute="trailing" constant="3" id="C7u-IV-6gc"/>
-                                            <constraint firstItem="P8g-up-bDT" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="EYN-eH-hrQ"/>
-                                            <constraint firstItem="P8g-up-bDT" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="HHD-yP-3jo"/>
-                                            <constraint firstItem="Sy7-oS-QgI" firstAttribute="leading" secondItem="K0m-x1-hzL" secondAttribute="trailing" constant="8" id="HdS-oV-fMO"/>
-                                            <constraint firstItem="Sy7-oS-QgI" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="MrP-fm-shv"/>
-                                            <constraint firstItem="K0m-x1-hzL" firstAttribute="bottom" secondItem="P8g-up-bDT" secondAttribute="bottom" id="QbY-Tm-dga"/>
+                                            <constraint firstItem="ocT-Zq-xF1" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="Dr5-ph-aV0"/>
+                                            <constraint firstItem="ocT-Zq-xF1" firstAttribute="leading" secondItem="qfR-iN-Fy6" secondAttribute="trailing" constant="8" id="FFk-E3-xOE"/>
+                                            <constraint firstItem="qfR-iN-Fy6" firstAttribute="centerY" secondItem="ocT-Zq-xF1" secondAttribute="centerY" id="GSq-g5-4oY"/>
+                                            <constraint firstItem="bH4-Va-xD1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="HCD-qR-JxF"/>
+                                            <constraint firstItem="bH4-Va-xD1" firstAttribute="width" secondItem="ocT-Zq-xF1" secondAttribute="width" id="Q6b-fb-2po"/>
                                             <constraint firstAttribute="bottom" secondItem="1Pl-Gp-LxH" secondAttribute="bottom" id="b4d-Ni-ozD"/>
                                             <constraint firstItem="1Pl-Gp-LxH" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" id="dHh-q6-0xO"/>
-                                            <constraint firstItem="Sy7-oS-QgI" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="sKC-br-1Sa"/>
+                                            <constraint firstItem="bH4-Va-xD1" firstAttribute="height" secondItem="ocT-Zq-xF1" secondAttribute="height" id="hYw-e8-VV8"/>
+                                            <constraint firstItem="bH4-Va-xD1" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="qPw-jR-1cX"/>
                                             <constraint firstAttribute="height" constant="44" id="zOS-zn-Hhx"/>
                                         </constraints>
                                     </view>
@@ -98,6 +107,9 @@
                                                         <constraint firstAttribute="height" constant="15" id="hG8-uT-Ukx"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="lastrecordingBtnPlus"/>
+                                                    <connections>
+                                                        <action selector="goToIvRecordAddProduct:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="jfA-f4-inF"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XV-wu-7k7">
                                                     <rect key="frame" x="310" y="11" width="44" height="13"/>
@@ -317,6 +329,11 @@
                                     <constraint firstItem="nA6-Js-dWy" firstAttribute="centerX" secondItem="ktg-z8-FKj" secondAttribute="centerX" id="m9u-Va-5ue"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.54000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -345,9 +362,9 @@
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>
                         <outlet property="categorySettingBtn" destination="1Pl-Gp-LxH" id="Rmt-cO-yc7"/>
-                        <outlet property="dateLabel" destination="P8g-up-bDT" id="46s-VT-LiO"/>
-                        <outlet property="datePickerBtn" destination="K0m-x1-hzL" id="Bzk-oY-E8D"/>
-                        <outlet property="datePickerLabelBtn" destination="Sy7-oS-QgI" id="agt-gA-6d1"/>
+                        <outlet property="dateLabel" destination="bH4-Va-xD1" id="zg2-jf-KEg"/>
+                        <outlet property="datePickerBtn" destination="qfR-iN-Fy6" id="pYC-KC-ocB"/>
+                        <outlet property="datePickerLabelBtn" destination="ocT-Zq-xF1" id="ePt-66-8Y4"/>
                         <outlet property="firstRegisterBtn" destination="nA6-Js-dWy" id="qeq-nA-2mo"/>
                         <outlet property="firstRegisterView" destination="ktg-z8-FKj" id="8S6-SA-ezc"/>
                         <outlet property="floatingTodayRecordBtn" destination="7Dn-YM-0C3" id="bUa-Ld-dFy"/>
@@ -355,41 +372,73 @@
                         <outlet property="inventoryTableView" destination="OEj-wo-URV" id="HLt-mE-epN"/>
                         <outlet property="noDataView" destination="qyS-l2-rBy" id="Cl3-4p-eGJ"/>
                         <outlet property="outView" destination="qIa-5D-Vbp" id="VHD-fg-AWv"/>
+                        <outlet property="popupBackgroundView" destination="yEl-so-lwF" id="TiZ-2X-UAb"/>
                         <outlet property="topView" destination="thq-pT-dHB" id="0mT-xz-uSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PW-kM-qZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522.39999999999998" y="257.72113943028489"/>
+            <point key="canvasLocation" x="416.80000000000001" y="257.72113943028489"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Picker PopupVC-->
         <scene sceneID="JE4-GZ-A6t">
             <objects>
-                <viewController id="dmv-3A-jmW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePickerPopupVC" id="dmv-3A-jmW" customClass="DatePickerPopupVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Ey-zU-dqB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pOw-Id-Qbu">
-                                <rect key="frame" x="-15" y="411" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOw-Id-Qbu">
+                                <rect key="frame" x="0.0" y="405" width="375" height="262"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X39-5X-PlW">
+                                        <rect key="frame" x="16" y="202" width="343" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="y5e-MT-etg"/>
+                                        </constraints>
+                                        <state key="normal" title="선택"/>
+                                        <connections>
+                                            <action selector="selectDate:" destination="dmv-3A-jmW" eventType="touchUpInside" id="llV-w4-vGA"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Jz-tSR">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="615842529.50444996">
+                                            <!--2020-07-07 19:22:09 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="ko_KR"/>
+                                    </datePicker>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="pAB-pA-waA"/>
+                                    <constraint firstAttribute="trailing" secondItem="X39-5X-PlW" secondAttribute="trailing" constant="16" id="AYA-v1-x0f"/>
+                                    <constraint firstAttribute="bottom" secondItem="X39-5X-PlW" secondAttribute="bottom" constant="11" id="W4W-gy-oLZ"/>
+                                    <constraint firstAttribute="width" secondItem="pOw-Id-Qbu" secondAttribute="height" multiplier="375:262" id="cfX-5t-9Hb"/>
+                                    <constraint firstItem="vgu-Jz-tSR" firstAttribute="top" secondItem="pOw-Id-Qbu" secondAttribute="top" id="dBZ-qE-d8t"/>
+                                    <constraint firstItem="X39-5X-PlW" firstAttribute="top" secondItem="vgu-Jz-tSR" secondAttribute="bottom" constant="11" id="dri-kO-6hd"/>
+                                    <constraint firstItem="X39-5X-PlW" firstAttribute="leading" secondItem="pOw-Id-Qbu" secondAttribute="leading" constant="16" id="jbp-fh-IxG"/>
+                                    <constraint firstAttribute="trailing" secondItem="vgu-Jz-tSR" secondAttribute="trailing" id="sIQ-Nh-jaZ"/>
+                                    <constraint firstItem="vgu-Jz-tSR" firstAttribute="leading" secondItem="pOw-Id-Qbu" secondAttribute="leading" id="zcq-yu-9nE"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.80808540239726023" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="leading" secondItem="1Ey-zU-dqB" secondAttribute="leading" id="46p-9b-p0L"/>
-                            <constraint firstItem="apP-ee-xPG" firstAttribute="bottom" secondItem="pOw-Id-Qbu" secondAttribute="bottom" id="4q7-gB-Cvv"/>
-                            <constraint firstItem="apP-ee-xPG" firstAttribute="trailing" secondItem="pOw-Id-Qbu" secondAttribute="trailing" id="w6t-Ns-JSn"/>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="width" secondItem="1Ey-zU-dqB" secondAttribute="width" id="9xF-9V-F6L"/>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="bottom" secondItem="apP-ee-xPG" secondAttribute="bottom" id="MbM-5x-lhM"/>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="leading" secondItem="1Ey-zU-dqB" secondAttribute="leading" id="RFq-3O-aEP"/>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="trailing" secondItem="apP-ee-xPG" secondAttribute="trailing" id="i5D-bH-6Zt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="apP-ee-xPG"/>
                     </view>
+                    <connections>
+                        <outlet property="completeBtn" destination="X39-5X-PlW" id="kzi-Ck-yGg"/>
+                        <outlet property="datePicker" destination="vgu-Jz-tSR" id="qEQ-9J-0ef"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLW-TO-7fs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="258"/>
+            <point key="canvasLocation" x="1296.8" y="257.72113943028489"/>
         </scene>
     </scenes>
     <resources>
