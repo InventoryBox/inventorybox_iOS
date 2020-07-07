@@ -79,5 +79,6 @@ class InventoryCell: UITableViewCell {
         minimumInventoryCountLabel.text = minimumInventoryCount
         inventoryCountLabel.text = inventoryCount
     }
+    
 
 }
