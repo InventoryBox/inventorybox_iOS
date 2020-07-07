@@ -1,0 +1,18 @@
+//
+//  Home4HeaderCVCell.swift
+//  inventorybox_iOS
+//
+//  Created by 송황호 on 2020/07/06.
+//  Copyright © 2020 jaeyong Lee. All rights reserved.
+//
+
+import UIKit
+
+class Home4HeaderCVCell: UICollectionViewCell {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+}
