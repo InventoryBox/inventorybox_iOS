@@ -37,6 +37,9 @@ class IvRecordVC: UIViewController {
     @IBOutlet weak var floatingUpBtn: UIButton!
     @IBOutlet weak var floatingTodayRecordBtn: UIButton!
     
+    @IBOutlet weak var firstRegisterView: UIView!
+    @IBOutlet weak var firstRegisterBtn: UIButton!
+    @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var inventoryTableView: UITableView!
     
     let categoryCollectionView = TTGTextTagCollectionView()
@@ -44,10 +47,12 @@ class IvRecordVC: UIViewController {
     private var selections = [String]()
     
     private let datePicker = UIDatePicker()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        isTodayRecordDone()
+        whichViewWillShow()
         setBtnsCustommed()
         createdDatePicker()
         setInventoryTableView()
@@ -57,6 +62,16 @@ class IvRecordVC: UIViewController {
         
     }
     
+    @IBAction func goToIvRecordEditProduct(_ sender: Any) {
+        let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
+        guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC")
+            as? IvRecordCategoryEditVC  else {
+                return
+        }
+        editProductVC.modalPresentationStyle = .fullScreen
+        
+        self.present(editProductVC, animated: false, completion: nil)
+    }
     @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
         
         let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
@@ -91,10 +106,43 @@ class IvRecordVC: UIViewController {
         
     }
     
+    private func isTodayRecordDone() {
+        // 오늘 기록을 했다면
+        floatingUpBtn.isHidden = true
+        
+        // 오늘 기록을 하지 않았다면
+        floatingUpBtn.isHidden = false
+    }
+    
+    private func whichViewWillShow() {
+        
+        // 빈 data가 온다면 재료 등록하기 뷰사용
+        //firstRegisterView.isHidden = false
+        //noDataView.isHidden = true
+        //inventoryTableView.isHidden = true
+        
+        // 데이터피커를 통해 날짜를 보냈는데 빈 data가 온다면 재료가 없습니다 뷰 사용
+//        firstRegisterView.isHidden = true
+//        noDataView.isHidden = false
+//        inventoryTableView.isHidden = true
+        
+        // 데이터가 들어온다면 테이블 뷰 사용
+        firstRegisterView.isHidden = true
+        noDataView.isHidden = true
+        inventoryTableView.isHidden = false
+    }
+    
     private func setBtnsCustommed() {
+        
         floatingTodayRecordBtn.layer.cornerRadius = 18
         floatingTodayRecordBtn.backgroundColor = UIColor.yellow
         floatingTodayRecordBtn.tintColor = UIColor.white
+        
+        firstRegisterBtn.layer.cornerRadius = 18
+        firstRegisterBtn.backgroundColor = UIColor.yellow
+        firstRegisterBtn.tintColor = UIColor.white
+        
+        
     }
     
     private func makeShadowUnderOutView() {
@@ -241,6 +289,7 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
         
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
+        
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true

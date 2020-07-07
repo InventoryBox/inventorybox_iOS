@@ -264,6 +264,27 @@
                                     <action selector="scrollUpBtnPressed:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="36z-IV-5B4"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyS-l2-rBy">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-fk-2vP">
+                                        <rect key="frame" x="309" y="0.0" width="56" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Vda-Yi-Jki"/>
+                                            <constraint firstAttribute="width" constant="56" id="nqm-sI-bO7"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="todayrecordBtnRecordedit"/>
+                                        <connections>
+                                            <action selector="goToIvRecordEditProduct:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="6kz-vw-ibB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="XXc-fk-2vP" firstAttribute="top" secondItem="qyS-l2-rBy" secondAttribute="top" id="4xW-AQ-Cpu"/>
+                                    <constraint firstAttribute="trailing" secondItem="XXc-fk-2vP" secondAttribute="trailing" constant="10" id="V3W-Jc-BvC"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dn-YM-0C3">
                                 <rect key="frame" x="121" y="616" width="133" height="35"/>
                                 <constraints>
@@ -276,20 +297,48 @@
                                     <action selector="goToIvTodayRecord:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="Fkt-lT-TAz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-z8-FKj">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA6-Js-dWy">
+                                        <rect key="frame" x="121" y="391" width="133" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="133" id="FWx-tH-5I6"/>
+                                            <constraint firstAttribute="height" constant="35" id="UZJ-sl-FWG"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WgW-9F-hCc"/>
+                                            <constraint firstAttribute="width" constant="133" id="sDI-iq-3cU"/>
+                                        </constraints>
+                                        <state key="normal" title="재료 등록하기"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="nA6-Js-dWy" secondAttribute="bottom" constant="146" id="K1W-bM-mzs"/>
+                                    <constraint firstItem="nA6-Js-dWy" firstAttribute="centerX" secondItem="ktg-z8-FKj" secondAttribute="centerX" id="m9u-Va-5ue"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ktg-z8-FKj" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="2I6-Lu-BXd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="6SU-uc-viC"/>
+                            <constraint firstItem="qyS-l2-rBy" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="6Ul-rO-fX8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="width" secondItem="qsm-xl-jtl" secondAttribute="width" id="Bkt-MM-ev8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="top" secondItem="fMU-Z6-8Ja" secondAttribute="top" id="DbN-cm-Qaw"/>
+                            <constraint firstItem="qyS-l2-rBy" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="E3b-u0-oA4"/>
+                            <constraint firstItem="ktg-z8-FKj" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="JUz-Xi-3d9"/>
+                            <constraint firstItem="qyS-l2-rBy" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="JeS-aG-djy"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="PkZ-Zq-sFI"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="OEj-wo-URV" secondAttribute="bottom" id="QeF-CH-xkN"/>
+                            <constraint firstItem="qyS-l2-rBy" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="SkZ-Jq-oaF"/>
                             <constraint firstItem="xcq-tY-ofI" firstAttribute="centerY" secondItem="7Dn-YM-0C3" secondAttribute="centerY" id="U5d-RR-KhG"/>
                             <constraint firstItem="7Dn-YM-0C3" firstAttribute="centerX" secondItem="qsm-xl-jtl" secondAttribute="centerX" id="XR5-cN-LAh"/>
+                            <constraint firstItem="ktg-z8-FKj" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="Xik-Az-zt6"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="cj0-lT-dmd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="jhp-E1-29h"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="7Dn-YM-0C3" secondAttribute="bottom" constant="16" id="r4i-0B-m1m"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="trailing" secondItem="xcq-tY-ofI" secondAttribute="trailing" constant="16" id="rso-0J-Sdw"/>
+                            <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
                     </view>
@@ -299,9 +348,12 @@
                         <outlet property="dateLabel" destination="P8g-up-bDT" id="46s-VT-LiO"/>
                         <outlet property="datePickerBtn" destination="K0m-x1-hzL" id="Bzk-oY-E8D"/>
                         <outlet property="datePickerLabelBtn" destination="Sy7-oS-QgI" id="agt-gA-6d1"/>
+                        <outlet property="firstRegisterBtn" destination="nA6-Js-dWy" id="qeq-nA-2mo"/>
+                        <outlet property="firstRegisterView" destination="ktg-z8-FKj" id="8S6-SA-ezc"/>
                         <outlet property="floatingTodayRecordBtn" destination="7Dn-YM-0C3" id="bUa-Ld-dFy"/>
                         <outlet property="floatingUpBtn" destination="xcq-tY-ofI" id="N67-g5-eOe"/>
                         <outlet property="inventoryTableView" destination="OEj-wo-URV" id="HLt-mE-epN"/>
+                        <outlet property="noDataView" destination="qyS-l2-rBy" id="Cl3-4p-eGJ"/>
                         <outlet property="outView" destination="qIa-5D-Vbp" id="VHD-fg-AWv"/>
                         <outlet property="topView" destination="thq-pT-dHB" id="0mT-xz-uSa"/>
                     </connections>
@@ -349,5 +401,6 @@
         <image name="lastrecordingShape" width="48" height="48"/>
         <image name="lastrecordingTitleShape" width="84" height="13"/>
         <image name="text" width="44" height="13"/>
+        <image name="todayrecordBtnRecordedit" width="56" height="28"/>
     </resources>
 </document>

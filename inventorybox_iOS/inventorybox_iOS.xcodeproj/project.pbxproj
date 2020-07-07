@@ -39,6 +39,8 @@
 		D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8D24B35547009B089A /* HomeTVCell.swift */; };
 		D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF9124B38380009B089A /* LeftCVCell.swift */; };
 		D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8B24B32647009B089A /* Homes.storyboard */; };
+		D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */; };
+		D4E7A3FC24B4C9E9001C015A /* IvRecordEditProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A3FB24B4C9E9001C015A /* IvRecordEditProductVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4E7A3F124B45070001C015A /* InventoryInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
+		D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordEditProduct.storyboard; sourceTree = "<group>"; };
+		D4E7A3FB24B4C9E9001C015A /* IvRecordEditProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IvRecordEditProductVC.swift; path = inventorybox_iOS/Resources/Storyboards/IvRecordEditProductVC.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,7 @@
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
 				D48417B124AC55EB0064EE64 /* Main.storyboard */,
+				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
@@ -261,6 +266,7 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7A3FB24B4C9E9001C015A /* IvRecordEditProductVC.swift */,
 				D4B697BC24B3C546004DA305 /* IvTodayRecordVC.swift */,
 				D4417A9924B350E4003E72EC /* IvRecordCategoryEditVC.swift */,
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
@@ -372,6 +378,7 @@
 				D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */,
 				33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */,
 				D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */,
+				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +448,7 @@
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				D4B697B924B37E94004DA305 /* TTGTextTagCollectionViewExtension.swift in Sources */,
+				D4E7A3FC24B4C9E9001C015A /* IvRecordEditProductVC.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
