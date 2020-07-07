@@ -1,50 +1,44 @@
 //
-//  InventoryCell.swift
+//  InventoryCategoryEditCell.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/05.
+//  Created by 이재용 on 2020/07/06.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import UIKit
 
-class InventoryCell: UITableViewCell {
-    
-    static let identifier: String = "InventoryCell"
+class InventoryCategoryEditCell: UITableViewCell {
+    static let identifier: String = "InventoryCategoryEditCell"
     
     // 코드로 커스텀이 필요한 뷰
     @IBOutlet weak var roundView: UIView!
-    @IBOutlet weak var inventoryView: UIView!
-    @IBOutlet weak var inventoryAmountLabel: UILabel!
-    
     
     // 서버에서 받아서 채워야할 데이터
     @IBOutlet weak var inventoryImageView: UIImageView!
     @IBOutlet weak var inventoryNameLabel: UILabel!
     @IBOutlet weak var minimumInventoryCountLabel: UILabel!
     @IBOutlet weak var inventoryUnitLabel: UILabel!
-    @IBOutlet weak var inventoryCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
         
         makeRoundView()
         makeShadowUnderView()
-        makeShadowAroundInventoryView()
         setLabelColors()
-        
     }
 
-    private func makeShadowAroundInventoryView() {
-        
-        inventoryView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        inventoryView.layer.shadowOpacity = 0.1
-        inventoryView.layer.shadowRadius = 15
-        
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
+
     private func makeRoundView() {
         
         roundView.layer.cornerRadius = 9
+        //roundView.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
         
     }
     
@@ -61,23 +55,11 @@ class InventoryCell: UITableViewCell {
         inventoryNameLabel.textColor = UIColor.charcoal
         minimumInventoryCountLabel.textColor = UIColor.greyishBrown
         inventoryUnitLabel.textColor = UIColor.charcoal
-        inventoryCountLabel.textColor = UIColor.pinkishGrey
-        inventoryAmountLabel.textColor = UIColor.yellow
         
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        
-        super.setSelected(selected, animated: animated)
-
-    }
-    
-    
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String, _ orderInventoryCount: String, _ inventoryCount: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String) {
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
         minimumInventoryCountLabel.text = minimumInventoryCount
-        inventoryCountLabel.text = inventoryCount
     }
-
 }
