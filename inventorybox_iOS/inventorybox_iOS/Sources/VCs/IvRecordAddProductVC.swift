@@ -42,17 +42,71 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var inventoryToBuyLabel: UILabel!
     
     @IBOutlet weak var registerInventoryBtn: UIButton!
+    
+    var iconIdx: String = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         setViewCustom()
         setLabelCustom()
         setButtonCustom()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(disappearIconIdx), name: .init("iconIdx"), object: nil)
+    }
+  
+    @objc private func disappearIconIdx(_ notification: Notification) {
+        
+        guard let info = notification.userInfo as? [String: Any] else {
+            return
+        }
+        guard let ivIconIdx = info["selectedIdx"] as? String else { return }
+        print(ivIconIdx)
+        iconIdx = ivIconIdx
+    }
+    
+    
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func registerInventoryBtnPressed(_ sender: Any) {
+        guard let IvName = inventoryNameTextField.text else {
+            print("이름 입력 오류")
+            return
+            
+        }
         
+        
+        guard let IvUnit = unitTextField.text else {
+            print("단위 입력 오류")
+            return
+        }
+        guard let IvMinimum = minimumCountLabel.text else {
+            print("발주 알림 개수 입력 오류")
+            return
+        }
+        guard let IvOrder = inventoryToBuyLabel.text else {
+            print("발주할 수량 메모 입력 오류")
+            return
+        }
+        
+        let newInventory = InventoryData(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
         self.dismiss(animated: true, completion: nil)
         
     }

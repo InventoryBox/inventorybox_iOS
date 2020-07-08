@@ -67,6 +67,20 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOh-yb-s32" id="sxC-qx-WBo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkv-Qy-3Fj">
+                                                    <rect key="frame" x="286" y="10.5" width="67" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="kCt-3z-FPO"/>
+                                                        <constraint firstAttribute="width" constant="67" id="uO4-8J-2dx"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="btnWholeCheck"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nkv-Qy-3Fj" firstAttribute="centerY" secondItem="sxC-qx-WBo" secondAttribute="centerY" id="1jI-ph-Z1M"/>
+                                                <constraint firstAttribute="trailing" secondItem="nkv-Qy-3Fj" secondAttribute="trailing" constant="22" id="8si-tB-ayK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCategoryEditCell" rowHeight="94" id="i73-nV-7XN" customClass="InventoryCategoryEditCell" customModule="inventorybox_iOS" customModuleProvider="target">
@@ -185,6 +199,7 @@
                                             <outlet property="inventoryUnitLabel" destination="3Fr-un-6jk" id="8fL-6L-wkF"/>
                                             <outlet property="minimumInventoryCountLabel" destination="2Fm-ip-jYH" id="xH4-7e-veN"/>
                                             <outlet property="roundView" destination="M6f-X1-nzu" id="rgC-pZ-3Ph"/>
+                                            <outlet property="selectedCheckBox" destination="AMy-3T-RgL" id="h76-e6-816"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -200,22 +215,46 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wIO-Kl-k7R">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-dV-iMJ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-Tv-aLx">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="60"/>
-                                                <state key="normal" title="1"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mx-9s-C3P">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZB-2z-OxI">
+                                                        <rect key="frame" x="36.5" y="15" width="52" height="30"/>
+                                                        <state key="normal" title="재료삭제"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="rZB-2z-OxI" firstAttribute="centerX" secondItem="uI9-Tv-aLx" secondAttribute="centerX" id="Tjm-4q-Bq6"/>
+                                                    <constraint firstItem="rZB-2z-OxI" firstAttribute="centerY" secondItem="uI9-Tv-aLx" secondAttribute="centerY" id="lja-3h-J5U"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGA-fk-bPE">
                                                 <rect key="frame" x="125" y="0.0" width="125" height="60"/>
-                                                <state key="normal" title="2"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM0-3F-jCc">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owp-gl-c6L">
+                                                        <rect key="frame" x="47" y="15" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="추가"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2x-Mp-vXJ">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="60"/>
-                                                <state key="normal" title="3"/>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miS-ba-7B5">
+                                                        <rect key="frame" x="26" y="15" width="73" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="이동 및 삭제"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wIO-Kl-k7R" firstAttribute="top" secondItem="5Uq-cp-RP9" secondAttribute="top" id="07D-35-F4v"/>
                                     <constraint firstItem="wIO-Kl-k7R" firstAttribute="leading" secondItem="5Uq-cp-RP9" secondAttribute="leading" id="GA6-FM-1dq"/>
@@ -344,6 +383,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnWholeCheck" width="67.5" height="15"/>
         <image name="categoryeditMoveTextfield" width="246" height="43"/>
         <image name="homeBtnFloatingDark" width="60" height="60"/>
         <image name="homeIcMilk" width="51" height="51"/>

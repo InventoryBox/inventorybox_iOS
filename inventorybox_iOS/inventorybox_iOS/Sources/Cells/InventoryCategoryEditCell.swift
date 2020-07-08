@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import BEMCheckBox
 class InventoryCategoryEditCell: UITableViewCell {
     static let identifier: String = "InventoryCategoryEditCell"
     
@@ -19,6 +19,7 @@ class InventoryCategoryEditCell: UITableViewCell {
     @IBOutlet weak var inventoryNameLabel: UILabel!
     @IBOutlet weak var minimumInventoryCountLabel: UILabel!
     @IBOutlet weak var inventoryUnitLabel: UILabel!
+    @IBOutlet weak var selectedCheckBox: BEMCheckBox!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,8 @@ class InventoryCategoryEditCell: UITableViewCell {
         makeRoundView()
         makeShadowUnderView()
         setLabelColors()
+        setCheckBox()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,6 +38,14 @@ class InventoryCategoryEditCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    private func setCheckBox() {
+        
+        self.selectedCheckBox.on = false
+        self.selectedCheckBox.onCheckColor = UIColor.white
+        self.selectedCheckBox.onFillColor = UIColor.yellow
+        self.selectedCheckBox.onTintColor = UIColor.yellow
+        
+    }
     private func makeRoundView() {
         
         roundView.layer.cornerRadius = 9
@@ -63,3 +74,11 @@ class InventoryCategoryEditCell: UITableViewCell {
         minimumInventoryCountLabel.text = minimumInventoryCount
     }
 }
+
+extension InventoryCategoryEditCell: BEMCheckBoxDelegate {
+    func didTap(_ checkBox: BEMCheckBox) {
+        print("did Tap")
+    }
+}
+
+
