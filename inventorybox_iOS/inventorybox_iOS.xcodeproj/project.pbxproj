@@ -13,11 +13,10 @@
 		0EB0CF9424B383A2009B089A /* RightCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF9324B383A2009B089A /* RightCVCell.swift */; };
 		3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */; };
 		3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */; };
-		3332402924B4A6D800C3B59C /* ItemInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402524B4A6D800C3B59C /* ItemInformation.swift */; };
-		3332402A24B4A6D800C3B59C /* DayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402624B4A6D800C3B59C /* DayInformation.swift */; };
 		3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402724B4A6D800C3B59C /* CalendarCVCell.swift */; };
-		3332402D24B4A76D00C3B59C /* InventoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402C24B4A76D00C3B59C /* InventoryInformation.swift */; };
 		3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */; };
+		3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405924B5A5BD00C3B59C /* ItemInformation.swift */; };
+		3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405A24B5A5BD00C3B59C /* DayInformation.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
 		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
 		D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */; };
@@ -91,6 +90,8 @@
 		3332402724B4A6D800C3B59C /* CalendarCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3332402C24B4A76D00C3B59C /* InventoryInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvTVHeaderCell.swift; sourceTree = "<group>"; };
+		3332405924B5A5BD00C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemInformation.swift; path = GraphModels/ItemInformation.swift; sourceTree = "<group>"; };
+		3332405A24B5A5BD00C3B59C /* DayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayInformation.swift; path = GraphModels/DayInformation.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3357D7A924B36089002FF1EF /* DayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -156,6 +157,8 @@
 				3357D7AE24B39A96002FF1EF /* IvGraphTVCell.swift */,
 				3357D7A924B36089002FF1EF /* DayInformation.swift */,
 				3332402C24B4A76D00C3B59C /* InventoryInformation.swift */,
+				3332402624B4A6D800C3B59C /* DayInformation.swift */,
+				3332402524B4A6D800C3B59C /* ItemInformation.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -214,15 +217,6 @@
 				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
 			);
 			path = GraphCell;
-			sourceTree = "<group>";
-		};
-		3332403224B4E31D00C3B59C /* GraphModels */ = {
-			isa = PBXGroup;
-			children = (
-				3332402624B4A6D800C3B59C /* DayInformation.swift */,
-				3332402524B4A6D800C3B59C /* ItemInformation.swift */,
-			);
-			path = GraphModels;
 			sourceTree = "<group>";
 		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
@@ -353,12 +347,12 @@
 		D48417C524AC56920064EE64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
 				D4B45F4C24B56D6B00888DC3 /* CategoryData.swift */,
+				3332405A24B5A5BD00C3B59C /* DayInformation.swift */,
+				3332405924B5A5BD00C3B59C /* ItemInformation.swift */,
 				D4E7A3F124B45070001C015A /* InventoryData.swift */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
 				D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,13 +509,13 @@
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
 				D47E6CC324B509EC002ADA76 /* AddCategoryPopupVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
+				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
 				D4E7A40424B4EA5F001C015A /* IvRecordAddProductVC.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
 				0E66A4C524B4860600E76683 /* HomeSideMenuVC.swift in Sources */,
-				0EB0CF8E24B35547009B089A /* HomeTVCell.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
@@ -533,17 +527,15 @@
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
-				3332402A24B4A6D800C3B59C /* DayInformation.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
-				D4B697B924B37E94004DA305 /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,
 				D4417A9A24B350E4003E72EC /* IvRecordCategoryEditVC.swift in Sources */,
+				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
 				D4E7A41224B4F656001C015A /* DatePickerPopupVC.swift in Sources */,
-				3332402924B4A6D800C3B59C /* ItemInformation.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
