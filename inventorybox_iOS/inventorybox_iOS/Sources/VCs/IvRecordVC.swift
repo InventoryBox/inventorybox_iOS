@@ -11,6 +11,28 @@ import TTGTagCollectionView
 
 class IvRecordVC: UIViewController {
     
+    
+    @IBOutlet weak var outView: UIView!
+    @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var datePickerBtn: UIButton!
+    @IBOutlet weak var datePickerLabelBtn: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var categorySettingBtn: UIButton!
+    @IBOutlet weak var floatingUpBtn: UIButton!
+    @IBOutlet weak var floatingTodayRecordBtn: UIButton!
+    
+    @IBOutlet weak var firstRegisterView: UIView!
+    @IBOutlet weak var firstRegisterBtn: UIButton!
+    @IBOutlet weak var noDataView: UIView!
+    @IBOutlet weak var inventoryTableView: UITableView!
+    
+    @IBOutlet weak var popupBackgroundView: UIView!
+    let categoryCollectionView = TTGTextTagCollectionView()
+    
+    private var selections = [String]()
+    
     static var categories: [String] = ["전체", "액체류", "파우더류", "과일", "채소류", "스파게티 재료들", "아침마다 확인해야 할 것들"]
     
     static var inventoryArray: [InventoryInformation] = {
@@ -28,35 +50,87 @@ class IvRecordVC: UIViewController {
     
     private var inventoryFiltered: [InventoryInformation] = inventoryArray
     
-    @IBOutlet weak var outView: UIView!
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var datePickerBtn: UITextField!
-    @IBOutlet weak var datePickerLabelBtn: UITextField!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var categorySettingBtn: UIButton!
-    @IBOutlet weak var floatingUpBtn: UIButton!
-    @IBOutlet weak var floatingTodayRecordBtn: UIButton!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
     
-    @IBOutlet weak var inventoryTableView: UITableView!
-    
-    let categoryCollectionView = TTGTextTagCollectionView()
-    
-    private var selections = [String]()
-    
-    private let datePicker = UIDatePicker()
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        isTodayRecordDone()
+        whichViewWillShow()
         setBtnsCustommed()
-        createdDatePicker()
         setInventoryTableView()
         setBackgroundColor()
         addCategoryCollectionView()
         makeShadowUnderOutView()
-        
+        setPopupBackgroundView()
     }
     
+    private func setPopupBackgroundView() {
+        popupBackgroundView.isHidden = true
+        popupBackgroundView.alpha = 0
+        self.view.bringSubviewToFront(popupBackgroundView)
+        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+    }
+    
+    func animatePopupBackground(_ direction: Bool) {
+        let duration: TimeInterval = direction ? 0.35 : 0.15
+        let alpha: CGFloat = direction ? 0.54 : 0.0
+        self.popupBackgroundView.isHidden = !direction
+        UIView.animate(withDuration: duration) {
+            self.popupBackgroundView.alpha = alpha
+        }
+    }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+        
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        
+        guard let date = info["selectdDate"] as? String else { return }
+        print(date)
+        dateLabel.text = date
+        animatePopupBackground(false)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @IBAction func openDatePicker(_ sender: Any) {
+        animatePopupBackground(true)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
+    @IBAction func goToIvRecordAddProduct(_ sender: Any) {
+        let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
+        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordAddProductVC")
+            as? IvRecordAddProductVC  else {
+                return
+        }
+        addProductVC.modalPresentationStyle = .fullScreen
+        
+        self.present(addProductVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func goToIvRecordEditProduct(_ sender: Any) {
+        let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
+        guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC")
+            as? IvRecordCategoryEditVC  else {
+                return
+        }
+        editProductVC.modalPresentationStyle = .fullScreen
+        
+        self.present(editProductVC, animated: false, completion: nil)
+    }
     @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
         
         let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
@@ -91,10 +165,43 @@ class IvRecordVC: UIViewController {
         
     }
     
+    private func isTodayRecordDone() {
+        // 오늘 기록을 했다면
+        floatingUpBtn.isHidden = true
+        
+        // 오늘 기록을 하지 않았다면
+        floatingUpBtn.isHidden = false
+    }
+    
+    private func whichViewWillShow() {
+        
+        // 빈 data가 온다면 재료 등록하기 뷰사용
+        //firstRegisterView.isHidden = false
+        //noDataView.isHidden = true
+        //inventoryTableView.isHidden = true
+        
+        // 데이터피커를 통해 날짜를 보냈는데 빈 data가 온다면 재료가 없습니다 뷰 사용
+        //        firstRegisterView.isHidden = true
+        //        noDataView.isHidden = false
+        //        inventoryTableView.isHidden = true
+        
+        // 데이터가 들어온다면 테이블 뷰 사용
+        firstRegisterView.isHidden = true
+        noDataView.isHidden = true
+        inventoryTableView.isHidden = false
+    }
+    
     private func setBtnsCustommed() {
+        
         floatingTodayRecordBtn.layer.cornerRadius = 18
         floatingTodayRecordBtn.backgroundColor = UIColor.yellow
         floatingTodayRecordBtn.tintColor = UIColor.white
+        
+        firstRegisterBtn.layer.cornerRadius = 18
+        firstRegisterBtn.backgroundColor = UIColor.yellow
+        firstRegisterBtn.tintColor = UIColor.white
+        
+        
     }
     
     private func makeShadowUnderOutView() {
@@ -134,45 +241,6 @@ class IvRecordVC: UIViewController {
     
     
     
-    // datePickerBtn event
-    private func createdDatePicker() {
-        
-        datePicker.datePickerMode = .date
-        
-        datePicker.locale = Locale(identifier: "ko")
-        
-        datePicker.timeZone = NSTimeZone.local
-        
-        datePickerBtn.inputView = datePicker
-        datePickerLabelBtn.inputView = datePicker
-        
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 53))
-        toolbar.backgroundColor = .yellow
-        toolbar.isTranslucent = true
-        toolbar.barTintColor = .yellow
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        
-        toolbar.setItems([doneBtn], animated: true)
-        
-        datePickerBtn.inputAccessoryView = toolbar
-        datePickerLabelBtn.inputAccessoryView = toolbar
-    }
-    
-    // doneBtn event
-    @objc func donePressed() {
-        
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy.MM.dd eeee"
-        
-        formatter.locale = Locale(identifier: "ko")
-        
-        dateLabel.text = "\(formatter.string(from: datePicker.date))"
-        
-        self.view.endEditing(true)
-        
-    }
-    
 }
 
 //MARK: - CollectionView
@@ -199,7 +267,7 @@ extension IvRecordVC: UITableViewDataSource {
             inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, inventoryFiltered[indexPath.row - 1].orderInventory, inventoryFiltered[indexPath.row - 1].inventoryCount)
             
             return inventoryCell
-    
+            
         }
         
     }
@@ -234,13 +302,14 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
                 break
             }
         }
-    
+        
         if check == 0 {
             selections.append(tagText)
         }
         
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
+        
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true
