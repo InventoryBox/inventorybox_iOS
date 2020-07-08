@@ -60,6 +60,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         categoryTabView.delegate = self
         categoryTabView.alignment = .left
         categoryTabView.scrollDirection = .horizontal
+        categoryTabView.showsHorizontalScrollIndicator = false
         
         let config = TTGTextTagConfig()
         config.textColor = UIColor(red: 65.0 / 255.0, green: 71.0 / 255.0, blue: 67.0 / 255.0, alpha: 1.0)
@@ -68,18 +69,18 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         config.borderWidth = 1.3
         config.cornerRadius = 20
         config.exactHeight = 24
-        config.extraSpace = CGSize(width: 8, height: 0)
-        
         config.selectedBorderColor = UIColor(red: 71.0 / 255.0, green: 69.0 / 255.0, blue: 65.0 / 255.0, alpha: 1.0)
         config.selectedTextColor = .white
         config.selectedBorderWidth = 1.3
         config.selectedCornerRadius = 20
         config.selectedBackgroundColor = UIColor(red: 71.0 / 255.0, green: 69.0 / 255.0, blue: 65.0 / 255.0, alpha: 1.0)
-        
         config.shadowOpacity = 0
+        config.minWidth = 56
+        config.extraSpace = CGSize(width: 30, height: 0)
+        config.textFont = UIFont(name: "Helvetica Neue", size: 12.0)
+
         
-        
-        categoryTabView.addTags([" 전체 "," 액체류 "," 파우더류 "," 과일 "," 채소류 ", " 카트 ", " 오류다아아 "], with: config)
+        categoryTabView.addTags(["전체","액체류","파우더류","과일","채소류", "카트", "오류다아아"], with: config)
    
         //day 데이터 setting
         setDayList()
@@ -93,6 +94,10 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         //item 데이터 setting
         setItemList()
+        
+        
+        //tableView 구분선 제거
+        ivDataTableView.separatorStyle = .none
 
     }
     
@@ -162,7 +167,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
      
         days = ["일","월","화","수","목","금","토"]
         
-        let milk = ItemInformation(itemImg: "lastrecordingIcMilk", itemName: "우유", itemAlarmCount: 4.0, dataPoints: days, values: uniteSold)
+        let milk = ItemInformation(itemImg: "dataIcMilk", itemName: "우유", itemAlarmCount: 4.0, dataPoints: days, values: uniteSold)
             
          let iceCup = ItemInformation(itemImg: "dataIcCup", itemName: "아이스컵 12oz", itemAlarmCount: 2.0, dataPoints: days, values: uniteSold)
         
@@ -191,13 +196,24 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         
         //셀 재사용 문제 해결하기
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as! IvGraphTVCell
-        
-        
-        cell.setIvGraphTV(itemImage: itemList[indexPath.row].itemImg!, itemName: itemList[indexPath.row].itemName!, itemCount: itemList[indexPath.row].itemAlarmCount!, dataPoints: itemList[indexPath.row].dataPoints!, values: itemList[indexPath.row].values!)
-        
-        return cell
+    
+        if indexPath.row == 0 {
+            
+            guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "headerCell",for: indexPath) as? IvTVHeaderCell else {return UITableViewCell()}
+            cell2.ivItemTVheaderLabel.textColor = .noname
+            
+            return cell2
+        }
+        else {
+            
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
+            
+                  cell.setIvGraphTV(itemImage: itemList[indexPath.row - 1].itemImg!, itemName: itemList[indexPath.row - 1].itemName!, itemCount: itemList[indexPath.row - 1].itemAlarmCount!, dataPoints: itemList[indexPath.row - 1].dataPoints!, values: itemList[indexPath.row - 1].values!)
+                  
+                  return cell
+        }
+      
     }
     
     
@@ -205,43 +221,49 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
        
         //기기 사이즈 맞춰서 142 생각하기
         
-        return 142
-    }
-    
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        
-        let headerView = UIView()
-               if section == 0{
-                   
-                  var friendsLabel = UILabel(frame: CGRect(x: 16, y: 9.5, width:tableView.bounds.size.width, height: 17))
-                   
-                   friendsLabel.font = UIFont(name: "KoPubWorldDotumPM", size: 11)
-                   friendsLabel.textColor = UIColor.lightGray
-                   friendsLabel.text = "경고"
-                   friendsLabel.sizeToFit()
-                   headerView.addSubview(friendsLabel)
-                   
-               }
-               return headerView
-           }
-       
-
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        var size:Int = 0
-        
-        if section == 0{
-            
-            size = 50
-            return CGFloat(size)
+        if indexPath.row == 0 {
+           return 60
+        }
+        else {
+            return 142
         }
         
-        
-        return CGFloat(size)
     }
+    
+//    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        
+//        let headerView = UIView()
+//               if section == 0{
+//                   
+//                  var friendsLabel = UILabel(frame: CGRect(x: 16, y: 9.5, width:tableView.bounds.size.width, height: 17))
+//                   
+//                   friendsLabel.font = UIFont(name: "KoPubWorldDotumPM", size: 11)
+//                   friendsLabel.textColor = UIColor.lightGray
+//                   friendsLabel.text = "경고"
+//                   friendsLabel.sizeToFit()
+//                   headerView.addSubview(friendsLabel)
+//                   
+//               }
+//               return headerView
+//           }
+//       
+
+//    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        
+//        var size:Int = 0
+//        
+//        if section == 0{
+//            
+//            size = 50
+//            return CGFloat(size)
+//        }
+//        
+//        
+//        return CGFloat(size)
+//    }
 
     /*
     // MARK: - Navigation

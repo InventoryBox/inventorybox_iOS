@@ -13,6 +13,7 @@ class AddCategoryPopupVC: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

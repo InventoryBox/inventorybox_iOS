@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InventoryInformation {
+struct InventoryData {
     var inventoryImageName: String
     var inventoryName: String
     var minimumInventory: String
@@ -24,4 +24,17 @@ struct InventoryInformation {
         self.inventoryCount = iCount
         self.category = categoryNum
     }
+    
+    static var inventoryArray: [InventoryData] = {
+        
+        let data1 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data2 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data3 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data4 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data5 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        let data6 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
+        
+        return [data1, data2, data3, data4, data5]
+        
+    }()
 }

@@ -19,7 +19,9 @@ class IvRecordCategoryEditVC: UIViewController {
     
     let categoryCollectionView = TTGTextTagCollectionView()
     private var selections = [String]()
-    var inventoryArray: [InventoryInformation] = []
+    
+    
+    private var inventoryFiltered: [InventoryData] = InventoryData.inventoryArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,6 @@ class IvRecordCategoryEditVC: UIViewController {
         setCompleteBtn()
         setTodayDateLabel()
         setCategoryEditTableView()
-        setInventoryData()
         
     }
     
@@ -79,24 +80,10 @@ class IvRecordCategoryEditVC: UIViewController {
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(["전체", "액체류",], with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(CategoryData.categories, with: categoryCollectionView.setCategoryConfig())
         
     }
-    private func setInventoryData() {
-        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data3 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data4 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data5 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data6 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data7 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data8 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data9 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data10 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        
-        inventoryArray = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
-        
-    }
+    
 }
 
 //MARK: - categoryEditTableView
@@ -104,7 +91,7 @@ class IvRecordCategoryEditVC: UIViewController {
 extension IvRecordCategoryEditVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inventoryArray.count
+        return inventoryFiltered.count
         
     }
     
@@ -117,7 +104,7 @@ extension IvRecordCategoryEditVC: UITableViewDataSource {
         } else {
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCategoryEditCell.identifier, for: indexPath) as? InventoryCategoryEditCell else { return UITableViewCell() }
             
-            inventoryCell.setInventoryData(inventoryArray[indexPath.row - 1].inventoryImageName, inventoryArray[indexPath.row - 1].inventoryName, inventoryArray[indexPath.row - 1].minimumInventory)
+            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory)
             
             return inventoryCell
             
@@ -146,5 +133,42 @@ extension IvRecordCategoryEditVC: UITableViewDelegate {
 }
 //MARK: - categoryCell
 extension IvRecordCategoryEditVC: TTGTextTagCollectionViewDelegate {
-    
+    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        var check = 0
+        for i in 0..<selections.count {
+            if selections[i] == tagText {
+                check = 1
+                selections.remove(at: i)
+                break
+            }
+        }
+        
+        if check == 0 {
+            selections.append(tagText)
+        }
+        
+        // 카테고리 필터링 코드
+        var allCategoryCheck: Bool = false
+        
+        for i in 0..<selections.count {
+            if selections[i] == "전체" {
+                allCategoryCheck = true
+                inventoryFiltered = InventoryData.inventoryArray
+                categoryEditTableView.reloadData()
+            }
+        }
+        if !allCategoryCheck {
+            inventoryFiltered = []
+            for i in 0..<selections.count {
+                let filterred = InventoryData.inventoryArray.filter { (inventory) -> Bool in
+                    return inventory.category == selections[i]
+                }
+                
+                for data in filterred {
+                    inventoryFiltered.append(data)
+                }
+            }
+            categoryEditTableView.reloadData()
+        }
+    }
 }

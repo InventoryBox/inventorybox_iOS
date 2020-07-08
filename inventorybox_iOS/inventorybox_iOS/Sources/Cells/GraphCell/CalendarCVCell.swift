@@ -31,6 +31,8 @@ class CalendarCVCell: UICollectionViewCell {
         else{
            selectImg.image = UIImage(named: "dataShapeDateWhite")
             print("dataShapeDateWhite")
+            dayOfWeekLabel.textColor = .noname
+            dayLabel.textColor = .charcoal
         }
         
         
