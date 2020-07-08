@@ -74,7 +74,6 @@ class TabBarVC: UITabBarController {
         
         let tabs =  [firstTab, secondTab, thirdTab]
         
-        
         tabBar.layer.shadowOpacity = 0.1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
         tabBar.layer.shadowRadius = 3
