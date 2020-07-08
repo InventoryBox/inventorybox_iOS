@@ -9,6 +9,7 @@ PODS:
   - Kingfisher/Core (5.14.1)
   - lottie-ios (3.1.8)
   - TTGTagCollectionView (1.11.1)
+  - SSCustomSideMenu (0.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
   - TTGTagCollectionView (~> 1.11.1)
+  - SSCustomSideMenu
 
 SPEC REPOS:
   trunk:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Kingfisher
     - lottie-ios
     - TTGTagCollectionView
+    - SSCustomSideMenu
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -36,5 +39,8 @@ SPEC CHECKSUMS:
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
 PODFILE CHECKSUM: dfa13c5997cdf333e65d8ce32806445c0c1a9140
+  SSCustomSideMenu: 71b9681927ef69094199002b8859830b4f12d787
+
+PODFILE CHECKSUM: 6ce86cb4f7c34246270646ceaa12daaf970daf33
 
 COCOAPODS: 1.9.1
