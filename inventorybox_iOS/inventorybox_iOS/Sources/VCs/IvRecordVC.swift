@@ -33,22 +33,7 @@ class IvRecordVC: UIViewController {
     
     private var selections = [String]()
     
-    static var categories: [String] = ["전체", "액체류", "파우더류", "과일", "채소류", "스파게티 재료들", "아침마다 확인해야 할 것들"]
-    
-    static var inventoryArray: [InventoryInformation] = {
-        
-        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data3 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data4 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data5 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data6 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        
-        return [data1, data2, data3, data4, data5]
-        
-    }()
-    
-    private var inventoryFiltered: [InventoryInformation] = inventoryArray
+    private var inventoryFiltered: [InventoryData] = InventoryData.inventoryArray
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,25 +60,28 @@ class IvRecordVC: UIViewController {
     }
     
     private func setPopupBackgroundView() {
+        
         popupBackgroundView.isHidden = true
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
         NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+        
     }
     
     func animatePopupBackground(_ direction: Bool) {
+        
         let duration: TimeInterval = direction ? 0.35 : 0.15
         let alpha: CGFloat = direction ? 0.54 : 0.0
         self.popupBackgroundView.isHidden = !direction
         UIView.animate(withDuration: duration) {
             self.popupBackgroundView.alpha = alpha
         }
+        
     }
     
     @objc func didDisappearPopup(_ notification: Notification) {
         
         guard let info = notification.userInfo as? [String: Any] else { return }
-        
         guard let date = info["selectdDate"] as? String else { return }
         print(date)
         dateLabel.text = date
@@ -223,7 +211,7 @@ class IvRecordVC: UIViewController {
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(IvRecordVC.categories, with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(CategoryData.categories, with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -313,14 +301,14 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true
-                inventoryFiltered = IvRecordVC.inventoryArray
+                inventoryFiltered = InventoryData.inventoryArray
                 inventoryTableView.reloadData()
             }
         }
         if !allCategoryCheck {
             inventoryFiltered = []
             for i in 0..<selections.count {
-                let filterred = IvRecordVC.inventoryArray.filter { (inventory) -> Bool in
+                let filterred = InventoryData.inventoryArray.filter { (inventory) -> Bool in
                     return inventory.category == selections[i]
                 }
                 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AWm-Yz-XVi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g1f-Kg-ipZ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -8,10 +8,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home Side MenuVC-->
+        <scene sceneID="UqQ-NQ-hmw">
+            <objects>
+                <viewController id="g1f-Kg-ipZ" customClass="HomeSideMenuVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EJR-fG-B15">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HKu-OP-0jx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPF-3E-t0C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1042" y="-57"/>
+        </scene>
         <!--HomeVC-->
         <scene sceneID="FeQ-h0-HFv">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="AWm-Yz-XVi" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AWm-Yz-XVi" customClass="HomeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m88-6Y-jyE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +47,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaD-jj-p2u">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="434.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9B6-wp-cTe">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9B6-wp-cTe" customClass="SSMenuButton" customModule="SSCustomSideMenu">
                                                                         <rect key="frame" x="341" y="19" width="18" height="22"/>
                                                                         <state key="normal" image="homeBtnHamburger"/>
                                                                     </button>
@@ -384,6 +399,33 @@
                                                     <constraint firstItem="TOz-An-eEW" firstAttribute="leading" secondItem="v6D-dW-7aw" secondAttribute="leading" id="rSN-U0-yYT"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-bJ-TyV">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMM-j0-oTx">
+                                                        <rect key="frame" x="155" y="13" width="64" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-iZ-mlT">
+                                                        <rect key="frame" x="317" y="10" width="42" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="메모수정">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="fMM-j0-oTx" firstAttribute="top" secondItem="sX3-bJ-TyV" secondAttribute="top" constant="13" id="EG1-vZ-1Vv"/>
+                                                    <constraint firstItem="fMM-j0-oTx" firstAttribute="leading" secondItem="sX3-bJ-TyV" secondAttribute="leading" constant="155" id="GrU-j8-sEs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fMM-j0-oTx" secondAttribute="trailing" constant="156" id="LHo-De-LWG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fMM-j0-oTx" secondAttribute="bottom" constant="13" id="Yba-LU-NV3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KEa-iZ-mlT" secondAttribute="trailing" constant="16" id="fxO-ry-hE5"/>
+                                                    <constraint firstItem="KEa-iZ-mlT" firstAttribute="top" secondItem="sX3-bJ-TyV" secondAttribute="top" constant="10" id="sEB-WT-zLS"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -405,15 +447,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="CK6-ue-tIS" firstAttribute="top" secondItem="llw-td-TLQ" secondAttribute="top" id="6ZD-Tn-Nbq"/>
+                            <constraint firstItem="sX3-bJ-TyV" firstAttribute="top" secondItem="llw-td-TLQ" secondAttribute="top" id="8bd-0J-dOV"/>
+                            <constraint firstItem="sX3-bJ-TyV" firstAttribute="leading" secondItem="llw-td-TLQ" secondAttribute="leading" id="Dih-hm-oTy"/>
                             <constraint firstItem="iUx-qq-bz1" firstAttribute="width" secondItem="m88-6Y-jyE" secondAttribute="width" id="HDi-6Z-ES4"/>
                             <constraint firstItem="CK6-ue-tIS" firstAttribute="leading" secondItem="llw-td-TLQ" secondAttribute="leading" id="O47-hC-Qer"/>
                             <constraint firstAttribute="bottom" secondItem="CK6-ue-tIS" secondAttribute="bottom" id="WAz-1s-xKz"/>
+                            <constraint firstItem="llw-td-TLQ" firstAttribute="trailing" secondItem="sX3-bJ-TyV" secondAttribute="trailing" id="kaS-ha-fH7"/>
                             <constraint firstItem="CK6-ue-tIS" firstAttribute="trailing" secondItem="llw-td-TLQ" secondAttribute="trailing" id="mYd-a0-lF6"/>
                             <constraint firstItem="iUx-qq-bz1" firstAttribute="height" secondItem="m88-6Y-jyE" secondAttribute="height" priority="250" id="tzi-96-bAA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="llw-td-TLQ"/>
                     </view>
                     <connections>
+                        <outlet property="ScrollView" destination="CK6-ue-tIS" id="IWE-8T-FY9"/>
+                        <outlet property="checkUIVew" destination="sX3-bJ-TyV" id="s4c-dX-Jl3"/>
                         <outlet property="leftcollectionview" destination="JfN-9I-7ba" id="loh-W1-OZs"/>
                         <outlet property="rightcollectionview" destination="Ub8-gA-Auf" id="kDX-qh-30o"/>
                         <outlet property="tableview" destination="lwh-Uk-sMI" id="Av9-PM-3od"/>
@@ -421,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUB-zg-y2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13.6" y="-56.671664167916049"/>
+            <point key="canvasLocation" x="23" y="-57"/>
         </scene>
     </scenes>
     <resources>

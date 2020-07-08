@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t76-8q-5Aw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHk-sm-7bF">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uq3-RM-lXH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17J-ZR-7DX">
                                         <rect key="frame" x="157.5" y="16.5" width="60" height="19.5"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-L0-xh6">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-Qc-fLj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="689.5"/>
@@ -84,6 +84,9 @@
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="E5t-ng-eaS" kind="show" id="c4F-QR-hBQ"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단위 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNC-bT-QVy">
                                                         <rect key="frame" x="9" y="130" width="45" height="15"/>
@@ -359,6 +362,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Z1-EL-4VQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dem-qg-QoY"/>
                     <connections>
                         <outlet property="addIconBtn" destination="r9h-Pf-6IC" id="GWT-M9-PHd"/>
                         <outlet property="backBtn" destination="zVp-Q2-YFh" id="e89-oq-4SN"/>
@@ -386,6 +390,50 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD3-Jx-EdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="226.23688155922042"/>
+        </scene>
+        <!--아이콘 선택-->
+        <scene sceneID="4De-gc-Q7x">
+            <objects>
+                <viewController storyboardIdentifier="SelectIconVC" id="E5t-ng-eaS" customClass="SelectIconVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Obb-ju-hnf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpx-WM-sBa">
+                                <rect key="frame" x="33" y="122" width="149" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Icon Select"/>
+                                <connections>
+                                    <action selector="sendIdx:" destination="E5t-ng-eaS" eventType="touchUpInside" id="WvX-wr-nZo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9dG-IK-GCm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="아이콘 선택" id="qeO-6u-r7C"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtj-tb-phv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858.4000000000001" y="223.53823088455775"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q9Q-MP-PBx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHk-sm-7bF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vtY-td-Zjj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t76-8q-5Aw" kind="relationship" relationship="rootViewController" id="ozW-RA-Zsg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VYf-SD-QbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="144.80000000000001" y="226.23688155922042"/>
         </scene>
