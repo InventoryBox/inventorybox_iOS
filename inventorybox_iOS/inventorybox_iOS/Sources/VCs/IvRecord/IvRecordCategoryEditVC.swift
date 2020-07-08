@@ -13,8 +13,7 @@ class IvRecordCategoryEditVC: UIViewController {
     
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var completeBtn: UIButton!
-    @IBOutlet weak var todayDateLabel: UILabel!
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var categoryEditTableView: UITableView!
     
     @IBOutlet var bottomView: [UIView]!
@@ -32,8 +31,6 @@ class IvRecordCategoryEditVC: UIViewController {
         
         addCategoryCollectionView()
         setShadowUnderOutView()
-        setCompleteBtn()
-        setTodayDateLabel()
         setCategoryEditTableView()
         setViewCustom()
         setPopupBackgroundView()
@@ -85,7 +82,7 @@ class IvRecordCategoryEditVC: UIViewController {
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
-    @IBAction func completeBtnPressed(_ sender: Any) {
+    @IBAction func backBtnPressed(_ sender: Any) {
         
         self.dismiss(animated: false, completion: nil)
         
@@ -106,19 +103,7 @@ class IvRecordCategoryEditVC: UIViewController {
         categoryEditTableView.separatorStyle = .none
         
     }
-    private func setCompleteBtn() {
-        
-        completeBtn.backgroundColor = UIColor.yellow
-        completeBtn.layer.cornerRadius = 10
-        completeBtn.tintColor = UIColor.white
-        
-    }
     
-    private func setTodayDateLabel() {
-        
-        self.todayDateLabel.text = "2020.06.27 토요일"
-        
-    }
     private func setShadowUnderOutView() {
         
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)

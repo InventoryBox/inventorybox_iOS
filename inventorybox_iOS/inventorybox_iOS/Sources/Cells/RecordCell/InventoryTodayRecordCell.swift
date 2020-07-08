@@ -43,8 +43,22 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         
         inventoryCountTextField.keyboardType = .numberPad
-        inventoryCountTextField.returnKeyType = .done
-        inventoryCountTextField.endEditing(true)
+        
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        let doneBtn = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(donePressed))
+        
+        toolbar.setItems([doneBtn], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        toolbar.sizeToFit()
+        
+        inventoryCountTextField.inputAccessoryView = toolbar
+        inventoryCountTextField.delegate = self
+    }
+    
+    @objc private func donePressed() {
+        self.inventoryCountTextField.endEditing(true)
     }
     private func makeShadowAroundInventoryView() {
         
@@ -74,5 +88,9 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryNameLabel.text = inventoryName
         
     }
+    
+}
+
+extension InventoryTodayRecordCell: UITextFieldDelegate {
     
 }

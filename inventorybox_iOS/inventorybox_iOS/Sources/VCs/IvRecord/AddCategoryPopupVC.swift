@@ -25,15 +25,18 @@ class AddCategoryPopupVC: UIViewController {
     }
     
     private func setViewCustom() {
-        titleLabel.backgroundColor = UIColor.yellow
         
+        titleLabel.backgroundColor = UIColor.yellow
         popupView.layer.cornerRadius = 9
+        
     }
     private func setBtnCustom() {
+        
         cancelBtn.layer.cornerRadius = 17
         addBtn.layer.cornerRadius = 17
         cancelBtn.tintColor = UIColor.black
         addBtn.tintColor = UIColor.white
+        
     }
 
     @IBAction func cancel(_ sender: Any) {

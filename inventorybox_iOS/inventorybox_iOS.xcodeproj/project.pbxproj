@@ -61,6 +61,8 @@
 		D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A40D24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift */; };
 		D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A40F24B4EB0C001C015A /* IvRecordEditProductVC.swift */; };
 		D4E7A41224B4F656001C015A /* DatePickerPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A41124B4F656001C015A /* DatePickerPopupVC.swift */; };
+		D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */; };
+		D4EC097824B67D9F0063C05B /* MoveCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097724B67D9F0063C05B /* MoveCategoryPopupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		D4E7A40D24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGTextTagCollectionViewExtension.swift; sourceTree = "<group>"; };
 		D4E7A40F24B4EB0C001C015A /* IvRecordEditProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordEditProductVC.swift; sourceTree = "<group>"; };
 		D4E7A41124B4F656001C015A /* DatePickerPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPopupVC.swift; sourceTree = "<group>"; };
+		D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopupVC.swift; sourceTree = "<group>"; };
+		D4EC097724B67D9F0063C05B /* MoveCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCategoryPopupVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +336,7 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				D4EC097724B67D9F0063C05B /* MoveCategoryPopupVC.swift */,
 				D4DFE3CA24B6661400D8795E /* Onboarding */,
 				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
@@ -413,6 +418,7 @@
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
 				D47E6CC224B509EC002ADA76 /* AddCategoryPopupVC.swift */,
 				D4E7A41124B4F656001C015A /* DatePickerPopupVC.swift */,
 				D4E7A40324B4EA5F001C015A /* IvRecordAddProductVC.swift */,
@@ -551,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
@@ -560,6 +567,7 @@
 				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,
 				D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
+				D4EC097824B67D9F0063C05B /* MoveCategoryPopupVC.swift in Sources */,
 				D47E6CC324B509EC002ADA76 /* AddCategoryPopupVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
