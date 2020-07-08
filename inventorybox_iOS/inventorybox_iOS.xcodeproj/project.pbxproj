@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E66A4C524B4860600E76683 /* HomeSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66A4C424B4860600E76683 /* HomeSideMenuVC.swift */; };
 		0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF3024B0FC09009B089A /* HomeVC.swift */; };
 		0EB0CF4124B199F0009B089A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF4024B199F0009B089A /* Font.swift */; };
 		0EB0CF7D24B2CF25009B089A /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EB0CF7924B2CF24009B089A /* NanumSquareB.ttf */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E66A4C424B4860600E76683 /* HomeSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideMenuVC.swift; sourceTree = "<group>"; };
 		0EB0CF3024B0FC09009B089A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF6424B1A17C009B089A /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				D48417AF24AC55EB0064EE64 /* ViewController.swift */,
 				D46236C524ADBC950005A277 /* IvRecordVC.swift */,
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
+				0E66A4C424B4860600E76683 /* HomeSideMenuVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			files = (
 				D48417B024AC55EB0064EE64 /* ViewController.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
+				0E66A4C524B4860600E76683 /* HomeSideMenuVC.swift in Sources */,
 				0EB0CF8E24B35547009B089A /* HomeTVCell.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D410992A24B07879007CAAB9 /* TextField.swift in Sources */,

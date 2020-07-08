@@ -8,6 +8,7 @@ PODS:
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
   - lottie-ios (3.1.8)
+  - SSCustomSideMenu (0.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Charts (~> 3.5.0)
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
+  - SSCustomSideMenu
 
 SPEC REPOS:
   trunk:
@@ -23,6 +25,7 @@ SPEC REPOS:
     - Charts
     - Kingfisher
     - lottie-ios
+    - SSCustomSideMenu
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -30,7 +33,8 @@ SPEC CHECKSUMS:
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  SSCustomSideMenu: 71b9681927ef69094199002b8859830b4f12d787
 
-PODFILE CHECKSUM: fe1210d8417a9e957ca493c0a472d678b8bdd8ed
+PODFILE CHECKSUM: 6ce86cb4f7c34246270646ceaa12daaf970daf33
 
 COCOAPODS: 1.9.1

@@ -11,4 +11,6 @@ target 'inventorybox_iOS' do
   pod 'lottie-ios', '~> 3.1.8'
   pod 'Charts', '~> 3.5.0'
   pod 'BEMCheckBox'
+  pod 'SSCustomSideMenu'
+
 end
