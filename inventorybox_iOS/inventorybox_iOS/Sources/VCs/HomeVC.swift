@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import SSCustomSideMenu
 
 class HomeVC: UIViewController {
     
-    
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var leftcollectionview: UICollectionView!    // 왼쪽 coolection
     @IBOutlet weak var rightcollectionview: UICollectionView!   // 오른쪽 collection
     @IBOutlet weak var tableview: UITableView!  // table
-    
+    @IBOutlet weak var checkUIVew: UIView!      // View
     
     // collection에 연결할 더미 데이터
     private var checklistInformations : [orderCheckCVCInfo] = [ ]
@@ -22,16 +23,21 @@ class HomeVC: UIViewController {
     // table에 연결할 더미 데이터
     private var orderCheckInformations : [orderCheckTVCInfo] = [ ]
 
-    // override
+    // MARK: override 부분
     override func viewDidLoad() {
         super.viewDidLoad()
-              
+        // 맨 위 발주확인 view를 숨겨 두겠다
+        self.checkUIVew.isHidden = true
+        
         // collection관련 데이터
         setchecklistInformations()
-        
         // table관련 데이터
         setorderCheckInformations()
-        
+        // header Xib 받아오기
+            
+        // Scroll
+        ScrollView.delegate = self
+        ScrollView.contentInsetAdjustmentBehavior = .never
         // table
         tableview.dataSource = self
         tableview.delegate = self
@@ -41,6 +47,8 @@ class HomeVC: UIViewController {
         leftcollectionview.delegate = self
         rightcollectionview.delegate = self
     }
+
+
     
     
     
@@ -74,6 +82,17 @@ class HomeVC: UIViewController {
             orderCheckInformations = [data1, data2, data3, data4, data5, data6]
     }
     
+    // 스크롤 밑으로 내렸을 떄 위에 bar 내려오기
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let yPosition = scrollView.contentOffset.y
+        
+        if yPosition > 666 {
+            self.checkUIVew.isHidden = false
+        }else{
+            self.checkUIVew.isHidden = true
+        }
+    }
 }
 
 // MARK: LeftCollectionView DataSource 관련 코드
@@ -99,8 +118,6 @@ extension HomeVC: UICollectionViewDataSource{
         
         return RightCells
         }
-        
-        
 // @@@@@@@@@@@@@@@@@@@@@@@@
     }
 }
@@ -108,10 +125,6 @@ extension HomeVC: UICollectionViewDataSource{
 extension HomeVC: UICollectionViewDelegate{
     
 }
-
-
-
-
 
 
 // MARK: UITableViewDataSource 관련 코드
@@ -132,11 +145,45 @@ extension HomeVC: UITableViewDataSource{
         return Cells
     }
     
+    // Header 집어넣기 위해 View만들기 ~
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 46))
+        headerView.backgroundColor = UIColor.white
+
+        // 제목
+        let label = UILabel()
+        label.frame = CGRect.init(x: 155, y: 13, width: 64, height: 20.5)
+        label.text = "발주 확인"
+        label.textColor = UIColor.black
+//        label.font = UIFont().futuraPTMediumFont(16) // my custom font
+//        label.textColor = UIColor.charcolBlackColour() // my custom colour
+//
+
+        // Button
+        let button = UIButton(frame: CGRect.init(x: 0, y: 0, width: 42, height: 27))
+        
+        button.center = CGPoint(x: button.center.x, y: button.center.y)
+        button.setTitle("메모수정", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+
+       
+        headerView.addSubview(label)
+        headerView.addSubview(button)
+
+        return headerView
+    }
 }
+
+
 // MARK: UITableViewDelegate 관련 코드
 extension HomeVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 94
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 46
     }
     
     // tableView 선택 안되게 하기!
