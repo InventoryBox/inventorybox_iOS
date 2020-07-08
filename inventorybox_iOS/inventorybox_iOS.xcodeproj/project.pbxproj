@@ -16,6 +16,7 @@
 		3332402A24B4A6D800C3B59C /* DayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402624B4A6D800C3B59C /* DayInformation.swift */; };
 		3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402724B4A6D800C3B59C /* CalendarCVCell.swift */; };
 		3332402D24B4A76D00C3B59C /* InventoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402C24B4A76D00C3B59C /* InventoryInformation.swift */; };
+		3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
 		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
 		D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */; };
@@ -81,6 +82,7 @@
 		3332402624B4A6D800C3B59C /* DayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
 		3332402724B4A6D800C3B59C /* CalendarCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3332402C24B4A76D00C3B59C /* InventoryInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
+		3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvTVHeaderCell.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3357D7A924B36089002FF1EF /* DayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -189,11 +191,19 @@
 			isa = PBXGroup;
 			children = (
 				3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */,
-				3332402524B4A6D800C3B59C /* ItemInformation.swift */,
-				3332402624B4A6D800C3B59C /* DayInformation.swift */,
 				3332402724B4A6D800C3B59C /* CalendarCVCell.swift */,
+				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
 			);
 			path = GraphCell;
+			sourceTree = "<group>";
+		};
+		3332403224B4E31D00C3B59C /* GraphModels */ = {
+			isa = PBXGroup;
+			children = (
+				3332402624B4A6D800C3B59C /* DayInformation.swift */,
+				3332402524B4A6D800C3B59C /* ItemInformation.swift */,
+			);
+			path = GraphModels;
 			sourceTree = "<group>";
 		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
@@ -317,6 +327,7 @@
 		D48417C524AC56920064EE64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3332403224B4E31D00C3B59C /* GraphModels */,
 				3332402C24B4A76D00C3B59C /* InventoryInformation.swift */,
 				0EB0CF8F24B35C93009B089A /* orderCheckTVCInfo.swift */,
 				0EB0CF9524B38697009B089A /* orderCheckCVCInfo.swift */,
@@ -478,6 +489,7 @@
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332402A24B4A6D800C3B59C /* DayInformation.swift in Sources */,
+				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
 				D4B697B924B37E94004DA305 /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,

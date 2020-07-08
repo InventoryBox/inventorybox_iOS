@@ -15,6 +15,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var itemImg: UIImageView!
     @IBOutlet var itemAlarmCountLabel: UILabel!
     @IBOutlet var itemNameLabel: UILabel!
+    @IBOutlet var roundView: UIView!
     
     var months = ["일","월","화","수","목","금","토"]
     
@@ -22,6 +23,10 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         super.awakeFromNib()
         // Initialization code
         ivChartView.delegate = self
+        roundView.layer.cornerRadius = 9
+        roundView.layer.shadowRadius = 9
+        roundView.layer.shadowOpacity = 0.1
+        roundView.layer.shadowOffset = CGSize(width: 0, height: 0)
     
     }
     
@@ -70,15 +75,12 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
         ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-        
         ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
         ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        
         
         let ll = ChartLimitLine(limit: itemCount, label: "")
         ivChartView.rightAxis.addLimitLine(ll)
         ll.lineWidth = 0.3
-        
         
         ivChartView.xAxis.drawGridLinesEnabled = false
         ivChartView.leftAxis.drawLabelsEnabled = false
@@ -87,13 +89,11 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.leftAxis.drawAxisLineEnabled = false
         ivChartView.rightAxis.drawAxisLineEnabled = false
         ivChartView.leftAxis.drawGridLinesEnabled = false
-     
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
-
-   
         
-        ivChartView.leftAxis.drawZeroLineEnabled = false
+        //밑에 데이터셋 제거
+        ivChartView.legend.enabled = false
         
         chartData.barWidth = 0.2
         
