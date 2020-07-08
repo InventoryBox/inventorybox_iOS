@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CategoryData {
+struct CategoryInformation {
     var categoryIdx: Int?
     var categoryName: String = ""
     
@@ -18,13 +18,13 @@ struct CategoryData {
     }
     
     static var categories: [String] = {
-        let data1 = CategoryData(idx: 1, name: "전체")
-        let data2 = CategoryData(idx: 2, name: "액체류")
-        let data3 = CategoryData(idx: 3, name: "파우더류")
-        let data4 = CategoryData(idx: 4, name: "과일")
-        let data5 = CategoryData(idx: 5, name: "채소류")
-        let data6 = CategoryData(idx: 6, name: "스파게티 재료들")
-        let data7 = CategoryData(idx: 7, name: "아침마다 확인해야 할 것들")
+        let data1 = CategoryInformation(idx: 1, name: "전체")
+        let data2 = CategoryInformation(idx: 2, name: "액체류")
+        let data3 = CategoryInformation(idx: 3, name: "파우더류")
+        let data4 = CategoryInformation(idx: 4, name: "과일")
+        let data5 = CategoryInformation(idx: 5, name: "채소류")
+        let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
+        let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
         
         return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
     }()

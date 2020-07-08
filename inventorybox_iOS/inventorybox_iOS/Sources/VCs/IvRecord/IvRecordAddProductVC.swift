@@ -106,7 +106,7 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         
-        let newInventory = InventoryData(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
+//        let newInventory = InventoryInformation(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
         self.dismiss(animated: true, completion: nil)
         
     }

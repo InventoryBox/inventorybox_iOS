@@ -33,7 +33,7 @@ class IvRecordVC: UIViewController {
     
     private var selections = [String]()
     
-    private var inventoryFiltered: [InventoryData] = InventoryData.inventoryArray
+    private var inventoryFiltered: [InventoryInformation] = InventoryInformation.inventoryArray
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -211,7 +211,7 @@ class IvRecordVC: UIViewController {
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(CategoryData.categories, with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(CategoryInformation.categories, with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -254,7 +254,7 @@ extension IvRecordVC: UITableViewDataSource {
             
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCell.identifier, for: indexPath) as? InventoryCell else { return UITableViewCell() }
             
-            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, inventoryFiltered[indexPath.row - 1].orderInventory, inventoryFiltered[indexPath.row - 1].inventoryCount)
+            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, inventoryFiltered[indexPath.row - 1].inventoryUnit, inventoryFiltered[indexPath.row - 1].inventoryCount)
             
             return inventoryCell
             
@@ -303,14 +303,14 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true
-                inventoryFiltered = InventoryData.inventoryArray
+                inventoryFiltered = InventoryInformation.inventoryArray
                 inventoryTableView.reloadData()
             }
         }
         if !allCategoryCheck {
             inventoryFiltered = []
             for i in 0..<selections.count {
-                let filterred = InventoryData.inventoryArray.filter { (inventory) -> Bool in
+                let filterred = InventoryInformation.inventoryArray.filter { (inventory) -> Bool in
                     return inventory.category == selections[i]
                 }
                 

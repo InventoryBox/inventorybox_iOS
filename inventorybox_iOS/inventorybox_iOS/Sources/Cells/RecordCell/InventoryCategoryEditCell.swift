@@ -8,6 +8,7 @@
 
 import UIKit
 import BEMCheckBox
+
 class InventoryCategoryEditCell: UITableViewCell {
     static let identifier: String = "InventoryCategoryEditCell"
     
@@ -20,6 +21,7 @@ class InventoryCategoryEditCell: UITableViewCell {
     @IBOutlet weak var minimumInventoryCountLabel: UILabel!
     @IBOutlet weak var inventoryUnitLabel: UILabel!
     @IBOutlet weak var selectedCheckBox: BEMCheckBox!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,10 +42,10 @@ class InventoryCategoryEditCell: UITableViewCell {
 
     private func setCheckBox() {
         
-        self.selectedCheckBox.on = false
         self.selectedCheckBox.onCheckColor = UIColor.white
         self.selectedCheckBox.onFillColor = UIColor.yellow
         self.selectedCheckBox.onTintColor = UIColor.yellow
+        selectedCheckBox.delegate = self
         
     }
     private func makeRoundView() {
@@ -68,17 +70,22 @@ class InventoryCategoryEditCell: UITableViewCell {
         inventoryUnitLabel.textColor = UIColor.charcoal
         
     }
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String, isSelected: Bool) {
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
         minimumInventoryCountLabel.text = minimumInventoryCount
+        selectedCheckBox.on = isSelected
     }
+    
+//    func turnCheckBox(_ turnCheckBox: Bool) {
+//        isCheckBox = turnCheckBox
+//        self.selectedCheckBox.on = isCheckBox
+//    }
 }
 
 extension InventoryCategoryEditCell: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
         print("did Tap")
+        
     }
 }
-
-

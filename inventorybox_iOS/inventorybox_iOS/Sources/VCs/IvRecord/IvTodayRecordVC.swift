@@ -13,7 +13,6 @@ class IvTodayRecordVC: UIViewController {
 
     let categoryCollectionView = TTGTextTagCollectionView()
     private var selections = [String]()
-    var inventoryArray: [InventoryData] = []
     
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
@@ -73,13 +72,7 @@ class IvTodayRecordVC: UIViewController {
         
     }
     private func setInventoryData() {
-        let data1 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data2 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data3 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data4 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
-        let data5 = InventoryData(imageName: "homeIcMilk", ivName: "우유", mInventory: "5팩", oInventory: "10팩", iCount: "3", categoryNum: "액체류")
         
-        inventoryArray = [data1, data2, data3, data4, data5]
     }
 }
 
@@ -93,7 +86,7 @@ extension IvTodayRecordVC: TTGTextTagCollectionViewDelegate {
 
 extension IvTodayRecordVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inventoryArray.count
+        return InventoryInformation.inventoryArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +100,7 @@ extension IvTodayRecordVC: UITableViewDataSource {
             
             guard let inventoryTodayRecordCell = tableView.dequeueReusableCell(withIdentifier: InventoryTodayRecordCell.identifier, for: indexPath) as? InventoryTodayRecordCell else { return UITableViewCell() }
             
-            inventoryTodayRecordCell.setInventoryData(inventoryArray[indexPath.row - 1].inventoryImageName, inventoryArray[indexPath.row - 1].inventoryName)
+            inventoryTodayRecordCell.setInventoryData(InventoryInformation.inventoryArray[indexPath.row - 1].inventoryImageName, InventoryInformation.inventoryArray[indexPath.row - 1].inventoryName)
             
             return inventoryTodayRecordCell
             
