@@ -17,6 +17,8 @@ class IvRecordCategoryEditVC: UIViewController {
     @IBOutlet weak var todayDateLabel: UILabel!
     @IBOutlet weak var categoryEditTableView: UITableView!
     
+    @IBOutlet var bottomView: [UIView]!
+    
     let categoryCollectionView = TTGTextTagCollectionView()
     private var selections = [String]()
     
@@ -31,6 +33,7 @@ class IvRecordCategoryEditVC: UIViewController {
         setCompleteBtn()
         setTodayDateLabel()
         setCategoryEditTableView()
+        setViewCustom()
         
     }
     
@@ -39,6 +42,12 @@ class IvRecordCategoryEditVC: UIViewController {
         
         self.dismiss(animated: false, completion: nil)
         
+    }
+    
+    private func setViewCustom() {
+        for view in bottomView {
+            view.backgroundColor = UIColor.yellow
+        }
     }
     
     private func setCategoryEditTableView() {

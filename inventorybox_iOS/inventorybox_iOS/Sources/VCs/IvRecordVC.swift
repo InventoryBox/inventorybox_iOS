@@ -220,11 +220,13 @@ class IvRecordVC: UIViewController {
     }
     
     private func setInventoryTableView() {
+        
         inventoryTableView.delegate = self
         inventoryTableView.dataSource = self
         
         inventoryTableView.allowsSelection = false
         inventoryTableView.separatorStyle = .none
+        
     }
     
     
