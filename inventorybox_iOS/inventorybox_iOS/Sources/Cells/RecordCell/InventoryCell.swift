@@ -73,10 +73,11 @@ class InventoryCell: UITableViewCell {
     }
     
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String, _ orderInventoryCount: String, _ inventoryCount: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String, _ unit: String, _ inventoryCount: String) {
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
         minimumInventoryCountLabel.text = minimumInventoryCount
+        inventoryUnitLabel.text = unit
         inventoryCountLabel.text = inventoryCount
     }
     

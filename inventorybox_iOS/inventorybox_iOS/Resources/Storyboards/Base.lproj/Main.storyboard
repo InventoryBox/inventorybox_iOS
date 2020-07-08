@@ -9,7 +9,7 @@
         <!--Tab BarVC-->
         <scene sceneID="1l0-5P-LMz">
             <objects>
-                <tabBarController id="udg-Ad-4x6" customClass="TabBarVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="udg-Ad-4x6" customClass="TabBarVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwl-Tf-2rt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
