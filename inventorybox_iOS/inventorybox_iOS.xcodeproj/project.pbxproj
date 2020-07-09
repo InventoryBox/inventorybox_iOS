@@ -17,6 +17,14 @@
 		3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */; };
 		3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405924B5A5BD00C3B59C /* ItemInformation.swift */; };
 		3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405A24B5A5BD00C3B59C /* DayInformation.swift */; };
+		3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405D24B5B17800C3B59C /* IvGraphNC.swift */; };
+		3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332405F24B5C6E000C3B59C /* IvDetailGraphVC.swift */; };
+		3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406624B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift */; };
+		3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406824B6530500C3B59C /* IvDetailWeekGraphTVCell.swift */; };
+		3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406A24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift */; };
+		3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406C24B6550C00C3B59C /* IvEditTVCell.swift */; };
+		3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */; };
+		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
 		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
 		D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */; };
@@ -92,6 +100,14 @@
 		3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvTVHeaderCell.swift; sourceTree = "<group>"; };
 		3332405924B5A5BD00C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemInformation.swift; path = GraphModels/ItemInformation.swift; sourceTree = "<group>"; };
 		3332405A24B5A5BD00C3B59C /* DayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayInformation.swift; path = GraphModels/DayInformation.swift; sourceTree = "<group>"; };
+		3332405D24B5B17800C3B59C /* IvGraphNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphNC.swift; sourceTree = "<group>"; };
+		3332405F24B5C6E000C3B59C /* IvDetailGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvDetailGraphVC.swift; sourceTree = "<group>"; };
+		3332406624B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvDetailGraphTVHeaderCell.swift; sourceTree = "<group>"; };
+		3332406824B6530500C3B59C /* IvDetailWeekGraphTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvDetailWeekGraphTVCell.swift; sourceTree = "<group>"; };
+		3332406A24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvWeekCompareGraphTVCell.swift; sourceTree = "<group>"; };
+		3332406C24B6550C00C3B59C /* IvEditTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvEditTVCell.swift; sourceTree = "<group>"; };
+		3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInThisMonthCVCell.swift; sourceTree = "<group>"; };
+		3332407224B6609000C3B59C /* WeekInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInformation.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3357D7A924B36089002FF1EF /* DayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -187,8 +203,8 @@
 				0EB0CF6424B1A17C009B089A /* Roboto-BoldItalic.ttf */,
 				0EB0CF6F24B1A17D009B089A /* Roboto-Condensed.ttf */,
 				0EB0CF6D24B1A17D009B089A /* Roboto-CondensedItalic.ttf */,
-				0EB0CF6E24B1A17D009B089A /* Roboto-Italic.ttf */,
 				0EB0CF6924B1A17C009B089A /* Roboto-Light.ttf */,
+				0EB0CF6E24B1A17D009B089A /* Roboto-Italic.ttf */,
 				0EB0CF6A24B1A17C009B089A /* Roboto-LightItalic.ttf */,
 				0EB0CF6824B1A17C009B089A /* Roboto-Medium.ttf */,
 				0EB0CF6B24B1A17D009B089A /* Roboto-MediumItalic.ttf */,
@@ -217,6 +233,18 @@
 				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
 			);
 			path = GraphCell;
+			sourceTree = "<group>";
+		};
+		3332406524B651F300C3B59C /* GraphDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				3332406624B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift */,
+				3332406824B6530500C3B59C /* IvDetailWeekGraphTVCell.swift */,
+				3332406A24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift */,
+				3332406C24B6550C00C3B59C /* IvEditTVCell.swift */,
+				3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */,
+			);
+			path = GraphDetailCell;
 			sourceTree = "<group>";
 		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
@@ -258,9 +286,9 @@
 		D48417AA24AC55EB0064EE64 /* inventorybox_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D48417B924AC55EC0064EE64 /* Info.plist */,
 				D48417BF24AC56460064EE64 /* Resources */,
 				D48417C224AC56840064EE64 /* Sources */,
-				D48417B924AC55EC0064EE64 /* Info.plist */,
 			);
 			path = inventorybox_iOS;
 			sourceTree = "<group>";
@@ -315,6 +343,7 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				3332405D24B5B17800C3B59C /* IvGraphNC.swift */,
 				D47E6CC224B509EC002ADA76 /* AddCategoryPopupVC.swift */,
 				D4E7A41124B4F656001C015A /* DatePickerPopupVC.swift */,
 				D4E7A40324B4EA5F001C015A /* IvRecordAddProductVC.swift */,
@@ -327,6 +356,7 @@
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
 				3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */,
 				0E66A4C424B4860600E76683 /* HomeSideMenuVC.swift */,
+				3332405F24B5C6E000C3B59C /* IvDetailGraphVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -334,6 +364,7 @@
 		D48417C424AC568E0064EE64 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3332406524B651F300C3B59C /* GraphDetailCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
 				D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */,
 				D4260EFB24B17AB500CAA41B /* HeaderCell.swift */,
@@ -353,6 +384,7 @@
 				D4E7A3F124B45070001C015A /* InventoryData.swift */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
 				D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */,
+				3332407224B6609000C3B59C /* WeekInformation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,14 +536,17 @@
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
 				D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */,
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
+				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,
 				D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
 				D47E6CC324B509EC002ADA76 /* AddCategoryPopupVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
+				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40424B4EA5F001C015A /* IvRecordAddProductVC.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
+				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
@@ -520,6 +555,7 @@
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
+				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
 				0EB0CF9424B383A2009B089A /* RightCVCell.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
@@ -527,8 +563,10 @@
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
+				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
@@ -536,6 +574,8 @@
 				D4417A9A24B350E4003E72EC /* IvRecordCategoryEditVC.swift in Sources */,
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
 				D4E7A41224B4F656001C015A /* DatePickerPopupVC.swift in Sources */,
+				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,
+				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
