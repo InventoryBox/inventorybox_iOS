@@ -284,6 +284,10 @@ extension IvRecordVC: UITableViewDelegate {
 //MARK: - TagCollectionView
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        // 한개만 선택되게 만드는 코드
+        
+        
+        // selection 배열 내에 한개씩만 선택되게 만들기
         var check = 0
         for i in 0..<selections.count {
             if selections[i] == tagText {
