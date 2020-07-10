@@ -281,6 +281,7 @@ extension IvRecordVC: UITableViewDelegate {
     }
 }
 
+
 //MARK: - TagCollectionView
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
@@ -311,6 +312,7 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
                 inventoryTableView.reloadData()
             }
         }
+        
         if !allCategoryCheck {
             inventoryFiltered = []
             for i in 0..<selections.count {
@@ -324,5 +326,6 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
             }
             inventoryTableView.reloadData()
         }
+        
     }
 }
