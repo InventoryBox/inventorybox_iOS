@@ -132,7 +132,7 @@
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
-		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
+		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
 		D46A015C24B6CC3C0055814E /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inventorybox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
