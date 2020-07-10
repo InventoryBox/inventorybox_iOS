@@ -7,190 +7,178 @@
 //
 
 import UIKit
-import SSCustomSideMenu
+import BEMCheckBox
+ import SideMenu
 
 class HomeVC: UIViewController {
-    
-    @IBOutlet weak var ScrollView: UIScrollView!
-    @IBOutlet weak var leftcollectionview: UICollectionView!    // 왼쪽 coolection
-    @IBOutlet weak var rightcollectionview: UICollectionView!   // 오른쪽 collection
-    @IBOutlet weak var tableview: UITableView!  // table
-    @IBOutlet weak var checkUIVew: UIView!      // View
-    
-    // collection에 연결할 더미 데이터
-    private var checklistInformations : [orderCheckCVCInfo] = [ ]
-    
+  
     // table에 연결할 더미 데이터
     private var orderCheckInformations : [orderCheckTVCInfo] = [ ]
-
+    private var height: CGFloat?
+    
+    @IBOutlet weak var tableview: UITableView! // 전체 TableView
+  
     // MARK: override 부분
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 맨 위 발주확인 view를 숨겨 두겠다
-        self.checkUIVew.isHidden = true
-        
-        // collection관련 데이터
-        setchecklistInformations()
+        NotificationCenter.default.addObserver(self, selector: #selector(setStockHeight), name: .init("notifyHeight"), object: nil)
+
         // table관련 데이터
         setorderCheckInformations()
-        // header Xib 받아오기
-            
-        // Scroll
-        ScrollView.delegate = self
-        ScrollView.contentInsetAdjustmentBehavior = .never
+        
         // table
         tableview.dataSource = self
         tableview.delegate = self
-        // collection
-        leftcollectionview.dataSource = self
-        rightcollectionview.dataSource = self
-        leftcollectionview.delegate = self
-        rightcollectionview.delegate = self
-    }
-
-
-    
-    
-    
-    // MARK: CollectionView 관련 더미데이터
-    private func setchecklistInformations() {
         
-        let data1 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "우유")
-        let data2 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "녹차 파우더")
-        let data3 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "딸기")
-        let data4 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "원두")
-        let data5 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "허니 시럽")
-        let data6 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "모카 파우더")
-        // FriendsInformation = FriendsInformation
-        
-        checklistInformations = [data1, data2, data3, data4, data5, data6]
+        // tableView 안눌리게
+        tableview.allowsSelection = false
+        tableview.separatorStyle = .none
+        tableview.contentInsetAdjustmentBehavior = .never
+        setUpSlideMenu()
     }
-      
     
+    @objc func setStockHeight(_ notification: NSNotification) {
+        
+        guard let height = notification.userInfo?["cvheight"] as? CGFloat else { return }
+        
+        self.height = height
+        
+        print(height)
+        
+        tableview.reloadData()
+    }
+    
+    // @@@@@@@@@@@
+    func setUpSlideMenu() {
+        // 1. Side Menu ViewController 만들기
+        
+        let sideMenu = HamburgerBarVC(nibName: "HamburgerBarVC", bundle: nil)
+        
+        // 2. UISideMenuNavigationController 생성시키기.
+        let sideNavigation = SideMenuNavigationController(rootViewController: sideMenu)
+        // 3. 셋팅하기.
+        SideMenuManager.default.rightMenuNavigationController = sideNavigation
+        
+        // 3-1. 열리는 방식 셋팅 (내가 필요한 순서)
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        
+        SideMenuManager.default.menuFadeStatusBar = false
+        
+        SideMenuManager.default.menuAnimationFadeStrength = 0.3 // (뒤에 보이는 정도 흐르기)
+        
+        // 4. 스와이프 열고 닫기 켜기
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.view)
+    }
+    
+    
+    @IBAction func hamburgerbarpress(_ sender: Any) {
+        
+        present(SideMenuManager.default.rightMenuNavigationController!, animated: true , completion:  nil)
+        
+    }
+// @@@@@@@@@@@
     
     // MARK: TableView 관련 더미데이터
     private func setorderCheckInformations() {
-
+        
         let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: "9999", productset: "덩어리")
         let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: "1", productset: "팩")
         let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: "555", productset: "개")
         let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: "42", productset: "팩")
         let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: "5", productset: "병")
         let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: "12", productset: "팩")
-        // FriendsInformation = FriendsInformation
-
-            orderCheckInformations = [data1, data2, data3, data4, data5, data6]
+        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: "12", productset: "팩")
+        
+        orderCheckInformations = [data1, data2, data3, data4,data5,data6,data7]
     }
-    
-    // 스크롤 밑으로 내렸을 떄 위에 bar 내려오기
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let yPosition = scrollView.contentOffset.y
-        
-        if yPosition > 666 {
-            self.checkUIVew.isHidden = false
-        }else{
-            self.checkUIVew.isHidden = true
-        }
-    }
-}
-
-// MARK: LeftCollectionView DataSource 관련 코드
-extension HomeVC: UICollectionViewDataSource{
-    // section 뱔 row의 개수
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return checklistInformations.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-// 여기서 if문을 돌려 왼쪽일 때
-        if collectionView == self.leftcollectionview{
-        guard let LeftCells = collectionView.dequeueReusableCell(withReuseIdentifier: LeftCVCell.identifier, for: indexPath) as? LeftCVCell else { return UICollectionViewCell()}
-        
-        LeftCells.set(checkimg: checklistInformations[indexPath.row].checkImage, productlist: checklistInformations[indexPath.row].productName)
-            
-            return LeftCells
-        }else{
-            guard let RightCells = collectionView.dequeueReusableCell(withReuseIdentifier: RightCVCell.identifier, for: indexPath) as? RightCVCell else { return UICollectionViewCell()}
-        
-        RightCells.set(checkimg: checklistInformations[indexPath.row].checkImage, productlist: checklistInformations[indexPath.row].productName)
-        
-        return RightCells
-        }
-// @@@@@@@@@@@@@@@@@@@@@@@@
-    }
-}
-// MARK: LeftCollectionView Delegate 관련 코드
-extension HomeVC: UICollectionViewDelegate{
-    
 }
 
 
 // MARK: UITableViewDataSource 관련 코드
 extension HomeVC: UITableViewDataSource{
-    // 테이블에 표시할 데이터 수
+    
+    // section 개수를 정의해주는 함수
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderCheckInformations.count
+//         각 section에 맞게
+        if section == 0{
+            return 2
+        }else{
+            print(orderCheckInformations)
+            return orderCheckInformations.count
+        }
     }
     
-    // cell 에 값 넣기!!
+    
+// MARK: UITableViewDelegate 관련 코드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let Cells = tableView.dequeueReusableCell(withIdentifier: HomeTVCell.identifier, for:
-        indexPath) as? HomeTVCell else { return UITableViewCell()}
         
-        Cells.SetProductImformation(productImage: orderCheckInformations[indexPath.row].productImage, productNameTx: orderCheckInformations[indexPath.row].productName, productCountTx: orderCheckInformations[indexPath.row].productCount, productSetTx: orderCheckInformations[indexPath.row].productSet)
+        // section == 0 위에꺼
+        if indexPath.section == 0{
 
-        
-        return Cells
+            if indexPath.row == 0{
+                 // header1
+                guard let headerCell1 = tableView.dequeueReusableCell(withIdentifier: "HomeHeader1TVCell", for: indexPath) as? HomeHeader1TVCell else { return UITableViewCell() }
+
+                return headerCell1
+
+            }else{
+                // tableviewcell2 -> collectionviewcell
+                guard let Cell1s = tableView.dequeueReusableCell(withIdentifier: "Home1TVCell", for: indexPath) as? Home1TVCell else { return UITableViewCell() }
+                
+                return Cell1s
+            }
+            
+        }else{
+            //             section == 1 밑에꺼
+            guard let Cell2s = tableView.dequeueReusableCell(withIdentifier: "Home2TVCell", for: indexPath) as? Home2TVCell else { return UITableViewCell() }
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].productImage, productNameTx: orderCheckInformations[indexPath.row].productName, productCountTx: orderCheckInformations[indexPath.row].productCount, productSetTx: orderCheckInformations[indexPath.row].productSet)
+            
+            return Cell2s
+            
+        }
     }
     
-    // Header 집어넣기 위해 View만들기 ~
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 46))
-        headerView.backgroundColor = UIColor.white
 
-        // 제목
-        let label = UILabel()
-        label.frame = CGRect.init(x: 155, y: 13, width: 64, height: 20.5)
-        label.text = "발주 확인"
-        label.textColor = UIColor.black
-//        label.font = UIFont().futuraPTMediumFont(16) // my custom font
-//        label.textColor = UIColor.charcolBlackColour() // my custom colour
-//
-
-        // Button
-        let button = UIButton(frame: CGRect.init(x: 0, y: 0, width: 42, height: 27))
-        
-        button.center = CGPoint(x: button.center.x, y: button.center.y)
-        button.setTitle("메모수정", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-
-       
-        headerView.addSubview(label)
-        headerView.addSubview(button)
-
-        return headerView
+            if section == 1 {
+                guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HomeHeader2TVCell") as? HomeHeader2TVCell else { return UICollectionViewCell() }
+                return headerCell
+            } else { return nil }
     }
 }
 
 
-// MARK: UITableViewDelegate 관련 코드
 extension HomeVC: UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
+        if indexPath.section == 0{
+            if indexPath.row == 0 {
+                return 44
+            }
+            else {
+                // collection view height에 맞게 변화
+                guard let height = self.height else { return 0 }
+                print("ㄴㄴㄴ\(height)")
+                
+                return UITableView.automaticDimension
+            }
+            
+        }else{
+            // tableview 높이
+                return 94
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 46
+        if section == 1 { return 44 }
+        else { return 0 }
     }
-    
-    // tableView 선택 안되게 하기!
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        tableView.deselectRow(at: indexPath, animated: false)
-//    }
-//
-    
 }
+
+
+

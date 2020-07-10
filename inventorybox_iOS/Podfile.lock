@@ -8,6 +8,7 @@ PODS:
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
   - lottie-ios (3.1.8)
+  - SideMenu (6.4.8)
   - SSCustomSideMenu (0.1.1)
   - TTGTagCollectionView (1.11.1)
 
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - Charts (~> 3.5.0)
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
+  - SideMenu
   - SSCustomSideMenu
   - TTGTagCollectionView (~> 1.11.1)
 
@@ -27,6 +29,7 @@ SPEC REPOS:
     - Charts
     - Kingfisher
     - lottie-ios
+    - SideMenu
     - SSCustomSideMenu
     - TTGTagCollectionView
 
@@ -36,9 +39,10 @@ SPEC CHECKSUMS:
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SSCustomSideMenu: 71b9681927ef69094199002b8859830b4f12d787
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 0cd1e4a73981a338e04aff60373be868fb6ac976
+PODFILE CHECKSUM: e18596aa5439819eb3e0fbe6fd9e05306eae26d2
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

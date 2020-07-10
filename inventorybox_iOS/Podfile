@@ -13,4 +13,5 @@ target 'inventorybox_iOS' do
   pod "TTGTagCollectionView", '~> 1.11.1'
   pod 'BEMCheckBox'
   pod 'SSCustomSideMenu'
+  pod 'SideMenu'
 end

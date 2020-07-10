@@ -10,7 +10,13 @@
 		0E66A4C524B4860600E76683 /* HomeSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E66A4C424B4860600E76683 /* HomeSideMenuVC.swift */; };
 		0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF3024B0FC09009B089A /* HomeVC.swift */; };
 		0EB0CF4124B199F0009B089A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF4024B199F0009B089A /* Font.swift */; };
-		0EB0CF9424B383A2009B089A /* RightCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF9324B383A2009B089A /* RightCVCell.swift */; };
+		0EDCB72124B8C97A000A0588 /* HamburgerBarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EDCB71A24B8C97A000A0588 /* HamburgerBarVC.xib */; };
+		0EDCB72224B8C97A000A0588 /* HomeHeader2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB71B24B8C97A000A0588 /* HomeHeader2TVCell.swift */; };
+		0EDCB72324B8C97A000A0588 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB71C24B8C97A000A0588 /* Home2TVCell.swift */; };
+		0EDCB72424B8C97A000A0588 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB71D24B8C97A000A0588 /* Home1CVCell.swift */; };
+		0EDCB72524B8C97A000A0588 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB71E24B8C97A000A0588 /* Home1TVCell.swift */; };
+		0EDCB72624B8C97A000A0588 /* HamburgerBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB71F24B8C97A000A0588 /* HamburgerBarVC.swift */; };
+		0EDCB72724B8C97A000A0588 /* HomeHeader1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDCB72024B8C97A000A0588 /* HomeHeader1TVCell.swift */; };
 		3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */; };
 		3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */; };
 		3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402724B4A6D800C3B59C /* CalendarCVCell.swift */; };
@@ -42,8 +48,6 @@
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4E7A3F224B45070001C015A /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A3F124B45070001C015A /* InventoryData.swift */; };
 		D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* HeaderCell.swift */; };
-		D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8D24B35547009B089A /* HomeTVCell.swift */; };
-		D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF9124B38380009B089A /* LeftCVCell.swift */; };
 		D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8B24B32647009B089A /* Homes.storyboard */; };
 		D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */; };
 		D4E7A40424B4EA5F001C015A /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A40324B4EA5F001C015A /* IvRecordAddProductVC.swift */; };
@@ -80,9 +84,13 @@
 		0EB0CF7C24B2CF25009B089A /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareR.ttf; path = ../../../../../../../../Downloads/NanumSquareB/NanumSquareR.ttf; sourceTree = "<group>"; };
 		0EB0CF8124B2D003009B089A /* 12롯데마트행복Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "12롯데마트행복Medium.ttf"; path = "../../../../../../../../Downloads/12롯데마트행복Medium.ttf"; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
-		0EB0CF8D24B35547009B089A /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
-		0EB0CF9124B38380009B089A /* LeftCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCVCell.swift; sourceTree = "<group>"; };
-		0EB0CF9324B383A2009B089A /* RightCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCVCell.swift; sourceTree = "<group>"; };
+		0EDCB71A24B8C97A000A0588 /* HamburgerBarVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerBarVC.xib; sourceTree = "<group>"; };
+		0EDCB71B24B8C97A000A0588 /* HomeHeader2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeader2TVCell.swift; sourceTree = "<group>"; };
+		0EDCB71C24B8C97A000A0588 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
+		0EDCB71D24B8C97A000A0588 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
+		0EDCB71E24B8C97A000A0588 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
+		0EDCB71F24B8C97A000A0588 /* HamburgerBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerBarVC.swift; sourceTree = "<group>"; };
+		0EDCB72024B8C97A000A0588 /* HomeHeader1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeader1TVCell.swift; sourceTree = "<group>"; };
 		259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvGraphTVCell.swift; sourceTree = "<group>"; };
 		3332402524B4A6D800C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
@@ -202,9 +210,13 @@
 		0EB0CF7824B1D40F009B089A /* HomeCell */ = {
 			isa = PBXGroup;
 			children = (
-				0EB0CF8D24B35547009B089A /* HomeTVCell.swift */,
-				0EB0CF9124B38380009B089A /* LeftCVCell.swift */,
-				0EB0CF9324B383A2009B089A /* RightCVCell.swift */,
+				0EDCB71F24B8C97A000A0588 /* HamburgerBarVC.swift */,
+				0EDCB71A24B8C97A000A0588 /* HamburgerBarVC.xib */,
+				0EDCB71D24B8C97A000A0588 /* Home1CVCell.swift */,
+				0EDCB71E24B8C97A000A0588 /* Home1TVCell.swift */,
+				0EDCB71C24B8C97A000A0588 /* Home2TVCell.swift */,
+				0EDCB72024B8C97A000A0588 /* HomeHeader1TVCell.swift */,
+				0EDCB71B24B8C97A000A0588 /* HomeHeader2TVCell.swift */,
 			);
 			path = HomeCell;
 			sourceTree = "<group>";
@@ -442,6 +454,7 @@
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
+				0EDCB72124B8C97A000A0588 /* HamburgerBarVC.xib in Resources */,
 				D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */,
 				33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */,
 				D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */,
@@ -504,8 +517,6 @@
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
 				D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */,
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
-				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,
-				D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
 				D47E6CC324B509EC002ADA76 /* AddCategoryPopupVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
@@ -513,14 +524,15 @@
 				D4E7A40424B4EA5F001C015A /* IvRecordAddProductVC.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryData.swift in Sources */,
+				0EDCB72224B8C97A000A0588 /* HomeHeader2TVCell.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
 				0E66A4C524B4860600E76683 /* HomeSideMenuVC.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
+				0EDCB72424B8C97A000A0588 /* Home1CVCell.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
-				0EB0CF9424B383A2009B089A /* RightCVCell.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
@@ -534,7 +546,11 @@
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,
 				D4417A9A24B350E4003E72EC /* IvRecordCategoryEditVC.swift in Sources */,
+				0EDCB72624B8C97A000A0588 /* HamburgerBarVC.swift in Sources */,
+				0EDCB72524B8C97A000A0588 /* Home1TVCell.swift in Sources */,
+				0EDCB72724B8C97A000A0588 /* HomeHeader1TVCell.swift in Sources */,
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
+				0EDCB72324B8C97A000A0588 /* Home2TVCell.swift in Sources */,
 				D4E7A41224B4F656001C015A /* DatePickerPopupVC.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
 			);
