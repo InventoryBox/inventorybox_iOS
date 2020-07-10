@@ -36,22 +36,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4K-vm-ADJ">
-                                                <rect key="frame" x="328" y="0.0" width="44" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Iel-Be-s75"/>
-                                                    <constraint firstAttribute="width" constant="44" id="uPw-e9-pe0"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="lastrecordingBtnEdit"/>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="Fbl-hX-3x6"/>
-                                            <constraint firstAttribute="trailing" secondItem="L4K-vm-ADJ" secondAttribute="trailing" constant="3" id="SiV-06-9bL"/>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="V1r-up-zHY"/>
-                                            <constraint firstAttribute="bottom" secondItem="L4K-vm-ADJ" secondAttribute="bottom" id="XaS-3C-tWT"/>
-                                            <constraint firstItem="L4K-vm-ADJ" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" id="d6M-Nf-F14"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="fhc-3b-uLB"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="jVW-Tb-BKi"/>
                                             <constraint firstAttribute="height" constant="44" id="rgl-XB-68Z"/>
@@ -215,7 +204,6 @@
     </scenes>
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="lastrecordingBtnEdit" width="44" height="44"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
     </resources>

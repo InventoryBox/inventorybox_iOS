@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol FilledTextFieldDelegate {
+    func isTextFieldFilled(count: String, isTyped: Bool,indexPath: IndexPath)
+}
+
 class InventoryTodayRecordCell: UITableViewCell {
     static let identifier: String = "InventoryTodayRecordCell"
+    
+    var delegate: FilledTextFieldDelegate?
+    var indexPath: IndexPath?
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var inventoryView: UIView!
@@ -26,13 +33,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         setTextFieldCustommed()
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
     private func setTextFieldCustommed() {
         
         inventoryCountTextField.layer.cornerRadius = 9
@@ -82,15 +83,28 @@ class InventoryTodayRecordCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, inventoryCount: String?) {
         
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
+        if let count = inventoryCount {
+            inventoryCountTextField.text = count
+        }
+        
+        
         
     }
     
 }
 
 extension InventoryTodayRecordCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if inventoryCountTextField.text == "" {
+            delegate?.isTextFieldFilled(count: "", isTyped: false, indexPath: indexPath!)
+        } else {
+            guard let text = textField.text else { return }
+            delegate?.isTextFieldFilled(count: text, isTyped: true, indexPath: indexPath!)
+        }
+    }
     
 }

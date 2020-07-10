@@ -61,6 +61,7 @@
 		D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */; };
 		D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */; };
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
+		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4DFE3B924B62A8C00D8795E /* InventoryEditInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
@@ -160,6 +161,7 @@
 		D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIconVC.swift; sourceTree = "<group>"; };
 		D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvTodayRecord.storyboard; sourceTree = "<group>"; };
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
+		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditInformation.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -407,8 +409,7 @@
 				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
 				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
 				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
-				D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */,
-				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
+				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
 				D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */,
 				3332407224B6609000C3B59C /* WeekInformation.swift */,
@@ -438,6 +439,16 @@
 				D4B45F4924B56B9400888DC3 /* CategoryTag.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		D4BE8D3124B8E7D900AFB1B8 /* IvRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */,
+				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
+				D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */,
+			);
+			path = IvRecord;
 			sourceTree = "<group>";
 		};
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
@@ -651,6 +662,7 @@
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
+				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,

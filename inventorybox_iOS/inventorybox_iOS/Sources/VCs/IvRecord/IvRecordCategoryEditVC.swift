@@ -202,24 +202,7 @@ extension IvRecordCategoryEditVC: UITableViewDelegate {
             
         }
     }
-    //    var rowsWhichAreChecked = [NSIndexPath]()
-    //
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        let cell: InventoryCategoryEditCell = tableView.cellForRow(at: indexPath) as! InventoryCategoryEditCell
-    //
-    //        if rowsWhichAreChecked.contains(indexPath as NSIndexPath) == false {
-    //            cell.selectedCheckBox.on = true
-    //            rowsWhichAreChecked.append(indexPath as NSIndexPath)
-    //        }
-    //        else{
-    //           cell.selectedCheckBox.on = false
-    //           // remove the indexPath from rowsWhichAreCheckedArray
-    //           if let checkedItemIndex = rowsWhichAreChecked.indexOf(indexPath){
-    //              rowsWhichAreChecked.removeAtIndex(checkedItemIndex)
-    //           }
-    //        }
     
-    //    }
 }
 //MARK: - categoryCell
 extension IvRecordCategoryEditVC: TTGTextTagCollectionViewDelegate {

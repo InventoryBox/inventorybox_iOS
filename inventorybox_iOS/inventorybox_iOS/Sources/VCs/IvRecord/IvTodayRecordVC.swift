@@ -20,6 +20,22 @@ class IvTodayRecordVC: UIViewController {
     @IBOutlet weak var inventoryTodayRecordTableView: UITableView!
     @IBOutlet weak var completeBtn: UIButton!
     
+    var textFieldBox: [IndexPath] = []
+    
+    let inventoryTodayArray: [InventoryTodayInformation] = {
+        let data1 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data2 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data3 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data4 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data5 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data6 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data7 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data8 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        let data9 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
+        
+        return [data1, data2, data3, data4, data5, data6, data7, data8, data9]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,16 +99,15 @@ extension IvTodayRecordVC: TTGTextTagCollectionViewDelegate {
 }
 
 //MARK: - InventoryEditTableView
-
 extension IvTodayRecordVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return InventoryInformation.inventoryArray.count
+        return inventoryTodayArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             
-            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as? HeaderCell else { return UITableViewCell() }
             
             return headerCell
             
@@ -100,7 +115,11 @@ extension IvTodayRecordVC: UITableViewDataSource {
             
             guard let inventoryTodayRecordCell = tableView.dequeueReusableCell(withIdentifier: InventoryTodayRecordCell.identifier, for: indexPath) as? InventoryTodayRecordCell else { return UITableViewCell() }
             
-            inventoryTodayRecordCell.setInventoryData(InventoryInformation.inventoryArray[indexPath.row - 1].inventoryImageName, InventoryInformation.inventoryArray[indexPath.row - 1].inventoryName)
+            inventoryTodayRecordCell.indexPath = indexPath
+            inventoryTodayRecordCell.delegate = self
+
+            
+            inventoryTodayRecordCell.setInventoryData(inventoryTodayArray[indexPath.row - 1].inventoryImageName, inventoryTodayArray[indexPath.row - 1].inventoryName, inventoryCount: inventoryTodayArray[indexPath.row - 1].inventoryCount )
             
             return inventoryTodayRecordCell
             
@@ -122,3 +141,28 @@ extension IvTodayRecordVC: UITableViewDelegate {
         
     }
 }
+
+//MARK: - FilledTextFieldDelegate
+
+extension IvTodayRecordVC: FilledTextFieldDelegate {
+    func isTextFieldFilled(count: String,  isTyped: Bool, indexPath: IndexPath) {
+        if self.textFieldBox.contains(indexPath) {
+            if !isTyped {
+                guard let i = self.textFieldBox.firstIndex(of: indexPath) else { return }
+                self.textFieldBox.remove(at: i)
+            }
+        } else {
+            if isTyped {
+                textFieldBox.append(indexPath)
+            }
+            
+        }
+        
+        if inventoryTodayArray.count == textFieldBox.count {
+            completeBtn.backgroundColor = UIColor.yellow
+            completeBtn.tintColor = UIColor.white
+            completeBtn.isEnabled = true
+        }
+    }
+}
+
