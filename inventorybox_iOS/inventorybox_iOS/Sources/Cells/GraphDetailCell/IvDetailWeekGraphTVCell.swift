@@ -1,51 +1,57 @@
 //
-//  IvGraphTVCell.swift
+//  IvDetailWeekGraphTVCell.swift
 //  inventorybox_iOS
 //
-//  Created by 황지은 on 2020/07/07.
+//  Created by 황지은 on 2020/07/09.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
-    
+class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
+
+    @IBOutlet var weekInfoLabel: UILabel!
+    @IBOutlet var firstMonthLabel: UILabel!
+    @IBOutlet var firstDayLabel: UILabel!
+    @IBOutlet var secondMonthLabel: UILabel!
+    @IBOutlet var secondDayLabel: UILabel!
     @IBOutlet var ivChartView: BarChartView!
-    @IBOutlet var itemImg: UIImageView!
-    @IBOutlet var itemAlarmCountLabel: UILabel!
-    @IBOutlet var itemNameLabel: UILabel!
     @IBOutlet var roundView: UIView!
     
+
     var months = ["일","월","화","수","목","금","토"]
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         ivChartView.delegate = self
+        roundView.layer.shadowOpacity = 0.1
         roundView.layer.cornerRadius = 9
         roundView.layer.shadowRadius = 9
-        roundView.layer.shadowOpacity = 0.1
         roundView.layer.shadowOffset = CGSize(width: 0, height: 0)
         
     }
-    
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
     
     
-    func setIvGraphTV(itemImage:String,itemName:String,itemCount:Double,dataPoints: [String],values: [Double]){
+    func setIvGraphTV(weekLabel:String,firstMonth:String,firstDay:String,secondMonth:String,secondDay:String,itemAlarmCount:Double,dataPoints: [String],values: [Double]){
         
         
         var dataEntries : [BarChartDataEntry] = []
         
-        itemNameLabel.text = itemName
-        itemImg.image = UIImage(named:itemImage)
-        itemAlarmCountLabel.text = "\(Int(itemCount))"
+        weekInfoLabel.text = weekLabel
+        firstMonthLabel.text = firstMonth
+        firstDayLabel.text = firstDay
+        secondMonthLabel.text = secondMonth
+        secondDayLabel.text = secondDay
+
       
         //dataPoint.count (배열의 값만큼 막대가 생긴다)
         for i in 0..<dataPoints.count {
@@ -85,15 +91,15 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.legend.enabled = false
         
         chartData.barWidth = 0.2
-        
-        let ll = ChartLimitLine(limit: itemCount, label: "")
-        ivChartView.rightAxis.addLimitLine(ll)
-        ll.lineWidth = 0.3
       
     }
     
     
-  
+    func limitDraw(limitCount:Double){
+        let ll = ChartLimitLine(limit: limitCount, label: "")
+        ivChartView.rightAxis.addLimitLine(ll)
+        ll.lineWidth = 0.3
+    }
     
     
     func setColor(value: Double) -> UIColor {
@@ -102,7 +108,11 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         }
         
         return UIColor(white: 206.0 / 255.0, alpha: 1.0)
-   }
+        
+        
+    }
     
     
+
+
 }

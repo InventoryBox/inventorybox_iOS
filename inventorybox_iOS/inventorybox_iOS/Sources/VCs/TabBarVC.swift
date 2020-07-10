@@ -44,8 +44,8 @@ class TabBarVC: UITabBarController {
         
         //3
         let IvGraph = UIStoryboard.init(name: "IvGraph", bundle: nil)
-        guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphVC")
-            as? IvGraphVC  else {
+        guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphNC")
+            as? IvGraphNC  else {
                 return
         }
         thirdTab.tabBarItem.title = "재고량 추이"
