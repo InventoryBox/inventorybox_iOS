@@ -65,7 +65,7 @@ class IvRecordCategoryEditVC: UIViewController {
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
         NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
-        
+         
     }
     
     func animatePopupBackground(_ direction: Bool) {
@@ -263,6 +263,8 @@ extension IvRecordCategoryEditVC: TTGTextTagCollectionViewDelegate {
     }
 }
 
+//MARK: - CellButtonDelegate
+
 extension IvRecordCategoryEditVC: CellButtonDelegate {
     func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: IndexPath) {
         print("allTap")
@@ -289,13 +291,13 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
     }
     
     func didClickCheckButton(isClicked: Bool, indexPath: IndexPath) {
+        
         inventoryFilteredArray[indexPath.row].isSelected = isClicked
         
         if self.checkboxSelections.contains(indexPath) {
             guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
             self.checkboxSelections.remove(at: i)
         } else {
-            
             checkboxSelections.append(indexPath)
         }
         
