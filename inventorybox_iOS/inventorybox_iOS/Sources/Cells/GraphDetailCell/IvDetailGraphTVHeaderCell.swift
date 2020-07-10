@@ -25,15 +25,15 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
     }
     
     func setWeek(){
-        var week:[String] = ["첫째주","둘째주","셋째주","넷째주","다섯째주","여섯째주"]
+       // var week:[String] = ["첫째주","둘째주","셋째주","넷째주","다섯째주","여섯째주"]
         
-        let case1 = WeekInformation(btnText:"첫째주")
-        let case2 = WeekInformation(btnText:"둘째주")
-        let case3 = WeekInformation(btnText:"셋째주")
-        let case4 = WeekInformation(btnText:"넷째주")
-        let case5 = WeekInformation(btnText:"다섯째주")
-        let case6 = WeekInformation(btnText:"여섯째주")
-        let case7 = WeekInformation(btnText:"일곱째주")
+        let case1 = WeekInformation(btnText:"1주차")
+        let case2 = WeekInformation(btnText:"2주차")
+        let case3 = WeekInformation(btnText:"3주차")
+        let case4 = WeekInformation(btnText:"4주차")
+        let case5 = WeekInformation(btnText:"5주차")
+        let case6 = WeekInformation(btnText:"6주차")
+        let case7 = WeekInformation(btnText:"7주차")
         
         weekArray = [case1,case2,case3,case4,case5,case6,
                      case7]
@@ -50,12 +50,11 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekInThisMonthCVCell", for: indexPath) as! WeekInThisMonthCVCell
         
-        cell.weekBtn.titleLabel?.text = weekArray[indexPath.row].btnText
-        
-        
+        cell.setWeekInfo(monthOfWeek: weekArray[indexPath.row].btnText!)
+     
+        print(weekArray)
         return cell
 
-    
     }
     
 

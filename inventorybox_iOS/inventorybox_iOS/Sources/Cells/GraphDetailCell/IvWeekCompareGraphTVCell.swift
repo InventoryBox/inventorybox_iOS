@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Charts
 
 class IvWeekCompareGraphTVCell: UITableViewCell {
 
+    @IBOutlet var yearTextField: UITextField!
+    @IBOutlet var monthTextField: UITextField!
+    @IBOutlet var weekTextField: UITextField!
+    @IBOutlet var secondYearTextField: UITextField!
+    @IBOutlet var secondMonthTextField: UITextField!
+    @IBOutlet var secondWeekTextField: UITextField!
+    @IBOutlet var compareChartView: BarChartView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +30,6 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func compareBtn(_ sender: UIButton) {
+    }
 }

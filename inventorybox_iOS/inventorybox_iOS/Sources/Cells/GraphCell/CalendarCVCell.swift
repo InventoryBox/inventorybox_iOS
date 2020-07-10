@@ -20,22 +20,18 @@ class CalendarCVCell: UICollectionViewCell {
           dayOfWeekLabel.text = dayOfWeek
           dayLabel.text = day
          
-        
         if (isToday == true){
             selectImg.image = UIImage(named: "dataShapeDateYellow")
             print("dataShapeDateYellow")
             dayOfWeekLabel.textColor = .white
             dayLabel.textColor = .white
         }
-        
         else{
            selectImg.image = UIImage(named: "dataShapeDateWhite")
             print("dataShapeDateWhite")
             dayOfWeekLabel.textColor = .noname
             dayLabel.textColor = .charcoal
         }
-        
-        
     }
       
 }

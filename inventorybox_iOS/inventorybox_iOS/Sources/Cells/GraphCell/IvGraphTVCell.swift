@@ -85,15 +85,15 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.legend.enabled = false
         
         chartData.barWidth = 0.2
+        
+        let ll = ChartLimitLine(limit: itemCount, label: "")
+        ivChartView.rightAxis.addLimitLine(ll)
+        ll.lineWidth = 0.3
       
     }
     
     
-    func limitDraw(limitCount:Double){
-        let ll = ChartLimitLine(limit: limitCount, label: "")
-        ivChartView.rightAxis.addLimitLine(ll)
-        ll.lineWidth = 0.3
-    }
+  
     
     
     func setColor(value: Double) -> UIColor {
@@ -102,9 +102,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         }
         
         return UIColor(white: 206.0 / 255.0, alpha: 1.0)
-        
-        
-    }
+   }
     
     
 }
