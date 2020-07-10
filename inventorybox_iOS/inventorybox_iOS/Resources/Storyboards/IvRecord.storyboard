@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareR.ttf">
+            <string>NanumSquareR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Iv RecordVC-->
         <scene sceneID="zaS-3V-nbX">
@@ -44,7 +49,7 @@
                                                     <constraint firstAttribute="width" constant="146" id="6tj-25-jKR"/>
                                                     <constraint firstAttribute="height" constant="20" id="IWD-P6-DVY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -329,7 +334,7 @@
                                     <constraint firstItem="nA6-Js-dWy" firstAttribute="centerX" secondItem="ktg-z8-FKj" secondAttribute="centerX" id="m9u-Va-5ue"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.54000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
+                            <view alpha="0.54000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -358,6 +363,13 @@
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qyS-l2-rBy"/>
+                                <exclude reference="ktg-z8-FKj"/>
+                                <exclude reference="yEl-so-lwF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>

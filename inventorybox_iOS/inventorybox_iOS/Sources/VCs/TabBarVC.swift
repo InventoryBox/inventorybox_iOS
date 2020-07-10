@@ -44,8 +44,8 @@ class TabBarVC: UITabBarController {
         
         //3
         let IvGraph = UIStoryboard.init(name: "IvGraph", bundle: nil)
-        guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphVC")
-            as? IvGraphVC  else {
+        guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphNC")
+            as? IvGraphNC  else {
                 return
         }
         thirdTab.tabBarItem.title = "재고량 추이"
@@ -53,26 +53,17 @@ class TabBarVC: UITabBarController {
         thirdTab.tabBarItem.selectedImage = UIImage(named: "tabbarIcStatusSelected")
         
         // 4
-        //        let FourStoryboard = UIStoryboard.init(name: "Four", bundle: nil)
-        //        guard let fourthTab = FourStoryboard.instantiateViewController(identifier: "FourViewController")
-        //            as? FourViewController  else {
-        //            return
-        //        }
-        //        fourthTab.tabBarItem.title = "Chat"
-        //        fourthTab.tabBarItem.image = UIImage(named: "icTabChat")
-        //        fourthTab.tabBarItem.selectedImage = UIImage(named: "icSelectedChat")
-        //
-        //        // 5
-        //        let MypageStoryboard = UIStoryboard.init(name: "Mypage", bundle: nil)
-        //        guard let mypageTab = MypageStoryboard.instantiateViewController(identifier: "MypageViewController")
-        //            as? MypageViewController  else {
-        //            return
-        //        }
-        //        mypageTab.tabBarItem.title = "Mypage"
-        //        mypageTab.tabBarItem.image = UIImage(named: "icTabMypage")
-        //        mypageTab.tabBarItem.selectedImage = UIImage(named: "icSelectedMypage")
+        let IvExchange = UIStoryboard.init(name: "IvExchange", bundle: nil)
+        guard let fourthTab = IvExchange.instantiateViewController(identifier: "IvExchangeVC")
+            as? IvExchangeVC  else {
+                return
+        }
+        fourthTab.tabBarItem.title = "재고 교환"
+        fourthTab.tabBarItem.image = UIImage(named: "tabbarIcExchangeUnselected")
+        fourthTab.tabBarItem.selectedImage = UIImage(named: "tabbarIcExchangeSelected")
         
-        let tabs =  [firstTab, secondTab, thirdTab]
+        
+        let tabs =  [firstTab, secondTab, thirdTab, fourthTab]
         
         tabBar.layer.shadowOpacity = 0.1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)

@@ -8,7 +8,7 @@
 
 import UIKit
 import BEMCheckBox
- import SideMenu
+import SideMenu
 
 class HomeVC: UIViewController {
   

@@ -98,7 +98,12 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         //tableView 구분선 제거
         ivDataTableView.separatorStyle = .none
+        self.navigationController?.navigationBar.isHidden = true
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     
@@ -152,6 +157,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCVCell
         
         cell.setDayInformation(dayOfWeek: DayList[indexPath.row].currentWeekOfDay, day: DayList[indexPath.row].currentDay!, isToday: DayList[indexPath.row].isToday!)
@@ -209,9 +215,9 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             
-                  cell.setIvGraphTV(itemImage: itemList[indexPath.row - 1].itemImg!, itemName: itemList[indexPath.row - 1].itemName!, itemCount: itemList[indexPath.row - 1].itemAlarmCount!, dataPoints: itemList[indexPath.row - 1].dataPoints!, values: itemList[indexPath.row - 1].values!)
+            cell.setIvGraphTV(itemImage: itemList[indexPath.row - 1].itemImg!, itemName: itemList[indexPath.row - 1].itemName!, itemCount: itemList[indexPath.row - 1].itemAlarmCount!, dataPoints: itemList[indexPath.row - 1].dataPoints!, values: itemList[indexPath.row - 1].values!)
                   
-                  return cell
+            return cell
         }
       
     }
@@ -228,6 +234,15 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             return 142
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
+            "IvDetailGraphVC") as? IvDetailGraphVC else { return }
+      
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
 //    
