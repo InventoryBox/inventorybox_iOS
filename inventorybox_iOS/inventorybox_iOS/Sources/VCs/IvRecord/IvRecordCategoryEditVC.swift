@@ -10,25 +10,45 @@ import UIKit
 import TTGTagCollectionView
 import BEMCheckBox
 class IvRecordCategoryEditVC: UIViewController {
-    
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var categoryEditTableView: UITableView!
     
     @IBOutlet var bottomView: [UIView]!
-    
+
     @IBOutlet weak var popupBackgroundView: UIView!
     
     let categoryCollectionView = TTGTextTagCollectionView()
     private var selections = [String]()
+    private var checkboxSelections = [IndexPath]()
     
+    var inventoryEditArray: [InventoryEditInformation] = {
+        
+        let data1 = InventoryEditInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5", unit: "팩", categoryNum: "액체류",select: false)
+        let data2 = InventoryEditInformation(imageName: "homeIcMilk", ivName: "녹차 파우더", mInventory: "10", unit: "팩",  categoryNum: "액체류", select: false)
+        let data3 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "딸기",  mInventory: "10", unit: "팩",   categoryNum: "과일", select: false)
+        let data4 = InventoryEditInformation(imageName: "homeIcMcpowder", ivName: "모카 파우더",  mInventory: "10", unit: "통",  categoryNum: "파우더류", select: false)
+        let data5 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "사과",  mInventory: "10", unit: "개",  categoryNum: "과일", select: false)
+        let data6 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "수박",  mInventory: "10", unit: "개",  categoryNum: "과일", select: false)
+        let data7 = InventoryEditInformation(imageName: "homeIcMilk", ivName: "우유",  mInventory: "10", unit: "팩",  categoryNum: "액체류", select: false)
+        let data8 = InventoryEditInformation(imageName: "homeIcMilk", ivName: "녹차 파우더",  mInventory: "10", unit: "팩",  categoryNum: "파우더류", select: false)
+        let data9 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "딸기",  mInventory: "10", unit: "팩",  categoryNum: "과일", select: false)
+        let data10 = InventoryEditInformation(imageName: "homeIcMcpowder", ivName: "모카 파우더",  mInventory: "10", unit: "팩",  categoryNum: "액체류", select: false)
+        let data11 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "사과",  mInventory: "10", unit: "개",  categoryNum: "과일", select: false)
+        let data12 = InventoryEditInformation(imageName: "homeIcStrawberry", ivName: "수박",  mInventory: "10", unit: "개",  categoryNum: "과일", select: false)
+        
+        return [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]
+        
+    }()
     
-    private var inventoryFiltered: [InventoryEditInformation] = InventoryEditInformation.inventoryEditArray
-    
+    private var inventoryFilteredArray: [InventoryEditInformation] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        setInventoryFilteredData()
         addCategoryCollectionView()
         setShadowUnderOutView()
         setCategoryEditTableView()
@@ -36,6 +56,9 @@ class IvRecordCategoryEditVC: UIViewController {
         setPopupBackgroundView()
     }
     
+    private func setInventoryFilteredData() {
+        inventoryFilteredArray = inventoryEditArray
+    }
     private func setPopupBackgroundView() {
         
         popupBackgroundView.isHidden = true
@@ -133,20 +156,28 @@ class IvRecordCategoryEditVC: UIViewController {
 extension IvRecordCategoryEditVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inventoryFiltered.count
+        return inventoryFilteredArray.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: SelectHeaderCell.identifier, for: indexPath) as? SelectHeaderCell else { return UITableViewCell() }
+
+            headerCell.delegate = self
+            headerCell.indexPath = indexPath
             
             return headerCell
             
         } else {
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCategoryEditCell.identifier, for: indexPath) as? InventoryCategoryEditCell else { return UITableViewCell() }
             
-            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, isSelected: inventoryFiltered[indexPath.row - 1].isSelected)
+            inventoryCell.delegate = self
+            inventoryCell.indexPath = indexPath
+            inventoryCell.isSelectBtn = self.checkboxSelections.contains(indexPath)
+            
+            inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].inventoryImageName, inventoryFilteredArray[indexPath.row - 1].inventoryName, inventoryFilteredArray[indexPath.row - 1].minimumInventory, checkboxSelected: inventoryFilteredArray[indexPath.row - 1].isSelected)
+            
             
             return inventoryCell
             
@@ -212,22 +243,62 @@ extension IvRecordCategoryEditVC: TTGTextTagCollectionViewDelegate {
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true
-                inventoryFiltered = InventoryEditInformation.inventoryEditArray
+                inventoryFilteredArray = inventoryEditArray
                 categoryEditTableView.reloadData()
             }
         }
         if !allCategoryCheck {
-            inventoryFiltered = []
+            inventoryFilteredArray = []
             for i in 0..<selections.count {
-                let filterred = InventoryEditInformation.inventoryEditArray.filter { (inventory) -> Bool in
+                let filterred = inventoryEditArray.filter { (inventory) -> Bool in
                     return inventory.category == selections[i]
                 }
                 
                 for data in filterred {
-                    inventoryFiltered.append(data)
+                    inventoryFilteredArray.append(data)
                 }
             }
             categoryEditTableView.reloadData()
         }
     }
+}
+
+extension IvRecordCategoryEditVC: CellButtonDelegate {
+    func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: IndexPath) {
+        print("allTap")
+        for i in 0..<inventoryFilteredArray.count {
+            if isClicked {
+                inventoryFilteredArray[i].isSelected = true
+                if self.checkboxSelections.contains(indexPath) {
+                    guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
+                    self.checkboxSelections.remove(at: i)
+                } else {
+                    checkboxSelections.append(indexPath)
+                }
+                
+            } else {
+                inventoryFilteredArray[i].isSelected = false
+                checkboxSelections = []
+            }
+            
+            
+            categoryEditTableView.reloadData()
+            
+        }
+    
+    }
+    
+    func didClickCheckButton(isClicked: Bool, indexPath: IndexPath) {
+        inventoryFilteredArray[indexPath.row].isSelected = isClicked
+        
+        if self.checkboxSelections.contains(indexPath) {
+            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
+            self.checkboxSelections.remove(at: i)
+        } else {
+            
+            checkboxSelections.append(indexPath)
+        }
+        
+    }
+    
 }
