@@ -38,6 +38,7 @@
 		D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A015724B6C93C0055814E /* IvExchange.storyboard */; };
 		D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015924B6C9570055814E /* IvExchangeVC.swift */; };
 		D46A015D24B6CC3C0055814E /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015C24B6CC3C0055814E /* FormTextField.swift */; };
+		D477F05F24B9D915003B7919 /* MoveCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */; };
 		D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AB24AC55EB0064EE64 /* AppDelegate.swift */; };
 		D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */; };
 		D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B124AC55EB0064EE64 /* Main.storyboard */; };
@@ -132,10 +133,11 @@
 		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
-		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
+		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
 		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
 		D46A015C24B6CC3C0055814E /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MoveCategoryCell.swift; sourceTree = "<group>"; };
 		D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inventorybox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48417AB24AC55EB0064EE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
 			isa = PBXGroup;
 			children = (
+				D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */,
 				D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */,
 				D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */,
 				D4A2875D24B8452900A60C08 /* SelectHeaderCell.swift */,
@@ -629,6 +632,7 @@
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
 				D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */,
+				D477F05F24B9D915003B7919 /* MoveCategoryCell.swift in Sources */,
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,

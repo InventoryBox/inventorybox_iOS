@@ -21,6 +21,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1w-Wr-Jgp">
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
+                                                <rect key="frame" x="17.5" y="13" width="8.5" height="18"/>
+                                                <state key="normal" backgroundImage="postBtnBack"/>
+                                                <connections>
+                                                    <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-fK-2iz">
                                                 <rect key="frame" x="119.5" y="12" width="136" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,7 +47,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="Fbl-hX-3x6"/>
+                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" constant="17.5" id="G1k-Je-5yv"/>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="V1r-up-zHY"/>
+                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="centerY" secondItem="C1w-Wr-Jgp" secondAttribute="centerY" id="aA4-rE-GJh"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="fhc-3b-uLB"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="jVW-Tb-BKi"/>
                                             <constraint firstAttribute="height" constant="44" id="rgl-XB-68Z"/>
@@ -73,6 +82,9 @@
                                                         <constraint firstAttribute="height" constant="15" id="B73-ng-64B"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="lastrecordingBtnPlus"/>
+                                                    <connections>
+                                                        <action selector="goToAddProductVC:" destination="5z3-bU-8VT" eventType="touchUpInside" id="vUl-Pv-nlx"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -172,6 +184,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="saveTodayDatas:" destination="5z3-bU-8VT" eventType="touchUpInside" id="hhi-8X-Bo7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -206,5 +221,6 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
+        <image name="postBtnBack" width="8.5" height="16"/>
     </resources>
 </document>

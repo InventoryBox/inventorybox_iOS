@@ -277,6 +277,9 @@
                                                             <constraint firstAttribute="height" constant="35" id="soR-xK-MZs"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="btnMoveTrash"/>
+                                                        <connections>
+                                                            <action selector="moveCategoryBtnPressed:" destination="QKa-AL-RVh" eventType="touchUpInside" id="qoE-54-3Qv"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이동 및 삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ge-p0-gpx">
                                                         <rect key="frame" x="38" y="41" width="49" height="12"/>
@@ -572,7 +575,7 @@
                                         <rect key="frame" x="0.0" y="47" width="375" height="277"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="EVA-sf-6rG">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCategoryCell" rowHeight="55" id="EVA-sf-6rG" customClass="MoveCategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EVA-sf-6rG" id="MHP-wM-3hm">
@@ -588,11 +591,22 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-1H-2Tv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <connections>
+                                                                        <action selector="categorySelected:" destination="EVA-sf-6rG" eventType="touchUpInside" id="2UL-e9-Sc4"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="id2-ff-tHM" firstAttribute="leading" secondItem="8IX-cd-wKp" secondAttribute="leading" constant="16" id="5gM-lM-qpH"/>
+                                                                <constraint firstAttribute="trailing" secondItem="YaS-1H-2Tv" secondAttribute="trailing" id="AAx-Fk-A7f"/>
+                                                                <constraint firstItem="YaS-1H-2Tv" firstAttribute="top" secondItem="8IX-cd-wKp" secondAttribute="top" id="cMM-LD-TrD"/>
                                                                 <constraint firstItem="id2-ff-tHM" firstAttribute="centerY" secondItem="8IX-cd-wKp" secondAttribute="centerY" id="fRw-sp-Afd"/>
+                                                                <constraint firstItem="YaS-1H-2Tv" firstAttribute="leading" secondItem="8IX-cd-wKp" secondAttribute="leading" id="hKL-k8-K4M"/>
+                                                                <constraint firstAttribute="bottom" secondItem="YaS-1H-2Tv" secondAttribute="bottom" id="sef-0G-eUz"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -603,6 +617,10 @@
                                                         <constraint firstItem="8IX-cd-wKp" firstAttribute="top" secondItem="MHP-wM-3hm" secondAttribute="top" constant="6" id="zV9-6Z-z8K"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="categoryLabel" destination="id2-ff-tHM" id="H5O-Pg-oVj"/>
+                                                    <outlet property="roundView" destination="8IX-cd-wKp" id="BAn-W1-nGv"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -623,16 +641,27 @@
                                     <constraint firstAttribute="trailing" secondItem="sQk-XN-bed" secondAttribute="trailing" id="uIG-ec-IOC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-YK-2cO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="l9Z-YK-2cO" firstAttribute="leading" secondItem="rK5-lP-b92" secondAttribute="leading" id="0X4-Lf-Hdt"/>
                             <constraint firstItem="5sE-dz-YmP" firstAttribute="bottom" secondItem="rK5-lP-b92" secondAttribute="bottom" id="7g9-kB-y3o"/>
+                            <constraint firstItem="5sE-dz-YmP" firstAttribute="top" secondItem="l9Z-YK-2cO" secondAttribute="bottom" id="NR4-oa-Q5A"/>
                             <constraint firstItem="5sE-dz-YmP" firstAttribute="leading" secondItem="rK5-lP-b92" secondAttribute="leading" id="S9Z-Dn-dlT"/>
                             <constraint firstItem="5sE-dz-YmP" firstAttribute="trailing" secondItem="rK5-lP-b92" secondAttribute="trailing" id="UgM-GJ-n2D"/>
                             <constraint firstItem="5sE-dz-YmP" firstAttribute="width" secondItem="74R-Au-iwj" secondAttribute="width" id="dW4-wo-M5g"/>
+                            <constraint firstItem="l9Z-YK-2cO" firstAttribute="top" secondItem="rK5-lP-b92" secondAttribute="top" id="epc-cy-dRy"/>
+                            <constraint firstItem="l9Z-YK-2cO" firstAttribute="trailing" secondItem="rK5-lP-b92" secondAttribute="trailing" id="rrE-n4-ass"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rK5-lP-b92"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryTableView" destination="wK9-rC-DZW" id="Rtq-lf-XRw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kO-GY-VRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -429,13 +429,24 @@
                                     <constraint firstItem="vgu-Jz-tSR" firstAttribute="leading" secondItem="pOw-Id-Qbu" secondAttribute="leading" id="zcq-yu-9nE"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlh-Am-ZQq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="dmv-3A-jmW" eventType="touchUpInside" id="nfq-IW-Jri"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pOw-Id-Qbu" firstAttribute="top" secondItem="Vlh-Am-ZQq" secondAttribute="bottom" id="0CE-KI-E1X"/>
+                            <constraint firstItem="Vlh-Am-ZQq" firstAttribute="top" secondItem="apP-ee-xPG" secondAttribute="top" id="3xy-sD-Q9c"/>
                             <constraint firstItem="pOw-Id-Qbu" firstAttribute="width" secondItem="1Ey-zU-dqB" secondAttribute="width" id="9xF-9V-F6L"/>
+                            <constraint firstItem="Vlh-Am-ZQq" firstAttribute="trailing" secondItem="apP-ee-xPG" secondAttribute="trailing" id="DHO-RQ-fs0"/>
                             <constraint firstItem="pOw-Id-Qbu" firstAttribute="bottom" secondItem="apP-ee-xPG" secondAttribute="bottom" id="MbM-5x-lhM"/>
                             <constraint firstItem="pOw-Id-Qbu" firstAttribute="leading" secondItem="1Ey-zU-dqB" secondAttribute="leading" id="RFq-3O-aEP"/>
                             <constraint firstItem="pOw-Id-Qbu" firstAttribute="trailing" secondItem="apP-ee-xPG" secondAttribute="trailing" id="i5D-bH-6Zt"/>
+                            <constraint firstItem="Vlh-Am-ZQq" firstAttribute="leading" secondItem="apP-ee-xPG" secondAttribute="leading" id="z3i-CN-ceP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="apP-ee-xPG"/>
                     </view>

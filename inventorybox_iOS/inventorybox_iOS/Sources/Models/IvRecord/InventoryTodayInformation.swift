@@ -12,13 +12,14 @@ struct InventoryTodayInformation {
     var inventoryImageName: String
     var inventoryName: String
     var category: String
-    var inventoryCount: String?
+    var inventoryCount: String
     var isTextFieldTyped: Bool
     
     init(imageName: String, ivName: String, categoryNum: String, isTyped: Bool) {
         self.inventoryImageName = imageName
         self.inventoryName = ivName
         self.category = categoryNum
+        self.inventoryCount = ""
         self.isTextFieldTyped = isTyped
     }
 }

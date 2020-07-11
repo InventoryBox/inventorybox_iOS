@@ -9,14 +9,14 @@
 import UIKit
 
 protocol FilledTextFieldDelegate {
-    func isTextFieldFilled(count: String, isTyped: Bool,indexPath: IndexPath)
+    func isTextFieldFilled(count: String, isTyped: Bool,indexPath: Int)
 }
 
 class InventoryTodayRecordCell: UITableViewCell {
     static let identifier: String = "InventoryTodayRecordCell"
     
     var delegate: FilledTextFieldDelegate?
-    var indexPath: IndexPath?
+    var indexPath: Int?
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var inventoryView: UIView!
@@ -24,6 +24,11 @@ class InventoryTodayRecordCell: UITableViewCell {
     @IBOutlet weak var inventoryNameLabel: UILabel!
     @IBOutlet weak var inventoryCountTextField: UITextField!
     
+    var isTypedTextField: String = "" {
+        didSet {
+            inventoryCountTextField.text = isTypedTextField
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -61,6 +66,7 @@ class InventoryTodayRecordCell: UITableViewCell {
     @objc private func donePressed() {
         self.inventoryCountTextField.endEditing(true)
     }
+    
     private func makeShadowAroundInventoryView() {
         
         inventoryView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -83,15 +89,11 @@ class InventoryTodayRecordCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, inventoryCount: String?) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: String) {
         
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
-        if let count = inventoryCount {
-            inventoryCountTextField.text = count
-        }
-        
-        
+        inventoryCountTextField.text = inventoryCount
         
     }
     

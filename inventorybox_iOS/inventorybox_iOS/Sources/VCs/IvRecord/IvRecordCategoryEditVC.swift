@@ -99,6 +99,13 @@ class IvRecordCategoryEditVC: UIViewController {
     }
     
     
+    @IBAction func moveCategoryBtnPressed(_ sender: Any) {
+        animatePopupBackground(true)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MoveCategoryPopupVC") else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+
+    }
     @IBAction func addCategoryBtnPressed(_ sender: Any) {
         animatePopupBackground(true)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryPopupVC") else { return }
@@ -156,7 +163,7 @@ class IvRecordCategoryEditVC: UIViewController {
 extension IvRecordCategoryEditVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inventoryFilteredArray.count
+        return inventoryFilteredArray.count + 1
         
     }
     
