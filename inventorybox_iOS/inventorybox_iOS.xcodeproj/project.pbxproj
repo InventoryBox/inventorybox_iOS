@@ -69,6 +69,7 @@
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
 		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
+		D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */; };
 		D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
 		D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */; };
@@ -175,6 +176,7 @@
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
+		D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordNaviVC.swift; sourceTree = "<group>"; };
 		D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditCategoryInformation.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */,
 				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
 				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
 				D4E96EAB24B8868400BD3419 /* DatePickerPopupVC.swift */,
@@ -683,6 +686,7 @@
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
+				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,

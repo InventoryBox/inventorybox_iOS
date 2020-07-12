@@ -115,7 +115,7 @@ class IvRecordAddProductVC: UIViewController {
         
         topView.layer.shadowOffset = CGSize(width: 0, height: 1)
         topView.layer.shadowRadius = 2
-        topView.layer.shadowOpacity = 0.1
+        topView.layer.shadowOpacity = 0.16
         
         middleView.layer.shadowOffset = CGSize(width: 0, height: 3)
         middleView.layer.shadowRadius = 15

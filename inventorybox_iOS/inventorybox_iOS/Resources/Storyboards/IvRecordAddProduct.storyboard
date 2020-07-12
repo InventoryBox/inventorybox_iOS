@@ -19,7 +19,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uq3-RM-lXH">
                                 <rect key="frame" x="0.0" y="44" width="375" height="47"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17J-ZR-7DX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재료 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17J-ZR-7DX">
                                         <rect key="frame" x="157.5" y="16.5" width="60" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -437,9 +437,19 @@
                                                                 <constraint firstAttribute="width" secondItem="0kR-gW-ezM" secondAttribute="height" multiplier="1:1" id="H32-ov-n2j"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-Zy-iHo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="205" height="197"/>
+                                                            <connections>
+                                                                <action selector="iconSelectBtnPressed:" destination="jVl-PO-BA8" eventType="touchUpInside" id="Omm-J0-mmX"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="Lla-Zy-iHo" firstAttribute="leading" secondItem="SI4-BH-yFH" secondAttribute="leading" id="EUi-lI-Vwm"/>
+                                                        <constraint firstItem="Lla-Zy-iHo" firstAttribute="top" secondItem="SI4-BH-yFH" secondAttribute="top" id="OeB-qQ-7LZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Lla-Zy-iHo" secondAttribute="trailing" id="T0q-Kh-k4c"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Lla-Zy-iHo" secondAttribute="bottom" id="grX-CE-sLn"/>
                                                         <constraint firstItem="0kR-gW-ezM" firstAttribute="centerY" secondItem="SI4-BH-yFH" secondAttribute="centerY" id="hQj-p1-yJD"/>
                                                         <constraint firstItem="0kR-gW-ezM" firstAttribute="centerX" secondItem="SI4-BH-yFH" secondAttribute="centerX" id="q6R-Lh-TBi"/>
                                                     </constraints>
@@ -478,10 +488,10 @@
             </objects>
             <point key="canvasLocation" x="1858.4000000000001" y="223.53823088455775"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Iv Record NaviVC-->
         <scene sceneID="q9Q-MP-PBx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHk-sm-7bF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="IvRecordNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="EHk-sm-7bF" customClass="IvRecordNaviVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vtY-td-Zjj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

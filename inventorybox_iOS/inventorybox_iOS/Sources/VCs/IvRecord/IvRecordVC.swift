@@ -137,8 +137,8 @@ class IvRecordVC: UIViewController {
     }
     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordAddProductVC")
-            as? IvRecordAddProductVC  else {
+        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
+            as? IvRecordNaviVC  else {
                 return
         }
         addProductVC.modalPresentationStyle = .fullScreen

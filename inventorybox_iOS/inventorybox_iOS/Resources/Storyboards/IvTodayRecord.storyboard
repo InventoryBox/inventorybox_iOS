@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
-                                                <rect key="frame" x="17.5" y="0.0" width="40" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
                                                 <state key="normal" backgroundImage="postBtnBack"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
@@ -47,7 +47,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="Fbl-hX-3x6"/>
-                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" constant="17.5" id="G1k-Je-5yv"/>
+                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" id="G1k-Je-5yv"/>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="V1r-up-zHY"/>
                                             <constraint firstItem="ni2-E9-rMT" firstAttribute="centerY" secondItem="C1w-Wr-Jgp" secondAttribute="centerY" id="aA4-rE-GJh"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="fhc-3b-uLB"/>

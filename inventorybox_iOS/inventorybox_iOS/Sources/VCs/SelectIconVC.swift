@@ -9,11 +9,14 @@
 import UIKit
 
 class SelectIconVC: UIViewController {
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationItem.backBarButtonItem?.title = ""
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        self.navigationItem.backBarButtonItem = backItem
+        
         navigationItem.backBarButtonItem?.tintColor = UIColor.black
         let naviBar = navigationController?.navigationBar
         naviBar?.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -33,19 +36,31 @@ class SelectIconVC: UIViewController {
     
     var icon: [String] = [
         "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
+        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
+        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
+        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
+        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
+        
     ]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setIconCollectionView()
+        setShadow()
+    }
+    
+    private func setShadow() {
         
     }
     
     private func setIconCollectionView() {
         iconCollectionView.delegate = self
         iconCollectionView.dataSource = self
+        
+        iconCollectionView.allowsSelection = false
+
     }
     
     @IBAction func sendIdx(_ sender: UIButton) {
@@ -65,12 +80,46 @@ extension SelectIconVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let iconCell = collectionView.dequeueReusableCell(withReuseIdentifier: "IconCell", for: indexPath) as? IconCell else { return UICollectionViewCell() }
         
-        iconCell.
+        
+        iconCell.delegate = self
+        iconCell.indexPath = indexPath.row
+        iconCell.setIcon(icon[indexPath.row])
+        
+        return iconCell
     }
     
     
 }
 
+
 extension SelectIconVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
+        indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: (collectionView.frame.width-55) / 4, height: 80)
+        
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 14, left: 16, bottom: 0, right: 16)
+        
+    }
+    // 위아래
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+        
+    }
+    // 양옆
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+        
+    }
+}
+
+extension SelectIconVC: IconSeletDelegate {
+    func didSelectIcon(indexPath: Int, iconImageName: String) {
+        print("Tap")
+        self.navigationController?.popViewController(animated: true)
+    }
 }
