@@ -9,8 +9,15 @@
 import UIKit
 
 protocol CategoryButtonDelegate {
-    func didSelectCategory(indexPath: Int)
+    func didSelectCategory(categoryName: String ,indexPath: Int)
+    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int)
 }
+
+extension CategoryButtonDelegate {
+    func didSelectCategory(categoryName: String ,indexPath: Int) { }
+    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int) {}
+}
+
 class MoveCategoryCell: UITableViewCell {
     static let identifier: String = "MoveCategoryCell"
     
@@ -19,15 +26,24 @@ class MoveCategoryCell: UITableViewCell {
     
     var delegate: CategoryButtonDelegate?
     var indexpath: Int?
+    
+    @IBOutlet weak var selectBtn: UIButton!
+    
     var isWhole: Bool = false {
         didSet {
-            roundView.backgroundColor = .gray
+            if isWhole {
+                roundView.backgroundColor = .veryLightPinkTwo
+                selectBtn.isEnabled = false
+            } else {
+                roundView.backgroundColor = .white
+                selectBtn.isEnabled = true
+            }
+            
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         setViewBorder()
         
@@ -35,13 +51,8 @@ class MoveCategoryCell: UITableViewCell {
     
     private func setViewBorder() {
         self.roundView.layer.borderWidth = 1
-        self.roundView.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.roundView.layer.borderColor = UIColor.black.cgColor
+//        self.roundView.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
     }
     
     func setCellInformation(categoryInfo: String) {
@@ -51,7 +62,9 @@ class MoveCategoryCell: UITableViewCell {
     }
     
     @IBAction func categorySelected(_ sender: Any) {
-        delegate?.didSelectCategory(indexPath: indexpath!)
+        guard let name = categoryLabel.text else { return }
+        delegate?.didSelectCategory(categoryName: name, indexPath: indexpath!)
+//        print("tap")
     }
     
 }

@@ -363,6 +363,12 @@
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qyS-l2-rBy"/>
+                                <exclude reference="ktg-z8-FKj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>

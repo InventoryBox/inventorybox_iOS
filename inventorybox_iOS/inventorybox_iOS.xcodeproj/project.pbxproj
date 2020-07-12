@@ -32,6 +32,11 @@
 		D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992924B07879007CAAB9 /* CustomTextField.swift */; };
 		D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992B24B08375007CAAB9 /* UIColorExtension.swift */; };
 		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
+		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
+		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
+		D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */; };
+		D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */; };
+		D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF424BB2111000C9B8B /* IconCell.swift */; };
 		D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */; };
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
@@ -64,7 +69,7 @@
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
 		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
-		D4DFE3B924B62A8C00D8795E /* InventoryEditInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */; };
+		D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
 		D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */; };
 		D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BE24B649A500D8795E /* 26594-add-text.json */; };
@@ -131,6 +136,11 @@
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopVC.swift; sourceTree = "<group>"; };
+		D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryCell.swift; sourceTree = "<group>"; };
+		D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditProductInformation.swift; sourceTree = "<group>"; };
+		D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditProductCell.swift; sourceTree = "<group>"; };
+		D4311FF424BB2111000C9B8B /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
@@ -165,7 +175,7 @@
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
-		D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditInformation.swift; sourceTree = "<group>"; };
+		D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditCategoryInformation.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		D4DFE3BE24B649A500D8795E /* 26594-add-text.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "26594-add-text.json"; sourceTree = "<group>"; };
@@ -278,6 +288,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D4311FEF24BB03E6000C9B8B /* IvExchange */ = {
+			isa = PBXGroup;
+			children = (
+				D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */,
+				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
+				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
+			);
+			path = IvExchange;
+			sourceTree = "<group>";
+		};
 		D46A015B24B6C9780055814E /* IvExchange */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,8 +367,8 @@
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				D46A015724B6C93C0055814E /* IvExchange.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
-				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
+				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 			);
@@ -407,11 +427,9 @@
 			children = (
 				3332405924B5A5BD00C3B59C /* ItemInformation.swift */,
 				3332405A24B5A5BD00C3B59C /* DayInformation.swift */,
-				D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */,
-				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
-				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
-				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
 				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
+				D4311FEF24BB03E6000C9B8B /* IvExchange */,
+				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
 				D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */,
 				3332407224B6609000C3B59C /* WeekInformation.swift */,
@@ -446,7 +464,8 @@
 		D4BE8D3124B8E7D900AFB1B8 /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
-				D4DFE3B824B62A8C00D8795E /* InventoryEditInformation.swift */,
+				D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */,
+				D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */,
 				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
 				D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */,
 			);
@@ -456,6 +475,9 @@
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
 			isa = PBXGroup;
 			children = (
+				D4311FF424BB2111000C9B8B /* IconCell.swift */,
+				D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */,
+				D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */,
 				D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */,
 				D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */,
 				D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */,
@@ -479,6 +501,7 @@
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
 				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
 				D4E96EAB24B8868400BD3419 /* DatePickerPopupVC.swift */,
 				D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */,
@@ -647,9 +670,11 @@
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
+				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
 				D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
+				D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */,
@@ -671,6 +696,7 @@
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
+				D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
@@ -681,12 +707,14 @@
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
+				D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */,
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,
 				D46A015D24B6CC3C0055814E /* FormTextField.swift in Sources */,
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
+				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
-				D4DFE3B924B62A8C00D8795E /* InventoryEditInformation.swift in Sources */,
+				D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
 				D4A2875C24B809E400A60C08 /* IvProductExchangeCell.swift in Sources */,
 				D4E96EAC24B8868400BD3419 /* DatePickerPopupVC.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InventoryEditInformation {
+struct InventoryEditCategoryInformation {
     var inventoryImageName: String
     var inventoryName: String
     var minimumInventory: String

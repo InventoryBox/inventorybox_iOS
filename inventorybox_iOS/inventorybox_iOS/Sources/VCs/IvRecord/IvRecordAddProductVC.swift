@@ -193,6 +193,9 @@ class IvRecordAddProductVC: UIViewController {
             
         }
     }
+    @IBAction func dismissBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func inventoryToBuyPlusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
             let num: Int = Int(count)!

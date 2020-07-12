@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
-                                                <rect key="frame" x="17.5" y="13" width="8.5" height="18"/>
+                                                <rect key="frame" x="17.5" y="0.0" width="40" height="44"/>
                                                 <state key="normal" backgroundImage="postBtnBack"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
@@ -221,6 +221,6 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
-        <image name="postBtnBack" width="8.5" height="16"/>
+        <image name="postBtnBack" width="40" height="44"/>
     </resources>
 </document>

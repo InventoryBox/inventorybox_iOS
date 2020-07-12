@@ -31,6 +31,18 @@ class IvRecordVC: UIViewController {
     @IBOutlet weak var popupBackgroundView: UIView!
     let categoryCollectionView = TTGTextTagCollectionView()
     
+     var categories: [String] = {
+         let data1 = CategoryInformation(idx: 1, name: "전체")
+         let data2 = CategoryInformation(idx: 2, name: "액체류")
+         let data3 = CategoryInformation(idx: 3, name: "파우더류")
+         let data4 = CategoryInformation(idx: 4, name: "과일")
+         let data5 = CategoryInformation(idx: 5, name: "채소류")
+         let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
+         let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
+         
+         return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
+     }()
+     
     let inventoryArray: [InventoryInformation] = {
         
         let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5", unit: "팩", iCount: "99", categoryNum: "액체류")
@@ -137,7 +149,7 @@ class IvRecordVC: UIViewController {
     @IBAction func goToIvRecordEditProduct(_ sender: Any) {
         let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
         guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC")
-            as? IvRecordCategoryEditVC  else {
+            as? IvRecordEditProductVC  else {
                 return
         }
         editProductVC.modalPresentationStyle = .fullScreen
@@ -230,13 +242,13 @@ class IvRecordVC: UIViewController {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.delegate = self
         categoryCollectionView.setCategoryCollectionView()
-        
+//        categoryCollectionView.
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(CategoryInformation.categories, with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(categories, with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -311,7 +323,14 @@ extension IvRecordVC: UITableViewDelegate {
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
         // 한개만 선택되게 만드는 코드
-        
+//        if selections.count == 0 {
+//            selections.append(tagText)
+//        } else {
+//            if selections[0] == "전체" {
+//
+//            }
+//
+//        }
         
         // selection 배열 내에 한개씩만 선택되게 만들기
         var check = 0

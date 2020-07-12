@@ -56,9 +56,12 @@ class IvTodayRecordVC: UIViewController {
     private func customCompleteBtn() {
         
         completeBtn.layer.cornerRadius = 25
-        completeBtn.backgroundColor = UIColor.pinkishGrey
+//        completeBtn.backgroundColor = UIColor.pinkishGrey
+//        completeBtn.tintColor = UIColor.white
+//        completeBtn.isEnabled = false
+        completeBtn.backgroundColor = UIColor.yellow
         completeBtn.tintColor = UIColor.white
-        completeBtn.isEnabled = false
+        completeBtn.isEnabled = true
         
     }
     
@@ -94,6 +97,7 @@ class IvTodayRecordVC: UIViewController {
         categoryCollectionView.addTags(["전체", "액체류","파우더류", "과일", "채소류"], with: categoryCollectionView.setCategoryConfig())
         
     }
+    
     @IBAction func goToAddProductVC(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
         guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordAddProductVC")
@@ -104,10 +108,13 @@ class IvTodayRecordVC: UIViewController {
         
         self.present(addProductVC, animated: true, completion: nil)
     }
+    
     @IBAction func backBtn(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+        
     }
+    
     @IBAction func saveTodayDatas(_ sender: Any) {
         
         // 오늘 재고 기록 post 서버 통신
@@ -191,9 +198,12 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
             completeBtn.tintColor = UIColor.white
             completeBtn.isEnabled = true
         } else {
-            completeBtn.backgroundColor = UIColor.pinkishGrey
+//            completeBtn.backgroundColor = UIColor.pinkishGrey
+//            completeBtn.tintColor = UIColor.white
+//            completeBtn.isEnabled = false
+            completeBtn.backgroundColor = UIColor.yellow
             completeBtn.tintColor = UIColor.white
-            completeBtn.isEnabled = false
+            completeBtn.isEnabled = true
         }
     }
 }

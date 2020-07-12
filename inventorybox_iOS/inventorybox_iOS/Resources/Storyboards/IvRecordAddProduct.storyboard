@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,6 +36,13 @@
                                             <action selector="registerInventoryBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="lP2-I6-G26"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbO-KP-AhP">
+                                        <rect key="frame" x="0.0" y="4.5" width="40" height="44"/>
+                                        <state key="normal" backgroundImage="postBtnBack"/>
+                                        <connections>
+                                            <action selector="dismissBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="hIy-Jt-e3z"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -43,6 +51,8 @@
                                     <constraint firstAttribute="bottom" secondItem="17J-ZR-7DX" secondAttribute="bottom" constant="11" id="Dcy-Nq-WBG"/>
                                     <constraint firstAttribute="height" constant="47" id="IWN-91-37F"/>
                                     <constraint firstItem="17J-ZR-7DX" firstAttribute="centerX" secondItem="uq3-RM-lXH" secondAttribute="centerX" id="Lnm-Ja-jjh"/>
+                                    <constraint firstItem="XbO-KP-AhP" firstAttribute="leading" secondItem="uq3-RM-lXH" secondAttribute="leading" id="dhJ-hV-03b"/>
+                                    <constraint firstItem="XbO-KP-AhP" firstAttribute="centerY" secondItem="17J-ZR-7DX" secondAttribute="centerY" id="g9d-ne-A8x"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-L0-xh6">
@@ -401,19 +411,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpx-WM-sBa">
-                                <rect key="frame" x="33" y="122" width="149" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Icon Select"/>
-                                <connections>
-                                    <action selector="sendIdx:" destination="E5t-ng-eaS" eventType="touchUpInside" id="WvX-wr-nZo"/>
-                                </connections>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="khC-Xn-WbE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IV7-1k-Xq9">
+                                    <size key="itemSize" width="205" height="197"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IconCell" id="jVl-PO-BA8" customClass="IconCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="85" y="0.0" width="205" height="197"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jJ1-QS-qKC">
+                                            <rect key="frame" x="0.0" y="0.0" width="205" height="197"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-BH-yFH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="205" height="197"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcMilk" translatesAutoresizingMaskIntoConstraints="NO" id="0kR-gW-ezM">
+                                                            <rect key="frame" x="77" y="73" width="51" height="51"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="0kR-gW-ezM" secondAttribute="height" multiplier="1:1" id="H32-ov-n2j"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="0kR-gW-ezM" firstAttribute="centerY" secondItem="SI4-BH-yFH" secondAttribute="centerY" id="hQj-p1-yJD"/>
+                                                        <constraint firstItem="0kR-gW-ezM" firstAttribute="centerX" secondItem="SI4-BH-yFH" secondAttribute="centerX" id="q6R-Lh-TBi"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="SI4-BH-yFH" secondAttribute="trailing" id="9OE-X8-eZb"/>
+                                                <constraint firstItem="SI4-BH-yFH" firstAttribute="leading" secondItem="jJ1-QS-qKC" secondAttribute="leading" id="Hvj-7P-2Ae"/>
+                                                <constraint firstItem="SI4-BH-yFH" firstAttribute="top" secondItem="jJ1-QS-qKC" secondAttribute="top" id="KMF-ta-Ree"/>
+                                                <constraint firstAttribute="bottom" secondItem="SI4-BH-yFH" secondAttribute="bottom" id="UkC-Dz-NUg"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="205" height="197"/>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="0kR-gW-ezM" id="APB-J3-cLd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9dG-IK-GCm" firstAttribute="bottom" secondItem="khC-Xn-WbE" secondAttribute="bottom" id="NqZ-l8-Ehv"/>
+                            <constraint firstItem="9dG-IK-GCm" firstAttribute="trailing" secondItem="khC-Xn-WbE" secondAttribute="trailing" id="QZR-d6-SDy"/>
+                            <constraint firstItem="khC-Xn-WbE" firstAttribute="top" secondItem="9dG-IK-GCm" secondAttribute="top" id="olk-lx-rKa"/>
+                            <constraint firstItem="khC-Xn-WbE" firstAttribute="leading" secondItem="9dG-IK-GCm" secondAttribute="leading" id="ra8-aX-M7E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9dG-IK-GCm"/>
                     </view>
                     <navigationItem key="navigationItem" title="아이콘 선택" id="qeO-6u-r7C"/>
+                    <connections>
+                        <outlet property="iconCollectionView" destination="khC-Xn-WbE" id="EIE-hh-czK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtj-tb-phv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -443,6 +502,7 @@
         <image name="addproductBtnMinus" width="32" height="32"/>
         <image name="addproductBtnPlus" width="32" height="32"/>
         <image name="addproductTextfield" width="65" height="27"/>
-        <image name="postBtnBack" width="8.5" height="16"/>
+        <image name="homeIcMilk" width="51" height="51"/>
+        <image name="postBtnBack" width="40" height="44"/>
     </resources>
 </document>
