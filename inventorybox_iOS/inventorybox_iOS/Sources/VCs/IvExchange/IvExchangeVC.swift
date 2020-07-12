@@ -17,14 +17,20 @@ class IvExchangeVC: UIViewController {
     @IBOutlet weak var allInventoryBottomView: UIView!
     @IBOutlet weak var allIvCollectionView: UICollectionView!
     
-    let allExchangeArray: [AllExchangeInformation] = {
-       let data1 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+        
+    }
+    var allExchangeArray: [AllExchangeInformation] = {
+       let data1 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data2 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data3 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data4 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data5 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data6 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data7 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
         
         return [data1, data2, data3, data4, data5, data6, data7]
     }()
@@ -35,13 +41,13 @@ class IvExchangeVC: UIViewController {
     @IBOutlet weak var foodIvCollectionView: UICollectionView!
     
     let foodExchangeArray: [FoodExchangeInformation] = {
-       let data1 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = FoodExchangeInformation(imageName: "24", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+       let data1 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data2 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data3 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data4 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data5 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data6 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data7 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
         
         return [data1, data2, data3, data4, data5, data6, data7]
     }()
@@ -51,13 +57,13 @@ class IvExchangeVC: UIViewController {
     @IBOutlet weak var productIvCollectionView: UICollectionView!
     
     let productExchangeArray: [ProductExchangeInformation] = {
-       let data1 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: true, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+       let data1 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data2 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data3 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data4 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data5 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data6 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
+        let data7 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
         
         return [data1, data2, data3, data4, data5, data6, data7]
     }()
@@ -182,16 +188,23 @@ extension IvExchangeVC: UICollectionViewDataSource {
             guard let allExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvAllExchangeCell.identifier, for: indexPath
                 ) as? IvAllExchangeCell  else { return UICollectionViewCell() }
             allExchangeCell.set(allExchangeArray[indexPath.row])
+            allExchangeCell.delegate = self
+            allExchangeCell.indexPath = indexPath.row
             return allExchangeCell
         } else if collectionView == foodIvCollectionView {
             guard let foodExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvFoodExchangeCell.identifier, for: indexPath
                 ) as? IvFoodExchangeCell  else { return UICollectionViewCell() }
             foodExchangeCell.set(foodExchangeArray[indexPath.row])
+            foodExchangeCell.delegate = self
+            foodExchangeCell.indexPath = indexPath.row
+            
             return foodExchangeCell
         } else {
             guard let productExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvProductExchangeCell.identifier, for: indexPath
                 ) as? IvProductExchangeCell  else { return UICollectionViewCell() }
             productExchangeCell.set(productExchangeArray[indexPath.row])
+            productExchangeCell.delegate = self
+            productExchangeCell.indexPath = indexPath.row
             return productExchangeCell
         }
         
@@ -214,5 +227,16 @@ extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
+    }
+}
+
+extension IvExchangeVC: ExchangeButtonDelegate {
+    func whichProductIsSelect(indexPath: Int) {
+        print(indexPath)
+    }
+    
+    func didSelectHeart(isClicked: Bool, indexPath: Int) {
+        allExchangeArray[indexPath].ivHeart = isClicked
+        // 어차피 전체 식품 공산품은 전체에서 필터링을 할거기때문에 찜하기는 전체에만 반영하고 다시 필터링을 해주면 된다.
     }
 }
