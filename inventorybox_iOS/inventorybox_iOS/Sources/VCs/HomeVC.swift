@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SSCustomSideMenu
 
 class HomeVC: UIViewController {
     

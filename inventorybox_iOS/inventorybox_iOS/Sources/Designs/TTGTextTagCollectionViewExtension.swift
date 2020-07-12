@@ -17,7 +17,7 @@ extension TTGTextTagCollectionView {
         self.numberOfLines = 1
         self.scrollDirection = TTGTagCollectionScrollDirection.horizontal
         self.showsHorizontalScrollIndicator = false
-    
+        
     }
     
     func setCategoryConfig() -> TTGTextTagConfig {
