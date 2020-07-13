@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol FilledTextFieldDelegate {
+    func isTextFieldFilled(count: String, isTyped: Bool,indexPath: Int)
+}
+
 class InventoryTodayRecordCell: UITableViewCell {
     static let identifier: String = "InventoryTodayRecordCell"
+    
+    var delegate: FilledTextFieldDelegate?
+    var indexPath: Int?
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var inventoryView: UIView!
@@ -17,6 +24,11 @@ class InventoryTodayRecordCell: UITableViewCell {
     @IBOutlet weak var inventoryNameLabel: UILabel!
     @IBOutlet weak var inventoryCountTextField: UITextField!
     
+    var isTypedTextField: String = "" {
+        didSet {
+            inventoryCountTextField.text = isTypedTextField
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,13 +38,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         setTextFieldCustommed()
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
     private func setTextFieldCustommed() {
         
         inventoryCountTextField.layer.cornerRadius = 9
@@ -60,6 +66,7 @@ class InventoryTodayRecordCell: UITableViewCell {
     @objc private func donePressed() {
         self.inventoryCountTextField.endEditing(true)
     }
+    
     private func makeShadowAroundInventoryView() {
         
         inventoryView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -82,15 +89,24 @@ class InventoryTodayRecordCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: String) {
         
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
+        inventoryCountTextField.text = inventoryCount
         
     }
     
 }
 
 extension InventoryTodayRecordCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if inventoryCountTextField.text == "" {
+            delegate?.isTextFieldFilled(count: "", isTyped: false, indexPath: indexPath!)
+        } else {
+            guard let text = textField.text else { return }
+            delegate?.isTextFieldFilled(count: text, isTyped: true, indexPath: indexPath!)
+        }
+    }
     
 }

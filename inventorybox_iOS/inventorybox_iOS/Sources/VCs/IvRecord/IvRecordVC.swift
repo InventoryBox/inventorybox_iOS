@@ -30,10 +30,41 @@ class IvRecordVC: UIViewController {
     
     @IBOutlet weak var popupBackgroundView: UIView!
     let categoryCollectionView = TTGTextTagCollectionView()
+    var memorizeDate: Date?
+    var categories: [String] = {
+        let data1 = CategoryInformation(idx: 1, name: "전체")
+        let data2 = CategoryInformation(idx: 2, name: "액체류")
+        let data3 = CategoryInformation(idx: 3, name: "파우더류")
+        let data4 = CategoryInformation(idx: 4, name: "과일")
+        let data5 = CategoryInformation(idx: 5, name: "채소류")
+        let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
+        let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
+        
+        return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
+    }()
+    
+    let inventoryArray: [InventoryInformation] = {
+        
+        let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5", unit: "팩", iCount: "99", categoryNum: "액체류")
+        let data2 = InventoryInformation(imageName: "homeIcMilk", ivName: "녹차 파우더", mInventory: "10", unit: "팩", iCount: "3", categoryNum: "액체류")
+        let data3 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "딸기",  mInventory: "10", unit: "팩",  iCount: "3", categoryNum: "과일")
+        let data4 = InventoryInformation(imageName: "homeIcMcpowder", ivName: "모카 파우더",  mInventory: "10", unit: "통", iCount: "3", categoryNum: "파우더류")
+        let data5 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "사과",  mInventory: "10", unit: "개", iCount: "3", categoryNum: "과일")
+        let data6 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "수박",  mInventory: "10", unit: "개", iCount: "3", categoryNum: "과일")
+        let data7 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유",  mInventory: "10", unit: "팩", iCount: "99", categoryNum: "액체류")
+        let data8 = InventoryInformation(imageName: "homeIcMilk", ivName: "녹차 파우더",  mInventory: "10", unit: "팩", iCount: "3", categoryNum: "파우더류")
+        let data9 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "딸기",  mInventory: "10", unit: "팩", iCount: "3", categoryNum: "과일")
+        let data10 = InventoryInformation(imageName: "homeIcMcpowder", ivName: "모카 파우더",  mInventory: "10", unit: "팩", iCount: "3", categoryNum: "액체류")
+        let data11 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "사과",  mInventory: "10", unit: "개", iCount: "3", categoryNum: "과일")
+        let data12 = InventoryInformation(imageName: "homeIcStrawberry", ivName: "수박",  mInventory: "10", unit: "개", iCount: "3", categoryNum: "과일")
+        
+        return [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]
+        
+    }()
     
     private var selections = [String]()
     
-    private var inventoryFiltered: [InventoryInformation] = InventoryInformation.inventoryArray
+    private var inventoryFilteredArray: [InventoryInformation] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,6 +80,7 @@ class IvRecordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setInventoryFilteredData()
         isTodayRecordDone()
         whichViewWillShow()
         setBtnsCustommed()
@@ -57,6 +89,11 @@ class IvRecordVC: UIViewController {
         addCategoryCollectionView()
         makeShadowUnderOutView()
         setPopupBackgroundView()
+        
+    }
+    
+    private func setInventoryFilteredData() {
+        inventoryFilteredArray = inventoryArray
     }
     
     private func setPopupBackgroundView() {
@@ -81,27 +118,32 @@ class IvRecordVC: UIViewController {
     
     @objc func didDisappearPopup(_ notification: Notification) {
         
+        animatePopupBackground(false)
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let date = info["selectdDate"] as? String else { return }
-        print(date)
+        guard let dateMemorize = info["dateMemorize"] as? Date else { return }
+        
+        memorizeDate = dateMemorize
         dateLabel.text = date
-        animatePopupBackground(false)
+    }
+    
+    @IBAction func openDatePicker(_ sender: Any) {
+        animatePopupBackground(true)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") as? DatePickerPopupVC else { return }
+        vc.dateMemorized = memorizeDate
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction func openDatePicker(_ sender: Any) {
-        animatePopupBackground(true)
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") else { return }
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
-    }
     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordAddProductVC")
-            as? IvRecordAddProductVC  else {
+        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
+            as? IvRecordNaviVC  else {
                 return
         }
         addProductVC.modalPresentationStyle = .fullScreen
@@ -112,7 +154,7 @@ class IvRecordVC: UIViewController {
     @IBAction func goToIvRecordEditProduct(_ sender: Any) {
         let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
         guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC")
-            as? IvRecordCategoryEditVC  else {
+            as? IvRecordEditProductVC  else {
                 return
         }
         editProductVC.modalPresentationStyle = .fullScreen
@@ -205,13 +247,13 @@ class IvRecordVC: UIViewController {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.delegate = self
         categoryCollectionView.setCategoryCollectionView()
-        
+        //        categoryCollectionView.
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
         
-        categoryCollectionView.addTags(CategoryInformation.categories, with: categoryCollectionView.setCategoryConfig())
+        categoryCollectionView.addTags(categories, with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -240,7 +282,7 @@ class IvRecordVC: UIViewController {
 extension IvRecordVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return inventoryFiltered.count
+        return inventoryFilteredArray.count + 1
         
     }
     
@@ -254,7 +296,7 @@ extension IvRecordVC: UITableViewDataSource {
             
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCell.identifier, for: indexPath) as? InventoryCell else { return UITableViewCell() }
             
-            inventoryCell.setInventoryData(inventoryFiltered[indexPath.row - 1].inventoryImageName, inventoryFiltered[indexPath.row - 1].inventoryName, inventoryFiltered[indexPath.row - 1].minimumInventory, inventoryFiltered[indexPath.row - 1].inventoryUnit, inventoryFiltered[indexPath.row - 1].inventoryCount)
+            inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].inventoryImageName, inventoryFilteredArray[indexPath.row - 1].inventoryName, inventoryFilteredArray[indexPath.row - 1].minimumInventory, inventoryFilteredArray[indexPath.row - 1].inventoryUnit, inventoryFilteredArray[indexPath.row - 1].inventoryCount)
             
             return inventoryCell
             
@@ -281,9 +323,21 @@ extension IvRecordVC: UITableViewDelegate {
     }
 }
 
+
 //MARK: - TagCollectionView
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        // 한개만 선택되게 만드는 코드
+        //        if selections.count == 0 {
+        //            selections.append(tagText)
+        //        } else {
+        //            if selections[0] == "전체" {
+        //
+        //            }
+        //
+        //        }
+        
+        // selection 배열 내에 한개씩만 선택되게 만들기
         var check = 0
         for i in 0..<selections.count {
             if selections[i] == tagText {
@@ -303,22 +357,24 @@ extension IvRecordVC: TTGTextTagCollectionViewDelegate {
         for i in 0..<selections.count {
             if selections[i] == "전체" {
                 allCategoryCheck = true
-                inventoryFiltered = InventoryInformation.inventoryArray
+                inventoryFilteredArray = inventoryArray
                 inventoryTableView.reloadData()
             }
         }
+        
         if !allCategoryCheck {
-            inventoryFiltered = []
+            inventoryFilteredArray = []
             for i in 0..<selections.count {
-                let filterred = InventoryInformation.inventoryArray.filter { (inventory) -> Bool in
+                let filterred = inventoryArray.filter { (inventory) -> Bool in
                     return inventory.category == selections[i]
                 }
                 
                 for data in filterred {
-                    inventoryFiltered.append(data)
+                    inventoryFilteredArray.append(data)
                 }
             }
             inventoryTableView.reloadData()
         }
+        
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxKakaoSDKCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 2.0)
+        
+        // 카카오 SDK 등록
+        KakaoSDKCommon.shared.initSDK(appKey: "325b1b7f9db181c6401ad1a61a767c53")
+//        Thread.sleep(forTimeInterval: 2.0)
         // Override point for customization after application launch.
         return true
     }
