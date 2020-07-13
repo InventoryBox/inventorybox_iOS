@@ -30,19 +30,19 @@ class IvRecordVC: UIViewController {
     
     @IBOutlet weak var popupBackgroundView: UIView!
     let categoryCollectionView = TTGTextTagCollectionView()
+    var memorizeDate: Date?
+    var categories: [String] = {
+        let data1 = CategoryInformation(idx: 1, name: "전체")
+        let data2 = CategoryInformation(idx: 2, name: "액체류")
+        let data3 = CategoryInformation(idx: 3, name: "파우더류")
+        let data4 = CategoryInformation(idx: 4, name: "과일")
+        let data5 = CategoryInformation(idx: 5, name: "채소류")
+        let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
+        let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
+        
+        return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
+    }()
     
-     var categories: [String] = {
-         let data1 = CategoryInformation(idx: 1, name: "전체")
-         let data2 = CategoryInformation(idx: 2, name: "액체류")
-         let data3 = CategoryInformation(idx: 3, name: "파우더류")
-         let data4 = CategoryInformation(idx: 4, name: "과일")
-         let data5 = CategoryInformation(idx: 5, name: "채소류")
-         let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
-         let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
-         
-         return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
-     }()
-     
     let inventoryArray: [InventoryInformation] = {
         
         let data1 = InventoryInformation(imageName: "homeIcMilk", ivName: "우유", mInventory: "5", unit: "팩", iCount: "99", categoryNum: "액체류")
@@ -61,7 +61,7 @@ class IvRecordVC: UIViewController {
         return [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]
         
     }()
-
+    
     private var selections = [String]()
     
     private var inventoryFilteredArray: [InventoryInformation] = []
@@ -121,20 +121,25 @@ class IvRecordVC: UIViewController {
         animatePopupBackground(false)
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let date = info["selectdDate"] as? String else { return }
-        print(date)
+        guard let dateMemorize = info["dateMemorize"] as? Date else { return }
+        
+        memorizeDate = dateMemorize
         dateLabel.text = date
+    }
+    
+    @IBAction func openDatePicker(_ sender: Any) {
+        animatePopupBackground(true)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") as? DatePickerPopupVC else { return }
+        vc.dateMemorized = memorizeDate
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction func openDatePicker(_ sender: Any) {
-        animatePopupBackground(true)
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") else { return }
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
-    }
     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
         guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
@@ -242,7 +247,7 @@ class IvRecordVC: UIViewController {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.delegate = self
         categoryCollectionView.setCategoryCollectionView()
-//        categoryCollectionView.
+        //        categoryCollectionView.
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
@@ -323,14 +328,14 @@ extension IvRecordVC: UITableViewDelegate {
 extension IvRecordVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
         // 한개만 선택되게 만드는 코드
-//        if selections.count == 0 {
-//            selections.append(tagText)
-//        } else {
-//            if selections[0] == "전체" {
-//
-//            }
-//
-//        }
+        //        if selections.count == 0 {
+        //            selections.append(tagText)
+        //        } else {
+        //            if selections[0] == "전체" {
+        //
+        //            }
+        //
+        //        }
         
         // selection 배열 내에 한개씩만 선택되게 만들기
         var check = 0

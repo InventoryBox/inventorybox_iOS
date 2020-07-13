@@ -62,6 +62,8 @@
 		D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875924B809D400A60C08 /* IvFoodExchangeCell.swift */; };
 		D4A2875C24B809E400A60C08 /* IvProductExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875B24B809E400A60C08 /* IvProductExchangeCell.swift */; };
 		D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875D24B8452900A60C08 /* SelectHeaderCell.swift */; };
+		D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */; };
+		D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */; };
 		D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */; };
 		D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */; };
 		D4AC98DF24B87E1600DBD099 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */; };
@@ -177,6 +179,8 @@
 		D4A2875924B809D400A60C08 /* IvFoodExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvFoodExchangeCell.swift; sourceTree = "<group>"; };
 		D4A2875B24B809E400A60C08 /* IvProductExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvProductExchangeCell.swift; sourceTree = "<group>"; };
 		D4A2875D24B8452900A60C08 /* SelectHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHeaderCell.swift; sourceTree = "<group>"; };
+		D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryVC.swift; sourceTree = "<group>"; };
+		D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCell.swift; sourceTree = "<group>"; };
 		D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12롯데마트행복Medium.ttf"; sourceTree = "<group>"; };
 		D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -509,6 +513,7 @@
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
 			isa = PBXGroup;
 			children = (
+				D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */,
 				D4311FF424BB2111000C9B8B /* IconCell.swift */,
 				D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */,
 				D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */,
@@ -535,6 +540,7 @@
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */,
 				D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */,
 				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
 				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
@@ -733,6 +739,7 @@
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
+				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
@@ -753,6 +760,7 @@
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,
 				D46A015D24B6CC3C0055814E /* FormTextField.swift in Sources */,
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
+				D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,

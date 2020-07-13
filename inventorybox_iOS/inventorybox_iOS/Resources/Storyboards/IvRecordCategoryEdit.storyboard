@@ -705,7 +705,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5e-3F-cAp">
                                         <rect key="frame" x="327" y="11" width="44" height="35"/>
-                                        <state key="normal" backgroundImage="btnEdit"/>
+                                        <state key="normal" backgroundImage="btnDone"/>
                                         <connections>
                                             <action selector="dismissPopupView:" destination="xZh-Ky-Ufn" eventType="touchUpInside" id="nD8-TC-67l"/>
                                         </connections>
@@ -731,8 +731,8 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzJ-2V-Qcq">
-                                                                    <rect key="frame" x="279" y="4" width="44" height="35"/>
-                                                                    <state key="normal" title="지우기" backgroundImage="btnEdit">
+                                                                    <rect key="frame" x="302" y="3.5" width="36" height="36"/>
+                                                                    <state key="normal" backgroundImage="btnDelete">
                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <connections>
@@ -744,7 +744,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="qzJ-2V-Qcq" firstAttribute="centerY" secondItem="NBC-Uu-enz" secondAttribute="centerY" id="M8E-bO-kQb"/>
                                                                 <constraint firstItem="NBC-Uu-enz" firstAttribute="centerY" secondItem="MSW-RN-cU1" secondAttribute="centerY" id="WrN-Kf-wAj"/>
-                                                                <constraint firstAttribute="trailing" secondItem="qzJ-2V-Qcq" secondAttribute="trailing" constant="20" id="bBx-Q4-eEP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="qzJ-2V-Qcq" secondAttribute="trailing" constant="5" id="bBx-Q4-eEP"/>
                                                                 <constraint firstItem="NBC-Uu-enz" firstAttribute="leading" secondItem="MSW-RN-cU1" secondAttribute="leading" constant="16" id="vdA-F0-iZd"/>
                                                             </constraints>
                                                         </view>
@@ -817,6 +817,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnDelete" width="36" height="36"/>
+        <image name="btnDone" width="44" height="35"/>
         <image name="btnEdit" width="44" height="35"/>
         <image name="btnMoveTrash" width="35" height="35"/>
         <image name="btnPlus" width="35" height="35"/>
