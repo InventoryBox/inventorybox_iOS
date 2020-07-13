@@ -40,8 +40,8 @@ class DeleteCategoryCell: UITableViewCell {
     
     private func setViewBorder() {
         self.roundView.layer.borderWidth = 1
-        self.roundView.layer.borderColor = UIColor.black.cgColor
-        //        self.roundView.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
+        self.roundView.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
+        self.roundView.layer.cornerRadius = 8
     }
     
     func setCellInformation(categoryInfo: String) {

@@ -9,7 +9,7 @@
 import UIKit
 
 class IvRecordAddProductVC: UIViewController {
-
+    
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var titleViewLabel: UILabel!
@@ -43,6 +43,7 @@ class IvRecordAddProductVC: UIViewController {
     
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
+    @IBOutlet weak var popupBackgroundView: UIView!
     var iconIdx: String = ""
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,10 +66,11 @@ class IvRecordAddProductVC: UIViewController {
         setViewCustom()
         setLabelCustom()
         setButtonCustom()
+        setPopupBackgroundView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(disappearIconIdx), name: .init("iconIdx"), object: nil)
     }
-  
+    
     @objc private func disappearIconIdx(_ notification: Notification) {
         
         guard let info = notification.userInfo as? [String: Any] else {
@@ -106,7 +108,7 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         
-//        let newInventory = InventoryInformation(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
+        //        let newInventory = InventoryInformation(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -164,6 +166,43 @@ class IvRecordAddProductVC: UIViewController {
         
         
         
+    }
+    
+    private func setPopupBackgroundView() {
+        
+        popupBackgroundView.isHidden = true
+        popupBackgroundView.alpha = 0
+        self.view.bringSubviewToFront(popupBackgroundView)
+        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+        
+    }
+    
+    func animatePopupBackground(_ direction: Bool) {
+        
+        let duration: TimeInterval = direction ? 0.35 : 0.15
+        let alpha: CGFloat = direction ? 0.54 : 0.0
+        self.popupBackgroundView.isHidden = !direction
+        UIView.animate(withDuration: duration) {
+            self.popupBackgroundView.alpha = alpha
+        }
+        
+    }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+        print("aa")
+        animatePopupBackground(false)
+        
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let name = info["categoryName"] as? String else { return }
+        print(name)
+        
+        
+    }
+    @IBAction func selectCategory(_ sender: Any) {
+        animatePopupBackground(true)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
     }
     @IBAction func minimumCountMinusBtnPressed(_ sender: Any) {
         

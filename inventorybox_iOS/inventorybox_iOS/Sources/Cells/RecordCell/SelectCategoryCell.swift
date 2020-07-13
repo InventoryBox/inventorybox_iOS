@@ -1,33 +1,22 @@
 //
-//  MoveCategoryCell.swift
+//  SelectCategoryCell.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/11.
+//  Created by 이재용 on 2020/07/14.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import UIKit
 
-protocol CategoryButtonDelegate {
-    func didSelectCategory(categoryName: String ,indexPath: Int)
-    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int)
-}
-
-extension CategoryButtonDelegate {
-    func didSelectCategory(categoryName: String ,indexPath: Int) { }
-    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int) {}
-}
-
-class MoveCategoryCell: UITableViewCell {
-    static let identifier: String = "MoveCategoryCell"
+class SelectCategoryCell: UITableViewCell {
+    static let identifier: String = "SelectCategoryCell"
     
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var roundView: UIView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var selectBtn: UIButton!
     
     var delegate: CategoryButtonDelegate?
     var indexpath: Int?
-    
-    @IBOutlet weak var selectBtn: UIButton!
     
     var isWhole: Bool = false {
         didSet {
@@ -44,11 +33,8 @@ class MoveCategoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setViewBorder()
-        
     }
-    
     private func setViewBorder() {
         self.roundView.layer.borderWidth = 1
         self.roundView.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
@@ -64,7 +50,6 @@ class MoveCategoryCell: UITableViewCell {
     @IBAction func categorySelected(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
         delegate?.didSelectCategory(categoryName: name, indexPath: indexpath!)
-//        print("tap")
+        //        print("tap")
     }
-    
 }
