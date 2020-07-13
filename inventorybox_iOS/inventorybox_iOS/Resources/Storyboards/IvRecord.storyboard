@@ -334,9 +334,8 @@
                                     <constraint firstItem="nA6-Js-dWy" firstAttribute="centerX" secondItem="ktg-z8-FKj" secondAttribute="centerX" id="m9u-Va-5ue"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.54000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
+                            <view alpha="0.54000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -348,6 +347,7 @@
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="width" secondItem="qsm-xl-jtl" secondAttribute="width" id="Bkt-MM-ev8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="top" secondItem="fMU-Z6-8Ja" secondAttribute="top" id="DbN-cm-Qaw"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="E3b-u0-oA4"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="bottom" secondItem="qsm-xl-jtl" secondAttribute="bottom" id="Fvc-zb-IQg"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="JUz-Xi-3d9"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="JeS-aG-djy"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="PkZ-Zq-sFI"/>
@@ -356,19 +356,16 @@
                             <constraint firstItem="xcq-tY-ofI" firstAttribute="centerY" secondItem="7Dn-YM-0C3" secondAttribute="centerY" id="U5d-RR-KhG"/>
                             <constraint firstItem="7Dn-YM-0C3" firstAttribute="centerX" secondItem="qsm-xl-jtl" secondAttribute="centerX" id="XR5-cN-LAh"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="Xik-Az-zt6"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="top" secondItem="qsm-xl-jtl" secondAttribute="top" id="aP0-rl-wU2"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="leading" secondItem="qsm-xl-jtl" secondAttribute="leading" id="ceh-zm-KNf"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="cj0-lT-dmd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="jhp-E1-29h"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="7Dn-YM-0C3" secondAttribute="bottom" constant="16" id="r4i-0B-m1m"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="trailing" secondItem="xcq-tY-ofI" secondAttribute="trailing" constant="16" id="rso-0J-Sdw"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" id="wRg-y0-FVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qyS-l2-rBy"/>
-                                <exclude reference="ktg-z8-FKj"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>

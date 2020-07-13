@@ -4,10 +4,27 @@ PODS:
   - Charts (3.5.0):
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
+  - DynamicCodable (1.0)
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
   - lottie-ios (3.1.8)
+  - RxAlamofire (5.1.0):
+    - RxAlamofire/Core (= 5.1.0)
+  - RxAlamofire/Core (5.1.0):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxKakaoSDKCommon (2.0.0-beta.4):
+    - DynamicCodable (~> 1.0)
+    - RxAlamofire (~> 5.1.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - TTGTagCollectionView (1.11.1)
 
 DEPENDENCIES:
@@ -16,6 +33,7 @@ DEPENDENCIES:
   - Charts (~> 3.5.0)
   - Kingfisher (~> 5.0)
   - lottie-ios (~> 3.1.8)
+  - RxKakaoSDKCommon (~> 2.0.0-beta.2)
   - TTGTagCollectionView (~> 1.11.1)
 
 SPEC REPOS:
@@ -23,18 +41,30 @@ SPEC REPOS:
     - Alamofire
     - BEMCheckBox
     - Charts
+    - DynamicCodable
     - Kingfisher
     - lottie-ios
+    - RxAlamofire
+    - RxCocoa
+    - RxKakaoSDKCommon
+    - RxRelay
+    - RxSwift
     - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxKakaoSDKCommon: 2e2b363607ea1fd3ab9955ed060b12c2195eb777
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 4e7ab16769fa96f90fa208b38a3fd1706a441e1f
+PODFILE CHECKSUM: 8b9e14fac03e05b7a7628986e3c02f8a3f35dea3
 
 COCOAPODS: 1.9.1

@@ -27,6 +27,12 @@
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
 		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
+		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
+		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
+		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
+		D409DF0C24BC3B20009AC0B6 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */; };
+		D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */; };
+		D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF5124BC523C009AC0B6 /* SearchResultCell.swift */; };
 		D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */; };
 		D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */; };
 		D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992924B07879007CAAB9 /* CustomTextField.swift */; };
@@ -69,7 +75,9 @@
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
 		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
+		D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */; };
 		D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */; };
+		D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */; };
 		D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
 		D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */; };
@@ -130,6 +138,12 @@
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
 		A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
+		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
+		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
+		D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		D409DF5124BC523C009AC0B6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordCategoryEdit.storyboard; sourceTree = "<group>"; };
 		D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordAddProduct.storyboard; sourceTree = "<group>"; };
 		D410992924B07879007CAAB9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -176,7 +190,9 @@
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
+		D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailVC.swift; sourceTree = "<group>"; };
 		D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordNaviVC.swift; sourceTree = "<group>"; };
+		D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeNaviVC.swift; sourceTree = "<group>"; };
 		D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditCategoryInformation.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -290,9 +306,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D409DF0624BC30BC009AC0B6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
+				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
+				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D4311FEF24BB03E6000C9B8B /* IvExchange */ = {
 			isa = PBXGroup;
 			children = (
+				D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */,
 				D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */,
 				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
 				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
@@ -303,6 +330,9 @@
 		D46A015B24B6C9780055814E /* IvExchange */ = {
 			isa = PBXGroup;
 			children = (
+				D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */,
+				D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */,
+				D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */,
 				D46A015924B6C9570055814E /* IvExchangeVC.swift */,
 			);
 			path = IvExchange;
@@ -311,6 +341,7 @@
 		D46C957424B7141E004D1B38 /* ExchangeCell */ = {
 			isa = PBXGroup;
 			children = (
+				D409DF5124BC523C009AC0B6 /* SearchResultCell.swift */,
 				D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */,
 				D4A2875924B809D400A60C08 /* IvFoodExchangeCell.swift */,
 				D4A2875B24B809E400A60C08 /* IvProductExchangeCell.swift */,
@@ -387,6 +418,7 @@
 		D48417C224AC56840064EE64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D409DF0624BC30BC009AC0B6 /* Services */,
 				D48417C324AC568A0064EE64 /* VCs */,
 				D4B45F4B24B56BCC00888DC3 /* Classes */,
 				D48417C524AC56920064EE64 /* Models */,
@@ -653,8 +685,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
+				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
+				D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */,
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
 				D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */,
@@ -664,13 +698,16 @@
 				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
+				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
 				D4E7A3F624B450ED001C015A /* HomeTVCell.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
+				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
 				D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */,
 				D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
+				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
@@ -687,6 +724,7 @@
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
 				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
+				D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
@@ -716,12 +754,14 @@
 				D46A015D24B6CC3C0055814E /* FormTextField.swift in Sources */,
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
+				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
 				D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
 				D4A2875C24B809E400A60C08 /* IvProductExchangeCell.swift in Sources */,
 				D4E96EAC24B8868400BD3419 /* DatePickerPopupVC.swift in Sources */,
+				D409DF0C24BC3B20009AC0B6 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
