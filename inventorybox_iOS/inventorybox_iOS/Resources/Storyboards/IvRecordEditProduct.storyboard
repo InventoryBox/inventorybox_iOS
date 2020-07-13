@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tBg-RW-eSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5DW-Rz-oSE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -8,19 +8,201 @@
     </dependencies>
     <scenes>
         <!--Iv Record Edit ProductVC-->
-        <scene sceneID="GOc-On-E4R">
+        <scene sceneID="KfF-e7-QK2">
             <objects>
-                <viewController storyboardIdentifier="IvRecordEditProductVC" id="tBg-RW-eSc" customClass="IvRecordEditProductVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="spl-sd-PdW">
+                <viewController storyboardIdentifier="IvRecordEditProductVC" id="5DW-Rz-oSE" customClass="IvRecordEditProductVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UEi-x2-T6I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gP6-MH-dby">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ8-l5-Wly">
+                                        <rect key="frame" x="0.0" y="3" width="375" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99J-nC-npa">
+                                                <rect key="frame" x="119.5" y="12" width="136" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0f-us-1wh" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="1jA-1q-MTa"/>
+                                                    <constraint firstAttribute="width" constant="146" id="lOQ-bG-RCm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="99J-nC-npa" firstAttribute="top" secondItem="KJ8-l5-Wly" secondAttribute="top" constant="12" id="APq-hR-JS8"/>
+                                            <constraint firstAttribute="height" constant="44" id="Ays-ZY-LX1"/>
+                                            <constraint firstItem="99J-nC-npa" firstAttribute="centerX" secondItem="KJ8-l5-Wly" secondAttribute="centerX" id="gAu-pu-VbK"/>
+                                            <constraint firstItem="P0f-us-1wh" firstAttribute="centerX" secondItem="KJ8-l5-Wly" secondAttribute="centerX" id="rEX-9x-fbd"/>
+                                            <constraint firstItem="P0f-us-1wh" firstAttribute="top" secondItem="KJ8-l5-Wly" secondAttribute="top" constant="12" id="thN-N1-jeD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="KJ8-l5-Wly" firstAttribute="leading" secondItem="gP6-MH-dby" secondAttribute="leading" id="XTc-rE-etx"/>
+                                    <constraint firstItem="KJ8-l5-Wly" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="top" constant="3" id="XdB-KA-HFp"/>
+                                    <constraint firstAttribute="trailing" secondItem="KJ8-l5-Wly" secondAttribute="trailing" id="pls-LY-2Z0"/>
+                                    <constraint firstAttribute="width" secondItem="gP6-MH-dby" secondAttribute="height" multiplier="375:87" id="zas-9m-dcy"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eck-MF-vzA">
+                                <rect key="frame" x="0.0" y="95" width="375" height="497"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="35" id="oXu-xc-oA9" customClass="HeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="35"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXu-xc-oA9" id="OeC-Vr-TQv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ij8-Cb-JOc">
+                                                    <rect key="frame" x="24" y="10" width="89" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="VP0-jO-eUl"/>
+                                                        <constraint firstAttribute="width" constant="89" id="gmy-lI-2cI"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="lastrecordingBtnPlus"/>
+                                                    <connections>
+                                                        <action selector="goToAddProductVC:" destination="5DW-Rz-oSE" eventType="touchUpInside" id="sHm-NG-VUY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ij8-Cb-JOc" firstAttribute="centerY" secondItem="OeC-Vr-TQv" secondAttribute="centerY" id="AIY-Jw-NOz"/>
+                                                <constraint firstItem="Ij8-Cb-JOc" firstAttribute="leading" secondItem="OeC-Vr-TQv" secondAttribute="leading" constant="24" id="AnZ-pW-l5H"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryEditProductCell" rowHeight="94" id="2hd-pD-kcq" customClass="InventoryEditProductCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="63" width="375" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2hd-pD-kcq" id="a4m-T7-CJ5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfl-mr-8fg">
+                                                    <rect key="frame" x="16" y="4" width="343" height="86"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExB-9Z-r8m">
+                                                            <rect key="frame" x="6" y="6" width="82" height="74"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcMilk" translatesAutoresizingMaskIntoConstraints="NO" id="HMo-aC-ppp">
+                                                                    <rect key="frame" x="15.5" y="10" width="51" height="51"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="51" id="7Fs-Vb-3XH"/>
+                                                                        <constraint firstAttribute="height" constant="51" id="d79-ZV-wm0"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSN-Wp-Fs4">
+                                                                    <rect key="frame" x="30.5" y="63" width="21" height="15"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="lSN-Wp-Fs4" firstAttribute="centerX" secondItem="ExB-9Z-r8m" secondAttribute="centerX" id="6fn-Zd-Ul5"/>
+                                                                <constraint firstAttribute="height" constant="82" id="7In-Hx-v0n"/>
+                                                                <constraint firstItem="lSN-Wp-Fs4" firstAttribute="top" secondItem="HMo-aC-ppp" secondAttribute="bottom" constant="2" id="OK7-iY-IED"/>
+                                                                <constraint firstItem="HMo-aC-ppp" firstAttribute="top" secondItem="ExB-9Z-r8m" secondAttribute="top" constant="10" id="bcK-xf-5lF"/>
+                                                                <constraint firstAttribute="width" constant="82" id="dEO-Vl-3BP"/>
+                                                                <constraint firstItem="HMo-aC-ppp" firstAttribute="centerX" secondItem="ExB-9Z-r8m" secondAttribute="centerX" id="ip9-KG-NHn"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="lastrecordingTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-dZ-o8l">
+                                                            <rect key="frame" x="108" y="18.5" width="206" height="49"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="49" id="cZz-tz-wiN"/>
+                                                                <constraint firstAttribute="width" constant="206" id="gue-hR-WgQ"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ExB-9Z-r8m" firstAttribute="top" secondItem="pfl-mr-8fg" secondAttribute="top" constant="6" id="2dz-1K-ZhV"/>
+                                                        <constraint firstItem="ce5-dZ-o8l" firstAttribute="leading" secondItem="ExB-9Z-r8m" secondAttribute="trailing" constant="20" id="4MZ-XB-1LA"/>
+                                                        <constraint firstItem="ExB-9Z-r8m" firstAttribute="leading" secondItem="pfl-mr-8fg" secondAttribute="leading" constant="6" id="YHo-mq-iUE"/>
+                                                        <constraint firstItem="ce5-dZ-o8l" firstAttribute="centerY" secondItem="ExB-9Z-r8m" secondAttribute="centerY" id="dpg-cf-e3L"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ExB-9Z-r8m" secondAttribute="bottom" constant="6" id="h7a-6q-6yn"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="pfl-mr-8fg" firstAttribute="top" secondItem="a4m-T7-CJ5" secondAttribute="top" constant="4" id="7FR-W1-I4q"/>
+                                                <constraint firstAttribute="trailing" secondItem="pfl-mr-8fg" secondAttribute="trailing" constant="16" id="Ih8-8R-1eI"/>
+                                                <constraint firstItem="pfl-mr-8fg" firstAttribute="leading" secondItem="a4m-T7-CJ5" secondAttribute="leading" constant="16" id="L1Y-wI-qXt"/>
+                                                <constraint firstAttribute="bottom" secondItem="pfl-mr-8fg" secondAttribute="bottom" constant="4" id="m5i-nW-wbK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="inventoryCountTextField" destination="ce5-dZ-o8l" id="GBh-uP-9Jf"/>
+                                            <outlet property="inventoryImageView" destination="HMo-aC-ppp" id="3yk-eM-uDH"/>
+                                            <outlet property="inventoryNameLabel" destination="lSN-Wp-Fs4" id="eSr-Je-yYB"/>
+                                            <outlet property="inventoryView" destination="ExB-9Z-r8m" id="zhH-GL-oDv"/>
+                                            <outlet property="roundView" destination="pfl-mr-8fg" id="5YJ-GD-zjf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-f8-UvP">
+                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="dUv-na-5OS"/>
+                                    <constraint firstAttribute="height" constant="53" id="p28-uT-hLj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="completeBtnPressed:" destination="5DW-Rz-oSE" eventType="touchUpInside" id="olU-70-lcT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="ND4-Pd-bs4"/>
+                        <constraints>
+                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="eck-MF-vzA" secondAttribute="bottom" constant="75" id="7cG-Jb-qe3"/>
+                            <constraint firstItem="gP6-MH-dby" firstAttribute="width" secondItem="UEi-x2-T6I" secondAttribute="width" id="9F5-XA-vdz"/>
+                            <constraint firstItem="eck-MF-vzA" firstAttribute="trailing" secondItem="83s-pt-GT0" secondAttribute="trailing" id="Dq7-d5-DUf"/>
+                            <constraint firstItem="ZY3-f8-UvP" firstAttribute="centerX" secondItem="UEi-x2-T6I" secondAttribute="centerX" id="SNu-aM-Aqd"/>
+                            <constraint firstItem="gP6-MH-dby" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="X19-9Q-RPk"/>
+                            <constraint firstItem="gP6-MH-dby" firstAttribute="top" secondItem="83s-pt-GT0" secondAttribute="top" id="dr0-za-i7R"/>
+                            <constraint firstItem="eck-MF-vzA" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="bottom" constant="8" id="f4N-wz-biv"/>
+                            <constraint firstItem="eck-MF-vzA" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="rjf-dD-lgt"/>
+                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="20" id="yh7-EB-153"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="83s-pt-GT0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="19b-h7-HfG"/>
+                    <connections>
+                        <outlet property="completeBtn" destination="ZY3-f8-UvP" id="kMC-u4-SUd"/>
+                        <outlet property="inventoryEditPrdoctTableView" destination="eck-MF-vzA" id="HBH-DJ-fik"/>
+                        <outlet property="outView" destination="gP6-MH-dby" id="CUM-rw-bWV"/>
+                        <outlet property="todayDateLabel" destination="99J-nC-npa" id="ffi-5q-mMc"/>
+                        <outlet property="topView" destination="KJ8-l5-Wly" id="G0B-vs-hc9"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RdL-PF-VHA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4l2-ag-0fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="123"/>
+            <point key="canvasLocation" x="-311" y="288"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homeIcMilk" width="51" height="51"/>
+        <image name="lastrecordingBtnPlus" width="89" height="15"/>
+        <image name="lastrecordingTextfield" width="206" height="49"/>
+    </resources>
 </document>

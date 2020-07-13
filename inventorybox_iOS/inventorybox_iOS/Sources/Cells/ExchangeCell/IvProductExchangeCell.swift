@@ -20,6 +20,19 @@ class IvProductExchangeCell: UICollectionViewCell {
     @IBOutlet weak var ivLifeLabel: UILabel!
     @IBOutlet weak var ivDateLabel: UILabel!
     
+    var delegate: ExchangeButtonDelegate?
+    var indexPath: Int?
+    
+    var isHeartSwitch: Bool = false {
+        didSet {
+            if isHeartSwitch {
+                heartImageView.image = UIImage(named: "exchangemainBtnHeart1")
+            } else {
+                heartImageView.image = UIImage(named: "exchangemainBtnHeart2")
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setRoundView()
@@ -43,18 +56,24 @@ class IvProductExchangeCell: UICollectionViewCell {
     
     func set(_ exchangeInformation: ProductExchangeInformation) {
         ivImageView.image = UIImage(named: exchangeInformation.ivImageName)
-        
-        if exchangeInformation.ivHeart {
-            heartImageView.image = UIImage(named: "exchangemainBtnHeart1")
-        } else {
-            heartImageView.image = UIImage(named: "exchangemainBtnHeart2")
-        }
-        
+        isHeartSwitch = exchangeInformation.ivHeart
         ivPriceLabel.text = exchangeInformation.ivPrice
         ivDistanceLabel.text = exchangeInformation.ivDistance
         ivNameLabel.text = exchangeInformation.ivName
         ivLifeLabel.text = exchangeInformation.ivLife
         ivDateLabel.text = exchangeInformation.ivDate
-        
+    }
+    
+    @IBAction func switchLikes(_ sender: Any) {
+        if isHeartSwitch {
+            isHeartSwitch = false
+        } else {
+            isHeartSwitch = true
+        }
+        delegate?.didSelectHeart(isClicked: isHeartSwitch, indexPath: indexPath!)
+        // 서버 통신
+    }
+    @IBAction func selectProduct(_ sender: Any) {
+        delegate?.whichProductIsSelect(indexPath: indexPath!)
     }
 }

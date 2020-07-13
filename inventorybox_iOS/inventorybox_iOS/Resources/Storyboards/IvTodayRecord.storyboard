@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
-                                                <rect key="frame" x="17.5" y="13" width="8.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
                                                 <state key="normal" backgroundImage="postBtnBack"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
@@ -47,7 +47,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="Fbl-hX-3x6"/>
-                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" constant="17.5" id="G1k-Je-5yv"/>
+                                            <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" id="G1k-Je-5yv"/>
                                             <constraint firstItem="uX4-yY-gw4" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="V1r-up-zHY"/>
                                             <constraint firstItem="ni2-E9-rMT" firstAttribute="centerY" secondItem="C1w-Wr-Jgp" secondAttribute="centerY" id="aA4-rE-GJh"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="fhc-3b-uLB"/>
@@ -166,14 +166,6 @@
                                             <outlet property="roundView" destination="gxF-N2-XF1" id="p96-fD-LMJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a3r-K6-Pe7">
-                                        <rect key="frame" x="0.0" y="157" width="375" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a3r-K6-Pe7" id="uhv-Is-hLh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-jC-OQC">
@@ -221,6 +213,6 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
-        <image name="postBtnBack" width="8.5" height="16"/>
+        <image name="postBtnBack" width="40" height="44"/>
     </resources>
 </document>

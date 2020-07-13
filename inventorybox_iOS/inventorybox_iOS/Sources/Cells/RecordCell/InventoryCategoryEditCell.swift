@@ -11,12 +11,12 @@ import BEMCheckBox
 
 
 @objc protocol CellButtonDelegate {
-    @objc func didClickCheckButton(isClicked: Bool, indexPath: IndexPath)
-    @objc func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: IndexPath)
+    @objc func didClickCheckButton(isClicked: Bool, indexPath: Int)
+    @objc func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int)
 }
 
 extension CellButtonDelegate {
-    func didClickCheckButton(isClicked: Bool, indexPath: IndexPath) {}
+    func didClickCheckButton(isClicked: Bool, indexPath: Int) {}
     func didAllBtnClickedCheckButton() {}
 }
 
@@ -25,7 +25,7 @@ class InventoryCategoryEditCell: UITableViewCell {
     static let identifier: String = "InventoryCategoryEditCell"
     
     var delegate: CellButtonDelegate?
-    var indexPath: IndexPath?
+    var indexPath: Int?
     
     // 코드로 커스텀이 필요한 뷰
     @IBOutlet weak var roundView: UIView!
@@ -82,7 +82,6 @@ class InventoryCategoryEditCell: UITableViewCell {
         
         roundView.layer.cornerRadius = 9
         //roundView.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
-        
     }
     
     private func makeShadowUnderView() {
