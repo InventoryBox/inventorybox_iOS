@@ -11,17 +11,30 @@ import UIKit
 class IvExchangeVC: UIViewController {
 
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var myLocationLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var allInventoryLabel: UILabel!
     @IBOutlet weak var allInventoryBottomView: UIView!
     @IBOutlet weak var allIvCollectionView: UICollectionView!
     
+    @IBOutlet weak var cateStackView: UIStackView!
+    @IBOutlet weak var distanceBtn: UIButton!
+    @IBOutlet weak var priceBtn: UIButton!
+    @IBOutlet weak var recentBtn: UIButton!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = true
+        setNotiAddress()
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+//        removeNotiAddress()
     }
     var allExchangeArray: [AllExchangeInformation] = {
        let data1 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
@@ -67,6 +80,11 @@ class IvExchangeVC: UIViewController {
         
         return [data1, data2, data3, data4, data5, data6, data7]
     }()
+    
+    @IBOutlet weak var recentInventoryLabel: UILabel!
+    @IBOutlet weak var recentInventoryBottomView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,18 +93,88 @@ class IvExchangeVC: UIViewController {
         setTabBottomViewCustom()
         setShadow()
         setCollectionView()
-        
+        setCateStackView()
+        setTextField()
     }
+    
+    private func setTextField() {
+        searchTextField.delegate = self
+    }
+    private func setNotiAddress() {
+        NotificationCenter.default.addObserver(self, selector: #selector(addressSend), name: .init("name"), object: nil)
+    }
+    
+    private func removeNotiAddress() {
+        
+        NotificationCenter.default.removeObserver(self, name: .init("name"), object: nil)
+    }
+    @objc private func addressSend(_ notification: Notification) {
+        
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let name = userInfo["address"] as? String else { return }
+        
+//        print(name)
+        myLocationLabel.text = name
+    }
+    private func setCateStackView() {
+        cateStackView.layer.borderColor = UIColor.gray.cgColor
+        cateStackView.layer.cornerRadius = 12
+        distanceBtn.layer.cornerRadius = 12
+        priceBtn.layer.cornerRadius = 12
+        recentBtn.layer.cornerRadius = 12
+        
+        distanceBtn.titleLabel?.textColor = .white
+        priceBtn.titleLabel?.textColor = .mediumGrey
+        recentBtn.titleLabel?.textColor = .mediumGrey
+        
+        distanceBtn.backgroundColor = .yellow
+        priceBtn.backgroundColor = .white
+        recentBtn.backgroundColor = .white
+    }
+    
+    @IBAction func distanceBtnPressed(_ sender: Any) {
+        
+        distanceBtn.titleLabel?.textColor = .white
+        priceBtn.titleLabel?.textColor = .mediumGrey
+        recentBtn.titleLabel?.textColor = .mediumGrey
+        
+        distanceBtn.backgroundColor = .yellow
+        priceBtn.backgroundColor = .white
+        recentBtn.backgroundColor = .white
+    }
+    @IBAction func priceBtnPressed(_ sender: Any) {
+        
+        distanceBtn.titleLabel?.textColor = .mediumGrey
+        priceBtn.titleLabel?.textColor = .white
+        recentBtn.titleLabel?.textColor = .mediumGrey
+        
+        distanceBtn.backgroundColor = .white
+        priceBtn.backgroundColor = .yellow
+        recentBtn.backgroundColor = .white
+    }
+    
+    @IBAction func recentBtnPressed(_ sender: Any) {
+        distanceBtn.titleLabel?.textColor = .mediumGrey
+        priceBtn.titleLabel?.textColor = .mediumGrey
+        recentBtn.titleLabel?.textColor = .white
+        
+        distanceBtn.backgroundColor = .white
+        priceBtn.backgroundColor = .white
+        recentBtn.backgroundColor = .yellow
+    }
+    
     
     
     @IBAction func allIvBtnPressed(_ sender: Any) {
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.gray
+        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = false
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = true
+        recentInventoryBottomView.isHidden = true
         
         allIvCollectionView.isHidden = false
         foodIvCollectionView.isHidden = true
@@ -97,11 +185,12 @@ class IvExchangeVC: UIViewController {
         allInventoryLabel.textColor = UIColor.gray
         foodInventoryLabel.textColor = UIColor.black
         productInventoryLabel.textColor = UIColor.gray
+        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = true
         foodInventoryBottomView.isHidden = false
         productInventoryBottomView.isHidden = true
-        
+        recentInventoryBottomView.isHidden = true
         
         allIvCollectionView.isHidden = true
         foodIvCollectionView.isHidden = false
@@ -112,25 +201,41 @@ class IvExchangeVC: UIViewController {
         allInventoryLabel.textColor = UIColor.gray
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.black
+        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = true
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = false
-        
+        recentInventoryBottomView.isHidden = true
         
         allIvCollectionView.isHidden = true
         foodIvCollectionView.isHidden = true
         productIvCollectionView.isHidden = false
     }
      
+    @IBAction func recentIvBtnPressed(_ sender: Any) {
+        allInventoryLabel.textColor = UIColor.gray
+        foodInventoryLabel.textColor = UIColor.gray
+        productInventoryLabel.textColor = UIColor.gray
+        recentInventoryLabel.textColor = UIColor.black
+        
+        allInventoryBottomView.isHidden = true
+        foodInventoryBottomView.isHidden = true
+        productInventoryBottomView.isHidden = true
+        recentInventoryBottomView.isHidden = false
+        
+        
+    }
     private func setLabelCustom() {
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.gray
+        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = false
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = true
+        recentInventoryBottomView.isHidden = true
     }
     
     private func setTabBottomViewCustom() {
@@ -138,9 +243,9 @@ class IvExchangeVC: UIViewController {
         foodInventoryBottomView.layer.cornerRadius = 3
         productInventoryBottomView.layer.cornerRadius = 3
         
-        allInventoryBottomView.isHidden = false
-        foodInventoryBottomView.isHidden = true
-        productInventoryBottomView.isHidden = true
+//        allInventoryBottomView.isHidden = false
+//        foodInventoryBottomView.isHidden = true
+//        productInventoryBottomView.isHidden = true
         
     }
     private func setCollectionView() {
@@ -159,11 +264,12 @@ class IvExchangeVC: UIViewController {
         
         topView.layer.shadowOpacity = 0.1
         topView.layer.shadowRadius = 2
-        topView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        topView.layer.shadowOffset = CGSize(width: 0, height: 2)
      
         searchTextField.layer.shadowOpacity = 0.1
         searchTextField.layer.shadowRadius = 2
         searchTextField.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
         
     }
 }
@@ -233,6 +339,7 @@ extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
 extension IvExchangeVC: ExchangeButtonDelegate {
     func whichProductIsSelect(indexPath: Int) {
         print(indexPath)
+        performSegue(withIdentifier: "goToDetail", sender: self)
     }
     
     func didSelectHeart(isClicked: Bool, indexPath: Int) {
@@ -240,3 +347,13 @@ extension IvExchangeVC: ExchangeButtonDelegate {
         // 어차피 전체 식품 공산품은 전체에서 필터링을 할거기때문에 찜하기는 전체에만 반영하고 다시 필터링을 해주면 된다.
     }
 }
+
+//MARK: - TextFieldDelegate
+extension IvExchangeVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+}
+

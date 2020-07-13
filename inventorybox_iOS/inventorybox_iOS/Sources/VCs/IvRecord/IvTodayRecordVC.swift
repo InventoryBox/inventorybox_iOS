@@ -39,6 +39,17 @@ class IvTodayRecordVC: UIViewController {
     
     private var inventoryFilteredArray: [InventoryTodayInformation] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +58,17 @@ class IvTodayRecordVC: UIViewController {
         makeShadowUnderOutView()
         setInventoryTodayRecordTableView()
         customCompleteBtn()
+        
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        
+        
+//        self.view.frame.origin.y = -200 // Move view 150 points upward
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0 // Move view to original position
     }
     
     private func setInventoryFilteredData() {
@@ -56,9 +78,9 @@ class IvTodayRecordVC: UIViewController {
     private func customCompleteBtn() {
         
         completeBtn.layer.cornerRadius = 25
-//        completeBtn.backgroundColor = UIColor.pinkishGrey
-//        completeBtn.tintColor = UIColor.white
-//        completeBtn.isEnabled = false
+        //        completeBtn.backgroundColor = UIColor.pinkishGrey
+        //        completeBtn.tintColor = UIColor.white
+        //        completeBtn.isEnabled = false
         completeBtn.backgroundColor = UIColor.yellow
         completeBtn.tintColor = UIColor.white
         completeBtn.isEnabled = true
@@ -198,9 +220,9 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
             completeBtn.tintColor = UIColor.white
             completeBtn.isEnabled = true
         } else {
-//            completeBtn.backgroundColor = UIColor.pinkishGrey
-//            completeBtn.tintColor = UIColor.white
-//            completeBtn.isEnabled = false
+            //            completeBtn.backgroundColor = UIColor.pinkishGrey
+            //            completeBtn.tintColor = UIColor.white
+            //            completeBtn.isEnabled = false
             completeBtn.backgroundColor = UIColor.yellow
             completeBtn.tintColor = UIColor.white
             completeBtn.isEnabled = true
@@ -262,3 +284,4 @@ extension IvTodayRecordVC: TTGTextTagCollectionViewDelegate {
         
     }
 }
+
