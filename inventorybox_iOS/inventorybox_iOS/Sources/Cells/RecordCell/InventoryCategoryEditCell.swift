@@ -52,7 +52,6 @@ class InventoryCategoryEditCell: UITableViewCell {
         
         roundView.layer.cornerRadius = 9
         //roundView.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
-        
     }
     
     private func makeShadowUnderView() {

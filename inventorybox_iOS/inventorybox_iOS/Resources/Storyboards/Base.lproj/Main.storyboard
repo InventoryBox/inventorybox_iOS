@@ -9,12 +9,9 @@
         <!--Tab BarVC-->
         <scene sceneID="1l0-5P-LMz">
             <objects>
-<<<<<<< HEAD
-                <tabBarController id="udg-Ad-4x6" customClass="TabBarVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="1tc-Bx-c97"/>
-=======
+                <!-- <tabBarController id="udg-Ad-4x6" customClass="TabBarVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1tc-Bx-c97"/> -->
                 <tabBarController storyboardIdentifier="TabBarVC" id="udg-Ad-4x6" customClass="TabBarVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> 90049226e029d710fab98004fd42d90ef9ac9b21
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwl-Tf-2rt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -10,9 +10,11 @@ import Foundation
 
 struct WeekInformation{
     var btnText: String?
+    var btnIsSelected:Bool?
     
-    init(btnText: String){
+    init(btnText: String, btnIsSelected:Bool){
         self.btnText = btnText
+        self.btnIsSelected = btnIsSelected
        
     }
 }

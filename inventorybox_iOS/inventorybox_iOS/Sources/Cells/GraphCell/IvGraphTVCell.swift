@@ -17,6 +17,8 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var itemNameLabel: UILabel!
     @IBOutlet var roundView: UIView!
     
+    private var limitLine: ChartLimitLine?
+    
     var months = ["일","월","화","수","목","금","토"]
     
     override func awakeFromNib() {
@@ -87,12 +89,20 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         chartData.barWidth = 0.2
         
         let ll = ChartLimitLine(limit: itemCount, label: "")
+        limitLine = ll
+        ivChartView.rightAxis.removeLimitLine(ll)
         ivChartView.rightAxis.addLimitLine(ll)
         ll.lineWidth = 0.3
+        
       
     }
     
     
+    func removeLimitLine() {
+        guard let limitLine = self.limitLine else { return }
+        ivChartView.rightAxis.removeLimitLine(limitLine)
+    }
+
   
     
     
