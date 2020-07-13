@@ -18,6 +18,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var secondDayLabel: UILabel!
     @IBOutlet var ivChartView: BarChartView!
     @IBOutlet var roundView: UIView!
+    var itemIdx:Int?
     
 
     var months = ["일","월","화","수","목","금","토"]
@@ -41,7 +42,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
     }
     
     
-    func setIvGraphTV(weekLabel:String,firstMonth:String,firstDay:String,secondMonth:String,secondDay:String,itemAlarmCount:Double,dataPoints: [String],values: [Double]){
+    func setIvGraphTV(weekLabel:String,firstMonth:String,firstDay:String,secondMonth:String,secondDay:String,itemAlarmCount:Double,dataPoints: [String],values: [Double], itemIndex:Int){
         
         
         var dataEntries : [BarChartDataEntry] = []
@@ -51,13 +52,14 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         firstDayLabel.text = firstDay
         secondMonthLabel.text = secondMonth
         secondDayLabel.text = secondDay
+        itemIdx = itemIndex
 
       
         //dataPoint.count (배열의 값만큼 막대가 생긴다)
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
             dataEntries.append(dataEntry)
-            print(Int(values[i]))
+           // print(Int(values[i]))
         }
         
         
@@ -67,7 +69,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         //그래프 색 변경 부분
         
-        print(values[1])
+      //  print(values[1])
         chartDataSet.colors = [setColor(value: values[0]),setColor(value: values[1]),setColor(value: values[2]),setColor(value: values[3]),setColor(value: values[4]),setColor(value: values[5]),setColor(value: values[6])]
         
         

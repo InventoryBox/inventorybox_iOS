@@ -13,20 +13,20 @@ import TTGTagCollectionView
 class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TTGTextTagCollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
-
     @IBOutlet var headerView: UIView!
     @IBOutlet var calendarCollectionView: UICollectionView!
-    @IBOutlet var categoryTabView: TTGTextTagCollectionView!
     @IBOutlet var ivDataTableView: UITableView!
-    
+    @IBOutlet var tagCollectionView: UICollectionView!
     
     
     private var DayList:[DayInformation] = []
     private var itemList:[ItemInformation] = []
+    private var tagArray:[TagModel] = []
 
     
     var numbers:[Double] = []
     var days: [String]!
+    
        
     
     // 이 값 순서대로 그래프가 그려짐
@@ -55,33 +55,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         calendarCollectionView.clipsToBounds = false
         calendarCollectionView.layer.masksToBounds = false
         
-        
-        //카테고리 탭뷰
-        categoryTabView.delegate = self
-        categoryTabView.alignment = .left
-        categoryTabView.scrollDirection = .horizontal
-        categoryTabView.showsHorizontalScrollIndicator = false
-        
-        let config = TTGTextTagConfig()
-        config.textColor = UIColor(red: 65.0 / 255.0, green: 71.0 / 255.0, blue: 67.0 / 255.0, alpha: 1.0)
-        config.borderColor = UIColor(white: 230.0 / 255.0, alpha: 1.0)
-        config.backgroundColor = .white
-        config.borderWidth = 1.3
-        config.cornerRadius = 20
-        config.exactHeight = 24
-        config.selectedBorderColor = UIColor(red: 71.0 / 255.0, green: 69.0 / 255.0, blue: 65.0 / 255.0, alpha: 1.0)
-        config.selectedTextColor = .white
-        config.selectedBorderWidth = 1.3
-        config.selectedCornerRadius = 20
-        config.selectedBackgroundColor = UIColor(red: 71.0 / 255.0, green: 69.0 / 255.0, blue: 65.0 / 255.0, alpha: 1.0)
-        config.shadowOpacity = 0
-        config.minWidth = 56
-        config.extraSpace = CGSize(width: 30, height: 0)
-        config.textFont = UIFont(name: "Helvetica Neue", size: 12.0)
-
-        
-        categoryTabView.addTags(["전체","액체류","파우더류","과일","채소류", "카트", "오류다아아"], with: config)
-   
+       
         //day 데이터 setting
         setDayList()
         
@@ -99,7 +73,10 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         //tableView 구분선 제거
         ivDataTableView.separatorStyle = .none
         self.navigationController?.navigationBar.isHidden = true
-
+        
+      
+        //categoryTabView.selectionLimit = 1
+        setTag()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,6 +84,21 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     
+    func setTag(){
+        let tag1 = TagModel(tagName: "전체")
+        let tag2 = TagModel(tagName: "유제품")
+        let tag3 = TagModel(tagName: "채소류")
+        let tag4 = TagModel(tagName: "생선류")
+        let tag5 = TagModel(tagName: "파우더류")
+        let tag6 = TagModel(tagName: "과일")
+        let tag7 = TagModel(tagName: "액체류")
+        let tag8 = TagModel(tagName: "냉장고를 부탁해")
+        
+        
+        tagArray = [tag1,tag2,tag3,tag4,tag5,tag6,tag7,tag8]
+        print(tagArray)
+        print(tagArray.count)
+    }
     
     
      private func setDayList(){
@@ -127,11 +119,9 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
 //                DayList[i].isToday = today
 //                DayList[i].currentDay = daylist[i]
                 today = true
-                print(today)
             }
             else {
                 today = false
-                print(today)
             }
         }
         
@@ -146,23 +136,46 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
          //위에 만들어놓은 빈 배열인 profileList에 profile1(데이터)을 넣어준다.
          DayList = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
-        print(DayList)
       
          
      }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DayList.count
+        
+        if collectionView == calendarCollectionView {
+            return DayList.count
+        }
+        
+        if collectionView == tagCollectionView {
+            return tagArray.count
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCVCell
+        if collectionView == calendarCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCVCell
+            
+            cell.setDayInformation(dayOfWeek: DayList[indexPath.row].currentWeekOfDay, day: DayList[indexPath.row].currentDay!, isToday: DayList[indexPath.row].isToday!)
+            
+            return cell
+        }
         
-        cell.setDayInformation(dayOfWeek: DayList[indexPath.row].currentWeekOfDay, day: DayList[indexPath.row].currentDay!, isToday: DayList[indexPath.row].isToday!)
-    
-             return cell
+        else if collectionView == tagCollectionView {
+            let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
+            tagCell.tagNameLabel.text = tagArray[indexPath.row].tagName
+            tagCell.backgroundColor = .white
+            tagCell.layer.cornerRadius = 11
+            
+            tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
+            tagCell.layer.borderWidth = 0.5
+            
+            return tagCell
+        }
+        return UICollectionViewCell()
     }
     
     
@@ -184,10 +197,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
              //위에 만들어놓은 빈 배열인 profileList에 profile1(데이터)을 넣어준다.
              itemList = [milk,iceCup,coffee,brownMilk,milk,iceCup,coffee,brownMilk]
-      
-          
-             
-         }
+        }
     
     
     
@@ -210,17 +220,15 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return cell2
         }
+            
         else {
-            
-            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
-            
+            cell.removeLimitLine()
             cell.setIvGraphTV(itemImage: itemList[indexPath.row - 1].itemImg!, itemName: itemList[indexPath.row - 1].itemName!, itemCount: itemList[indexPath.row - 1].itemAlarmCount!, dataPoints: itemList[indexPath.row - 1].dataPoints!, values: itemList[indexPath.row - 1].values!)
                   
             return cell
         }
-      
-    }
+      }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -243,51 +251,22 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             "IvDetailGraphVC") as? IvDetailGraphVC else { return }
       
         self.navigationController?.pushViewController(detailViewController, animated: true)
+        
+        //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
+        
+        detailViewController.itemName = self.itemList[indexPath.row - 1].itemName
+        
+        
     }
     
-//    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        
-//        let headerView = UIView()
-//               if section == 0{
-//                   
-//                  var friendsLabel = UILabel(frame: CGRect(x: 16, y: 9.5, width:tableView.bounds.size.width, height: 17))
-//                   
-//                   friendsLabel.font = UIFont(name: "KoPubWorldDotumPM", size: 11)
-//                   friendsLabel.textColor = UIColor.lightGray
-//                   friendsLabel.text = "경고"
-//                   friendsLabel.sizeToFit()
-//                   headerView.addSubview(friendsLabel)
-//                   
-//               }
-//               return headerView
-//           }
-//       
-
-//    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        
-//        var size:Int = 0
-//        
-//        if section == 0{
-//            
-//            size = 50
-//            return CGFloat(size)
-//        }
-//        
-//        
-//        return CGFloat(size)
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
+        cell.removeLimitLine()
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
+

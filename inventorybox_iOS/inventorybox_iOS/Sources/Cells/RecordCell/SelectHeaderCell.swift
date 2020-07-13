@@ -18,7 +18,7 @@ class SelectHeaderCell: UITableViewCell {
             
         }
     }
-    var indexPath: IndexPath?
+    var indexPath: Int?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

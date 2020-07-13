@@ -10,53 +10,76 @@ import UIKit
 
 class WeekInThisMonthCVCell: UICollectionViewCell {
     
-
+    
     @IBOutlet var weekBtn: UIButton!
     @IBOutlet var weekLabel: UILabel!
     
     //버튼을 클릭했을 때 몆주차에 해당하는 버튼인지 저장하는 변수
-     var clickWeekInfo:String = ""
-    
-    override func awakeFromNib() {
-        weekBtn.layer.cornerRadius = 12
+    var clickWeekInfo:String = ""
+    var week: Int?
+    var status: Bool = false {
+        didSet {
+            if status {
+                self.weekBtn.backgroundColor = .yellow
+                self.weekLabel.textColor = .white
+                weekBtn.isSelected = true
+            } else {
+                self.weekBtn.backgroundColor = .white
+                self.weekLabel.textColor = .charcoal
+                weekBtn.isSelected = false
+            }
+        }
     }
     
-    func setWeekInfo(monthOfWeek:String){
+    override func awakeFromNib() {
+         print("awakeFromNib")
+//        weekBtn.layer.cornerRadius = 12
+//        weekBtn.backgroundColor = .yellow
+    }
+    
+    func setWeekInfo(monthOfWeek:String, isSelect:Bool){
         
-        
+        print("setWeekInfo")
         weekBtn.titleLabel?.text = monthOfWeek
         weekLabel.text = monthOfWeek
         weekBtn.layer.cornerRadius = 12
         weekBtn.layer.shadowOffset = CGSize(width: 0, height: 0)
         weekBtn.layer.shadowOpacity = 0.1
         weekBtn.layer.borderWidth = 0.1
+        status = isSelect
+        print("setWeekInfo\(isSelect)")
+        print("setWeekInfo\(status)")
+        
         
     }
-        
-    @IBAction func clickWeekInfo(_ sender: UIButton) {
-        
-        //Sender를 이용해서 얻은 값을 전역변수에 저장한 뒤
-        //tableViewCell에서 데이터로 사용하려 한다.
-        
-        var isClicked:Bool = self.weekBtn.isSelected
-        print(isSelected)
-        
-        clickWeekInfo = (sender.titleLabel?.text)!
-        print(clickWeekInfo)
-        
-        if sender.titleLabel?.text == "1주차" {
-            
-        }
-      
-        
-        if isSelected == false {
-            self.weekBtn.backgroundColor = .yellow
-        }
-        else {
-            self.weekBtn.backgroundColor = .white
-        }
-        
-    }
-  
     
-}
+    @IBAction func clickWeeks(_ sender: Any) {
+        print(1111111)
+        
+        
+        if self.weekBtn.isSelected {
+                       print("clickWeeks",weekBtn.isSelected)
+                       // set deselected
+                       status = false
+                       self.weekBtn.backgroundColor = .white
+             self.weekLabel.textColor = .charcoal
+                       weekBtn.isSelected = false
+                   } else {
+                       print("clickWeeks",weekBtn.isSelected)
+                       // set selected
+                       status = true
+                       self.weekBtn.backgroundColor = .yellow
+            self.weekLabel.textColor = .white
+                       weekBtn.isSelected = true
+                   }
+               
+       
+       NotificationCenter.default.post(name: .clickWeek, object: nil, userInfo: ["week": week, "status": status])
+        
+          print("clickWeeks")
+      
+    }
+           
+    
+    }
+

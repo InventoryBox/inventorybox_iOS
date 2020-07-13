@@ -54,8 +54,8 @@ class TabBarVC: UITabBarController {
         
         // 4
         let IvExchange = UIStoryboard.init(name: "IvExchange", bundle: nil)
-        guard let fourthTab = IvExchange.instantiateViewController(identifier: "IvExchangeVC")
-            as? IvExchangeVC  else {
+        guard let fourthTab = IvExchange.instantiateViewController(identifier: "IvExchangeNaviVC")
+            as? IvExchangeNaviVC  else {
                 return
         }
         fourthTab.tabBarItem.title = "재고 교환"

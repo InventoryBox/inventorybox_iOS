@@ -8,6 +8,16 @@
 
 import UIKit
 
+protocol ExchangeButtonDelegate {
+    func whichProductIsSelect(indexPath: Int)
+    
+    func didSelectHeart(isClicked: Bool, indexPath: Int)
+}
+
+extension ExchangeButtonDelegate {
+    func whichProductIsSelect(indexPath: Int) {}
+    func didSelectHeart(indexPath: Int) {}
+}
 class IvAllExchangeCell: UICollectionViewCell {
     static let identifier: String = "IvAllExchangeCell"
     
@@ -20,6 +30,17 @@ class IvAllExchangeCell: UICollectionViewCell {
     @IBOutlet weak var ivLifeLabel: UILabel!
     @IBOutlet weak var ivDateLabel: UILabel!
     
+    var delegate: ExchangeButtonDelegate?
+    var indexPath: Int?
+    var isHeartSwitch: Bool = false {
+        didSet {
+            if isHeartSwitch {
+                heartImageView.image = UIImage(named: "exchangemainBtnHeart1")
+            } else {
+                heartImageView.image = UIImage(named: "exchangemainBtnHeart2")
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         setRoundView()
@@ -41,19 +62,28 @@ class IvAllExchangeCell: UICollectionViewCell {
     }
     
     func set(_ allExchangeInformation: AllExchangeInformation) {
+        
         ivImageView.image = UIImage(named: allExchangeInformation.ivImageName)
-        
-        if allExchangeInformation.ivHeart {
-            heartImageView.image = UIImage(named: "exchangemainBtnHeart1")
-        } else {
-            heartImageView.image = UIImage(named: "exchangemainBtnHeart2")
-        }
-        
+        isHeartSwitch = allExchangeInformation.ivHeart
         ivPriceLabel.text = allExchangeInformation.ivPrice
         ivDistanceLabel.text = allExchangeInformation.ivDistance
         ivNameLabel.text = allExchangeInformation.ivName
         ivLifeLabel.text = allExchangeInformation.ivLife
         ivDateLabel.text = allExchangeInformation.ivDate
-        
+
     }
+    @IBAction func switchLikes(_ sender: Any) {
+        if isHeartSwitch {
+            isHeartSwitch = false
+        } else {
+            isHeartSwitch = true
+        }
+        delegate?.didSelectHeart(isClicked: isHeartSwitch, indexPath: indexPath!)
+        // 서버 통신
+    }
+    
+    @IBAction func selectProduct(_ sender: UIButton) {
+        delegate?.whichProductIsSelect(indexPath: indexPath!)
+    }
+    
 }
