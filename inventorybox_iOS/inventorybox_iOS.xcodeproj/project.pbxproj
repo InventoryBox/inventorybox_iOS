@@ -53,6 +53,7 @@
 		D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */; };
 		D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */; };
 		D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */; };
+		D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */; };
 		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
 		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
 		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
@@ -184,6 +185,7 @@
 		D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordTodayIvData.swift; sourceTree = "<group>"; };
 		D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordHomeData.swift; sourceTree = "<group>"; };
 		D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvData.swift; sourceTree = "<group>"; };
+		D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordHomeService.swift; sourceTree = "<group>"; };
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
 				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
@@ -465,13 +468,13 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D46A015B24B6C9780055814E /* IvExchange */,
 				3332405D24B5B17800C3B59C /* IvGraphNC.swift */,
 				339C89AA24B8826400B86BAF /* AddCategoryPopupVC.swift */,
 				339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */,
 				339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */,
 				D4DFE3CA24B6661400D8795E /* Onboarding */,
-				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
@@ -811,6 +814,7 @@
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
+				D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */,
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
