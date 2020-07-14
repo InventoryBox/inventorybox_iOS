@@ -49,9 +49,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "token")
-//                let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-//                vcName?.modalTransitionStyle = .coverVertical
-//                self.present(vcName!, animated: true, completion: nil)
+                let mainST = UIStoryboard.init(name: "Main", bundle: nil)
+                guard let mainTabVC = mainST.instantiateViewController(identifier: "TabBarVC") as? TabBarVC  else { return }
+                mainTabVC.modalPresentationStyle = .fullScreen
+                self.present(mainTabVC, animated: true, completion: nil)
                 print("성공")
             case .requestErr(let msg):
                 let alert = UIAlertController(title: "로그인 실패", message: msg as! String, preferredStyle: UIAlertController.Style.alert)

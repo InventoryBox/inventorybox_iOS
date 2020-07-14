@@ -26,7 +26,6 @@
 		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
 		335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */; };
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
-		3365E4EB24BDC18100E6AE8D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EA24BDC18100E6AE8D /* LoginService.swift */; };
 		3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EC24BDC39300E6AE8D /* LoginData.swift */; };
 		3365E4EF24BDD58400E6AE8D /* InventoryGraphHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */; };
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
@@ -49,6 +48,7 @@
 		D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */; };
 		D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992924B07879007CAAB9 /* CustomTextField.swift */; };
 		D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992B24B08375007CAAB9 /* UIColorExtension.swift */; };
+		D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6024BDDBFE00EE7672 /* LoginService.swift */; };
 		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
 		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
 		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
@@ -151,7 +151,6 @@
 		3357D7B024B39D34002FF1EF /* ItemInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
 		335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		335889C524BCF3D300DB2533 /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
-		3365E4EA24BDC18100E6AE8D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = inventorybox_iOS/Sources/Models/LoginService.swift; sourceTree = SOURCE_ROOT; };
 		3365E4EC24BDC39300E6AE8D /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeData.swift; sourceTree = "<group>"; };
 		339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraphWeekInfo.swift; sourceTree = "<group>"; };
@@ -176,6 +175,7 @@
 		D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordAddProduct.storyboard; sourceTree = "<group>"; };
 		D410992924B07879007CAAB9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D410992B24B08375007CAAB9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		D418CE6024BDDBFE00EE7672 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -338,16 +338,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D409DF0624BC30BC009AC0B6 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
-				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
-				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		D4311FEF24BB03E6000C9B8B /* IvExchange */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,7 +434,10 @@
 		D48417C124AC56780064EE64 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
-				3365E4EA24BDC18100E6AE8D /* LoginService.swift */,
+				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
+				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
+				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -452,7 +445,6 @@
 		D48417C224AC56840064EE64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D409DF0624BC30BC009AC0B6 /* Services */,
 				D48417C324AC568A0064EE64 /* VCs */,
 				D4B45F4B24B56BCC00888DC3 /* Classes */,
 				D48417C524AC56920064EE64 /* Models */,
@@ -791,6 +783,7 @@
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
+				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				335889C624BCF3D300DB2533 /* TagModel.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
@@ -799,7 +792,6 @@
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
-				3365E4EB24BDC18100E6AE8D /* LoginService.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
