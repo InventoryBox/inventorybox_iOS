@@ -15,7 +15,7 @@ struct APIConstants {
     //로그인
     static let loginURL = baseURL + "auth/signin"
     //재고기록 (홈)
-    static let ivRecordHomeURL = baseURL + "record/home" // ⭕️
+    static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
     //재고기록 (재료추가_홈)
     static let inventortRecordAddURL = baseURL + "record/item-add"
     //재고기록 수정

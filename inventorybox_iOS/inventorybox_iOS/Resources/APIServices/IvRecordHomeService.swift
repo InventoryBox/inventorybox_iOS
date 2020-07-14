@@ -18,8 +18,8 @@ struct IvRecordHomeService {
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let url = APIConstants.ivRecordHomeURL + "/0"
-        
+        let url = APIConstants.ivRecordHomeURL + whichDate
+//        print(url)
         let dataRequest = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
@@ -48,13 +48,14 @@ struct IvRecordHomeService {
     private func getRecordHomeData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         
+//        print("hi")
         guard let decodedData = try? decoder.decode(IvRecordHomeData.self, from: data) else { return .pathErr }
+        guard let data = decodedData.data else { return .pathErr }
+        // 성공 메시지
+        print(decodedData.message)
         
-//        guard let
-        
-        print(decodedData)
         if decodedData.success {
-            return .success(decodedData.data)
+            return .success(data)
         } else {
             return .requestErr(decodedData.message)
         }
