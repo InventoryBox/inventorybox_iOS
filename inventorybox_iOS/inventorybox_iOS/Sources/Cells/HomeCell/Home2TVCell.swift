@@ -63,11 +63,11 @@ class Home2TVCell: UITableViewCell {
     }
     
     // Set 부분
-    func SetProductImformation(productImage: String, productNameTx: String, productCountTx: String, productSetTx: String) {
+    func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String) {
 
         productImg.image = UIImage(named: productImage)
         productNameText.text = productNameTx
-        productCountText.text = productCountTx  // int형으로 받아야 함
+        productCountText.text = String(productCountTx)  // int형으로 받아야 함
         productSetText.text = productNameTx
     }
     

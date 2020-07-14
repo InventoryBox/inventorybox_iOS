@@ -49,6 +49,7 @@ class HomeVC: UIViewController {
         setPopupBackgroundView()
     }
     
+    // 더보기 버튼 관련 objc
     @objc func morbutton(_ notification: Notification){
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let moreValue = userInfo["bool"] as? Bool else { return }
@@ -180,13 +181,13 @@ class HomeVC: UIViewController {
     // MARK: TableView 관련 더미데이터
     private func setorderCheckInformations() {
         
-        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: "9999", productset: "덩어리")
-        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: "1", productset: "팩")
-        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: "555", productset: "개")
-        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: "42", productset: "팩")
-        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: "5", productset: "병")
-        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: "12", productset: "팩")
-        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: "12", productset: "팩")
+        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999, productset: "덩어리")
+        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1, productset: "팩")
+        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555, productset: "개")
+        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42, productset: "팩")
+        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5, productset: "병")
+        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
+        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
         
         orderCheckInformations = [data1, data2, data3, data4,data5,data6,data7]
     }

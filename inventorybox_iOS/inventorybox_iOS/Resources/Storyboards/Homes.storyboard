@@ -410,33 +410,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r5-X8-ypE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7J-nU-fXB">
-                                        <rect key="frame" x="156" y="13" width="63" height="21"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruq-d5-Yps">
-                                        <rect key="frame" x="318" y="9" width="41" height="29"/>
-                                        <state key="normal" image="homeBtnDone">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ModifyBackPRessBtn:" destination="LPx-eF-F9s" eventType="touchUpInside" id="K5x-Aq-rfa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="c7J-nU-fXB" firstAttribute="centerX" secondItem="0r5-X8-ypE" secondAttribute="centerX" id="EZk-mb-nA7"/>
-                                    <constraint firstItem="Ruq-d5-Yps" firstAttribute="centerY" secondItem="0r5-X8-ypE" secondAttribute="centerY" id="Q4U-61-rah"/>
-                                    <constraint firstItem="c7J-nU-fXB" firstAttribute="centerY" secondItem="0r5-X8-ypE" secondAttribute="centerY" id="fgF-Ns-W8w"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ruq-d5-Yps" secondAttribute="trailing" constant="16" id="jqP-n3-fPr"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ks-u4-Iz5">
                                 <rect key="frame" x="0.0" y="47" width="375" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -508,6 +481,9 @@
                                                                 <constraint firstAttribute="width" constant="20" id="MSN-1w-U3O"/>
                                                             </constraints>
                                                             <state key="normal" image="addproductBtnMinus"/>
+                                                            <connections>
+                                                                <action selector="minusBtnPress:" destination="VIE-M1-IbO" eventType="touchUpInside" id="G0I-3L-X4b"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-Qc-wcL">
                                                             <rect key="frame" x="184" y="51" width="20" height="20"/>
@@ -516,6 +492,9 @@
                                                                 <constraint firstAttribute="height" constant="20" id="WbZ-d2-uIY"/>
                                                             </constraints>
                                                             <state key="normal" image="addproductBtnPlus"/>
+                                                            <connections>
+                                                                <action selector="plussBtnPress:" destination="VIE-M1-IbO" eventType="touchUpInside" id="Kht-Gv-l3q"/>
+                                                            </connections>
                                                         </button>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-hP-CHs">
                                                             <rect key="frame" x="150" y="49" width="4" height="16"/>
@@ -555,21 +534,50 @@
                                             <outlet property="productCountText" destination="fTh-hP-CHs" id="CXq-mb-yd9"/>
                                             <outlet property="productImg" destination="NaE-P9-8rC" id="Iq2-hj-gxK"/>
                                             <outlet property="productNameText" destination="0JY-6G-1hh" id="AFK-Qv-nD1"/>
+                                            <outlet property="shadowview" destination="vbw-I6-nxo" id="wmO-ry-IcL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r5-X8-ypE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7J-nU-fXB">
+                                        <rect key="frame" x="156" y="13" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruq-d5-Yps">
+                                        <rect key="frame" x="318" y="9" width="41" height="29"/>
+                                        <state key="normal" image="homeBtnDone">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ModifyBackPRessBtn:" destination="LPx-eF-F9s" eventType="touchUpInside" id="K5x-Aq-rfa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="c7J-nU-fXB" firstAttribute="centerX" secondItem="0r5-X8-ypE" secondAttribute="centerX" id="EZk-mb-nA7"/>
+                                    <constraint firstAttribute="width" constant="375" id="Kfp-wM-0Y6"/>
+                                    <constraint firstItem="Ruq-d5-Yps" firstAttribute="centerY" secondItem="0r5-X8-ypE" secondAttribute="centerY" id="Q4U-61-rah"/>
+                                    <constraint firstAttribute="height" constant="47" id="ZXz-0K-dvi"/>
+                                    <constraint firstItem="c7J-nU-fXB" firstAttribute="centerY" secondItem="0r5-X8-ypE" secondAttribute="centerY" id="fgF-Ns-W8w"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ruq-d5-Yps" secondAttribute="trailing" constant="16" id="jqP-n3-fPr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tge-sh-s23" firstAttribute="bottom" secondItem="0ks-u4-Iz5" secondAttribute="bottom" id="3LN-0s-goL"/>
-                            <constraint firstItem="0r5-X8-ypE" firstAttribute="leading" secondItem="tge-sh-s23" secondAttribute="leading" id="6bg-Y2-9p5"/>
-                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="top" secondItem="tge-sh-s23" secondAttribute="top" constant="47" id="9hb-GK-Rgq"/>
-                            <constraint firstItem="tge-sh-s23" firstAttribute="bottom" secondItem="0r5-X8-ypE" secondAttribute="bottom" constant="600" id="Gfh-NS-VAl"/>
-                            <constraint firstItem="0r5-X8-ypE" firstAttribute="top" secondItem="tge-sh-s23" secondAttribute="top" id="fmA-7U-OSt"/>
-                            <constraint firstItem="0r5-X8-ypE" firstAttribute="trailing" secondItem="tge-sh-s23" secondAttribute="trailing" id="mbE-kV-LUl"/>
-                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="leading" secondItem="tge-sh-s23" secondAttribute="leading" id="oee-7R-Hvu"/>
-                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="trailing" secondItem="tge-sh-s23" secondAttribute="trailing" id="sV1-S0-UNn"/>
+                            <constraint firstItem="0r5-X8-ypE" firstAttribute="trailing" secondItem="tge-sh-s23" secondAttribute="trailing" id="98U-St-0y9"/>
+                            <constraint firstItem="0r5-X8-ypE" firstAttribute="leading" secondItem="tge-sh-s23" secondAttribute="leading" id="HHv-Sd-HGS"/>
+                            <constraint firstItem="0r5-X8-ypE" firstAttribute="top" secondItem="tge-sh-s23" secondAttribute="top" id="NQr-32-fSa"/>
+                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="trailing" secondItem="tge-sh-s23" secondAttribute="trailing" id="Q9o-Do-pi9"/>
+                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="leading" secondItem="tge-sh-s23" secondAttribute="leading" id="WDf-Hi-Ina"/>
+                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="bottom" secondItem="tge-sh-s23" secondAttribute="bottom" id="beQ-OF-Mx4"/>
+                            <constraint firstItem="0ks-u4-Iz5" firstAttribute="top" secondItem="0r5-X8-ypE" secondAttribute="bottom" id="nId-NF-ImJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tge-sh-s23"/>
                     </view>

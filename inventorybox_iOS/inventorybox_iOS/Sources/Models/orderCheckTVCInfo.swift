@@ -14,10 +14,10 @@ struct orderCheckTVCInfo {
     
     var productImage : String
     var productName: String
-    var productCount: String
+    var productCount: Int
     var productSet: String
     
-    init(productimage: String, productname: String, productcount: String, productset: String) {
+    init(productimage: String, productname: String, productcount: Int, productset: String) {
         self.productImage = productimage
         self.productName = productname
         self.productCount = productcount
