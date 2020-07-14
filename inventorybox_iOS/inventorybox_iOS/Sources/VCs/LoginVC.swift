@@ -25,7 +25,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loginBtn.isEnabled = false
+        //loginBtn.isEnabled = false
         super.viewDidLoad()
         signUpBtn.layer.cornerRadius = 2
         emailTextField.delegate = self
@@ -42,12 +42,35 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBAction func doLogin(_ sender: UIButton) {
         //로그인하기
         
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "zzan")
-        vcName?.modalTransitionStyle = .coverVertical
-        self.present(vcName!, animated: true, completion: nil)
-        
+        LoginService.shared.login(id: self.emailTextField.text!, pw: self.passwordTextField.text!) { result in
+            switch result {
+            case .success(let jwt):
+                guard let token = jwt as? String else {
+                    return
+                }
+                UserDefaults.standard.set(token, forKey: "token")
+//                let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+//                vcName?.modalTransitionStyle = .coverVertical
+//                self.present(vcName!, animated: true, completion: nil)
+                print("성공")
+            case .requestErr(let msg):
+                let alert = UIAlertController(title: "로그인 실패", message: msg as! String, preferredStyle: UIAlertController.Style.alert)
+                let Action = UIAlertAction(title: "OK", style: .default, handler : nil)
+                alert.addAction(Action)
+                print("server")
+            case .pathErr:
+                print("path")
+                break
+            case .serverErr:
+                print("server")
+                break
+            case .networkFail:
+                print("network")
+                break
+            }
+        }
     }
-    
+   
     @IBAction func idCheckButton(_ sender: Any) {
         idCheck = 1
     }

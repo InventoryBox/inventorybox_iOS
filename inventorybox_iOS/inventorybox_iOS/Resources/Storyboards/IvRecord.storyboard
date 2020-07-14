@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -85,10 +86,52 @@
                                             <constraint firstAttribute="height" constant="44" id="zOS-zn-Hhx"/>
                                         </constraints>
                                     </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oxp-GV-2lp">
+                                        <rect key="frame" x="0.0" y="55" width="375" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="7" id="jjg-XJ-5Qv">
+                                            <size key="itemSize" width="66" height="23"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="7lc-NB-i0V" customClass="CategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.5" width="66" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZPD-5K-DX6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYb-kj-a6L">
+                                                            <rect key="frame" x="20" y="5" width="27" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="yYb-kj-a6L" secondAttribute="trailing" constant="19" id="5mR-DF-mbk"/>
+                                                        <constraint firstItem="yYb-kj-a6L" firstAttribute="leading" secondItem="ZPD-5K-DX6" secondAttribute="leading" constant="20" id="Nbo-CM-Cfk"/>
+                                                        <constraint firstItem="yYb-kj-a6L" firstAttribute="top" secondItem="ZPD-5K-DX6" secondAttribute="top" constant="5" id="Zih-If-9yK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yYb-kj-a6L" secondAttribute="bottom" constant="6" id="tPc-ni-DVH"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="66" height="23"/>
+                                                <connections>
+                                                    <outlet property="categoryNameLabel" destination="yYb-kj-a6L" id="lsW-12-RWZ"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="oxp-GV-2lp" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="bottom" constant="8" id="9Q0-yX-2hA"/>
+                                    <constraint firstItem="oxp-GV-2lp" firstAttribute="leading" secondItem="qIa-5D-Vbp" secondAttribute="leading" id="9fs-Eg-ahX"/>
                                     <constraint firstAttribute="trailing" secondItem="thq-pT-dHB" secondAttribute="trailing" id="MKX-7A-jiX"/>
+                                    <constraint firstAttribute="trailing" secondItem="oxp-GV-2lp" secondAttribute="trailing" id="U6E-zf-sG5"/>
+                                    <constraint firstAttribute="bottom" secondItem="oxp-GV-2lp" secondAttribute="bottom" constant="8" id="VJm-2X-pvJ"/>
                                     <constraint firstItem="thq-pT-dHB" firstAttribute="leading" secondItem="qIa-5D-Vbp" secondAttribute="leading" id="fAa-qj-Tm4"/>
                                     <constraint firstItem="thq-pT-dHB" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="top" constant="3" id="pjr-wv-w95"/>
                                     <constraint firstAttribute="width" secondItem="qIa-5D-Vbp" secondAttribute="height" multiplier="375:87" id="z7c-hQ-h7Z"/>
@@ -379,6 +422,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>
+                        <outlet property="categoryCollectionView" destination="oxp-GV-2lp" id="5T0-vk-djg"/>
                         <outlet property="categorySettingBtn" destination="1Pl-Gp-LxH" id="Rmt-cO-yc7"/>
                         <outlet property="dateLabel" destination="bH4-Va-xD1" id="zg2-jf-KEg"/>
                         <outlet property="datePickerBtn" destination="qfR-iN-Fy6" id="pYC-KC-ocB"/>

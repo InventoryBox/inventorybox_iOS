@@ -14,6 +14,7 @@ class IvRecordVC: UIViewController {
     
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     @IBOutlet weak var datePickerBtn: UIButton!
     @IBOutlet weak var datePickerLabelBtn: UIButton!
@@ -29,8 +30,9 @@ class IvRecordVC: UIViewController {
     @IBOutlet weak var inventoryTableView: UITableView!
     
     @IBOutlet weak var popupBackgroundView: UIView!
-    let categoryCollectionView = TTGTextTagCollectionView()
+    
     var memorizeDate: Date?
+    
     var categories: [String] = {
         let data1 = CategoryInformation(idx: 1, name: "전체")
         let data2 = CategoryInformation(idx: 2, name: "액체류")
@@ -62,8 +64,6 @@ class IvRecordVC: UIViewController {
         
     }()
     
-    private var selections = [String]()
-    
     private var inventoryFilteredArray: [InventoryInformation] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,13 +85,19 @@ class IvRecordVC: UIViewController {
         whichViewWillShow()
         setBtnsCustommed()
         setInventoryTableView()
-        setBackgroundColor()
-        addCategoryCollectionView()
+        //        setBackgroundColor()
+        //        addCategoryCollectionView()
         makeShadowUnderOutView()
         setPopupBackgroundView()
+        setCategoryCollectionView()
         
     }
     
+    private func setCategoryCollectionView() {
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        
+    }
     private func setInventoryFilteredData() {
         inventoryFilteredArray = inventoryArray
     }
@@ -242,24 +248,24 @@ class IvRecordVC: UIViewController {
         
     }
     
-    private func addCategoryCollectionView() {
-        
-        view.addSubview(categoryCollectionView)
-        categoryCollectionView.delegate = self
-        categoryCollectionView.setCategoryCollectionView()
-        //        categoryCollectionView.
-        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-        categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
-        
-        categoryCollectionView.addTags(categories, with: categoryCollectionView.setCategoryConfig())
-        
-    }
+    //    private func addCategoryCollectionView() {
+    //
+    //        view.addSubview(categoryCollectionView)
+    //        categoryCollectionView.delegate = self
+    //        categoryCollectionView.setCategoryCollectionView()
+    //        //        categoryCollectionView.
+    //        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
+    //        categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+    //        categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+    //        categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
+    //
+    //        categoryCollectionView.addTags(categories, with: categoryCollectionView.setCategoryConfig())
+    //
+    //    }
     
-    private func setBackgroundColor() {
-        
-    }
+    //    private func setBackgroundColor() {
+    //
+    //    }
     
     private func setInventoryTableView() {
         
@@ -277,6 +283,67 @@ class IvRecordVC: UIViewController {
 
 //MARK: - CollectionView
 
+extension IvRecordVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count 
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
+        
+        
+        categoryCell.setTag(tagName: categories[indexPath.row])
+        
+//        categoryCell.wholeSetting(selections.contains("전체"))
+        
+        return categoryCell
+    }
+    
+    
+}
+
+extension IvRecordVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(categories[indexPath.row])
+        // 카테고리 필터링 코드
+        
+        var allCategoryCheck: Bool = false
+        
+        if categories[indexPath.row]  == "전체" {
+            allCategoryCheck = true
+            inventoryFilteredArray = inventoryArray
+            inventoryTableView.reloadData()
+        }
+        
+        
+        if !allCategoryCheck {
+            
+            inventoryFilteredArray = []
+            let filtered = inventoryArray.filter { (inventory) -> Bool in
+                return inventory.category == categories[indexPath.row]
+            }
+            
+            for data in filtered {
+                inventoryFilteredArray.append(data)
+            }
+            
+            inventoryTableView.reloadData()
+            
+        }
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 24)
+    }
+}
 
 //MARK: - InventoryTableView
 extension IvRecordVC: UITableViewDataSource {
@@ -324,57 +391,57 @@ extension IvRecordVC: UITableViewDelegate {
 }
 
 
-//MARK: - TagCollectionView
-extension IvRecordVC: TTGTextTagCollectionViewDelegate {
-    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
-        // 한개만 선택되게 만드는 코드
-        //        if selections.count == 0 {
-        //            selections.append(tagText)
-        //        } else {
-        //            if selections[0] == "전체" {
-        //
-        //            }
-        //
-        //        }
-        
-        // selection 배열 내에 한개씩만 선택되게 만들기
-        var check = 0
-        for i in 0..<selections.count {
-            if selections[i] == tagText {
-                check = 1
-                selections.remove(at: i)
-                break
-            }
-        }
-        
-        if check == 0 {
-            selections.append(tagText)
-        }
-        
-        // 카테고리 필터링 코드
-        var allCategoryCheck: Bool = false
-        
-        for i in 0..<selections.count {
-            if selections[i] == "전체" {
-                allCategoryCheck = true
-                inventoryFilteredArray = inventoryArray
-                inventoryTableView.reloadData()
-            }
-        }
-        
-        if !allCategoryCheck {
-            inventoryFilteredArray = []
-            for i in 0..<selections.count {
-                let filterred = inventoryArray.filter { (inventory) -> Bool in
-                    return inventory.category == selections[i]
-                }
-                
-                for data in filterred {
-                    inventoryFilteredArray.append(data)
-                }
-            }
-            inventoryTableView.reloadData()
-        }
-        
-    }
-}
+
+//extension IvRecordVC: TTGTextTagCollectionViewDelegate {
+//    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+//        // 한개만 선택되게 만드는 코드
+//        //        if selections.count == 0 {
+//        //            selections.append(tagText)
+//        //        } else {
+//        //            if selections[0] == "전체" {
+//        //
+//        //            }
+//        //
+//        //        }
+//
+//        // selection 배열 내에 한개씩만 선택되게 만들기
+//        var check = 0
+//        for i in 0..<selections.count {
+//            if selections[i] == tagText {
+//                check = 1
+//                selections.remove(at: i)
+//                break
+//            }
+//        }
+//
+//        if check == 0 {
+//            selections.append(tagText)
+//        }
+//
+//        // 카테고리 필터링 코드
+//        var allCategoryCheck: Bool = false
+//
+//        for i in 0..<selections.count {
+//            if selections[i] == "전체" {
+//                allCategoryCheck = true
+//                inventoryFilteredArray = inventoryArray
+//                inventoryTableView.reloadData()
+//            }
+//        }
+//
+//        if !allCategoryCheck {
+//            inventoryFilteredArray = []
+//            for i in 0..<selections.count {
+//                let filterred = inventoryArray.filter { (inventory) -> Bool in
+//                    return inventory.category == selections[i]
+//                }
+//
+//                for data in filterred {
+//                    inventoryFilteredArray.append(data)
+//                }
+//            }
+//            inventoryTableView.reloadData()
+//        }
+//
+//    }
+//}

@@ -14,13 +14,15 @@ struct ItemInformation{
     var itemAlarmCount:Double?
     var dataPoints:[String]?
     var values:[Double]?
+    var category:String?
     
     
-    init(itemImg: String, itemName:String, itemAlarmCount:Double, dataPoints: [String], values: [Double]){
+    init(itemImg: String, itemName:String, itemAlarmCount:Double, dataPoints: [String], values: [Double], category:String){
         self.itemImg = itemImg
         self.itemName = itemName
         self.itemAlarmCount = itemAlarmCount
         self.dataPoints = dataPoints
         self.values = values
+        self.category = category
     }
 }

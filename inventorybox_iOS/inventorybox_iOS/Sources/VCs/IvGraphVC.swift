@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import TTGTagCollectionView
 
-class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TTGTextTagCollectionViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet var headerView: UIView!
@@ -22,6 +22,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     private var DayList:[DayInformation] = []
     private var itemList:[ItemInformation] = []
     private var tagArray:[TagModel] = []
+    private var itemFilteredArray: [ItemInformation] = []
+    private var selections = [String]()
 
     
     var numbers:[Double] = []
@@ -38,7 +40,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
         //view에 shadow
         headerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         headerView.layer.shadowOpacity = 0.08
@@ -77,6 +78,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
       
         //categoryTabView.selectionLimit = 1
         setTag()
+        itemFilteredArray = itemList
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,14 +87,14 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     func setTag(){
-        let tag1 = TagModel(tagName: "전체")
-        let tag2 = TagModel(tagName: "유제품")
-        let tag3 = TagModel(tagName: "채소류")
-        let tag4 = TagModel(tagName: "생선류")
-        let tag5 = TagModel(tagName: "파우더류")
-        let tag6 = TagModel(tagName: "과일")
-        let tag7 = TagModel(tagName: "액체류")
-        let tag8 = TagModel(tagName: "냉장고를 부탁해")
+        let tag1 = TagModel(tagName: "전체", idx: 1)
+        let tag2 = TagModel(tagName: "유제품", idx: 2)
+        let tag3 = TagModel(tagName: "채소류", idx: 3)
+        let tag4 = TagModel(tagName: "생선류", idx: 4)
+        let tag5 = TagModel(tagName: "파우더류", idx: 5)
+        let tag6 = TagModel(tagName: "과일", idx: 6)
+        let tag7 = TagModel(tagName: "액체류", idx: 7)
+        let tag8 = TagModel(tagName: "냉장고를 부탁해", idx: 8)
         
         
         tagArray = [tag1,tag2,tag3,tag4,tag5,tag6,tag7,tag8]
@@ -186,13 +188,13 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
      
         days = ["일","월","화","수","목","금","토"]
         
-        let milk = ItemInformation(itemImg: "dataIcMilk", itemName: "우유", itemAlarmCount: 4.0, dataPoints: days, values: uniteSold)
+        let milk = ItemInformation(itemImg: "dataIcMilk", itemName: "우유", itemAlarmCount: 4.0, dataPoints: days, values: uniteSold, category: "액체류")
             
-         let iceCup = ItemInformation(itemImg: "dataIcCup", itemName: "아이스컵 12oz", itemAlarmCount: 2.0, dataPoints: days, values: uniteSold)
+        let iceCup = ItemInformation(itemImg: "dataIcCup", itemName: "아이스컵 12oz", itemAlarmCount: 2.0, dataPoints: days, values: uniteSold, category: "액체류")
         
-         let coffee = ItemInformation(itemImg: "dataIcCoffee", itemName: "커피", itemAlarmCount: 5.0, dataPoints: days, values: uniteSold)
+        let coffee = ItemInformation(itemImg: "dataIcCoffee", itemName: "커피", itemAlarmCount: 5.0, dataPoints: days, values: uniteSold, category: "액체류")
         
-         let brownMilk = ItemInformation(itemImg: "dataIcMcpowder", itemName: "우유", itemAlarmCount: 6.0, dataPoints: days, values: uniteSold)
+        let brownMilk = ItemInformation(itemImg: "dataIcMcpowder", itemName: "우유", itemAlarmCount: 6.0, dataPoints: days, values: uniteSold, category: "파우더류")
 
         
              //위에 만들어놓은 빈 배열인 profileList에 profile1(데이터)을 넣어준다.
@@ -203,7 +205,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList.count
+        return itemFilteredArray.count
     }
     
     
@@ -224,7 +226,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             cell.removeLimitLine()
-            cell.setIvGraphTV(itemImage: itemList[indexPath.row - 1].itemImg!, itemName: itemList[indexPath.row - 1].itemName!, itemCount: itemList[indexPath.row - 1].itemAlarmCount!, dataPoints: itemList[indexPath.row - 1].dataPoints!, values: itemList[indexPath.row - 1].values!)
+            cell.setIvGraphTV(itemImage: itemFilteredArray[indexPath.row - 1].itemImg!, itemName: itemFilteredArray[indexPath.row - 1].itemName!, itemCount: itemFilteredArray[indexPath.row - 1].itemAlarmCount!, dataPoints: itemFilteredArray[indexPath.row - 1].dataPoints!, values: itemFilteredArray[indexPath.row - 1].values!)
                   
             return cell
         }
@@ -254,19 +256,59 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
         
-        detailViewController.itemName = self.itemList[indexPath.row - 1].itemName
-        
-        
+        detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].itemName
     }
-    
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
-        cell.removeLimitLine()
-    }
-    
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
+            cell.removeLimitLine()
+        }
+        
+}
+
+extension IvGraphVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        print(tagArray[indexPath.row])
+        // 카테고리 필터링 코드
+        
+        var allCategoryCheck: Bool = false
+        
+        if tagArray[indexPath.row].tagName  == "전체" {
+            allCategoryCheck = true
+            itemFilteredArray = itemList
+            ivDataTableView.reloadData()
+        }
+        
+        
+        if !allCategoryCheck {
+            
+            itemFilteredArray = []
+            let filtered = itemList.filter { (inventory) -> Bool in
+                return inventory.category == tagArray[indexPath.row].tagName
+            }
+            
+            for data in filtered {
+                itemFilteredArray.append(data)
+            }
+            
+            ivDataTableView.reloadData()
+            
+        }
+        
+        
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: self.view.frame.width, height: 24)
+//    }
 }
+
+    
+    
+   
 
