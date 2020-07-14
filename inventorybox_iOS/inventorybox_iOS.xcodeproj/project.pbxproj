@@ -49,6 +49,10 @@
 		D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992924B07879007CAAB9 /* CustomTextField.swift */; };
 		D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992B24B08375007CAAB9 /* UIColorExtension.swift */; };
 		D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6024BDDBFE00EE7672 /* LoginService.swift */; };
+		D418CE7224BDFA2E00EE7672 /* IvRecordAddIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */; };
+		D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */; };
+		D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */; };
+		D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */; };
 		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
 		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
 		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
@@ -176,6 +180,10 @@
 		D410992924B07879007CAAB9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D410992B24B08375007CAAB9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D418CE6024BDDBFE00EE7672 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordAddIvData.swift; sourceTree = "<group>"; };
+		D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordTodayIvData.swift; sourceTree = "<group>"; };
+		D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordHomeData.swift; sourceTree = "<group>"; };
+		D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvData.swift; sourceTree = "<group>"; };
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -534,6 +542,10 @@
 		D4BE8D3124B8E7D900AFB1B8 /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */,
+				D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */,
+				D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */,
+				D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */,
 				D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */,
 				D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */,
 				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
@@ -727,6 +739,7 @@
 				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
+				D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */,
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
 				D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */,
@@ -739,6 +752,7 @@
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
+				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4E7A3F724B450F0001C015A /* LeftCVCell.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
@@ -766,6 +780,7 @@
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
 				D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */,
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,
+				D418CE7224BDFA2E00EE7672 /* IvRecordAddIvData.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
 				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
@@ -797,6 +812,7 @@
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
+				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
 				D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */,
