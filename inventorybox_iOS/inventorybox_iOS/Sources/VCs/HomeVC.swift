@@ -7,189 +7,341 @@
 //
 
 import UIKit
+import BEMCheckBox
+
 
 class HomeVC: UIViewController {
     
-    @IBOutlet weak var ScrollView: UIScrollView!
-    @IBOutlet weak var leftcollectionview: UICollectionView!    // 왼쪽 coolection
-    @IBOutlet weak var rightcollectionview: UICollectionView!   // 오른쪽 collection
-    @IBOutlet weak var tableview: UITableView!  // table
-    @IBOutlet weak var checkUIVew: UIView!      // View
-    
-    // collection에 연결할 더미 데이터
-    private var checklistInformations : [orderCheckCVCInfo] = [ ]
-    
     // table에 연결할 더미 데이터
     private var orderCheckInformations : [orderCheckTVCInfo] = [ ]
-
+    private var height: CGFloat?
+    var homeMoreViewCellHeight : CGFloat = 94       // Home2TVCell 높이
+    var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
+    var homeMoreViewCellPoint : Int?                // 위치값 구해야 되므로
+    
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var tableview: UITableView! // 전체 TableView
+    
     // MARK: override 부분
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 맨 위 발주확인 view를 숨겨 두겠다
-        self.checkUIVew.isHidden = true
+        // collectionview cell 높이 관련 옵져버
+        NotificationCenter.default.addObserver(self, selector: #selector(setStockHeight), name: .init("notifyHeight"), object: nil)
         
-        // collection관련 데이터
-        setchecklistInformations()
+        // checkbox 관련 옵져버
+        NotificationCenter.default.addObserver(self, selector: #selector(selectCheckBox), name: .init("tablevalue"), object: nil)
+        
+        // 더보기 관련 옵져버
+        NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("morepressbutton"), object: nil)
+        
         // table관련 데이터
         setorderCheckInformations()
-        // header Xib 받아오기
-            
-        // Scroll
-        ScrollView.delegate = self
-        ScrollView.contentInsetAdjustmentBehavior = .never
+        
         // table
         tableview.dataSource = self
         tableview.delegate = self
-        // collection
-        leftcollectionview.dataSource = self
-        rightcollectionview.dataSource = self
-        leftcollectionview.delegate = self
-        rightcollectionview.delegate = self
-    }
-
-
-    
-    
-    
-    // MARK: CollectionView 관련 더미데이터
-    private func setchecklistInformations() {
         
-        let data1 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "우유")
-        let data2 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "녹차 파우더")
-        let data3 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "딸기")
-        let data4 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "원두")
-        let data5 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "허니 시럽")
-        let data6 = orderCheckCVCInfo(productimage: "homeIcAble.png", productname: "모카 파우더")
-        // FriendsInformation = FriendsInformation
+        // tableView 안눌리게
+        tableview.allowsSelection = false
+        tableview.separatorStyle = .none
+        tableview.contentInsetAdjustmentBehavior = .never
         
-        checklistInformations = [data1, data2, data3, data4, data5, data6]
+        setPopupBackgroundView()
     }
-      
     
+    // 더보기 버튼 관련 objc
+    @objc func morbutton(_ notification: Notification){
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let moreValue = userInfo["bool"] as? Bool else { return }
+        guard let ivName = userInfo["name"] as? String else { return }
+        
+        for i in 0..<orderCheckInformations.count{
+            if orderCheckInformations[i].productName == ivName{
+                homeMoreViewCellPoint = i
+                if moreValue == true{
+                    homeMoreViewCellHeight = 196
+                }else{
+                    homeMoreViewCellHeight = 94
+                }
+            }
+        }
+        tableview.reloadData()      // 데이터를 다시 불러오겠다
+    }
+    
+    // 체크박스 관련 objc
+    @objc func selectCheckBox(_ notification: Notification){
+        //        print("return ")
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let checkvalue = userInfo["bool"] as? Bool else { return }
+        guard let ivName = userInfo["name"] as? String else { return }
+        
+        // print(checkvalue)
+        // print(ivName)
+        NotificationCenter.default.post(name: .init("checklist"), object: nil, userInfo: ["bool": checkvalue, "name": ivName])
+        
+    }
+    
+    
+    
+    // MARK: sideBar 눌렀을때 배경화면 설정하기 위한 setting
+    var presentTransition: UIViewControllerAnimatedTransitioning?
+    var dismissTransition: UIViewControllerAnimatedTransitioning?
+    
+    func showSettings(animated: Bool) {
+        let vc = SideMenuVC()
+        
+        presentTransition = RightToLeftTransition()
+        dismissTransition = LeftToRightTransition()
+        
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        
+        present(vc, animated: true, completion: { [weak self] in
+            self?.presentTransition = nil
+        })
+    }
+    
+    
+    
+    
+    
+    @objc func setStockHeight(_ notification: NSNotification) {
+        
+        guard let height = notification.userInfo?["cvheight"] as? CGFloat else { return }
+        self.height = height
+        print(height)
+        
+        tableview.reloadData()
+    }
+    private func setPopupBackgroundView() {
+        
+        backgroundView.isHidden = true
+        backgroundView.alpha = 0
+        self.view.bringSubviewToFront(backgroundView)
+        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+        
+    }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+
+        self.tabBarController?.tabBar.isHidden = false
+        animatePopupBackground(false)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    func animatePopupBackground(_ direction: Bool) {
+        
+        let duration: TimeInterval = direction ? 0.35 : 0.15
+        let alpha: CGFloat = direction ? 0.54 : 0.0
+        self.backgroundView.isHidden = !direction
+        UIView.animate(withDuration: duration) {
+            self.backgroundView.alpha = alpha
+        }
+        
+    }
+    // @@@@@@@@@@@@@@@
+    // sideMenuBtnPress 했을 때 발생하는 Action
+    @IBAction func sideMenuPress(_ sender: Any) {
+        
+        guard let reciveViewController = self.storyboard?.instantiateViewController(identifier: "SideMenuVC") else { return  }
+        // 다음 화면으로 넘어가고 싶은 StoryBoard의 identity -> Storyboard ID 를 변수 설정
+        
+        animatePopupBackground(true)
+        self.tabBarController?.tabBar.isHidden = true
+        
+//        self.view.bringSubviewToFront(backgroundView)
+        reciveViewController.modalPresentationStyle = .overCurrentContext
+        // 다음에 나오는 화면을 전체 화면으로 보여 주겠다!
+//        let transition = CATransition()
+//        transition.duration = 0.5
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        view.layer.add(transition, forKey: kCATransition)
+        self.present(reciveViewController, animated: true, completion: nil)
+        // 화면을 보여주겠다
+    }
+    
+    @IBAction func MemoModifyPressBtn(_ sender: Any) {
+        
+        guard let MemoreciveViewController = self.storyboard?.instantiateViewController(identifier: "MemoModifyVC") else { return  }
+        // 다음 화면으로 넘어가고 싶은 StoryBoard의 identity -> Storyboard ID 를 변수 설정
+        
+        MemoreciveViewController.modalPresentationStyle = .fullScreen
+        // 다음에 나오는 화면을 전체 화면으로 보여 주겠다!
+        
+        self.present(MemoreciveViewController, animated: true, completion: nil)
+        // 화면을 보여주겠다
+    }
+    // @@@@@@@@@@@
     
     // MARK: TableView 관련 더미데이터
     private func setorderCheckInformations() {
-
-        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: "9999", productset: "덩어리")
-        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: "1", productset: "팩")
-        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: "555", productset: "개")
-        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: "42", productset: "팩")
-        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: "5", productset: "병")
-        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: "12", productset: "팩")
-        // FriendsInformation = FriendsInformation
-
-            orderCheckInformations = [data1, data2, data3, data4, data5, data6]
+        
+        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999, productset: "덩어리")
+        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1, productset: "팩")
+        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555, productset: "개")
+        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42, productset: "팩")
+        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5, productset: "병")
+        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
+        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
+        
+        orderCheckInformations = [data1, data2, data3, data4,data5,data6,data7]
     }
-    
-    // 스크롤 밑으로 내렸을 떄 위에 bar 내려오기
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let yPosition = scrollView.contentOffset.y
-        
-        if yPosition > 666 {
-            self.checkUIVew.isHidden = false
-        }else{
-            self.checkUIVew.isHidden = true
-        }
-    }
-}
-
-// MARK: LeftCollectionView DataSource 관련 코드
-extension HomeVC: UICollectionViewDataSource{
-    // section 뱔 row의 개수
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return checklistInformations.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-// 여기서 if문을 돌려 왼쪽일 때
-        if collectionView == self.leftcollectionview{
-        guard let LeftCells = collectionView.dequeueReusableCell(withReuseIdentifier: LeftCVCell.identifier, for: indexPath) as? LeftCVCell else { return UICollectionViewCell()}
-        
-        LeftCells.set(checkimg: checklistInformations[indexPath.row].checkImage, productlist: checklistInformations[indexPath.row].productName)
-            
-            return LeftCells
-        }else{
-            guard let RightCells = collectionView.dequeueReusableCell(withReuseIdentifier: RightCVCell.identifier, for: indexPath) as? RightCVCell else { return UICollectionViewCell()}
-        
-        RightCells.set(checkimg: checklistInformations[indexPath.row].checkImage, productlist: checklistInformations[indexPath.row].productName)
-        
-        return RightCells
-        }
-// @@@@@@@@@@@@@@@@@@@@@@@@
-    }
-}
-// MARK: LeftCollectionView Delegate 관련 코드
-extension HomeVC: UICollectionViewDelegate{
-    
 }
 
 
 // MARK: UITableViewDataSource 관련 코드
 extension HomeVC: UITableViewDataSource{
-    // 테이블에 표시할 데이터 수
+    
+    // section 개수를 정의해주는 함수
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderCheckInformations.count
+        //         각 section에 맞게
+        if section == 0{
+            return 2
+        }else{
+            print(orderCheckInformations)
+            return orderCheckInformations.count
+        }
     }
     
-    // cell 에 값 넣기!!
+    
+    // MARK: UITableViewDelegate 관련 코드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let Cells = tableView.dequeueReusableCell(withIdentifier: HomeTVCell.identifier, for:
-        indexPath) as? HomeTVCell else { return UITableViewCell()}
         
-        Cells.SetProductImformation(productImage: orderCheckInformations[indexPath.row].productImage, productNameTx: orderCheckInformations[indexPath.row].productName, productCountTx: orderCheckInformations[indexPath.row].productCount, productSetTx: orderCheckInformations[indexPath.row].productSet)
-
-        
-        return Cells
+        // section == 0 위에꺼
+        if indexPath.section == 0{
+            
+            if indexPath.row == 0{
+                // header1
+                guard let headerCell1 = tableView.dequeueReusableCell(withIdentifier: "HomeHeader1TVCell", for: indexPath) as? HomeHeader1TVCell else { return UITableViewCell() }
+                
+                return headerCell1
+                
+            }else{
+                // tableviewcell2 -> collectionviewcell
+                guard let Cell1s = tableView.dequeueReusableCell(withIdentifier: "Home1TVCell", for: indexPath) as? Home1TVCell else { return UITableViewCell() }
+                
+                return Cell1s
+            }
+            
+        }else{
+            //             section == 1 밑에꺼
+            guard let Cell2s = tableView.dequeueReusableCell(withIdentifier: "Home2TVCell", for: indexPath) as? Home2TVCell else { return UITableViewCell() }
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].productImage, productNameTx: orderCheckInformations[indexPath.row].productName, productCountTx: orderCheckInformations[indexPath.row].productCount, productSetTx: orderCheckInformations[indexPath.row].productSet)
+            
+            return Cell2s
+            
+        }
     }
     
-    // Header 집어넣기 위해 View만들기 ~
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 46))
-        headerView.backgroundColor = UIColor.white
-
-        // 제목
-        let label = UILabel()
-        label.frame = CGRect.init(x: 155, y: 13, width: 64, height: 20.5)
-        label.text = "발주 확인"
-        label.textColor = UIColor.black
-//        label.font = UIFont().futuraPTMediumFont(16) // my custom font
-//        label.textColor = UIColor.charcolBlackColour() // my custom colour
-//
-
-        // Button
-        let button = UIButton(frame: CGRect.init(x: 0, y: 0, width: 42, height: 27))
-        
-        button.center = CGPoint(x: button.center.x, y: button.center.y)
-        button.setTitle("메모수정", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-
-       
-        headerView.addSubview(label)
-        headerView.addSubview(button)
-
-        return headerView
+        if section == 1 {
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HomeHeader2TVCell") as? HomeHeader2TVCell else { return UICollectionViewCell() }
+            return headerCell
+        } else { return nil }
     }
 }
 
 
-// MARK: UITableViewDelegate 관련 코드
 extension HomeVC: UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
+        if indexPath.section == 0{
+            if indexPath.row == 0 {
+                return 44
+            }
+            else {
+                // collection view height에 맞게 변화
+                guard let height = self.height else { return 0 }
+                
+                return UITableView.automaticDimension
+            }
+            
+        }else{
+            // tableview 높이
+            if indexPath.row == homeMoreViewCellPoint {
+                // row가 homeMoreViewCellPoint 일 때
+//                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
+                return homeMoreViewCellHeight
+            }
+//            else if indexPath.row == homeMoreViewCellPointtmemorry{
+//                return homeMoreViewCellHeight
+//
+//            }
+        else{
+            return 94
+        }
     }
+}
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 46
+        if section == 1 { return 44 }
+        else { return 0 }
+    }
+}
+
+
+
+extension HomeVC: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentTransition
     }
     
-    // tableView 선택 안되게 하기!
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        tableView.deselectRow(at: indexPath, animated: false)
-//    }
-//
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissTransition
+    }
+}
+
+class RightToLeftTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    let duration: TimeInterval = 0.25
     
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let container = transitionContext.containerView
+        let toView = transitionContext.view(forKey: .to)!
+        
+        container.addSubview(toView)
+        toView.frame.origin = CGPoint(x: toView.frame.width, y: 0)
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
+            toView.frame.origin = CGPoint(x: 0, y: 0)
+        }, completion: { _ in
+            transitionContext.completeTransition(true)
+        })
+    }
+}
+
+class LeftToRightTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    let duration: TimeInterval = 0.25
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let container = transitionContext.containerView
+        let fromView = transitionContext.view(forKey: .from)!
+        
+        container.addSubview(fromView)
+        fromView.frame.origin = .zero
+        
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
+            fromView.frame.origin = CGPoint(x: fromView.frame.width, y: 0)
+        }, completion: { _ in
+            fromView.removeFromSuperview()
+            transitionContext.completeTransition(true)
+        })
+    }
 }

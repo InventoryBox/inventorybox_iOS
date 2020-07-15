@@ -30,7 +30,7 @@ struct KaKaoLocalService {
         
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
-            case .success(let data):
+            case .success:
 //                print(data)
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
