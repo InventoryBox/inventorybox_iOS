@@ -16,8 +16,11 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var itemAlarmCountLabel: UILabel!
     @IBOutlet var itemNameLabel: UILabel!
     @IBOutlet var roundView: UIView!
+    var accessCell:ItemInfo?
     
+    private var stockArray:[Int] = []
     private var limitLine: ChartLimitLine?
+    private var limitCount:Int?
     
     var months = ["일","월","화","수","목","금","토"]
     
@@ -40,34 +43,50 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
     }
     
     
-    func setIvGraphTV(itemImage:String,itemName:String,itemCount:Double,dataPoints: [String],values: [Double]){
+    
+    func bind (model:ItemInfo){
+        //  guard let nameURL = URL(string: model) else { return }
         
         
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 2
+        valFormatter.currencySymbol = "$"
+        
+        
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        
+        var dataPoints: [String] = ["일","월","화","수","목","금","토"]
         var dataEntries : [BarChartDataEntry] = []
         
-        itemNameLabel.text = itemName
-        itemImg.image = UIImage(named:itemImage)
-        itemAlarmCountLabel.text = "\(Int(itemCount))"
-      
-        //dataPoint.count (배열의 값만큼 막대가 생긴다)
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+        for i in 0...6 {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.stocks[i]))
             dataEntries.append(dataEntry)
-            print(Int(values[i]))
+            //print(model.stocks[i])
         }
         
         
         //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
         let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        chartData.setValueFormatter(formatter)
+
+        ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
         
+        itemImg.image = UIImage(named: model.iconImg)
+        itemAlarmCountLabel.text = "\(model.alarmCnt)"
+        limitCount = model.alarmCnt
+        itemNameLabel.text = model.name
         
         //그래프 색 변경 부분
         
-        print(values[1])
-        chartDataSet.colors = [setColor(value: values[0]),setColor(value: values[1]),setColor(value: values[2]),setColor(value: values[3]),setColor(value: values[4]),setColor(value: values[5]),setColor(value: values[6])]
+        print(model.stocks[1])
+        
+        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
         
         
-        let chartData = BarChartData(dataSet: chartDataSet)
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
         ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
@@ -82,37 +101,34 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.leftAxis.drawGridLinesEnabled = false
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
+    //    ivChartView.barData?.yMi
         
         //밑에 데이터셋 제거
         ivChartView.legend.enabled = false
         
         chartData.barWidth = 0.2
         
-        let ll = ChartLimitLine(limit: itemCount, label: "")
+        let ll = ChartLimitLine(limit: Double(model.alarmCnt), label: "")
         limitLine = ll
         ivChartView.rightAxis.removeLimitLine(ll)
         ivChartView.rightAxis.addLimitLine(ll)
         ll.lineWidth = 0.3
         
-      
     }
-    
+        
     
     func removeLimitLine() {
         guard let limitLine = self.limitLine else { return }
         ivChartView.rightAxis.removeLimitLine(limitLine)
     }
-
-  
-    
     
     func setColor(value: Double) -> UIColor {
-        if (value <= 3.0) {
+        
+        if (value <= Double(limitCount!)) {
             return UIColor(red: 246.0 / 255.0, green: 187.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         }
         
         return UIColor(white: 206.0 / 255.0, alpha: 1.0)
-   }
-    
-    
+        
+    }
 }
