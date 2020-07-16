@@ -109,7 +109,7 @@ class HomeVC: UIViewController {
         
         guard let height = notification.userInfo?["cvheight"] as? CGFloat else { return }
         self.height = height
-        print(height)
+//        print(height)
         
         tableview.reloadData()
     }
@@ -207,7 +207,7 @@ extension HomeVC: UITableViewDataSource{
         if section == 0{
             return 2
         }else{
-            print(orderCheckInformations)
+//            print(orderCheckInformations)
             return orderCheckInformations.count
         }
     }

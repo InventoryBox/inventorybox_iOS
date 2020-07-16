@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-iN-Fy6">
-                                                <rect key="frame" x="97" y="21" width="14" height="14"/>
+                                                <rect key="frame" x="150.5" y="21" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="2ro-XO-wgk"/>
                                                     <constraint firstAttribute="width" constant="14" id="Dfh-W6-jIM"/>
@@ -38,14 +38,14 @@
                                                     <action selector="openDatePicker:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="1Ut-Kt-7nL"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.26 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
-                                                <rect key="frame" x="119" y="12" width="137.5" height="32"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
-                                                <rect key="frame" x="119" y="12" width="137.5" height="32"/>
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +174,9 @@
                                                 <constraint firstItem="yQe-gu-csH" firstAttribute="centerY" secondItem="c3W-V3-2iU" secondAttribute="centerY" id="hTJ-Ki-XMS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addIvBtn" destination="yQe-gu-csH" id="0hf-eb-Uw8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="94" id="QeH-SE-WxR" customClass="InventoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
@@ -434,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PW-kM-qZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416.80000000000001" y="257.72113943028489"/>
+            <point key="canvasLocation" x="292" y="179"/>
         </scene>
         <!--Date Picker PopupVC-->
         <scene sceneID="JE4-GZ-A6t">

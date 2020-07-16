@@ -36,7 +36,7 @@ class Home1TVCell: UITableViewCell {
         collectionview.dataSource = self
         collectionview.delegate = self
         
-        print(collectionview.frame.height)
+//        print(collectionview.frame.height)
         
         NotificationCenter.default.post(name: .init("notifyHeight"), object: nil, userInfo: ["cvheight": collectionview.frame.height])
         
