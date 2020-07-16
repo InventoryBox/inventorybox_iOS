@@ -11,7 +11,10 @@ import UIKit
 class MemoModifyVC: UIViewController {
     
     private var orderCheckMemoInformations : [orderCheckMemoTVCInfo] = [ ]
-    
+    var homeMoreViewCellHeight : CGFloat = 94       // Home2TVCell 높이
+    var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
+    var homeMoreViewCellPoint : Int?                // 위치값 구해야 되므로
+
     @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +31,28 @@ class MemoModifyVC: UIViewController {
         tableview.separatorStyle = .none
         tableview.contentInsetAdjustmentBehavior = .never
         
+        // 더보기 관련 옵져버
+              NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("memotablevalue"), object: nil)
+        
+    }
+    
+    // 더보기 버튼 관련 objc
+    @objc func morbutton(_ notification: Notification){
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let moreValue = userInfo["bool"] as? Bool else { return }
+        guard let ivName = userInfo["name"] as? String else { return }
+        
+        for i in 0..<orderCheckMemoInformations.count{
+            if orderCheckMemoInformations[i].productName == ivName{
+                homeMoreViewCellPoint = i
+                if moreValue == true{
+                    homeMoreViewCellHeight = 196
+                }else{
+                    homeMoreViewCellHeight = 94
+                }
+            }
+        }
+        tableview.reloadData()      // 데이터를 다시 불러오겠다
     }
     
     
@@ -78,7 +103,20 @@ extension MemoModifyVC: UITableViewDataSource{
 
 extension MemoModifyVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
+        // tableview 높이
+        if indexPath.row == homeMoreViewCellPoint {
+            // row가 homeMoreViewCellPoint 일 때
+            //                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
+            return homeMoreViewCellHeight
+        }
+            //            else if indexPath.row == homeMoreViewCellPointtmemorry{
+            //                return homeMoreViewCellHeight
+            //
+            //            }
+        else{
+            return 94
+        }
+        
     }
     
 }

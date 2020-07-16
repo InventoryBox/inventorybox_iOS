@@ -11,6 +11,9 @@ import UIKit
 class MemoTVCell: UITableViewCell {
 
     static let identifier : String = "MemoTVCell"
+    var checkvalue : Bool = false   // checkbox
+    var moreValue : Bool = false    // 더보기 버튼
+    @IBOutlet weak var moreBtn: UIButton!
     
     var count : Int? // Textfield 관련
     
@@ -19,10 +22,12 @@ class MemoTVCell: UITableViewCell {
     @IBOutlet weak var productNameText: UILabel!           // 이름
     @IBOutlet weak var productCountText: UITextField!      // textfiled
     @IBOutlet weak var shadowview: UIView!                 // 그림자 주는 view
-    
+    @IBOutlet weak var graphView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        graphView.isHidden = true
         // Initialization code
         addDoneButtonOnKeyboard()
         makeShadowUnderView()
@@ -49,6 +54,19 @@ class MemoTVCell: UITableViewCell {
         productCountText.text = String(productCountTx)  // int형으로 받아야 함
     }
     
+    @IBAction func memoMorePressBtn(_ sender: Any) {
+        if moreValue == false{  // 자세히 버튼 처음 눌렀을 떄
+            graphView.isHidden = false
+            moreBtn.setImage(UIImage(named: "homeBtnDetail02.png"), for: .normal)
+            moreValue = true
+        }else{
+            moreBtn.setImage(UIImage(named: "homeBtnDetail01.png"), for: .normal)
+            graphView.isHidden = true
+            moreValue = false
+        }
+        
+        NotificationCenter.default.post(name: .init("memotablevalue"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
+    }
     
     // Minus Button 눌렀을 때
     @IBAction func minusBtnPress(_ sender: Any) {

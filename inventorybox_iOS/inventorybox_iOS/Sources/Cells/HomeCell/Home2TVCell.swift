@@ -15,7 +15,6 @@ class Home2TVCell: UITableViewCell {
     var moreValue : Bool = false    // 더보기 버튼
     
     @IBOutlet weak var roundView: UIView!
-    
     @IBOutlet weak var moreBtn: UIButton!           // 더보기 버튼
     @IBOutlet weak var productImg: UIImageView!     // 제품 이미지
     @IBOutlet weak var productNameText: UILabel!    // 제품 이름
@@ -31,8 +30,7 @@ class Home2TVCell: UITableViewCell {
         graphView.isHidden = true
         
         makeShadowUnderView()
-        
-        
+
     }
     
     
