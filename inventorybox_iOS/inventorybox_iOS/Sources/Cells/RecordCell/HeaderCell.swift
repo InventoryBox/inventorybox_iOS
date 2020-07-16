@@ -11,6 +11,8 @@ import UIKit
 class HeaderCell: UITableViewCell {
     static let identifier: String = "HeaderCell"
     
+    @IBOutlet weak var addIvBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
