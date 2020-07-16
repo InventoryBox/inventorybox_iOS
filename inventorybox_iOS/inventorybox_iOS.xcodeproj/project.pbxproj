@@ -87,6 +87,10 @@
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
+		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
+		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
+		D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */; };
+		D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */; };
 		D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */; };
 		D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */; };
 		D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */; };
@@ -235,6 +239,10 @@
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
+		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
+		D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteIvService.swift; sourceTree = "<group>"; };
+		D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordSuccessData.swift; sourceTree = "<group>"; };
 		D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExchangeInformation.swift; sourceTree = "<group>"; };
 		D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvAllExchangeCell.swift; sourceTree = "<group>"; };
 		D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodExchangeInformation.swift; sourceTree = "<group>"; };
@@ -477,11 +485,13 @@
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
 				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
+				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
 				D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */,
 				D415024E24C06D6500183004 /* IvRecordAddIvService.swift */,
 				D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */,
 				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
 				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
+				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
@@ -588,7 +598,9 @@
 				D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */,
 				D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */,
 				D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */,
+				D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */,
 				D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */,
+				D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */,
 				D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */,
 				D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */,
 				D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */,
@@ -814,7 +826,9 @@
 				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
+				D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */,
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,
+				D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
@@ -877,6 +891,7 @@
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
 				339C89AD24BB010E00B86BAF /* DetailCompareInfo.swift in Sources */,
 				0E4A82FF24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift in Sources */,
+				D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */,
 				D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
@@ -884,6 +899,7 @@
 				0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
 				D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */,
+				D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */,
 				3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */,
 				D415024B24C0546B00183004 /* IvRecordTodayService.swift in Sources */,
 				D479508824BEF31F00588979 /* IvRecordEditIvService.swift in Sources */,

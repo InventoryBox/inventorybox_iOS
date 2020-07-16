@@ -27,6 +27,7 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var unitTextField: UITextField!
     @IBOutlet weak var lineUnderUnitTextFieldView: UIView!
     
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categorySelectTitleLabel: UILabel!
     @IBOutlet weak var categorySelectDetailLabel: UILabel!
     
@@ -77,7 +78,6 @@ class IvRecordAddProductVC: UIViewController {
         setButtonCustom()
         setPopupBackgroundView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(disappearIconIdx), name: .init("iconIdx"), object: nil)
     }
     private func getDataFromServer() {
         
@@ -222,21 +222,22 @@ class IvRecordAddProductVC: UIViewController {
     }
     
     @objc func didDisappearPopup(_ notification: Notification) {
-        print("aa")
+        
         animatePopupBackground(false)
         
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let name = info["categoryName"] as? String else { return }
-        print(name)
-        
+        categoryLabel.text = name
         
     }
     @IBAction func selectCategory(_ sender: Any) {
         animatePopupBackground(true)
+
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
+    
     @IBAction func minimumCountMinusBtnPressed(_ sender: Any) {
         
         if let count = minimumCountLabel.text {
