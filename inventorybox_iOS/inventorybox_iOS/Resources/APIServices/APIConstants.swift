@@ -27,7 +27,7 @@ struct APIConstants {
     //재고기록 (재료추가_저장)
     static let inventoryRecordItmeAddURL = baseURL + "record/item-add"
     //재고기록 (기록수정 & 오늘 재고 기록_완료)
-    static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️
+    static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️ -> 오늘 재고 기록 완료는 테스트 불가여서 오류처리 아직 안함
     //재고기록 (재료 삭제)
     static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete"
     //재고기록 (카테고리 추가)

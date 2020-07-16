@@ -25,13 +25,45 @@ class SelectCategoryVC: UIViewController {
         
         return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getDataFromServer()
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setSelectTableView()
         
     }
-    
+    private func getDataFromServer() {
+        
+//        IvRecord.shared.getRecordAddIv() { (networkResult) in
+//            switch networkResult {
+//            case .success(let data):
+//                guard let dt = data as? AddIvClass else { return }
+//
+//                self.iconArray = dt.iconInfo
+//                self.categories = dt.categoryInfo
+//
+//            case .requestErr(let message):
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+//
+//            case .pathErr: print("path")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//            }
+//        }
+        
+    }
     private func setSelectTableView() {
         selectTableView.delegate = self
         selectTableView.dataSource = self

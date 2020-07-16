@@ -23,6 +23,7 @@ class SelectIconVC: UIViewController {
         naviBar?.layer.shadowRadius = 2
         naviBar?.layer.shadowOpacity = 0.16
         
+        getDataFromServer()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -34,15 +35,7 @@ class SelectIconVC: UIViewController {
     
     @IBOutlet weak var iconCollectionView: UICollectionView!
     
-    var icon: [String] = [
-        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
-        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
-        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
-        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
-        "homeIcMilk", "homeIcMilk", "homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk","homeIcMilk",
-        
-    ]
-    
+    var iconArray: [IconInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +44,30 @@ class SelectIconVC: UIViewController {
         setShadow()
     }
     
+    private func getDataFromServer() {
+        
+        IvRecordAddIvService.shared.getRecordAddIv() { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? AddIvClass else { return }
+                
+                self.iconArray = dt.iconInfo
+                
+                self.iconCollectionView.reloadData()
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+    }
     private func setShadow() {
         
     }
@@ -74,7 +91,7 @@ class SelectIconVC: UIViewController {
 
 extension SelectIconVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return icon.count
+        return iconArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,7 +100,7 @@ extension SelectIconVC: UICollectionViewDataSource {
         
         iconCell.delegate = self
         iconCell.indexPath = indexPath.row
-        iconCell.setIcon(icon[indexPath.row])
+        iconCell.setIcon(iconArray[indexPath.row].img)
         
         return iconCell
     }

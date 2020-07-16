@@ -93,8 +93,9 @@ class InventoryTodayRecordCell: UITableViewCell {
         
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
-//        inventoryCountTextField.text = inventoryCount
-        
+        if let cnt = inventoryCount {
+            inventoryCountTextField.text = "\(cnt)"
+        }
     }
     
 }

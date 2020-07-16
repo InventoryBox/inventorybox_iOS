@@ -45,12 +45,21 @@ class IvRecordAddProductVC: UIViewController {
     
     @IBOutlet weak var popupBackgroundView: UIView!
     var iconIdx: String = ""
-    
+    var iconArray: [IconInfo] = [] {
+        didSet {
+            
+        }
+    }
+    var categories: [CategoryInfo] = [] {
+        didSet {
+            
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getDataFromServer()
         navigationController?.navigationBar.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,6 +78,30 @@ class IvRecordAddProductVC: UIViewController {
         setPopupBackgroundView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(disappearIconIdx), name: .init("iconIdx"), object: nil)
+    }
+    private func getDataFromServer() {
+        
+        IvRecordAddIvService.shared.getRecordAddIv() { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? AddIvClass else { return }
+                
+                self.iconArray = dt.iconInfo
+                self.categories = dt.categoryInfo
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
     }
     
     @objc private func disappearIconIdx(_ notification: Notification) {
