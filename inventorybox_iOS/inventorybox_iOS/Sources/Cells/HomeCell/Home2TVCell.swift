@@ -32,8 +32,7 @@ class Home2TVCell: UITableViewCell {
         makeShadowUnderView()
 
     }
-    
-    
+     
     // checkBox눌렀을 때
     @IBAction func checkBoxPress(_ sender: Any) {
         if checkvalue == false{ // 체크를 처음 눌렀을 때 On

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */; };
+		0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568EE24C0F28E00853DD0 /* HomeService.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -138,6 +140,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInformation.swift; sourceTree = "<group>"; };
+		0E0568EE24C0F28E00853DD0 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
 				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
 				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
+				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
@@ -539,6 +544,7 @@
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
 				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
 				3332405924B5A5BD00C3B59C /* ItemInformation.swift */,
+				0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */,
 				3332405A24B5A5BD00C3B59C /* DayInformation.swift */,
 				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
@@ -793,11 +799,13 @@
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
+				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
+				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,

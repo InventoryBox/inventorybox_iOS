@@ -13,7 +13,7 @@ import BEMCheckBox
 class HomeVC: UIViewController {
     
     // table에 연결할 더미 데이터
-    private var orderCheckInformations : [orderCheckTVCInfo] = [ ]
+    private var orderCheckInformations : [HomeItem] = [ ]
     private var height: CGFloat?
     var homeMoreViewCellHeight : CGFloat = 94       // Home2TVCell 높이
     var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
@@ -35,7 +35,7 @@ class HomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("morepressbutton"), object: nil)
         
         // table관련 데이터
-        setorderCheckInformations()
+//        setorderCheckInformations()
         
         // table
         tableview.dataSource = self
@@ -47,7 +47,32 @@ class HomeVC: UIViewController {
         tableview.contentInsetAdjustmentBehavior = .never
         
         setPopupBackgroundView()
+        getDataFromServer()     // 서버 데이터 viewdidload
     }
+    
+     //MARK: Home 데이터 받아오기
+     func getDataFromServer(){
+         
+         HomeService.shared.getHome(completion: { networkResult in
+             switch networkResult{
+             case .success(let data):
+                 print(data)
+                 guard let dt = data as? HomeItemclass else { return }
+                 self.orderCheckInformations = dt.result
+                 self.tableview.reloadData()
+             case .requestErr(let message):
+                 guard let message = message as? String else {return}
+                 print(message)
+             case .serverErr: print("serverErr")
+             case .pathErr:
+                 print("pathErr")
+             case .networkFail:
+                 print("networkFail")
+             }
+         })
+     }
+    
+    
     
     // 더보기 버튼 관련 objc
     @objc func morbutton(_ notification: Notification){
@@ -56,7 +81,7 @@ class HomeVC: UIViewController {
         guard let ivName = userInfo["name"] as? String else { return }
         
         for i in 0..<orderCheckInformations.count{
-            if orderCheckInformations[i].productName == ivName{
+            if orderCheckInformations[i].itemName == ivName{
                 homeMoreViewCellPoint = i
                 if moreValue == true{
                     homeMoreViewCellHeight = 196
@@ -178,19 +203,21 @@ class HomeVC: UIViewController {
     }
     // @@@@@@@@@@@
     
-    // MARK: TableView 관련 더미데이터
-    private func setorderCheckInformations() {
-        
-        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999, productset: "덩어리")
-        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1, productset: "팩")
-        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555, productset: "개")
-        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42, productset: "팩")
-        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5, productset: "병")
-        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
-        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
-        
-        orderCheckInformations = [data1, data2, data3, data4,data5,data6,data7]
-    }
+//    // MARK: TableView 관련 더미데이터
+//    private func setorderCheckInformations() {
+//
+//        let data1 = orderCheckTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999, productset: "덩어리")
+//        let data2 = orderCheckTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1, productset: "팩")
+//        let data3 = orderCheckTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555, productset: "개")
+//        let data4 = orderCheckTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42, productset: "팩")
+//        let data5 = orderCheckTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5, productset: "병")
+//        let data6 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
+//        let data7 = orderCheckTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12, productset: "팩")
+//
+//        orderCheckInformations = [data1, data2, data3, data4,data5,data6,data7]
+//    }
+//
+    
 }
 
 
@@ -235,8 +262,9 @@ extension HomeVC: UITableViewDataSource{
         }else{
             //             section == 1 밑에꺼
             guard let Cell2s = tableView.dequeueReusableCell(withIdentifier: "Home2TVCell", for: indexPath) as? Home2TVCell else { return UITableViewCell() }
-            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].productImage, productNameTx: orderCheckInformations[indexPath.row].productName, productCountTx: orderCheckInformations[indexPath.row].productCount, productSetTx: orderCheckInformations[indexPath.row].productSet)
             
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit)
+
             return Cell2s
             
         }
