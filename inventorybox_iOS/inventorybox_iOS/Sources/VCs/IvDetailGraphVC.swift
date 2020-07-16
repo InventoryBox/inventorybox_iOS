@@ -99,6 +99,37 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+//    func getDataFromServer(){
+//
+//           InventoryGraphHomeService.shared.loadHome { networkResult in
+//               switch networkResult{
+//               case .success(let token):
+//                   print(token)
+//                   guard let data = token as? ThisWeekData else {return}
+//                   self.dayList = data.thisWeekDates
+//                   print(self.dayList)
+//                   self.itemList = data.itemInfo
+//                   self.tagArray = data.categoryInfo
+//                   print(self.tagArray.count)
+//                   print(self.tagArray)
+//                   DispatchQueue.main.async {
+//                       self.calendarCollectionView.reloadData()
+//                       self.tagCollectionView.reloadData()
+//                   }
+//               case .requestErr(let message):
+//                   guard let message = message as? String else {return}
+//                   print(message)
+//               case .serverErr: print("serverErr")
+//               case .pathErr:
+//                   print("pathErr")
+//               case .networkFail:
+//                   print("networkFail")
+//               }
+//
+//
+//           }
+//       }
+//
     func setGraph2(){
         
         graph2Days = ["일","월","화","수","목","금","토"]

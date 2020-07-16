@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-iN-Fy6">
-                                                <rect key="frame" x="92.5" y="15" width="14" height="14"/>
+                                                <rect key="frame" x="150.5" y="21" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="2ro-XO-wgk"/>
                                                     <constraint firstAttribute="width" constant="14" id="Dfh-W6-jIM"/>
@@ -38,18 +38,14 @@
                                                     <action selector="openDatePicker:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="1Ut-Kt-7nL"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.26 금요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
-                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
-                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="146" id="6tj-25-jKR"/>
-                                                    <constraint firstAttribute="height" constant="20" id="IWD-P6-DVY"/>
-                                                </constraints>
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +71,7 @@
                                             <constraint firstItem="ocT-Zq-xF1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="1Sc-Fl-xUh"/>
                                             <constraint firstAttribute="trailing" secondItem="1Pl-Gp-LxH" secondAttribute="trailing" constant="3" id="C7u-IV-6gc"/>
                                             <constraint firstItem="ocT-Zq-xF1" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="Dr5-ph-aV0"/>
-                                            <constraint firstItem="ocT-Zq-xF1" firstAttribute="leading" secondItem="qfR-iN-Fy6" secondAttribute="trailing" constant="8" id="FFk-E3-xOE"/>
+                                            <constraint firstItem="bH4-Va-xD1" firstAttribute="leading" secondItem="qfR-iN-Fy6" secondAttribute="trailing" constant="8" id="FFk-E3-xOE"/>
                                             <constraint firstItem="qfR-iN-Fy6" firstAttribute="centerY" secondItem="ocT-Zq-xF1" secondAttribute="centerY" id="GSq-g5-4oY"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="HCD-qR-JxF"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="width" secondItem="ocT-Zq-xF1" secondAttribute="width" id="Q6b-fb-2po"/>
@@ -178,6 +174,9 @@
                                                 <constraint firstItem="yQe-gu-csH" firstAttribute="centerY" secondItem="c3W-V3-2iU" secondAttribute="centerY" id="hTJ-Ki-XMS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addIvBtn" destination="yQe-gu-csH" id="0hf-eb-Uw8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="94" id="QeH-SE-WxR" customClass="InventoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
@@ -381,7 +380,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.54000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
-                                <rect key="frame" x="0.0" y="0.0" width="435" height="727"/>
+                                <rect key="frame" x="0.0" y="0.0" width="475" height="867"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -393,7 +392,7 @@
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="width" secondItem="qsm-xl-jtl" secondAttribute="width" id="Bkt-MM-ev8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="top" secondItem="fMU-Z6-8Ja" secondAttribute="top" id="DbN-cm-Qaw"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="E3b-u0-oA4"/>
-                            <constraint firstItem="yEl-so-lwF" firstAttribute="bottom" secondItem="qsm-xl-jtl" secondAttribute="bottom" constant="60" id="Fvc-zb-IQg"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="bottom" secondItem="qsm-xl-jtl" secondAttribute="bottom" constant="200" id="Fvc-zb-IQg"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="JUz-Xi-3d9"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="JeS-aG-djy"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="PkZ-Zq-sFI"/>
@@ -409,13 +408,11 @@
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="7Dn-YM-0C3" secondAttribute="bottom" constant="16" id="r4i-0B-m1m"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="trailing" secondItem="xcq-tY-ofI" secondAttribute="trailing" constant="16" id="rso-0J-Sdw"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
-                            <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" constant="60" id="wRg-y0-FVb"/>
+                            <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" constant="100" id="wRg-y0-FVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="qyS-l2-rBy"/>
-                                <exclude reference="ktg-z8-FKj"/>
                                 <exclude reference="yEl-so-lwF"/>
                             </mask>
                         </variation>
@@ -440,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PW-kM-qZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416.80000000000001" y="257.72113943028489"/>
+            <point key="canvasLocation" x="292" y="179"/>
         </scene>
         <!--Date Picker PopupVC-->
         <scene sceneID="JE4-GZ-A6t">

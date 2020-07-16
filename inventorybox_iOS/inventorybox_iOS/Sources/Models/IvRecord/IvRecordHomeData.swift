@@ -36,10 +36,10 @@ struct IvRecordHomeData: Codable {
 // ⭐️⭐️
 // MARK: - IvRecordHomeClass
 struct IvRecordHomeClass: Codable {
-    let itemInfo: [HomeItemInfo]
+    let itemInfo: [HomeItemInfo]?
     let categoryInfo: [CategoryInfo] 
     let isRecorded: Int
-    let date: String
+    let date: String?
     let picker, addButton: Int
 }
 

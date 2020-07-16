@@ -84,11 +84,11 @@ class InventoryEditProductCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: String) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int) {
         
         inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
-        inventoryCountTextField.text = inventoryCount
+        inventoryCountTextField.text = "\(inventoryCount)"
         
     }
 }

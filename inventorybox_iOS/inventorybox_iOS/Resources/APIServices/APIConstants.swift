@@ -15,24 +15,28 @@ struct APIConstants {
     //로그인
     static let loginURL = baseURL + "auth/signin"
     //재고기록 (홈)
-    static let ivRecordHomeURL = baseURL + "record/home" // ⭕️
+    static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
     //재고기록 (재료추가_홈)
     static let inventortRecordAddURL = baseURL + "record/item-add"
     //재고기록 수정
-    static let inventoryRecordEditURL = baseURL + "record/modifyView/:date"
+    static let inventoryRecordEditURL = baseURL + "record/modifyView/" // ⭕️
     //오늘 재고 기록하기
-    static let inventoryTodayRecordURL = baseURL + "record/today"
+    static let inventoryTodayRecordURL = baseURL + "record/today" // ⭕️
     //재고기록 카테고리정보
     static let inventoryRecordCategoryInfoURL = baseURL + "record/folder/category-info"
     //재고기록 (재료추가_저장)
     static let inventoryRecordItmeAddURL = baseURL + "record/item-add"
     //재고기록 (기록수정 & 오늘 재고 기록_완료)
-    static let inventoryRecordModifyURL = baseURL + "record/modify"
+    static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️
     //재고기록 (재료 삭제)
     static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete"
     //재고기록 (카테고리 추가)
     static let inventoryRecordCategoryAddURL = baseURL + "record/category-addwody"
     //재고량 추이 홈 
     static let inventoryGraphHomeURL = baseURL + "dashboard"
+    //재고량 추이 선택적 그래프
+    static let inventorySingleGraphURL = baseURL + "dashboard/:item/single?year=year&month=month"
+    //재고량 추이 한 아이템 주별 비교 그래프
+    static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
 }
 

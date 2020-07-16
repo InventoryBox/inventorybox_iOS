@@ -8,6 +8,7 @@
 
 import Foundation
 
+// ⭐️
 // MARK: - IvRecordEditIvData
 struct IvRecordEditIvData: Codable {
     let status: Int
@@ -31,16 +32,18 @@ struct IvRecordEditIvData: Codable {
     }
 }
 
+// ⭐️⭐️
 // MARK: - IvRecordEditIvClass
 struct IvRecordEditIvClass: Codable {
-    let itemInfo: [EditItemInfo]
+    let itemInfo: [EditItemInfo]?
     let categoryInfo: [CategoryInfo]
 }
 
+// ⭐️⭐️⭐️
 // MARK: - EditItemInfo
 struct EditItemInfo: Codable {
     let itemIdx: Int
     let name: String
-    let categoryIdx, stocksCnt: Int
+    var categoryIdx, stocksCnt: Int
     let img: String
 }

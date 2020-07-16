@@ -24,8 +24,8 @@ class TagCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setTag(tagName:String){
-        tagNameLabel.text = tagName
+    func bind(model:CategoryInfo){
+        tagNameLabel.text = model.name
     }
     
 }

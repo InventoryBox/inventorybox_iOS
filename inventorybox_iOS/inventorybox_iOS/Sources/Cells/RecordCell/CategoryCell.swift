@@ -24,6 +24,8 @@ class CategoryCell: UICollectionViewCell {
             }
         }
     }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -31,6 +33,9 @@ class CategoryCell: UICollectionViewCell {
         
     }
     
+    private func firstLoad() {
+        isSelected = true
+    }
     private func setBorder() {
         self.layer.borderColor = UIColor.greyishBrown.cgColor
         self.layer.borderWidth = 0.5
