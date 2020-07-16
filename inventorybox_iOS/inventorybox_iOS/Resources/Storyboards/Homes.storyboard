@@ -358,6 +358,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkBoxBtn" destination="DAv-vr-O9f" id="G5y-Rx-Stf"/>
                                             <outlet property="graphView" destination="WMZ-5F-Bov" id="jt2-y0-pA2"/>
                                             <outlet property="moreBtn" destination="oix-hN-d6J" id="t2b-rd-vWn"/>
                                             <outlet property="productCountText" destination="Idl-P7-6uY" id="WeG-9I-dYN"/>

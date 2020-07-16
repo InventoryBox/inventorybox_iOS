@@ -10,7 +10,7 @@ import UIKit
 
 class MemoModifyVC: UIViewController {
     
-    private var orderCheckMemoInformations : [orderCheckMemoTVCInfo] = [ ]
+    private var orderCheckMemoInformations : [HomeItem] = [ ]
     var homeMoreViewCellHeight : CGFloat = 94       // Home2TVCell 높이
     var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
     var homeMoreViewCellPoint : Int?                // 위치값 구해야 되므로
@@ -20,7 +20,7 @@ class MemoModifyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setmemoorderCheckInformations()
+//        setmemoorderCheckInformations()
         
         // table
         tableview.dataSource = self
@@ -32,8 +32,31 @@ class MemoModifyVC: UIViewController {
         tableview.contentInsetAdjustmentBehavior = .never
         
         // 더보기 관련 옵져버
-              NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("memotablevalue"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("memotablevalue"), object: nil)
+ 
+        getDataFromServer()
+    }
+    
+    //MARK: Home 데이터 받아오기
+    func getDataFromServer(){
         
+        HomeService.shared.getHome(completion: { networkResult in
+            switch networkResult{
+            case .success(let data):
+                print(data)
+                guard let dt = data as? HomeItemclass else { return }
+                self.orderCheckMemoInformations = dt.result
+                self.tableview.reloadData()
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
     }
     
     // 더보기 버튼 관련 objc
@@ -43,7 +66,7 @@ class MemoModifyVC: UIViewController {
         guard let ivName = userInfo["name"] as? String else { return }
         
         for i in 0..<orderCheckMemoInformations.count{
-            if orderCheckMemoInformations[i].productName == ivName{
+            if orderCheckMemoInformations[i].itemName == ivName{
                 homeMoreViewCellPoint = i
                 if moreValue == true{
                     homeMoreViewCellHeight = 196
@@ -56,19 +79,19 @@ class MemoModifyVC: UIViewController {
     }
     
     
-    // MARK: TableView 관련 더미데이터
-    private func setmemoorderCheckInformations() {
-        
-        let data1 = orderCheckMemoTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999)
-        let data2 = orderCheckMemoTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1)
-        let data3 = orderCheckMemoTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555)
-        let data4 = orderCheckMemoTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42)
-        let data5 = orderCheckMemoTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5)
-        let data6 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-        let data7 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-        
-        orderCheckMemoInformations = [data1, data2, data3, data4,data5,data6,data7]
-    }
+//    // MARK: TableView 관련 더미데이터
+//    private func setmemoorderCheckInformations() {
+//
+//        let data1 = orderCheckMemoTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999)
+//        let data2 = orderCheckMemoTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1)
+//        let data3 = orderCheckMemoTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555)
+//        let data4 = orderCheckMemoTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42)
+//        let data5 = orderCheckMemoTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5)
+//        let data6 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
+//        let data7 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
+//
+//        orderCheckMemoInformations = [data1, data2, data3, data4,data5,data6,data7]
+//    }
     
     
     @IBAction func ModifyBackPRessBtn(_ sender: Any) {
@@ -93,7 +116,8 @@ extension MemoModifyVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //             section == 1 밑에꺼
         guard let cells = tableView.dequeueReusableCell(withIdentifier: "MemoTVCell", for: indexPath) as? MemoTVCell else { return UITableViewCell() }
-        cells.SetMemoProductImformation(productImage: orderCheckMemoInformations[indexPath.row].productImage, productNameTx: orderCheckMemoInformations[indexPath.row].productName, productCountTx: orderCheckMemoInformations[indexPath.row].productCount)
+        cells.SetMemoProductImformation(productImage: orderCheckMemoInformations[indexPath.row].img, productNameTx: orderCheckMemoInformations[indexPath.row].itemName, productCountTx: orderCheckMemoInformations[indexPath.row].alarmCnt)
+        
         return cells
         
     }

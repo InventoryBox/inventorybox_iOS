@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class Home2TVCell: UITableViewCell {
 
@@ -21,6 +22,7 @@ class Home2TVCell: UITableViewCell {
     @IBOutlet weak var productCountText: UILabel!   // 제품 개수
     @IBOutlet weak var productSetText: UILabel!     // 제품 묶음
     @IBOutlet weak var graphView: UIView!     // 그래프 나오는View
+    @IBOutlet weak var checkBoxBtn: BEMCheckBox!
     
   
     override func awakeFromNib() {
@@ -30,9 +32,9 @@ class Home2TVCell: UITableViewCell {
         graphView.isHidden = true
         
         makeShadowUnderView()
-
     }
      
+    
     // checkBox눌렀을 때
     @IBAction func checkBoxPress(_ sender: Any) {
         if checkvalue == false{ // 체크를 처음 눌렀을 때 On
@@ -40,6 +42,7 @@ class Home2TVCell: UITableViewCell {
         }else{                  // // 체크를 풀었을 때 Off
             checkvalue = false
         }
+        
         NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkvalue, "name": productNameText.text!])
     }
     
@@ -47,7 +50,7 @@ class Home2TVCell: UITableViewCell {
     
     // 자세히 눌렀을 떄
     @IBAction func MorPressBtn(_ sender: Any) {
-        if moreValue == false{  // 자세히 버튼 처음 눌렀을 떄
+        if checkBoxBtn.on == moreValue{  // 자세히 버튼 처음 눌렀을 떄
             graphView.isHidden = false
             moreBtn.setImage(UIImage(named: "homeBtnDetail02.png"), for: .normal)
             moreValue = true
@@ -58,6 +61,7 @@ class Home2TVCell: UITableViewCell {
         }
         NotificationCenter.default.post(name: .init("morepressbutton"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
     }
+   
     
     // Set 부분
     func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String) {
@@ -65,8 +69,9 @@ class Home2TVCell: UITableViewCell {
         productImg.image = UIImage(named: productImage)
         productNameText.text = productNameTx
         productCountText.text = String(productCountTx)  // int형으로 받아야 함
-        productSetText.text = productNameTx
+        productSetText.text = productSetTx
     }
+    
     
     private func makeShadowUnderView() {
         // 그림자주는 코드

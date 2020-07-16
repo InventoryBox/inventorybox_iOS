@@ -266,7 +266,6 @@ extension HomeVC: UITableViewDataSource{
             Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit)
 
             return Cell2s
-            
         }
     }
     
