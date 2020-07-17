@@ -22,6 +22,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tableview: UITableView! // 전체 TableView
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDataFromServer()     // 서버 데이터 viewdidload
+    }
     // MARK: override 부분
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +51,7 @@ class HomeVC: UIViewController {
         tableview.contentInsetAdjustmentBehavior = .never
         
         setPopupBackgroundView()
-        getDataFromServer()     // 서버 데이터 viewdidload
+      
     }
     
      //MARK: Home 데이터 받아오기
@@ -263,7 +267,7 @@ extension HomeVC: UITableViewDataSource{
             //             section == 1 밑에꺼
             guard let Cell2s = tableView.dequeueReusableCell(withIdentifier: "Home2TVCell", for: indexPath) as? Home2TVCell else { return UITableViewCell() }
             
-            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit)
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
 
             return Cell2s
         }

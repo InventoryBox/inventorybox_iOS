@@ -13,6 +13,7 @@ class MemoTVCell: UITableViewCell {
     static let identifier : String = "MemoTVCell"
     var checkvalue : Bool = false   // checkbox
     var moreValue : Bool = false    // 더보기 버튼
+    var textcount : Int?
     @IBOutlet weak var moreBtn: UIButton!
     
     var count : Int? // Textfield 관련
@@ -49,7 +50,12 @@ class MemoTVCell: UITableViewCell {
     
     
     func SetMemoProductImformation(productImage: String, productNameTx: String, productCountTx: Int) {
-        productImg.image = UIImage(named: productImage)
+        
+        // URL을 이미지로 변환 시키기
+        let url = URL(string: productImage)
+        let data = try? Data(contentsOf: url!)
+        
+        productImg.image = UIImage(data: data!)
         productNameText.text = productNameTx
         productCountText.text = String(productCountTx)  // int형으로 받아야 함
     }
@@ -67,6 +73,7 @@ class MemoTVCell: UITableViewCell {
         
         NotificationCenter.default.post(name: .init("memotablevalue"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
     }
+  
     
     // Minus Button 눌렀을 때
     @IBAction func minusBtnPress(_ sender: Any) {
@@ -103,8 +110,13 @@ class MemoTVCell: UITableViewCell {
         productCountText.inputAccessoryView = doneToolbar
     }
     
-    
+    // Done Button 눌렀을 때
     @objc func doneButtonAction(){
+        // 노티피 주기위 위해
+//        textcount = Int(productCountText.text!)
+//        print("\(textcount!) 값을 보내겠습니다")
+//         NotificationCenter.default.post(name: .init("textmodify"), object: nil, userInfo: ["count": textcount!, "name": productNameText.text!])
+//
         productCountText.resignFirstResponder()
     }
 }

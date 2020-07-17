@@ -18,7 +18,9 @@ struct APIConstants {
     // Home
      static let ivHomeURL = baseURL + "item/order" //
     // Home + flag
-    static let ivHomeCheckBoxURL = baseURL + "item/flag/:itemIdx" //
+    static let ivHomeCheckBoxURL = baseURL + "item/flag/" //
+    // Home + MemoModify
+    static let ivHomeMemoModifyURL = baseURL + "item/order/memo"  //
     
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
