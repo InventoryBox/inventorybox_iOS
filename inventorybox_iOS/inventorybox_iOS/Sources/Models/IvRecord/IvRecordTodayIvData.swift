@@ -50,4 +50,5 @@ struct TodayItemInfo: Codable {
     let name: String
     let categoryIdx: Int
     var presentCnt: Int?
+    let img: String
 }

@@ -36,6 +36,8 @@
 		3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406C24B6550C00C3B59C /* IvEditTVCell.swift */; };
 		3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */; };
 		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
+		3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */; };
+		334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F374C24C09877001D1B05 /* IvProductRegistVC.swift */; };
 		335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */; };
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
 		3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EC24BDC39300E6AE8D /* LoginData.swift */; };
@@ -64,6 +66,9 @@
 		D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992924B07879007CAAB9 /* CustomTextField.swift */; };
 		D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410992B24B08375007CAAB9 /* UIColorExtension.swift */; };
 		D415024B24C0546B00183004 /* IvRecordTodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D415024A24C0546B00183004 /* IvRecordTodayService.swift */; };
+		D415024D24C05E8C00183004 /* IvRecordTodayPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */; };
+		D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D415024E24C06D6500183004 /* IvRecordAddIvService.swift */; };
+		D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */; };
 		D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6024BDDBFE00EE7672 /* LoginService.swift */; };
 		D418CE7224BDFA2E00EE7672 /* IvRecordAddIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */; };
 		D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */; };
@@ -79,6 +84,8 @@
 		D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */; };
 		D44EB37D24C00C60006CFC5E /* IvRecordEditIvPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */; };
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
+		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
+		D4558A8D24C166E600A1ACB5 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4558A8C24C166E500A1ACB5 /* logo.json */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
 		D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A015724B6C93C0055814E /* IvExchange.storyboard */; };
 		D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015924B6C9570055814E /* IvExchangeVC.swift */; };
@@ -91,6 +98,12 @@
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
+		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
+		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
+		D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */; };
+		D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */; };
+		D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */; };
+		D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */; };
 		D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */; };
 		D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */; };
 		D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */; };
@@ -139,6 +152,8 @@
 		D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */; };
 		D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */; };
 		D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */; };
+		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
+		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +190,8 @@
 		3332406C24B6550C00C3B59C /* IvEditTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvEditTVCell.swift; sourceTree = "<group>"; };
 		3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInThisMonthCVCell.swift; sourceTree = "<group>"; };
 		3332407224B6609000C3B59C /* WeekInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInformation.swift; sourceTree = "<group>"; };
+		3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeWritePopupVC.swift; sourceTree = "<group>"; };
+		334F374C24C09877001D1B05 /* IvProductRegistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvProductRegistVC.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
 		3357D7A924B36089002FF1EF /* DayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -210,6 +227,9 @@
 		D410992924B07879007CAAB9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D410992B24B08375007CAAB9 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D415024A24C0546B00183004 /* IvRecordTodayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordTodayService.swift; sourceTree = "<group>"; };
+		D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordTodayPostService.swift; sourceTree = "<group>"; };
+		D415024E24C06D6500183004 /* IvRecordAddIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordAddIvService.swift; sourceTree = "<group>"; };
+		D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordAddIvPostService.swift; sourceTree = "<group>"; };
 		D418CE6024BDDBFE00EE7672 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordAddIvData.swift; sourceTree = "<group>"; };
 		D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordTodayIvData.swift; sourceTree = "<group>"; };
@@ -227,6 +247,8 @@
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvPostService.swift; sourceTree = "<group>"; };
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeData.swift; sourceTree = "<group>"; };
+		D4558A8C24C166E500A1ACB5 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
 		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
@@ -241,6 +263,12 @@
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
+		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
+		D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteIvService.swift; sourceTree = "<group>"; };
+		D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordSuccessData.swift; sourceTree = "<group>"; };
+		D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordAddCateService.swift; sourceTree = "<group>"; };
+		D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeService.swift; sourceTree = "<group>"; };
 		D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExchangeInformation.swift; sourceTree = "<group>"; };
 		D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvAllExchangeCell.swift; sourceTree = "<group>"; };
 		D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodExchangeInformation.swift; sourceTree = "<group>"; };
@@ -287,6 +315,8 @@
 		D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopupVC.swift; sourceTree = "<group>"; };
+		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +419,7 @@
 				D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */,
 				D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */,
 				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
+				D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */,
 				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
 			);
 			path = IvExchange;
@@ -401,6 +432,7 @@
 				D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */,
 				D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */,
 				D46A015924B6C9570055814E /* IvExchangeVC.swift */,
+				334F374C24C09877001D1B05 /* IvProductRegistVC.swift */,
 			);
 			path = IvExchange;
 			sourceTree = "<group>";
@@ -460,18 +492,18 @@
 		D48417C024AC565D0064EE64 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D46A015724B6C93C0055814E /* IvExchange.storyboard */,
 				D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */,
 				D48417B124AC55EB0064EE64 /* Main.storyboard */,
-				D46A015724B6C93C0055814E /* IvExchange.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
 				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
+				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
 				339C89AE24BB21C700B86BAF /* Login.storyboard */,
-				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -480,12 +512,21 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
+				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
+				D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */,
+				D415024E24C06D6500183004 /* IvRecordAddIvService.swift */,
+				D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */,
 				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
 				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
+				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
+				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
+				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
+				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
 				3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */,
 				3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */,
@@ -518,7 +559,6 @@
 				339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */,
 				339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */,
 				D4DFE3CA24B6661400D8795E /* Onboarding */,
-				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
 				0E4A830024BD7C40001E38B7 /* SideMenuVC.swift */,
@@ -528,6 +568,7 @@
 				339C89B024BB21FC00B86BAF /* LoginVC.swift */,
 				339C89B224BB7A4C00B86BAF /* SignUpVC.swift */,
 				339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */,
+				3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -570,6 +611,7 @@
 		D48417C624AC56970064EE64 /* Designs */ = {
 			isa = PBXGroup;
 			children = (
+				D4558A8C24C166E500A1ACB5 /* logo.json */,
 				D46A015C24B6CC3C0055814E /* FormTextField.swift */,
 				D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */,
 				D4DFE3BE24B649A500D8795E /* 26594-add-text.json */,
@@ -594,8 +636,11 @@
 			isa = PBXGroup;
 			children = (
 				D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */,
+				D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */,
 				D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */,
+				D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */,
 				D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */,
+				D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */,
 				D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */,
 				D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */,
 				D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */,
@@ -637,6 +682,7 @@
 			isa = PBXGroup;
 			children = (
 				D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */,
+				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
 				D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */,
 				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
 				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
@@ -722,6 +768,7 @@
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
 				D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
+				D4558A8D24C166E600A1ACB5 /* logo.json in Resources */,
 				D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
@@ -794,6 +841,7 @@
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
 				0E4A830124BD7C41001E38B7 /* SideMenuVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
+				D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */,
 				3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */,
 				D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */,
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
@@ -812,6 +860,7 @@
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
+				D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */,
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
@@ -824,22 +873,27 @@
 				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
+				D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */,
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,
+				D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
 				D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */,
 				D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */,
+				334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */,
 				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
 				D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */,
 				0E4A82FD24BD7B89001E38B7 /* MemoTVCell.swift in Sources */,
+				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,
 				D418CE7224BDFA2E00EE7672 /* IvRecordAddIvData.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
+				D415024D24C05E8C00183004 /* IvRecordTodayPostService.swift in Sources */,
 				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
 				D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */,
 				3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */,
@@ -853,13 +907,17 @@
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
+				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
+				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
 				0E4A82F824BD7B77001E38B7 /* HomeHeader2TVCell.swift in Sources */,
+				D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */,
 				0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				335889C624BCF3D300DB2533 /* TagModel.swift in Sources */,
@@ -878,6 +936,7 @@
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
+				D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */,
 				D44EB37D24C00C60006CFC5E /* IvRecordEditIvPostService.swift in Sources */,
 				D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */,
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,
@@ -885,6 +944,7 @@
 				3332405C24B5A5BD00C3B59C /* DayInformation.swift in Sources */,
 				339C89AD24BB010E00B86BAF /* DetailCompareInfo.swift in Sources */,
 				0E4A82FF24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift in Sources */,
+				D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */,
 				D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
@@ -892,6 +952,7 @@
 				0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
 				D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */,
+				D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */,
 				3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */,
 				D415024B24C0546B00183004 /* IvRecordTodayService.swift in Sources */,
 				D479508824BEF31F00588979 /* IvRecordEditIvService.swift in Sources */,
@@ -980,6 +1041,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1033,6 +1095,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;

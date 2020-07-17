@@ -34,34 +34,7 @@ struct IvRecordEditIvPostService {
         
         print(parsingParameter)
         
-        return ["itemInfo": parsingParameter,
-        "date": date]
-//        return ["itemInfo": parsingParameter, "date": date]
-//        let encoder = JSONEncoder()
-//        var sendingIv: [String] = []
-//        for (i, value) in parsingParameter.enumerated() {
-//            let key = "indexIdx[\(i)]"
-//
-//            guard let jsonData = try? encoder.encode(value) else {
-//                print("encode")
-//                return ["date": "2020-05-16"]
-//            }
-//            let jsonString = String(bytes: jsonData, encoding: .utf8)
-//            guard let value = jsonString else {
-//                print("value")
-//                return ["date": "2020-05-16"]
-//            }
-////            print(key)
-////            print(value)
-//            sendingIv.append(value)
-//
-//        }
-//        print(sendingIv)
-
-//        var sendingData = [
-//            "itemInfo": sendingIv,
-//            "date": date
-//        ]
+        return ["itemInfo": parsingParameter, "date": date]
         
     }
     
@@ -82,7 +55,7 @@ struct IvRecordEditIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("dafsda")
+
                 completion(networkResult)
                 
             case .failure(let error):
@@ -106,15 +79,12 @@ struct IvRecordEditIvPostService {
     
     private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)
-        
-        guard let data = decodedData.data else { return .pathErr }
-        
         if decodedData.success {
-            return .success(data)
+            return .success(decodedData.message)
         } else {
             return .requestErr(decodedData.message)
         }

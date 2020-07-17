@@ -38,6 +38,8 @@ class IvTodayRecordVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getDataFromServer()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     
@@ -60,20 +62,18 @@ class IvTodayRecordVC: UIViewController {
         
     }
     
-    private func getDataFromServer(_ date: String) {
+    private func getDataFromServer() {
            
            IvRecordTodayService.shared.getRecordTodayIv() { (networkResult) in
                switch networkResult {
                case .success(let data):
-//                   guard let dt = data as? IvTodayRecordVC else { return }
-//
-//                   if let itemArray =  {
-//
-//                       self.inventoryTodayArray = itemArray
-//
-//                   }
-//                   self.categories = dt.categoryInfo
-                print(data)
+                   guard let dt = data as? IvRecordTodayIvClass else { return }
+
+                   
+                   self.inventoryTodayArray = dt.itemInfo
+                   self.todayDateLabel.text = dt.date
+                   self.categories = dt.categoryInfo
+                   
                case .requestErr(let message):
                    guard let message = message as? String else { return }
                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
@@ -92,6 +92,9 @@ class IvTodayRecordVC: UIViewController {
     private func setCategoryCollectionView() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
+        
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         
         
     }
@@ -186,8 +189,11 @@ extension IvTodayRecordVC: UITableViewDataSource {
             inventoryTodayRecordCell.indexPath = indexPath.row - 1
             inventoryTodayRecordCell.delegate = self
             
+            if indexPath.row == 1 {
+                inventoryTodayRecordCell.makePlaceholder()
+            }
             
-//            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1]., inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].presentCnt)
+            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].presentCnt)
             
             return inventoryTodayRecordCell
             
@@ -216,19 +222,15 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
         
         if self.textFieldBox.contains(indexPath) {
             if !isTyped {
-                print("empty")
                 guard let i = self.textFieldBox.firstIndex(of: indexPath) else { return }
                 inventoryTodayArray[indexPath].presentCnt = Int(count)
                 self.textFieldBox.remove(at: i)
                 inventoryFilteredArray = inventoryTodayArray
-                print(textFieldBox)
             }
         } else {
             if isTyped {
-                print("filled")
                 textFieldBox.append(indexPath)
                 inventoryTodayArray[indexPath].presentCnt = Int(count)
-                print(textFieldBox)
                 inventoryFilteredArray = inventoryTodayArray
             }
             

@@ -35,16 +35,18 @@ struct APIConstants {
     //재고기록 (재료추가_저장)
     static let inventoryRecordItmeAddURL = baseURL + "record/item-add"
     //재고기록 (기록수정 & 오늘 재고 기록_완료)
-    static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️
+    static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️ -> 오늘 재고 기록 완료는 테스트 불가여서 오류처리 아직 안함
     //재고기록 (재료 삭제)
     static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete"
     //재고기록 (카테고리 추가)
-    static let inventoryRecordCategoryAddURL = baseURL + "record/category-addwody"
+    static let inventoryRecordCategoryAddURL = baseURL + "record/category-add"
     //재고량 추이 홈 
     static let inventoryGraphHomeURL = baseURL + "dashboard"
     //재고량 추이 선택적 그래프
     static let inventorySingleGraphURL = baseURL + "dashboard/:item/single?year=year&month=month"
     //재고량 추이 한 아이템 주별 비교 그래프
     static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
+    
+    static let inventoryExchangeHomeURL = baseURL + "exchange/" // /:filter
 }
 

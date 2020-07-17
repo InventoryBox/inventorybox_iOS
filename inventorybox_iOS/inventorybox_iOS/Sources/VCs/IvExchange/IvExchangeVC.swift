@@ -23,11 +23,14 @@ class IvExchangeVC: UIViewController {
     @IBOutlet weak var priceBtn: UIButton!
     @IBOutlet weak var recentBtn: UIButton!
     
+    var filterNum: String = "0"
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = true
         setNotiAddress()
+        getDataFromServer()
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,50 +39,20 @@ class IvExchangeVC: UIViewController {
         navigationController?.navigationBar.isHidden = false
 //        removeNotiAddress()
     }
-    var allExchangeArray: [AllExchangeInformation] = {
-       let data1 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = AllExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        
-        return [data1, data2, data3, data4, data5, data6, data7]
-    }()
-    
+    var allExchangeArray: [PostInfo] = []
+    var filteredExchangeArray: [PostInfo] = []
     
     @IBOutlet weak var foodInventoryLabel: UILabel!
     @IBOutlet weak var foodInventoryBottomView: UIView!
     @IBOutlet weak var foodIvCollectionView: UICollectionView!
     
-    let foodExchangeArray: [FoodExchangeInformation] = {
-       let data1 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = FoodExchangeInformation(imageName: "24", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        
-        return [data1, data2, data3, data4, data5, data6, data7]
-    }()
+    let foodExchangeArray: [PostInfo] = []
     
     @IBOutlet weak var productInventoryLabel: UILabel!
     @IBOutlet weak var productInventoryBottomView: UIView!
     @IBOutlet weak var productIvCollectionView: UICollectionView!
     
-    let productExchangeArray: [ProductExchangeInformation] = {
-       let data1 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data2 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data3 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data4 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data5 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data6 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        let data7 = ProductExchangeInformation(imageName: "KakaoTalk_Photo_2020-07-08-21-55-55", heart: false, price: "7000원", distance: "100m", name: "녹차 라떼 파우더", life: "유통기한 2020.12.23", date: "2020년 12월 21일 작성")
-        
-        return [data1, data2, data3, data4, data5, data6, data7]
-    }()
+    let productExchangeArray: [PostInfo] = []
     
     @IBOutlet weak var recentInventoryLabel: UILabel!
     @IBOutlet weak var recentInventoryBottomView: UIView!
@@ -96,7 +69,42 @@ class IvExchangeVC: UIViewController {
         setCateStackView()
         setTextField()
     }
-    
+    private func getDataFromServer() {
+         
+        IvExchangeHomeService.shared.getExchangeHome(filter: filterNum) { (networkResult) in
+              switch networkResult {
+              case .success(let data):
+                guard let dt = data as? IvExchangeHomeClass else { return }
+                print(dt)
+                if self.filterNum == "0" {
+                    self.allExchangeArray = dt.postInfo
+                    self.filteredExchangeArray = self.allExchangeArray
+                    self.allIvCollectionView.reloadData()
+                    
+                } else if self.filterNum == "1" {
+                    self.allExchangeArray = dt.postInfo
+                    self.filteredExchangeArray = self.allExchangeArray
+                    self.allIvCollectionView.reloadData()
+                } else {
+                    self.allExchangeArray = dt.postInfo
+                    self.filteredExchangeArray = self.allExchangeArray
+                    self.allIvCollectionView.reloadData()
+                }
+                   
+              case .requestErr(let message):
+                   guard let message = message as? String else { return }
+                   let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                   let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                   alertViewController.addAction(action)
+                   self.present(alertViewController, animated: true, completion: nil)
+                   
+              case .pathErr: print("path")
+              case .serverErr: print("serverErr")
+              case .networkFail: print("networkFail")
+              }
+         }
+         
+    }
     private func setTextField() {
         searchTextField.delegate = self
     }
@@ -166,6 +174,7 @@ class IvExchangeVC: UIViewController {
     
     
     @IBAction func allIvBtnPressed(_ sender: Any) {
+        
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.gray
@@ -176,9 +185,9 @@ class IvExchangeVC: UIViewController {
         productInventoryBottomView.isHidden = true
         recentInventoryBottomView.isHidden = true
         
-        allIvCollectionView.isHidden = false
-        foodIvCollectionView.isHidden = true
-        productIvCollectionView.isHidden = true
+        self.filteredExchangeArray = self.allExchangeArray
+        allIvCollectionView.reloadData()
+        
     }
     
     @IBAction func foodIvBtnPressed(_ sender: Any) {
@@ -192,9 +201,13 @@ class IvExchangeVC: UIViewController {
         productInventoryBottomView.isHidden = true
         recentInventoryBottomView.isHidden = true
         
-        allIvCollectionView.isHidden = true
-        foodIvCollectionView.isHidden = false
-        productIvCollectionView.isHidden = true
+        
+        self.filteredExchangeArray = allExchangeArray.filter({ (postInfo) -> Bool in
+            return postInfo.isFood == 1
+        })
+        
+        allIvCollectionView.reloadData()
+        
     }
     
     @IBAction func productIvBtnPressed(_ sender: Any) {
@@ -208,9 +221,12 @@ class IvExchangeVC: UIViewController {
         productInventoryBottomView.isHidden = false
         recentInventoryBottomView.isHidden = true
         
-        allIvCollectionView.isHidden = true
-        foodIvCollectionView.isHidden = true
-        productIvCollectionView.isHidden = false
+        self.filteredExchangeArray = allExchangeArray.filter({ (postInfo) -> Bool in
+            return postInfo.isFood == 0
+        })
+        
+        allIvCollectionView.reloadData()
+        
     }
      
     @IBAction func recentIvBtnPressed(_ sender: Any) {
@@ -278,42 +294,24 @@ class IvExchangeVC: UIViewController {
 extension IvExchangeVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == allIvCollectionView {
-            return allExchangeArray.count
-        } else if collectionView == foodIvCollectionView {
-            return foodExchangeArray.count
-        } else {
-            return productExchangeArray.count
-        }
+        return filteredExchangeArray.count
+//        if collectionView == allIvCollectionView {
+//            return allExchangeArray.count
+//        } else if collectionView == foodIvCollectionView {
+//            return foodExchangeArray.count
+//        } else {
+//            return productExchangeArray.count
+//        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == allIvCollectionView {
-            guard let allExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvAllExchangeCell.identifier, for: indexPath
-                ) as? IvAllExchangeCell  else { return UICollectionViewCell() }
-            allExchangeCell.set(allExchangeArray[indexPath.row])
-            allExchangeCell.delegate = self
-            allExchangeCell.indexPath = indexPath.row
-            return allExchangeCell
-        } else if collectionView == foodIvCollectionView {
-            guard let foodExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvFoodExchangeCell.identifier, for: indexPath
-                ) as? IvFoodExchangeCell  else { return UICollectionViewCell() }
-            foodExchangeCell.set(foodExchangeArray[indexPath.row])
-            foodExchangeCell.delegate = self
-            foodExchangeCell.indexPath = indexPath.row
-            
-            return foodExchangeCell
-        } else {
-            guard let productExchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvProductExchangeCell.identifier, for: indexPath
-                ) as? IvProductExchangeCell  else { return UICollectionViewCell() }
-            productExchangeCell.set(productExchangeArray[indexPath.row])
-            productExchangeCell.delegate = self
-            productExchangeCell.indexPath = indexPath.row
-            return productExchangeCell
-        }
-        
+        guard let exchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvAllExchangeCell.identifier, for: indexPath) as? IvAllExchangeCell else { return UICollectionViewCell() }
+        exchangeCell.set(allExchangeArray[indexPath.row])
+        exchangeCell.delegate = self
+        exchangeCell.indexPath = indexPath.row
+        return exchangeCell
         
     }
     
@@ -343,7 +341,8 @@ extension IvExchangeVC: ExchangeButtonDelegate {
     }
     
     func didSelectHeart(isClicked: Bool, indexPath: Int) {
-        allExchangeArray[indexPath].ivHeart = isClicked
+        allExchangeArray[indexPath].likes = isClicked ? 1: 0
+//        allExchangeArray[indexPath].ivHeart = isClicked
         // 어차피 전체 식품 공산품은 전체에서 필터링을 할거기때문에 찜하기는 전체에만 반영하고 다시 필터링을 해주면 된다.
     }
 }

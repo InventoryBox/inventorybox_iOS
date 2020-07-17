@@ -85,8 +85,8 @@ class InventoryEditProductCell: UITableViewCell {
     }
     
     func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int) {
-        
-        inventoryImageView.image = UIImage(named: inventoryImageName)
+        let url = URL(string: inventoryImageName)
+        self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
         inventoryCountTextField.text = "\(inventoryCount)"
         
