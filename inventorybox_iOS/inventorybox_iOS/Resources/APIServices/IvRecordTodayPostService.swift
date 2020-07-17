@@ -20,7 +20,7 @@ struct IvRecordTodayPostService {
     static let shared = IvRecordTodayPostService()
     
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-//        print(data)
+        
         var parsingParameter: [[String: Int]] = []
         
         
@@ -56,7 +56,6 @@ struct IvRecordTodayPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Charts
 
 class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var backgroundPopupView: UIView!
+    @IBOutlet var popupBackgroundView: UIView!
     var isClickedBtn:Bool?
     var weekArray:[DetailGraphWeekInfo] = []
     var reloadArray:[DetailGraphWeekInfo] = []
@@ -23,7 +25,12 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var selectedSecondYearTextField:String = ""
     var selectedSecondMonthTextField:String = ""
     var selectedSecondWeekTextField:String = ""
-   
+    var itemIdx:Int?
+    var compareGraphWeek1Array:[Int] = [0,0,0,0,0,0,0]
+    var compareGraphWeek2Array:[Int] = [0,0,0,0,0,0,0]
+
+
+    
     // 이 값 순서대로 그래프가 그려짐
     // 서버통신 시 inventory별 정보 배열이 들어갈 곳
     let singleGraphUniteSold = [2.0,11.0,9.0,10.0,3.0,4.0,2.0]
@@ -59,13 +66,14 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ivDetilTV.allowsSelection = false
         ivDetilTV.separatorStyle = .none
         ivDetilTV.contentInsetAdjustmentBehavior = .never
+        setPopupBackgroundView()
        
         NotificationCenter.default.addObserver(self, selector: #selector(setWeeks(_:)), name: .clickWeek, object: nil)
     }
     
     @objc func setWeeks(_ notification: NSNotification) {
         guard let row = notification.userInfo?["week"] as? Int else { return }
-        guard let status = notification.userInfo?["status"] as? Bool else {return}
+        guard let status = notification.userInfo?["status"] as? Bool else { return }
 //        print(row)
 //        print(status)
         clickBtnWeek = row
@@ -96,6 +104,113 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
             }
         }
+        
+    }
+    
+
+       private func setPopupBackgroundView() {
+           
+        popupBackgroundView.isHidden = true
+        popupBackgroundView.alpha = 0
+        self.view.bringSubviewToFront(popupBackgroundView)
+        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSecondDisappearPopup), name: .init("popup"), object: nil)
+        
+    }
+    
+       
+       func animatePopupBackground(_ direction: Bool) {
+           
+           let duration: TimeInterval = direction ? 0.35 : 0.15
+           let alpha: CGFloat = direction ? 0.54 : 0.0
+           self.popupBackgroundView.isHidden = !direction
+           UIView.animate(withDuration: duration) {
+               self.popupBackgroundView.alpha = alpha
+           }
+           
+       }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+        
+        animatePopupBackground(false)
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let year = info["year"] as? String else { return }
+        guard let month = info["month"] as? String else {return}
+        guard let week = info["week"] as? String else {return}
+
+        
+        selectedFirstYearTextField = year
+        selectedFirstMonthTextField = month
+        selectedFirstWeekTextField = week
+
+      
+        print(selectedFirstMonthTextField)
+
+        ivDetilTV.reloadData()
+ 
+       }
+    
+     @objc func didSecondDisappearPopup(_ notification: Notification) {
+            
+            animatePopupBackground(false)
+            guard let info = notification.userInfo as? [String: Any] else { return }
+           
+            guard let secondYear = info["secondYear"] as? String else {return}
+            guard let secondMonth = info["secondMonth"] as? String else {return}
+            guard let secondWeek = info["secondWeek"] as? String else {return}
+
+            selectedSecondYearTextField = secondYear
+            selectedSecondMonthTextField = secondMonth
+            selectedSecondWeekTextField = secondWeek
+          
+
+            print(selectedSecondMonthTextField)
+            
+            ivDetilTV.reloadData()
+     
+           }
+  
+
+    
+    @IBAction func dayPickerBtn(_ sender: UIButton) {
+        animatePopupBackground(true)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvCompareGraphVC") as? IvCompareGraphVC else { return }
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func secondDatePickerBtn(_ sender: UIButton) {
+        animatePopupBackground(true)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvDetailGraphSecondCompareVC") as? IvDetailGraphSecondCompareVC else { return }
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func compareBtn(_ sender: UIButton) {
+        InventoryCompareGraphService.shared.loadCompareGraph(itemIdx!, Int(selectedFirstYearTextField)!, Int(selectedFirstMonthTextField)!, Int(selectedFirstWeekTextField)!, Int(selectedSecondYearTextField)!, Int(selectedSecondMonthTextField)!, Int(selectedSecondWeekTextField)!, completion: { networkResult in
+            switch networkResult{
+            case .success(let token):
+                print(token)
+                guard let data = token as? CompareWeekData else {return}
+                self.compareGraphWeek1Array = data.week1
+                self.compareGraphWeek2Array = data.week2
+                DispatchQueue.main.async {
+                    self.ivDetilTV.reloadData()
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
         
     }
     
@@ -160,47 +275,6 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
        }
     
 
-    @IBAction func popUpDatePickerBtn(_ sender: UIButton) {
-        
-        animatePopupBackground(true)
-              guard let vc = storyboard?.instantiateViewController(withIdentifier: "DatePickerPopupVC") else { return }
-              vc.modalPresentationStyle = .overCurrentContext
-              self.present(vc, animated: true)
-    }
-    
-    private func setPopupBackgroundView() {
-           
-           backgroundPopupView.isHidden = true
-           backgroundPopupView.alpha = 0
-           self.view.bringSubviewToFront(backgroundPopupView)
-           NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
-           
-       }
-       
-       func animatePopupBackground(_ direction: Bool) {
-           
-           let duration: TimeInterval = direction ? 0.35 : 0.15
-           let alpha: CGFloat = direction ? 0.54 : 0.0
-           self.backgroundPopupView.isHidden = !direction
-           UIView.animate(withDuration: duration) {
-               self.backgroundPopupView.alpha = alpha
-           }
-           
-       }
-       
-       @objc func didDisappearPopup(_ notification: Notification) {
-           
-           guard let info = notification.userInfo as? [String: Any] else { return }
-           guard let date = info["selectdDate"] as? String else { return }
-           print(date)
-      //  monthPickLabel.text = date
-           animatePopupBackground(false)
-       }
-       
-       deinit {
-           NotificationCenter.default.removeObserver(self)
-       }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -293,9 +367,86 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         else if indexPath.section == 1 {
             let IvWeekCompareGraphTVCell = tableView.dequeueReusableCell(withIdentifier: "IvWeekCompareGraphTVCell") as! IvWeekCompareGraphTVCell
             
-            IvWeekCompareGraphTVCell.setIvGraphTV(yearText: doubleGraphArray[0].yearTextField!, monthText: doubleGraphArray[0].monthTextField!, weekText: doubleGraphArray[0].weekTextField!, secondYearText: doubleGraphArray[0].secondYearTextField!, secondMonthText: doubleGraphArray[0].secondMonthTextField!, secondWeekText: doubleGraphArray[0].weekTextField!, itemAlarmCount: doubleGraphArray[0].itemAlarmCount!, dataPoints: doubleGraphArray[0].dataPoints!, values1: doubleGraphArray[0].values1!)
-            
-            
+            print(selectedSecondWeekTextField)
+               
+                    let valFormatter = NumberFormatter()
+                    valFormatter.numberStyle = .currency
+                    valFormatter.maximumFractionDigits = 2
+                    valFormatter.currencySymbol = "$"
+                    
+                    
+                    let format = NumberFormatter()
+                    format.numberStyle = .none
+                    let formatter = DefaultValueFormatter(formatter: format)
+                    
+                    var dataPoints: [String] = ["일","월","화","수","목","금","토"]
+                    var dataEntries: [BarChartDataEntry] = []
+                    var dataEntries2: [BarChartDataEntry] = []
+                    
+                    
+                    for i in 0...6 {
+                        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek1Array[i]))
+                        dataEntries.append(dataEntry)
+                        //print(model.stocks[i])
+                    }
+                    
+                    for i in 0...6 {
+                        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek2Array[i]))
+                        dataEntries2.append(dataEntry)
+                        //print(model.stocks[i])
+                    }
+                    
+                    
+                    
+                    let chartDataSet = BarChartDataSet(entries: dataEntries, label: " ")
+                    let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: " ")
+                    
+                    chartDataSet2.colors =  [UIColor(red: 255/255, green: 70/255, blue: 108/255, alpha: 1)]
+                    
+                    chartDataSet.colors =  [UIColor(red: 49/255, green: 27/255, blue: 146/255, alpha: 1)]
+                    
+                    
+                    let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet2]
+                    let data = BarChartData(dataSets: dataSets)
+                    data.setValueFormatter(formatter)
+                    
+            IvWeekCompareGraphTVCell.compareChartView.data = data
+                    
+                    
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawGridLinesEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawAxisLineEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawLabelsEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
+                    
+                   
+                 
+                    //그래프 색 변경 부분
+                    
+             
+            //        chartDataSet.colors = [setColor(value: Double(model.wee[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+            //
+            graph2Days = ["일","월","화","수","목","금","토"]
+                    
+            IvWeekCompareGraphTVCell.compareChartView.xAxis.labelPosition = .bottom
+            IvWeekCompareGraphTVCell.compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: graph2Days)
+            IvWeekCompareGraphTVCell.compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+            IvWeekCompareGraphTVCell.compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+            IvWeekCompareGraphTVCell.compareChartView.xAxis.drawGridLinesEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.leftAxis.drawLabelsEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawGridLinesEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawLabelsEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.leftAxis.drawAxisLineEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.rightAxis.drawAxisLineEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.leftAxis.drawGridLinesEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.drawGridBackgroundEnabled = false
+            IvWeekCompareGraphTVCell.compareChartView.drawBordersEnabled = false
+                    //    ivChartView.barData?.yMi
+                    
+                    //밑에 데이터셋 제거
+            IvWeekCompareGraphTVCell.compareChartView.legend.enabled = false
+                    
+                    data.barWidth = 0.2
+           
             
             return IvWeekCompareGraphTVCell
             

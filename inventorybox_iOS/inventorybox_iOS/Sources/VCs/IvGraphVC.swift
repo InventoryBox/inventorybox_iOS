@@ -24,7 +24,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     private var tagArray:[CategoryInfo] = []
     private var itemFilteredArray: [ItemInfo] = []
     private var selections = [String]()
-
+   
     
     var numbers:[Double] = []
     var days: [String] = ["일","월","화","수","목","금","토"]
@@ -231,6 +231,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
         detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].name
+        detailViewController.itemIdx = self.itemFilteredArray[indexPath.row - 1].itemIdx
     }
     
     

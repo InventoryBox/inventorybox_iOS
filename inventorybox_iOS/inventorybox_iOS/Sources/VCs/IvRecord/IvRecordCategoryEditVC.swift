@@ -138,7 +138,8 @@ class IvRecordCategoryEditVC: UIViewController {
 //        guard let info = notification.userInfo as? [String: Any] else { return }
 //        guard let name = info["categoryName"] as? String else { return }
 //        print(name)
-        
+    
+        setCategoryCollectionView()
     }
 //    private func getCatecoryFromServer() {
 //
@@ -331,7 +332,7 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
         } else {
             checkboxSelections.append(indexPath)
         }
-//        print(checkboxSelections)
+
         
     }
 }

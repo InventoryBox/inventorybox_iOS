@@ -59,14 +59,9 @@ class InventoryCategoryEditCell: UITableViewCell {
         
         if selectedCheckBox.on {
             isSelectBtn = true
-            
-            print(isSelectBtn)
         } else {
             isSelectBtn = false
-            
-            print(isSelectBtn)
         }
-        
         
         delegate?.didClickCheckButton(isClicked: isSelectBtn, indexPath: indexPath!)
     }
