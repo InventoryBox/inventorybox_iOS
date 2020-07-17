@@ -12,18 +12,21 @@ import Alamofire
 struct IvHomeFlagPostService {
     static let shared = IvHomeFlagPostService()
     
-    private func makeParameter(itemIdx: String, flag: Int) -> Parameters{
+    private func makeParameter(itemIdx: Int, flag: Int) -> Parameters{
         
         return ["flag": flag]
     }
     
-    func getRecordEditIvPost(itemIdx: String, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordEditIvPost(itemIdx: Int, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.ivHomeCheckBoxURL, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
+        let url = APIConstants.ivHomeCheckBoxURL + "\(itemIdx)"
+        print(url)
+        print(makeParameter(itemIdx: itemIdx, flag: flag))
+        let dataRequest = Alamofire.request(url, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
         //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
@@ -34,7 +37,6 @@ struct IvHomeFlagPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -58,15 +60,13 @@ struct IvHomeFlagPostService {
     
     private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
-        print(decodedData.message)
-        
-        guard let data = decodedData.data else { return .pathErr }
+//        print(decodedData.message)
         
         if decodedData.success {
-            return .success(data)
+            return .success(decodedData.message)
         } else {
             return .requestErr(decodedData.message)
         }

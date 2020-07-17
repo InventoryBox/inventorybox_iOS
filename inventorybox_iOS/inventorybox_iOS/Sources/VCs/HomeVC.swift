@@ -60,7 +60,7 @@ class HomeVC: UIViewController {
          HomeService.shared.getHome(completion: { networkResult in
              switch networkResult{
              case .success(let data):
-                 print(data)
+//                 print(data)
                  guard let dt = data as? HomeItemclass else { return }
                  self.orderCheckInformations = dt.result
                  self.tableview.reloadData()
@@ -103,9 +103,10 @@ class HomeVC: UIViewController {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let checkvalue = userInfo["bool"] as? Bool else { return }
         guard let ivName = userInfo["name"] as? String else { return }
+        guard let indexPath = userInfo["indexPath"] as? Int else { return }
+        guard let isSelect = userInfo["isSelect"] as? Int else { return }
+        orderCheckInformations[indexPath].flag = isSelect
         
-        // print(checkvalue)
-        // print(ivName)
         NotificationCenter.default.post(name: .init("checklist"), object: nil, userInfo: ["bool": checkvalue, "name": ivName])
         
     }
@@ -266,6 +267,10 @@ extension HomeVC: UITableViewDataSource{
         }else{
             //             section == 1 밑에꺼
             guard let Cell2s = tableView.dequeueReusableCell(withIdentifier: "Home2TVCell", for: indexPath) as? Home2TVCell else { return UITableViewCell() }
+            
+            // cell 재사용 문제 해결
+            Cell2s.itemIdx = orderCheckInformations[indexPath.row].itemIdx
+            Cell2s.indexPath = indexPath.row
             
             Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
 

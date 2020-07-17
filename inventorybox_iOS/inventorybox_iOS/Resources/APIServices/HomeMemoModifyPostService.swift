@@ -33,7 +33,7 @@ struct HomeMemoModifyPostService {
         let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .put, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
         
         
-            print(makeParameter(data: data))
+//            print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
