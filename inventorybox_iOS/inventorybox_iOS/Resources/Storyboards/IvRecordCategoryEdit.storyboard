@@ -355,7 +355,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="810"/>
+                                <rect key="frame" x="0.0" y="0.0" width="492" height="810"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -496,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3u-Bk-aFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="160.56971514242881"/>
+            <point key="canvasLocation" x="-71" y="159"/>
         </scene>
         <!--Delete Category PopupVC-->
         <scene sceneID="7DQ-Md-xVB">
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RU0-jd-ci4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="152"/>
+            <point key="canvasLocation" x="604" y="159"/>
         </scene>
         <!--Move Category PopupVC-->
         <scene sceneID="OWF-bN-O8x">
