@@ -8,7 +8,7 @@
 
 import UIKit
 import Charts
-import TTGTagCollectionView
+//import TTGTagCollectionView
 
 class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,16 +18,16 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet var ivDataTableView: UITableView!
     @IBOutlet var tagCollectionView: UICollectionView!
     
-    
-    private var DayList:[DayInformation] = []
-    private var itemList:[ItemInformation] = []
-    private var tagArray:[TagModel] = []
-    private var itemFilteredArray: [ItemInformation] = []
+
+    private var dayList: [String] = []
+    private var itemList:[ItemInfo] = []
+    private var tagArray:[CategoryInfo] = []
+    private var itemFilteredArray: [ItemInfo] = []
     private var selections = [String]()
 
     
     var numbers:[Double] = []
-    var days: [String]!
+    var days: [String] = ["일","월","화","수","목","금","토"]
     
        
     
@@ -58,7 +58,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
        
         //day 데이터 setting
-        setDayList()
         
         
         
@@ -68,7 +67,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         
         //item 데이터 setting
-        setItemList()
         
         
         //tableView 구분선 제거
@@ -77,8 +75,12 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
       
         //categoryTabView.selectionLimit = 1
-        setTag()
         itemFilteredArray = itemList
+        
+        
+        getDataFromServer()
+        print(dayList.count)
+        print(itemList.count)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,70 +88,43 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     
-    func setTag(){
-        let tag1 = TagModel(tagName: "전체", idx: 1)
-        let tag2 = TagModel(tagName: "유제품", idx: 2)
-        let tag3 = TagModel(tagName: "채소류", idx: 3)
-        let tag4 = TagModel(tagName: "생선류", idx: 4)
-        let tag5 = TagModel(tagName: "파우더류", idx: 5)
-        let tag6 = TagModel(tagName: "과일", idx: 6)
-        let tag7 = TagModel(tagName: "액체류", idx: 7)
-        let tag8 = TagModel(tagName: "냉장고를 부탁해", idx: 8)
+    func getDataFromServer(){
         
-        
-        tagArray = [tag1,tag2,tag3,tag4,tag5,tag6,tag7,tag8]
-        print(tagArray)
-        print(tagArray.count)
-    }
-    
-    
-     private func setDayList(){
-        
-        
-        var dayFormatter = DateFormatter()
-        dayFormatter.dateFormat = "dd"
-        var currentDayString = dayFormatter.string(from: Date())
-        print(currentDayString)
-        
-        
-        
-        var daylist:[String] = ["05","06","07","08","09","10","11"]
-        var today:Bool = true
-        
-        for i in 0...6 {
-            if daylist[i] == currentDayString {
-//                DayList[i].isToday = today
-//                DayList[i].currentDay = daylist[i]
-                today = true
-            }
-            else {
-                today = false
+        InventoryGraphHomeService.shared.loadHome { networkResult in
+            switch networkResult{
+            case .success(let token):
+                print(token)
+                guard let data = token as? ThisWeekData else {return}
+                self.dayList = data.thisWeekDates
+                print(self.dayList)
+                self.itemList = data.itemInfo
+                self.tagArray = data.categoryInfo
+                print(self.tagArray.count)
+                print(self.tagArray)
+                DispatchQueue.main.async {
+                    self.calendarCollectionView.reloadData()
+                    self.tagCollectionView.reloadData()
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
             }
         }
-        
-         let sunday = DayInformation(currentDay:"05", currentWeekOfDay: "일", isToday: false)
-         let monday = DayInformation(currentDay: "06" ,currentWeekOfDay: "월", isToday: false)
-         let tuesday = DayInformation(currentDay:"07", currentWeekOfDay: "화", isToday: true)
-         let wednesday = DayInformation(currentDay:"08", currentWeekOfDay: "수", isToday: false)
-         let thursday = DayInformation(currentDay:"09" , currentWeekOfDay: "목", isToday: false)
-         let friday = DayInformation(currentDay:"10", currentWeekOfDay: "금", isToday: false)
-         let saturday = DayInformation(currentDay:"11" , currentWeekOfDay: "토", isToday: false)
-        
-    
-         //위에 만들어놓은 빈 배열인 profileList에 profile1(데이터)을 넣어준다.
-         DayList = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
-      
-         
-     }
-    
+    }
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
-            return DayList.count
+            return dayList.count
         }
         
-        if collectionView == tagCollectionView {
+       else if collectionView == tagCollectionView {
             return tagArray.count
         }
         
@@ -160,18 +135,35 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         if collectionView == calendarCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCVCell
+            cell.dayLabel.text = dayList[indexPath.row]
+            cell.dayOfWeekLabel.text = days[indexPath.row]
+            let date = Date()
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
             
-            cell.setDayInformation(dayOfWeek: DayList[indexPath.row].currentWeekOfDay, day: DayList[indexPath.row].currentDay!, isToday: DayList[indexPath.row].isToday!)
+            if (dayList[indexPath.row] == "\(day)"){
+                
+                cell.selectImg.image = UIImage(named: "dataShapeDateYellow")
+                print("dataShapeDateYellow")
+                cell.dayOfWeekLabel.textColor = .white
+                cell.dayLabel.textColor = .white
+            }
+            else{
+                
+                cell.selectImg.image = UIImage(named: "dataShapeDateWhite")
+                print("dataShapeDateWhite")
+                cell.dayOfWeekLabel.textColor = .noname
+                cell.dayLabel.textColor = .charcoal
+            }
             
             return cell
         }
-        
+            
         else if collectionView == tagCollectionView {
             let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
-            tagCell.tagNameLabel.text = tagArray[indexPath.row].tagName
+            tagCell.bind(model: tagArray[indexPath.row])
             tagCell.backgroundColor = .white
             tagCell.layer.cornerRadius = 11
-            
             tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
             tagCell.layer.borderWidth = 0.5
             
@@ -183,29 +175,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     
-    
-    private func setItemList(){
-     
-        days = ["일","월","화","수","목","금","토"]
-        
-        let milk = ItemInformation(itemImg: "dataIcMilk", itemName: "우유", itemAlarmCount: 4.0, dataPoints: days, values: uniteSold, category: "액체류")
-            
-        let iceCup = ItemInformation(itemImg: "dataIcCup", itemName: "아이스컵 12oz", itemAlarmCount: 2.0, dataPoints: days, values: uniteSold, category: "액체류")
-        
-        let coffee = ItemInformation(itemImg: "dataIcCoffee", itemName: "커피", itemAlarmCount: 5.0, dataPoints: days, values: uniteSold, category: "액체류")
-        
-        let brownMilk = ItemInformation(itemImg: "dataIcMcpowder", itemName: "우유", itemAlarmCount: 6.0, dataPoints: days, values: uniteSold, category: "파우더류")
-
-        
-             //위에 만들어놓은 빈 배열인 profileList에 profile1(데이터)을 넣어준다.
-             itemList = [milk,iceCup,coffee,brownMilk,milk,iceCup,coffee,brownMilk]
-        }
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemFilteredArray.count
+        return itemFilteredArray.count + 1
     }
     
     
@@ -226,7 +197,11 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             cell.removeLimitLine()
-            cell.setIvGraphTV(itemImage: itemFilteredArray[indexPath.row - 1].itemImg!, itemName: itemFilteredArray[indexPath.row - 1].itemName!, itemCount: itemFilteredArray[indexPath.row - 1].itemAlarmCount!, dataPoints: itemFilteredArray[indexPath.row - 1].dataPoints!, values: itemFilteredArray[indexPath.row - 1].values!)
+            cell.bind(model: itemFilteredArray[indexPath.row - 1])
+//            if((cell.accessCell?.stocks[indexPath.row])! < 1){
+//                cell.accessCell?.stocks[indexPath.row] = 0
+//            }
+            
                   
             return cell
         }
@@ -251,50 +226,52 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
             "IvDetailGraphVC") as? IvDetailGraphVC else { return }
-      
+        
         self.navigationController?.pushViewController(detailViewController, animated: true)
         
         //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
-        
-        detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].itemName
+        detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].name
     }
-     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
-            cell.removeLimitLine()
-        }
-        
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
+        cell.removeLimitLine()
+    }
+    
 }
 
 extension IvGraphVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print(tagArray[indexPath.row])
-        // 카테고리 필터링 코드
-        
-        var allCategoryCheck: Bool = false
-        
-        if tagArray[indexPath.row].tagName  == "전체" {
-            allCategoryCheck = true
-            itemFilteredArray = itemList
-            ivDataTableView.reloadData()
-        }
-        
-        
-        if !allCategoryCheck {
+        if collectionView == tagCollectionView {
+            print(tagArray[indexPath.row])
+            // 카테고리 필터링 코드
             
-            itemFilteredArray = []
-            let filtered = itemList.filter { (inventory) -> Bool in
-                return inventory.category == tagArray[indexPath.row].tagName
+            var allCategoryCheck: Bool = false
+            
+            if tagArray[indexPath.row].name  == "전체" {
+                allCategoryCheck = true
+                itemFilteredArray = itemList
+                ivDataTableView.reloadData()
             }
             
-            for data in filtered {
-                itemFilteredArray.append(data)
+            
+            if !allCategoryCheck {
+                
+                itemFilteredArray = []
+                let filtered = itemList.filter { (inventory) -> Bool in
+                    return inventory.categoryIdx == tagArray[indexPath.row].categoryIdx
+                }
+                
+                for data in filtered {
+                    itemFilteredArray.append(data)
+                }
+                
+                ivDataTableView.reloadData()
+                
             }
-            
-            ivDataTableView.reloadData()
-            
         }
-        
         
     }
     

@@ -36,6 +36,9 @@
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
 		3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EC24BDC39300E6AE8D /* LoginData.swift */; };
 		3365E4EF24BDD58400E6AE8D /* InventoryGraphHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */; };
+		3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */; };
+		3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */; };
+		3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */; };
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
 		339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */; };
 		339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */; };
@@ -184,6 +187,9 @@
 		335889C524BCF3D300DB2533 /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
 		3365E4EC24BDC39300E6AE8D /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeData.swift; sourceTree = "<group>"; };
+		3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeService.swift; sourceTree = "<group>"; };
+		3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphData.swift; sourceTree = "<group>"; };
+		3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphService.swift; sourceTree = "<group>"; };
 		339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraphWeekInfo.swift; sourceTree = "<group>"; };
 		339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerPopupVC.swift; path = IvRecord/DatePickerPopupVC.swift; sourceTree = "<group>"; };
 		339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IvRecordAddProductVC.swift; path = IvRecord/IvRecordAddProductVC.swift; sourceTree = "<group>"; };
@@ -501,6 +507,8 @@
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
+				3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */,
+				3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */,
 				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 			);
@@ -557,10 +565,10 @@
 		D48417C524AC56920064EE64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D4311FEF24BB03E6000C9B8B /* IvExchange */,
+				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
 				3332405924B5A5BD00C3B59C /* ItemInformation.swift */,
 				3332405A24B5A5BD00C3B59C /* DayInformation.swift */,
-				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
-				D4311FEF24BB03E6000C9B8B /* IvExchange */,
 				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
 				D4E7A40A24B4EAD5001C015A /* orderCheckCVCInfo.swift */,
 				D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */,
@@ -571,6 +579,7 @@
 				335889C524BCF3D300DB2533 /* TagModel.swift */,
 				3365E4EC24BDC39300E6AE8D /* LoginData.swift */,
 				3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */,
+				3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -807,6 +816,7 @@
 				0E4A830124BD7C41001E38B7 /* SideMenuVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
 				D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */,
+				3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */,
 				D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */,
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
@@ -854,6 +864,7 @@
 				D415024D24C05E8C00183004 /* IvRecordTodayPostService.swift in Sources */,
 				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
 				D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */,
+				3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */,
 				0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
@@ -862,6 +873,7 @@
 				D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */,
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
+				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
 				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
 				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
