@@ -56,7 +56,6 @@ struct IvRecordTodayPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
