@@ -33,6 +33,10 @@
 		3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */; };
 		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
 		3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */; };
+		3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */; };
+		3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */; };
+		3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5C24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift */; };
+		3340BE5F24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5E24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift */; };
 		334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F374C24C09877001D1B05 /* IvProductRegistVC.swift */; };
 		335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */; };
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
@@ -183,6 +187,10 @@
 		3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInThisMonthCVCell.swift; sourceTree = "<group>"; };
 		3332407224B6609000C3B59C /* WeekInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInformation.swift; sourceTree = "<group>"; };
 		3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeWritePopupVC.swift; sourceTree = "<group>"; };
+		3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangePostService.swift; sourceTree = "<group>"; };
+		3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvCompareGraphVC.swift; sourceTree = "<group>"; };
+		3340BE5C24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvCompareGraphSecondVC.swift; sourceTree = "<group>"; };
+		3340BE5E24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvDetailGraphSecondCompareVC.swift; sourceTree = "<group>"; };
 		334F374C24C09877001D1B05 /* IvProductRegistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvProductRegistVC.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
@@ -521,6 +529,7 @@
 				3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */,
 				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
+				3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -557,6 +566,9 @@
 				339C89B224BB7A4C00B86BAF /* SignUpVC.swift */,
 				339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */,
 				3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */,
+				3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */,
+				3340BE5C24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift */,
+				3340BE5E24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -830,6 +842,7 @@
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
 				D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */,
 				3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */,
+				3340BE5F24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift in Sources */,
 				D409DF5224BC523C009AC0B6 /* SearchResultCell.swift in Sources */,
 				D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */,
 				D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */,
@@ -872,6 +885,7 @@
 				D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */,
 				0E4A82FD24BD7B89001E38B7 /* MemoTVCell.swift in Sources */,
 				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
+				3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */,
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,
 				D418CE7224BDFA2E00EE7672 /* IvRecordAddIvData.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
@@ -898,6 +912,7 @@
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
+				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
 				0E4A82F824BD7B77001E38B7 /* HomeHeader2TVCell.swift in Sources */,
 				D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */,
@@ -913,6 +928,7 @@
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
+				3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */,
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,

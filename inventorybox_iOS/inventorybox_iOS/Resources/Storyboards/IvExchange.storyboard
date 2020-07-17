@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYl-5z-5cJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LBG-tb-cMY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -1842,11 +1842,6 @@
                             <constraint firstItem="RLr-QO-RJv" firstAttribute="trailing" secondItem="2qi-An-WD2" secondAttribute="trailing" id="xXk-jm-caI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2qi-An-WD2"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="3VZ-vl-W4j"/>
-                            </mask>
-                        </variation>
                     </view>
                     <size key="freeformSize" width="375" height="1082"/>
                     <connections>
@@ -1865,6 +1860,7 @@
                         <outlet property="productImg" destination="Caw-jL-04e" id="yUh-3f-Dvs"/>
                         <outlet property="productNameTextField" destination="S9W-nO-le7" id="Zbx-ba-7hV"/>
                         <outlet property="salesPriceTextField" destination="HWt-yp-1Th" id="3gl-tf-7fB"/>
+                        <outlet property="unitTextField" destination="ZdS-IJ-JfN" id="xCw-My-Qda"/>
                         <outlet property="yearLabel" destination="vTC-NE-Vak" id="VRA-1y-iEi"/>
                     </connections>
                 </viewController>

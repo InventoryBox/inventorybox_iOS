@@ -40,5 +40,8 @@ struct APIConstants {
     static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
     
     static let inventoryExchangeHomeURL = baseURL + "exchange/" // /:filter
+    
+    //exchange post URL
+    static let ivExchangePostURL = baseURL + "exchange/post"
 }
 

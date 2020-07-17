@@ -26,15 +26,17 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     @IBOutlet var monthLabel: UILabel!
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var popupBackgroundView: UIView!
+    @IBOutlet var unitTextField: UITextField!
     var isFood:Int = 1
-    
-    
+    var expDateMemorize: String = ""
+    var productImage:UIImage?
+    var productImageName:String = ""
+    var realCountText:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setPopupBackgroundView()
-    //    setTextToThousand()
         salesPriceTextField.delegate = self
         originalPriceTextField.delegate = self
         productCountTextField.delegate = self
@@ -74,21 +76,10 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         yearLabel.layer.cornerRadius = 9
         monthLabel.layer.cornerRadius = 9
         dayLabel.layer.cornerRadius = 9
+        
     }
-//
-//    func setTextToThousand(){
-//        let intValue: Int = Int(salesPriceTextField.text!)!
-//
-//        let value: NSNumber = intValue as NSNumber
-//        print("NSNumber = \(value)")
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//
-//        guard let resultValue = formatter.string(from: value) else { return }
-//        print("Result Value = \(resultValue)")
-//        salesPriceTextField.text = "\(intValue)"
-//    }
-//
+
+    
     
     @IBAction func pickPhotoFromAlbumBtn(_ sender: UIButton) {
         let myPicker = UIImagePickerController()
@@ -98,7 +89,9 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     }
     
     func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            productImageName = url.lastPathComponent
+            productImage = image
             self.productImg.setImage(image, for: .normal)
         }
         self.dismiss(animated: true, completion: nil) }
@@ -138,6 +131,9 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         yearLabel.text = year
         monthLabel.text = month
         dayLabel.text = day
+        expDateMemorize = year + "." + month + "." + day
+        print(expDateMemorize)
+        
     }
 
     
@@ -159,6 +155,42 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     @IBAction func categoryProductPickBtn(_ sender: UIButton) {
     }
     @IBAction func dismissBtn(_ sender: UIButton) {
+        print("btn")
+         guard let productImg = productImg.imageView?.image else {
+            print("img")
+            return}
+                guard let productName = productNameTextField.text else {
+                    print("productName")
+                    return}
+            guard let price = Int(salesPriceTextField.text!) else {
+                print("price")
+                return}
+        var countText = productCountTextField.text?.components(separatedBy: ",")
+        realCountText = countText!.joined()
+         guard let quantity = Int(realCountText) else {print("quantity")
+                    return}
+            guard let textDesctiption = productExplainTextView.text else {print("textDesctiption")
+                return}
+            guard let coverPrice = Int(originalPriceTextField.text!) else {print("coverPrice")
+                return}
+            guard let unit = unitTextField.text else {print("unit")
+                return}
+         
+            IvExchangePostService.shared.uploadIvExchangePost(productImageName, productImage!, productName, isFood, price, quantity, expDateMemorize, textDesctiption, coverPrice, unit, completion: { networkResult in
+                switch networkResult{
+                case .success(let token):
+                    print(token)
+                    print("success")
+                case .requestErr(let message):
+                    guard let message = message as? String else {return}
+                    print(message)
+                case .serverErr: print("serverErr")
+                case .pathErr:
+                    print("pathErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            })
     }
 }
 
