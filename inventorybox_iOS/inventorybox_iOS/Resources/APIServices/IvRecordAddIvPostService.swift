@@ -46,7 +46,7 @@ struct IvRecordAddIvPostService {
         ]
         
         let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
-        
+        print(makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -55,7 +55,7 @@ struct IvRecordAddIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-//                print("dafsda")
+                print("통신은 성공했으나")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -79,6 +79,7 @@ struct IvRecordAddIvPostService {
     
     private func getRecordAddIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
+        print("hi")
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지

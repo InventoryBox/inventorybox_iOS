@@ -20,7 +20,7 @@ struct IvRecordTodayPostService {
     static let shared = IvRecordTodayPostService()
     
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-//        print(data)
+        
         var parsingParameter: [[String: Int]] = []
         
         

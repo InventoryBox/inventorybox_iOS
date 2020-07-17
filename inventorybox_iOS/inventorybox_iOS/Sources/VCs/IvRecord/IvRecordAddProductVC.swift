@@ -44,7 +44,7 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
     @IBOutlet weak var popupBackgroundView: UIView!
-    var iconIdx: Int = -1
+    var iconIdx: Int = 2
     var iconArray: [IconInfo] = [] {
         didSet {
             
@@ -76,7 +76,8 @@ class IvRecordAddProductVC: UIViewController {
         setLabelCustom()
         setButtonCustom()
         setPopupBackgroundView()
-        
+        inventoryNameTextField.delegate = self
+        unitTextField.delegate = self
     }
     private func getDataFromServer() {
         
@@ -109,7 +110,7 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         guard let ivIconIdx = info["selectedIdx"] as? Int else { return }
-        print(ivIconIdx)
+//        print(ivIconIdx)
         self.iconIdx = ivIconIdx
     }
     
@@ -282,10 +283,16 @@ class IvRecordAddProductVC: UIViewController {
                 break
             }
         }
-
+        print(ivName)
+        print(ivUnit)
+        print(alarmCnt)
+        print(memoCnt)
+        print(iconIdx)
+        print(categoryIdx)
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):
+                print("이건 vc")
                 print(data)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
@@ -301,8 +308,15 @@ class IvRecordAddProductVC: UIViewController {
         }
         
         
-//        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     
+}
+extension IvRecordAddProductVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.unitTextField.endEditing(true)
+        self.inventoryNameTextField.endEditing(true)
+        return true
+    }
 }

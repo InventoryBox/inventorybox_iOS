@@ -24,6 +24,7 @@ struct IvRecordAddCateService {
         
         let url = APIConstants.inventoryRecordCategoryAddURL
 
+        
         let dataRequest = Alamofire.request(url, method: .post, parameters: makeParameter(name: name), encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in

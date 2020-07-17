@@ -136,7 +136,7 @@ extension SelectIconVC: UICollectionViewDelegateFlowLayout {
 
 extension SelectIconVC: IconSeletDelegate {
     func didSelectIcon(indexPath: Int, iconImageName: String) {
-        print("Tap")
+
         self.navigationController?.popViewController(animated: true)
     }
 }
