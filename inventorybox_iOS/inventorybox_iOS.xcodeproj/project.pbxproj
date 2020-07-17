@@ -11,6 +11,8 @@
 		0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568EE24C0F28E00853DD0 /* HomeService.swift */; };
 		0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */; };
 		0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */; };
+		0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */; };
+		0E0568F924C1C84D00853DD0 /* EmailAuthInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F824C1C84D00853DD0 /* EmailAuthInformation.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -161,6 +163,8 @@
 		0E0568EE24C0F28E00853DD0 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMemoModifyPostService.swift; sourceTree = "<group>"; };
 		0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeFlagPostService.swift; sourceTree = "<group>"; };
+		0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailAuthService.swift; sourceTree = "<group>"; };
+		0E0568F824C1C84D00853DD0 /* EmailAuthInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthInformation.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -513,6 +517,7 @@
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
 				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
+				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
 				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
 				D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */,
 				D415024E24C06D6500183004 /* IvRecordAddIvService.swift */,
@@ -521,7 +526,6 @@
 				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
-				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
@@ -591,6 +595,7 @@
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
 				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
 				3332405924B5A5BD00C3B59C /* ItemInformation.swift */,
+				0E0568F824C1C84D00853DD0 /* EmailAuthInformation.swift */,
 				0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */,
 				3332405A24B5A5BD00C3B59C /* DayInformation.swift */,
 				D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */,
@@ -871,6 +876,7 @@
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
 				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,
+				0E0568F924C1C84D00853DD0 /* EmailAuthInformation.swift in Sources */,
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */,
@@ -926,6 +932,7 @@
 				D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
+				0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
@@ -1110,6 +1117,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZVHD77BLL;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1129,6 +1137,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZVHD77BLL;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
