@@ -189,6 +189,9 @@ extension IvTodayRecordVC: UITableViewDataSource {
             inventoryTodayRecordCell.indexPath = indexPath.row - 1
             inventoryTodayRecordCell.delegate = self
             
+            if indexPath.row == 1 {
+                inventoryTodayRecordCell.makePlaceholder()
+            }
             
             inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].presentCnt)
             

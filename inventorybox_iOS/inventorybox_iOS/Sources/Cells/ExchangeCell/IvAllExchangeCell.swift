@@ -49,6 +49,7 @@ class IvAllExchangeCell: UICollectionViewCell {
     
     private func setRoundView () {
         self.layer.cornerRadius = 9
+        self.contentView.layer.cornerRadius = 9
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.layer.shadowRadius = 15
@@ -61,15 +62,19 @@ class IvAllExchangeCell: UICollectionViewCell {
         ivImageView.layer.cornerRadius = 9
     }
     
-    func set(_ allExchangeInformation: AllExchangeInformation) {
-        
-        ivImageView.image = UIImage(named: allExchangeInformation.ivImageName)
-        isHeartSwitch = allExchangeInformation.ivHeart
-        ivPriceLabel.text = allExchangeInformation.ivPrice
-        ivDistanceLabel.text = allExchangeInformation.ivDistance
-        ivNameLabel.text = allExchangeInformation.ivName
-        ivLifeLabel.text = allExchangeInformation.ivLife
-        ivDateLabel.text = allExchangeInformation.ivDate
+    func set(_ allExchangeInformation: PostInfo) {
+        let url = URL(string: allExchangeInformation.productImg)
+        self.ivImageView.kf.setImage(with: url)
+        if allExchangeInformation.likes == 1 {
+            isHeartSwitch = true
+        } else {
+            isHeartSwitch = false
+        }
+        ivPriceLabel.text = "\(allExchangeInformation.price)"
+        ivDistanceLabel.text = "\(allExchangeInformation.distDiff)"
+        ivNameLabel.text = allExchangeInformation.productName
+        ivLifeLabel.text = allExchangeInformation.expDate
+        ivDateLabel.text = allExchangeInformation.uploadDate
 
     }
     @IBAction func switchLikes(_ sender: Any) {

@@ -20,7 +20,8 @@ class IconCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     
     func setIcon(_ iconImageName: String) {
-        iconImageView.image = UIImage(named: iconImageName)
+        let url = URL(string: iconImageName)
+        self.iconImageView.kf.setImage(with: url)
         imageName = iconImageName
     }
     @IBAction func iconSelectBtnPressed(_ sender: Any) {

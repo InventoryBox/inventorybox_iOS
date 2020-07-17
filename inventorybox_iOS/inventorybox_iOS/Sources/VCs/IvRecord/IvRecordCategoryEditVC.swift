@@ -177,8 +177,6 @@ class IvRecordCategoryEditVC: UIViewController {
         for i in 0..<checkboxSelections.count {
             idxList.append(inventoryEditArray[i].itemIdx)
         }
-        print(idxList)
-//        print(inventoryEditArray)
         IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
             switch networkResult {
             case .success(let data):
