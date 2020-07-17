@@ -13,7 +13,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
 
    
 
-    @IBOutlet var signUpFirstProgressBar: UIProgressView!
+
     @IBOutlet var signUpNavigationView: UIView!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var verifiCodeTextField: UITextField!
@@ -28,7 +28,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
        // self.navigationController?.navigationBar.isHidden = false
        // self.navigationItem.title = "회원가입"
         
-        signUpFirstProgressBar.progress = 1
+
         completeBtn.isEnabled = false
         setBtnOutlets()
         
