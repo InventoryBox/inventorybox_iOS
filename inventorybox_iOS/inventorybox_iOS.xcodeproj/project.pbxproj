@@ -13,6 +13,9 @@
 		0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */; };
 		0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */; };
 		0E0568F924C1C84D00853DD0 /* EmailAuthInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F824C1C84D00853DD0 /* EmailAuthInformation.swift */; };
+		0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FA24C2190300853DD0 /* SideBarMenuAlramVC.swift */; };
+		0E0568FD24C2197C00853DD0 /* SideBarMenuPrifileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FC24C2197C00853DD0 /* SideBarMenuPrifileVC.swift */; };
+		0E0568FF24C219A800853DD0 /* SideBarMenuPrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FE24C219A800853DD0 /* SideBarMenuPrivacyVC.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -169,6 +172,9 @@
 		0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeFlagPostService.swift; sourceTree = "<group>"; };
 		0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailAuthService.swift; sourceTree = "<group>"; };
 		0E0568F824C1C84D00853DD0 /* EmailAuthInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthInformation.swift; sourceTree = "<group>"; };
+		0E0568FA24C2190300853DD0 /* SideBarMenuAlramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuAlramVC.swift; sourceTree = "<group>"; };
+		0E0568FC24C2197C00853DD0 /* SideBarMenuPrifileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuPrifileVC.swift; sourceTree = "<group>"; };
+		0E0568FE24C219A800853DD0 /* SideBarMenuPrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuPrivacyVC.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -575,6 +581,9 @@
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
 				0E4A830024BD7C40001E38B7 /* SideMenuVC.swift */,
+				0E0568FA24C2190300853DD0 /* SideBarMenuAlramVC.swift */,
+				0E0568FC24C2197C00853DD0 /* SideBarMenuPrifileVC.swift */,
+				0E0568FE24C219A800853DD0 /* SideBarMenuPrivacyVC.swift */,
 				0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */,
 				3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */,
 				3332405F24B5C6E000C3B59C /* IvDetailGraphVC.swift */,
@@ -853,6 +862,7 @@
 			files = (
 				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
+				0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
 				D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */,
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
@@ -933,6 +943,7 @@
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				0E0568FF24C219A800853DD0 /* SideBarMenuPrivacyVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
@@ -969,6 +980,7 @@
 				0E4A82FF24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift in Sources */,
 				D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */,
 				D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */,
+				0E0568FD24C2197C00853DD0 /* SideBarMenuPrifileVC.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,

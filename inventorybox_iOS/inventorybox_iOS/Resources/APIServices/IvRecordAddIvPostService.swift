@@ -46,7 +46,7 @@ struct IvRecordAddIvPostService {
         ]
         
         let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
-        print(makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx))
+//        print(makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
