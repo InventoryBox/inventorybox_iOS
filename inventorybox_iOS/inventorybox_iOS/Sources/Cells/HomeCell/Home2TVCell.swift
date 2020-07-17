@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class Home2TVCell: UITableViewCell {
 
@@ -15,13 +16,13 @@ class Home2TVCell: UITableViewCell {
     var moreValue : Bool = false    // 더보기 버튼
     
     @IBOutlet weak var roundView: UIView!
-    
     @IBOutlet weak var moreBtn: UIButton!           // 더보기 버튼
     @IBOutlet weak var productImg: UIImageView!     // 제품 이미지
     @IBOutlet weak var productNameText: UILabel!    // 제품 이름
     @IBOutlet weak var productCountText: UILabel!   // 제품 개수
     @IBOutlet weak var productSetText: UILabel!     // 제품 묶음
-    @IBOutlet weak var graphView: UIView!     // 그래프 나오는View
+    @IBOutlet weak var graphView: UIView!           // 그래프 나오는View
+    @IBOutlet weak var checkBoxBtn: BEMCheckBox!
     
   
     override func awakeFromNib() {
@@ -30,20 +31,21 @@ class Home2TVCell: UITableViewCell {
         // 첫 그래프 화면 숨기기
         graphView.isHidden = true
         
+        
         makeShadowUnderView()
-        
-        
     }
-    
+     
     
     // checkBox눌렀을 때
     @IBAction func checkBoxPress(_ sender: Any) {
-        if checkvalue == false{ // 체크를 처음 눌렀을 때 On
-            checkvalue = true
+        if checkBoxBtn.on == false{ // 체크를 처음 눌렀을 때 On
+            checkBoxBtn.on = true
         }else{                  // // 체크를 풀었을 때 Off
-            checkvalue = false
+            checkBoxBtn.on = false
         }
-        NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkvalue, "name": productNameText.text!])
+        
+        NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkBoxBtn.on, "name": productNameText.text!])
+        
     }
     
     
@@ -61,15 +63,29 @@ class Home2TVCell: UITableViewCell {
         }
         NotificationCenter.default.post(name: .init("morepressbutton"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
     }
+   
     
     // Set 부분
-    func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String) {
-
-        productImg.image = UIImage(named: productImage)
+    func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String, checkFlag: Int) {
+        
+        // URL을 이미지로 변환 시키기
+        let url = URL(string: productImage)
+        let data = try? Data(contentsOf: url!)
+        productImg.image = UIImage(data: data!)
+        
         productNameText.text = productNameTx
         productCountText.text = String(productCountTx)  // int형으로 받아야 함
-        productSetText.text = productNameTx
+        productSetText.text = productSetTx
+        
+        // 0,1로 들어오는 값을 true, false 값으로 바꾸기
+        if checkFlag == 0 {
+            checkvalue = false
+        } else {
+            checkvalue = true
+        }
+        checkBoxBtn.on = checkvalue
     }
+    
     
     private func makeShadowUnderView() {
         // 그림자주는 코드
