@@ -1,51 +1,29 @@
 //
-//  IvRecordTodayPostService.swift
+//  IvHomeFlagPostService.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/16.
+//  Created by 송황호 on 2020/07/17.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-//struct TodayItemInfo: Codable {
-//    let itemIdx: Int
-//    let name: String
-//    let categoryIdx: Int
-//    var presentCnt: Int?
-//}
-
-struct IvRecordTodayPostService {
-    static let shared = IvRecordTodayPostService()
+struct IvHomeFlagPostService {
+    static let shared = IvHomeFlagPostService()
     
-    private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
+    private func makeParameter(itemIdx: String, flag: Int) -> Parameters{
         
-        var parsingParameter: [[String: Int]] = []
-        
-        
-        for d in data {
-            
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.presentCnt!
-            ]
-            
-            parsingParameter.append(item)
-            
-        }
-        
-        return ["itemInfo": parsingParameter,
-        "date": date]
+        return ["flag": flag]
     }
     
-    func getRecordTodayIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordEditIvPost(itemIdx: String, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.inventoryRecordModifyURL, method: .put, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(APIConstants.ivHomeCheckBoxURL, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
         //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
@@ -56,6 +34,7 @@ struct IvRecordTodayPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
+                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -69,7 +48,7 @@ struct IvRecordTodayPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordTodayIvPostData(by: data)
+        case 200: return getRecordEditIvPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -77,7 +56,7 @@ struct IvRecordTodayPostService {
         }
     }
     
-    private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
         

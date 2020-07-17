@@ -19,7 +19,7 @@ class Home1TVCell: UITableViewCell {
     let identifier : String = "Home1TVCell"
     
     // 더미데이터
-    private var checklistInformations : [orderCheckCVCInfo] = [ ]
+    private var checklistInformations : [HomeItem] = [ ]
     
     // shadow 넣기 위한 view
     //    @IBOutlet weak var roundView: UIView!
@@ -28,8 +28,12 @@ class Home1TVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Home CollectionView 관련 data
-        setchecklistInformations()
+        // Home CollectionView 관련 더미데이터
+//        setchecklistInformations()
+        
+        // sever에서 가져온 데이터
+        getDataFromServer()
+        
         // 그림자 넣기
         makeShadowUnderView()
         
@@ -43,6 +47,31 @@ class Home1TVCell: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(getChekcList), name: .init("checklist"), object: nil)
         
     }
+    
+     //MARK: Home 데이터 받아오기
+     func getDataFromServer(){
+         
+         HomeService.shared.getHome(completion: { networkResult in
+             switch networkResult{
+             case .success(let data):
+                 print(data)
+                 guard let dt = data as? HomeItemclass else { return }
+                 self.checklistInformations = dt.result
+                 self.collectionview.reloadData()       // 데이터를 다시 불러오기
+             case .requestErr(let message):
+                 guard let message = message as? String else {return}
+                 print(message)
+             case .serverErr: print("serverErr")
+             case .pathErr:
+                 print("pathErr")
+             case .networkFail:
+                 print("networkFail")
+             }
+         })
+     }
+    
+    
+    //  Notification 관련 func
     @objc private func getChekcList(_ notification: Notification) {
         //        print("second return")
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
@@ -53,11 +82,12 @@ class Home1TVCell: UITableViewCell {
 //        print(checkvalue)
 //        print(ivName)
         for i in 0..<checklistInformations.count{
-            if checklistInformations[i].productName == ivName{
-                if checkvalue == true{
-                    checklistInformations[i].checkImage =  "homeIcAble.png"
+            if checklistInformations[i].itemName == ivName{
+                if checklistInformations[i].flag ==  0{
+                    
+                    checklistInformations[i].flag =  1
                 }else{
-                    checklistInformations[i].checkImage = "homeIcUnable.png"
+                    checklistInformations[i].flag =  0
                 }
             }
             collectionview.reloadData()
@@ -78,25 +108,25 @@ class Home1TVCell: UITableViewCell {
         //         roundView.layer.cornerRadius = 10
     }
     
-    // 이거는 collection view에 사용할 자료
-    private func setchecklistInformations() {
-        
-        let data1 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "우유")
-        let data2 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "녹차 파우더")
-        let data3 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "딸기")
-        let data4 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "원두")
-        let data5 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "허니 시럽")
-        let data6 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
-        let data7 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
-        let data8 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
-        let data9 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
-        let data10 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
-        
-        // FriendsInformation = FriendsInformation
-        
-        checklistInformations = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
-        //        checklistInformations = [data1]
-    }
+//    // 이거는 collection view에 사용할 자료
+//    private func setchecklistInformations() {
+//
+//        let data1 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "우유")
+//        let data2 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "녹차 파우더")
+//        let data3 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "딸기")
+//        let data4 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "원두")
+//        let data5 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "허니 시럽")
+//        let data6 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
+//        let data7 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
+//        let data8 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
+//        let data9 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
+//        let data10 = orderCheckCVCInfo(productimage: "homeIcUnable.png", productname: "모카 파우더")
+//
+//        // FriendsInformation = FriendsInformation
+//
+//        checklistInformations = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
+//        //        checklistInformations = [data1]
+//    }
     
 }
 
@@ -112,7 +142,7 @@ extension Home1TVCell : UICollectionViewDataSource{
         
         guard let collectionCells = collectionView.dequeueReusableCell(withReuseIdentifier: "Home1CVCell", for: indexPath) as? Home1CVCell else { return UICollectionViewCell()}
         
-        collectionCells.set(checkimg: checklistInformations[indexPath.row].checkImage, productlist: checklistInformations[indexPath.row].productName)
+        collectionCells.set(checkimg: checklistInformations[indexPath.row].flag, productlist: checklistInformations[indexPath.row].itemName)
         
         return collectionCells
     }

@@ -17,8 +17,12 @@ class Home1CVCell: UICollectionViewCell {
     
     
     
-    func set(checkimg: String, productlist: String){
-        checkImg.image = UIImage(named: checkimg)
+    func set(checkimg: Int, productlist: String){
+        if checkimg == 0{
+        checkImg.image = UIImage(named: "homeIcUnable.png")   // 이미지 변환 해야함
+        }else{
+           checkImg.image = UIImage(named: "homeIcAble.png")   // 이미지 변환
+        }
         productName.text = productlist
     }
 }

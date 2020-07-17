@@ -1,53 +1,39 @@
 //
-//  IvRecordTodayPostService.swift
+//  HomeMemoModifyService.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/16.
+//  Created by 송황호 on 2020/07/17.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-//struct TodayItemInfo: Codable {
-//    let itemIdx: Int
-//    let name: String
-//    let categoryIdx: Int
-//    var presentCnt: Int?
-//}
 
-struct IvRecordTodayPostService {
-    static let shared = IvRecordTodayPostService()
+struct HomeMemoModifyPostService {
+    static let shared = HomeMemoModifyPostService()
     
-    private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-        
-        var parsingParameter: [[String: Int]] = []
-        
-        
-        for d in data {
-            
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.presentCnt!
-            ]
-            
-            parsingParameter.append(item)
-            
-        }
-        
-        return ["itemInfo": parsingParameter,
-        "date": date]
+    private func makeParameter(data: HomeItem) -> Parameters{
+//        print(data)
+       
+        return
+            ["itemIdx": data.itemIdx,
+             "memoCnt": data.memoCnt
+        ]
+   
     }
     
-    func getRecordTodayIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordEditIvPost(data: HomeItem, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.inventoryRecordModifyURL, method: .put, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
+        let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .put, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
+        
+        
+            print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -69,17 +55,16 @@ struct IvRecordTodayPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordTodayIvPostData(by: data)
+        case 200: return getHomeMemoPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
-            
         }
     }
     
-    private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getHomeMemoPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(HomeInformation.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)
@@ -95,5 +80,4 @@ struct IvRecordTodayPostService {
     }
     
 }
-
 
