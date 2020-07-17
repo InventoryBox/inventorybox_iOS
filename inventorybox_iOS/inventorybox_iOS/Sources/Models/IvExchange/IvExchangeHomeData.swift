@@ -27,6 +27,7 @@ struct IvExchangeHomeData: Codable {
 // MARK: - IvExchangeHomeClass
 struct IvExchangeHomeClass: Codable {
     let postInfo: [PostInfo]
+    let addressInfo: String
 }
 
 // MARK: - PostInfo

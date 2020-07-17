@@ -76,11 +76,11 @@ class IvExchangeVC: UIViewController {
               case .success(let data):
                 guard let dt = data as? IvExchangeHomeClass else { return }
                 print(dt)
+                self.myLocationLabel.text = dt.addressInfo
                 if self.filterNum == "0" {
                     self.allExchangeArray = dt.postInfo
                     self.filteredExchangeArray = self.allExchangeArray
                     self.allIvCollectionView.reloadData()
-                    
                 } else if self.filterNum == "1" {
                     self.allExchangeArray = dt.postInfo
                     self.filteredExchangeArray = self.allExchangeArray
@@ -116,14 +116,15 @@ class IvExchangeVC: UIViewController {
         
         NotificationCenter.default.removeObserver(self, name: .init("name"), object: nil)
     }
+    
     @objc private func addressSend(_ notification: Notification) {
         
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let name = userInfo["address"] as? String else { return }
         
-//        print(name)
         myLocationLabel.text = name
     }
+    
     private func setCateStackView() {
         cateStackView.layer.borderColor = UIColor.gray.cgColor
         cateStackView.layer.cornerRadius = 12
@@ -149,6 +150,8 @@ class IvExchangeVC: UIViewController {
         distanceBtn.backgroundColor = .yellow
         priceBtn.backgroundColor = .white
         recentBtn.backgroundColor = .white
+        
+        
     }
     @IBAction func priceBtnPressed(_ sender: Any) {
         
@@ -308,7 +311,9 @@ extension IvExchangeVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let exchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvAllExchangeCell.identifier, for: indexPath) as? IvAllExchangeCell else { return UICollectionViewCell() }
-        exchangeCell.set(allExchangeArray[indexPath.row])
+        
+    
+        exchangeCell.set(filteredExchangeArray[indexPath.row])
         exchangeCell.delegate = self
         exchangeCell.indexPath = indexPath.row
         return exchangeCell

@@ -388,11 +388,6 @@
                             <constraint firstItem="8rR-dD-Yh1" firstAttribute="top" secondItem="ATt-Rf-xbz" secondAttribute="top" id="xtW-er-nDe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ATt-Rf-xbz"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="8rR-dD-Yh1"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="8rR-dD-Yh1" id="G0X-YY-3Sl"/>

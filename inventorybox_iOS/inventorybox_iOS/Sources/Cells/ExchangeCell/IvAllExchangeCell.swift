@@ -70,6 +70,7 @@ class IvAllExchangeCell: UICollectionViewCell {
         } else {
             isHeartSwitch = false
         }
+        
         ivPriceLabel.text = "\(allExchangeInformation.price)"
         ivDistanceLabel.text = "\(allExchangeInformation.distDiff)"
         ivNameLabel.text = allExchangeInformation.productName
@@ -77,6 +78,7 @@ class IvAllExchangeCell: UICollectionViewCell {
         ivDateLabel.text = allExchangeInformation.uploadDate
 
     }
+    
     @IBAction func switchLikes(_ sender: Any) {
         if isHeartSwitch {
             isHeartSwitch = false
@@ -90,5 +92,6 @@ class IvAllExchangeCell: UICollectionViewCell {
     @IBAction func selectProduct(_ sender: UIButton) {
         delegate?.whichProductIsSelect(indexPath: indexPath!)
     }
+    
     
 }
