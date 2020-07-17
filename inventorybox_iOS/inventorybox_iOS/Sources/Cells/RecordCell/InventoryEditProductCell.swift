@@ -84,11 +84,11 @@ class InventoryEditProductCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: String) {
-        
-        inventoryImageView.image = UIImage(named: inventoryImageName)
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int) {
+        let url = URL(string: inventoryImageName)
+        self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
-        inventoryCountTextField.text = inventoryCount
+        inventoryCountTextField.text = "\(inventoryCount)"
         
     }
 }

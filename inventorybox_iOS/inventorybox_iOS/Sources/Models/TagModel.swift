@@ -10,8 +10,10 @@ import Foundation
 
 struct TagModel{
     var tagName:String = ""
+    var idx:Int = 0
     
-    init(tagName:String) {
+    init(tagName:String, idx:Int) {
         self.tagName = tagName
+        self.idx = idx
     }
 }

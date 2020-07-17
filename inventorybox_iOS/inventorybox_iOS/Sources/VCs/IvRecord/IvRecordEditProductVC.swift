@@ -7,51 +7,119 @@
 //
 
 import UIKit
-import TTGTagCollectionView
 
 class IvRecordEditProductVC: UIViewController {
-
-    let categoryCollectionView = TTGTextTagCollectionView()
     
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var todayDateLabel: UILabel!
+    
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    
     @IBOutlet weak var inventoryEditPrdoctTableView: UITableView!
     
     @IBOutlet weak var completeBtn: UIButton!
     
     var textFieldBox: [Int] = []
     
-    var inventoryEditProductArray: [InventoryEditProductInformation] = {
-        let data1 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data2 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data3 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data4 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data5 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data6 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data7 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data8 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        let data9 = InventoryEditProductInformation(imageName: "homeIcMilk", ivName: "우유", category: "액체류", count: "30")
-        
-        return [data1, data2, data3, data4, data5, data6, data7, data8, data9]
-    }()
+    var dateToSend: String?
+    
+    var memorizeDate: String?
+    
+    var categories: [CategoryInfo] = [] {
+        didSet {
+            self.setCategoryCollectionView()
+        }
+    }
+    
+    var inventoryEditProductArray: [EditItemInfo] = [] {
+        didSet {
+            
+        }
+    }
     
     private var selections = [String]()
     
-    private var inventoryFilteredArray: [InventoryEditProductInformation] = []
+    private var inventoryFilteredArray: [EditItemInfo] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getDataFromServer(dateToSend!)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setInventoryFilteredData()
         customCompleteBtn()
         setinventoryEditPrdoctTableViewTableView()
         makeShadowUnderOutView()
-        addCategoryCollectionView()
+        setDate()
+        
+        
     }
+    @objc func keyboardWillShow(_ sender: Notification) {
+        let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
 
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    private func setDate() {
+        todayDateLabel.text = memorizeDate!
+    }
     private func setInventoryFilteredData() {
         inventoryFilteredArray = inventoryEditProductArray
+    }
+    
+    private func setCategoryCollectionView() {
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        
+    }
+    
+    private func getDataFromServer(_ date: String) {
+        
+        IvRecordEditIvService.shared.getRecordEditIv(whichDate: date) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? IvRecordEditIvClass else { return }
+                
+                
+                if let itemArray = dt.itemInfo {
+                    
+                    self.inventoryEditProductArray = itemArray
+                    
+                }
+                self.categories = dt.categoryInfo
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
     }
     
     private func customCompleteBtn() {
@@ -81,20 +149,6 @@ class IvRecordEditProductVC: UIViewController {
         
     }
     
-    private func addCategoryCollectionView() {
-        
-        view.addSubview(categoryCollectionView)
-        categoryCollectionView.delegate = self
-        categoryCollectionView.setCategoryCollectionView()
-        
-        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-        categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
-        
-        categoryCollectionView.addTags(["전체", "액체류","파우더류", "과일", "채소류"], with: categoryCollectionView.setCategoryConfig())
-        
-    }
     @IBAction func goToAddProductVC(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
         guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
@@ -105,62 +159,33 @@ class IvRecordEditProductVC: UIViewController {
         
         self.present(addProductVC, animated: true, completion: nil)
     }
+    
     @IBAction func completeBtnPressed(_ sender: Any) {
         
+//        print(inventoryEditProductArray)
         // 서버 통신 코드
-        
+        IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        })
         self.dismiss(animated: false, completion: nil)
     }
 }
 
-//MARK: - TagCollectionView
-extension IvRecordEditProductVC: TTGTextTagCollectionViewDelegate {
-    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
-        // 한개만 선택되게 만드는 코드
-        // 카테고리 전체 어떻게 할것인가?
-        
-        
-        // selection 배열 내에 한개씩만 선택되게 만들기
-        var check = 0
-        for i in 0..<selections.count {
-            if selections[i] == tagText {
-                check = 1
-                selections.remove(at: i)
-                break
-            }
-        }
-        
-        if check == 0 {
-            selections.append(tagText)
-        }
-        
-        // 카테고리 필터링 코드
-        var allCategoryCheck: Bool = false
-        
-        for i in 0..<selections.count {
-            if selections[i] == "전체" {
-                allCategoryCheck = true
-                inventoryFilteredArray = inventoryEditProductArray
-                inventoryEditPrdoctTableView.reloadData()
-            }
-        }
-        
-        if !allCategoryCheck {
-            inventoryFilteredArray = []
-            for i in 0..<selections.count {
-                let filterred = inventoryEditProductArray.filter { (inventory) -> Bool in
-                    return inventory.category == selections[i]
-                }
-                
-                for data in filterred {
-                    inventoryFilteredArray.append(data)
-                }
-            }
-            inventoryEditPrdoctTableView.reloadData()
-        }
-        
-    }
-}
+
 
 //MARK: - TableView
 //MARK: - InventoryEditTableView
@@ -184,7 +209,7 @@ extension IvRecordEditProductVC: UITableViewDataSource {
             inventoryTodayRecordCell.delegate = self
             
             
-            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].inventoryImageName, inventoryFilteredArray[indexPath.row - 1].inventoryName, inventoryFilteredArray[indexPath.row - 1].inventoryCount)
+            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].stocksCnt)
             
             return inventoryTodayRecordCell
             
@@ -211,11 +236,72 @@ extension IvRecordEditProductVC: UITableViewDelegate {
 extension IvRecordEditProductVC: FilledTextFieldDelegate {
     func isTextFieldFilled(count: String,  isTyped: Bool, indexPath: Int) {
         
-        
-        inventoryEditProductArray[indexPath].inventoryCount = count
+        if let cnt = Int(count) {
+            inventoryEditProductArray[indexPath].stocksCnt = cnt
+        }
         
         inventoryFilteredArray = inventoryEditProductArray
         
         
+    }
+}
+
+//MARK: - CollectionView
+
+extension IvRecordEditProductVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
+        
+        categoryCell.setTag(tagName: categories[indexPath.row].name)
+        
+        return categoryCell
+    }
+    
+    
+}
+
+extension IvRecordEditProductVC: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 카테고리 필터링 코드
+        var allCategoryCheck: Bool = false
+        
+        if categories[indexPath.row].name  == "전체" {
+            allCategoryCheck = true
+            inventoryFilteredArray = inventoryEditProductArray
+            inventoryEditPrdoctTableView.reloadData()
+        }
+        
+        
+        if !allCategoryCheck {
+            
+            inventoryFilteredArray = []
+            let filtered = inventoryEditProductArray.filter { (inventory) -> Bool in
+                return inventory.categoryIdx == categories[indexPath.row].categoryIdx
+            }
+            
+            for data in filtered {
+                inventoryFilteredArray.append(data)
+            }
+            
+            inventoryEditPrdoctTableView.reloadData()
+            
+        }
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 24)
     }
 }

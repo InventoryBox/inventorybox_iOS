@@ -49,11 +49,16 @@ class DatePickerPopupVC: UIViewController {
         let date = datePicker.date
         let formatter = DateFormatter()
         
-        formatter.dateFormat = "yyyy.MM.dd eeee"
-        
         formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "yyyy.MM.dd eeee"
+        let showDate = formatter.string(from: date)
         
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["selectdDate": formatter.string(from: date), "dateMemorize": date])
+        formatter.dateFormat = "yyyy-MM-dd"
+        let sendDate = formatter.string(from: date)
+        
+        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["showDate": showDate, "dateMemorize": date, "sendDate": sendDate])
+        
+        
         self.dismiss(animated: true)
     }
 }

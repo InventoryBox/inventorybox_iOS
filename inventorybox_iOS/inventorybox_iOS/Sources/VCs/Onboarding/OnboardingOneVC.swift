@@ -35,7 +35,7 @@ class OnboardingOneVC: UIViewController {
         present(nextOnboardingVC, animated: false, completion: nil)
     }
     private func setAnimationView() {
-        animationView.animation = Animation.named("26594-add-text")
+        animationView.animation = Animation.named("logo")
         animationView.loopMode = .loop
         animationView.play()
     }

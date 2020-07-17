@@ -7,42 +7,42 @@
 //
 
 import UIKit
-import TTGTagCollectionView
 
 class IvTodayRecordVC: UIViewController {
     
-    let categoryCollectionView = TTGTextTagCollectionView()
-    
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var todayDateLable: UILabel!
+    @IBOutlet weak var todayDateLabel: UILabel!
     @IBOutlet weak var inventoryTodayRecordTableView: UITableView!
     @IBOutlet weak var completeBtn: UIButton!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     var textFieldBox: [Int] = []
     
-    var inventoryTodayArray: [InventoryTodayInformation] = {
-        let data1 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data2 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data3 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data4 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data5 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data6 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data7 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data8 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        let data9 = InventoryTodayInformation(imageName: "homeIcMilk", ivName: "우유", categoryNum: "액체류", isTyped: false)
-        
-        return [data1, data2, data3, data4, data5, data6, data7, data8, data9]
-    }()
+    var categories: [CategoryInfo] = [] {
+        didSet {
+            self.setCategoryCollectionView()
+        }
+    }
     
-    private var selections = [String]()
+    var inventoryTodayArray: [TodayItemInfo] = [] {
+        didSet {
+            
+        }
+    }
     
-    private var inventoryFilteredArray: [InventoryTodayInformation] = []
+    
+    
+    private var inventoryFilteredArray: [TodayItemInfo] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        getDataFromServer()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,21 +54,58 @@ class IvTodayRecordVC: UIViewController {
         super.viewDidLoad()
         
         setInventoryFilteredData()
-        addCategoryCollectionView()
+
         makeShadowUnderOutView()
         setInventoryTodayRecordTableView()
         customCompleteBtn()
         
+        
     }
     
+    private func getDataFromServer() {
+           
+           IvRecordTodayService.shared.getRecordTodayIv() { (networkResult) in
+               switch networkResult {
+               case .success(let data):
+                   guard let dt = data as? IvRecordTodayIvClass else { return }
+
+                   
+                   self.inventoryTodayArray = dt.itemInfo
+                   self.todayDateLabel.text = dt.date
+                   self.categories = dt.categoryInfo
+                   
+               case .requestErr(let message):
+                   guard let message = message as? String else { return }
+                   let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                   let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                   alertViewController.addAction(action)
+                   self.present(alertViewController, animated: true, completion: nil)
+                   
+               case .pathErr: print("path")
+               case .serverErr: print("serverErr")
+               case .networkFail: print("networkFail")
+               }
+           }
+           
+       }
+       
+    private func setCategoryCollectionView() {
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        
+        
+    }
     @objc func keyboardWillShow(_ sender: Notification) {
-        
-        
-//        self.view.frame.origin.y = -200 // Move view 150 points upward
+        let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        self.inventoryTodayRecordTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+        self.inventoryTodayRecordTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     private func setInventoryFilteredData() {
@@ -102,21 +139,6 @@ class IvTodayRecordVC: UIViewController {
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         self.outView.layer.shadowOpacity = 0.05
         self.outView.layer.shadowRadius = 2
-        
-    }
-    
-    private func addCategoryCollectionView() {
-        
-        view.addSubview(categoryCollectionView)
-        categoryCollectionView.delegate = self
-        categoryCollectionView.setCategoryCollectionView()
-        
-        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        categoryCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
-        categoryCollectionView.topAnchor.constraint(equalTo: self.topView.bottomAnchor, constant: 8).isActive = true
-        
-        categoryCollectionView.addTags(["전체", "액체류","파우더류", "과일", "채소류"], with: categoryCollectionView.setCategoryConfig())
         
     }
     
@@ -167,8 +189,11 @@ extension IvTodayRecordVC: UITableViewDataSource {
             inventoryTodayRecordCell.indexPath = indexPath.row - 1
             inventoryTodayRecordCell.delegate = self
             
+            if indexPath.row == 1 {
+                inventoryTodayRecordCell.makePlaceholder()
+            }
             
-            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].inventoryImageName, inventoryFilteredArray[indexPath.row - 1].inventoryName, inventoryFilteredArray[indexPath.row - 1].inventoryCount)
+            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].presentCnt)
             
             return inventoryTodayRecordCell
             
@@ -197,19 +222,15 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
         
         if self.textFieldBox.contains(indexPath) {
             if !isTyped {
-                print("empty")
                 guard let i = self.textFieldBox.firstIndex(of: indexPath) else { return }
-                inventoryTodayArray[indexPath].inventoryCount = count
+                inventoryTodayArray[indexPath].presentCnt = Int(count)
                 self.textFieldBox.remove(at: i)
                 inventoryFilteredArray = inventoryTodayArray
-                print(textFieldBox)
             }
         } else {
             if isTyped {
-                print("filled")
                 textFieldBox.append(indexPath)
-                inventoryTodayArray[indexPath].inventoryCount = count
-                print(textFieldBox)
+                inventoryTodayArray[indexPath].presentCnt = Int(count)
                 inventoryFilteredArray = inventoryTodayArray
             }
             
@@ -231,57 +252,62 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
 }
 
 
+//MARK: - CollectionView
 
-
-
-
-
-//MARK: - TagCollectionView
-extension IvTodayRecordVC: TTGTextTagCollectionViewDelegate {
-    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
-        // 한개만 선택되게 만드는 코드
-        // 카테고리 전체 어떻게 할것인가?
+extension IvTodayRecordVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
         
+        categoryCell.setTag(tagName: categories[indexPath.row].name)
         
-        // selection 배열 내에 한개씩만 선택되게 만들기
-        var check = 0
-        for i in 0..<selections.count {
-            if selections[i] == tagText {
-                check = 1
-                selections.remove(at: i)
-                break
-            }
-        }
-        
-        if check == 0 {
-            selections.append(tagText)
-        }
-        
+        return categoryCell
+    }
+    
+    
+}
+
+extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
         
-        for i in 0..<selections.count {
-            if selections[i] == "전체" {
-                allCategoryCheck = true
-                inventoryFilteredArray = inventoryTodayArray
-                inventoryTodayRecordTableView.reloadData()
-            }
-        }
-        
-        if !allCategoryCheck {
-            inventoryFilteredArray = []
-            for i in 0..<selections.count {
-                let filterred = inventoryTodayArray.filter { (inventory) -> Bool in
-                    return inventory.category == selections[i]
-                }
-                
-                for data in filterred {
-                    inventoryFilteredArray.append(data)
-                }
-            }
+        if categories[indexPath.row].name  == "전체" {
+            allCategoryCheck = true
+            inventoryFilteredArray = inventoryTodayArray
             inventoryTodayRecordTableView.reloadData()
         }
         
+        
+        if !allCategoryCheck {
+            
+            inventoryFilteredArray = []
+            let filtered = inventoryTodayArray.filter { (inventory) -> Bool in
+                return inventory.categoryIdx == categories[indexPath.row].categoryIdx
+            }
+            
+            for data in filtered {
+                inventoryFilteredArray.append(data)
+            }
+            
+            inventoryTodayRecordTableView.reloadData()
+            
+        }
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 24)
     }
 }
-

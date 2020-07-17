@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5DW-Rz-oSE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5DW-Rz-oSE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,12 +47,54 @@
                                             <constraint firstItem="P0f-us-1wh" firstAttribute="top" secondItem="KJ8-l5-Wly" secondAttribute="top" constant="12" id="thN-N1-jeD"/>
                                         </constraints>
                                     </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gOZ-rU-opR">
+                                        <rect key="frame" x="0.0" y="55" width="375" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="7" id="KgE-e1-zzR">
+                                            <size key="itemSize" width="66" height="23"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="4uc-zX-lJW" customClass="CategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.5" width="66" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zTm-8W-kGt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsM-XB-Ohf">
+                                                            <rect key="frame" x="20" y="5" width="27" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="WsM-XB-Ohf" firstAttribute="top" secondItem="zTm-8W-kGt" secondAttribute="top" constant="5" id="BYm-gd-Ykf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WsM-XB-Ohf" secondAttribute="bottom" constant="6" id="aPS-TJ-vqi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WsM-XB-Ohf" secondAttribute="trailing" constant="19" id="sZ0-7k-T8S"/>
+                                                        <constraint firstItem="WsM-XB-Ohf" firstAttribute="leading" secondItem="zTm-8W-kGt" secondAttribute="leading" constant="20" id="uKU-rl-BPg"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="66" height="23"/>
+                                                <connections>
+                                                    <outlet property="categoryNameLabel" destination="WsM-XB-Ohf" id="ZuW-dv-gki"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="gOZ-rU-opR" firstAttribute="leading" secondItem="gP6-MH-dby" secondAttribute="leading" id="825-iZ-hs3"/>
+                                    <constraint firstAttribute="bottom" secondItem="gOZ-rU-opR" secondAttribute="bottom" constant="8" id="BOi-sI-i0r"/>
                                     <constraint firstItem="KJ8-l5-Wly" firstAttribute="leading" secondItem="gP6-MH-dby" secondAttribute="leading" id="XTc-rE-etx"/>
                                     <constraint firstItem="KJ8-l5-Wly" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="top" constant="3" id="XdB-KA-HFp"/>
+                                    <constraint firstAttribute="trailing" secondItem="gOZ-rU-opR" secondAttribute="trailing" id="Zvh-VS-dke"/>
                                     <constraint firstAttribute="trailing" secondItem="KJ8-l5-Wly" secondAttribute="trailing" id="pls-LY-2Z0"/>
+                                    <constraint firstItem="gOZ-rU-opR" firstAttribute="top" secondItem="KJ8-l5-Wly" secondAttribute="bottom" constant="8" id="rh8-vv-dA0"/>
                                     <constraint firstAttribute="width" secondItem="gP6-MH-dby" secondAttribute="height" multiplier="375:87" id="zas-9m-dcy"/>
                                 </constraints>
                             </view>
@@ -188,6 +231,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="19b-h7-HfG"/>
                     <connections>
+                        <outlet property="categoryCollectionView" destination="gOZ-rU-opR" id="ugy-mk-uin"/>
                         <outlet property="completeBtn" destination="ZY3-f8-UvP" id="kMC-u4-SUd"/>
                         <outlet property="inventoryEditPrdoctTableView" destination="eck-MF-vzA" id="HBH-DJ-fik"/>
                         <outlet property="outView" destination="gP6-MH-dby" id="CUM-rw-bWV"/>
@@ -197,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4l2-ag-0fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-311" y="288"/>
+            <point key="canvasLocation" x="241" y="171"/>
         </scene>
     </scenes>
     <resources>
