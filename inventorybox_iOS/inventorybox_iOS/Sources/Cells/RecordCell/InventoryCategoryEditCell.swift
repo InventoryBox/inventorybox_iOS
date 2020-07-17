@@ -99,11 +99,13 @@ class InventoryCategoryEditCell: UITableViewCell {
         inventoryUnitLabel.textColor = UIColor.charcoal
         
     }
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: String, checkboxSelected: Bool) {
-        inventoryImageView.image = UIImage(named: inventoryImageName)
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: Int) {
+        let url = URL(string: inventoryImageName)
+        self.inventoryImageView.kf.setImage(with: url)
+        
         inventoryNameLabel.text = inventoryName
-        minimumInventoryCountLabel.text = minimumInventoryCount
-        isSelectBtn = checkboxSelected
+        minimumInventoryCountLabel.text = "\(minimumInventoryCount)"
+//        isSelectBtn = checkboxSelected
     }
     
 }

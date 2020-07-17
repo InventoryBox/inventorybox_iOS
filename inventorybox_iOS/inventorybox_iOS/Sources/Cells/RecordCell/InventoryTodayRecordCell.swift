@@ -44,7 +44,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
-        inventoryCountTextField.placeholder = "재고량 입력"
+//        inventoryCountTextField.placeholder = "재고량 입력"
         
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         
@@ -62,7 +62,9 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.inputAccessoryView = toolbar
         inventoryCountTextField.delegate = self
     }
-    
+    func makePlaceholder() {
+        inventoryCountTextField.placeholder = "재고량 입력"
+    }
     @objc private func donePressed() {
         self.inventoryCountTextField.endEditing(true)
     }
@@ -90,11 +92,13 @@ class InventoryTodayRecordCell: UITableViewCell {
     }
     
     func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int?) {
+        let url = URL(string: inventoryImageName)
+        self.inventoryImageView.kf.setImage(with: url)
         
-        inventoryImageView.image = UIImage(named: inventoryImageName)
         inventoryNameLabel.text = inventoryName
-//        inventoryCountTextField.text = inventoryCount
-        
+        if let cnt = inventoryCount {
+            inventoryCountTextField.text = "\(cnt)"
+        }
     }
     
 }

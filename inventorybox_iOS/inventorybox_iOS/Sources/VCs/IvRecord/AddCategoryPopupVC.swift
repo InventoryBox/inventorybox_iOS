@@ -50,6 +50,25 @@ class AddCategoryPopupVC: UIViewController {
             
             return
         }
+        
+        IvRecordAddCateService.shared.getRecordAddCate(name: name) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
         NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": name])
         
         self.dismiss(animated: true)

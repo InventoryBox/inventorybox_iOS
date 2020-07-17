@@ -14,24 +14,48 @@ class SelectCategoryVC: UIViewController {
     
     @IBOutlet weak var selectTableView: UITableView!
     
-    var categories: [String] = {
-        let data1 = CategoryInformation(idx: 1, name: "전체")
-        let data2 = CategoryInformation(idx: 2, name: "액체류")
-        let data3 = CategoryInformation(idx: 3, name: "파우더류")
-        let data4 = CategoryInformation(idx: 4, name: "과일")
-        let data5 = CategoryInformation(idx: 5, name: "채소류")
-        let data6 = CategoryInformation(idx: 6, name: "스파게티 재료들")
-        let data7 = CategoryInformation(idx: 7, name: "아침마다 확인해야 할 것들")
-        
-        return [data1.categoryName, data2.categoryName, data3.categoryName, data4.categoryName, data5.categoryName, data6.categoryName, data7.categoryName]
-    }()
+    var categories: [CategoryInfo] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getDataFromServer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setSelectTableView()
         
     }
-    
+    private func getDataFromServer() {
+        
+        CategoryService.shared.getCategory() { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? CategoryClass else { return }
+                print(dt)
+
+                self.categories = dt.categoryInfo
+                self.selectTableView.reloadData()
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+    }
     private func setSelectTableView() {
         selectTableView.delegate = self
         selectTableView.dataSource = self
@@ -54,7 +78,7 @@ extension SelectCategoryVC: UITableViewDataSource {
         guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SelectCategoryCell.identifier, for: indexPath) as? SelectCategoryCell else { return UITableViewCell() }
         categoryCell.delegate = self
         categoryCell.indexpath = indexPath.row
-        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row])
+        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name)
         categoryCell.isWhole = whichCategorySelected.contains(indexPath.row)
         
         return categoryCell
@@ -77,8 +101,7 @@ extension SelectCategoryVC: UITableViewDelegate {
 extension SelectCategoryVC: CategoryButtonDelegate {
     
     func didSelectCategory(categoryName: String, indexPath: Int) {
-//        print("Tap")
-        print(categoryName)
+        
         NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": categoryName])
         
         self.dismiss(animated: true, completion: nil)

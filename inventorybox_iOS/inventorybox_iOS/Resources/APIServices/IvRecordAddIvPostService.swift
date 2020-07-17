@@ -1,5 +1,5 @@
 //
-//  IvRecordEditIvPostService.swift
+//  IvRecordAddIvPostService.swift
 //  inventorybox_iOS
 //
 //  Created by 이재용 on 2020/07/16.
@@ -8,45 +8,45 @@
 
 import Foundation
 import Alamofire
-
-//struct EditItemInfo: Codable {
-//    let itemIdx: Int
-//    let name: String
-//    var categoryIdx, stocksCnt: Int
-//    let img: String
+// ⭐️⭐️
+// MARK: - DataClass
+//struct AddIvClass: Codable {
+//    let iconInfo: [IconInfo]
+//    let categoryInfo: [CategoryInfo]
 //}
 
-struct IvRecordEditIvPostService {
-    static let shared = IvRecordEditIvPostService()
+// ⭐️⭐️⭐️
+// MARK: - IconInfo
+//struct IconInfo: Codable {
+//    let iconIdx: Int
+//    let img: String
+//    let name: String
+//}
+
+
+struct IvRecordAddIvPostService {
+    static let shared = IvRecordAddIvPostService()
     
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-        print(data)
-        var parsingParameter: [[String: Int]] = []
+    private func makeParameter(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int) -> Parameters{
         
-        for d in data {
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.stocksCnt
+        return
+            ["name": name,
+             "unit": unit,
+             "alarmCnt": alarmCnt,
+             "memoCnt": memoCnt,
+             "iconIdx": iconIdx,
+             "categoryIdx": categoryIdx
             ]
-            parsingParameter.append(item)
-            //            print(item)
-        }
-        
-        print(parsingParameter)
-        
-        return ["itemInfo": parsingParameter, "date": date]
-        
     }
     
-    func getRecordEditIvPost(data: [EditItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordAddIvPost(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.inventoryRecordModifyURL, method: .put, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -55,7 +55,7 @@ struct IvRecordEditIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-
+//                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -69,7 +69,7 @@ struct IvRecordEditIvPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordEditIvPostData(by: data)
+        case 200: return getRecordAddIvPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -77,7 +77,7 @@ struct IvRecordEditIvPostService {
         }
     }
     
-    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getRecordAddIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
@@ -92,4 +92,5 @@ struct IvRecordEditIvPostService {
     }
     
 }
+
 

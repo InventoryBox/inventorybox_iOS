@@ -1,5 +1,5 @@
 //
-//  IvRecordEditIvPostService.swift
+//  IvRecordTodayPostService.swift
 //  inventorybox_iOS
 //
 //  Created by 이재용 on 2020/07/16.
@@ -9,36 +9,37 @@
 import Foundation
 import Alamofire
 
-//struct EditItemInfo: Codable {
+//struct TodayItemInfo: Codable {
 //    let itemIdx: Int
 //    let name: String
-//    var categoryIdx, stocksCnt: Int
-//    let img: String
+//    let categoryIdx: Int
+//    var presentCnt: Int?
 //}
 
-struct IvRecordEditIvPostService {
-    static let shared = IvRecordEditIvPostService()
+struct IvRecordTodayPostService {
+    static let shared = IvRecordTodayPostService()
     
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-        print(data)
+    private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
+//        print(data)
         var parsingParameter: [[String: Int]] = []
         
+        
         for d in data {
+            
             let item = [
                 "itemIdx" : d.itemIdx,
-                "presentCnt": d.stocksCnt
+                "presentCnt": d.presentCnt!
             ]
+            
             parsingParameter.append(item)
-            //            print(item)
+            
         }
         
-        print(parsingParameter)
-        
-        return ["itemInfo": parsingParameter, "date": date]
-        
+        return ["itemInfo": parsingParameter,
+        "date": date]
     }
     
-    func getRecordEditIvPost(data: [EditItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordTodayIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
@@ -55,7 +56,7 @@ struct IvRecordEditIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-
+                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -69,7 +70,7 @@ struct IvRecordEditIvPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordEditIvPostData(by: data)
+        case 200: return getRecordTodayIvPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -77,14 +78,17 @@ struct IvRecordEditIvPostService {
         }
     }
     
-    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)
+        
+        guard let data = decodedData.data else { return .pathErr }
+        
         if decodedData.success {
-            return .success(decodedData.message)
+            return .success(data)
         } else {
             return .requestErr(decodedData.message)
         }
@@ -92,4 +96,5 @@ struct IvRecordEditIvPostService {
     }
     
 }
+
 

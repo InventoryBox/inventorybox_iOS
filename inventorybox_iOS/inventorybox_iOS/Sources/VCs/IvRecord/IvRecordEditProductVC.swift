@@ -167,8 +167,6 @@ class IvRecordEditProductVC: UIViewController {
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
             switch networkResult {
             case .success(let data):
-                //                guard let token = token as? String else { return }
-                //                UserDefaults.standard.set(token, forKey: "token")
                 print(data)
 
             case .requestErr(let message):

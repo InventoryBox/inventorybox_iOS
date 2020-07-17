@@ -1,66 +1,42 @@
 //
-//  IvRecordEditIvPostService.swift
+//  IvRecordDeleteIvService.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/16.
+//  Created by 이재용 on 2020/07/17.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-//struct EditItemInfo: Codable {
-//    let itemIdx: Int
-//    let name: String
-//    var categoryIdx, stocksCnt: Int
-//    let img: String
-//}
-
-struct IvRecordEditIvPostService {
-    static let shared = IvRecordEditIvPostService()
-    
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-        print(data)
-        var parsingParameter: [[String: Int]] = []
+struct IvRecordDeleteIvService {
+    static let shared = IvRecordDeleteIvService()
+    private func makeParameter(idxList: [Int]) -> Parameters{
         
-        for d in data {
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.stocksCnt
-            ]
-            parsingParameter.append(item)
-            //            print(item)
-        }
-        
-        print(parsingParameter)
-        
-        return ["itemInfo": parsingParameter, "date": date]
+        return ["itemIdxList": idxList]
         
     }
-    
-    func getRecordEditIvPost(data: [EditItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func deleteIv(idxList: [Int], completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.inventoryRecordModifyURL, method: .put, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
+        let url = APIConstants.inventoryRecordItemDeleteURL
         
-        //        print(makeParameter(data: data, date: date))
+        let dataRequest = Alamofire.request(url, method: .delete, parameters: makeParameter(idxList: idxList), encoding: JSONEncoding.default, headers: header)
+        
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
+                
                 let networkResult = self.judge(by: statusCode, value)
                 
-
                 completion(networkResult)
                 
-            case .failure(let error):
-                print(error.localizedDescription)
-                completion(.networkFail)
+            case .failure: completion(.networkFail)
                 
             }
             
@@ -69,20 +45,20 @@ struct IvRecordEditIvPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordEditIvPostData(by: data)
+        case 200: return deleteIvData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
-            
         }
     }
     
-    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func deleteIvData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
-        print(decodedData.message)
+//        print(decodedData.message)
+        
         if decodedData.success {
             return .success(decodedData.message)
         } else {
@@ -92,4 +68,8 @@ struct IvRecordEditIvPostService {
     }
     
 }
+
+
+
+
 

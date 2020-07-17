@@ -44,6 +44,7 @@ struct IvRecordEditIvClass: Codable {
 struct EditItemInfo: Codable {
     let itemIdx: Int
     let name: String
-    var categoryIdx, stocksCnt: Int
+    var categoryIdx: Int
+    var stocksCnt: Int
     let img: String
 }

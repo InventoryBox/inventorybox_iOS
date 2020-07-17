@@ -1,8 +1,8 @@
 //
-//  InventoryRecordData.swift
+//  IvRecordEditCateData.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/14.
+//  Created by 이재용 on 2020/07/17.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
@@ -10,11 +10,11 @@ import Foundation
 
 // ⭐️
 // MARK: - IvRecordHomeData
-struct IvRecordHomeData: Codable {
+struct IvRecordEditCateData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: IvRecordHomeClass?
+    let data: IvRecordEditCateClass?
     
     enum CodingKeys: String, CodingKey {
         case status = "status"
@@ -29,15 +29,15 @@ struct IvRecordHomeData: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? -1
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode(IvRecordHomeClass.self, forKey: .data)) ?? nil
+        data = (try? values.decode(IvRecordEditCateClass.self, forKey: .data)) ?? nil
     }
 }
 
 // ⭐️⭐️
-// MARK: - IvRecordHomeClass
-struct IvRecordHomeClass: Codable {
-    let itemInfo: [HomeItemInfo]?
-    let categoryInfo: [CategoryInfo] 
+// MARK: - IvRecordEditCateClass
+struct IvRecordEditCateClass: Codable {
+    let itemInfo: [EditCateInfo]?
+    let categoryInfo: [CategoryInfo]
     let isRecorded: Int
     let date: String?
     let picker, addButton: Int
@@ -47,12 +47,14 @@ struct IvRecordHomeClass: Codable {
 // MARK: - HomeItemInfo
 // 재고 조회 모델
 // 재고 조회, 오늘 재고 기록, 재고 수정 모두 다 다른 데이터로 할까?
-struct HomeItemInfo: Codable {
+struct EditCateInfo: Codable {
     let itemIdx: Int
     let name: String
     let alarmCnt: Int
     let unit: String
     let stocksCnt: Int
-    let categoryIdx: Int
+    var categoryIdx: Int
     let img: String
+//    var isSelected: Bool = false
 }
+
