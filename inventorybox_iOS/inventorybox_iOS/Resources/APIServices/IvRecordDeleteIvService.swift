@@ -12,9 +12,9 @@ import Alamofire
 struct IvRecordDeleteIvService {
     static let shared = IvRecordDeleteIvService()
     private func makeParameter(idxList: [Int]) -> Parameters{
-//        var itemIdxList: [Int] = []
         
         return ["itemIdxList": idxList]
+        
     }
     func deleteIv(idxList: [Int], completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [

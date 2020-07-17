@@ -91,6 +91,8 @@
 		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
 		D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */; };
 		D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */; };
+		D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */; };
+		D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */; };
 		D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */; };
 		D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */; };
 		D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */; };
@@ -243,6 +245,8 @@
 		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
 		D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteIvService.swift; sourceTree = "<group>"; };
 		D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordSuccessData.swift; sourceTree = "<group>"; };
+		D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordAddCateService.swift; sourceTree = "<group>"; };
+		D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeService.swift; sourceTree = "<group>"; };
 		D4A2875124B7DCA900A60C08 /* AllExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExchangeInformation.swift; sourceTree = "<group>"; };
 		D4A2875324B7EE3500A60C08 /* IvAllExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvAllExchangeCell.swift; sourceTree = "<group>"; };
 		D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodExchangeInformation.swift; sourceTree = "<group>"; };
@@ -491,6 +495,8 @@
 				D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */,
 				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
 				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
+				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
+				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
@@ -857,6 +863,7 @@
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
+				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
 				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
@@ -884,6 +891,7 @@
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
+				D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */,
 				D44EB37D24C00C60006CFC5E /* IvRecordEditIvPostService.swift in Sources */,
 				D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */,
 				D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */,

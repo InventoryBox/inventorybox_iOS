@@ -27,35 +27,26 @@ import Alamofire
 struct IvRecordAddIvPostService {
     static let shared = IvRecordAddIvPostService()
     
-    private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-//        print(data)
-        var parsingParameter: [[String: Int]] = []
+    private func makeParameter(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int) -> Parameters{
         
-        
-        for d in data {
-            
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.presentCnt!
+        return
+            ["name": name,
+             "unit": unit,
+             "alarmCnt": alarmCnt,
+             "memoCnt": memoCnt,
+             "iconIdx": iconIdx,
+             "categoryIdx": categoryIdx
             ]
-            
-            parsingParameter.append(item)
-            
-        }
-        
-        return ["itemInfo": parsingParameter,
-        "date": date]
     }
     
-    func getRecordAddIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordAddIvPost(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -64,7 +55,7 @@ struct IvRecordAddIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("dafsda")
+//                print("dafsda")
                 completion(networkResult)
                 
             case .failure(let error):
@@ -88,15 +79,12 @@ struct IvRecordAddIvPostService {
     
     private func getRecordAddIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)
-        
-        guard let data = decodedData.data else { return .pathErr }
-        
         if decodedData.success {
-            return .success(data)
+            return .success(decodedData.message)
         } else {
             return .requestErr(decodedData.message)
         }

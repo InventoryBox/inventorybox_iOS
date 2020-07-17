@@ -73,6 +73,7 @@ class IvRecordCategoryEditVC: UIViewController {
             case .success(let data):
                 guard let dt = data as? IvRecordEditCateClass else { return }
                 
+                
                 // 데이터 정렬
                 if let itemArray = dt.itemInfo {
                     self.inventoryEditArray = itemArray
@@ -123,32 +124,62 @@ class IvRecordCategoryEditVC: UIViewController {
 
         animatePopupBackground(false)
         
-        guard let info = notification.userInfo as? [String: Any] else { return }
-        guard let name = info["categoryName"] as? String else { return }
-        
-        
-
-        categoryEditTableView.reloadData()
-        
-    }
-    
-    @objc func didDisappearPopup(_ notification: Notification) {
-        
 //        guard let info = notification.userInfo as? [String: Any] else { return }
 //        guard let name = info["categoryName"] as? String else { return }
 //
-//        print(name)
-        animatePopupBackground(false)
+//
+//
+//        categoryEditTableView.reloadData()
+//
     }
     
+    @objc func didDisappearPopup(_ notification: Notification) {
+        animatePopupBackground(false)
+//        guard let info = notification.userInfo as? [String: Any] else { return }
+//        guard let name = info["categoryName"] as? String else { return }
+//        print(name)
+        
+    }
+//    private func getCatecoryFromServer() {
+//
+//        CategoryService.shared.getCategory() { (networkResult) in
+//            switch networkResult {
+//            case .success(let data):
+//                guard let dt = data as? CategoryClass else { return }
+//                print(dt)
+//
+//                self.categories = dt.categoryInfo
+////                self.categoryCollectionView.reloadData()
+//
+//            case .requestErr(let message):
+//                guard let message = message as? String else { return }
+//                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                alertViewController.addAction(action)
+//                self.present(alertViewController, animated: true, completion: nil)
+//
+//            case .pathErr: print("path")
+//            case .serverErr: print("serverErr")
+//            case .networkFail: print("networkFail")
+//            }
+//        }
+//
+//    }
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func deleteInventoryBtnPressed(_ sender: Any) {
         // 선택된 재료 삭제하기 서버 반영 버튼
-        print(checkboxSelections)
-        IvRecordDeleteIvService.shared.deleteIv(idxList: checkboxSelections) { (networkResult) in
+//        print(checkboxSelections)
+        
+        var idxList: [Int] = []
+        for i in 0..<checkboxSelections.count {
+            idxList.append(inventoryEditArray[i].itemIdx)
+        }
+        print(idxList)
+//        print(inventoryEditArray)
+        IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
             switch networkResult {
             case .success(let data):
                 print(data)
@@ -242,7 +273,7 @@ extension IvRecordCategoryEditVC: UITableViewDataSource {
             inventoryCell.isSelectBtn = self.checkboxSelections.contains(indexPath.row - 1)
             
             inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].alarmCnt)
-            //  checkboxSelected: inventoryFilteredArray[indexPath.row - 1].isSelected
+
             
             return inventoryCell
             
@@ -280,6 +311,7 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
                 if self.checkboxSelections.contains(i) {
                     guard let index = self.checkboxSelections.firstIndex(of: i) else { return }
                     self.checkboxSelections.remove(at: index)
+                    
                 } else {
                     checkboxSelections.append(i)
                 }

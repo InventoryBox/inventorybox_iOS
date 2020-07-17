@@ -13,7 +13,6 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var titleViewLabel: UILabel!
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var inventoryNameTextField: UITextField!
     @IBOutlet weak var lineUnderNameTextFieldView: UIView!
     
@@ -45,7 +44,7 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
     @IBOutlet weak var popupBackgroundView: UIView!
-    var iconIdx: String = ""
+    var iconIdx: Int = -1
     var iconArray: [IconInfo] = [] {
         didSet {
             
@@ -109,9 +108,9 @@ class IvRecordAddProductVC: UIViewController {
         guard let info = notification.userInfo as? [String: Any] else {
             return
         }
-        guard let ivIconIdx = info["selectedIdx"] as? String else { return }
+        guard let ivIconIdx = info["selectedIdx"] as? Int else { return }
         print(ivIconIdx)
-        iconIdx = ivIconIdx
+        self.iconIdx = ivIconIdx
     }
     
     
@@ -120,31 +119,6 @@ class IvRecordAddProductVC: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction func registerInventoryBtnPressed(_ sender: Any) {
-        guard let IvName = inventoryNameTextField.text else {
-            print("이름 입력 오류")
-            return
-            
-        }
-        
-        
-        guard let IvUnit = unitTextField.text else {
-            print("단위 입력 오류")
-            return
-        }
-        guard let IvMinimum = minimumCountLabel.text else {
-            print("발주 알림 개수 입력 오류")
-            return
-        }
-        guard let IvOrder = inventoryToBuyLabel.text else {
-            print("발주할 수량 메모 입력 오류")
-            return
-        }
-        
-        //        let newInventory = InventoryInformation(imageName: iconIdx, ivName: IvName, mInventory: IvMinimum, oInventory: IvOrder, iCount: "0", categoryNum: "전체")
-        self.dismiss(animated: true, completion: nil)
-        
-    }
     
     private func setViewCustom() {
         
@@ -267,7 +241,9 @@ class IvRecordAddProductVC: UIViewController {
         }
     }
     @IBAction func dismissBtnPressed(_ sender: Any) {
+        
         self.dismiss(animated: true, completion: nil)
+        
     }
     @IBAction func inventoryToBuyPlusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
@@ -277,12 +253,56 @@ class IvRecordAddProductVC: UIViewController {
             
         }
     }
-    @IBAction func addInventoryBtnPressed(_ sender: Any) {
-        
-        
-        self.dismiss(animated: true) {
-            // 재료 저장 post
+    @IBAction func registerInventoryBtnPressed(_ sender: Any) {
+        guard let ivName = inventoryNameTextField.text else {
+            print("이름 입력 오류")
+            return
+            
+        }
+        guard let ivUnit = unitTextField.text else {
+            print("단위 입력 오류")
+            return
+        }
+        guard let ivMinimum = minimumCountLabel.text else {
+            print("발주 알림 개수 입력 오류")
+            return
+        }
+        let alarmCnt = Int(ivMinimum)!
+        guard let ivOrder = inventoryToBuyLabel.text else {
+            print("발주할 수량 메모 입력 오류")
+            return
         }
         
+        let memoCnt = Int(ivOrder)!
+        var categoryIdx: Int = -1
+        
+        for i in 0..<categories.count {
+            if categoryLabel.text! ==  categories[i].name {
+                categoryIdx = categories[i].categoryIdx
+                break
+            }
+        }
+
+        IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+        
+//        self.dismiss(animated: true, completion: nil)
+        
     }
+    
 }

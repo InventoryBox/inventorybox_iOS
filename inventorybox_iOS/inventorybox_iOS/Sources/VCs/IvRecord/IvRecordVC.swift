@@ -150,9 +150,13 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     
                     // 재료 추가하기 버튼
                     if dt.addButton == 0 {
-                         self.isAddProductBtn = false
-                    } else {
+                         
                          self.isAddProductBtn = true
+                         
+                    } else {
+                         
+                         self.isAddProductBtn = false
+                    
                     }
                     
                     

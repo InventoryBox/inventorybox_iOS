@@ -25,29 +25,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVp-Q2-YFh">
-                                        <rect key="frame" x="17" y="18.5" width="8.5" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="8.6999999999999993" id="9FA-VF-BvW"/>
-                                            <constraint firstAttribute="height" constant="16" id="ADW-bM-bvd"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="postBtnBack"/>
-                                        <connections>
-                                            <action selector="registerInventoryBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="lP2-I6-G26"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbO-KP-AhP">
                                         <rect key="frame" x="0.0" y="4.5" width="40" height="44"/>
                                         <state key="normal" backgroundImage="postBtnBack"/>
                                         <connections>
-                                            <action selector="dismissBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="hIy-Jt-e3z"/>
+                                            <action selector="dismissBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="LTu-pv-Pcq"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="zVp-Q2-YFh" firstAttribute="centerY" secondItem="17J-ZR-7DX" secondAttribute="centerY" id="1eL-fM-3As"/>
-                                    <constraint firstItem="zVp-Q2-YFh" firstAttribute="leading" secondItem="uq3-RM-lXH" secondAttribute="leading" constant="17" id="Buc-4G-nGg"/>
                                     <constraint firstAttribute="bottom" secondItem="17J-ZR-7DX" secondAttribute="bottom" constant="11" id="Dcy-Nq-WBG"/>
                                     <constraint firstAttribute="height" constant="47" id="IWN-91-37F"/>
                                     <constraint firstItem="17J-ZR-7DX" firstAttribute="centerX" secondItem="uq3-RM-lXH" secondAttribute="centerX" id="Lnm-Ja-jjh"/>
@@ -344,7 +331,7 @@
                                                 </constraints>
                                                 <state key="normal" title="저장"/>
                                                 <connections>
-                                                    <action selector="addInventoryBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="NgX-iY-6ZC"/>
+                                                    <action selector="registerInventoryBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="JR0-vh-aJc"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1W-wy-0fn">
@@ -402,16 +389,10 @@
                             <constraint firstItem="Toy-L0-xh6" firstAttribute="bottom" secondItem="9Z1-EL-4VQ" secondAttribute="bottom" id="yNQ-tB-h2O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Z1-EL-4VQ"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="6dI-6U-A8U"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dem-qg-QoY"/>
                     <connections>
                         <outlet property="addIconBtn" destination="r9h-Pf-6IC" id="GWT-M9-PHd"/>
-                        <outlet property="backBtn" destination="zVp-Q2-YFh" id="e89-oq-4SN"/>
                         <outlet property="categoryLabel" destination="grR-hS-0Zx" id="ftx-CV-eNt"/>
                         <outlet property="categorySelectDetailLabel" destination="WLZ-FL-Khd" id="erv-z9-wAk"/>
                         <outlet property="categorySelectTitleLabel" destination="PFy-m0-sGC" id="ZXB-kZ-6nX"/>
