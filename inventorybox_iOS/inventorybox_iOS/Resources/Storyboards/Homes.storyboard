@@ -37,7 +37,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngN-qQ-wgG">
-                                            <rect key="frame" x="306.5" y="52" width="52.5" height="54"/>
+                                            <rect key="frame" x="306.5" y="48" width="52.5" height="54"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                         <constraint firstItem="ZH4-NF-aNM" firstAttribute="centerX" secondItem="7ec-BF-Ljh" secondAttribute="centerX" id="OCl-Ir-Iyj"/>
                                         <constraint firstItem="RkF-pX-ZGD" firstAttribute="centerX" secondItem="7ec-BF-Ljh" secondAttribute="centerX" id="UKd-HQ-QEE"/>
                                         <constraint firstItem="ZH4-NF-aNM" firstAttribute="top" secondItem="FlC-tW-L9F" secondAttribute="bottom" constant="61" id="XAM-Dj-q4g"/>
-                                        <constraint firstItem="ngN-qQ-wgG" firstAttribute="top" secondItem="goe-CF-Jaf" secondAttribute="bottom" constant="11" id="bsA-jW-YA5"/>
+                                        <constraint firstItem="ngN-qQ-wgG" firstAttribute="top" secondItem="goe-CF-Jaf" secondAttribute="bottom" constant="7" id="bsA-jW-YA5"/>
                                         <constraint firstItem="FlC-tW-L9F" firstAttribute="top" secondItem="g4O-oc-1Rx" secondAttribute="bottom" constant="2" id="bui-CT-1sR"/>
                                         <constraint firstItem="ngN-qQ-wgG" firstAttribute="leading" secondItem="FlC-tW-L9F" secondAttribute="trailing" constant="5" id="e1h-dX-dWl"/>
                                         <constraint firstItem="RkF-pX-ZGD" firstAttribute="top" secondItem="ZH4-NF-aNM" secondAttribute="bottom" constant="16" id="hbA-J4-llj"/>
@@ -392,7 +392,10 @@
                     <navigationItem key="navigationItem" id="HVl-lr-M1o"/>
                     <connections>
                         <outlet property="backgroundView" destination="8rR-dD-Yh1" id="G0X-YY-3Sl"/>
+                        <outlet property="dateLabel" destination="g4O-oc-1Rx" id="9zn-si-2OD"/>
+                        <outlet property="dayLabel" destination="ngN-qQ-wgG" id="8Xq-OB-dEm"/>
                         <outlet property="tableview" destination="Ibz-Uu-gVM" id="abw-x0-beB"/>
+                        <outlet property="yearmonthLabel" destination="FlC-tW-L9F" id="rJe-ui-30H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPH-mB-O5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,6 +19,9 @@ class HomeVC: UIViewController {
     var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
     var homeMoreViewCellPoint : Int?                // 위치값 구해야 되므로
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var yearmonthLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tableview: UITableView! // 전체 TableView
     
@@ -52,10 +55,32 @@ class HomeVC: UIViewController {
         tableview.allowsSelection = false
         tableview.separatorStyle = .none
         tableview.contentInsetAdjustmentBehavior = .never
-        
+       
         setPopupBackgroundView()
+        date()                      // 날짜
       
     }
+    func date(){
+        let formater_year = DateFormatter()
+        let formater_month = DateFormatter()
+        let formater_day = DateFormatter()
+        let formater_date = DateFormatter()
+        formater_date.locale = Locale(identifier: "ko")
+        
+        formater_year.dateFormat = "yyyy"
+        formater_month.dateFormat = "MM"
+        formater_day.dateFormat = "dd"
+        formater_date.dateFormat = "eeee"
+        let current_day_String = formater_day.string(from: Date())
+        let current_month_String = formater_month.string(from: Date())
+        let current_year_String = formater_year.string(from: Date())
+        let current_date_String = formater_date.string(from: Date())
+        
+        dateLabel.text = current_date_String
+        dayLabel.text = current_day_String
+        yearmonthLabel.text = "\(current_year_String)년 \(current_month_String)월"
+    }
+    
     
      //MARK: Home 데이터 받아오기
      func getDataFromServer(){

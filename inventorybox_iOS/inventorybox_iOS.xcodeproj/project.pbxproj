@@ -16,6 +16,8 @@
 		0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FA24C2190300853DD0 /* SideBarMenuAlramVC.swift */; };
 		0E0568FD24C2197C00853DD0 /* SideBarMenuPrifileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FC24C2197C00853DD0 /* SideBarMenuPrifileVC.swift */; };
 		0E0568FF24C219A800853DD0 /* SideBarMenuPrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568FE24C219A800853DD0 /* SideBarMenuPrivacyVC.swift */; };
+		0E05690124C25FD900853DD0 /* signinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E05690024C25FD900853DD0 /* signinService.swift */; };
+		0E05690324C25FFD00853DD0 /* signinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E05690224C25FFD00853DD0 /* signinData.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -175,6 +177,8 @@
 		0E0568FA24C2190300853DD0 /* SideBarMenuAlramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuAlramVC.swift; sourceTree = "<group>"; };
 		0E0568FC24C2197C00853DD0 /* SideBarMenuPrifileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuPrifileVC.swift; sourceTree = "<group>"; };
 		0E0568FE24C219A800853DD0 /* SideBarMenuPrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuPrivacyVC.swift; sourceTree = "<group>"; };
+		0E05690024C25FD900853DD0 /* signinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinService.swift; sourceTree = "<group>"; };
+		0E05690224C25FFD00853DD0 /* signinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinData.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
+				0E05690024C25FD900853DD0 /* signinService.swift */,
 				3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */,
 				3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */,
 				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
@@ -628,6 +633,7 @@
 				339C89AC24BB010E00B86BAF /* DetailCompareInfo.swift */,
 				335889C524BCF3D300DB2533 /* TagModel.swift */,
 				3365E4EC24BDC39300E6AE8D /* LoginData.swift */,
+				0E05690224C25FFD00853DD0 /* signinData.swift */,
 				3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */,
 				3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */,
 			);
@@ -903,6 +909,7 @@
 				3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */,
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */,
+				0E05690124C25FD900853DD0 /* signinService.swift in Sources */,
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,
 				D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
@@ -980,6 +987,7 @@
 				0E4A82FF24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift in Sources */,
 				D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */,
 				D4A52A6524BCE7BC005B85DE /* SelectCategoryVC.swift in Sources */,
+				0E05690324C25FFD00853DD0 /* signinData.swift in Sources */,
 				0E0568FD24C2197C00853DD0 /* SideBarMenuPrifileVC.swift in Sources */,
 				D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */,
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,

@@ -16,6 +16,9 @@ struct APIConstants {
     static let loginURL = baseURL + "auth/signin"
     // 회원가입 이메일 인증
     static let emailURL = baseURL + "auth/email"
+    // 회원가입
+    static let signinURL = baseURL + "auth/signup"
+    
     // Home
      static let ivHomeURL = baseURL + "item/order" //
     // Home + flag
