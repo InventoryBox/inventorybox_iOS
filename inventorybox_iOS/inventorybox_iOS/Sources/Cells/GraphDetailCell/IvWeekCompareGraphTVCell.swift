@@ -10,7 +10,8 @@ import UIKit
 import Charts
 
 class IvWeekCompareGraphTVCell: UITableViewCell {
-
+    
+    
     @IBOutlet var yearTextField: UITextField!
     @IBOutlet var monthTextField: UITextField!
     @IBOutlet var weekTextField: UITextField!
@@ -34,83 +35,111 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setIvGraphTV(yearText:String,monthText:String,weekText:String,secondYearText:String,secondMonthText:String, secondWeekText:String,itemAlarmCount:Double,dataPoints: [String],values1: [Double]){
-           
-           
-           var dataEntries : [BarChartDataEntry] = []
-           var dataEntries2 : [BarChartDataEntry] = []
+    func bind (model:CompareWeekData){
+        //  guard let nameURL = URL(string: model) else { return }
         
-           yearTextField.text = yearText
-           monthTextField.text = monthText
-           weekTextField.text = weekText
-           secondYearTextField.text = secondYearText
-           secondMonthTextField.text = secondMonthText
-           secondWeekTextField.text = secondWeekText
-
-         
-           //dataPoint.count (배열의 값만큼 막대가 생긴다)
-           for i in 0..<dataPoints.count {
-               let dataEntry = BarChartDataEntry(x: Double(i), y: values1[i])
-              // let dataEntry2 = BarChartDataEntry(x: Double(i), y: values2[i])
-               dataEntries.append(dataEntry)
-             //  dataEntries2.append(dataEntry2)
-              // print(Int(values[i]))
-           }
-           
-           
-           //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
-           let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
-     //      let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: "")
+        
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 2
+        valFormatter.currencySymbol = "$"
+        
+        
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        
+        var dataPoints: [String] = ["일","월","화","수","목","금","토"]
+        var dataEntries: [BarChartDataEntry] = []
+        var dataEntries2: [BarChartDataEntry] = []
+        
+        
+        for i in 0...6 {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week1[i]))
+            dataEntries.append(dataEntry)
+            //print(model.stocks[i])
+        }
+        
+        for i in 0...6 {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week2[i]))
+            dataEntries2.append(dataEntry)
+            //print(model.stocks[i])
+        }
+        
+        
+        
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: " ")
+        let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: " ")
+        
+        chartDataSet2.colors =  [UIColor(red: 255/255, green: 70/255, blue: 108/255, alpha: 1)]
+        
+        chartDataSet.colors =  [UIColor(red: 49/255, green: 27/255, blue: 146/255, alpha: 1)]
+        
+        
+        let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet2]
+        let data = BarChartData(dataSets: dataSets)
+        data.setValueFormatter(formatter)
+        
+        compareChartView.data = data
+        
+        
+        compareChartView.rightAxis.drawGridLinesEnabled = false
+        compareChartView.rightAxis.drawAxisLineEnabled = false
+        compareChartView.rightAxis.drawLabelsEnabled = false
+        compareChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
         
        
-
-           //그래프 색 변경 부분
-           
-         //  print(values[1])
-           chartDataSet.colors = [setColor(value: values1[0]),setColor(value: values1[1]),setColor(value: values1[2]),setColor(value: values1[3]),setColor(value: values1[4]),setColor(value: values1[5]),setColor(value: values1[6])]
+     
+        //그래프 색 변경 부분
         
-            //   chartDataSet2.colors = [setColor(value: values2[0]),setColor(value: values2[1]),setColor(value: values2[2]),setColor(value: values2[3]),setColor(value: values2[4]),setColor(value: values2[5]), setColor(value: values2[6])]
-           
+ 
+//        chartDataSet.colors = [setColor(value: Double(model.wee[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+//
         
+        compareChartView.xAxis.labelPosition = .bottom
+        compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+        compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+        compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        compareChartView.xAxis.drawGridLinesEnabled = false
+        compareChartView.leftAxis.drawLabelsEnabled = false
+        compareChartView.rightAxis.drawGridLinesEnabled = false
+        compareChartView.rightAxis.drawLabelsEnabled = false
+        compareChartView.leftAxis.drawAxisLineEnabled = false
+        compareChartView.rightAxis.drawAxisLineEnabled = false
+        compareChartView.leftAxis.drawGridLinesEnabled = false
+        compareChartView.drawGridBackgroundEnabled = false
+        compareChartView.drawBordersEnabled = false
+        //    ivChartView.barData?.yMi
         
-        let chartData = BarChartData(dataSet: chartDataSet)
-        //   chartData.groupBars(fromX: 1, groupSpace: 0.2, barSpace: 0.02)
-           compareChartView.data = chartData
-           compareChartView.xAxis.labelPosition = .bottom
-           compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-           compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-           compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-           compareChartView.xAxis.drawGridLinesEnabled = false
-           compareChartView.leftAxis.drawLabelsEnabled = false
-           compareChartView.rightAxis.drawGridLinesEnabled = false
-           compareChartView.rightAxis.drawLabelsEnabled = false
-           compareChartView.leftAxis.drawAxisLineEnabled = false
-           compareChartView.rightAxis.drawAxisLineEnabled = false
-           compareChartView.leftAxis.drawGridLinesEnabled = false
-           compareChartView.drawGridBackgroundEnabled = false
-           compareChartView.drawBordersEnabled = false
-           
-           //밑에 데이터셋 제거
-           compareChartView.legend.enabled = false
-           
-           chartData.barWidth = 0.2
+        //밑에 데이터셋 제거
+        compareChartView.legend.enabled = false
         
-           let ll = ChartLimitLine(limit: itemAlarmCount, label: "")
-           compareChartView.rightAxis.addLimitLine(ll)
-           ll.lineWidth = 0.3
+        data.barWidth = 0.2
+//
+//        let ll = ChartLimitLine(limit: Double(), label: "")
+//        limitLine = ll
+//        ivChartView.rightAxis.removeLimitLine(ll)
+//        ivChartView.rightAxis.addLimitLine(ll)
+//        ll.lineWidth = 0.3
         
-         
-       }
-
-       func setColor(value: Double) -> UIColor {
-           if (value <= 3.0) {
-               return UIColor(red: 246.0 / 255.0, green: 187.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-           }
-           
-           return UIColor(white: 206.0 / 255.0, alpha: 1.0)
-           
-           
-       }
+    }
+    
+    
+//    func removeLimitLine() {
+//        guard let limitLine = self.limitLine else { return }
+//        ivChartView.rightAxis.removeLimitLine(limitLine)
+//    }
+    
+//    func setColor(value: Double) -> UIColor {
+//
+//        if (value <= Double(limitCount!)) {
+//            return UIColor(red: 246.0 / 255.0, green: 187.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+//        }
+//
+//        return UIColor(white: 206.0 / 255.0, alpha: 1.0)
+//
+//    }
+//
     
     func setTextFieldAttribute(){
         
@@ -136,15 +165,13 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         secondMonthTextField.addLeftPadding()
         secondWeekTextField.addLeftPadding()
     }
-
-    @IBAction func compareBtn(_ sender: UIButton) {
-    }
+    
 }
 
 extension UITextField {
-  func addLeftPadding() {
-  let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 9, height: self.frame.height))
-  self.leftView = paddingView
-  self.leftViewMode = ViewMode.always
+    func addLeftPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 9, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
     }
-  }
+}

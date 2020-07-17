@@ -14,7 +14,8 @@ struct APIConstants {
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
     //로그인
     static let loginURL = baseURL + "auth/signin"
-    
+    // 회원가입 이메일 인증
+    static let emailURL = baseURL + "auth/email"
     // Home
      static let ivHomeURL = baseURL + "item/order" //
     // Home + flag
@@ -48,5 +49,8 @@ struct APIConstants {
     static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
     
     static let inventoryExchangeHomeURL = baseURL + "exchange/" // /:filter
+    
+    //exchange post URL
+    static let ivExchangePostURL = baseURL + "exchange/post"
 }
 

@@ -1,5 +1,5 @@
 //
-//  IvHomeFlagPostService.swift
+//  emailAuthService.swift
 //  inventorybox_iOS
 //
 //  Created by 송황호 on 2020/07/17.
@@ -9,26 +9,33 @@
 import Foundation
 import Alamofire
 
-struct IvHomeFlagPostService {
-    static let shared = IvHomeFlagPostService()
+
+struct emailAuthService {
+    static let shared = emailAuthService()
     
-    private func makeParameter(itemIdx: Int, flag: Int) -> Parameters{
-        
-        return ["flag": flag]
+    private func makeParameter(data: HomeItem) -> Parameters{
+//        print(data)
+       
+        return
+            ["itemIdx": data.itemIdx,
+             "memoCnt": data.memoCnt
+                
+             
+        ]
+   
     }
     
-    func getRecordEditIvPost(itemIdx: Int, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordEditIvPost(data: HomeItem, completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
         ]
         
-        let url = APIConstants.ivHomeCheckBoxURL + "\(itemIdx)"
-        print(url)
-        print(makeParameter(itemIdx: itemIdx, flag: flag))
-        let dataRequest = Alamofire.request(url, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
+        let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .post, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
+        
+        
+//            print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -50,23 +57,24 @@ struct IvHomeFlagPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordEditIvPostData(by: data)
+        case 200: return getHomeMemoPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
-            
         }
     }
     
-    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getHomeMemoPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(HomeInformation.self, from: data) else { return .pathErr }
         
         // 성공 메시지
-//        print(decodedData.message)
+        print(decodedData.message)
+        
+        guard let data = decodedData.data else { return .pathErr }
         
         if decodedData.success {
-            return .success(decodedData.message)
+            return .success(data)
         } else {
             return .requestErr(decodedData.message)
         }
@@ -74,5 +82,4 @@ struct IvHomeFlagPostService {
     }
     
 }
-
 
