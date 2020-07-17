@@ -25,7 +25,7 @@ struct IvHomeFlagPostService {
         
         let url = APIConstants.ivHomeCheckBoxURL + "\(itemIdx)"
         print(url)
-        print(makeParameter(itemIdx: itemIdx, flag: flag))
+//        print(makeParameter(itemIdx: itemIdx, flag: flag))
         let dataRequest = Alamofire.request(url, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
         //        print(makeParameter(data: data, date: date))

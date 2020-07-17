@@ -38,6 +38,9 @@ class HomeVC: UIViewController {
         // 더보기 관련 옵져버
         NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("morepressbutton"), object: nil)
         
+//        NotificationCenter.default.addObserver(self, selector: #selector(getCount), name: .init("textmodify"), object: nil)
+//
+        
         // table관련 데이터
 //        setorderCheckInformations()
         
@@ -272,7 +275,7 @@ extension HomeVC: UITableViewDataSource{
             Cell2s.itemIdx = orderCheckInformations[indexPath.row].itemIdx
             Cell2s.indexPath = indexPath.row
             
-            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].memoCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
 
             return Cell2s
         }

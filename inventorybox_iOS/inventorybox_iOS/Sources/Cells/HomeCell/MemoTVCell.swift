@@ -17,7 +17,7 @@ class MemoTVCell: UITableViewCell {
     @IBOutlet weak var moreBtn: UIButton!
     
     var count : Int? // Textfield 관련
-    
+    var idx: Int?
     
     @IBOutlet weak var productImg: UIImageView!            // 우유
     @IBOutlet weak var productNameText: UILabel!           // 이름
@@ -113,9 +113,9 @@ class MemoTVCell: UITableViewCell {
     // Done Button 눌렀을 때
     @objc func doneButtonAction(){
         // 노티피 주기위 위해
-//        textcount = Int(productCountText.text!)
+        let textcount: Int = Int(productCountText.text!)!
 //        print("\(textcount!) 값을 보내겠습니다")
-//         NotificationCenter.default.post(name: .init("textmodify"), object: nil, userInfo: ["count": textcount!, "name": productNameText.text!])
+        NotificationCenter.default.post(name: .init("textmodify"), object: nil, userInfo: ["count": textcount, "name": productNameText.text!, "idx": idx!])
 //
         productCountText.resignFirstResponder()
     }
