@@ -8,6 +8,7 @@
 
 import UIKit
 import BEMCheckBox
+import Charts
 
 
 class HomeVC: UIViewController {
@@ -24,6 +25,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tableview: UITableView! // 전체 TableView
+    //var graphArray:[Int] = []
+    var homehome:[HomeItem] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,9 +60,11 @@ class HomeVC: UIViewController {
         tableview.contentInsetAdjustmentBehavior = .never
        
         setPopupBackgroundView()
+        getDataFromServer()
         date()                      // 날짜
       
     }
+    // 날짜정보 입력하기
     func date(){
         let formater_year = DateFormatter()
         let formater_month = DateFormatter()
@@ -85,13 +90,23 @@ class HomeVC: UIViewController {
      //MARK: Home 데이터 받아오기
      func getDataFromServer(){
          
-         HomeService.shared.getHome(completion: { networkResult in
+         HomeService.shared.getHome { networkResult in
              switch networkResult{
              case .success(let data):
-//                 print(data)
-                 guard let dt = data as? HomeItemclass else { return }
+                 print("+++++"+"\(data)")
+                 guard let dt = data as? HomeItemclass else {
+                    print("ddd")
+                    return }
                  self.orderCheckInformations = dt.result
-                 self.tableview.reloadData()
+                 print("111",dt.result)
+                 
+                 self.homehome = dt.result
+                 //print(self.graphArray)
+                // self.graphArray = dt.result.stocksInfo
+                 //print("____" + "\(self.graphArray)")
+                 DispatchQueue.main.async {
+                   self.tableview.reloadData()
+                 }
              case .requestErr(let message):
                  guard let message = message as? String else {return}
                  print(message)
@@ -101,7 +116,7 @@ class HomeVC: UIViewController {
              case .networkFail:
                  print("networkFail")
              }
-         })
+         }
      }
     
     
@@ -301,6 +316,8 @@ extension HomeVC: UITableViewDataSource{
             Cell2s.indexPath = indexPath.row
             
             Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].memoCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
+            
+            Cell2s.bind(model: homehome[indexPath.row])
 
             return Cell2s
         }
@@ -333,14 +350,14 @@ extension HomeVC: UITableViewDelegate{
         }else{
             // tableview 높이
             if indexPath.row == homeMoreViewCellPoint {
-                // row가 homeMoreViewCellPoint 일 때
-//                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
+//                 row가 homeMoreViewCellPoint 일 때
+                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
                 return homeMoreViewCellHeight
             }
-//            else if indexPath.row == homeMoreViewCellPointtmemorry{
-//                return homeMoreViewCellHeight
+            else if indexPath.row == homeMoreViewCellPointtmemorry{
+                return homeMoreViewCellHeight
 //
-//            }
+            }
         else{
             return 94
         }

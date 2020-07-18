@@ -28,6 +28,13 @@ class SideMenuVC: UIViewController {
     
     @IBAction func alarmPresBtn(_ sender: Any) {
         
+//        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SideBarMenuAlramVC") else{
+//                  return
+//              }
+//
+//              self.navigationController?.pushViewController(uvc, animated: true)
+
+        
         guard let reciveViewController = self.storyboard?.instantiateViewController(identifier: "SideBarMenuAlramVC") else { return  }
         // 다음 화면으로 넘어가고 싶은 StoryBoard의 identity -> Storyboard ID 를 변수 설정
         
