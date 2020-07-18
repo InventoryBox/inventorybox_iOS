@@ -51,6 +51,10 @@
 		334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F374C24C09877001D1B05 /* IvProductRegistVC.swift */; };
 		335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */; };
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
+		335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E55D824C224BC00E306E9 /* IvGraphDetailPicekrVC.swift */; };
+		335E55DB24C231C200E306E9 /* SingleGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E55DA24C231C200E306E9 /* SingleGraphData.swift */; };
+		335E55DD24C2320F00E306E9 /* SingleGraphLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E55DC24C2320F00E306E9 /* SingleGraphLoadService.swift */; };
+		335E55DF24C28B7B00E306E9 /* HomePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335E55DE24C28B7B00E306E9 /* HomePostService.swift */; };
 		3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EC24BDC39300E6AE8D /* LoginData.swift */; };
 		3365E4EF24BDD58400E6AE8D /* InventoryGraphHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */; };
 		3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */; };
@@ -97,6 +101,8 @@
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
 		D4558A8D24C166E600A1ACB5 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4558A8C24C166E500A1ACB5 /* logo.json */; };
+		D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */; };
+		D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
 		D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A015724B6C93C0055814E /* IvExchange.storyboard */; };
 		D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015924B6C9570055814E /* IvExchangeVC.swift */; };
@@ -109,6 +115,7 @@
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
+		D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B863F24C26485003785FE /* AddressUpdateService.swift */; };
 		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
 		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
 		D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */; };
@@ -135,6 +142,7 @@
 		D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */; };
 		D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */; };
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
+		D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */; };
 		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */; };
@@ -221,6 +229,10 @@
 		3357D7B024B39D34002FF1EF /* ItemInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
 		335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		335889C524BCF3D300DB2533 /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
+		335E55D824C224BC00E306E9 /* IvGraphDetailPicekrVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphDetailPicekrVC.swift; sourceTree = "<group>"; };
+		335E55DA24C231C200E306E9 /* SingleGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGraphData.swift; sourceTree = "<group>"; };
+		335E55DC24C2320F00E306E9 /* SingleGraphLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGraphLoadService.swift; sourceTree = "<group>"; };
+		335E55DE24C28B7B00E306E9 /* HomePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostService.swift; sourceTree = "<group>"; };
 		3365E4EC24BDC39300E6AE8D /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeData.swift; sourceTree = "<group>"; };
 		3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeService.swift; sourceTree = "<group>"; };
@@ -271,6 +283,8 @@
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeData.swift; sourceTree = "<group>"; };
 		D4558A8C24C166E500A1ACB5 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailData.swift; sourceTree = "<group>"; };
+		D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailService.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
 		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
@@ -285,6 +299,7 @@
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		D49B863F24C26485003785FE /* AddressUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUpdateService.swift; sourceTree = "<group>"; };
 		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
 		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
 		D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteIvService.swift; sourceTree = "<group>"; };
@@ -311,6 +326,7 @@
 		D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIconVC.swift; sourceTree = "<group>"; };
 		D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvTodayRecord.storyboard; sourceTree = "<group>"; };
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
+		D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchService.swift; sourceTree = "<group>"; };
 		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailVC.swift; sourceTree = "<group>"; };
@@ -411,9 +427,9 @@
 			children = (
 				3332406624B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift */,
 				3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */,
+				3332406C24B6550C00C3B59C /* IvEditTVCell.swift */,
 				3332406824B6530500C3B59C /* IvDetailWeekGraphTVCell.swift */,
 				3332406A24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift */,
-				3332406C24B6550C00C3B59C /* IvEditTVCell.swift */,
 			);
 			path = GraphDetailCell;
 			sourceTree = "<group>";
@@ -443,6 +459,7 @@
 				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
 				D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */,
 				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
+				D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */,
 			);
 			path = IvExchange;
 			sourceTree = "<group>";
@@ -519,9 +536,10 @@
 				D48417B124AC55EB0064EE64 /* Main.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
-				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
+				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
+				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
@@ -546,6 +564,7 @@
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
 				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
+				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
@@ -557,6 +576,10 @@
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */,
 				0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */,
+				335E55DC24C2320F00E306E9 /* SingleGraphLoadService.swift */,
+				335E55DE24C28B7B00E306E9 /* HomePostService.swift */,
+				D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */,
+				D49B863F24C26485003785FE /* AddressUpdateService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -599,6 +622,7 @@
 				3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */,
 				3340BE5C24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift */,
 				3340BE5E24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift */,
+				335E55D824C224BC00E306E9 /* IvGraphDetailPicekrVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -636,6 +660,7 @@
 				0E05690224C25FFD00853DD0 /* signinData.swift */,
 				3365E4EE24BDD58400E6AE8D /* InventoryGraphHomeData.swift */,
 				3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */,
+				335E55DA24C231C200E306E9 /* SingleGraphData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -888,6 +913,7 @@
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
 				0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
+				D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */,
 				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
@@ -940,6 +966,7 @@
 				339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
 				D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */,
+				D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */,
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
@@ -950,13 +977,17 @@
 				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */,
 				0E0568FF24C219A800853DD0 /* SideBarMenuPrivacyVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
+				D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */,
 				0E4A82F824BD7B77001E38B7 /* HomeHeader2TVCell.swift in Sources */,
+				335E55DF24C28B7B00E306E9 /* HomePostService.swift in Sources */,
 				D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */,
+				335E55DD24C2320F00E306E9 /* SingleGraphLoadService.swift in Sources */,
 				0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				335889C624BCF3D300DB2533 /* TagModel.swift in Sources */,
@@ -972,11 +1003,13 @@
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
+				D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */,
 				D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */,
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
+				335E55DB24C231C200E306E9 /* SingleGraphData.swift in Sources */,
 				D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */,
 				D44EB37D24C00C60006CFC5E /* IvRecordEditIvPostService.swift in Sources */,
 				D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */,

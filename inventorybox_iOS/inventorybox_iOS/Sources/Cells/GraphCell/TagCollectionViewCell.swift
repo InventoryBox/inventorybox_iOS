@@ -15,15 +15,17 @@ class TagCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
+                print("select")
                 backgroundColor = .gray
                 tagNameLabel.textColor = .white
             } else {
+                print("unselect")
                 backgroundColor = .white
                 tagNameLabel.textColor = .gray
             }
         }
     }
-    
+
     func bind(model:CategoryInfo){
         tagNameLabel.text = model.name
     }

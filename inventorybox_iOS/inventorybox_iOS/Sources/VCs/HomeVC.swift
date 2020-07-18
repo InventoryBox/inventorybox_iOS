@@ -282,7 +282,7 @@ extension HomeVC: UITableViewDataSource{
         if section == 0{
             return 2
         }else{
-//            print(orderCheckInformations)
+
             return orderCheckInformations.count
         }
     }

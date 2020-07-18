@@ -49,6 +49,6 @@ struct TodayItemInfo: Codable {
     let itemIdx: Int
     let name: String
     let categoryIdx: Int
-    var presentCnt: Int?
+    var presentCnt: Int? = -1
     let img: String
 }

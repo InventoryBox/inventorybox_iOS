@@ -208,8 +208,6 @@ class Home2TVCell: UITableViewCell {
             checkvalue = true
         }
         checkBoxBtn.on = checkvalue
-//        print(productNameTx)
-//        print(checkBoxBtn.on)
     }
     
     

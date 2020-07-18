@@ -33,6 +33,15 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     var productImageName:String = ""
     var realCountText:String = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -40,6 +49,7 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         salesPriceTextField.delegate = self
         originalPriceTextField.delegate = self
         productCountTextField.delegate = self
+        unitTextField.delegate = self
     }
     
     func setView(){
@@ -80,6 +90,11 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     }
 
     
+    @IBAction func cancelBtn(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     
     @IBAction func pickPhotoFromAlbumBtn(_ sender: UIButton) {
         let myPicker = UIImagePickerController()
@@ -278,4 +293,9 @@ extension IvProductRegistVC: UITextFieldDelegate {
         }
         return true
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.unitTextField.endEditing(true)
+        return true
+    }
 }
+

@@ -12,12 +12,13 @@ import Charts
 class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
 
     @IBOutlet var weekInfoLabel: UILabel!
-    @IBOutlet var firstMonthLabel: UILabel!
-    @IBOutlet var firstDayLabel: UILabel!
+    @IBOutlet var firstMonthInfoLabel: UILabel!
+    @IBOutlet var firstDayLabel:UILabel!
+    @IBOutlet var secondDayInfoLabel: UILabel!
     @IBOutlet var secondMonthLabel: UILabel!
-    @IBOutlet var secondDayLabel: UILabel!
     @IBOutlet var ivChartView: BarChartView!
     @IBOutlet var roundView: UIView!
+    private var limitLine: ChartLimitLine?
     var itemIdx:Int?
     
 
@@ -41,60 +42,137 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         // Configure the view for the selected state
     }
     
-    
     func setIvGraphTV(weekLabel:String,firstMonth:String,firstDay:String,secondMonth:String,secondDay:String,itemAlarmCount:Double,dataPoints: [String],values: [Double], itemIndex:Int){
+          
+          
+          var dataEntries : [BarChartDataEntry] = []
+          
+          weekInfoLabel.text = weekLabel
+          firstMonthInfoLabel.text = firstMonth
+          firstDayLabel.text = firstDay
+          secondMonthLabel.text = secondDay
+          secondDayInfoLabel.text = secondMonth
+          //secondDayLabel.text = secondDay
+          itemIdx = itemIndex
+
+        
+          //dataPoint.count (배열의 값만큼 막대가 생긴다)
+          for i in 0..<dataPoints.count {
+              let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+              dataEntries.append(dataEntry)
+             // print(Int(values[i]))
+          }
+          
+          
+          //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
+          let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
+          
+          
+          //그래프 색 변경 부분
+          
+        //  print(values[1])
+          chartDataSet.colors = [setColor(value: values[0]),setColor(value: values[1]),setColor(value: values[2]),setColor(value: values[3]),setColor(value: values[4]),setColor(value: values[5]),setColor(value: values[6])]
+          
+          
+          let chartData = BarChartData(dataSet: chartDataSet)
+          ivChartView.data = chartData
+          ivChartView.xAxis.labelPosition = .bottom
+          ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+          ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+          ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+          ivChartView.xAxis.drawGridLinesEnabled = false
+          ivChartView.leftAxis.drawLabelsEnabled = false
+          ivChartView.rightAxis.drawGridLinesEnabled = false
+          ivChartView.rightAxis.drawLabelsEnabled = false
+          ivChartView.leftAxis.drawAxisLineEnabled = false
+          ivChartView.rightAxis.drawAxisLineEnabled = false
+          ivChartView.leftAxis.drawGridLinesEnabled = false
+          ivChartView.drawGridBackgroundEnabled = false
+          ivChartView.drawBordersEnabled = false
+          
+          //밑에 데이터셋 제거
+          ivChartView.legend.enabled = false
+          
+          chartData.barWidth = 0.2
+        
+      }
+      
+    
+    func bindGraph(model:GraphInfo, model2:SingleGraphWeekInfo, weekLabel:String, itemIndex:Int){
+        
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 2
+        valFormatter.currencySymbol = "$"
         
         
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        
+       // firstDayInfoLabel.text = model.startDay
+        secondDayInfoLabel.text = model.endDay
+        itemIdx = itemIndex
+        weekInfoLabel.text = weekLabel
+        var dataPoints: [String] = ["일","월","화","수","목","금","토"]
         var dataEntries : [BarChartDataEntry] = []
         
-        weekInfoLabel.text = weekLabel
-        firstMonthLabel.text = firstMonth
-        firstDayLabel.text = firstDay
-        secondMonthLabel.text = secondMonth
-        secondDayLabel.text = secondDay
-        itemIdx = itemIndex
-
-      
         //dataPoint.count (배열의 값만큼 막대가 생긴다)
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
-            dataEntries.append(dataEntry)
-           // print(Int(values[i]))
-        }
+        for i in 0 ... months.count - 1{
+                let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.stocks[i]))
+                   dataEntries.append(dataEntry)
+                  // print(Int(values[i]))
+               }
+               
+               
+               //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
+               let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
+               
+               
+               //그래프 색 변경 부분
+               
+             //  print(values[1])
+            chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+               
+               
+               let chartData = BarChartData(dataSet: chartDataSet)
+               chartData.setValueFormatter(formatter)
+               ivChartView.data = chartData
+               ivChartView.xAxis.labelPosition = .bottom
+               ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+               ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+               ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+               ivChartView.xAxis.drawGridLinesEnabled = false
+               ivChartView.leftAxis.drawLabelsEnabled = false
+               ivChartView.rightAxis.drawGridLinesEnabled = false
+               ivChartView.rightAxis.drawLabelsEnabled = false
+               ivChartView.leftAxis.drawAxisLineEnabled = false
+               ivChartView.rightAxis.drawAxisLineEnabled = false
+               ivChartView.leftAxis.drawGridLinesEnabled = false
+               ivChartView.drawGridBackgroundEnabled = false
+               ivChartView.drawBordersEnabled = false
+               
+               //밑에 데이터셋 제거
+               ivChartView.legend.enabled = false
+               
+               chartData.barWidth = 0.2
         
+               let ll = ChartLimitLine(limit: Double(model2.alarmCnt), label: "")
+               limitLine = ll
+               ivChartView.rightAxis.removeLimitLine(ll)
+               ivChartView.rightAxis.addLimitLine(ll)
+               ll.lineWidth = 0.3
+               
+               
+            
+               
+               //그래프 색 변경 부분
+               
+               
+              
         
-        //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
-        let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
-        
-        
-        //그래프 색 변경 부분
-        
-      //  print(values[1])
-        chartDataSet.colors = [setColor(value: values[0]),setColor(value: values[1]),setColor(value: values[2]),setColor(value: values[3]),setColor(value: values[4]),setColor(value: values[5]),setColor(value: values[6])]
-        
-        
-        let chartData = BarChartData(dataSet: chartDataSet)
-        ivChartView.data = chartData
-        ivChartView.xAxis.labelPosition = .bottom
-        ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-        ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-        ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        ivChartView.xAxis.drawGridLinesEnabled = false
-        ivChartView.leftAxis.drawLabelsEnabled = false
-        ivChartView.rightAxis.drawGridLinesEnabled = false
-        ivChartView.rightAxis.drawLabelsEnabled = false
-        ivChartView.leftAxis.drawAxisLineEnabled = false
-        ivChartView.rightAxis.drawAxisLineEnabled = false
-        ivChartView.leftAxis.drawGridLinesEnabled = false
-        ivChartView.drawGridBackgroundEnabled = false
-        ivChartView.drawBordersEnabled = false
-        
-        //밑에 데이터셋 제거
-        ivChartView.legend.enabled = false
-        
-        chartData.barWidth = 0.2
-      
     }
+    
     
     
     func limitDraw(limitCount:Double){

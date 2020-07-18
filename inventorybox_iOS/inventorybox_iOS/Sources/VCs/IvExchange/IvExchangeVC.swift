@@ -9,7 +9,7 @@
 import UIKit
 
 class IvExchangeVC: UIViewController {
-
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var myLocationLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
@@ -30,14 +30,14 @@ class IvExchangeVC: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         setNotiAddress()
-        getDataFromServer()
+        getDataFromServer(filterNum)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.navigationBar.isHidden = false
-//        removeNotiAddress()
+        //        removeNotiAddress()
     }
     var allExchangeArray: [PostInfo] = []
     var filteredExchangeArray: [PostInfo] = []
@@ -62,21 +62,22 @@ class IvExchangeVC: UIViewController {
         super.viewDidLoad()
         
         setLabelCustom()
-
+        
         setTabBottomViewCustom()
         setShadow()
         setCollectionView()
         setCateStackView()
         setTextField()
     }
-    private func getDataFromServer() {
-         
+    private func getDataFromServer(_ filter: String) {
+        
         IvExchangeHomeService.shared.getExchangeHome(filter: filterNum) { (networkResult) in
-              switch networkResult {
-              case .success(let data):
+            switch networkResult {
+            case .success(let data):
+                
                 guard let dt = data as? IvExchangeHomeClass else { return }
-                print(dt)
                 self.myLocationLabel.text = dt.addressInfo
+                print(dt)
                 if self.filterNum == "0" {
                     self.allExchangeArray = dt.postInfo
                     self.filteredExchangeArray = self.allExchangeArray
@@ -90,20 +91,20 @@ class IvExchangeVC: UIViewController {
                     self.filteredExchangeArray = self.allExchangeArray
                     self.allIvCollectionView.reloadData()
                 }
-                   
-              case .requestErr(let message):
-                   guard let message = message as? String else { return }
-                   let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-                   let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                   alertViewController.addAction(action)
-                   self.present(alertViewController, animated: true, completion: nil)
-                   
-              case .pathErr: print("path")
-              case .serverErr: print("serverErr")
-              case .networkFail: print("networkFail")
-              }
-         }
-         
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
     }
     private func setTextField() {
         searchTextField.delegate = self
@@ -132,13 +133,13 @@ class IvExchangeVC: UIViewController {
         priceBtn.layer.cornerRadius = 12
         recentBtn.layer.cornerRadius = 12
         
-        distanceBtn.titleLabel?.textColor = .white
+        distanceBtn.titleLabel?.textColor = .mediumGrey
         priceBtn.titleLabel?.textColor = .mediumGrey
-        recentBtn.titleLabel?.textColor = .mediumGrey
+        recentBtn.titleLabel?.textColor = .white
         
-        distanceBtn.backgroundColor = .yellow
+        distanceBtn.backgroundColor = .white
         priceBtn.backgroundColor = .white
-        recentBtn.backgroundColor = .white
+        recentBtn.backgroundColor = .yellow
     }
     
     @IBAction func distanceBtnPressed(_ sender: Any) {
@@ -151,6 +152,8 @@ class IvExchangeVC: UIViewController {
         priceBtn.backgroundColor = .white
         recentBtn.backgroundColor = .white
         
+        filterNum = "1"
+        getDataFromServer(filterNum)
         
     }
     @IBAction func priceBtnPressed(_ sender: Any) {
@@ -162,6 +165,9 @@ class IvExchangeVC: UIViewController {
         distanceBtn.backgroundColor = .white
         priceBtn.backgroundColor = .yellow
         recentBtn.backgroundColor = .white
+        
+        filterNum = "2"
+        getDataFromServer(filterNum)
     }
     
     @IBAction func recentBtnPressed(_ sender: Any) {
@@ -172,6 +178,9 @@ class IvExchangeVC: UIViewController {
         distanceBtn.backgroundColor = .white
         priceBtn.backgroundColor = .white
         recentBtn.backgroundColor = .yellow
+        
+        filterNum = "0"
+        getDataFromServer(filterNum)
     }
     
     
@@ -231,7 +240,7 @@ class IvExchangeVC: UIViewController {
         allIvCollectionView.reloadData()
         
     }
-     
+    
     @IBAction func recentIvBtnPressed(_ sender: Any) {
         allInventoryLabel.textColor = UIColor.gray
         foodInventoryLabel.textColor = UIColor.gray
@@ -262,10 +271,6 @@ class IvExchangeVC: UIViewController {
         foodInventoryBottomView.layer.cornerRadius = 3
         productInventoryBottomView.layer.cornerRadius = 3
         
-//        allInventoryBottomView.isHidden = false
-//        foodInventoryBottomView.isHidden = true
-//        productInventoryBottomView.isHidden = true
-        
     }
     private func setCollectionView() {
         
@@ -284,7 +289,7 @@ class IvExchangeVC: UIViewController {
         topView.layer.shadowOpacity = 0.1
         topView.layer.shadowRadius = 2
         topView.layer.shadowOffset = CGSize(width: 0, height: 2)
-     
+        
         searchTextField.layer.shadowOpacity = 0.1
         searchTextField.layer.shadowRadius = 2
         searchTextField.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -298,13 +303,6 @@ extension IvExchangeVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredExchangeArray.count
-//        if collectionView == allIvCollectionView {
-//            return allExchangeArray.count
-//        } else if collectionView == foodIvCollectionView {
-//            return foodExchangeArray.count
-//        } else {
-//            return productExchangeArray.count
-//        }
         
     }
     
@@ -312,10 +310,17 @@ extension IvExchangeVC: UICollectionViewDataSource {
         
         guard let exchangeCell = collectionView.dequeueReusableCell(withReuseIdentifier: IvAllExchangeCell.identifier, for: indexPath) as? IvAllExchangeCell else { return UICollectionViewCell() }
         
-    
+        if allExchangeArray[indexPath.row].distDiff > 1000 {
+            exchangeCell.distance = "\(allExchangeArray[indexPath.row].distDiff / 1000)" + "km"
+            exchangeCell.isColor = UIColor.gray
+        } else {
+            exchangeCell.distance = "\(allExchangeArray[indexPath.row].distDiff)" + "m"
+            exchangeCell.isColor = UIColor.yellow
+        }
         exchangeCell.set(filteredExchangeArray[indexPath.row])
         exchangeCell.delegate = self
         exchangeCell.indexPath = indexPath.row
+        
         return exchangeCell
         
     }
@@ -340,14 +345,18 @@ extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
 }
 
 extension IvExchangeVC: ExchangeButtonDelegate {
-    func whichProductIsSelect(indexPath: Int) {
-        print(indexPath)
-        performSegue(withIdentifier: "goToDetail", sender: self)
+    func whichProductIsSelect(indexPath: Int, idx: Int) {
+//        print(indexPath)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvExchangeDetailVC") as? IvExchangeDetailVC else { return }
+        
+        vc.idx = idx
+    
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func didSelectHeart(isClicked: Bool, indexPath: Int) {
         allExchangeArray[indexPath].likes = isClicked ? 1: 0
-//        allExchangeArray[indexPath].ivHeart = isClicked
+        //        allExchangeArray[indexPath].ivHeart = isClicked
         // 어차피 전체 식품 공산품은 전체에서 필터링을 할거기때문에 찜하기는 전체에만 반영하고 다시 필터링을 해주면 된다.
     }
 }
@@ -355,6 +364,7 @@ extension IvExchangeVC: ExchangeButtonDelegate {
 //MARK: - TextFieldDelegate
 extension IvExchangeVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         self.view.endEditing(true)
         return true
     }
