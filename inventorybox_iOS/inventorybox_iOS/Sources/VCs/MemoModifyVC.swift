@@ -58,7 +58,7 @@ class MemoModifyVC: UIViewController {
         HomeService.shared.getHome(completion: { networkResult in
             switch networkResult{
             case .success(let data):
-                print(data)
+//                print(data)
                 guard let dt = data as? HomeItemclass else { return }
                 self.orderCheckMemoInformations = dt.result
                 self.tableview.reloadData()
@@ -117,9 +117,8 @@ class MemoModifyVC: UIViewController {
         HomeMemoModifyPostService.shared.getRecordEditIvPost(data: orderCheckMemoInformations[0]) { networkResult in
             switch networkResult {
             case .success(let data):
-                //                guard let token = token as? String else { return }
-                //                UserDefaults.standard.set(token, forKey: "token")
                 print(data)
+                
                 
             case .requestErr(let message):
                 guard let message = message as? String else { return }

@@ -92,6 +92,8 @@
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
 		D4558A8D24C166E600A1ACB5 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4558A8C24C166E500A1ACB5 /* logo.json */; };
+		D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */; };
+		D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
 		D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A015724B6C93C0055814E /* IvExchange.storyboard */; };
 		D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015924B6C9570055814E /* IvExchangeVC.swift */; };
@@ -104,6 +106,7 @@
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
+		D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B863F24C26485003785FE /* AddressUpdateService.swift */; };
 		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
 		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
 		D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */; };
@@ -130,6 +133,7 @@
 		D4B45F5124B57D7000888DC3 /* SelectIconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */; };
 		D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */; };
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
+		D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */; };
 		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */; };
@@ -261,6 +265,8 @@
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeData.swift; sourceTree = "<group>"; };
 		D4558A8C24C166E500A1ACB5 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailData.swift; sourceTree = "<group>"; };
+		D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailService.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
 		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		D49B863F24C26485003785FE /* AddressUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUpdateService.swift; sourceTree = "<group>"; };
 		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
 		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
 		D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteIvService.swift; sourceTree = "<group>"; };
@@ -301,6 +308,7 @@
 		D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIconVC.swift; sourceTree = "<group>"; };
 		D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvTodayRecord.storyboard; sourceTree = "<group>"; };
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
+		D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchService.swift; sourceTree = "<group>"; };
 		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailVC.swift; sourceTree = "<group>"; };
@@ -433,6 +441,7 @@
 				D4A2875524B8082D00A60C08 /* FoodExchangeInformation.swift */,
 				D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */,
 				D4A2875724B8083C00A60C08 /* ProductExchangeInformation.swift */,
+				D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */,
 			);
 			path = IvExchange;
 			sourceTree = "<group>";
@@ -509,9 +518,9 @@
 				D48417B124AC55EB0064EE64 /* Main.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
-				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
+				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
@@ -536,6 +545,7 @@
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
 				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
+				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
 				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
 				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
@@ -546,6 +556,8 @@
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */,
 				0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */,
+				D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */,
+				D49B863F24C26485003785FE /* AddressUpdateService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -872,6 +884,7 @@
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
 				0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
+				D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */,
 				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
@@ -923,6 +936,7 @@
 				339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
 				D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */,
+				D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */,
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
@@ -937,6 +951,7 @@
 				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
+				D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */,
 				0E4A82F824BD7B77001E38B7 /* HomeHeader2TVCell.swift in Sources */,
 				D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */,
 				0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */,
@@ -954,6 +969,7 @@
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
+				D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */,
 				D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */,
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,

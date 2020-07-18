@@ -136,7 +136,8 @@ extension SelectIconVC: UICollectionViewDelegateFlowLayout {
 
 extension SelectIconVC: IconSeletDelegate {
     func didSelectIcon(indexPath: Int, iconImageName: String) {
-
+        
+        NotificationCenter.default.post(name: .init("iconidx"), object: nil, userInfo: ["iconIdx": iconArray[indexPath].iconIdx])
         self.navigationController?.popViewController(animated: true)
     }
 }

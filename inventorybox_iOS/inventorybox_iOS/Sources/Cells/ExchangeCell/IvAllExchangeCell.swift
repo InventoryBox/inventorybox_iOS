@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ExchangeButtonDelegate {
-    func whichProductIsSelect(indexPath: Int)
+    func whichProductIsSelect(indexPath: Int, idx: Int)
     
     func didSelectHeart(isClicked: Bool, indexPath: Int)
 }
@@ -31,7 +31,10 @@ class IvAllExchangeCell: UICollectionViewCell {
     @IBOutlet weak var ivDateLabel: UILabel!
     
     var delegate: ExchangeButtonDelegate?
+    var distance: String?
+    var isColor: UIColor?
     var indexPath: Int?
+    var idx: Int?
     var isHeartSwitch: Bool = false {
         didSet {
             if isHeartSwitch {
@@ -72,11 +75,13 @@ class IvAllExchangeCell: UICollectionViewCell {
         }
         
         ivPriceLabel.text = "\(allExchangeInformation.price)"
-        ivDistanceLabel.text = "\(allExchangeInformation.distDiff)"
+        ivDistanceLabel.text = distance!
+        ivDistanceLabel.textColor = isColor!
         ivNameLabel.text = allExchangeInformation.productName
         ivLifeLabel.text = allExchangeInformation.expDate
         ivDateLabel.text = allExchangeInformation.uploadDate
-
+        idx = allExchangeInformation.postIdx
+        
     }
     
     @IBAction func switchLikes(_ sender: Any) {
@@ -90,7 +95,7 @@ class IvAllExchangeCell: UICollectionViewCell {
     }
     
     @IBAction func selectProduct(_ sender: UIButton) {
-        delegate?.whichProductIsSelect(indexPath: indexPath!)
+        delegate?.whichProductIsSelect(indexPath: indexPath!, idx: idx!)
     }
     
     

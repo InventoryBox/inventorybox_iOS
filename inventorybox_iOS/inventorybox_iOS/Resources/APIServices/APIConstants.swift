@@ -52,5 +52,11 @@ struct APIConstants {
     
     //exchange post URL
     static let ivExchangePostURL = baseURL + "exchange/post"
+    
+    static let ivExchangePostDetailURL = baseURL + "exchange/post/"
+    
+    static let ivExchangeSearchURL = baseURL + "exchange/search/"
+    
+    static let ivExchangeUpdateAddress = baseURL + "exchange/modifyLoc"
 }
 

@@ -20,6 +20,7 @@ class IvRecordEditProductVC: UIViewController {
     
     @IBOutlet weak var completeBtn: UIButton!
     
+    
     var textFieldBox: [Int] = []
     
     var dateToSend: String?
@@ -49,8 +50,14 @@ class IvRecordEditProductVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("update"), object: nil)
     }
     
+    @objc private func update() {
+            print("hi")
+            getDataFromServer(dateToSend!)
+        
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -100,7 +107,10 @@ class IvRecordEditProductVC: UIViewController {
             case .success(let data):
                 guard let dt = data as? IvRecordEditIvClass else { return }
                 
-                
+                if let itemInfo = dt.itemInfo {
+                     self.inventoryEditProductArray = itemInfo
+                     
+                }
                 if let itemArray = dt.itemInfo {
                     
                     self.inventoryEditProductArray = itemArray
@@ -181,6 +191,8 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
+        
+        NotificationCenter.default.post(name: .init("update"), object: nil)
         self.dismiss(animated: false, completion: nil)
     }
 }
@@ -234,6 +246,10 @@ extension IvRecordEditProductVC: UITableViewDelegate {
 
 
 extension IvRecordEditProductVC: FilledTextFieldDelegate {
+    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int) {
+        inventoryEditProductArray[indexPath].stocksCnt = count
+    }
+    
     func isTextFieldFilled(count: String,  isTyped: Bool, indexPath: Int) {
         
         if let cnt = Int(count) {
