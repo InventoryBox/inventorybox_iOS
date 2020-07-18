@@ -1,29 +1,28 @@
 //
-//  InventoryCompareGraphService.swift
+//  SingleGraphLoadService.swift
 //  inventorybox_iOS
 //
-//  Created by 황지은 on 2020/07/16.
+//  Created by 황지은 on 2020/07/18.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-struct InventoryCompareGraphService {
-    static let shared = InventoryCompareGraphService()
+struct SingleGraphLoadService {
+    static let shared = SingleGraphLoadService()
     
-    private func makeParameter (_ item:Int,_ year1:Int,_ month1:Int,_ week1:Int,_ year2:Int,_ month2:Int,_ week2:Int ) -> Parameters {
-        return ["item": item, "year1": year1, "month1": month1, "week1": week1, "year2":year2, "month2": month2, "week2":week2]
+    private func makeParameter (_ item:Int,_ year:Int,_ month:Int) -> Parameters {
+        return ["item": item, "year": year, "month": month]
     }
     
-    
 
-    func loadCompareGraph(_ item:Int,_ year1:Int,_ month1:Int,_ week1:Int,_ year2:Int,_ month2:Int,_ week2:Int, completion: @escaping (NetworkResult<Any>)-> Void){
+    func loadCompareGraph(_ item:Int,_ year:Int,_ month:Int, completion: @escaping (NetworkResult<Any>)-> Void){
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
 //        print(token)
         let header: HTTPHeaders = ["Content-Type":"application/json","token":token]
         
-        let url =  APIConstants.baseURL + "dashboard/" + String(item) + "/double?week[0]=" + String(year1) + "," + String(month1) + "," + String(week1) + "&week[1]=" + String(year2) + "," + String(month2) + "," + String(week2)
+        let url =  APIConstants.baseURL + "dashboard/" + String(item) + "/single?year=" + String(year) + "&month=" + String(month)
         
         print(url)
         let dataRequest = Alamofire.request( url,  method: .get, encoding: JSONEncoding.default, headers: header).responseData{
@@ -34,12 +33,9 @@ struct InventoryCompareGraphService {
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.result.value else {return}
                 let networkResult = self.judge(by: statusCode, value)
-               // print(statusCode)
-               // print
                 completion(networkResult)
             case .failure(let error):
                 print(error.localizedDescription)
-//                print(APIConstants.baseURL + "dashboard/:item/double?week[0]=" + String(year1) + "," + String(month1) + "," + String(week1) + "&week[1]=" + String(year2) + "," + String(month2) + "," + String(week2))
                 completion(.networkFail)
                 
             }
@@ -50,7 +46,7 @@ struct InventoryCompareGraphService {
     private func judge(by statusCode:Int, _ data:Data) -> NetworkResult<Any> {
         switch statusCode {
         case 200:
-            return decodingHome(by : data)
+            return decodingSingleGraph(by : data)
         case 400:
             return .pathErr
         case 500:
@@ -59,16 +55,16 @@ struct InventoryCompareGraphService {
             return .networkFail
         }
     }
-    private func decodingHome(by data:Data) -> NetworkResult<Any> {
+    private func decodingSingleGraph(by data:Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         
         
-        guard let decodedData = try? decoder.decode(InventoryCompareGraphData.self, from: data) else
+        guard let decodedData = try? decoder.decode(SingleGraphData.self, from: data) else
         {return .pathErr}
-        guard let homegraphInfo = decodedData.data else {
+        guard let singleGraphInfo = decodedData.data else {
             return .requestErr(decodedData.message)}
         print(decodedData.message)
-        return .success(homegraphInfo)
+        return .success(singleGraphInfo)
     }
 }
 
