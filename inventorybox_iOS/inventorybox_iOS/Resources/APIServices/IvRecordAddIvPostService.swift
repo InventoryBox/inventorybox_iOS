@@ -40,10 +40,8 @@ struct IvRecordAddIvPostService {
     }
     
     func getRecordAddIvPost(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
-        ]
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
 //        print(makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx))

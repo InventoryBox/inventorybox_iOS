@@ -154,7 +154,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLineDivide" translatesAutoresizingMaskIntoConstraints="NO" id="t4R-Bd-zk2">
-                                                    <rect key="frame" x="186" y="10" width="2" height="120"/>
+                                                    <rect key="frame" x="186.5" y="10" width="2" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="2" id="2EA-q7-Thv"/>
                                                         <constraint firstAttribute="height" constant="120" id="dad-ys-fIY"/>
@@ -162,13 +162,12 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="t4R-Bd-zk2" firstAttribute="centerX" secondItem="yen-VZ-esY" secondAttribute="centerX" id="9wO-re-dgm"/>
                                                 <constraint firstItem="Nhc-i9-u6C" firstAttribute="top" secondItem="yen-VZ-esY" secondAttribute="top" constant="3" id="AAE-yU-kW6"/>
                                                 <constraint firstAttribute="bottom" secondItem="t4R-Bd-zk2" secondAttribute="bottom" constant="11" id="FpP-pk-zRQ"/>
                                                 <constraint firstItem="t4R-Bd-zk2" firstAttribute="top" secondItem="yen-VZ-esY" secondAttribute="top" constant="10" id="PYA-YZ-jG7"/>
                                                 <constraint firstAttribute="bottom" secondItem="Nhc-i9-u6C" secondAttribute="bottom" constant="3" id="cyL-oH-ee3"/>
                                                 <constraint firstItem="Nhc-i9-u6C" firstAttribute="leading" secondItem="yen-VZ-esY" secondAttribute="leading" constant="15" id="fPw-JR-VPV"/>
-                                                <constraint firstItem="t4R-Bd-zk2" firstAttribute="leading" secondItem="yen-VZ-esY" secondAttribute="leading" constant="186" id="imK-F8-5n6"/>
-                                                <constraint firstAttribute="trailing" secondItem="t4R-Bd-zk2" secondAttribute="trailing" constant="187" id="lWu-YD-ssB"/>
                                                 <constraint firstAttribute="trailing" secondItem="Nhc-i9-u6C" secondAttribute="trailing" constant="15" id="pqU-X4-Myg"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -388,6 +387,11 @@
                             <constraint firstItem="8rR-dD-Yh1" firstAttribute="top" secondItem="ATt-Rf-xbz" secondAttribute="top" id="xtW-er-nDe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ATt-Rf-xbz"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8rR-dD-Yh1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HVl-lr-M1o"/>
                     <connections>

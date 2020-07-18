@@ -20,9 +20,8 @@ struct emailAuthService {
     }
     
     func getRecordEditIvPost(data: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json"
-        ]
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.emailURL
         
