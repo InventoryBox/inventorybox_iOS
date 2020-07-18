@@ -515,7 +515,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5z-VB-21c">
-                                                            <rect key="frame" x="20" y="0.0" width="16" height="14"/>
+                                                            <rect key="frame" x="20" y="-0.5" width="16" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="0Vd-Ua-xll"/>
                                                             </constraints>
@@ -1069,11 +1069,6 @@
                             <constraint firstItem="jT3-hg-vyA" firstAttribute="leading" secondItem="Keh-B0-vyl" secondAttribute="leading" id="mMO-s1-ZQs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Keh-B0-vyl"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ysw-cO-wUP"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="haT-jp-BJF"/>
                     <connections>

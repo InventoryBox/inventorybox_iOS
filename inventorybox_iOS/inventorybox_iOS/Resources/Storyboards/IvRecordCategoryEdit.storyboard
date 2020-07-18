@@ -11,7 +11,7 @@
         <!--Iv Record Category EditVC-->
         <scene sceneID="3Ys-Lg-aHy">
             <objects>
-                <viewController storyboardIdentifier="IvRecordCategoryEditVC" id="QKa-AL-RVh" customClass="IvRecordCategoryEditVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvRecordCategoryEditVC" id="QKa-AL-RVh" customClass="IvRecordCategoryEditVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hb-s7-ygo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="7TO-RQ-yi5" customClass="CategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="7TO-RQ-yi5" customClass="CategoryCell" customModule="재고창고" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.5" width="66" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TYP-cf-QZk">
@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="95" width="375" height="508"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectHeaderCell" rowHeight="35" id="bOh-yb-s32" customClass="SelectHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectHeaderCell" rowHeight="35" id="bOh-yb-s32" customClass="SelectHeaderCell" customModule="재고창고" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOh-yb-s32" id="sxC-qx-WBo">
@@ -126,7 +126,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCategoryEditCell" rowHeight="94" id="i73-nV-7XN" customClass="InventoryCategoryEditCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCategoryEditCell" rowHeight="94" id="i73-nV-7XN" customClass="InventoryCategoryEditCell" customModule="재고창고" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i73-nV-7XN" id="li6-6B-F35">
@@ -354,7 +354,7 @@
                                     <constraint firstAttribute="bottom" secondItem="wIO-Kl-k7R" secondAttribute="bottom" id="kKu-NT-Kqw"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
                                 <rect key="frame" x="0.0" y="0.0" width="492" height="810"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -375,11 +375,6 @@
                             <constraint firstItem="0Rd-ik-DZm" firstAttribute="leading" secondItem="9XY-Rk-Boi" secondAttribute="leading" id="xtR-lR-6Ex"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9XY-Rk-Boi"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="aV3-0H-DuD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QGP-pg-8ch"/>
                     <connections>
@@ -400,7 +395,7 @@
         <!--Add Category PopupVC-->
         <scene sceneID="BzO-bd-mv5">
             <objects>
-                <viewController storyboardIdentifier="AddCategoryPopupVC" id="raa-Q0-gHR" customClass="AddCategoryPopupVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCategoryPopupVC" id="raa-Q0-gHR" customClass="AddCategoryPopupVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f1x-kl-QBP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +496,7 @@
         <!--Delete Category PopupVC-->
         <scene sceneID="7DQ-Md-xVB">
             <objects>
-                <viewController storyboardIdentifier="DeleteCategoryPopupVC" id="9Jx-nP-dl5" customClass="DeleteCategoryPopupVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeleteCategoryPopupVC" id="9Jx-nP-dl5" customClass="DeleteCategoryPopupVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I1N-tJ-2SV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -594,7 +589,7 @@
         <!--Move Category PopupVC-->
         <scene sceneID="OWF-bN-O8x">
             <objects>
-                <viewController storyboardIdentifier="MoveCategoryPopupVC" id="1CV-GV-Gbn" customClass="MoveCategoryPopupVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoveCategoryPopupVC" id="1CV-GV-Gbn" customClass="MoveCategoryPopupVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="74R-Au-iwj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -625,7 +620,7 @@
                                         <rect key="frame" x="0.0" y="47" width="375" height="277"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCategoryCell" rowHeight="55" id="EVA-sf-6rG" customClass="MoveCategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoveCategoryCell" rowHeight="55" id="EVA-sf-6rG" customClass="MoveCategoryCell" customModule="재고창고" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EVA-sf-6rG" id="MHP-wM-3hm">
@@ -732,7 +727,7 @@
         <!--Delete Category PopVC-->
         <scene sceneID="9Eg-uL-ATi">
             <objects>
-                <viewController storyboardIdentifier="DeleteCategoryPopVC" id="xZh-Ky-Ufn" customClass="DeleteCategoryPopVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeleteCategoryPopVC" id="xZh-Ky-Ufn" customClass="DeleteCategoryPopVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CZJ-nG-XN5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -763,7 +758,7 @@
                                         <rect key="frame" x="0.0" y="47" width="375" height="277"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeleteCategoryCell" rowHeight="55" id="nre-LG-G4c" customClass="DeleteCategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeleteCategoryCell" rowHeight="55" id="nre-LG-G4c" customClass="DeleteCategoryCell" customModule="재고창고" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nre-LG-G4c" id="yeu-rw-kNH">

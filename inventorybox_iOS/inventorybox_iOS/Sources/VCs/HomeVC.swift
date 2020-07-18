@@ -91,6 +91,7 @@ class HomeVC: UIViewController {
 //                 print(data)
                  guard let dt = data as? HomeItemclass else { return }
                  self.orderCheckInformations = dt.result
+                 print(self.orderCheckInformations)
                  self.tableview.reloadData()
              case .requestErr(let message):
                  guard let message = message as? String else {return}

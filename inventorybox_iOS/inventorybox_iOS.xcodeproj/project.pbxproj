@@ -291,7 +291,7 @@
 		D46A015C24B6CC3C0055814E /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MoveCategoryCell.swift; sourceTree = "<group>"; };
 		D479508724BEF31F00588979 /* IvRecordEditIvService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvService.swift; sourceTree = "<group>"; };
-		D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inventorybox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48417A824AC55EB0064EE64 /* 재고창고.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "재고창고.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48417AB24AC55EB0064EE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D48417B224AC55EB0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		D48417A924AC55EB0064EE64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */,
+				D48417A824AC55EB0064EE64 /* 재고창고.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -757,9 +757,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D48417A724AC55EB0064EE64 /* inventorybox_iOS */ = {
+		D48417A724AC55EB0064EE64 /* 재고창고 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "inventorybox_iOS" */;
+			buildConfigurationList = D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "재고창고" */;
 			buildPhases = (
 				42004675835A41669558C0BD /* [CP] Check Pods Manifest.lock */,
 				D48417A424AC55EB0064EE64 /* Sources */,
@@ -771,9 +771,9 @@
 			);
 			dependencies = (
 			);
-			name = inventorybox_iOS;
+			name = "재고창고";
 			productName = inventorybox_iOS;
-			productReference = D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */;
+			productReference = D48417A824AC55EB0064EE64 /* 재고창고.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -804,7 +804,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D48417A724AC55EB0064EE64 /* inventorybox_iOS */,
+				D48417A724AC55EB0064EE64 /* 재고창고 */,
 			);
 		};
 /* End PBXProject section */
@@ -1229,7 +1229,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "inventorybox_iOS" */ = {
+		D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "재고창고" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D48417BD24AC55EC0064EE64 /* Debug */,

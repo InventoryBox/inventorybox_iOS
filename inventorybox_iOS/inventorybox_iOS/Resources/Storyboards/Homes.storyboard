@@ -387,11 +387,6 @@
                             <constraint firstItem="8rR-dD-Yh1" firstAttribute="top" secondItem="ATt-Rf-xbz" secondAttribute="top" id="xtW-er-nDe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ATt-Rf-xbz"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="8rR-dD-Yh1"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HVl-lr-M1o"/>
                     <connections>
@@ -663,7 +658,7 @@
                                             <constraint firstAttribute="height" constant="44" id="56b-Oz-gRB"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="송황호" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID2-dv-gpU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이혜수" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID2-dv-gpU">
                                         <rect key="frame" x="28" y="91" width="37" height="17"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                         <nil key="textColor"/>

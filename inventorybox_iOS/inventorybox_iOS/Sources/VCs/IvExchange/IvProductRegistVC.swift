@@ -295,6 +295,7 @@ extension IvProductRegistVC: UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.unitTextField.endEditing(true)
+        productExplainTextView.endEditing(true)
         return true
     }
 }

@@ -396,11 +396,6 @@
                             <constraint firstItem="Toy-L0-xh6" firstAttribute="bottom" secondItem="9Z1-EL-4VQ" secondAttribute="bottom" id="yNQ-tB-h2O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Z1-EL-4VQ"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="6dI-6U-A8U"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dem-qg-QoY"/>
                     <connections>
