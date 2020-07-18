@@ -36,7 +36,7 @@ struct HomeItem: Codable {
     var flag: Int
     let itemName, unit: String
     var alarmCnt: Int
-    let memoCnt, presentCnt: Int
+    var memoCnt, presentCnt: Int
     let img: String
     let iconName: String
     let stocksInfo: [Int]

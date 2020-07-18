@@ -56,8 +56,11 @@ class Home1TVCell: UITableViewCell {
              case .success(let data):
                  print(data)
                  guard let dt = data as? HomeItemclass else { return }
+                 
                  self.checklistInformations = dt.result
+                 
                  self.collectionview.reloadData()       // 데이터를 다시 불러오기
+             
              case .requestErr(let message):
                  guard let message = message as? String else {return}
                  print(message)
@@ -77,14 +80,11 @@ class Home1TVCell: UITableViewCell {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let checkvalue = userInfo["bool"] as? Bool else { return }
         guard let ivName = userInfo["name"] as? String else { return }
-
         
-//        print(checkvalue)
-//        print(ivName)
         for i in 0..<checklistInformations.count{
             if checklistInformations[i].itemName == ivName{
                 if checklistInformations[i].flag ==  0{
-                    
+
                     checklistInformations[i].flag =  1
                 }else{
                     checklistInformations[i].flag =  0

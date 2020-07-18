@@ -24,7 +24,8 @@ class Home2TVCell: UITableViewCell {
     @IBOutlet weak var graphView: UIView!           // 그래프 나오는View
     @IBOutlet weak var checkBoxBtn: BEMCheckBox!
     
-  
+    var itemIdx: Int?
+    var indexPath: Int?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,12 +40,40 @@ class Home2TVCell: UITableViewCell {
     // checkBox눌렀을 때
     @IBAction func checkBoxPress(_ sender: Any) {
         if checkBoxBtn.on == false{ // 체크를 처음 눌렀을 때 On
-            checkBoxBtn.on = true
+            checkvalue = true
+            
         }else{                  // // 체크를 풀었을 때 Off
-            checkBoxBtn.on = false
+            checkvalue = false
         }
         
-        NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkBoxBtn.on, "name": productNameText.text!])
+        var isSelect: Int = 0
+        if checkvalue {
+            isSelect = 0
+        } else {
+            isSelect = 1
+        }
+        
+        NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkBoxBtn.on, "name": productNameText.text!, "indexPath": indexPath!, "isSelect": isSelect])
+        
+        IvHomeFlagPostService.shared.getRecordEditIvPost(itemIdx: itemIdx!, flag: isSelect) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                
+                print(data)
+                
+            case .requestErr(let msg):
+                print(msg)
+            case .pathErr:
+                print("path")
+                break
+            case .serverErr:
+                print("server")
+                break
+            case .networkFail:
+                print("network")
+                break
+            }
+        }
         
     }
     
@@ -64,7 +93,6 @@ class Home2TVCell: UITableViewCell {
         NotificationCenter.default.post(name: .init("morepressbutton"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
     }
    
-    
     // Set 부분
     func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String, checkFlag: Int) {
         

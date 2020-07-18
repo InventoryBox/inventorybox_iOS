@@ -70,7 +70,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         calendarCollectionView.layer.shadowRadius = 3
         calendarCollectionView.clipsToBounds = false
         calendarCollectionView.layer.masksToBounds = false
-        
        
         //day 데이터 setting
         

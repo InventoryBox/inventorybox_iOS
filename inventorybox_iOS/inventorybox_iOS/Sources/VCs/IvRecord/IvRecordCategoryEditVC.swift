@@ -20,8 +20,6 @@ class IvRecordCategoryEditVC: UIViewController {
     
     @IBOutlet weak var popupBackgroundView: UIView!
     
-    
-//    private var selections = [String]()
     private var checkboxSelections = [Int]()
     
     var dateToSend: String?

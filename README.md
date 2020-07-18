@@ -138,14 +138,14 @@
 
 | Category | Priority | Function | Implemention | Part |
 |:--------|:--------|:--------:|:---------|:--------:|
-| 스플래시 | 1 |  | - | [지은](https://github.com/hwangJi) |
+| 스플래시 | 1 |  | ⭕️ | [지은](https://github.com/hwangJi) |
 | 로그인/회원가입 | 1 | 로그인 | ⭕️ | [지은](https://github.com/hwangJi) |
-|  | 1 | 회원가입 | ⭕️ | [지은](https://github.com/hwangJi) |
-|  | 1 | 이메일 인증 | - | [황호](https://github.com/Hwangho) |
+|  | 1 | 회원가입 | ⭕️ | [황호](https://github.com/Hwangho) |
+|  | 1 | 이메일 인증 | ⭕️ | [황호](https://github.com/Hwangho) |
 | 홈(발주 알림) | 1 | 프로필 | ⭕️ | [황호](https://github.com/Hwangho) |
 |  | 1 | 발주 알림 요약 박스 | ⭕️ | [황호](https://github.com/Hwangho) |
 |  | 2 | 발주 알림 그래프 뷰 | ⭕️ | [황호](https://github.com/Hwangho) |
-| | 1 | 발주 알림 메모 수정 | - | [황호](https://github.com/Hwangho) |
+| | 1 | 발주 알림 메모 수정 | ⭕️ | [황호](https://github.com/Hwangho) |
 |  | 3 | 더보기 (hamburger menu) | ⭕️ | [황호](https://github.com/Hwangho) |
 | 재고기록 | 1 | Top DatePicker Custom | ⭕️ | [재용](https://github.com/wody98) |
 |  | 1 | 오늘 재고 기록 | ⭕️ | [재용](https://github.com/wody98) |
@@ -161,11 +161,11 @@
 | | 1 | 주차별 재고 추이량 비교 Graph View | ⭕️ | [지은](https://github.com/hwangJi) |
 | | 1 | 재고 기본 설정 변경 | ⭕️ | [지은](https://github.com/hwangJi) |
 | 재고 교환 | 2.5 | 가게 위치 설정 | ⭕️ | [재용](https://github.com/wody98) |
-|  | 3 | 제품등록 목록 | - | [재용](https://github.com/wody98) |
-|  | 3 | 내가 찜한 제품 모아보기 | - | - |
-|  | 2.5 | 제품 검색 | - | - |
-|  | 3 | 제품 필터 | - | - |
-| | 2.5 | 제품 등록 | - | [지은](https://github.com/hwangJi) |
+|  | 3 | 제품등록 목록 | ⭕️ | [재용](https://github.com/wody98) |
+|  | 3 | 내가 찜한 제품 모아보기 | ⭕️ | [재용](https://github.com/wody98) |
+|  | 2.5 | 제품 검색 | ⭕️ | [지은](https://github.com/hwangJi) |
+|  | 3 | 제품 필터 | ⭕️ | [재용](https://github.com/wody98) |
+| | 2.5 | 제품 등록 | ⭕️ | [지은](https://github.com/hwangJi) |
 
  
 
@@ -285,7 +285,7 @@ git push origin develop
 >
 > 재료 추가를 할 때 발주 발주 알림 기준과 발주할 수량 설정 가능
 
-<img src="https://user-images.githubusercontent.com/56102421/87776813-5618ba00-c863-11ea-84e6-656fad223d13.png" width="30%"><img src="https://user-images.githubusercontent.com/56102421/87776834-5b760480-c863-11ea-96cf-38c3d913362c.png" width="30%"><img scr="https://user-images.githubusercontent.com/56102421/86916566-be2e1880-c15e-11ea-8720-42ad8b7f7fcd.png" width="30%" >   <img src ="https://user-images.githubusercontent.com/56102421/87776895-79436980-c863-11ea-8950-4ae44f81d646.png" width="30%">  
+<img src="https://user-images.githubusercontent.com/56102421/87776813-5618ba00-c863-11ea-84e6-656fad223d13.png" width="30%"><img src="https://user-images.githubusercontent.com/56102421/87776834-5b760480-c863-11ea-96cf-38c3d913362c.png" width="30%">   <img src ="https://user-images.githubusercontent.com/56102421/87776895-79436980-c863-11ea-8950-4ae44f81d646.png" width="30%">  
 
 3. Inventory Graph View
 
@@ -303,7 +303,7 @@ git push origin develop
 
 4. Inventory Exchange View
 
-   > 재고교환은 외식사업자들의 식품 및 공산품 중고거래 플랫폼입니다. 
+   > 재고교환은 외식사업자들의 식품 및 공산품 중고거래 플랫폼
    >
    > 사용자의 가게 위치를 중심으로 반경 2km 내 가게들과 교류가 가능한 형식의 위치 기반 직거래만을 취급함
    >
@@ -317,219 +317,18 @@ git push origin develop
 
 
 
-### 👉 카카오 API 이용해보기
+### [👉 카카오 API 이용해보기](https://github.com/InventoryBox/inventorybox_iOS/wiki/👉-카카오-API-이용해보기)
 
-[Kakao Developer 시작하기](https://developers.kakao.com/docs/latest/ko/getting-started/app  ) 문서를 보면서 따라하였다.
-
-키워드로 특정 장소 정보를 조회하거나, 좌표를 주소 또는 행정구역으로 변환하는 등 장소에 대한 정보를 제공하는 카카오 Local API를 사용하였다.
-
-먼저,  AppDelegate에 카카오 SDK를 등록한다.
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-  // 카카오 SDK 등록
-  KakaoSDKCommon.shared.initSDK(appKey: "") 
-  return true
-}
-```
-
-그 후, 카카오 문서를 읽으며, 데이터 모델을 만든다. 여기서 모델의 타입이나 옵셔널 처리가 하나라도 틀릴 경우, 통신오류가 뜨기 때문에 조심해아한다.
-
-```swift
-import Foundation
-
-// MARK: - KaKaoLocalService
-struct KaKaoLocalData: Codable {
-    let documents: [Document]
-    let meta: Meta
-}
-
-// MARK: - Document
-struct Document: Codable {
-    let address: Address?
-    let addressName, addressType: String
-    let roadAddress: RoadAddress?
-    let x, y: String
-
-    enum CodingKeys: String, CodingKey {
-        case address
-        case addressName = "address_name"
-        case addressType = "address_type"
-        case roadAddress = "road_address"
-        case x, y
-    }
-}
-// 이하 생략 
-// 더보고싶으면 코드에 있습니당
-```
-
-마지막으로 통신서비스를 만들어준다. 여기서 url에 query문을 넣는 것 때문에 url Type으로 변환하는 점에서 어려움을 겪었다. 아래와 같이 Alamofire의 request함수의 encoding변수를 사용해주어야한다. ⭐️ 이거중요.. 이거때매 멘붕이었음 쿼리문으로 보낼때는 encoding을 query문으로 해주기!
-
-```swift
-let parameter: Parameters =  
-[ "query": "\(query)" ]
-        
-let dataRequest = Alamofire.request(APIConstants.kakaoURL, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: header)
-        
-```
-
-
-
-### 👉어떤 객체 안에서 일어나는 일들을 다른 객체에 어떻게 알려줄까? 
-
-우리 어플리케이션의 뷰는 테이블뷰와 콜렉션뷰를 굉장히 많이 사용하였고, 셀, 뷰컨 등 객체들 간의 데이터 넘기기가 중요한 문제였다. 여기서 평소 하던대로 아래와 같이 데이터를 주고 받으면 객체간의 순환참조가 일어나 어플리케이션이 굉장히 꼬이게 된다고 한다.
-
-```swift
-let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC") as? IvRecordNaviVC  else { return }
-```
-
-
+### [👉어떤 객체 안에서 일어나는 일들을 다른 객체에 어떻게 알려줄까?](https://github.com/InventoryBox/inventorybox_iOS/wiki/👉어떤-객체-안에서-일어나는-일들을-다른-객체에-어떻게-알려줄까%3F)
 
 - **테이블뷰 셀 안의 버튼(체크박스)이 눌렸다는 것을 뷰컨에 알리는 방법** 
 
-먼저 protocol을 만들어 준다.
-
-```swift
-@objc protocol CellButtonDelegate {
-    @objc func didClickCheckButton(isClicked: Bool, indexPath: IndexPath)
-    @objc func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int)
-}
-```
-
-> CellButtonDelegate를 만들어주고 didClickCheckButton함수를 만들어준다.
-
-다음, Cell 객체에 다음과 같이 변수를 선언해준다.
-
-```swift
-class InventoryCategoryEditCell: UITableViewCell {
-    static let identifier: String = "InventoryCategoryEditCell"
-    
-    var delegate: CellButtonDelegate?
-    var indexPath: IndexPath?
-    var isSelectBtn: Bool = false {
-        didSet {
-            selectedCheckBox.on = isSelectBtn
-        }
-    }
-```
-
->Cell 안에 만들어준 protocol을 가진 delegate를 옵셔널로 선언하여 행위를 알려주는 변수를 만들어준다. 
->
->Cell 하나하나는 indexPath에 대한 정보가 없기 때문에 indexPath도 옵셔널로 선언하여 VC에 알려줄 때 정보를 같이 넘겨준다.
->
->체크박스가 눌렸는지 안눌렸는지 트래킹해줄 변수하나도 같이 선언해준다.
-
-다음, Cell 객체 안에 체크박스가 눌렸을 때의 IBAction을 연결하여 그 안에 Delegate함수를 넣어준다.
-
-```swift
-@IBAction func turnCheckbox(_ sender: Any) {
-        if selectedCheckBox.on {
-            isSelectBtn = true
-        } else {
-            isSelectBtn = false
-        } 
-        delegate?.didClickCheckButton(isClicked: isSelectBtn, indexPath: indexPath!)
-}
-```
-
-그리고, VC에 처음에 선언해준 Protocol을 할당하고 위 함수가 실행될 때의 코드를 작성한다.
-
-```swift
-extension IvRecordCategoryEditVC: CellButtonDelegate {
-    
-    func didClickCheckButton(isClicked: Bool, indexPath: Int) {
-
-        if self.checkboxSelections.contains(indexPath) {
-            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
-            self.checkboxSelections.remove(at: i)
-        } else {
-            checkboxSelections.append(indexPath)
-        }
-        
-    }
-}
-```
-
-> 이렇다면 버튼이 눌렀을 때 delegate가 VC에 버튼이 눌렸다는 것을 함수를 통해 알려주게 된다.
-
-마지막으로, 이걸 가장 많이 까먹는데 delegate와 indexPath가 뭔지 알려줘야한다.
-
-```swift
-guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCategoryEditCell.identifier, for: indexPath) as? InventoryCategoryEditCell else { return UITableViewCell() }
-            
-inventoryCell.delegate = self
-inventoryCell.indexPath = indexPath.row - 1
-            
-return inventoryCell
-```
-
-
-
-### 👉 PopupView로 Alert창이나 DatePicker 커스텀해보기 (유용하게 씀)
+### [👉 PopupView로 Alert창이나 DatePicker 커스텀해보기 (유용하게 씀)](https://github.com/InventoryBox/inventorybox_iOS/wiki/👉-PopupView로-Alert창이나-DatePicker-커스텀해보기-(유용하게-씀))
 
 - **DatePicker 커스텀해보기**
 - **Alert창을 VC이동으로 만들어보기**
 
-<img src="https://user-images.githubusercontent.com/56102421/87782071-cd068080-c86c-11ea-939a-89795eee34b9.png" width="30%">  <img src="https://user-images.githubusercontent.com/56102421/87782073-ce37ad80-c86c-11ea-8118-0252346ce433.png" width="30%">  
-
-1. VC를 하나 만들고 backgroundColor -> Clear Color 
-2. 밑에 UIVIew 하나를 만들고 그 위에 원하는 뷰로 커스텀하기
-3. 자연스럽게 백그라운드 뷰가 어두워지게 하는 모션을 위하여 이동전 View에 backgroundPopupView하나를 깔고 alpha를 0으로 주기
-
-이동 전 VC내 코드
-
-```swift
-// VC에서 어두워지게 하는 backgroundView 만들기
-private func setPopupBackgroundView() {
-        
-        popupBackgroundView.isHidden = true
-        popupBackgroundView.alpha = 0
-        self.view.bringSubviewToFront(popupBackgroundView)
-        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
-}
-// popupBackgroundView 어두워지는 애니메이션
-func animatePopupBackground(_ direction: Bool) {
-        
-        let duration: TimeInterval = direction ? 0.35 : 0.15
-        let alpha: CGFloat = direction ? 0.54 : 0.0
-        self.popupBackgroundView.isHidden = !direction
-        UIView.animate(withDuration: duration) {
-            self.popupBackgroundView.alpha = alpha
-        }
-}
-// 다시 VC로 돌아올 때 popupBackgroundView 애니메이션으로 지워주기
-@objc func didDisappearPopup(_ notification: Notification) {
-        animatePopupBackground(false)
-}
-// 메모리를 차지하므로 항상 옵저버 지워주기
-deinit {
-        NotificationCenter.default.removeObserver(self)
-}
-```
-
-> 노티를 통해 다시 원래 VC로 돌아왔다는 것을 알리고, 어둡게 하는 backgroundView를 숨겨줌
->
-> 또한, 노티를 통해 원하는 데이터를 주고받을 수 있음
-
-이동 후 팝업 VC 내 코드
-
-```swift
-@IBAction func dismissPopup(_ sender: Any) {
-  
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["??": ??])      
-        self.dismiss(animated: true)
-}
-```
-
-> 노티를 통해 알려줌
-
-
-
-
-
-
+### [👉 우당탕탕 아요 알게된 점 노션 링크](https://www.notion.so/1f54afb3b2404d60a04b96e9c31eec0a) 
 
 
 
@@ -543,19 +342,29 @@ deinit {
 
 * [지은](https://github.com/hwangJi)
 
-> 한마디
+> 앱잼을 하면서 많은 것을 배웠다. 팀원끼리 소통하는 방법도 새롭게 알게 된 점이 많은 것 같다. 후회가 남는 점이 있다면 iOS 팀원들끼리 서로 
+>
+> 소통하고 회고하는 시간을 자주 가졌으면 좋았겠다는 생각이 든다.
+>
+> 그리고 개발 측면에서도 모르는 것을 파헤치는 과정이 힘들기도 했지만 너무 재미있었다. 앱잼 기간동안 많은 것을 알려주고, 즐겁게 앱잼을 하게 
+>
+> 도와준 재용오빠, 황호오빠한테 너무 감사하다는 말을 전하고 싶다! 
+>
+> 재고창고 iOS 앞으로도 오래오래 보자 ~ ㅎㅎ
 
 <img src="https://user-images.githubusercontent.com/56102421/86921589-5380db00-c166-11ea-8f42-8e350c167def.jpeg" width="15%" >  
 
 * [재용](https://github.com/wody98)
 
-> 다음엔 꼭 폴더링 VC끼리 만들어주자 파일찾기 너무 힘듬 ㅠㅠ 앱잼 화이팅
+> 우리 팀원들 만나서 너무 행복하고 좋았어~~ 정말로 개발적으로도 사람적⭐️으로도 많이 성장한 앱잼이었다 ㅎㅎㅎ 
+>
+> 개발하면서 다음엔 꼭 반영하고 싶은게 있다면 폴더링 방법을 VC끼리 만들어주자~!! 파일찾기 너무 힘듬 ㅠㅠ.. 
 
 <img src="https://user-images.githubusercontent.com/56102421/86921264-cfc6ee80-c165-11ea-8de9-6115510bc3d5.jpeg" width="15%"> 
 
 - [황호](https://github.com/Hwangho)
 
-> 한마디
-
-
+> 3주라는 짧지 않은 시간동안 개발에 대해서 많은것을 알게 되었고 좋은 사람들을 알게 되었습니다.
+>
+> 앞으로도 더 iOS를 열심히 준비해 봐야겠다~
 

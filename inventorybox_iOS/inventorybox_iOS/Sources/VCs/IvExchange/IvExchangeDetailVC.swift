@@ -16,6 +16,8 @@ class IvExchangeDetailVC: UIViewController {
     @IBOutlet weak var distanceLabel: UIButton!
     @IBOutlet weak var inventoryImageView: UIImageView!
     
+    @IBOutlet weak var distanceLab: UILabel!
+    
     @IBOutlet weak var inventoryInfoLabel: UILabel!
     @IBOutlet weak var inventoryPriceInfoLabel: UILabel!
     @IBOutlet weak var inventoryPriceLabel: UILabel!
@@ -37,7 +39,9 @@ class IvExchangeDetailVC: UIViewController {
     @IBOutlet weak var phoneBtnLabel: UILabel!
     @IBOutlet weak var likeButtonLabel: UILabel!
     
-    let sellerPhoneNumber: String? = "01073453436"
+    var idx: Int?
+    
+    var sellerPhoneNumber: String? = ""
     var isLiked: Bool = false {
         didSet {
             if isLiked {
@@ -49,10 +53,8 @@ class IvExchangeDetailVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
+        getDataFromServer()
+        
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         
@@ -73,7 +75,62 @@ class IvExchangeDetailVC: UIViewController {
         setLabelCustom()
         setShadow()
     }
-    
+    private func getDataFromServer() {
+        
+        IvExchangeDetailService.shared.getExchangeDetail(idx: idx!) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                
+                guard let dt = data as? IvExchangeDetailClass else { return }
+//                print(dt)
+                self.inventoryNameLabel.text = dt.itemInfo.productName
+                if dt.itemInfo.isFood == 0 {
+                    self.inventoryExchangeCategoryLabel.text = "공산품"
+                } else {
+                    self.inventoryExchangeCategoryLabel.text = "식품"
+                }
+                self.articleWrittenDateLabel.text = dt.itemInfo.uploadDate
+                print("\(dt.itemInfo.distDiff)" + "m")
+                if dt.itemInfo.distDiff > 1000 {
+                    self.distanceLabel.titleLabel?.text = "\(dt.itemInfo.distDiff / 1000)" + "km"
+                    self.distanceLab.text = "\(dt.itemInfo.distDiff / 1000)km"
+                    self.distanceLabel.backgroundColor = UIColor.yellow
+                    self.distanceLab.textColor = .white
+                } else {
+                    self.distanceLabel.titleLabel?.text = "\(dt.itemInfo.distDiff)m"
+                    self.distanceLabel.backgroundColor = UIColor.gray
+                    self.distanceLab.text = "\(dt.itemInfo.distDiff)m"
+                    self.distanceLab.textColor = .white
+                }
+                if let img = dt.itemInfo.productImg {
+                    let url = URL(string: img)
+                    self.inventoryImageView.kf.setImage(with: url)
+                }
+                self.inventoryPriceLabel.text = "\(dt.itemInfo.price)"
+                self.inventoryListPriceLabel.text = "\(dt.itemInfo.coverPrice)"
+                self.inventoryCountToSellLabel.text = "\(dt.itemInfo.quantity)"
+                self.inventoryLifeLabel.text = dt.itemInfo.expDate
+                self.inventoryDetailLabel.text = dt.itemInfo.itemInfoDescription
+                
+                self.sellerNameLabel.text = dt.userInfo.repName
+                self.storeNameLabel.text = dt.userInfo.coName
+                self.storeLocationLabel.text = dt.userInfo.location
+                self.sellerPhoneNumber = "0" + dt.userInfo.phoneNumber
+                
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
+    }
     private func setShadow() {
         topView.layer.shadowOpacity = 0.1
         topView.layer.shadowRadius = 2
@@ -91,7 +148,7 @@ class IvExchangeDetailVC: UIViewController {
         distanceLabel.titleLabel?.textColor = .white
         distanceLabel.titleLabel?.font = UIFont(name: "NanumSquareB", size: 13)
         distanceLabel.backgroundColor = .yellow
-    
+        
         inventoryInfoLabel.font = UIFont(name: "NanumSquareEB", size: 14)
         inventoryPriceLabel.font = UIFont(name: "NanumSquareEB", size: 22)
         inventoryListPriceInfo.font = UIFont(name: "NanumSquareB", size: 12)
@@ -112,7 +169,7 @@ class IvExchangeDetailVC: UIViewController {
         paragraphStyle.lineSpacing = 4
         
     }
-
+    
     
     @IBAction func likeBtnPressed(_ sender: Any) {
         if isLiked {

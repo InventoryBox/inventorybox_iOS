@@ -52,7 +52,7 @@ struct HomeService {
         guard let decodedData = try? decoder.decode(HomeInformation.self, from: data) else { return .pathErr }
         guard let data = decodedData.data else { return .pathErr }
         // 성공 메시지
-        print(decodedData.message)
+//        print(decodedData.message)
         
         if decodedData.success {
             return .success(data)

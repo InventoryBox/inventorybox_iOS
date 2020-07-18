@@ -28,7 +28,7 @@ struct IvExchangeHomeService {
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.judge(by: statusCode, value)
-                print("hi")
+                
                 completion(networkResult)
             case .failure(let err):
                 print(err.localizedDescription)
@@ -52,14 +52,14 @@ struct IvExchangeHomeService {
         let decoder = JSONDecoder()
         
         guard let decodedData = try? decoder.decode(IvExchangeHomeData.self, from: data) else { return .pathErr }
-        guard let data = decodedData.data else { return .pathErr }
         // 성공 메시지
+        guard let data = decodedData.data else { return .pathErr }
         print(decodedData.message)
         
         if decodedData.success {
             return .success(data)
         } else {
-            return .requestErr(decodedData.message)
+            return .requestErr(decodedData)
         }
         
     }

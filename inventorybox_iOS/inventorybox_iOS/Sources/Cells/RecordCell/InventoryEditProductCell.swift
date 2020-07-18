@@ -20,7 +20,7 @@ class InventoryEditProductCell: UITableViewCell {
     var delegate: FilledTextFieldDelegate?
     var indexPath: Int?
     
-    var isTypedTextField: String = "" {
+    var isTypedTextField: String? = "" {
         didSet {
             inventoryCountTextField.text = isTypedTextField
         }
@@ -97,10 +97,11 @@ class InventoryEditProductCell: UITableViewCell {
 extension InventoryEditProductCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if inventoryCountTextField.text == "" {
-            delegate?.isTextFieldFilled(count: "", isTyped: false, indexPath: indexPath!)
+            delegate?.isTextFieldFilled(count: -1, isTyped: false, indexPath: indexPath!)
         } else {
             guard let text = textField.text else { return }
-            delegate?.isTextFieldFilled(count: text, isTyped: true, indexPath: indexPath!)
+            guard let cnt = Int(text) else { return }
+            delegate?.isTextFieldFilled(count: cnt, isTyped: true, indexPath: indexPath!)
         }
     }
     

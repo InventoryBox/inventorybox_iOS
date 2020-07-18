@@ -14,13 +14,17 @@ struct APIConstants {
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
     //로그인
     static let loginURL = baseURL + "auth/signin"
+    // 회원가입 이메일 인증
+    static let emailURL = baseURL + "auth/email"
+    // 회원가입
+    static let signinURL = baseURL + "auth/signup"
     
     // Home
      static let ivHomeURL = baseURL + "item/order" //
     // Home + flag
     static let ivHomeCheckBoxURL = baseURL + "item/flag/" //
     // Home + MemoModify
-    static let ivHomeMemoModifyURL = baseURL + "item/order/memo"  //
+    static let ivHomeMemoModifyURL = baseURL + "item/order/memo/ios"  //
     
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
@@ -51,5 +55,11 @@ struct APIConstants {
     
     //exchange post URL
     static let ivExchangePostURL = baseURL + "exchange/post"
+    
+    static let ivExchangePostDetailURL = baseURL + "exchange/post/"
+    
+    static let ivExchangeSearchURL = baseURL + "exchange/search/"
+    
+    static let ivExchangeUpdateAddress = baseURL + "exchange/modifyLoc"
 }
 

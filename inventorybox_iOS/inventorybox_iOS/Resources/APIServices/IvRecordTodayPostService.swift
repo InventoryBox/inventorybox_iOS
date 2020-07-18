@@ -21,14 +21,14 @@ struct IvRecordTodayPostService {
     
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
         
-        var parsingParameter: [[String: Int]] = []
+        var parsingParameter: [[String: Int?]] = []
         
         
         for d in data {
             
             let item = [
                 "itemIdx" : d.itemIdx,
-                "presentCnt": d.presentCnt!
+                "presentCnt": d.presentCnt
             ]
             
             parsingParameter.append(item)
@@ -79,7 +79,7 @@ struct IvRecordTodayPostService {
     
     private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordEditIvData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordTodayIvData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)

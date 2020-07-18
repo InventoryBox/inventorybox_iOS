@@ -13,7 +13,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
 
    
 
-    @IBOutlet var signUpFirstProgressBar: UIProgressView!
+
     @IBOutlet var signUpNavigationView: UIView!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var verifiCodeTextField: UITextField!
@@ -22,18 +22,21 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBOutlet var completeBtn: UIButton!
     @IBOutlet var verifyBtn: UIButton!
     @IBOutlet var confirmBtn: UIButton!
+    var verifyCode:Int?
+    var isVerify:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.navigationController?.navigationBar.isHidden = false
        // self.navigationItem.title = "회원가입"
         
-        signUpFirstProgressBar.progress = 1
-        completeBtn.isEnabled = false
+
+        //completeBtn.isEnabled = false
         setBtnOutlets()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +44,32 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
      }
   
+    // 이메일 인증 눌렀을 떄
+    @IBAction func certifyPressBtn(_ sender: Any) {
+        
+        //        print(orderCheckMemoInformations)
+        // 서버 통신 코드
+        emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
+            
+        case .success(let verify):
+            guard let data = verify as? reciveData else {return}
+            self.verifyCode = data.number
+            print(self.verifyCode)
+            
+        case .requestErr(let message):
+            guard let message = message as? String else { return }
+            print(message)
+            
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            }
+        }
+        )
+    }
+    
+        
+
     
     @objc func keyboardWillShow(_ sender: Notification) {
          self.view.frame.origin.y = -80 // Move view 150 points upward
@@ -68,13 +97,14 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         return true
     }
     
-
-    func setTextField(){
-        if emailTextField.text == "" {
-           
+    @IBAction func compareBtn(_ sender: UIButton) {
+        if Int(verifiCodeTextField.text!) == verifyCode {
+            print("인증이 완료되었습니다.")
+            print(isVerify)
+            isVerify = true
         }
-        else if verifiCodeTextField.text == "" {
-            
+        else {
+            print("인증번호가 일치하지 않습니다.")
         }
     }
     
@@ -84,10 +114,30 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func goToNext(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
         
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
+    
+//    func setTextField() {
+//        if emailTextField.text == "" {
+//
+//        }
+//        else if isVerify == false {
+//
+//        }
+//        else if pwTextField.text == "" {
+//
+//        }
+//        else if pwConfirmTextField.text == "" {
+//
+//        }
+//        else {
+//            confirmBtn.isEnabled = true
+//        }
+//    }
+//
     
     
     /*

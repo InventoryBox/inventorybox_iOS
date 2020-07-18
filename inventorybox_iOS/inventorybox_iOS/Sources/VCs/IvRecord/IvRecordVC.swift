@@ -59,17 +59,27 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           navigationController?.navigationBar.isHidden = true
           
           
-          
+          NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("update"), object: nil)
           
           self.getDataFromServer(self.dateToSend)
           
      }
-     
+     @objc private func update() {
+          DispatchQueue.main.async {
+               self.getDataFromServer(self.dateToSend)
+               
+          }
+          
+     }
      override func viewWillDisappear(_ animated: Bool) {
           super.viewWillDisappear(animated)
           navigationController?.navigationBar.isHidden = false
           
-          dateToSend = "0"
+          let dateFormatter = DateFormatter()
+          
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+          dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
+          dateToSend = dateFormatter.string(from: memorizeDate!)
      }
      
      override func viewDidLoad() {
@@ -101,11 +111,14 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     
                     // 데이터 정렬
                     self.categories = dt.categoryInfo
+                    
                     if let itemInfo = dt.itemInfo {
                          self.inventoryArray = itemInfo
-                         //                    print(self.inventoryArray)
-                         
                     }
+                    
+          
+                    
+                    
                     
                     
                     // 날짜 검색 ❌ 데이터 ❌ + 날짜 검색 ⭕️ 데이터 ❌
@@ -144,7 +157,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                          
                     } else {
                          
-                         self.floatingTodayRecordBtn.isHidden = true
+                         self.floatingTodayRecordBtn.isHidden = false
                          
                     }
                     
@@ -156,7 +169,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     } else {
                          
                          self.isAddProductBtn = false
-                    
+                         
                     }
                     
                case .requestErr(let message):
