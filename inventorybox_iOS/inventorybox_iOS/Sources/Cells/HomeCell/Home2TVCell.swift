@@ -93,7 +93,6 @@ class Home2TVCell: UITableViewCell {
         NotificationCenter.default.post(name: .init("morepressbutton"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
     }
    
-    
     // Set 부분
     func SetProductImformation(productImage: String, productNameTx: String, productCountTx: Int, productSetTx: String, checkFlag: Int) {
         
@@ -113,7 +112,6 @@ class Home2TVCell: UITableViewCell {
             checkvalue = true
         }
         checkBoxBtn.on = checkvalue
-
     }
     
     

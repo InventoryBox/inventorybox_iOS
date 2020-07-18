@@ -20,7 +20,7 @@ struct IvRecordEditIvPostService {
     static let shared = IvRecordEditIvPostService()
     
     private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-        print(data)
+//        print(data)
         var parsingParameter: [[String: Int]] = []
         
         for d in data {
@@ -32,7 +32,7 @@ struct IvRecordEditIvPostService {
             //            print(item)
         }
         
-        print(parsingParameter)
+//        print(parsingParameter)
         
         return ["itemInfo": parsingParameter, "date": date]
         

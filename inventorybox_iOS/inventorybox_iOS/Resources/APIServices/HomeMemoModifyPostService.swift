@@ -9,21 +9,29 @@
 import Foundation
 import Alamofire
 
-
+// MARK: post service생성 했습니다.
 struct HomeMemoModifyPostService {
     static let shared = HomeMemoModifyPostService()
     
-    private func makeParameter(data: HomeItem) -> Parameters{
-//        print(data)
-       
-        return
-            ["itemIdx": data.itemIdx,
-             "memoCnt": data.memoCnt
-        ]
-   
+    private func makeParameter(data: [HomeItem]) -> Parameters{
+        
+        var parsingParameter: [[String: Int]] = []
+        
+        for d in data {
+            let item = [
+                "itemIdx": d.itemIdx,
+                "memoCnt": d.memoCnt
+            ]
+            parsingParameter.append(item)
+
+        }
+        
+        
+        return ["itemInfo": parsingParameter]
     }
     
-    func getRecordEditIvPost(data: HomeItem, completion: @escaping (NetworkResult<Any>) -> Void) {
+    
+    func getHomeMemoAuthPost(data: [HomeItem], completion: @escaping (NetworkResult<Any>) -> Void) {
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
@@ -32,14 +40,12 @@ struct HomeMemoModifyPostService {
         
         let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .put, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
         
-        
-//            print(makeParameter(data: data))
+//        print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
                 completion(networkResult)
@@ -64,12 +70,10 @@ struct HomeMemoModifyPostService {
     
     private func getHomeMemoPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(HomeInformation.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
         // 성공 메시지
 //        print(decodedData.message)
-        
-        guard let data = decodedData.data else { return .pathErr }
         
         if decodedData.success {
             return .success(decodedData.message)
