@@ -8,6 +8,7 @@
 
 import UIKit
 import BEMCheckBox
+import Charts
 
 class Home2TVCell: UITableViewCell {
 
@@ -15,14 +16,19 @@ class Home2TVCell: UITableViewCell {
     var checkvalue : Bool = false   // checkbox
     var moreValue : Bool = false    // 더보기 버튼
     
+    
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var moreBtn: UIButton!           // 더보기 버튼
     @IBOutlet weak var productImg: UIImageView!     // 제품 이미지
     @IBOutlet weak var productNameText: UILabel!    // 제품 이름
     @IBOutlet weak var productCountText: UILabel!   // 제품 개수
     @IBOutlet weak var productSetText: UILabel!     // 제품 묶음
-    @IBOutlet weak var graphView: UIView!           // 그래프 나오는View
+    @IBOutlet weak var graphView: BarChartView!           // 그래프 나오는View
     @IBOutlet weak var checkBoxBtn: BEMCheckBox!
+    private var limitLine: ChartLimitLine?
+    private var limitCount:Int?
+    var stockArray:[Int] = []
+    
     
     var itemIdx: Int?
     var indexPath: Int?
@@ -58,8 +64,9 @@ class Home2TVCell: UITableViewCell {
         IvHomeFlagPostService.shared.getRecordEditIvPost(itemIdx: itemIdx!, flag: isSelect) { networkResult in
             switch networkResult {
             case .success(let data):
-                
-                print(data)
+                guard let graphData = data as? HomeItem else {return}
+                self.stockArray = graphData.stocksInfo
+                print(self.stockArray)
                 
             case .requestErr(let msg):
                 print(msg)
@@ -77,6 +84,94 @@ class Home2TVCell: UITableViewCell {
         
     }
     
+    func bind (model:HomeItem){
+        
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 2
+        valFormatter.currencySymbol = "$"
+        
+        
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        
+        var dataPoints: [String] = ["화","수","목","금","토"]
+        var dataEntries : [BarChartDataEntry] = []
+        
+        for i in 0...4 {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.stocksInfo[i]))
+            dataEntries.append(dataEntry)
+            //print(model.stocks[i])
+        }
+        
+        
+        //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
+        let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        chartData.setValueFormatter(formatter)
+        
+        graphView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
+        
+       
+        limitCount = model.alarmCnt
+       
+        
+        //그래프 색 변경 부분
+        
+//        
+//        chartDataSet.colors = [setColor(value: Double(model.stocksInfo[0])),setColor(value: Double(model.stocksInfo[1])),setColor(value: Double(model.stocksInfo[2])),setColor(value: Double(model.stocksInfo[3])),setColor(value: Double(model.stocksInfo[4])),setColor(value: Double(model.stocksInfo[5])),setColor(value: Double(model.stocksInfo[6]))]
+        
+        
+        graphView.data = chartData
+        graphView.xAxis.labelPosition = .bottom
+        graphView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+        graphView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+        graphView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        graphView.xAxis.drawGridLinesEnabled = false
+        graphView.leftAxis.drawLabelsEnabled = false
+        graphView.rightAxis.drawGridLinesEnabled = false
+        graphView.rightAxis.drawLabelsEnabled = false
+        graphView.leftAxis.drawAxisLineEnabled = false
+        graphView.rightAxis.drawAxisLineEnabled = false
+        graphView.leftAxis.drawGridLinesEnabled = false
+        graphView.drawGridBackgroundEnabled = false
+        graphView.drawBordersEnabled = false
+        //    ivChartView.barData?.yMi
+        
+        //밑에 데이터셋 제거
+        graphView.legend.enabled = false
+        
+        chartData.barWidth = 0.2
+        
+        let ll = ChartLimitLine(limit: Double(model.alarmCnt), label: "")
+        limitLine = ll
+        graphView.rightAxis.removeLimitLine(ll)
+        graphView.rightAxis.addLimitLine(ll)
+        ll.lineWidth = 0.3
+        
+    }
+    
+    
+    func removeLimitLine() {
+        guard let limitLine = self.limitLine else { return }
+        graphView.rightAxis.removeLimitLine(limitLine)
+    }
+    
+    func setColor(value: Double) -> UIColor {
+        
+        if (value <= Double(limitCount!)) {
+            return UIColor(red: 246.0 / 255.0, green: 187.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+        }
+        
+        return UIColor(white: 206.0 / 255.0, alpha: 1.0)
+        
+    }
+    
+    
+    
+
+    
     
     
     // 자세히 눌렀을 떄
@@ -91,6 +186,7 @@ class Home2TVCell: UITableViewCell {
             moreValue = false
         }
         NotificationCenter.default.post(name: .init("morepressbutton"), object: nil, userInfo: ["bool": moreValue, "name": productNameText.text!])
+        
     }
    
     // Set 부분

@@ -85,8 +85,12 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         print(model.stocks[1])
         
-        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+        for i in 0..<model.stocks.count {
+            chartDataSet.colors = [setColor(value: Double(model.stocks[i]))]
+        }
         
+//        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+//
         
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom

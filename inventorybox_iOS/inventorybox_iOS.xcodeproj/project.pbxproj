@@ -539,9 +539,9 @@
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
 				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
-				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
+				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				339C89AE24BB21C700B86BAF /* Login.storyboard */,
 			);
 			path = Storyboards;

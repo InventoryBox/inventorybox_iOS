@@ -17,6 +17,10 @@ class SideBarMenuAlramVC: UIViewController {
     }
     
     @IBAction func alarmBackPressBtn(_ sender: Any) {
+
+//        self.navigationController?.popViewController(animated: true)
+
+
         self.dismiss(animated: true, completion: nil)
              // 로그인 화면으로 돌아가기 위해!!
     }

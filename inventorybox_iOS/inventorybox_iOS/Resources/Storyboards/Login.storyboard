@@ -176,6 +176,8 @@
                             <constraint firstItem="Rai-FF-6Jb" firstAttribute="top" secondItem="hQJ-Fz-4yp" secondAttribute="bottom" id="opq-YT-SnQ"/>
                             <constraint firstItem="ey8-Lz-2dm" firstAttribute="leading" secondItem="bHh-G7-VVm" secondAttribute="leading" constant="71" id="pkY-P6-ojp"/>
                             <constraint firstItem="z1M-Wi-3JN" firstAttribute="centerX" secondItem="dDB-ax-ICf" secondAttribute="centerX" id="to3-ZR-Agd"/>
+                            <constraint firstItem="5eJ-Y1-A9B" firstAttribute="top" secondItem="Rai-FF-6Jb" secondAttribute="bottom" constant="43" id="vwg-bU-zZb"/>
+                            <constraint firstItem="hQJ-Fz-4yp" firstAttribute="top" secondItem="z1M-Wi-3JN" secondAttribute="bottom" constant="12" id="wl1-Ob-NSb"/>
                             <constraint firstItem="2Oo-YE-MZB" firstAttribute="top" secondItem="5eJ-Y1-A9B" secondAttribute="bottom" constant="16" id="xkT-8J-q4h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bHh-G7-VVm"/>
@@ -430,7 +432,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
+                        <constraints>\
                             <constraint firstItem="0sv-sO-aUH" firstAttribute="top" secondItem="1lT-Gz-bCZ" secondAttribute="bottom" constant="21" id="22I-qD-6DS"/>
                             <constraint firstItem="BCk-35-p6d" firstAttribute="top" secondItem="gEw-8u-0sW" secondAttribute="bottom" constant="128" id="4jk-g7-rYg"/>
                             <constraint firstItem="c8S-Qe-32a" firstAttribute="leading" secondItem="o1n-an-gze" secondAttribute="leading" constant="16" id="5er-6J-Jjj"/>
