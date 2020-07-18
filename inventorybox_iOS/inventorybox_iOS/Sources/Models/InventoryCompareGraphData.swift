@@ -12,7 +12,7 @@ struct InventoryCompareGraphData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: CompareWeekData
+    let data: CompareWeekData?
 }
 
 // MARK: - DataClass

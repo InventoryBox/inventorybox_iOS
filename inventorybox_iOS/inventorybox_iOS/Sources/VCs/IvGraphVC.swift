@@ -8,7 +8,10 @@
 
 import UIKit
 import Charts
+import Kingfisher
 //import TTGTagCollectionView
+
+
 
 class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,10 +21,22 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet var ivDataTableView: UITableView!
     @IBOutlet var tagCollectionView: UICollectionView!
     
-
+    
     private var dayList: [String] = []
+    
     private var itemList:[ItemInfo] = []
-    private var tagArray:[CategoryInfo] = []
+    
+    private var tagArray:[CategoryInfo] = [] {
+        didSet {
+            tagCollectionView.reloadData()
+            tagCollectionView.delegate = self
+            tagCollectionView.dataSource = self
+//            tagCollectionView.reloadData()
+            tagCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+
+            collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        }
+    }
     private var itemFilteredArray: [ItemInfo] = []
     private var selections = [String]()
    
@@ -102,7 +117,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 print(self.tagArray)
                 DispatchQueue.main.async {
                     self.calendarCollectionView.reloadData()
-                    self.tagCollectionView.reloadData()
+//                    self.tagCollectionView.reloadData()
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -161,7 +176,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         else if collectionView == tagCollectionView {
             let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
             tagCell.bind(model: tagArray[indexPath.row])
-            tagCell.backgroundColor = .white
             tagCell.layer.cornerRadius = 11
             tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
             tagCell.layer.borderWidth = 0.5

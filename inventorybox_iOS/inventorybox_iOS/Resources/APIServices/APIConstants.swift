@@ -49,7 +49,7 @@ struct APIConstants {
     //재고량 추이 선택적 그래프
     static let inventorySingleGraphURL = baseURL + "dashboard/:item/single?year=year&month=month"
     //재고량 추이 한 아이템 주별 비교 그래프
-    static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
+    static let inventoryCompareGraphURL = baseURL + "dashboard/"
     
     static let inventoryExchangeHomeURL = baseURL + "exchange/" // /:filter
     
