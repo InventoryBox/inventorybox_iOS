@@ -44,7 +44,7 @@ struct IvExchangeDetailService {
     
     private func getExchangeDetailData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        
+        print("here?")
         guard let decodedData = try? decoder.decode(IvExchangeDetailData.self, from: data) else { return .pathErr }
         
         guard let data = decodedData.data else { return .pathErr }

@@ -93,17 +93,13 @@ class HomeVC: UIViewController {
          HomeService.shared.getHome { networkResult in
              switch networkResult{
              case .success(let data):
-                 print("+++++"+"\(data)")
                  guard let dt = data as? HomeItemclass else {
-                    print("ddd")
+
                     return }
                  self.orderCheckInformations = dt.result
-                 print("111",dt.result)
+                 
                  
                  self.homehome = dt.result
-                 //print(self.graphArray)
-                // self.graphArray = dt.result.stocksInfo
-                 //print("____" + "\(self.graphArray)")
                  DispatchQueue.main.async {
                    self.tableview.reloadData()
                  }
@@ -142,7 +138,6 @@ class HomeVC: UIViewController {
     
     // 체크박스 관련 objc
     @objc func selectCheckBox(_ notification: Notification){
-        //        print("return ")
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let checkvalue = userInfo["bool"] as? Bool else { return }
         guard let ivName = userInfo["name"] as? String else { return }
@@ -182,7 +177,6 @@ class HomeVC: UIViewController {
         
         guard let height = notification.userInfo?["cvheight"] as? CGFloat else { return }
         self.height = height
-//        print(height)
         
         tableview.reloadData()
     }

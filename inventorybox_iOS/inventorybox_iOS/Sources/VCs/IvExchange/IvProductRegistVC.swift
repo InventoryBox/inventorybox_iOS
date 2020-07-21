@@ -9,7 +9,7 @@
 import UIKit
 
 class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet var headerView: UIView!
     @IBOutlet var productNameTextField: UITextField!
     @IBOutlet var productCountTextField: UITextField!
@@ -50,6 +50,8 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         originalPriceTextField.delegate = self
         productCountTextField.delegate = self
         unitTextField.delegate = self
+        confirmBtn.backgroundColor = .yellow
+        
     }
     
     func setView(){
@@ -88,7 +90,7 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         dayLabel.layer.cornerRadius = 9
         
     }
-
+    
     
     @IBAction func cancelBtn(_ sender: Any) {
         
@@ -147,10 +149,10 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
         monthLabel.text = month
         dayLabel.text = day
         expDateMemorize = year + "." + month + "." + day
-        print(expDateMemorize)
+        
         
     }
-
+    
     
     @IBAction func dayPickerBtn(_ sender: UIButton) {
         animatePopupBackground(true)
@@ -170,43 +172,47 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
     @IBAction func categoryProductPickBtn(_ sender: UIButton) {
     }
     @IBAction func dismissBtn(_ sender: UIButton) {
-        print("btn")
-         guard let productImg = productImg.imageView?.image else {
-            print("img")
+        
+        guard let productImg = productImg.imageView?.image else { print("img")
             return}
-                guard let productName = productNameTextField.text else {
-                    print("productName")
-                    return}
-            guard let price = Int(salesPriceTextField.text!) else {
-                print("price")
-                return}
-        var countText = productCountTextField.text?.components(separatedBy: ",")
+        guard let productName = productNameTextField.text else {
+            print("name")
+            return}
+        let countText1 = salesPriceTextField.text?.components(separatedBy: ",")
+        realCountText = countText1!.joined()
+        guard let price = Int(realCountText) else {
+            print("price")
+            return}
+        let countText = productCountTextField.text?.components(separatedBy: ",")
         realCountText = countText!.joined()
-         guard let quantity = Int(realCountText) else {print("quantity")
-                    return}
-            guard let textDesctiption = productExplainTextView.text else {print("textDesctiption")
-                return}
-            guard let coverPrice = Int(originalPriceTextField.text!) else {print("coverPrice")
-                return}
-            guard let unit = unitTextField.text else {print("unit")
-                return}
-         
-            IvExchangePostService.shared.uploadIvExchangePost(productImageName, productImage!, productName, isFood, price, quantity, expDateMemorize, textDesctiption, coverPrice, unit, completion: { networkResult in
-                switch networkResult{
-                case .success(let token):
-                    print(token)
-                    print("success")
-                case .requestErr(let message):
-                    guard let message = message as? String else {return}
-                    print(message)
-                case .serverErr: print("serverErr")
-                case .pathErr:
-                    print("pathErr")
-                case .networkFail:
-                    print("networkFail")
-                }
-            })
-        self.dismiss(animated: true, completion: nil)
+        guard let quantity = Int(realCountText) else {print("quantity")
+            return}
+        guard let textDesctiption = productExplainTextView.text else {print("textDesctiption")
+            return}
+        let countText2 = originalPriceTextField.text?.components(separatedBy: ",")
+        realCountText = countText2!.joined()
+        guard let coverPrice = Int(realCountText) else {print("coverPrice")
+            return}
+        guard let unit = unitTextField.text else {print("unit")
+            return}
+        print("hello")
+        
+        IvExchangePostService.shared.uploadIvExchangePost(productImageName, productImage!, productName, isFood, price, quantity, expDateMemorize, textDesctiption, coverPrice, unit, completion: { networkResult in
+            switch networkResult{
+            case .success(let token):
+                print(token)
+                print("success")
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

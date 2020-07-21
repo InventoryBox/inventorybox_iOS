@@ -1521,7 +1521,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="제품 설명을 작성해주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-S2-FMm">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="제품 설명을 작성해주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-S2-FMm">
                                                 <rect key="frame" x="16" y="713" width="343" height="101"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="101" id="A9F-dS-Kk8"/>

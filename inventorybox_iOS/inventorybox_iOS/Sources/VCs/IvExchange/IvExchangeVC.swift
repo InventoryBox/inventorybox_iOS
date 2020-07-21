@@ -77,7 +77,7 @@ class IvExchangeVC: UIViewController {
                 
                 guard let dt = data as? IvExchangeHomeClass else { return }
                 self.myLocationLabel.text = dt.addressInfo
-                print(dt)
+                
                 if self.filterNum == "0" {
                     self.allExchangeArray = dt.postInfo
                     self.filteredExchangeArray = self.allExchangeArray
@@ -346,7 +346,6 @@ extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
 
 extension IvExchangeVC: ExchangeButtonDelegate {
     func whichProductIsSelect(indexPath: Int, idx: Int) {
-//        print(indexPath)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvExchangeDetailVC") as? IvExchangeDetailVC else { return }
         
         vc.idx = idx
