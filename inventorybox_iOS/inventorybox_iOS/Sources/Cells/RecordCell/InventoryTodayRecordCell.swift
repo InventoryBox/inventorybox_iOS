@@ -9,7 +9,9 @@
 import UIKit
 
 protocol FilledTextFieldDelegate {
-    func isTextFieldFilled(count: String, isTyped: Bool,indexPath: Int)
+    
+    func isTextFieldFilled(count: Int, isTyped: Bool,indexPath: Int)
+    
 }
 
 class InventoryTodayRecordCell: UITableViewCell {
@@ -26,9 +28,10 @@ class InventoryTodayRecordCell: UITableViewCell {
     
     var isTypedTextField: String = "" {
         didSet {
-            inventoryCountTextField.text = isTypedTextField
+            
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -44,7 +47,6 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
-//        inventoryCountTextField.placeholder = "재고량 입력"
         
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         
@@ -62,9 +64,11 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.inputAccessoryView = toolbar
         inventoryCountTextField.delegate = self
     }
+    
     func makePlaceholder() {
         inventoryCountTextField.placeholder = "재고량 입력"
     }
+    
     @objc private func donePressed() {
         self.inventoryCountTextField.endEditing(true)
     }
@@ -92,10 +96,12 @@ class InventoryTodayRecordCell: UITableViewCell {
     }
     
     func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int?) {
+        
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
         
         inventoryNameLabel.text = inventoryName
+        
         if let cnt = inventoryCount {
             inventoryCountTextField.text = "\(cnt)"
         }
@@ -106,10 +112,11 @@ class InventoryTodayRecordCell: UITableViewCell {
 extension InventoryTodayRecordCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if inventoryCountTextField.text == "" {
-            delegate?.isTextFieldFilled(count: "", isTyped: false, indexPath: indexPath!)
+            delegate?.isTextFieldFilled(count: -1, isTyped: false, indexPath: indexPath!)
         } else {
             guard let text = textField.text else { return }
-            delegate?.isTextFieldFilled(count: text, isTyped: true, indexPath: indexPath!)
+            guard let cnt = Int(text) else { return }
+            delegate?.isTextFieldFilled(count: cnt, isTyped: true, indexPath: indexPath!)
         }
     }
     

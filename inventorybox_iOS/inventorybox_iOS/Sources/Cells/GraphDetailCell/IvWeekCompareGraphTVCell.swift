@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class IvWeekCompareGraphTVCell: UITableViewCell {
+class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
     
     
     @IBOutlet var yearTextField: UITextField!
@@ -19,6 +19,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
     @IBOutlet var secondMonthTextField: UITextField!
     @IBOutlet var secondWeekTextField: UITextField!
     @IBOutlet var compareChartView: BarChartView!
+    @IBOutlet var compareBtn: UIButton!
     
     var months = ["일","월","화","수","목","금","토"]
     
@@ -26,6 +27,8 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         setTextFieldAttribute()
+//        setTextField()
+        
         
     }
     
@@ -89,17 +92,11 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         compareChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
         
        
-     
-        //그래프 색 변경 부분
-        
- 
-//        chartDataSet.colors = [setColor(value: Double(model.wee[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
-//
-        
+       
         compareChartView.xAxis.labelPosition = .bottom
         compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-        compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        //compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         compareChartView.xAxis.drawGridLinesEnabled = false
         compareChartView.leftAxis.drawLabelsEnabled = false
         compareChartView.rightAxis.drawGridLinesEnabled = false
@@ -115,6 +112,8 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
         compareChartView.legend.enabled = false
         
         data.barWidth = 0.2
+        
+        
 //
 //        let ll = ChartLimitLine(limit: Double(), label: "")
 //        limitLine = ll
@@ -123,6 +122,35 @@ class IvWeekCompareGraphTVCell: UITableViewCell {
 //        ll.lineWidth = 0.3
         
     }
+    
+//    func setTextField(){
+//
+//        if yearTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else if weekTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else if weekTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else if secondYearTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else if secondMonthTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else if secondWeekTextField.text == "" {
+//            compareBtn.isEnabled = false
+//        }
+//        else {
+//            compareBtn.isEnabled = true
+//        }
+        
+  //  }
+    
+    
+   
     
     
 //    func removeLimitLine() {

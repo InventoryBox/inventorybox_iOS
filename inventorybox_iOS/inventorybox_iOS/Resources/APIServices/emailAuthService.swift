@@ -10,29 +10,22 @@ import Foundation
 import Alamofire
 
 
+// 이메일 인증하기 서비스 부분
 struct emailAuthService {
     static let shared = emailAuthService()
-    
-    private func makeParameter(data: HomeItem) -> Parameters{
+    private func makeParameter(data: String) -> Parameters{
 //        print(data)
-       
         return
-            ["itemIdx": data.itemIdx,
-             "memoCnt": data.memoCnt
-                
-             
-        ]
-   
+            [ "sendEmail": data ]
     }
     
-    func getRecordEditIvPost(data: HomeItem, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
-        ]
+    func getRecordEditIvPost(data: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
+        let url = APIConstants.emailURL
         
-        let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .post, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(url, method: .post, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
         
         
 //            print(makeParameter(data: data))
@@ -49,28 +42,25 @@ struct emailAuthService {
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)
-                
             }
-            
         }
     }
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getHomeMemoPostData(by: data)
+        case 200: return reciveData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
         }
     }
     
-    private func getHomeMemoPostData(by data: Data) -> NetworkResult<Any> {
+    private func reciveData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(HomeInformation.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(EmailAuthInformation.self, from: data) else { return .pathErr }
         
         // 성공 메시지
         print(decodedData.message)
-        
         guard let data = decodedData.data else { return .pathErr }
         
         if decodedData.success {

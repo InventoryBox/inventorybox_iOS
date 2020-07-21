@@ -30,7 +30,7 @@ class IvTodayRecordVC: UIViewController {
             
         }
     }
-    
+    private var selections = [String]()
     
     
     private var inventoryFilteredArray: [TodayItemInfo] = []
@@ -42,7 +42,7 @@ class IvTodayRecordVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("update"), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,19 +61,24 @@ class IvTodayRecordVC: UIViewController {
         
         
     }
+    @objc private func update() {
+        getDataFromServer()
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     private func getDataFromServer() {
            
            IvRecordTodayService.shared.getRecordTodayIv() { (networkResult) in
                switch networkResult {
                case .success(let data):
                    guard let dt = data as? IvRecordTodayIvClass else { return }
-
+                   
                    
                    self.inventoryTodayArray = dt.itemInfo
                    self.todayDateLabel.text = dt.date
                    self.categories = dt.categoryInfo
-                   
                case .requestErr(let message):
                    guard let message = message as? String else { return }
                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
@@ -163,9 +168,13 @@ class IvTodayRecordVC: UIViewController {
         
         // 오늘 재고 기록 post 서버 통신
         
-        self.dismiss(animated: true) {
-            // 플로팅 버튼 없애는 코드???
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
+//        dateFormatter.date
+//        IvRecordTodayPostService.shared.getRecordTodayIvPost(data: inventoryTodayArray, date: , completion: <#T##(NetworkResult<Any>) -> Void#>)
+        NotificationCenter.default.post(name: .init("update"), object: nil)
+        self.dismiss(animated: true)
     }
 }
 
@@ -189,10 +198,11 @@ extension IvTodayRecordVC: UITableViewDataSource {
             inventoryTodayRecordCell.indexPath = indexPath.row - 1
             inventoryTodayRecordCell.delegate = self
             
+            
             if indexPath.row == 1 {
                 inventoryTodayRecordCell.makePlaceholder()
             }
-            
+            print(inventoryFilteredArray[indexPath.row - 1].presentCnt)
             inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].presentCnt)
             
             return inventoryTodayRecordCell
@@ -218,37 +228,14 @@ extension IvTodayRecordVC: UITableViewDelegate {
 
 //MARK: - FilledTextFieldDelegate
 extension IvTodayRecordVC: FilledTextFieldDelegate {
-    func isTextFieldFilled(count: String,  isTyped: Bool, indexPath: Int) {
+    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int) {
+        print(indexPath)
+        print(count)
+        inventoryTodayArray[indexPath].presentCnt = count
+        inventoryFilteredArray = inventoryTodayArray
         
-        if self.textFieldBox.contains(indexPath) {
-            if !isTyped {
-                guard let i = self.textFieldBox.firstIndex(of: indexPath) else { return }
-                inventoryTodayArray[indexPath].presentCnt = Int(count)
-                self.textFieldBox.remove(at: i)
-                inventoryFilteredArray = inventoryTodayArray
-            }
-        } else {
-            if isTyped {
-                textFieldBox.append(indexPath)
-                inventoryTodayArray[indexPath].presentCnt = Int(count)
-                inventoryFilteredArray = inventoryTodayArray
-            }
-            
-        }
-        
-        if inventoryTodayArray.count == textFieldBox.count {
-            completeBtn.backgroundColor = UIColor.yellow
-            completeBtn.tintColor = UIColor.white
-            completeBtn.isEnabled = true
-        } else {
-            //            completeBtn.backgroundColor = UIColor.pinkishGrey
-            //            completeBtn.tintColor = UIColor.white
-            //            completeBtn.isEnabled = false
-            completeBtn.backgroundColor = UIColor.yellow
-            completeBtn.tintColor = UIColor.white
-            completeBtn.isEnabled = true
-        }
     }
+    
 }
 
 
@@ -311,3 +298,23 @@ extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.view.frame.width, height: 24)
     }
 }
+
+
+////MARK: - CellButtonDelegate
+//extension IvTodayRecordVC: CellButtonDelegate {
+//    func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int) {
+//
+//    }
+//
+//    func didClickCheckButton(isClicked: Bool, indexPath: Int) {
+//
+//        if self.selections.contains(indexPath) {
+//            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
+//            self.checkboxSelections.remove(at: i)
+//        } else {
+//            checkboxSelections.append(indexPath)
+//        }
+//
+//
+//    }
+//}

@@ -17,6 +17,7 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var lineUnderNameTextFieldView: UIView!
     
     @IBOutlet weak var middleView: UIView!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     @IBOutlet weak var iconSelectTitleLabel: UILabel!
     @IBOutlet weak var iconSelectDetailLabel: UILabel!
@@ -44,7 +45,8 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
     @IBOutlet weak var popupBackgroundView: UIView!
-    var iconIdx: Int = 2
+    var iconIdx: Int = 0
+    var categoryIdx: Int = 0
     var iconArray: [IconInfo] = [] {
         didSet {
             
@@ -110,7 +112,7 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         guard let ivIconIdx = info["selectedIdx"] as? Int else { return }
-//        print(ivIconIdx)
+        print(ivIconIdx)
         self.iconIdx = ivIconIdx
     }
     
@@ -205,6 +207,27 @@ class IvRecordAddProductVC: UIViewController {
         categoryLabel.text = name
         
     }
+    @IBAction func addIconBtnPressed(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectIconVC")  else { return }
+        NotificationCenter.default.addObserver(self, selector: #selector(getIconIdx), name: .init("iconidx"), object: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func getIconIdx(_ notification: Notification) {
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let iconId = info["iconIdx"] as? Int else { return }
+        
+        for i in 0..<iconArray.count {
+            if iconArray[i].iconIdx == iconId {
+                iconIdx = i
+                break
+            }
+        }
+        
+        let url = URL(string: iconArray[iconIdx].img)
+        self.iconImageView.kf.setImage(with: url)
+        
+    }
     @IBAction func selectCategory(_ sender: Any) {
         animatePopupBackground(true)
 
@@ -275,7 +298,6 @@ class IvRecordAddProductVC: UIViewController {
         }
         
         let memoCnt = Int(ivOrder)!
-        var categoryIdx: Int = -1
         
         for i in 0..<categories.count {
             if categoryLabel.text! ==  categories[i].name {
@@ -283,12 +305,6 @@ class IvRecordAddProductVC: UIViewController {
                 break
             }
         }
-        print(ivName)
-        print(ivUnit)
-        print(alarmCnt)
-        print(memoCnt)
-        print(iconIdx)
-        print(categoryIdx)
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):
@@ -307,7 +323,7 @@ class IvRecordAddProductVC: UIViewController {
             }
         }
         
-        
+        NotificationCenter.default.post(name: .init("update"), object: nil)
         self.dismiss(animated: true, completion: nil)
         
     }

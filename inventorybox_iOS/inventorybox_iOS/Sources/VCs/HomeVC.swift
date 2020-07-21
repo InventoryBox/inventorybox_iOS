@@ -8,6 +8,7 @@
 
 import UIKit
 import BEMCheckBox
+import Charts
 
 
 class HomeVC: UIViewController {
@@ -19,8 +20,13 @@ class HomeVC: UIViewController {
     var homeMoreViewCellPointtmemorry : Int?       // 전에 있던 위치값
     var homeMoreViewCellPoint : Int?                // 위치값 구해야 되므로
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var yearmonthLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tableview: UITableView! // 전체 TableView
+    //var graphArray:[Int] = []
+    var homehome:[HomeItem] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,6 +44,9 @@ class HomeVC: UIViewController {
         // 더보기 관련 옵져버
         NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("morepressbutton"), object: nil)
         
+//        NotificationCenter.default.addObserver(self, selector: #selector(getCount), name: .init("textmodify"), object: nil)
+//
+        
         // table관련 데이터
 //        setorderCheckInformations()
         
@@ -49,21 +58,51 @@ class HomeVC: UIViewController {
         tableview.allowsSelection = false
         tableview.separatorStyle = .none
         tableview.contentInsetAdjustmentBehavior = .never
-        
+       
         setPopupBackgroundView()
+        getDataFromServer()
+        date()                      // 날짜
       
     }
+    // 날짜정보 입력하기
+    func date(){
+        let formater_year = DateFormatter()
+        let formater_month = DateFormatter()
+        let formater_day = DateFormatter()
+        let formater_date = DateFormatter()
+        formater_date.locale = Locale(identifier: "ko")
+        
+        formater_year.dateFormat = "yyyy"
+        formater_month.dateFormat = "MM"
+        formater_day.dateFormat = "dd"
+        formater_date.dateFormat = "eeee"
+        let current_day_String = formater_day.string(from: Date())
+        let current_month_String = formater_month.string(from: Date())
+        let current_year_String = formater_year.string(from: Date())
+        let current_date_String = formater_date.string(from: Date())
+        
+        dateLabel.text = current_date_String
+        dayLabel.text = current_day_String
+        yearmonthLabel.text = "\(current_year_String)년 \(current_month_String)월"
+    }
+    
     
      //MARK: Home 데이터 받아오기
      func getDataFromServer(){
          
-         HomeService.shared.getHome(completion: { networkResult in
+         HomeService.shared.getHome { networkResult in
              switch networkResult{
              case .success(let data):
-//                 print(data)
-                 guard let dt = data as? HomeItemclass else { return }
+                 guard let dt = data as? HomeItemclass else {
+
+                    return }
                  self.orderCheckInformations = dt.result
-                 self.tableview.reloadData()
+                 
+                 
+                 self.homehome = dt.result
+                 DispatchQueue.main.async {
+                   self.tableview.reloadData()
+                 }
              case .requestErr(let message):
                  guard let message = message as? String else {return}
                  print(message)
@@ -73,7 +112,7 @@ class HomeVC: UIViewController {
              case .networkFail:
                  print("networkFail")
              }
-         })
+         }
      }
     
     
@@ -99,7 +138,6 @@ class HomeVC: UIViewController {
     
     // 체크박스 관련 objc
     @objc func selectCheckBox(_ notification: Notification){
-        //        print("return ")
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let checkvalue = userInfo["bool"] as? Bool else { return }
         guard let ivName = userInfo["name"] as? String else { return }
@@ -139,7 +177,6 @@ class HomeVC: UIViewController {
         
         guard let height = notification.userInfo?["cvheight"] as? CGFloat else { return }
         self.height = height
-//        print(height)
         
         tableview.reloadData()
     }
@@ -239,7 +276,7 @@ extension HomeVC: UITableViewDataSource{
         if section == 0{
             return 2
         }else{
-//            print(orderCheckInformations)
+
             return orderCheckInformations.count
         }
     }
@@ -272,7 +309,9 @@ extension HomeVC: UITableViewDataSource{
             Cell2s.itemIdx = orderCheckInformations[indexPath.row].itemIdx
             Cell2s.indexPath = indexPath.row
             
-            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].alarmCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
+            Cell2s.SetProductImformation(productImage: orderCheckInformations[indexPath.row].img, productNameTx: orderCheckInformations[indexPath.row].itemName, productCountTx: orderCheckInformations[indexPath.row].memoCnt, productSetTx: orderCheckInformations[indexPath.row].unit, checkFlag: orderCheckInformations[indexPath.row].flag)
+            
+            Cell2s.bind(model: homehome[indexPath.row])
 
             return Cell2s
         }
@@ -305,14 +344,14 @@ extension HomeVC: UITableViewDelegate{
         }else{
             // tableview 높이
             if indexPath.row == homeMoreViewCellPoint {
-                // row가 homeMoreViewCellPoint 일 때
-//                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
+//                 row가 homeMoreViewCellPoint 일 때
+                homeMoreViewCellPointtmemorry = homeMoreViewCellPoint
                 return homeMoreViewCellHeight
             }
-//            else if indexPath.row == homeMoreViewCellPointtmemorry{
-//                return homeMoreViewCellHeight
+            else if indexPath.row == homeMoreViewCellPointtmemorry{
+                return homeMoreViewCellHeight
 //
-//            }
+            }
         else{
             return 94
         }

@@ -37,7 +37,6 @@ class SelectCategoryVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 guard let dt = data as? CategoryClass else { return }
-//                print(dt)
 
                 self.categories = dt.categoryInfo
                 self.selectTableView.reloadData()

@@ -17,15 +17,10 @@ class IvExchangeSearchVC: UIViewController {
     @IBOutlet weak var topView: UIView!
     
     var resultArray: [String] = []
-    
+    var allArray: [Address] = []
+    var roadArray: [RoadAddress] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//
-//        let backButton = UIBarButtonItem()
-//        backButton.title = ""
-//        backButton.tintColor = .yellow
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -87,12 +82,20 @@ extension IvExchangeSearchVC: UITextFieldDelegate {
                 guard let dt = data as? [Document] else {
                     return
                 }
-
-                self.resultArray = []
                 
+                
+                self.resultArray = []
+                self.allArray = []
                 for i in dt {
                     print(i)
                     self.resultArray.append(i.addressName)
+                    if let address = i.address {
+                        self.allArray.append(address)
+                    }
+                    if let road = i.roadAddress {
+                        self.roadArray.append(road)
+                    }
+                    
                 }
                 
                 self.searchResultTableView.reloadData()
@@ -149,11 +152,49 @@ extension IvExchangeSearchVC: UITableViewDelegate {
     }
 }
 
+
+
+//MARK: - 내 주소 변경하기
 extension IvExchangeSearchVC: AddressClickDelegate {
     func setAddress(addressName: String) {
         print("tap")
         
         NotificationCenter.default.post(name: .init("name"), object: nil, userInfo: ["address": addressName])
-        self.navigationController?.popViewController(animated: true)
+        var latitude: String = ""
+        var longitude: String = ""
+        for i in 0..<allArray.count {
+            
+            if addressName == allArray[i].addressName {
+                latitude = allArray[i].x
+                longitude = allArray[i].y
+            }
+        }
+        
+        for i in 0..<roadArray.count {
+            if addressName == roadArray[i].addressName {
+                latitude = roadArray[i].x
+                longitude = roadArray[i].y
+            }
+        }
+        
+        AddressUpdateService.shared.postAddress(addressName, latitude, longitude) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                
+                print(data)
+                self.navigationController?.popViewController(animated: true)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+                
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        
     }
 }

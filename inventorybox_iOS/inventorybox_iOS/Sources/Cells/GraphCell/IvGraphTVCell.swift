@@ -75,7 +75,8 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
 
         ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
         
-        itemImg.image = UIImage(named: model.iconImg)
+        let url = URL(string: model.iconImg)
+        itemImg.kf.setImage(with: url)
         itemAlarmCountLabel.text = "\(model.alarmCnt)"
         limitCount = model.alarmCnt
         itemNameLabel.text = model.name
@@ -84,8 +85,12 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         print(model.stocks[1])
         
-        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+        for i in 0..<model.stocks.count {
+            chartDataSet.colors = [setColor(value: Double(model.stocks[i]))]
+        }
         
+//        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
+//
         
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
@@ -101,7 +106,6 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.leftAxis.drawGridLinesEnabled = false
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
-    //    ivChartView.barData?.yMi
         
         //밑에 데이터셋 제거
         ivChartView.legend.enabled = false

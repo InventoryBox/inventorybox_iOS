@@ -14,7 +14,7 @@ struct IvRecordHomeData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: IvRecordHomeClass?
+    var data: IvRecordHomeClass?
     
     enum CodingKeys: String, CodingKey {
         case status = "status"
@@ -36,7 +36,7 @@ struct IvRecordHomeData: Codable {
 // ⭐️⭐️
 // MARK: - IvRecordHomeClass
 struct IvRecordHomeClass: Codable {
-    let itemInfo: [HomeItemInfo]?
+    var itemInfo: [HomeItemInfo]?
     let categoryInfo: [CategoryInfo] 
     let isRecorded: Int
     let date: String?
@@ -52,7 +52,7 @@ struct HomeItemInfo: Codable {
     let name: String
     let alarmCnt: Int
     let unit: String
-    let stocksCnt: Int
+    var stocksCnt: Int
     let categoryIdx: Int
     let img: String
 }

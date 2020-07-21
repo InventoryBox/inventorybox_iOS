@@ -9,7 +9,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - EmailAuthInformation
 struct EmailAuthInformation: Codable {
     let status: Int
     let success: Bool
@@ -25,6 +25,7 @@ struct EmailAuthInformation: Codable {
         data = (try? values.decode(reciveData.self, forKey: .data)) ?? nil
     }
 }
+
 
 // MARK: - DataClass
 struct reciveData: Codable {

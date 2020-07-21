@@ -16,12 +16,15 @@ struct APIConstants {
     static let loginURL = baseURL + "auth/signin"
     // 회원가입 이메일 인증
     static let emailURL = baseURL + "auth/email"
+    // 회원가입
+    static let signinURL = baseURL + "auth/signup"
+    
     // Home
      static let ivHomeURL = baseURL + "item/order" //
     // Home + flag
     static let ivHomeCheckBoxURL = baseURL + "item/flag/" //
     // Home + MemoModify
-    static let ivHomeMemoModifyURL = baseURL + "item/order/memo"  //
+    static let ivHomeMemoModifyURL = baseURL + "item/order/memo/ios"  //
     
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
@@ -46,11 +49,17 @@ struct APIConstants {
     //재고량 추이 선택적 그래프
     static let inventorySingleGraphURL = baseURL + "dashboard/:item/single?year=year&month=month"
     //재고량 추이 한 아이템 주별 비교 그래프
-    static let inventoryCompareGraphURL = baseURL + "dashboard/:item/double?week[0]=year1, month1, week1&week[1]=year2, month2, week2"
+    static let inventoryCompareGraphURL = baseURL + "dashboard/"
     
     static let inventoryExchangeHomeURL = baseURL + "exchange/" // /:filter
     
     //exchange post URL
     static let ivExchangePostURL = baseURL + "exchange/post"
+    
+    static let ivExchangePostDetailURL = baseURL + "exchange/post/"
+    
+    static let ivExchangeSearchURL = baseURL + "exchange/search/"
+    
+    static let ivExchangeUpdateAddress = baseURL + "exchange/modifyLoc"
 }
 

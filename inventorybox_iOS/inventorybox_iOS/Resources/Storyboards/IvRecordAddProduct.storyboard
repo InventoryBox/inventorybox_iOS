@@ -82,7 +82,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="E5t-ng-eaS" kind="show" id="c4F-QR-hBQ"/>
+                                                            <action selector="addIconBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="N4s-0O-vHj"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단위 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNC-bT-QVy">
@@ -268,6 +268,9 @@
                                                         <color key="textColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="highlightedColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I8M-EN-4MI">
+                                                        <rect key="frame" x="265" y="28" width="70" height="70"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -282,8 +285,10 @@
                                                     <constraint firstItem="Obk-ls-MV5" firstAttribute="trailing" secondItem="r9h-Pf-6IC" secondAttribute="trailing" id="J9I-PZ-fLi"/>
                                                     <constraint firstItem="IaR-id-aU8" firstAttribute="leading" secondItem="JNC-bT-QVy" secondAttribute="leading" id="LJL-kS-KrR"/>
                                                     <constraint firstItem="PFy-m0-sGC" firstAttribute="top" secondItem="Obk-ls-MV5" secondAttribute="bottom" constant="30" id="M3R-Cc-zAr"/>
+                                                    <constraint firstItem="I8M-EN-4MI" firstAttribute="width" secondItem="r9h-Pf-6IC" secondAttribute="width" id="MW9-pH-z60"/>
                                                     <constraint firstItem="Hfj-Mf-KoR" firstAttribute="top" secondItem="WLZ-FL-Khd" secondAttribute="bottom" constant="12" id="PPp-yp-qFE"/>
                                                     <constraint firstItem="R2e-RF-Jg1" firstAttribute="top" secondItem="iTS-uB-1oV" secondAttribute="bottom" constant="79" id="PlU-sp-0hG"/>
+                                                    <constraint firstItem="I8M-EN-4MI" firstAttribute="height" secondItem="r9h-Pf-6IC" secondAttribute="height" id="QFW-1m-PWM"/>
                                                     <constraint firstItem="JNC-bT-QVy" firstAttribute="top" secondItem="kBa-QJ-4cf" secondAttribute="bottom" constant="67" id="QrB-eh-bFH"/>
                                                     <constraint firstItem="Pde-hj-xXn" firstAttribute="centerY" secondItem="R2e-RF-Jg1" secondAttribute="centerY" id="S4m-fP-aSI"/>
                                                     <constraint firstItem="IaR-id-aU8" firstAttribute="width" secondItem="Obk-ls-MV5" secondAttribute="width" id="Vm2-Qd-Dfs"/>
@@ -295,6 +300,7 @@
                                                     <constraint firstItem="iTS-uB-1oV" firstAttribute="trailing" secondItem="r9h-Pf-6IC" secondAttribute="trailing" id="YjQ-Nl-QtH"/>
                                                     <constraint firstItem="grR-hS-0Zx" firstAttribute="top" secondItem="iTS-uB-1oV" secondAttribute="top" id="ZJj-rP-fMK"/>
                                                     <constraint firstItem="MJX-nc-YwR" firstAttribute="top" secondItem="mpo-3m-jcS" secondAttribute="bottom" constant="6" id="ZoP-xl-NTU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="I8M-EN-4MI" secondAttribute="trailing" constant="8" id="bXx-pi-lkz"/>
                                                     <constraint firstItem="kBa-QJ-4cf" firstAttribute="top" secondItem="IdJ-O5-RgR" secondAttribute="bottom" constant="8" id="dHV-a2-QHx"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hfj-Mf-KoR" secondAttribute="trailing" constant="11" id="dzY-Xe-Dl6"/>
                                                     <constraint firstItem="iTS-uB-1oV" firstAttribute="leading" secondItem="IdJ-O5-RgR" secondAttribute="leading" id="e58-GQ-VCn"/>
@@ -313,6 +319,7 @@
                                                     <constraint firstItem="R2e-RF-Jg1" firstAttribute="trailing" secondItem="r9h-Pf-6IC" secondAttribute="trailing" id="pJq-Uv-Y8R"/>
                                                     <constraint firstItem="iTS-uB-1oV" firstAttribute="top" secondItem="WLZ-FL-Khd" secondAttribute="bottom" constant="12" id="qcg-hF-usd"/>
                                                     <constraint firstItem="mcn-eg-GjR" firstAttribute="top" secondItem="60P-Pk-Rjx" secondAttribute="bottom" constant="6" id="rkp-2l-apl"/>
+                                                    <constraint firstItem="I8M-EN-4MI" firstAttribute="top" secondItem="Qid-G0-Sue" secondAttribute="top" constant="28" id="sI4-dC-ADZ"/>
                                                     <constraint firstItem="IdJ-O5-RgR" firstAttribute="leading" secondItem="Qid-G0-Sue" secondAttribute="leading" constant="9" id="sK9-88-1W9"/>
                                                     <constraint firstItem="mpo-3m-jcS" firstAttribute="leading" secondItem="IdJ-O5-RgR" secondAttribute="leading" id="sKl-NK-MlH"/>
                                                     <constraint firstItem="kBa-QJ-4cf" firstAttribute="leading" secondItem="IdJ-O5-RgR" secondAttribute="leading" id="udv-af-9AN"/>
@@ -396,6 +403,7 @@
                         <outlet property="categoryLabel" destination="grR-hS-0Zx" id="ftx-CV-eNt"/>
                         <outlet property="categorySelectDetailLabel" destination="WLZ-FL-Khd" id="erv-z9-wAk"/>
                         <outlet property="categorySelectTitleLabel" destination="PFy-m0-sGC" id="ZXB-kZ-6nX"/>
+                        <outlet property="iconImageView" destination="I8M-EN-4MI" id="kVA-bp-9d4"/>
                         <outlet property="iconSelectDetailLabel" destination="kBa-QJ-4cf" id="ADU-op-eeg"/>
                         <outlet property="iconSelectTitleLabel" destination="IdJ-O5-RgR" id="toW-Qu-eqr"/>
                         <outlet property="inventoryMinimumCountDetailLabel" destination="mcn-eg-GjR" id="Zkc-dC-ika"/>
@@ -431,7 +439,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="khC-Xn-WbE">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IV7-1k-Xq9">
                                     <size key="itemSize" width="205" height="197"/>
@@ -450,7 +458,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-BH-yFH">
                                                     <rect key="frame" x="0.0" y="0.0" width="205" height="197"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcMilk" translatesAutoresizingMaskIntoConstraints="NO" id="0kR-gW-ezM">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcMilk" translatesAutoresizingMaskIntoConstraints="NO" id="0kR-gW-ezM">
                                                             <rect key="frame" x="77" y="73" width="51" height="51"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0kR-gW-ezM" secondAttribute="height" multiplier="1:1" id="H32-ov-n2j"/>

@@ -21,11 +21,11 @@ class WeekInThisMonthCVCell: UICollectionViewCell {
         didSet {
             if status {
                 self.weekBtn.backgroundColor = .yellow
-                self.weekLabel.textColor = .white
+                self.weekBtn.setTitleColor(.white, for: .normal)
                 weekBtn.isSelected = true
             } else {
                 self.weekBtn.backgroundColor = .white
-                self.weekLabel.textColor = .charcoal
+                self.weekBtn.setTitleColor(.charcoal, for: .normal)
                 weekBtn.isSelected = false
             }
         }
@@ -36,22 +36,22 @@ class WeekInThisMonthCVCell: UICollectionViewCell {
 //        weekBtn.layer.cornerRadius = 12
 //        weekBtn.backgroundColor = .yellow
     }
-    
-    func setWeekInfo(monthOfWeek:String, isSelect:Bool){
-        
-        print("setWeekInfo")
-        weekBtn.titleLabel?.text = monthOfWeek
-        weekLabel.text = monthOfWeek
-        weekBtn.layer.cornerRadius = 12
-        weekBtn.layer.shadowOffset = CGSize(width: 0, height: 0)
-        weekBtn.layer.shadowOpacity = 0.1
-        weekBtn.layer.borderWidth = 0.1
-        status = isSelect
-        print("setWeekInfo\(isSelect)")
-        print("setWeekInfo\(status)")
-        
-        
-    }
+//
+//    func setWeekInfo(monthOfWeek:String, isSelect:Bool){
+//
+//        print("setWeekInfo")
+//        weekBtn.titleLabel?.text = monthOfWeek
+//        weekLabel.text = monthOfWeek
+//        weekBtn.layer.cornerRadius = 12
+//        weekBtn.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        weekBtn.layer.shadowOpacity = 0.1
+//        weekBtn.layer.borderWidth = 0.1
+//        status = isSelect
+//        print("setWeekInfo\(isSelect)")
+//        print("setWeekInfo\(status)")
+//
+//
+//    }
     
     @IBAction func clickWeeks(_ sender: Any) {
         print(1111111)
@@ -62,14 +62,14 @@ class WeekInThisMonthCVCell: UICollectionViewCell {
                        // set deselected
                        status = false
                        self.weekBtn.backgroundColor = .white
-             self.weekLabel.textColor = .charcoal
+            self.weekBtn.setTitleColor(.charcoal, for: .normal)
                        weekBtn.isSelected = false
                    } else {
                        print("clickWeeks",weekBtn.isSelected)
                        // set selected
                        status = true
                        self.weekBtn.backgroundColor = .yellow
-            self.weekLabel.textColor = .white
+            self.weekBtn.setTitleColor(.white, for: .normal)
                        weekBtn.isSelected = true
                    }
                

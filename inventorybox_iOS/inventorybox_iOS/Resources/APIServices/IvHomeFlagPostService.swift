@@ -18,14 +18,12 @@ struct IvHomeFlagPostService {
     }
     
     func getRecordEditIvPost(itemIdx: Int, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
-        ]
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.ivHomeCheckBoxURL + "\(itemIdx)"
         print(url)
-        print(makeParameter(itemIdx: itemIdx, flag: flag))
+//        print(makeParameter(itemIdx: itemIdx, flag: flag))
         let dataRequest = Alamofire.request(url, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
         //        print(makeParameter(data: data, date: date))

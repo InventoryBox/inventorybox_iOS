@@ -43,6 +43,7 @@ class MemoModifyVC: UIViewController {
         // 더보기 관련 옵져버
         NotificationCenter.default.addObserver(self, selector: #selector(morbutton), name: .init("memotablevalue"), object: nil)
         
+         NotificationCenter.default.addObserver(self, selector: #selector(getCount), name: .init("textmodify"), object: nil)
 //        // 더보기 관련 옵져버
 //        NotificationCenter.default.addObserver(self, selector: #selector(textfiledmodify), name: .init("textmodify"), object: nil)
 //        getDataFromServer()
@@ -52,13 +53,29 @@ class MemoModifyVC: UIViewController {
         
     }
     
+    @objc private func getCount(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let count = userInfo["count"] as? Int else { return }
+        guard let name = userInfo["name"] as? String else { return }
+        guard let idx = userInfo["idx"] as? Int else { return }
+        
+        var memorizeIdx: Int = -1
+        for i in 0..<orderCheckMemoInformations.count {
+            if orderCheckMemoInformations[i].itemIdx == idx {
+                memorizeIdx = i
+                break
+            }
+        }
+        
+        orderCheckMemoInformations[memorizeIdx].memoCnt = count
+    }
     //MARK: Home 데이터 받아오기
     func getDataFromServer(){
         
         HomeService.shared.getHome(completion: { networkResult in
             switch networkResult{
             case .success(let data):
-                print(data)
+//                print(data)
                 guard let dt = data as? HomeItemclass else { return }
                 self.orderCheckMemoInformations = dt.result
                 self.tableview.reloadData()
@@ -93,38 +110,24 @@ class MemoModifyVC: UIViewController {
         tableview.reloadData()      // 데이터를 다시 불러오겠다
     }
     
-    
-//    // MARK: TableView 관련 더미데이터
-//    private func setmemoorderCheckInformations() {
-//
-//        let data1 = orderCheckMemoTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999)
-//        let data2 = orderCheckMemoTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1)
-    //        let data3 = orderCheckMemoTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555)
-    //        let data4 = orderCheckMemoTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42)
-    //        let data5 = orderCheckMemoTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5)
-    //        let data6 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-    //        let data7 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-    //
-    //        orderCheckMemoInformations = [data1, data2, data3, data4,data5,data6,data7]
-    //    }
 
 
     // 메모수정 Button 눌렀을 떄
     @IBAction func ModifyBackPRessBtn(_ sender: Any) {
         
-        //        print(inventoryEditProductArray)
+//        print(orderCheckMemoInformations)
         // 서버 통신 코드
-        HomeMemoModifyPostService.shared.getRecordEditIvPost(data: orderCheckMemoInformations[0]) { networkResult in
+        HomeMemoModifyPostService.shared.getHomeMemoAuthPost(data: orderCheckMemoInformations) { networkResult in
             switch networkResult {
             case .success(let data):
-                //                guard let token = token as? String else { return }
-                //                UserDefaults.standard.set(token, forKey: "token")
                 print(data)
+                
                 
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
                 
@@ -153,7 +156,9 @@ extension MemoModifyVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //             section == 1 밑에꺼
         guard let cells = tableView.dequeueReusableCell(withIdentifier: "MemoTVCell", for: indexPath) as? MemoTVCell else { return UITableViewCell() }
-        cells.SetMemoProductImformation(productImage: orderCheckMemoInformations[indexPath.row].img, productNameTx: orderCheckMemoInformations[indexPath.row].itemName, productCountTx: orderCheckMemoInformations[indexPath.row].alarmCnt)
+        
+        cells.idx = orderCheckMemoInformations[indexPath.row].itemIdx
+        cells.SetMemoProductImformation(productImage: orderCheckMemoInformations[indexPath.row].img, productNameTx: orderCheckMemoInformations[indexPath.row].itemName, productCountTx: orderCheckMemoInformations[indexPath.row].memoCnt)
         
         return cells
         
