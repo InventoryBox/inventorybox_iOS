@@ -163,6 +163,7 @@ extension IvExchangeSearchVC: AddressClickDelegate {
         var latitude: String = ""
         var longitude: String = ""
         for i in 0..<allArray.count {
+            
             if addressName == allArray[i].addressName {
                 latitude = allArray[i].x
                 longitude = allArray[i].y
