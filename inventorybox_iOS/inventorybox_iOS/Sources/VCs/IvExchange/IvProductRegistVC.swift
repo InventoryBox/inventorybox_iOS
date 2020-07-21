@@ -206,6 +206,7 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
                     print("networkFail")
                 }
             })
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
