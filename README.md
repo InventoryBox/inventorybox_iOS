@@ -340,7 +340,7 @@ git push origin develop
 
 <img src="https://user-images.githubusercontent.com/56102421/86921053-8080be00-c165-11ea-8ed9-b2899165d05e.jpeg" width="15%"> 
 
-* [지은](https://github.com/hwangJi)
+* [지은](https://github.com/hwangJi-dev)
 
 > 앱잼을 하면서 많은 것을 배웠다. 팀원끼리 소통하는 방법도 새롭게 알게 된 점이 많은 것 같다. 후회가 남는 점이 있다면 iOS 팀원들끼리 서로 소통하고 회고하는 시간을 자주 가졌으면 좋았겠다는 생각이 든다.
 >
