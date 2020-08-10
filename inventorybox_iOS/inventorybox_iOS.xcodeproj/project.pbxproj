@@ -69,7 +69,7 @@
 		339C89B324BB7A4C00B86BAF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B224BB7A4C00B86BAF /* SignUpVC.swift */; };
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
-		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
+		63AE4B7326985F9EFED661D2 /* Pods_____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8145DE55FAEFB5C486F016 /* Pods_____.framework */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
 		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
@@ -249,7 +249,6 @@
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
 		A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
 		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
 		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
@@ -355,6 +354,9 @@
 		D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
+		DC8145DE55FAEFB5C486F016 /* Pods_____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED941A74565798D241600FD6 /* Pods-재고창고.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-재고창고.release.xcconfig"; path = "Target Support Files/Pods-재고창고/Pods-재고창고.release.xcconfig"; sourceTree = "<group>"; };
+		F4FCE680031860D5EA1CAF6C /* Pods-재고창고.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-재고창고.debug.xcconfig"; path = "Target Support Files/Pods-재고창고/Pods-재고창고.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,7 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */,
+				63AE4B7326985F9EFED661D2 /* Pods_____.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +441,8 @@
 			children = (
 				A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */,
 				259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */,
+				F4FCE680031860D5EA1CAF6C /* Pods-재고창고.debug.xcconfig */,
+				ED941A74565798D241600FD6 /* Pods-재고창고.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -446,7 +450,7 @@
 		B43624F6BF6E3C2F2E4B3198 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */,
+				DC8145DE55FAEFB5C486F016 /* Pods_____.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -859,7 +863,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-inventorybox_iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-재고창고-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -872,15 +876,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-재고창고/Pods-재고창고-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-재고창고/Pods-재고창고-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-재고창고/Pods-재고창고-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1111,7 +1115,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1166,7 +1170,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1179,11 +1183,11 @@
 		};
 		D48417BD24AC55EC0064EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */;
+			baseConfigurationReference = F4FCE680031860D5EA1CAF6C /* Pods-재고창고.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 966AMBK56G;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1199,11 +1203,11 @@
 		};
 		D48417BE24AC55EC0064EE64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */;
+			baseConfigurationReference = ED941A74565798D241600FD6 /* Pods-재고창고.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 966AMBK56G;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'inventorybox_iOS' do
+target '재고창고' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for inventorybox_iOS
+  # Pods for 재고창고
   pod 'Alamofire', '~> 4.8.2'
   pod 'Kingfisher', '~> 5.0'
   pod 'lottie-ios', '~> 3.1.8'
