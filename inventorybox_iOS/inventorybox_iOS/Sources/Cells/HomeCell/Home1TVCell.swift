@@ -40,7 +40,7 @@ class Home1TVCell: UITableViewCell {
         collectionview.dataSource = self
         collectionview.delegate = self
         
-//        print(collectionview.frame.height)
+
         
         NotificationCenter.default.post(name: .init("notifyHeight"), object: nil, userInfo: ["cvheight": collectionview.frame.height])
         
@@ -54,7 +54,7 @@ class Home1TVCell: UITableViewCell {
          HomeService.shared.getHome(completion: { networkResult in
              switch networkResult{
              case .success(let data):
-                 print(data)
+                 
                  guard let dt = data as? HomeItemclass else { return }
                  
                  self.checklistInformations = dt.result
@@ -76,7 +76,7 @@ class Home1TVCell: UITableViewCell {
     
     //  Notification 관련 func
     @objc private func getChekcList(_ notification: Notification) {
-        //        print("second return")
+        
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
         guard let checkvalue = userInfo["bool"] as? Bool else { return }
         guard let ivName = userInfo["name"] as? String else { return }

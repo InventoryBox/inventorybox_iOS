@@ -13,9 +13,8 @@ struct IvExchangeDetailService {
     static let shared = IvExchangeDetailService()
     
     func getExchangeDetail(idx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
-        ]
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.ivExchangePostDetailURL + "\(idx)"
         let dataRequest = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: header)
@@ -45,7 +44,7 @@ struct IvExchangeDetailService {
     
     private func getExchangeDetailData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        
+        print("here?")
         guard let decodedData = try? decoder.decode(IvExchangeDetailData.self, from: data) else { return .pathErr }
         
         guard let data = decodedData.data else { return .pathErr }

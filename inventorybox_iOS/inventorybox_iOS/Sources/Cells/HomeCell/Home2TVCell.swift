@@ -66,7 +66,7 @@ class Home2TVCell: UITableViewCell {
             case .success(let data):
                 guard let graphData = data as? HomeItem else {return}
                 self.stockArray = graphData.stocksInfo
-                print(self.stockArray)
+                
                 
             case .requestErr(let msg):
                 print(msg)
@@ -102,7 +102,6 @@ class Home2TVCell: UITableViewCell {
         for i in 0...4 {
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.stocksInfo[i]))
             dataEntries.append(dataEntry)
-            //print(model.stocks[i])
         }
         
         

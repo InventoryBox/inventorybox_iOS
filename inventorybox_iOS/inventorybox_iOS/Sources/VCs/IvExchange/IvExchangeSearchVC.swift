@@ -18,14 +18,9 @@ class IvExchangeSearchVC: UIViewController {
     
     var resultArray: [String] = []
     var allArray: [Address] = []
+    var roadArray: [RoadAddress] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//
-//        let backButton = UIBarButtonItem()
-//        backButton.title = ""
-//        backButton.tintColor = .yellow
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -94,7 +89,13 @@ extension IvExchangeSearchVC: UITextFieldDelegate {
                 for i in dt {
                     print(i)
                     self.resultArray.append(i.addressName)
-                    self.allArray.append(i.address!)
+                    if let address = i.address {
+                        self.allArray.append(address)
+                    }
+                    if let road = i.roadAddress {
+                        self.roadArray.append(road)
+                    }
+                    
                 }
                 
                 self.searchResultTableView.reloadData()
@@ -151,6 +152,9 @@ extension IvExchangeSearchVC: UITableViewDelegate {
     }
 }
 
+
+
+//MARK: - 내 주소 변경하기
 extension IvExchangeSearchVC: AddressClickDelegate {
     func setAddress(addressName: String) {
         print("tap")
@@ -159,9 +163,17 @@ extension IvExchangeSearchVC: AddressClickDelegate {
         var latitude: String = ""
         var longitude: String = ""
         for i in 0..<allArray.count {
+            
             if addressName == allArray[i].addressName {
                 latitude = allArray[i].x
                 longitude = allArray[i].y
+            }
+        }
+        
+        for i in 0..<roadArray.count {
+            if addressName == roadArray[i].addressName {
+                latitude = roadArray[i].x
+                longitude = roadArray[i].y
             }
         }
         

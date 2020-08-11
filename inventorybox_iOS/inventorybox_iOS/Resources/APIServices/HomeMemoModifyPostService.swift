@@ -32,10 +32,8 @@ struct HomeMemoModifyPostService {
     
     
     func getHomeMemoAuthPost(data: [HomeItem], completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjEsImVtYWlsIjoicm94YW5lYW1ldGh5QGdtYWlsLmNvbSIsImlhdCI6MTU5NDY0MTQ4M30.oAUMpo6hNxgZ77nYj0bZStOqJLAqJVDMYna93D1NDwo"
-        ]
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         
         let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .put, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)

@@ -110,20 +110,6 @@ class MemoModifyVC: UIViewController {
         tableview.reloadData()      // 데이터를 다시 불러오겠다
     }
     
-    
-//    // MARK: TableView 관련 더미데이터
-//    private func setmemoorderCheckInformations() {
-//
-//        let data1 = orderCheckMemoTVCInfo(productimage: "homeIcMilk.png", productname: "우유", productcount: 9999)
-//        let data2 = orderCheckMemoTVCInfo(productimage: "homeIcGreenpowder.png", productname: "녹차 파우더", productcount: 1)
-    //        let data3 = orderCheckMemoTVCInfo(productimage: "homeIcStrawberry.png", productname: "딸기", productcount: 555)
-    //        let data4 = orderCheckMemoTVCInfo(productimage: "homeIcCoffee.png", productname: "원두", productcount: 42)
-    //        let data5 = orderCheckMemoTVCInfo(productimage: "homeIcHssyrup.png", productname: "허니 시럽", productcount: 5)
-    //        let data6 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-    //        let data7 = orderCheckMemoTVCInfo(productimage: "homeIcMcpowder.png", productname: "모카 파우더", productcount: 12)
-    //
-    //        orderCheckMemoInformations = [data1, data2, data3, data4,data5,data6,data7]
-    //    }
 
 
     // 메모수정 Button 눌렀을 떄

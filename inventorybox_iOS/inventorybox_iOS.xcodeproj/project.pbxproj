@@ -69,7 +69,7 @@
 		339C89B324BB7A4C00B86BAF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B224BB7A4C00B86BAF /* SignUpVC.swift */; };
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
-		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
+		4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
 		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
@@ -199,7 +199,6 @@
 		0EB0CF3024B0FC09009B089A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
-		259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvGraphTVCell.swift; sourceTree = "<group>"; };
 		3332402524B4A6D800C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
 		3332402624B4A6D800C3B59C /* DayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -248,8 +247,9 @@
 		339C89B224BB7A4C00B86BAF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
-		A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
 		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
 		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
@@ -362,7 +362,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */,
+				4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,8 +437,8 @@
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */,
-				259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */,
+				BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */,
+				9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 		B43624F6BF6E3C2F2E4B3198 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */,
+				D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -539,7 +539,6 @@
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
 				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
-				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
@@ -766,7 +765,7 @@
 				D48417A424AC55EB0064EE64 /* Sources */,
 				D48417A524AC55EB0064EE64 /* Frameworks */,
 				D48417A624AC55EB0064EE64 /* Resources */,
-				FDDB2D6DB24360CAD6746B52 /* [CP] Embed Pods Frameworks */,
+				7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -867,7 +866,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FDDB2D6DB24360CAD6746B52 /* [CP] Embed Pods Frameworks */ = {
+		7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1112,7 +1111,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1167,7 +1166,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1180,11 +1179,11 @@
 		};
 		D48417BD24AC55EC0064EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */;
+			baseConfigurationReference = BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 966AMBK56G;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1200,11 +1199,11 @@
 		};
 		D48417BE24AC55EC0064EE64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */;
+			baseConfigurationReference = 9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 966AMBK56G;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (

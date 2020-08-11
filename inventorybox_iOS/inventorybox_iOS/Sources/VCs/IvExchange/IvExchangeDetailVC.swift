@@ -82,7 +82,7 @@ class IvExchangeDetailVC: UIViewController {
             case .success(let data):
                 
                 guard let dt = data as? IvExchangeDetailClass else { return }
-//                print(dt)
+
                 self.inventoryNameLabel.text = dt.itemInfo.productName
                 if dt.itemInfo.isFood == 0 {
                     self.inventoryExchangeCategoryLabel.text = "공산품"
@@ -94,11 +94,11 @@ class IvExchangeDetailVC: UIViewController {
                 if dt.itemInfo.distDiff > 1000 {
                     self.distanceLabel.titleLabel?.text = "\(dt.itemInfo.distDiff / 1000)" + "km"
                     self.distanceLab.text = "\(dt.itemInfo.distDiff / 1000)km"
-                    self.distanceLabel.backgroundColor = UIColor.yellow
+                    self.distanceLabel.backgroundColor = UIColor.gray
                     self.distanceLab.textColor = .white
                 } else {
                     self.distanceLabel.titleLabel?.text = "\(dt.itemInfo.distDiff)m"
-                    self.distanceLabel.backgroundColor = UIColor.gray
+                    self.distanceLabel.backgroundColor = UIColor.yellow
                     self.distanceLab.text = "\(dt.itemInfo.distDiff)m"
                     self.distanceLab.textColor = .white
                 }

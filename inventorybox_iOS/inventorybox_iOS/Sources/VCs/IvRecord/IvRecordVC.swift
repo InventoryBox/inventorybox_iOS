@@ -116,11 +116,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                          self.inventoryArray = itemInfo
                     }
                     
-          
-                    
-                    
-                    
-                    
                     // 날짜 검색 ❌ 데이터 ❌ + 날짜 검색 ⭕️ 데이터 ❌
                     // 즉 첫 사용자 로직 + 날짜 검색해서 데이터가 없을때 로직
                     if self.inventoryArray.count == 0 {
@@ -141,8 +136,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                               dateFormatter.dateFormat = "yyyy-MM-dd"
                               dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
                               self.memorizeDate = dateFormatter.date(from: date.components(separatedBy: " ")[0])
-                              //                        print(self.memorizeDate ?? nil)
-                              //                        print(date)//self.memorizeDate
                          }
                          
                          
@@ -157,7 +150,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                          
                     } else {
                          
-                         self.floatingTodayRecordBtn.isHidden = false
+                         self.floatingTodayRecordBtn.isHidden = true
                          
                     }
                     

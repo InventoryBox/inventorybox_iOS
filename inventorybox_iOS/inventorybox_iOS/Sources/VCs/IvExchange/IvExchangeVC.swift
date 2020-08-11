@@ -77,7 +77,7 @@ class IvExchangeVC: UIViewController {
                 
                 guard let dt = data as? IvExchangeHomeClass else { return }
                 self.myLocationLabel.text = dt.addressInfo
-                print(dt)
+                
                 if self.filterNum == "0" {
                     self.allExchangeArray = dt.postInfo
                     self.filteredExchangeArray = self.allExchangeArray
@@ -329,7 +329,7 @@ extension IvExchangeVC: UICollectionViewDataSource {
 
 extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width - 40) / 2, height: 274)
+        return CGSize(width: (collectionView.frame.width - 40) / 2, height: 290)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -346,7 +346,6 @@ extension IvExchangeVC: UICollectionViewDelegateFlowLayout {
 
 extension IvExchangeVC: ExchangeButtonDelegate {
     func whichProductIsSelect(indexPath: Int, idx: Int) {
-//        print(indexPath)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvExchangeDetailVC") as? IvExchangeDetailVC else { return }
         
         vc.idx = idx

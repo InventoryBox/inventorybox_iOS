@@ -28,7 +28,7 @@ struct DetailInfo: Codable {
     let productImg: String?
     let productName: String
     let quantity, isFood, price: Int
-    let itemInfoDescription, expDate, uploadDate: String
+    let itemInfoDescription, expDate, uploadDate: String?
     let isSold, coverPrice: Int
     let unit: String
     let userIdx, distDiff: Int

@@ -165,10 +165,9 @@
                                                             </constraints>
                                                         </view>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="lastrecordingTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-dZ-o8l">
-                                                            <rect key="frame" x="108" y="18.5" width="206" height="49"/>
+                                                            <rect key="frame" x="108" y="18.5" width="215" height="49"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="cZz-tz-wiN"/>
-                                                                <constraint firstAttribute="width" constant="206" id="gue-hR-WgQ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -178,8 +177,10 @@
                                                     <constraints>
                                                         <constraint firstItem="ExB-9Z-r8m" firstAttribute="top" secondItem="pfl-mr-8fg" secondAttribute="top" constant="6" id="2dz-1K-ZhV"/>
                                                         <constraint firstItem="ce5-dZ-o8l" firstAttribute="leading" secondItem="ExB-9Z-r8m" secondAttribute="trailing" constant="20" id="4MZ-XB-1LA"/>
+                                                        <constraint firstItem="ce5-dZ-o8l" firstAttribute="leading" secondItem="ExB-9Z-r8m" secondAttribute="trailing" constant="20" id="Ir9-VF-NmG"/>
                                                         <constraint firstItem="ExB-9Z-r8m" firstAttribute="leading" secondItem="pfl-mr-8fg" secondAttribute="leading" constant="6" id="YHo-mq-iUE"/>
                                                         <constraint firstItem="ce5-dZ-o8l" firstAttribute="centerY" secondItem="ExB-9Z-r8m" secondAttribute="centerY" id="dpg-cf-e3L"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ce5-dZ-o8l" secondAttribute="trailing" constant="20" id="eSh-lU-rSL"/>
                                                         <constraint firstAttribute="bottom" secondItem="ExB-9Z-r8m" secondAttribute="bottom" constant="6" id="h7a-6q-6yn"/>
                                                     </constraints>
                                                 </view>
