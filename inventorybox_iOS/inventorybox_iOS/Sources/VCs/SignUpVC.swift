@@ -27,11 +27,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.navigationController?.navigationBar.isHidden = false
-       // self.navigationItem.title = "회원가입"
-        
 
-        //completeBtn.isEnabled = false
         setBtnOutlets()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)

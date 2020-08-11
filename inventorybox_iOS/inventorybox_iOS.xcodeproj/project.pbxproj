@@ -43,6 +43,7 @@
 		3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406C24B6550C00C3B59C /* IvEditTVCell.swift */; };
 		3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */; };
 		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
+		3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */; };
 		3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */; };
 		3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */; };
 		3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */; };
@@ -215,6 +216,7 @@
 		3332406C24B6550C00C3B59C /* IvEditTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvEditTVCell.swift; sourceTree = "<group>"; };
 		3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInThisMonthCVCell.swift; sourceTree = "<group>"; };
 		3332407224B6609000C3B59C /* WeekInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInformation.swift; sourceTree = "<group>"; };
+		3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoChangeVC.swift; sourceTree = "<group>"; };
 		3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeWritePopupVC.swift; sourceTree = "<group>"; };
 		3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangePostService.swift; sourceTree = "<group>"; };
 		3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvCompareGraphVC.swift; sourceTree = "<group>"; };
@@ -434,6 +436,14 @@
 			path = GraphDetailCell;
 			sourceTree = "<group>";
 		};
+		3340BC9724E28CBB00D41F9F /* SignProgress */ = {
+			isa = PBXGroup;
+			children = (
+				3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */,
+			);
+			path = SignProgress;
+			sourceTree = "<group>";
+		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +608,7 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				3340BC9724E28CBB00D41F9F /* SignProgress */,
 				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D46A015B24B6C9780055814E /* IvExchange */,
 				3332405D24B5B17800C3B59C /* IvGraphNC.swift */,
@@ -919,6 +930,7 @@
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
+				3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */,
 				D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */,
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
