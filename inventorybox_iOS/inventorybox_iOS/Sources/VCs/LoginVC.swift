@@ -141,15 +141,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         // id형식 확인
         @objc private func idTextChecked(_ TextLabel: UILabel) {
             
-            if ( isValidId(id: emailTextField.text)){
-                emailCheckLabel.text = "id 조건 확인하세요"
-                emailCheckLabel.alpha = 1
-            }
-            else
-            {
-                emailCheckLabel.text = "id 조건 확인하세요"
-                emailCheckLabel.alpha = 0
-            }
+//            if ( isValidId(id: emailTextField.text)){
+//                emailCheckLabel.text = "id 조건 확인하세요"
+//                emailCheckLabel.alpha = 1
+//            }
+//            else
+//            {
+//                emailCheckLabel.text = "id 조건 확인하세요"
+//                emailCheckLabel.alpha = 0
+//            }
         }
         
     }
