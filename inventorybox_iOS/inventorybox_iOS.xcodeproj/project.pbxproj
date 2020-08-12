@@ -61,6 +61,10 @@
 		3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */; };
 		3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */; };
 		3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */; };
+		33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */; };
+		33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */; };
+		33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */; };
+		33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF624E41265003F07A7 /* NanumSquareBold.ttf */; };
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
 		339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */; };
 		339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */; };
@@ -134,9 +138,6 @@
 		D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */; };
 		D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */; };
 		D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */; };
-		D4AC98DF24B87E1600DBD099 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */; };
-		D4AC98E024B87E1800DBD099 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */; };
-		D4AC98E124B87E1B00DBD099 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */; };
 		D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */; };
 		D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F4924B56B9400888DC3 /* CategoryTag.swift */; };
 		D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */; };
@@ -239,6 +240,10 @@
 		3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeService.swift; sourceTree = "<group>"; };
 		3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphData.swift; sourceTree = "<group>"; };
 		3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphService.swift; sourceTree = "<group>"; };
+		33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpVC.swift; sourceTree = "<group>"; };
+		33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
+		33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
+		33700DF624E41265003F07A7 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraphWeekInfo.swift; sourceTree = "<group>"; };
 		339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerPopupVC.swift; path = IvRecord/DatePickerPopupVC.swift; sourceTree = "<group>"; };
 		339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IvRecordAddProductVC.swift; path = IvRecord/IvRecordAddProductVC.swift; sourceTree = "<group>"; };
@@ -318,10 +323,7 @@
 		D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryVC.swift; sourceTree = "<group>"; };
 		D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCell.swift; sourceTree = "<group>"; };
 		D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12롯데마트행복Medium.ttf"; sourceTree = "<group>"; };
-		D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
-		D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12롯데마트행복Bold.ttf"; sourceTree = "<group>"; };
 		D4B45F4924B56B9400888DC3 /* CategoryTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryTag.swift; path = inventorybox_iOS/Sources/Classes/CategoryTag.swift; sourceTree = SOURCE_ROOT; };
 		D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInformation.swift; sourceTree = "<group>"; };
@@ -389,11 +391,11 @@
 		0EB0CF4224B19FA8009B089A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				33700DF624E41265003F07A7 /* NanumSquareBold.ttf */,
+				33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */,
+				33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */,
 				D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */,
 				D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */,
-				D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */,
-				D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */,
-				D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */,
 				D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */,
 				0EB0CF4024B199F0009B089A /* Font.swift */,
 			);
@@ -440,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */,
+				33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */,
 			);
 			path = SignProgress;
 			sourceTree = "<group>";
@@ -828,10 +831,8 @@
 				339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */,
 				D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */,
 				D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */,
-				D4AC98E024B87E1800DBD099 /* NanumSquareR.ttf in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */,
-				D4AC98DF24B87E1600DBD099 /* NanumSquareB.ttf in Resources */,
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
 				D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
@@ -840,12 +841,14 @@
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
 				D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */,
-				D4AC98E124B87E1B00DBD099 /* NanumSquareEB.ttf in Resources */,
 				D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */,
 				D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */,
 				33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */,
+				33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */,
 				D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */,
+				33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */,
 				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
+				33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */,
 				D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
 				D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */,
@@ -939,6 +942,7 @@
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
 				D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */,
 				D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */,
+				33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
 				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,

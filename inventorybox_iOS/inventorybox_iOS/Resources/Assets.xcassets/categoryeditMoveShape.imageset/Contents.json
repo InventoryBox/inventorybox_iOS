@@ -1,23 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "categoryeditMoveShape.png",
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "categoryeditMoveShape.png"
     },
     {
-      "filename" : "categoryeditMoveShape@2x.png",
       "idiom" : "universal",
+      "filename" : "categoryeditMoveShape@2x.png",
       "scale" : "2x"
     },
     {
       "filename" : "categoryeditMoveShape@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

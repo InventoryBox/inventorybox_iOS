@@ -1,14 +1,14 @@
 //
-//  DeleteCategoryPopupVC.swift
+//  ProfileSetUpVC.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/09.
+//  Created by 황지은 on 2020/08/12.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import UIKit
 
-class DeleteCategoryPopupVC: UIViewController {
+class ProfileSetUpVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,10 @@ class DeleteCategoryPopupVC: UIViewController {
     }
     
 
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -28,4 +32,3 @@ class DeleteCategoryPopupVC: UIViewController {
     */
 
 }
-

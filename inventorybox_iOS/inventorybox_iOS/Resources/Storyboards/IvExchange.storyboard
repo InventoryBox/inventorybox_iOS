@@ -20,7 +20,7 @@
         <!--Iv ExchangeVC-->
         <scene sceneID="5fz-Dj-cKj">
             <objects>
-                <viewController storyboardIdentifier="IvExchangeVC" id="Xiw-BX-3c9" customClass="IvExchangeVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvExchangeVC" id="Xiw-BX-3c9" customClass="IvExchangeVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ghf-wU-xCf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="bottom" secondItem="9Vo-gc-qAI" secondAttribute="bottom" id="zjw-8U-y9Z"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색" textAlignment="center" minimumFontSize="17" background="exchangemainBtnSearch" translatesAutoresizingMaskIntoConstraints="NO" id="1Gn-Nt-bIS" customClass="FormTextField" customModule="재고창고" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색" textAlignment="center" minimumFontSize="17" background="exchangemainBtnSearch" translatesAutoresizingMaskIntoConstraints="NO" id="1Gn-Nt-bIS" customClass="FormTextField" customModule="inventorybox_iOS" customModuleProvider="target">
                                 <rect key="frame" x="16.5" y="106" width="342" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="342" id="ifa-ua-fsw"/>
@@ -289,7 +289,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvFoodExchangeCell" id="vLs-9h-wHS" customClass="IvFoodExchangeCell" customModule="재고창고" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvFoodExchangeCell" id="vLs-9h-wHS" customClass="IvFoodExchangeCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="283"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AKG-wr-YMi">
@@ -421,7 +421,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvProductExchangeCell" id="OsQ-vM-xWf" customClass="IvProductExchangeCell" customModule="재고창고" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvProductExchangeCell" id="OsQ-vM-xWf" customClass="IvProductExchangeCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="283"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yYi-F9-YEx">
@@ -553,7 +553,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvAllExchangeCell" id="tFT-Eq-cBL" customClass="IvAllExchangeCell" customModule="재고창고" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IvAllExchangeCell" id="tFT-Eq-cBL" customClass="IvAllExchangeCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="283"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wtI-Xj-oGZ">
@@ -806,7 +806,7 @@
         <!--내 가게 위치 설정-->
         <scene sceneID="qhY-yX-Iw1">
             <objects>
-                <viewController storyboardIdentifier="IvExchangeSearchVC" id="jYP-KU-Nz6" customClass="IvExchangeSearchVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvExchangeSearchVC" id="jYP-KU-Nz6" customClass="IvExchangeSearchVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ywd-iP-kDd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -857,7 +857,7 @@
                                 <rect key="frame" x="0.0" y="169" width="375" height="498"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="83" id="0gN-8P-rdP" customClass="SearchResultCell" customModule="재고창고" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="83" id="0gN-8P-rdP" customClass="SearchResultCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0gN-8P-rdP" id="p3Z-kk-y0d">
@@ -916,7 +916,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="btnSearchLocation" translatesAutoresizingMaskIntoConstraints="NO" id="yQa-Hb-boR" customClass="FormTextField" customModule="재고창고" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="btnSearchLocation" translatesAutoresizingMaskIntoConstraints="NO" id="yQa-Hb-boR" customClass="FormTextField" customModule="inventorybox_iOS" customModuleProvider="target">
                                 <rect key="frame" x="16" y="115" width="343" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="0cR-Zt-u0g"/>
@@ -959,7 +959,7 @@
         <!--게시글-->
         <scene sceneID="U0a-eP-pcx">
             <objects>
-                <viewController storyboardIdentifier="IvExchangeDetailVC" id="QD1-7F-WQs" customClass="IvExchangeDetailVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvExchangeDetailVC" id="QD1-7F-WQs" customClass="IvExchangeDetailVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="paF-Ar-hli">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1379,7 +1379,7 @@
         <!--Iv Product RegistVC-->
         <scene sceneID="6Bo-vs-Cz2">
             <objects>
-                <viewController id="LBG-tb-cMY" customClass="IvProductRegistVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LBG-tb-cMY" customClass="IvProductRegistVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8wU-oz-RLE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1082"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1907,7 +1907,7 @@
         <!--Iv Exchange NaviVC-->
         <scene sceneID="Kjm-Va-LO1">
             <objects>
-                <navigationController storyboardIdentifier="IvExchangeNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="xYl-5z-5cJ" customClass="IvExchangeNaviVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="IvExchangeNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="xYl-5z-5cJ" customClass="IvExchangeNaviVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QF8-I3-4b5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1925,7 +1925,7 @@
         <!--Iv Exchange Write PopupVC-->
         <scene sceneID="bPO-46-zjJ">
             <objects>
-                <viewController storyboardIdentifier="IvExchangeWritePopupVC" id="0qE-XH-Wkc" customClass="IvExchangeWritePopupVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvExchangeWritePopupVC" id="0qE-XH-Wkc" customClass="IvExchangeWritePopupVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yH2-cD-Mjq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
