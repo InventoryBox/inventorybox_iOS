@@ -54,6 +54,7 @@ class IvRecordEditProductVC: UIViewController {
     }
     
     @objc private func update() {
+        
             print("hi")
             getDataFromServer(dateToSend!)
         

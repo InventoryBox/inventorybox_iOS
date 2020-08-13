@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NanumSquareR.ttf">
+        <array key="NanumSquareRegular.ttf">
             <string>NanumSquareR</string>
         </array>
     </customFonts>
@@ -315,17 +315,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcq-tY-ofI">
-                                <rect key="frame" x="317" y="612.5" width="42" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="H1N-sP-Iro"/>
-                                    <constraint firstAttribute="width" constant="42" id="uGG-hp-6wX"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="lastrecordBtnFloatingLight"/>
-                                <connections>
-                                    <action selector="scrollUpBtnPressed:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="36z-IV-5B4"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyS-l2-rBy">
                                 <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <subviews>
@@ -398,7 +387,6 @@
                             <constraint firstItem="OEj-wo-URV" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="PkZ-Zq-sFI"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="OEj-wo-URV" secondAttribute="bottom" id="QeF-CH-xkN"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="SkZ-Jq-oaF"/>
-                            <constraint firstItem="xcq-tY-ofI" firstAttribute="centerY" secondItem="7Dn-YM-0C3" secondAttribute="centerY" id="U5d-RR-KhG"/>
                             <constraint firstItem="7Dn-YM-0C3" firstAttribute="centerX" secondItem="qsm-xl-jtl" secondAttribute="centerX" id="XR5-cN-LAh"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="Xik-Az-zt6"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="top" secondItem="qsm-xl-jtl" secondAttribute="top" id="aP0-rl-wU2"/>
@@ -406,11 +394,17 @@
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="cj0-lT-dmd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="jhp-E1-29h"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="7Dn-YM-0C3" secondAttribute="bottom" constant="16" id="r4i-0B-m1m"/>
-                            <constraint firstItem="fMU-Z6-8Ja" firstAttribute="trailing" secondItem="xcq-tY-ofI" secondAttribute="trailing" constant="16" id="rso-0J-Sdw"/>
                             <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" constant="100" id="wRg-y0-FVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qyS-l2-rBy"/>
+                                <exclude reference="ktg-z8-FKj"/>
+                                <exclude reference="yEl-so-lwF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>
@@ -422,7 +416,6 @@
                         <outlet property="firstRegisterBtn" destination="nA6-Js-dWy" id="qeq-nA-2mo"/>
                         <outlet property="firstRegisterView" destination="ktg-z8-FKj" id="8S6-SA-ezc"/>
                         <outlet property="floatingTodayRecordBtn" destination="7Dn-YM-0C3" id="bUa-Ld-dFy"/>
-                        <outlet property="floatingUpBtn" destination="xcq-tY-ofI" id="N67-g5-eOe"/>
                         <outlet property="inventoryTableView" destination="OEj-wo-URV" id="HLt-mE-epN"/>
                         <outlet property="noDataView" destination="qyS-l2-rBy" id="Cl3-4p-eGJ"/>
                         <outlet property="outView" destination="qIa-5D-Vbp" id="VHD-fg-AWv"/>
@@ -511,7 +504,6 @@
     </scenes>
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="lastrecordBtnFloatingLight" width="60" height="60"/>
         <image name="lastrecordingBtnDatechange" width="14" height="14"/>
         <image name="lastrecordingBtnEdit" width="44" height="44"/>
         <image name="lastrecordingBtnPlus" width="89" height="15"/>
