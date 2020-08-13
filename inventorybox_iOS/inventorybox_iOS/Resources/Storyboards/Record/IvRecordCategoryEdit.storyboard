@@ -354,7 +354,7 @@
                                     <constraint firstAttribute="bottom" secondItem="wIO-Kl-k7R" secondAttribute="bottom" id="kKu-NT-Kqw"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
                                 <rect key="frame" x="0.0" y="0.0" width="492" height="810"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -375,6 +375,11 @@
                             <constraint firstItem="0Rd-ik-DZm" firstAttribute="leading" secondItem="9XY-Rk-Boi" secondAttribute="leading" id="xtR-lR-6Ex"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9XY-Rk-Boi"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="aV3-0H-DuD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QGP-pg-8ch"/>
                     <connections>
@@ -722,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kO-GY-VRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1709.5999999999999" y="158.77061469265368"/>
+            <point key="canvasLocation" x="-1868" y="159"/>
         </scene>
         <!--Delete Category PopVC-->
         <scene sceneID="9Eg-uL-ATi">
@@ -857,7 +862,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLo-aS-Sh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1711.2" y="837.93103448275872"/>
+            <point key="canvasLocation" x="-1015" y="859"/>
         </scene>
     </scenes>
     <resources>

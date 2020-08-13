@@ -11,6 +11,7 @@ import UIKit
 protocol IconSeletDelegate {
     func didSelectIcon(indexPath: Int, iconImageName: String)
 }
+
 class IconCell: UICollectionViewCell {
     static let identifier: String = "IconCell"
     
