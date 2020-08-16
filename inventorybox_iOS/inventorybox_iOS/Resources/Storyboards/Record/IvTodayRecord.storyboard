@@ -35,21 +35,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uX4-yY-gw4" customClass="CustomTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="114.5" y="12" width="146" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="146" id="fiD-Xf-YrN"/>
-                                                    <constraint firstAttribute="height" constant="20" id="fr0-39-Ovm"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="uX4-yY-gw4" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="Fbl-hX-3x6"/>
                                             <constraint firstItem="ni2-E9-rMT" firstAttribute="leading" secondItem="C1w-Wr-Jgp" secondAttribute="leading" id="G1k-Je-5yv"/>
-                                            <constraint firstItem="uX4-yY-gw4" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="V1r-up-zHY"/>
                                             <constraint firstItem="ni2-E9-rMT" firstAttribute="centerY" secondItem="C1w-Wr-Jgp" secondAttribute="centerY" id="aA4-rE-GJh"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="top" secondItem="C1w-Wr-Jgp" secondAttribute="top" constant="12" id="fhc-3b-uLB"/>
                                             <constraint firstItem="Hkj-fK-2iz" firstAttribute="centerX" secondItem="C1w-Wr-Jgp" secondAttribute="centerX" id="jVW-Tb-BKi"/>
@@ -111,29 +100,12 @@
                                 <rect key="frame" x="0.0" y="95" width="375" height="497"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="35" id="cdr-7s-Yws" customClass="HeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddIvHeaderCell" rowHeight="35" id="cdr-7s-Yws" customClass="AddIvHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cdr-7s-Yws" id="Kfy-Mm-kix">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UB9-aJ-oDa">
-                                                    <rect key="frame" x="24" y="10" width="89" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="89" id="1Ti-ad-l8M"/>
-                                                        <constraint firstAttribute="height" constant="15" id="B73-ng-64B"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="lastrecordingBtnPlus"/>
-                                                    <connections>
-                                                        <action selector="goToAddProductVC:" destination="5z3-bU-8VT" eventType="touchUpInside" id="vUl-Pv-nlx"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="UB9-aJ-oDa" firstAttribute="centerY" secondItem="Kfy-Mm-kix" secondAttribute="centerY" id="bfJ-Ab-FXx"/>
-                                                <constraint firstItem="UB9-aJ-oDa" firstAttribute="leading" secondItem="Kfy-Mm-kix" secondAttribute="leading" constant="24" id="rkf-yQ-lmY"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryTodayRecordCell" rowHeight="94" id="Dkc-Rb-2mT" customClass="InventoryTodayRecordCell" customModule="inventorybox_iOS" customModuleProvider="target">
@@ -179,7 +151,7 @@
                                                                 <constraint firstAttribute="height" constant="49" id="AbG-Da-iaO"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,7 +227,6 @@
     </scenes>
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
         <image name="postBtnBack" width="40" height="44"/>
     </resources>

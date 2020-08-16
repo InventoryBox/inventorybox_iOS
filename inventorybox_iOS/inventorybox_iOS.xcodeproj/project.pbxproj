@@ -154,7 +154,7 @@
 		D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */; };
 		D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */; };
 		D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */; };
-		D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* HeaderCell.swift */; };
+		D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */; };
 		D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8B24B32647009B089A /* Homes.storyboard */; };
 		D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */; };
 		D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A40724B4EA9C001C015A /* IvTodayRecordVC.swift */; };
@@ -270,7 +270,7 @@
 		D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordHomeService.swift; sourceTree = "<group>"; };
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
-		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIvHeaderCell.swift; sourceTree = "<group>"; };
 		D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopVC.swift; sourceTree = "<group>"; };
 		D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryCell.swift; sourceTree = "<group>"; };
 		D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditProductCell.swift; sourceTree = "<group>"; };
@@ -405,6 +405,7 @@
 		3332402324B4A6D800C3B59C /* GraphCell */ = {
 			isa = PBXGroup;
 			children = (
+				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */,
 				3332402724B4A6D800C3B59C /* CalendarCVCell.swift */,
 				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
@@ -819,7 +820,8 @@
 				3332406524B651F300C3B59C /* GraphDetailCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
 				D4DFE3C424B6599900D8795E /* RecordCell */,
-				0EB0CF7824B1D40F009B089A /* HomeCell */,
+				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,
+				D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -891,8 +893,6 @@
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
 			isa = PBXGroup;
 			children = (
-				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,
-				D4260EFB24B17AB500CAA41B /* HeaderCell.swift */,
 				D40372C024E5781600AFD2E5 /* AddInventory */,
 				D40372BD24E5768000AFD2E5 /* EditRecord */,
 				D40372BE24E5770900AFD2E5 /* EditCategory */,
@@ -1094,7 +1094,7 @@
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
-				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
+				D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */,
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
 				D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */,
 				D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */,

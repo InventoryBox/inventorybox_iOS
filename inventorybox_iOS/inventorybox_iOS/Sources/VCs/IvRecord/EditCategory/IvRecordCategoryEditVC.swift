@@ -321,15 +321,15 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
         categoryEditTableView.reloadData()
         
     }
-//
+
     func didClickCheckButton(isClicked: Bool, indexPath: Int) {
 
-        if self.checkboxSelections.contains(indexPath) {
-            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
-            self.checkboxSelections.remove(at: i)
-        } else {
-            checkboxSelections.append(indexPath)
-        }
+//        if self.checkboxSelections.contains(indexPath) {
+//            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
+//            self.checkboxSelections.remove(at: i)
+//        } else {
+//            checkboxSelections.append(indexPath)
+//        }
 
         
     }

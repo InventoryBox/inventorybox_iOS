@@ -100,7 +100,7 @@ class InventoryCategoryEditCell: UITableViewCell {
         
         inventoryNameLabel.text = inventoryName
         minimumInventoryCountLabel.text = "\(minimumInventoryCount)"
-//        isSelectBtn = checkboxSelected
+        
     }
     
 }

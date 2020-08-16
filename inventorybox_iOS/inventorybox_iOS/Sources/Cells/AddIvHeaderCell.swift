@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell {
-    static let identifier: String = "HeaderCell"
+class AddIvHeaderCell: UITableViewCell {
+    static let identifier: String = "AddIvHeaderCell"
     
     @IBOutlet weak var addIvBtn: UIButton!
     

@@ -9,8 +9,16 @@
 import UIKit
 
 protocol FilledTextFieldDelegate {
+
+    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int)
+    func isTextFieldFilled(count: Int, indexPath: Int)
     
-    func isTextFieldFilled(count: Int, isTyped: Bool,indexPath: Int)
+}
+
+extension FilledTextFieldDelegate {
+  
+    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int) { }
+    func isTextFieldFilled(count: Int, indexPath: Int) { }
     
 }
 
@@ -26,8 +34,16 @@ class InventoryTodayRecordCell: UITableViewCell {
     @IBOutlet weak var inventoryNameLabel: UILabel!
     @IBOutlet weak var inventoryCountTextField: UITextField!
     
-    var isTypedTextField: String = "" {
+    var ivCnt: Int?
+    var isTyped: Bool = false {
         didSet {
+            if isTyped {
+                if let cnt = ivCnt {
+                    inventoryCountTextField.text = "\(cnt)"
+                }
+            } else {
+                inventoryCountTextField.text = ""
+            }
             
         }
     }
@@ -42,42 +58,9 @@ class InventoryTodayRecordCell: UITableViewCell {
         
     }
     
-    private func setTextFieldCustommed() {
+    private func makeRoundView() {
         
-        inventoryCountTextField.layer.cornerRadius = 9
-        inventoryCountTextField.borderStyle = .none
-        inventoryCountTextField.textAlignment = .center
-        
-        inventoryCountTextField.tintColor = UIColor.greyishBrown
-        
-        inventoryCountTextField.keyboardType = .numberPad
-        
-        let toolbar = UIToolbar()
-        toolbar.barStyle = UIBarStyle.default
-        toolbar.isTranslucent = true
-        let doneBtn = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(donePressed))
-        
-        toolbar.setItems([doneBtn], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        toolbar.sizeToFit()
-        
-        inventoryCountTextField.inputAccessoryView = toolbar
-        inventoryCountTextField.delegate = self
-    }
-    
-    func makePlaceholder() {
-        inventoryCountTextField.placeholder = "재고량 입력"
-    }
-    
-    @objc private func donePressed() {
-        self.inventoryCountTextField.endEditing(true)
-    }
-    
-    private func makeShadowAroundInventoryView() {
-        
-        inventoryView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        inventoryView.layer.shadowOpacity = 0.1
-        inventoryView.layer.shadowRadius = 15
+        roundView.layer.cornerRadius = 9
         
     }
     
@@ -89,35 +72,63 @@ class InventoryTodayRecordCell: UITableViewCell {
         
     }
     
-    private func makeRoundView() {
+    private func makeShadowAroundInventoryView() {
         
-        roundView.layer.cornerRadius = 9
+        inventoryView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        inventoryView.layer.shadowOpacity = 0.1
+        inventoryView.layer.shadowRadius = 15
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int?) {
+    private func setTextFieldCustommed() {
+        
+        inventoryCountTextField.layer.cornerRadius = 9
+        inventoryCountTextField.borderStyle = .none
+        inventoryCountTextField.textAlignment = .center
+        inventoryCountTextField.tintColor = UIColor.greyishBrown
+        inventoryCountTextField.delegate = self
+        inventoryCountTextField.keyboardType = .numberPad
+        
+    }
+    
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String) {
         
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
-        
         inventoryNameLabel.text = inventoryName
+        isTyped = false
         
-        if let cnt = inventoryCount {
-            inventoryCountTextField.text = "\(cnt)"
-        }
     }
-    
+
 }
 
 extension InventoryTodayRecordCell: UITextFieldDelegate {
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.contentView.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    // 재고량이 입력 되었으면 재고량을 보내주고, 입력되지 않았다면 -1을 보내준다.
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if inventoryCountTextField.text == "" {
-            delegate?.isTextFieldFilled(count: -1, isTyped: false, indexPath: indexPath!)
-        } else {
-            guard let text = textField.text else { return }
-            guard let cnt = Int(text) else { return }
-            delegate?.isTextFieldFilled(count: cnt, isTyped: true, indexPath: indexPath!)
+        
+        if let text = textField.text {
+            if let cnt = Int(text) {
+                delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
+            } else {
+                let cnt: Int = -1
+                delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
+            }
         }
+        
     }
     
 }

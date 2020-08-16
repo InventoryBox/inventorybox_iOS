@@ -414,7 +414,7 @@ extension IvRecordVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell else { return UITableViewCell() }
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? AddIvHeaderCell else { return UITableViewCell() }
             
             headerCell.addIvBtn.isHidden = isAddProductBtn ? true: false
             
