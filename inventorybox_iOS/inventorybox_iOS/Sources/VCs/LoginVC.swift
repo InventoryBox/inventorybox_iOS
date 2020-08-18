@@ -124,11 +124,25 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     /* id와 pw를 비교해주어서 다를 경우에는 텍스트 필드를 빨갛게 처리해준다.
      값이 같으면 다시 원래대로 돌아옴*/
-    
-    @objc private func textFieldcompare(_ TextField: UITextField) {
-        
-       
-    }
+//
+//    @objc private func textFieldcompare(_ TextField: UITextField) {
+//
+//
+//        // id형식 확인
+//        private func idTextChecked(_ TextLabel: UILabel) {
+//
+////            if ( isValidId(id: emailTextField.text)){
+////                emailCheckLabel.text = "id 조건 확인하세요"
+////                emailCheckLabel.alpha = 1
+////            }
+////            else
+////            {
+////                emailCheckLabel.text = "id 조건 확인하세요"
+////                emailCheckLabel.alpha = 0
+////            }
+//        }
+//
+//    }
     
     // id형식 확인
     @objc private func idTextChecked(_ TextLabel: UILabel) {
@@ -154,7 +168,7 @@ extension LoginVC {
         /* 두 텍스트 필드를 비교해서 텍스필드 디자인을 바꿔주는 역할을 하는 코드.
          textFieldcompare(_:) 라는 함수를 class 안에 선언해줘야 동작을 한다.
          .editingChanged 는 텍스트 필드의 값이 바뀔때마다 실행*/
-        passwordTextField.addTarget(self, action: #selector(textFieldcompare(_:)), for: .editingChanged)
+       // passwordTextField.addTarget(self, action: #selector(textFieldcompare(_:)), for: .editingChanged)
     }
     
     
