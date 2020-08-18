@@ -145,17 +145,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQe-gu-csH">
-                                                    <rect key="frame" x="24" y="10" width="89" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="89" id="RYa-fg-gvp"/>
-                                                        <constraint firstAttribute="height" constant="15" id="hG8-uT-Ukx"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="lastrecordingBtnPlus"/>
-                                                    <connections>
-                                                        <action selector="goToIvRecordAddProduct:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="jfA-f4-inF"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XV-wu-7k7">
                                                     <rect key="frame" x="310" y="11" width="44" height="13"/>
                                                     <constraints>
@@ -169,15 +158,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4XV-wu-7k7" firstAttribute="centerY" secondItem="yQe-gu-csH" secondAttribute="centerY" id="H7w-Gf-5nv"/>
                                                 <constraint firstAttribute="trailing" secondItem="4XV-wu-7k7" secondAttribute="trailing" constant="21" id="QIh-p1-7Zx"/>
-                                                <constraint firstItem="yQe-gu-csH" firstAttribute="leading" secondItem="c3W-V3-2iU" secondAttribute="leading" constant="24" id="RKY-mp-d8o"/>
-                                                <constraint firstItem="yQe-gu-csH" firstAttribute="centerY" secondItem="c3W-V3-2iU" secondAttribute="centerY" id="hTJ-Ki-XMS"/>
+                                                <constraint firstItem="4XV-wu-7k7" firstAttribute="centerY" secondItem="c3W-V3-2iU" secondAttribute="centerY" id="hyd-Cn-Khz"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addIvBtn" destination="yQe-gu-csH" id="0hf-eb-Uw8"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="94" id="QeH-SE-WxR" customClass="InventoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
@@ -483,7 +467,6 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingBtnDatechange" width="14" height="14"/>
         <image name="lastrecordingBtnEdit" width="44" height="44"/>
-        <image name="lastrecordingBtnPlus" width="89" height="15"/>
         <image name="lastrecordingShape" width="48" height="48"/>
         <image name="lastrecordingTitleShape" width="84" height="13"/>
         <image name="text" width="44" height="13"/>

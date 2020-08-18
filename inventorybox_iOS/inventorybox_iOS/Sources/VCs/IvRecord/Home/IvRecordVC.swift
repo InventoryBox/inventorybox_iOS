@@ -11,7 +11,6 @@ import TTGTagCollectionView
 
 class IvRecordVC: UIViewController, UICollectionViewDelegate {
      
-     
      @IBOutlet weak var outView: UIView!
      @IBOutlet weak var topView: UIView!
      @IBOutlet weak var categoryCollectionView: UICollectionView!
@@ -22,15 +21,18 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
      
      @IBOutlet weak var categorySettingBtn: UIButton!
      @IBOutlet weak var floatingTodayRecordBtn: UIButton!
-
+     
      @IBOutlet weak var noDataView: UIView!
      @IBOutlet weak var inventoryTableView: UITableView!
      
      @IBOutlet weak var popupBackgroundView: UIView!
      
-     var dateToSend: String = "0" // 서버에 보낼 현재 날짜 데이터, 쿼리로 전송
+     // 서버에 보낼 현재 날짜 데이터, 쿼리로 전송
+     var dateToSend: String = "0"
      
-     var memorizeDate: Date? // datePicker에 현재 날짜가 나오게 하기 위해서 저장한 값
+     // datePicker에 현재 날짜가 나오게 하기 위해서 저장한 값
+     // 2020-08-18 Date 형식으로 저장되어있다.
+     var memorizeDate: Date?
      
      var isAddProductBtn: Bool = true
      
@@ -74,12 +76,10 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
      
      @objc private func update() {
           
-          print("hi")
-          //        getDataFromServer(dateToSend)
-          
      }
      
      override func viewWillDisappear(_ animated: Bool) {
+          
           super.viewWillDisappear(animated)
           navigationController?.navigationBar.isHidden = false
           
@@ -88,6 +88,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           dateFormatter.dateFormat = "yyyy-MM-dd"
           dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
           dateToSend = dateFormatter.string(from: memorizeDate!)
+          
      }
      
      override func viewDidLoad() {
@@ -177,6 +178,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           getDataFromServer(dateToSend)
      }
      
+
      private func getDataFromServer(_ date: String) {
           
           IvRecordHomeService.shared.getRecordHome(whichDate: date) { (networkResult) in
@@ -184,62 +186,35 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                case .success(let data):
                     guard let dt = data as? IvRecordHomeClass else { return }
                     
+                    // 날짜
+                    if let date = dt.date {
+                         
+                         self.dateLabel.text = date
+                         // "2020-08-18" String에서 Date 형태로 바꾸는 함수
+                         self.memorizeDate = date.components(separatedBy: " ")[0].toDate(withFormat: "yyyy.MM.dd")
+                         NSTimeZone.default = TimeZone(abbreviation: "BST")!
+                         let date = "2020.08.18"
+                         print(date.toDate(withFormat: "yyyy.MM.dd"))
+                         
+                         
+                    }
                     // 데이터 정렬
                     self.categories = dt.categoryInfo
-                    
                     if let itemInfo = dt.itemInfo {
                          self.inventoryArray = itemInfo
                     }
-                    
-                    
                     
                     // 이 로직 바꾸기
                     // 날짜 검색 ❌ 데이터 ❌ + 날짜 검색 ⭕️ 데이터 ❌
                     // 즉 첫 사용자 로직 + 날짜 검색해서 데이터가 없을때 로직
                     if self.inventoryArray.count == 0 {
-                         // 앱잼 때 구현 X
-                         // 데이터 피커 날짜 정하는 로직
-                         
-                         
-                    } else { // 가장 최근 재고량 데이터 불러오기
-                         
-                         if let date = dt.date {
-                              self.dateLabel.text = date
-                              
-                              let dateFormatter = DateFormatter()
-                              
-                              dateFormatter.dateFormat = "yyyy-MM-dd"
-                              dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
-                              self.memorizeDate = dateFormatter.date(from: date.components(separatedBy: " ")[0])
-                         }
-                         
-                         
-                         self.whichViewWillShow()
+                         self.noDataView.isHidden = false
+                         self.inventoryTableView.isHidden = true
+                    } else {
+                         self.noDataView.isHidden = false
+                         self.inventoryTableView.isHidden = true
                          // 테이블 리로드시키기
                     }
-                    
-                    // 오늘 재고 기록하기 버튼
-                    if dt.isRecorded == 0 {
-                         
-                         self.floatingTodayRecordBtn.isHidden = false
-                         
-                    } else {
-                         
-                         self.floatingTodayRecordBtn.isHidden = true
-                         
-                    }
-                    
-                    // 재료 추가하기 버튼
-                    if dt.addButton == 0 {
-                         
-                         self.isAddProductBtn = true
-                         
-                    } else {
-                         
-                         self.isAddProductBtn = false
-                         
-                    }
-                    
                case .requestErr(let message):
                     guard let message = message as? String else { return }
                     let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
@@ -268,17 +243,19 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           NotificationCenter.default.removeObserver(self)
      }
      
-     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
-          let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-          guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
-               as? IvRecordNaviVC  else {
-                    return
-          }
-          addProductVC.modalPresentationStyle = .fullScreen
-          
-          self.present(addProductVC, animated: true, completion: nil)
-     }
      
+     //     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
+     //          let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
+     //          guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
+     //               as? IvRecordNaviVC  else {
+     //                    return
+     //          }
+     //          addProductVC.modalPresentationStyle = .fullScreen
+     //
+     //          self.present(addProductVC, animated: true, completion: nil)
+     //     }
+     
+     // 재고량 편집하기
      @IBAction func goToIvRecordEditProduct(_ sender: Any) {
           let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
           guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC")
@@ -303,6 +280,8 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           
           
      }
+     
+     // 카테고리 편집하기
      @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
           
           let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
@@ -322,6 +301,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           
      }
      
+     // 오늘의 재고 기록하기
      @IBAction func goToIvTodayRecord(_ sender: Any) {
           
           let IvTodayRecord = UIStoryboard.init(name: "IvTodayRecord", bundle: nil)
@@ -410,8 +390,6 @@ extension IvRecordVC: UITableViewDataSource {
           if indexPath.row == 0 {
                guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? AddIvHeaderCell else { return UITableViewCell() }
                
-               headerCell.addIvBtn.isHidden = isAddProductBtn ? true: false
-               
                return headerCell
                
           } else {
@@ -442,5 +420,23 @@ extension IvRecordVC: UITableViewDelegate {
                
           }
           
+     }
+}
+
+//MARK: - String to Date
+extension String {
+     func toDate(withFormat format: String = "yyyy-MM-dd") -> Date {
+          // dateFormatter 생성
+          let dateFormatter = DateFormatter()
+          // 현재 우리가 저장하고 있는 dateFormat으로 설정
+          // 어떤 형식으로 바꿔야할 지 참고하는 사이트 링크 👉 https://nsdateformatter.com
+          dateFormatter.dateFormat = format
+          
+          guard let date = dateFormatter.date(from: self) else {
+               preconditionFailure("Take a look to your format")
+          }
+          print(dateFormatter.string(from: date))
+          print(Date())
+          return date
      }
 }

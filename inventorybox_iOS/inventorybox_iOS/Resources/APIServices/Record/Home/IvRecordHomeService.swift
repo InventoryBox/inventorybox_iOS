@@ -17,7 +17,7 @@ struct IvRecordHomeService {
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.ivRecordHomeURL + whichDate
-//        print(url)
+
         let dataRequest = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
@@ -46,7 +46,6 @@ struct IvRecordHomeService {
     private func getRecordHomeData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         
-//        print("hi")
         guard let decodedData = try? decoder.decode(IvRecordHomeData.self, from: data) else { return .pathErr }
         guard let data = decodedData.data else { return .pathErr }
         // 성공 메시지

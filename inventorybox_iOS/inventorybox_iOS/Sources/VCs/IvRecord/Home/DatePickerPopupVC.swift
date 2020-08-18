@@ -36,8 +36,8 @@ class DatePickerPopupVC: UIViewController {
         datePicker.backgroundColor = UIColor.white
         
         guard let date = dateMemorized else { return }
-        print(date)
         datePicker.date = date
+        
     }
     @IBAction func dismissView(_ sender: Any) {
         NotificationCenter.default.post(name: .init("popup"), object: nil)
