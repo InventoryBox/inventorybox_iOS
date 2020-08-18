@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-iN-Fy6">
-                                                <rect key="frame" x="150.5" y="21.5" width="14" height="14"/>
+                                                <rect key="frame" x="150.5" y="21" width="14" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="2ro-XO-wgk"/>
                                                     <constraint firstAttribute="width" constant="14" id="Dfh-W6-jIM"/>
@@ -40,13 +40,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
-                                                <rect key="frame" x="172.5" y="12" width="30" height="33"/>
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
-                                                <rect key="frame" x="172.5" y="12" width="30" height="33"/>
+                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -349,26 +349,6 @@
                                     <action selector="goToIvTodayRecord:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="Fkt-lT-TAz"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-z8-FKj">
-                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA6-Js-dWy">
-                                        <rect key="frame" x="121" y="391" width="133" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="133" id="FWx-tH-5I6"/>
-                                            <constraint firstAttribute="height" constant="35" id="UZJ-sl-FWG"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WgW-9F-hCc"/>
-                                            <constraint firstAttribute="width" constant="133" id="sDI-iq-3cU"/>
-                                        </constraints>
-                                        <state key="normal" title="재료 등록하기"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="nA6-Js-dWy" secondAttribute="bottom" constant="146" id="K1W-bM-mzs"/>
-                                    <constraint firstItem="nA6-Js-dWy" firstAttribute="centerX" secondItem="ktg-z8-FKj" secondAttribute="centerX" id="m9u-Va-5ue"/>
-                                </constraints>
-                            </view>
                             <view alpha="0.54000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-so-lwF">
                                 <rect key="frame" x="0.0" y="0.0" width="475" height="867"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -376,33 +356,28 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ktg-z8-FKj" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="2I6-Lu-BXd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="6SU-uc-viC"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="6Ul-rO-fX8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="width" secondItem="qsm-xl-jtl" secondAttribute="width" id="Bkt-MM-ev8"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="top" secondItem="fMU-Z6-8Ja" secondAttribute="top" id="DbN-cm-Qaw"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="E3b-u0-oA4"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="bottom" secondItem="qsm-xl-jtl" secondAttribute="bottom" constant="200" id="Fvc-zb-IQg"/>
-                            <constraint firstItem="ktg-z8-FKj" firstAttribute="bottom" secondItem="fMU-Z6-8Ja" secondAttribute="bottom" id="JUz-Xi-3d9"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="JeS-aG-djy"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="PkZ-Zq-sFI"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="OEj-wo-URV" secondAttribute="bottom" id="QeF-CH-xkN"/>
                             <constraint firstItem="qyS-l2-rBy" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="SkZ-Jq-oaF"/>
                             <constraint firstItem="7Dn-YM-0C3" firstAttribute="centerX" secondItem="qsm-xl-jtl" secondAttribute="centerX" id="XR5-cN-LAh"/>
-                            <constraint firstItem="ktg-z8-FKj" firstAttribute="trailing" secondItem="fMU-Z6-8Ja" secondAttribute="trailing" id="Xik-Az-zt6"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="top" secondItem="qsm-xl-jtl" secondAttribute="top" id="aP0-rl-wU2"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="leading" secondItem="qsm-xl-jtl" secondAttribute="leading" id="ceh-zm-KNf"/>
                             <constraint firstItem="qIa-5D-Vbp" firstAttribute="leading" secondItem="fMU-Z6-8Ja" secondAttribute="leading" id="cj0-lT-dmd"/>
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="jhp-E1-29h"/>
                             <constraint firstItem="fMU-Z6-8Ja" firstAttribute="bottom" secondItem="7Dn-YM-0C3" secondAttribute="bottom" constant="16" id="r4i-0B-m1m"/>
-                            <constraint firstItem="ktg-z8-FKj" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" constant="8" id="uJ3-6M-dpx"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" constant="100" id="wRg-y0-FVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qyS-l2-rBy"/>
-                                <exclude reference="ktg-z8-FKj"/>
                                 <exclude reference="yEl-so-lwF"/>
                             </mask>
                         </variation>
@@ -414,8 +389,6 @@
                         <outlet property="dateLabel" destination="bH4-Va-xD1" id="zg2-jf-KEg"/>
                         <outlet property="datePickerBtn" destination="qfR-iN-Fy6" id="pYC-KC-ocB"/>
                         <outlet property="datePickerLabelBtn" destination="ocT-Zq-xF1" id="ePt-66-8Y4"/>
-                        <outlet property="firstRegisterBtn" destination="nA6-Js-dWy" id="qeq-nA-2mo"/>
-                        <outlet property="firstRegisterView" destination="ktg-z8-FKj" id="8S6-SA-ezc"/>
                         <outlet property="floatingTodayRecordBtn" destination="7Dn-YM-0C3" id="bUa-Ld-dFy"/>
                         <outlet property="inventoryTableView" destination="OEj-wo-URV" id="HLt-mE-epN"/>
                         <outlet property="noDataView" destination="qyS-l2-rBy" id="Cl3-4p-eGJ"/>

@@ -88,6 +88,17 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         inventoryCountTextField.delegate = self
         inventoryCountTextField.keyboardType = .numberPad
+    
+        // keyboard toolbar
+        let toolbarKeyboard = UIToolbar()
+        toolbarKeyboard.sizeToFit()
+        let btnDoneBar = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(doneBtnPressed))
+        
+    }
+    
+    @objc func doneBtnPressed() {
+        
+        self.contentView.endEditing(true)
         
     }
     
