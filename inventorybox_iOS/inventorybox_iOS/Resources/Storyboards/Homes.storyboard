@@ -1169,6 +1169,83 @@
             </objects>
             <point key="canvasLocation" x="1732" y="-22"/>
         </scene>
+        <!--Home NewVC-->
+        <scene sceneID="kgz-gE-lw9">
+            <objects>
+                <viewController storyboardIdentifier="HomeNewVC" id="oyr-3V-gfA" customClass="HomeNewVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vJy-TM-Mit">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXR-1z-GrB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImgLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Oyl-Oe-EVs">
+                                        <rect key="frame" x="133" y="49" width="109" height="26.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="109" id="ZKO-LY-nFj"/>
+                                            <constraint firstAttribute="height" constant="26.5" id="l7v-my-M7C"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pc-tN-LvU">
+                                        <rect key="frame" x="337" y="56" width="16" height="12"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="homeBtnHamburger-1"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="8ba-w4-tq9"/>
+                                    <constraint firstItem="Oyl-Oe-EVs" firstAttribute="centerX" secondItem="sXR-1z-GrB" secondAttribute="centerX" id="RDj-qR-ors"/>
+                                    <constraint firstAttribute="height" constant="87" id="jjZ-PL-XvP"/>
+                                    <constraint firstItem="Oyl-Oe-EVs" firstAttribute="top" secondItem="sXR-1z-GrB" secondAttribute="top" constant="49" id="uLm-dX-Sp5"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2020.08.09 일요일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-oL-ahO">
+                                <rect key="frame" x="123" y="127" width="129" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OKN-hf-xbF">
+                                <rect key="frame" x="67" y="209" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p3H-aw-hOa">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RQq-OX-vgf">
+                                        <rect key="frame" x="56" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ykx-Qj-sdS">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sXR-1z-GrB" firstAttribute="leading" secondItem="2TG-mh-fAe" secondAttribute="leading" id="74l-FO-gr2"/>
+                            <constraint firstItem="GDv-oL-ahO" firstAttribute="centerX" secondItem="vJy-TM-Mit" secondAttribute="centerX" id="aoY-aK-mHX"/>
+                            <constraint firstItem="sXR-1z-GrB" firstAttribute="top" secondItem="vJy-TM-Mit" secondAttribute="top" id="gDK-Ga-GJb"/>
+                            <constraint firstItem="GDv-oL-ahO" firstAttribute="top" secondItem="sXR-1z-GrB" secondAttribute="bottom" constant="40" id="o8F-1g-kOL"/>
+                            <constraint firstItem="sXR-1z-GrB" firstAttribute="trailing" secondItem="2TG-mh-fAe" secondAttribute="trailing" id="pkQ-fj-Yhj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2TG-mh-fAe"/>
+                    </view>
+                    <connections>
+                        <outlet property="dayText" destination="GDv-oL-ahO" id="nI6-th-Gqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TP7-GR-rFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="-22"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addproductBtnMinus" width="32" height="32"/>
@@ -1185,9 +1262,11 @@
         <image name="homeBtnDetail01" width="42.5" height="12"/>
         <image name="homeBtnDone" width="41" height="29"/>
         <image name="homeBtnHamburger" width="18" height="14"/>
+        <image name="homeBtnHamburger-1" width="18" height="14"/>
         <image name="homeCheckTitle" width="90" height="13"/>
         <image name="homeIcAble" width="18" height="18"/>
         <image name="homeIcMilk" width="51" height="51"/>
+        <image name="homeImgLogo" width="109" height="26.5"/>
         <image name="homeImgProfile" width="215" height="215"/>
         <image name="homeLineDivide" width="2" height="68"/>
         <image name="imgeTextlogo" width="86.5" height="25"/>
