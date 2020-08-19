@@ -44,6 +44,7 @@
 		3332406D24B6550C00C3B59C /* IvEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406C24B6550C00C3B59C /* IvEditTVCell.swift */; };
 		3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */; };
 		3332407324B6609000C3B59C /* WeekInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332407224B6609000C3B59C /* WeekInformation.swift */; };
+		3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */; };
 		3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */; };
 		3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */; };
 		3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */; };
@@ -61,16 +62,18 @@
 		3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */; };
 		3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */; };
 		3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */; };
+		33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */; };
+		33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */; };
+		33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */; };
+		33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF624E41265003F07A7 /* NanumSquareBold.ttf */; };
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
-		339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */; };
-		339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */; };
 		339C89AD24BB010E00B86BAF /* DetailCompareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89AC24BB010E00B86BAF /* DetailCompareInfo.swift */; };
 		339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339C89AE24BB21C700B86BAF /* Login.storyboard */; };
 		339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B024BB21FC00B86BAF /* LoginVC.swift */; };
 		339C89B324BB7A4C00B86BAF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B224BB7A4C00B86BAF /* SignUpVC.swift */; };
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
-		835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */; };
+		4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
 		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
@@ -94,7 +97,6 @@
 		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
 		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
 		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
-		D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */; };
 		D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */; };
 		D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF424BB2111000C9B8B /* IconCell.swift */; };
 		D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */; };
@@ -134,9 +136,6 @@
 		D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */; };
 		D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */; };
 		D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */; };
-		D4AC98DF24B87E1600DBD099 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */; };
-		D4AC98E024B87E1800DBD099 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */; };
-		D4AC98E124B87E1B00DBD099 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */; };
 		D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */; };
 		D4B45F4A24B56B9400888DC3 /* CategoryTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F4924B56B9400888DC3 /* CategoryTag.swift */; };
 		D4B45F4D24B56D6B00888DC3 /* CategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */; };
@@ -144,12 +143,10 @@
 		D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */; };
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
 		D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */; };
-		D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */; };
 		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */; };
 		D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */; };
 		D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */; };
-		D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
 		D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */; };
 		D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BE24B649A500D8795E /* 26594-add-text.json */; };
@@ -158,8 +155,7 @@
 		D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */; };
 		D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */; };
 		D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */; };
-		D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A3F124B45070001C015A /* InventoryInformation.swift */; };
-		D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* HeaderCell.swift */; };
+		D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */; };
 		D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB0CF8B24B32647009B089A /* Homes.storyboard */; };
 		D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */; };
 		D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7A40724B4EA9C001C015A /* IvTodayRecordVC.swift */; };
@@ -201,7 +197,6 @@
 		0EB0CF3024B0FC09009B089A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
-		259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvGraphTVCell.swift; sourceTree = "<group>"; };
 		3332402524B4A6D800C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
 		3332402624B4A6D800C3B59C /* DayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayInformation.swift; sourceTree = "<group>"; };
@@ -218,6 +213,7 @@
 		3332406C24B6550C00C3B59C /* IvEditTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvEditTVCell.swift; sourceTree = "<group>"; };
 		3332406E24B65A4700C3B59C /* WeekInThisMonthCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInThisMonthCVCell.swift; sourceTree = "<group>"; };
 		3332407224B6609000C3B59C /* WeekInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekInformation.swift; sourceTree = "<group>"; };
+		3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoChangeVC.swift; sourceTree = "<group>"; };
 		3340BE5424C156DA00CA8103 /* IvExchangeWritePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeWritePopupVC.swift; sourceTree = "<group>"; };
 		3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangePostService.swift; sourceTree = "<group>"; };
 		3340BE5A24C195A300CA8103 /* IvCompareGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvCompareGraphVC.swift; sourceTree = "<group>"; };
@@ -240,18 +236,20 @@
 		3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryGraphHomeService.swift; sourceTree = "<group>"; };
 		3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphData.swift; sourceTree = "<group>"; };
 		3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphService.swift; sourceTree = "<group>"; };
+		33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpVC.swift; sourceTree = "<group>"; };
+		33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
+		33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
+		33700DF624E41265003F07A7 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraphWeekInfo.swift; sourceTree = "<group>"; };
-		339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerPopupVC.swift; path = IvRecord/DatePickerPopupVC.swift; sourceTree = "<group>"; };
-		339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IvRecordAddProductVC.swift; path = IvRecord/IvRecordAddProductVC.swift; sourceTree = "<group>"; };
-		339C89AA24B8826400B86BAF /* AddCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCategoryPopupVC.swift; path = IvRecord/AddCategoryPopupVC.swift; sourceTree = "<group>"; };
 		339C89AC24BB010E00B86BAF /* DetailCompareInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCompareInfo.swift; sourceTree = "<group>"; };
 		339C89AE24BB21C700B86BAF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		339C89B024BB21FC00B86BAF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		339C89B224BB7A4C00B86BAF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
-		A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
 		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
 		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
@@ -274,10 +272,9 @@
 		D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordHomeService.swift; sourceTree = "<group>"; };
 		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
-		D4260EFB24B17AB500CAA41B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIvHeaderCell.swift; sourceTree = "<group>"; };
 		D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopVC.swift; sourceTree = "<group>"; };
 		D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryCell.swift; sourceTree = "<group>"; };
-		D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditProductInformation.swift; sourceTree = "<group>"; };
 		D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditProductCell.swift; sourceTree = "<group>"; };
 		D4311FF424BB2111000C9B8B /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
@@ -318,10 +315,7 @@
 		D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryVC.swift; sourceTree = "<group>"; };
 		D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryCell.swift; sourceTree = "<group>"; };
 		D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12롯데마트행복Medium.ttf"; sourceTree = "<group>"; };
-		D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
-		D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12롯데마트행복Bold.ttf"; sourceTree = "<group>"; };
 		D4B45F4924B56B9400888DC3 /* CategoryTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryTag.swift; path = inventorybox_iOS/Sources/Classes/CategoryTag.swift; sourceTree = SOURCE_ROOT; };
 		D4B45F4C24B56D6B00888DC3 /* CategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInformation.swift; sourceTree = "<group>"; };
@@ -329,12 +323,10 @@
 		D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvTodayRecord.storyboard; sourceTree = "<group>"; };
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchService.swift; sourceTree = "<group>"; };
-		D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayInformation.swift; sourceTree = "<group>"; };
 		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailVC.swift; sourceTree = "<group>"; };
 		D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordNaviVC.swift; sourceTree = "<group>"; };
 		D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeNaviVC.swift; sourceTree = "<group>"; };
-		D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryEditCategoryInformation.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		D4DFE3BE24B649A500D8795E /* 26594-add-text.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "26594-add-text.json"; sourceTree = "<group>"; };
@@ -343,7 +335,6 @@
 		D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwoVC.swift; sourceTree = "<group>"; };
 		D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryEditVC.swift; sourceTree = "<group>"; };
 		D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "26540-blogging-writing-typing.json"; sourceTree = "<group>"; };
-		D4E7A3F124B45070001C015A /* InventoryInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordEditProduct.storyboard; sourceTree = "<group>"; };
 		D4E7A40724B4EA9C001C015A /* IvTodayRecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvTodayRecordVC.swift; sourceTree = "<group>"; };
 		D4E7A40924B4EAD5001C015A /* orderCheckTVCInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderCheckTVCInfo.swift; sourceTree = "<group>"; };
@@ -364,7 +355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835BB1C6AB5B985356487D10 /* Pods_inventorybox_iOS.framework in Frameworks */,
+				4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,11 +380,11 @@
 		0EB0CF4224B19FA8009B089A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				33700DF624E41265003F07A7 /* NanumSquareBold.ttf */,
+				33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */,
+				33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */,
 				D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */,
 				D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */,
-				D4AC98DB24B87DC100DBD099 /* NanumSquareB.ttf */,
-				D4AC98D824B87DC000DBD099 /* NanumSquareEB.ttf */,
-				D4AC98DA24B87DC100DBD099 /* NanumSquareR.ttf */,
 				D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */,
 				0EB0CF4024B199F0009B089A /* Font.swift */,
 			);
@@ -416,6 +407,7 @@
 		3332402324B4A6D800C3B59C /* GraphCell */ = {
 			isa = PBXGroup;
 			children = (
+				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */,
 				3332402724B4A6D800C3B59C /* CalendarCVCell.swift */,
 				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
@@ -436,11 +428,20 @@
 			path = GraphDetailCell;
 			sourceTree = "<group>";
 		};
+		3340BC9724E28CBB00D41F9F /* SignProgress */ = {
+			isa = PBXGroup;
+			children = (
+				3340BC9824E28CFC00D41F9F /* PersonalInfoChangeVC.swift */,
+				33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */,
+			);
+			path = SignProgress;
+			sourceTree = "<group>";
+		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */,
-				259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */,
+				BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */,
+				9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -448,9 +449,77 @@
 		B43624F6BF6E3C2F2E4B3198 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE08073AA3D12F1B5BD0A772 /* Pods_inventorybox_iOS.framework */,
+				D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D40372B924E56BCE00AFD2E5 /* EditCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */,
+			);
+			path = EditCategory;
+			sourceTree = "<group>";
+		};
+		D40372BA24E56C0B00AFD2E5 /* EditRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */,
+			);
+			path = EditRecord;
+			sourceTree = "<group>";
+		};
+		D40372BB24E56C2900AFD2E5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D40372BC24E5762200AFD2E5 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D4260EF524B1744100CAA41B /* InventoryCell.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D40372BD24E5768000AFD2E5 /* EditRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */,
+			);
+			path = EditRecord;
+			sourceTree = "<group>";
+		};
+		D40372BE24E5770900AFD2E5 /* EditCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D4A2875D24B8452900A60C08 /* SelectHeaderCell.swift */,
+				D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */,
+				D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */,
+				D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */,
+			);
+			path = EditCategory;
+			sourceTree = "<group>";
+		};
+		D40372BF24E5771400AFD2E5 /* TodayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */,
+			);
+			path = TodayRecord;
+			sourceTree = "<group>";
+		};
+		D40372C024E5781600AFD2E5 /* AddInventory */ = {
+			isa = PBXGroup;
+			children = (
+				D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */,
+				D4311FF424BB2111000C9B8B /* IconCell.swift */,
+			);
+			path = AddInventory;
 			sourceTree = "<group>";
 		};
 		D4311FEF24BB03E6000C9B8B /* IvExchange */ = {
@@ -487,6 +556,139 @@
 				D4A2875B24B809E400A60C08 /* IvProductExchangeCell.swift */,
 			);
 			path = ExchangeCell;
+			sourceTree = "<group>";
+		};
+		D474DD0224E564E7000F04AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D4E96EAB24B8868400BD3419 /* DatePickerPopupVC.swift */,
+				D46236C524ADBC950005A277 /* IvRecordVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D474DD0324E5651A000F04AE /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
+				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
+				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
+				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
+				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D474DD0424E565A7000F04AE /* AddInventory */ = {
+			isa = PBXGroup;
+			children = (
+				D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */,
+				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
+				D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */,
+				D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */,
+			);
+			path = AddInventory;
+			sourceTree = "<group>";
+		};
+		D474DD0524E56628000F04AE /* EditCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
+				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
+				D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */,
+				D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */,
+				D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */,
+			);
+			path = EditCategory;
+			sourceTree = "<group>";
+		};
+		D474DD0624E566E8000F04AE /* EditRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7A40F24B4EB0C001C015A /* IvRecordEditProductVC.swift */,
+			);
+			path = EditRecord;
+			sourceTree = "<group>";
+		};
+		D474DD0724E566FB000F04AE /* TodayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D4E7A40724B4EA9C001C015A /* IvTodayRecordVC.swift */,
+			);
+			path = TodayRecord;
+			sourceTree = "<group>";
+		};
+		D474DD0824E56875000F04AE /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D474DD0D24E569CE000F04AE /* AddInventory */,
+				D474DD0C24E56937000F04AE /* EditCategory */,
+				D474DD0A24E568D6000F04AE /* TodayRecord */,
+				D474DD0B24E568E9000F04AE /* EditRecord */,
+				D474DD0924E568A5000F04AE /* Home */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D474DD0924E568A5000F04AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D474DD0A24E568D6000F04AE /* TodayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */,
+				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
+			);
+			path = TodayRecord;
+			sourceTree = "<group>";
+		};
+		D474DD0B24E568E9000F04AE /* EditRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
+				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
+			);
+			path = EditRecord;
+			sourceTree = "<group>";
+		};
+		D474DD0C24E56937000F04AE /* EditCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
+				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
+				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
+			);
+			path = EditCategory;
+			sourceTree = "<group>";
+		};
+		D474DD0D24E569CE000F04AE /* AddInventory */ = {
+			isa = PBXGroup;
+			children = (
+				D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */,
+				D415024E24C06D6500183004 /* IvRecordAddIvService.swift */,
+			);
+			path = AddInventory;
+			sourceTree = "<group>";
+		};
+		D474DD0E24E56A6B000F04AE /* AddInventory */ = {
+			isa = PBXGroup;
+			children = (
+				D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */,
+			);
+			path = AddInventory;
+			sourceTree = "<group>";
+		};
+		D474DD0F24E56B41000F04AE /* TodayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */,
+			);
+			path = TodayRecord;
 			sourceTree = "<group>";
 		};
 		D484179F24AC55EB0064EE64 = {
@@ -533,15 +735,11 @@
 		D48417C024AC565D0064EE64 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D474DD0324E5651A000F04AE /* Record */,
 				D46A015724B6C93C0055814E /* IvExchange.storyboard */,
 				D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */,
 				D48417B124AC55EB0064EE64 /* Main.storyboard */,
-				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
-				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
-				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 				D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */,
-				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
-				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				339C89AE24BB21C700B86BAF /* Login.storyboard */,
@@ -553,28 +751,19 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
 				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
-				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
-				D415025224C06E0F00183004 /* IvRecordAddIvPostService.swift */,
-				D415024E24C06D6500183004 /* IvRecordAddIvService.swift */,
-				D415024C24C05E8C00183004 /* IvRecordTodayPostService.swift */,
-				D415024A24C0546B00183004 /* IvRecordTodayService.swift */,
-				D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */,
+				D474DD0824E56875000F04AE /* Record */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
-				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
-				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
-				D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */,
-				D479508724BEF31F00588979 /* IvRecordEditIvService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
 				0E05690024C25FD900853DD0 /* signinService.swift */,
 				3365E4F024BDDD3400E6AE8D /* InventoryGraphHomeService.swift */,
 				3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */,
 				D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */,
-				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				3340BE5824C16E2400CA8103 /* IvExchangePostService.swift */,
 				0E0568F424C18A7A00853DD0 /* IvHomeFlagPostService.swift */,
 				335E55DC24C2320F00E306E9 /* SingleGraphLoadService.swift */,
@@ -600,12 +789,10 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				3340BC9724E28CBB00D41F9F /* SignProgress */,
 				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D46A015B24B6C9780055814E /* IvExchange */,
 				3332405D24B5B17800C3B59C /* IvGraphNC.swift */,
-				339C89AA24B8826400B86BAF /* AddCategoryPopupVC.swift */,
-				339C89A624B8823100B86BAF /* DatePickerPopupVC.swift */,
-				339C89A824B8824F00B86BAF /* IvRecordAddProductVC.swift */,
 				D4DFE3CA24B6661400D8795E /* Onboarding */,
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
 				0E6BE5E824EBD97600D4723D /* HomeNewVC.swift */,
@@ -636,7 +823,8 @@
 				3332406524B651F300C3B59C /* GraphDetailCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
 				D4DFE3C424B6599900D8795E /* RecordCell */,
-				0EB0CF7824B1D40F009B089A /* HomeCell */,
+				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,
+				D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -694,17 +882,13 @@
 		D4BE8D3124B8E7D900AFB1B8 /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
-				D418CE6E24BDFA2E00EE7672 /* IvRecordAddIvData.swift */,
 				D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */,
-				D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */,
 				D4A05D3924C0F18000F038FA /* IvRecordSuccessData.swift */,
-				D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */,
-				D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */,
-				D418CE6F24BDFA2E00EE7672 /* IvRecordTodayIvData.swift */,
-				D4311FF024BB04CB000C9B8B /* InventoryEditProductInformation.swift */,
-				D4DFE3B824B62A8C00D8795E /* InventoryEditCategoryInformation.swift */,
-				D4E7A3F124B45070001C015A /* InventoryInformation.swift */,
-				D4BE8D3224B8E82800AFB1B8 /* InventoryTodayInformation.swift */,
+				D474DD0E24E56A6B000F04AE /* AddInventory */,
+				D40372B924E56BCE00AFD2E5 /* EditCategory */,
+				D474DD0F24E56B41000F04AE /* TodayRecord */,
+				D40372BA24E56C0B00AFD2E5 /* EditRecord */,
+				D40372BB24E56C2900AFD2E5 /* Home */,
 			);
 			path = IvRecord;
 			sourceTree = "<group>";
@@ -712,17 +896,11 @@
 		D4DFE3C424B6599900D8795E /* RecordCell */ = {
 			isa = PBXGroup;
 			children = (
-				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,
-				D4A52A6624BCE7FE005B85DE /* SelectCategoryCell.swift */,
-				D4311FF424BB2111000C9B8B /* IconCell.swift */,
-				D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */,
-				D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */,
-				D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */,
-				D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */,
-				D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */,
-				D4A2875D24B8452900A60C08 /* SelectHeaderCell.swift */,
-				D4260EFB24B17AB500CAA41B /* HeaderCell.swift */,
-				D4260EF524B1744100CAA41B /* InventoryCell.swift */,
+				D40372C024E5781600AFD2E5 /* AddInventory */,
+				D40372BD24E5768000AFD2E5 /* EditRecord */,
+				D40372BE24E5770900AFD2E5 /* EditCategory */,
+				D40372BF24E5771400AFD2E5 /* TodayRecord */,
+				D40372BC24E5762200AFD2E5 /* Record */,
 			);
 			path = RecordCell;
 			sourceTree = "<group>";
@@ -740,19 +918,11 @@
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
 			isa = PBXGroup;
 			children = (
-				D4A52A6424BCE7BC005B85DE /* SelectCategoryVC.swift */,
-				D4B45F5024B57D7000888DC3 /* SelectIconVC.swift */,
-				D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */,
-				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
-				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
-				D4E96EAB24B8868400BD3419 /* DatePickerPopupVC.swift */,
-				D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */,
-				D4E7A40F24B4EB0C001C015A /* IvRecordEditProductVC.swift */,
-				D4E7A40724B4EA9C001C015A /* IvTodayRecordVC.swift */,
-				D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */,
-				D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */,
-				D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */,
-				D46236C524ADBC950005A277 /* IvRecordVC.swift */,
+				D474DD0424E565A7000F04AE /* AddInventory */,
+				D474DD0524E56628000F04AE /* EditCategory */,
+				D474DD0224E564E7000F04AE /* Home */,
+				D474DD0624E566E8000F04AE /* EditRecord */,
+				D474DD0724E566FB000F04AE /* TodayRecord */,
 			);
 			path = IvRecord;
 			sourceTree = "<group>";
@@ -768,7 +938,7 @@
 				D48417A424AC55EB0064EE64 /* Sources */,
 				D48417A524AC55EB0064EE64 /* Frameworks */,
 				D48417A624AC55EB0064EE64 /* Resources */,
-				FDDB2D6DB24360CAD6746B52 /* [CP] Embed Pods Frameworks */,
+				7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -820,10 +990,8 @@
 				339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */,
 				D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */,
 				D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */,
-				D4AC98E024B87E1800DBD099 /* NanumSquareR.ttf in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */,
-				D4AC98DF24B87E1600DBD099 /* NanumSquareB.ttf in Resources */,
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
 				D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
@@ -832,12 +1000,14 @@
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
 				D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */,
-				D4AC98E124B87E1B00DBD099 /* NanumSquareEB.ttf in Resources */,
 				D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */,
 				D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */,
 				33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */,
+				33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */,
 				D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */,
+				33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */,
 				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
+				33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */,
 				D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
 				D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */,
@@ -869,7 +1039,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FDDB2D6DB24360CAD6746B52 /* [CP] Embed Pods Frameworks */ = {
+		7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -922,14 +1092,16 @@
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
+				3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */,
 				D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */,
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
-				D4E7A3F524B450E8001C015A /* HeaderCell.swift in Sources */,
+				D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */,
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
 				D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */,
 				D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */,
+				33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
 				3332405B24B5A5BD00C3B59C /* ItemInformation.swift in Sources */,
 				D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */,
@@ -941,12 +1113,9 @@
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,
 				D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
-				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
-				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
 				D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */,
 				D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */,
 				334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */,
-				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */,
 				0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */,
@@ -965,7 +1134,6 @@
 				0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */,
 				D410992A24B07879007CAAB9 /* CustomTextField.swift in Sources */,
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
-				339C89A924B8824F00B86BAF /* IvRecordAddProductVC.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
 				D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */,
 				D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */,
@@ -976,13 +1144,11 @@
 				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
 				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
-				D4BE8D3324B8E82800AFB1B8 /* InventoryTodayInformation.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */,
 				0E0568FF24C219A800853DD0 /* SideBarMenuPrivacyVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
-				339C89A724B8823100B86BAF /* DatePickerPopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
 				D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */,
@@ -1030,7 +1196,6 @@
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,
 				0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
-				D4DFE3B924B62A8C00D8795E /* InventoryEditCategoryInformation.swift in Sources */,
 				D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */,
 				3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */,
 				D415024B24C0546B00183004 /* IvRecordTodayService.swift in Sources */,
@@ -1115,7 +1280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1170,7 +1335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1183,7 +1348,7 @@
 		};
 		D48417BD24AC55EC0064EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BBD430802410DD2BDC2011 /* Pods-inventorybox_iOS.debug.xcconfig */;
+			baseConfigurationReference = BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1203,7 +1368,7 @@
 		};
 		D48417BE24AC55EC0064EE64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 259D942EF3AD67CA14551AA6 /* Pods-inventorybox_iOS.release.xcconfig */;
+			baseConfigurationReference = 9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
