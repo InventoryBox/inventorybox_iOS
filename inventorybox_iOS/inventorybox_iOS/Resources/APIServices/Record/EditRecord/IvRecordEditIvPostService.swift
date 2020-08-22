@@ -19,23 +19,16 @@ import Alamofire
 struct IvRecordEditIvPostService {
     static let shared = IvRecordEditIvPostService()
     
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-//        print(data)
+    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters {
         var parsingParameter: [[String: Int]] = []
-        
         for d in data {
             let item = [
                 "itemIdx" : d.itemIdx,
                 "presentCnt": d.stocksCnt
             ]
             parsingParameter.append(item)
-            //            print(item)
         }
-        
-//        print(parsingParameter)
-        
         return ["itemInfo": parsingParameter, "date": date]
-        
     }
     
     func getRecordEditIvPost(data: [EditItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {

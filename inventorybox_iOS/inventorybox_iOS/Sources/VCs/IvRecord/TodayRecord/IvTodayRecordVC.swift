@@ -19,6 +19,8 @@ class IvTodayRecordVC: UIViewController {
     
     var textFieldBoxSelections: [Int] = []
     
+    var dateToSend: String?
+    
     var categories: [CategoryInfo] = [] {
         didSet {
             self.setCategoryCollectionView()
@@ -36,11 +38,7 @@ class IvTodayRecordVC: UIViewController {
         
     }
     
-    var inventoryTodayArray: [TodayItemInfo] = [] {
-        didSet {
-            
-        }
-    }
+    var inventoryTodayArray: [TodayItemInfo] = []
     
     private var selections = [String]()
     
@@ -137,7 +135,7 @@ class IvTodayRecordVC: UIViewController {
                switch networkResult {
                case .success(let data):
                    guard let dt = data as? IvRecordTodayIvClass else { return }
-                   
+                   self.dateToSend = dt.date.components(separatedBy: " ")[0].toDate().toString()
                    self.inventoryTodayArray = dt.itemInfo
                    self.todayDateLabel.text = dt.date
                    self.categories = dt.categoryInfo
@@ -176,15 +174,32 @@ class IvTodayRecordVC: UIViewController {
     }
     
     @IBAction func saveTodayDatas(_ sender: Any) {
-        
+        // nil은 -1 로 바꾸기 후에 느낌표로 옵셔널 처리 가능하도록 만들기
+        for var data in inventoryTodayArray {
+            if data.presentCnt == nil {
+                data.presentCnt = -1
+            }
+        }
         // 오늘 재고 기록 post 서버 통신
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
-//        dateFormatter.date
-//        IvRecordTodayPostService.shared.getRecordTodayIvPost(data: inventoryTodayArray, date: , completion: <#T##(NetworkResult<Any>) -> Void#>)
-        self.dismiss(animated: true)
+        IvRecordTodayPostService.shared.getRecordTodayIvPost(data: inventoryTodayArray, date: dateToSend!, completion: { networkResult in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+                
+            }
+        })
+        print("hi")
+//        self.dismiss(animated: true)
     }
 }
 
@@ -192,32 +207,22 @@ class IvTodayRecordVC: UIViewController {
 extension IvTodayRecordVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return inventoryFilteredArray.count + 1
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.row == 0 {
             guard let headerCell = tableView.dequeueReusableCell(withIdentifier: AddIvHeaderCell.identifier, for: indexPath) as? AddIvHeaderCell else { return UITableViewCell() }
-            
             return headerCell
-            
         } else {
-            
             guard let inventoryTodayRecordCell = tableView.dequeueReusableCell(withIdentifier: InventoryTodayRecordCell.identifier, for: indexPath) as? InventoryTodayRecordCell else { return UITableViewCell() }
             inventoryTodayRecordCell.delegate = self
             inventoryTodayRecordCell.indexPath = indexPath.row - 1 // headerCell 인덱스값 빼줍니다
-            
             inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name)
-            
             if textFieldBoxSelections.contains(indexPath.row - 1) {
                 inventoryTodayRecordCell.ivCnt = inventoryTodayArray[indexPath.row - 1].presentCnt
                 inventoryTodayRecordCell.isTyped = true
-            } 
-            
-            
+            }
             return inventoryTodayRecordCell
             
         }
@@ -227,27 +232,20 @@ extension IvTodayRecordVC: UITableViewDataSource {
 extension IvTodayRecordVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            
             return 35
-            
         } else {
-            
             return 102
-            
         }
-        
     }
 }
 
 //MARK: - FilledTextFieldDelegate
 extension IvTodayRecordVC: FilledTextFieldDelegate {
-    
     func isTextFieldFilled(count: Int, indexPath: Int) {
         
         // 오늘의 기록을 입력하지 않은 재고는 -1 로 저장해준다.
         // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
         inventoryTodayArray[indexPath].presentCnt = count
-        
         if (count > 0) {
             if !textFieldBoxSelections.contains(indexPath) {
                 textFieldBoxSelections.append(indexPath)
@@ -258,24 +256,21 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
                 textFieldBoxSelections.remove(at: i)
             }
         }
-        
-        print(textFieldBoxSelections)
+        print(inventoryTodayArray)
     }
-    
 }
 
 
 //MARK: - CategoryCollectionView
 extension IvTodayRecordVC: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-        
         categoryCell.setTag(tagName: categories[indexPath.row].name)
-        
         return categoryCell
     }
     
@@ -284,30 +279,23 @@ extension IvTodayRecordVC: UICollectionViewDataSource {
 
 extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
-        
         if categories[indexPath.row].name  == "전체" {
             allCategoryCheck = true
             inventoryFilteredArray = inventoryTodayArray
             inventoryTodayRecordTableView.reloadData()
         }
-        
         if !allCategoryCheck {
-            
             inventoryFilteredArray = []
             let filtered = inventoryTodayArray.filter { (inventory) -> Bool in
                 return inventory.categoryIdx == categories[indexPath.row].categoryIdx
             }
-            
             for data in filtered {
                 inventoryFilteredArray.append(data)
             }
-            
             inventoryTodayRecordTableView.reloadData()
-            
         }
         
         
@@ -315,7 +303,6 @@ extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

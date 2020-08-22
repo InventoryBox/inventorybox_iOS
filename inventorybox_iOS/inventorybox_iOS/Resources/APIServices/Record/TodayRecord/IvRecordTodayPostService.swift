@@ -18,20 +18,36 @@ import Alamofire
 
 struct IvRecordTodayPostService {
     static let shared = IvRecordTodayPostService()
-    
+
+    // MARK: - EditItemInfo
+//    struct EditItemInfo: Codable {
+//        let itemIdx: Int
+//        let name: String
+//        var categoryIdx: Int
+//        var stocksCnt: Int
+//        let img: String
+//    }
+
+    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters {
+        var parsingParameter: [[String: Int]] = []
+        for d in data {
+            let item = [
+                "itemIdx" : d.itemIdx,
+                "presentCnt": d.stocksCnt
+            ]
+            parsingParameter.append(item)
+        }
+        return ["itemInfo": parsingParameter, "date": date]
+    }
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-        
-        var parsingParameter: [[String: Int?]] = []
-        
-        
+        var parsingParameter: [[String: Int]] = []
         for d in data {
             
             let item = [
                 "itemIdx" : d.itemIdx,
                 "presentCnt": d.presentCnt
             ]
-            
-            parsingParameter.append(item)
+//            parsingParameter.append(item)
             
         }
         

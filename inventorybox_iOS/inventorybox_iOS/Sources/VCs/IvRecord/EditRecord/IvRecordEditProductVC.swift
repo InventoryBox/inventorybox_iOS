@@ -20,16 +20,20 @@ class IvRecordEditProductVC: UIViewController {
     
     @IBOutlet weak var completeBtn: UIButton!
     
-    
     var textFieldBox: [Int] = []
     
     var dateToSend: String?
     
-    var memorizeDate: String?
+    var editDate: String?
     
     var categories: [CategoryInfo] = [] {
         didSet {
-            self.setCategoryCollectionView()
+            categoryCollectionView.delegate = self
+            categoryCollectionView.dataSource = self
+            categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+            // 날짜 설정
+            todayDateLabel.text = editDate!
         }
     }
     
@@ -43,11 +47,14 @@ class IvRecordEditProductVC: UIViewController {
     
     private var inventoryFilteredArray: [EditItemInfo] = []
     
+    private func setCategoryCollectionView() {
+        
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.getDataFromServer(dateToSend!)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("update"), object: nil)
@@ -55,10 +62,10 @@ class IvRecordEditProductVC: UIViewController {
     
     @objc private func update() {
         
-            print("hi")
             getDataFromServer(dateToSend!)
         
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -66,15 +73,12 @@ class IvRecordEditProductVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setInventoryFilteredData()
         customCompleteBtn()
         setinventoryEditPrdoctTableViewTableView()
         makeShadowUnderOutView()
-        setDate()
-        
-        
     }
+    
     @objc func keyboardWillShow(_ sender: Notification) {
         let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
         self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
@@ -85,20 +89,8 @@ class IvRecordEditProductVC: UIViewController {
         self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    private func setDate() {
-        todayDateLabel.text = memorizeDate!
-    }
     private func setInventoryFilteredData() {
         inventoryFilteredArray = inventoryEditProductArray
-    }
-    
-    private func setCategoryCollectionView() {
-        categoryCollectionView.delegate = self
-        categoryCollectionView.dataSource = self
-        
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
-        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-        
     }
     
     private func getDataFromServer(_ date: String) {
@@ -110,12 +102,9 @@ class IvRecordEditProductVC: UIViewController {
                 
                 if let itemInfo = dt.itemInfo {
                      self.inventoryEditProductArray = itemInfo
-                     
                 }
                 if let itemArray = dt.itemInfo {
-                    
                     self.inventoryEditProductArray = itemArray
-                    
                 }
                 self.categories = dt.categoryInfo
             case .requestErr(let message):
@@ -173,7 +162,6 @@ class IvRecordEditProductVC: UIViewController {
     
     @IBAction func completeBtnPressed(_ sender: Any) {
         
-//        print(inventoryEditProductArray)
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
             switch networkResult {

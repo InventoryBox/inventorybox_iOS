@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "lastrecordingBtnPlus.png",
+      "filename" : "imgLogo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "lastrecordingBtnPlus@2x.png",
+      "filename" : "imgLogo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "lastrecordingBtnPlus@3x.png",
+      "filename" : "imgLogo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -9,10 +9,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NanumSquareBold.ttf</string>
-		<string>NanumSquareExtraBold.ttf</string>
-		<string>NanumSquareBold.ttf</string>
-		<string>12롯데마트행복Bold.ttf</string>
+		<string>NanumSquareB.ttf</string>
+		<string>NanumSquareEB.ttf</string>
+		<string>NanumSquareR.ttf</string>
+		<string>NanumSquareB</string>
 		<string>12롯데마트행복Medium.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 	</array>

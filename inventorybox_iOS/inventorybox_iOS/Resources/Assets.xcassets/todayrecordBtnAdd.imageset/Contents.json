@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "todayrecordBtnRecordedit.png",
+      "filename" : "todayrecordBtnAdd.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "todayrecordBtnRecordedit@2x.png",
+      "filename" : "todayrecordBtnAdd@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "todayrecordBtnRecordedit@3x.png",
+      "filename" : "todayrecordBtnAdd@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

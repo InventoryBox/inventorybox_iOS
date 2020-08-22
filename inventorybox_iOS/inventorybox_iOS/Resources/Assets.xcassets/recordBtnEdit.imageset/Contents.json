@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "text.png",
+      "filename" : "recordBtnEdit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "text@2x.png",
+      "filename" : "recordBtnEdit@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "text@3x.png",
+      "filename" : "recordBtnEdit@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
