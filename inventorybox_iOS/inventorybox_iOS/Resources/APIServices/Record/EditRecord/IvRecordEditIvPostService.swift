@@ -43,12 +43,8 @@ struct IvRecordEditIvPostService {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
-                
-
                 completion(networkResult)
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)

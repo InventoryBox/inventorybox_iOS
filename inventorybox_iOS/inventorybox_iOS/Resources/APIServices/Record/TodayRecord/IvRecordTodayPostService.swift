@@ -27,32 +27,18 @@ struct IvRecordTodayPostService {
 //        var stocksCnt: Int
 //        let img: String
 //    }
-
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters {
-        var parsingParameter: [[String: Int]] = []
-        for d in data {
-            let item = [
-                "itemIdx" : d.itemIdx,
-                "presentCnt": d.stocksCnt
-            ]
-            parsingParameter.append(item)
-        }
-        return ["itemInfo": parsingParameter, "date": date]
-    }
+    
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
         var parsingParameter: [[String: Int]] = []
         for d in data {
-            
             let item = [
                 "itemIdx" : d.itemIdx,
                 "presentCnt": d.presentCnt
             ]
-//            parsingParameter.append(item)
+            parsingParameter.append(item)
             
         }
-        
-        return ["itemInfo": parsingParameter,
-        "date": date]
+        return ["itemInfo": parsingParameter, "date": date]
     }
     
     func getRecordTodayIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -67,11 +53,9 @@ struct IvRecordTodayPostService {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
                 completion(networkResult)
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)

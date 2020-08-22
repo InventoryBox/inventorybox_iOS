@@ -88,12 +88,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         inventoryCountTextField.delegate = self
         inventoryCountTextField.keyboardType = .numberPad
-    
-        // keyboard toolbar
-        let toolbarKeyboard = UIToolbar()
-        toolbarKeyboard.sizeToFit()
-        let btnDoneBar = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(doneBtnPressed))
-        
+        inventoryCountTextField.addInputAccessoryView(title: "완료", target: self, selector: #selector(doneBtnPressed))
     }
     
     @objc func doneBtnPressed() {
@@ -103,12 +98,10 @@ class InventoryTodayRecordCell: UITableViewCell {
     }
     
     func setInventoryData(_ inventoryImageName: String, _ inventoryName: String) {
-        
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
         isTyped = false
-        
     }
 
 }
@@ -130,7 +123,6 @@ extension InventoryTodayRecordCell: UITextFieldDelegate {
     
     // 재고량이 입력 되었으면 재고량을 보내주고, 입력되지 않았다면 -1을 보내준다.
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if let text = textField.text {
             if let cnt = Int(text) {
                 delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
@@ -139,7 +131,22 @@ extension InventoryTodayRecordCell: UITextFieldDelegate {
                 delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
             }
         }
-        
     }
     
+}
+
+extension UITextField {
+    
+    func addInputAccessoryView(title: String, target: Any, selector: Selector) {
+        
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0,
+                                              y: 0.0,
+                                              width: UIScreen.main.bounds.size.width,
+                                              height: 44.0))//1
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)//2
+        let barButton = UIBarButtonItem(title: title, style: .plain, target: target, action: selector)//3
+        toolBar.tintColor = UIColor.black
+        toolBar.setItems([flexible, barButton], animated: false)//4
+        self.inputAccessoryView = toolBar//5
+    }
 }

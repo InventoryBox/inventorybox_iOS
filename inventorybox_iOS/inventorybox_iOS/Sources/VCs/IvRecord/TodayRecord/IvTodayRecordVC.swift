@@ -174,12 +174,6 @@ class IvTodayRecordVC: UIViewController {
     }
     
     @IBAction func saveTodayDatas(_ sender: Any) {
-        // nil은 -1 로 바꾸기 후에 느낌표로 옵셔널 처리 가능하도록 만들기
-        for var data in inventoryTodayArray {
-            if data.presentCnt == nil {
-                data.presentCnt = -1
-            }
-        }
         // 오늘 재고 기록 post 서버 통신
         IvRecordTodayPostService.shared.getRecordTodayIvPost(data: inventoryTodayArray, date: dateToSend!, completion: { networkResult in
             switch networkResult {
@@ -242,7 +236,6 @@ extension IvTodayRecordVC: UITableViewDelegate {
 //MARK: - FilledTextFieldDelegate
 extension IvTodayRecordVC: FilledTextFieldDelegate {
     func isTextFieldFilled(count: Int, indexPath: Int) {
-        
         // 오늘의 기록을 입력하지 않은 재고는 -1 로 저장해준다.
         // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
         inventoryTodayArray[indexPath].presentCnt = count
@@ -297,8 +290,6 @@ extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
             }
             inventoryTodayRecordTableView.reloadData()
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
