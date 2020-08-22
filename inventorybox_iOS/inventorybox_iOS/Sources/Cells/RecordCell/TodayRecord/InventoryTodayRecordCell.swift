@@ -9,17 +9,11 @@
 import UIKit
 
 protocol FilledTextFieldDelegate {
-
-    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int)
     func isTextFieldFilled(count: Int, indexPath: Int)
-    
 }
 
 extension FilledTextFieldDelegate {
-  
-    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int) { }
     func isTextFieldFilled(count: Int, indexPath: Int) { }
-    
 }
 
 class InventoryTodayRecordCell: UITableViewCell {

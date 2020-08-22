@@ -88,7 +88,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eck-MF-vzA">
-                                <rect key="frame" x="0.0" y="95" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="87" width="375" height="505"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddIvHeaderCell" rowHeight="35" id="oXu-xc-oA9" customClass="AddIvHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
@@ -219,7 +219,7 @@
                             <constraint firstItem="ZY3-f8-UvP" firstAttribute="centerX" secondItem="UEi-x2-T6I" secondAttribute="centerX" id="SNu-aM-Aqd"/>
                             <constraint firstItem="gP6-MH-dby" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="X19-9Q-RPk"/>
                             <constraint firstItem="gP6-MH-dby" firstAttribute="top" secondItem="83s-pt-GT0" secondAttribute="top" id="dr0-za-i7R"/>
-                            <constraint firstItem="eck-MF-vzA" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="bottom" constant="8" id="f4N-wz-biv"/>
+                            <constraint firstItem="eck-MF-vzA" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="bottom" id="f4N-wz-biv"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="rjf-dD-lgt"/>
                             <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="20" id="yh7-EB-153"/>
                         </constraints>

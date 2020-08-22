@@ -13,19 +13,18 @@ class IvRecordEditProductVC: UIViewController {
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var todayDateLabel: UILabel!
-    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
     @IBOutlet weak var inventoryEditPrdoctTableView: UITableView!
-    
     @IBOutlet weak var completeBtn: UIButton!
     
-    var textFieldBox: [Int] = []
-    
+    // 서버에 보낼 날짜 2020-08-22
     var dateToSend: String?
-    
+    // Label에 보여줄 날짜 2020.08.22 토요일
     var editDate: String?
     
+    var inventoryEditProductArray: [EditItemInfo] = []
+    private var textFieldBoxSelections = [Int]()
+    private var inventoryFilteredArray: [EditItemInfo] = []
     var categories: [CategoryInfo] = [] {
         didSet {
             categoryCollectionView.delegate = self
@@ -34,16 +33,16 @@ class IvRecordEditProductVC: UIViewController {
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
             // 날짜 설정
             todayDateLabel.text = editDate!
+            for i in 0..<inventoryEditProductArray.count {
+                if inventoryEditProductArray[i].stocksCnt != -1 {
+                    textFieldBoxSelections.append(i)
+                }
+            }
         }
     }
     
-    var inventoryEditProductArray: [EditItemInfo] = []
-    private var selections = [String]()
-    private var inventoryFilteredArray: [EditItemInfo] = []
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.getDataFromServer(dateToSend!)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -51,7 +50,7 @@ class IvRecordEditProductVC: UIViewController {
     }
     
     @objc private func update() {
-            getDataFromServer(dateToSend!)
+        getDataFromServer(dateToSend!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,13 +69,16 @@ class IvRecordEditProductVC: UIViewController {
     @objc func keyboardWillShow(_ sender: Notification) {
         let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
         self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-
+        
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
         self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     private func setInventoryFilteredData() {
         inventoryFilteredArray = inventoryEditProductArray
     }
@@ -89,11 +91,11 @@ class IvRecordEditProductVC: UIViewController {
                 guard let dt = data as? IvRecordEditIvClass else { return }
                 
                 if let itemInfo = dt.itemInfo {
-                     self.inventoryEditProductArray = itemInfo
+                    self.inventoryEditProductArray = itemInfo
                 }
                 if let itemArray = dt.itemInfo {
                     self.inventoryEditProductArray = itemArray
-                    print(self.inventoryEditProductArray)
+//                    print(self.inventoryEditProductArray)
                 }
                 self.categories = dt.categoryInfo
             case .requestErr(let message):
@@ -156,14 +158,13 @@ class IvRecordEditProductVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 print(data)
-
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "로그인 실패", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-
+                
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
@@ -175,9 +176,6 @@ class IvRecordEditProductVC: UIViewController {
     }
 }
 
-
-
-//MARK: - TableView
 //MARK: - InventoryEditTableView
 extension IvRecordEditProductVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -186,23 +184,18 @@ extension IvRecordEditProductVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            
             guard let headerCell = tableView.dequeueReusableCell(withIdentifier: AddIvHeaderCell.identifier, for: indexPath) as? AddIvHeaderCell else { return UITableViewCell() }
-            
             return headerCell
-            
         } else {
-            
-            guard let inventoryTodayRecordCell = tableView.dequeueReusableCell(withIdentifier: InventoryEditProductCell.identifier, for: indexPath) as? InventoryEditProductCell else { return UITableViewCell() }
-            
-            inventoryTodayRecordCell.indexPath = indexPath.row - 1
-            inventoryTodayRecordCell.delegate = self
-            
-            
-            inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].stocksCnt)
-            
-            return inventoryTodayRecordCell
-            
+            guard let inventoryEditProductCell = tableView.dequeueReusableCell(withIdentifier: InventoryEditProductCell.identifier, for: indexPath) as? InventoryEditProductCell else { return UITableViewCell() }
+            inventoryEditProductCell.indexPath = indexPath.row - 1
+            inventoryEditProductCell.delegate = self
+            inventoryEditProductCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name)
+            if textFieldBoxSelections.contains(indexPath.row - 1) {
+                inventoryEditProductCell.ivCnt = inventoryEditProductArray[indexPath.row - 1].stocksCnt
+                inventoryEditProductCell.isTyped = true
+            }
+            return inventoryEditProductCell
         }
     }
 }
@@ -222,22 +215,25 @@ extension IvRecordEditProductVC: UITableViewDelegate {
     }
 }
 
-
+//MARK: - FilledTextFieldDelegate
 extension IvRecordEditProductVC: FilledTextFieldDelegate {
-    func isTextFieldFilled(count: Int, isTyped: Bool, indexPath: Int) {
+    
+    func isTextFieldFilled(count: Int, indexPath: Int) {
+        // 기록을 입력하지 않은 재고는 -1 로 저장해준다.
+        // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
         inventoryEditProductArray[indexPath].stocksCnt = count
+        if (count > 0) {
+            if !textFieldBoxSelections.contains(indexPath) {
+                textFieldBoxSelections.append(indexPath)
+            }
+        } else {
+            if textFieldBoxSelections.contains(indexPath) {
+                guard let i = textFieldBoxSelections.firstIndex(of: indexPath) else { return }
+                textFieldBoxSelections.remove(at: i)
+            }
+        }
     }
     
-    func isTextFieldFilled(count: String,  isTyped: Bool, indexPath: Int) {
-        
-        if let cnt = Int(count) {
-            inventoryEditProductArray[indexPath].stocksCnt = cnt
-        }
-        
-        inventoryFilteredArray = inventoryEditProductArray
-        
-        
-    }
 }
 
 //MARK: - CollectionView

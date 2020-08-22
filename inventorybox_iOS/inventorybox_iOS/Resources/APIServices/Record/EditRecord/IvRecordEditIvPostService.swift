@@ -68,8 +68,6 @@ struct IvRecordEditIvPostService {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
-        // 성공 메시지
-        print(decodedData.message)
         if decodedData.success {
             return .success(decodedData.message)
         } else {

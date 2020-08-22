@@ -190,7 +190,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                 self.categories = dt.categoryInfo
                 if let itemInfo = dt.itemInfo {
                     self.inventoryArray = itemInfo
-                    print(self.inventoryArray)
+//                    print(self.inventoryArray)
                 }
                 // 오늘 재고기록을 안했을경우, 했을경우, 이전 재고기록을 안했을 경우 분기처리
                 if self.inventoryArray.isEmpty {

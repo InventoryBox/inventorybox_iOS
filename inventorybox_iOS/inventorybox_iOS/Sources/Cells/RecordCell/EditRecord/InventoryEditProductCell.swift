@@ -20,9 +20,17 @@ class InventoryEditProductCell: UITableViewCell {
     var delegate: FilledTextFieldDelegate?
     var indexPath: Int?
     
-    var isTypedTextField: String? = "" {
+    var ivCnt: Int?
+    var isTyped: Bool = false {
         didSet {
-            inventoryCountTextField.text = isTypedTextField
+            if isTyped {
+                if let cnt = ivCnt {
+                    inventoryCountTextField.text = "\(cnt)"
+                }
+            } else {
+                inventoryCountTextField.text = ""
+            }
+            
         }
     }
     
@@ -35,6 +43,7 @@ class InventoryEditProductCell: UITableViewCell {
     }
     
     private func setTextFieldCustommed() {
+        inventoryCountTextField.placeholder = "재고량 입력"
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
@@ -70,29 +79,24 @@ class InventoryEditProductCell: UITableViewCell {
         
     }
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ inventoryCount: Int) {
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String) {
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
-        if inventoryCount == -1 {
-            inventoryCountTextField.placeholder = "재고량 입력"
-        } else {
-            inventoryCountTextField.text = "\(inventoryCount)"
-        }
-        
-        
+        isTyped = false
     }
+
 }
 
 extension InventoryEditProductCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if inventoryCountTextField.text == "" {
-            delegate?.isTextFieldFilled(count: -1, isTyped: false, indexPath: indexPath!)
-        } else {
-            guard let text = textField.text else { return }
-            guard let cnt = Int(text) else { return }
-            delegate?.isTextFieldFilled(count: cnt, isTyped: true, indexPath: indexPath!)
+        if let text = inventoryCountTextField.text {
+            if let cnt = Int(text) {
+                delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
+            } else {
+                let cnt: Int = -1
+                delegate?.isTextFieldFilled(count: cnt, indexPath: indexPath!)
+            }
         }
     }
-    
 }
