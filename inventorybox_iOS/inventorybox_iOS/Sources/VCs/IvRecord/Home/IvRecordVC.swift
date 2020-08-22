@@ -190,6 +190,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                 self.categories = dt.categoryInfo
                 if let itemInfo = dt.itemInfo {
                     self.inventoryArray = itemInfo
+                    print(self.inventoryArray)
                 }
                 // 오늘 재고기록을 안했을경우, 했을경우, 이전 재고기록을 안했을 경우 분기처리
                 if self.inventoryArray.isEmpty {
@@ -234,18 +235,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    
-    //     @IBAction func goToIvRecordAddProduct(_ sender: Any) {
-    //          let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-    //          guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
-    //               as? IvRecordNaviVC  else {
-    //                    return
-    //          }
-    //          addProductVC.modalPresentationStyle = .fullScreen
-    //
-    //          self.present(addProductVC, animated: true, completion: nil)
-    //     }
     
     // 재고량 편집하기
     @IBAction func goToIvRecordEditProduct(_ sender: Any) {

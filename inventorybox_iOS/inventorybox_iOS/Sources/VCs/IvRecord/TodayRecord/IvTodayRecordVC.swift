@@ -189,10 +189,8 @@ class IvTodayRecordVC: UIViewController {
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
-                
             }
         })
-        print("hi")
 //        self.dismiss(animated: true)
     }
 }

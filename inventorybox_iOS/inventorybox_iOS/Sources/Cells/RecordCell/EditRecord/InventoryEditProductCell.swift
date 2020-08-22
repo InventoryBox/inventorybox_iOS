@@ -35,31 +35,17 @@ class InventoryEditProductCell: UITableViewCell {
     }
     
     private func setTextFieldCustommed() {
-        
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
-        inventoryCountTextField.placeholder = "재고량 입력"
-        
         inventoryCountTextField.tintColor = UIColor.greyishBrown
-        
         inventoryCountTextField.keyboardType = .numberPad
-        
-        let toolbar = UIToolbar()
-        toolbar.barStyle = UIBarStyle.default
-        toolbar.isTranslucent = true
-        let doneBtn = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(donePressed))
-        
-        toolbar.setItems([doneBtn], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        toolbar.sizeToFit()
-        
-        inventoryCountTextField.inputAccessoryView = toolbar
+        inventoryCountTextField.addInputAccessoryView(title: "완료", target: self, selector: #selector(donePressed))
         inventoryCountTextField.delegate = self
     }
     
     @objc private func donePressed() {
-        self.inventoryCountTextField.endEditing(true)
+        self.contentView.endEditing(true)
     }
     
     private func makeShadowAroundInventoryView() {
@@ -88,11 +74,15 @@ class InventoryEditProductCell: UITableViewCell {
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
-        inventoryCountTextField.text = "\(inventoryCount)"
+        if inventoryCount == -1 {
+            inventoryCountTextField.placeholder = "재고량 입력"
+        } else {
+            inventoryCountTextField.text = "\(inventoryCount)"
+        }
+        
         
     }
 }
-
 
 extension InventoryEditProductCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {

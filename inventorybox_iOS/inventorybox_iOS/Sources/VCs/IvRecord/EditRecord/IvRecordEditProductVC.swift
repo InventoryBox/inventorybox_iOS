@@ -37,20 +37,10 @@ class IvRecordEditProductVC: UIViewController {
         }
     }
     
-    var inventoryEditProductArray: [EditItemInfo] = [] {
-        didSet {
-            
-        }
-    }
-    
+    var inventoryEditProductArray: [EditItemInfo] = []
     private var selections = [String]()
-    
     private var inventoryFilteredArray: [EditItemInfo] = []
     
-    private func setCategoryCollectionView() {
-        
-        
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -61,9 +51,7 @@ class IvRecordEditProductVC: UIViewController {
     }
     
     @objc private func update() {
-        
             getDataFromServer(dateToSend!)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -105,6 +93,7 @@ class IvRecordEditProductVC: UIViewController {
                 }
                 if let itemArray = dt.itemInfo {
                     self.inventoryEditProductArray = itemArray
+                    print(self.inventoryEditProductArray)
                 }
                 self.categories = dt.categoryInfo
             case .requestErr(let message):

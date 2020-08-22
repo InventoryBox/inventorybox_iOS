@@ -106,6 +106,9 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b64-jy-lBt">
                                                     <rect key="frame" x="12" y="2.5" width="90" height="30"/>
+                                                    <connections>
+                                                        <action selector="goToAddProductVC:" destination="5DW-Rz-oSE" eventType="touchUpInside" id="n1U-yo-VmQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
