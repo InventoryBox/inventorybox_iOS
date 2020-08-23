@@ -23,36 +23,22 @@ class IvTodayRecordVC: UIViewController {
     
     var categories: [CategoryInfo] = [] {
         didSet {
-            self.setCategoryCollectionView()
+            categoryCollectionView.delegate = self
+            categoryCollectionView.dataSource = self
+            categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         }
     }
     
-    private func setCategoryCollectionView() {
-        
-        categoryCollectionView.delegate = self
-        categoryCollectionView.dataSource = self
-        
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
-        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-        
-        
-    }
-    
     var inventoryTodayArray: [TodayItemInfo] = []
-    
     private var selections = [String]()
-    
     private var inventoryFilteredArray: [TodayItemInfo] = []
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         getDataFromServer()
-        
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
             self.view.endEditing(true)
-            
         }
         // 키보드 올리는 함수
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -61,16 +47,12 @@ class IvTodayRecordVC: UIViewController {
     }
     
     @objc func keyboardWillShow(_ sender: Notification) {
-        
         let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
         self.inventoryTodayRecordTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        
         self.inventoryTodayRecordTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    
     }
     
     
@@ -81,25 +63,26 @@ class IvTodayRecordVC: UIViewController {
     
     
     deinit {
-        
         NotificationCenter.default.removeObserver(self)
-    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setInventoryFilteredData()
         makeShadowUnderOutView()
         setInventoryTodayRecordTableView()
         customCompleteBtn()
         
     }
     
-    private func setInventoryFilteredData() {
-        
-        inventoryFilteredArray = inventoryTodayArray
-        
+    private func filteredArraySelections(with array: [TodayItemInfo] = []) {
+        inventoryFilteredArray = array
+        for i in 0..<inventoryFilteredArray.count {
+            if inventoryFilteredArray[i].presentCnt != -1 {
+                textFieldBoxSelections.append(i)
+            }
+        }
+        inventoryTodayRecordTableView.reloadData()
     }
     
     private func makeShadowUnderOutView() {
@@ -236,7 +219,13 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
     func isTextFieldFilled(count: Int, indexPath: Int) {
         // 오늘의 기록을 입력하지 않은 재고는 -1 로 저장해준다.
         // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
-        inventoryTodayArray[indexPath].presentCnt = count
+        inventoryFilteredArray[indexPath].presentCnt = count
+        for i in 0..<inventoryTodayArray.count {
+            if inventoryFilteredArray[indexPath].name == inventoryTodayArray[i].name {
+                inventoryTodayArray[i].presentCnt = inventoryFilteredArray[indexPath].presentCnt
+                break
+            }
+        }
         if (count > 0) {
             if !textFieldBoxSelections.contains(indexPath) {
                 textFieldBoxSelections.append(indexPath)
@@ -274,18 +263,14 @@ extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
         var allCategoryCheck: Bool = false
         if categories[indexPath.row].name  == "전체" {
             allCategoryCheck = true
-            inventoryFilteredArray = inventoryTodayArray
-            inventoryTodayRecordTableView.reloadData()
+            filteredArraySelections(with: inventoryTodayArray)
         }
         if !allCategoryCheck {
             inventoryFilteredArray = []
             let filtered = inventoryTodayArray.filter { (inventory) -> Bool in
                 return inventory.categoryIdx == categories[indexPath.row].categoryIdx
             }
-            for data in filtered {
-                inventoryFilteredArray.append(data)
-            }
-            inventoryTodayRecordTableView.reloadData()
+            filteredArraySelections(with: filtered)
         }
     }
     

@@ -204,8 +204,6 @@ extension IvRecordEditProductVC: FilledTextFieldDelegate {
         for i in 0..<inventoryEditProductArray.count {
             if inventoryFilteredArray[indexPath].name == inventoryEditProductArray[i].name {
                 inventoryEditProductArray[i].stocksCnt = inventoryFilteredArray[indexPath].stocksCnt
-                print(inventoryEditProductArray[i].stocksCnt)
-                print(inventoryFilteredArray[indexPath].stocksCnt)
                 break
             }
         }
@@ -219,13 +217,11 @@ extension IvRecordEditProductVC: FilledTextFieldDelegate {
                 textFieldBoxSelections.remove(at: i)
             }
         }
-        print(inventoryEditProductArray)
     }
     
 }
 
 //MARK: - CollectionView
-
 extension IvRecordEditProductVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -237,7 +233,6 @@ extension IvRecordEditProductVC: UICollectionViewDataSource {
         categoryCell.setTag(tagName: categories[indexPath.row].name)
         return categoryCell
     }
-    
     
 }
 
