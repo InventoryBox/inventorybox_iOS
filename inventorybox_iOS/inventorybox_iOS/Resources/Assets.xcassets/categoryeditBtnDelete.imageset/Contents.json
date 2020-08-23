@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "btnTrash.png",
+      "filename" : "categoryeditBtnDelete.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "btnTrash@2x.png",
+      "filename" : "categoryeditBtnDelete@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "btnTrash@3x.png",
+      "filename" : "categoryeditBtnDelete@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

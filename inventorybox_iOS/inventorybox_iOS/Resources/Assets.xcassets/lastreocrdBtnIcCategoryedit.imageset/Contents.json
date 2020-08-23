@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "btnPlus.png",
+      "filename" : "lastreocrdBtnIcCategoryedit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "btnPlus@2x.png",
+      "filename" : "lastreocrdBtnIcCategoryedit@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "btnPlus@3x.png",
+      "filename" : "lastreocrdBtnIcCategoryedit@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

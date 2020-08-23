@@ -12,7 +12,6 @@ import BEMCheckBox
 class IvRecordCategoryEditVC: UIViewController {
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var categoryEditTableView: UITableView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
@@ -26,7 +25,11 @@ class IvRecordCategoryEditVC: UIViewController {
     
     var categories: [CategoryInfo] = [] {
         didSet {
-            self.setCategoryCollectionView()
+            categoryCollectionView.delegate = self
+            categoryCollectionView.dataSource = self
+            categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+            inventoryFilteredArray = inventoryEditArray
         }
     }
     
@@ -43,24 +46,22 @@ class IvRecordCategoryEditVC: UIViewController {
         
         getDataFromServer(dateToSend!)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        setInventoryFilteredData()
-        setShadowUnderOutView()
-        setCategoryEditTableView()
-        setViewCustom()
+        for view in bottomView {
+            view.backgroundColor = UIColor.yellow
+        }
+        categoryEditTableView.delegate = self
+        categoryEditTableView.dataSource = self
+        categoryEditTableView.allowsSelection = false
+        categoryEditTableView.separatorStyle = .none
+        
+        self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.outView.layer.shadowOpacity = 0.05
         setPopupBackgroundView()
-        
-    }
-    private func setCategoryCollectionView() {
-        
-        categoryCollectionView.delegate = self
-        categoryCollectionView.dataSource = self
-        
-        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
-        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         
     }
     
@@ -93,84 +94,45 @@ class IvRecordCategoryEditVC: UIViewController {
         }
         
     }
-    private func setInventoryFilteredData() {
-        inventoryFilteredArray = inventoryEditArray
-    }
+    
     private func setPopupBackgroundView() {
-        
         popupBackgroundView.isHidden = true
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
         NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(whenCategoryMovePopupDismiss), name: .init("categoryPopup"), object: nil)
-        
     }
     
     func animatePopupBackground(_ direction: Bool) {
-        
         let duration: TimeInterval = direction ? 0.35 : 0.15
         let alpha: CGFloat = direction ? 0.54 : 0.0
         self.popupBackgroundView.isHidden = !direction
         UIView.animate(withDuration: duration) {
             self.popupBackgroundView.alpha = alpha
         }
-        
     }
     
     @objc func whenCategoryMovePopupDismiss(_ notification: Notification) {
-
         animatePopupBackground(false)
-        
-//        guard let info = notification.userInfo as? [String: Any] else { return }
-//        guard let name = info["categoryName"] as? String else { return }
-//
-//
-//
-//        categoryEditTableView.reloadData()
-//
+        //        guard let info = notification.userInfo as? [String: Any] else { return }
+        //        guard let name = info["categoryName"] as? String else { return }
+        //        categoryEditTableView.reloadData()
     }
     
     @objc func didDisappearPopup(_ notification: Notification) {
         animatePopupBackground(false)
-//        guard let info = notification.userInfo as? [String: Any] else { return }
-//        guard let name = info["categoryName"] as? String else { return }
-//        print(name)
-    
-        setCategoryCollectionView()
+        //        guard let info = notification.userInfo as? [String: Any] else { return }
+        //        guard let name = info["categoryName"] as? String else { return }
+        //        print(name)
+        
     }
-//    private func getCatecoryFromServer() {
-//
-//        CategoryService.shared.getCategory() { (networkResult) in
-//            switch networkResult {
-//            case .success(let data):
-//                guard let dt = data as? CategoryClass else { return }
-//                print(dt)
-//
-//                self.categories = dt.categoryInfo
-////                self.categoryCollectionView.reloadData()
-//
-//            case .requestErr(let message):
-//                guard let message = message as? String else { return }
-//                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-//                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                alertViewController.addAction(action)
-//                self.present(alertViewController, animated: true, completion: nil)
-//
-//            case .pathErr: print("path")
-//            case .serverErr: print("serverErr")
-//            case .networkFail: print("networkFail")
-//            }
-//        }
-//
-//    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func deleteInventoryBtnPressed(_ sender: Any) {
         // 선택된 재료 삭제하기 서버 반영 버튼
-//        print(checkboxSelections)
         
         var idxList: [Int] = []
         for i in 0..<checkboxSelections.count {
@@ -187,13 +149,20 @@ class IvRecordCategoryEditVC: UIViewController {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-                
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
         }
+    }
+    
+    @IBAction func addCategoryBtnPressed(_ sender: Any) {
         
+        animatePopupBackground(true)
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryPopupVC") else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
     }
     
     @IBAction func moveCategoryBtnPressed(_ sender: Any) {
@@ -203,44 +172,19 @@ class IvRecordCategoryEditVC: UIViewController {
         self.present(vc, animated: true)
         
     }
-    @IBAction func addCategoryBtnPressed(_ sender: Any) {
-        
+    
+    @IBAction func deleteCategoryBtnPressed(_ sender: Any) {
         animatePopupBackground(true)
-        
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryPopupVC") else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
         
         self.dismiss(animated: false, completion: nil)
         
     }
-    
-    private func setViewCustom() {
-        for view in bottomView {
-            view.backgroundColor = UIColor.yellow
-        }
-    }
-    
-    private func setCategoryEditTableView() {
-        
-        categoryEditTableView.delegate = self
-        categoryEditTableView.dataSource = self
-        
-        categoryEditTableView.allowsSelection = false
-        categoryEditTableView.separatorStyle = .none
-        
-    }
-    
-    private func setShadowUnderOutView() {
-        
-        self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        self.outView.layer.shadowOpacity = 0.05
-        
-    }
-    
-    
     
 }
 
@@ -269,9 +213,7 @@ extension IvRecordCategoryEditVC: UITableViewDataSource {
             inventoryCell.indexPath = indexPath.row - 1
             inventoryCell.isSelectBtn = self.checkboxSelections.contains(indexPath.row - 1)
             
-            inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].alarmCnt)
-
-            
+            inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].unit, inventoryFilteredArray[indexPath.row - 1].alarmCnt)
             return inventoryCell
             
         }
@@ -312,25 +254,25 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
                 } else {
                     checkboxSelections.append(i)
                 }
-
+                
             } else {
                 checkboxSelections = []
             }
-
+            
         }
         categoryEditTableView.reloadData()
         
     }
-
+    
     func didClickCheckButton(isClicked: Bool, indexPath: Int) {
-
-//        if self.checkboxSelections.contains(indexPath) {
-//            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
-//            self.checkboxSelections.remove(at: i)
-//        } else {
-//            checkboxSelections.append(indexPath)
-//        }
-
+        
+        //        if self.checkboxSelections.contains(indexPath) {
+        //            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
+        //            self.checkboxSelections.remove(at: i)
+        //        } else {
+        //            checkboxSelections.append(indexPath)
+        //        }
+        
         
     }
 }

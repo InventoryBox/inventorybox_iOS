@@ -58,30 +58,34 @@
                                                     <action selector="openDatePicker:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="9mV-eI-uvj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pl-Gp-LxH">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lastreocrdBtnIcCategoryedit" translatesAutoresizingMaskIntoConstraints="NO" id="8eq-Hx-59n">
                                                 <rect key="frame" x="328" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="44" id="Ezw-71-fgG"/>
-                                                    <constraint firstAttribute="height" constant="44" id="Hd2-ub-fKO"/>
+                                                    <constraint firstAttribute="width" secondItem="8eq-Hx-59n" secondAttribute="height" multiplier="1:1" id="bhT-rQ-uJk"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="lastrecordingBtnEdit"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCo-Wm-jMn">
+                                                <rect key="frame" x="335" y="7" width="30" height="30"/>
                                                 <connections>
-                                                    <action selector="goToIvRecordCategoryEdit:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="mgK-fo-fq2"/>
+                                                    <action selector="goToIvRecordCategoryEdit:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="oos-nc-wbf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="ocT-Zq-xF1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="1Sc-Fl-xUh"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Pl-Gp-LxH" secondAttribute="trailing" constant="3" id="C7u-IV-6gc"/>
+                                            <constraint firstItem="sCo-Wm-jMn" firstAttribute="height" secondItem="8eq-Hx-59n" secondAttribute="height" multiplier="0.681818" id="D9q-mp-bGD"/>
                                             <constraint firstItem="ocT-Zq-xF1" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="Dr5-ph-aV0"/>
+                                            <constraint firstItem="sCo-Wm-jMn" firstAttribute="width" secondItem="8eq-Hx-59n" secondAttribute="width" multiplier="0.681818" id="F0H-HF-oiH"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="leading" secondItem="qfR-iN-Fy6" secondAttribute="trailing" constant="8" id="FFk-E3-xOE"/>
                                             <constraint firstItem="qfR-iN-Fy6" firstAttribute="centerY" secondItem="ocT-Zq-xF1" secondAttribute="centerY" id="GSq-g5-4oY"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" constant="12" id="HCD-qR-JxF"/>
+                                            <constraint firstItem="sCo-Wm-jMn" firstAttribute="centerX" secondItem="8eq-Hx-59n" secondAttribute="centerX" id="HGY-c1-GU4"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="width" secondItem="ocT-Zq-xF1" secondAttribute="width" id="Q6b-fb-2po"/>
-                                            <constraint firstAttribute="bottom" secondItem="1Pl-Gp-LxH" secondAttribute="bottom" id="b4d-Ni-ozD"/>
-                                            <constraint firstItem="1Pl-Gp-LxH" firstAttribute="top" secondItem="thq-pT-dHB" secondAttribute="top" id="dHh-q6-0xO"/>
+                                            <constraint firstAttribute="trailing" secondItem="8eq-Hx-59n" secondAttribute="trailing" constant="3" id="Ybr-bO-cfx"/>
+                                            <constraint firstItem="sCo-Wm-jMn" firstAttribute="centerY" secondItem="8eq-Hx-59n" secondAttribute="centerY" id="gYl-eu-gJo"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="height" secondItem="ocT-Zq-xF1" secondAttribute="height" id="hYw-e8-VV8"/>
+                                            <constraint firstItem="8eq-Hx-59n" firstAttribute="centerY" secondItem="thq-pT-dHB" secondAttribute="centerY" id="po6-Z7-pzv"/>
                                             <constraint firstItem="bH4-Va-xD1" firstAttribute="centerX" secondItem="thq-pT-dHB" secondAttribute="centerX" id="qPw-jR-1cX"/>
                                             <constraint firstAttribute="height" constant="44" id="zOS-zn-Hhx"/>
                                         </constraints>
@@ -415,7 +419,6 @@
                     <connections>
                         <outlet property="beforeRecordView" destination="SmF-gs-dSP" id="iXv-WG-8jr"/>
                         <outlet property="categoryCollectionView" destination="oxp-GV-2lp" id="5T0-vk-djg"/>
-                        <outlet property="categorySettingBtn" destination="1Pl-Gp-LxH" id="Rmt-cO-yc7"/>
                         <outlet property="dateLabel" destination="bH4-Va-xD1" id="zg2-jf-KEg"/>
                         <outlet property="datePickerBtn" destination="qfR-iN-Fy6" id="pYC-KC-ocB"/>
                         <outlet property="datePickerLabelBtn" destination="ocT-Zq-xF1" id="ePt-66-8Y4"/>
@@ -512,9 +515,9 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="imgLogo" width="143" height="162"/>
         <image name="lastrecordingBtnDatechange" width="14" height="14"/>
-        <image name="lastrecordingBtnEdit" width="44" height="44"/>
         <image name="lastrecordingShape" width="48" height="48"/>
         <image name="lastrecordingTitleShape" width="84" height="13"/>
+        <image name="lastreocrdBtnIcCategoryedit" width="44" height="44"/>
         <image name="recordBtnEdit" width="74" height="28"/>
         <namedColor name="mediumGrey">
             <color red="0.50599998235702515" green="0.50599998235702515" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
