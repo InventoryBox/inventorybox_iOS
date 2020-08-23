@@ -16,24 +16,11 @@ class MoveCategoryPopupVC: UIViewController {
     
     var categories: [CategoryInfo] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        getDataFromServer()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getDataFromServer()
         setCategoryTableView()
         addObserver()
-        
     }
     
     private func getDataFromServer() {
@@ -61,6 +48,7 @@ class MoveCategoryPopupVC: UIViewController {
         }
         
     }
+    
     func addObserver() {
         
         let notiName = Notification.Name(rawValue: "name")

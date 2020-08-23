@@ -351,7 +351,7 @@
                                     <constraint firstAttribute="bottom" secondItem="wIO-Kl-k7R" secondAttribute="bottom" id="kKu-NT-Kqw"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-0H-DuD">
                                 <rect key="frame" x="0.0" y="0.0" width="492" height="810"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -372,11 +372,6 @@
                             <constraint firstItem="0Rd-ik-DZm" firstAttribute="leading" secondItem="9XY-Rk-Boi" secondAttribute="leading" id="xtR-lR-6Ex"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9XY-Rk-Boi"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="aV3-0H-DuD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QGP-pg-8ch"/>
                     <connections>
@@ -456,7 +451,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6z-Ee-g0k">
                                         <rect key="frame" x="97" y="12" width="87" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -548,7 +543,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-EN-2C6">
                                         <rect key="frame" x="97" y="12" width="87" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-P3-s0p">
@@ -750,13 +745,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5e-3F-cAp">
-                                        <rect key="frame" x="327" y="11" width="44" height="35"/>
-                                        <state key="normal" backgroundImage="btnDone"/>
-                                        <connections>
-                                            <action selector="dismissPopupView:" destination="xZh-Ky-Ufn" eventType="touchUpInside" id="nD8-TC-67l"/>
-                                        </connections>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="McU-tU-N7Z">
                                         <rect key="frame" x="0.0" y="47" width="375" height="277"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -819,10 +807,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6Ry-Ok-6M9" firstAttribute="leading" secondItem="88l-Tr-tQr" secondAttribute="leading" id="1nZ-Qf-cIx"/>
-                                    <constraint firstItem="L5e-3F-cAp" firstAttribute="top" secondItem="88l-Tr-tQr" secondAttribute="top" constant="11" id="6LO-24-ziq"/>
                                     <constraint firstItem="kCU-sz-AOn" firstAttribute="leading" secondItem="88l-Tr-tQr" secondAttribute="leading" id="6S3-c1-3fy"/>
                                     <constraint firstAttribute="trailing" secondItem="McU-tU-N7Z" secondAttribute="trailing" id="BH5-Th-MeZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="L5e-3F-cAp" secondAttribute="trailing" constant="4" id="DeW-Vr-IBA"/>
                                     <constraint firstItem="6Ry-Ok-6M9" firstAttribute="top" secondItem="88l-Tr-tQr" secondAttribute="top" id="GhA-eI-RCn"/>
                                     <constraint firstAttribute="trailing" secondItem="6Ry-Ok-6M9" secondAttribute="trailing" id="KFs-Ay-AsC"/>
                                     <constraint firstItem="McU-tU-N7Z" firstAttribute="leading" secondItem="88l-Tr-tQr" secondAttribute="leading" id="Okj-09-dtD"/>
@@ -839,6 +825,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU4-fD-eng">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="xZh-Ky-Ufn" eventType="touchUpInside" id="OOc-JU-oP5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -865,7 +854,6 @@
     </scenes>
     <resources>
         <image name="btnDelete" width="36" height="36"/>
-        <image name="btnDone" width="44" height="35"/>
         <image name="btnEdit" width="44" height="35"/>
         <image name="btnWholeCheck" width="67.5" height="15"/>
         <image name="categoryeditBtnDelete" width="38" height="45"/>

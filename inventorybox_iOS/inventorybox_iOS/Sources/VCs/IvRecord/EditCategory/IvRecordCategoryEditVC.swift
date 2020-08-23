@@ -20,9 +20,9 @@ class IvRecordCategoryEditVC: UIViewController {
     @IBOutlet weak var popupBackgroundView: UIView!
     
     private var checkboxSelections = [Int]()
-    
     var dateToSend: String?
-    
+    var inventoryEditArray: [EditCateInfo] = []
+    private var inventoryFilteredArray: [EditCateInfo] = []
     var categories: [CategoryInfo] = [] {
         didSet {
             categoryCollectionView.delegate = self
@@ -33,24 +33,15 @@ class IvRecordCategoryEditVC: UIViewController {
         }
     }
     
-    var inventoryEditArray: [EditCateInfo] = [] {
-        didSet {
-            
-        }
-    }
-    
-    private var inventoryFilteredArray: [EditCateInfo] = []
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        getDataFromServer(dateToSend!)
+        if let date = dateToSend {
+            getDataFromServer(date)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         for view in bottomView {
             view.backgroundColor = UIColor.yellow
         }
@@ -58,7 +49,6 @@ class IvRecordCategoryEditVC: UIViewController {
         categoryEditTableView.dataSource = self
         categoryEditTableView.allowsSelection = false
         categoryEditTableView.separatorStyle = .none
-        
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         self.outView.layer.shadowOpacity = 0.05
         setPopupBackgroundView()
@@ -66,41 +56,44 @@ class IvRecordCategoryEditVC: UIViewController {
     }
     
     private func getDataFromServer(_ date: String) {
-        
         IvRecordEditCateService.shared.getRecordEditCate(whichDate: date) { (networkResult) in
             switch networkResult {
             case .success(let data):
                 guard let dt = data as? IvRecordEditCateClass else { return }
-                
-                
                 // 데이터 정렬
                 if let itemArray = dt.itemInfo {
                     self.inventoryEditArray = itemArray
                 }
-                
                 self.categories = dt.categoryInfo
-                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-                
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
         }
-        
     }
     
     private func setPopupBackgroundView() {
         popupBackgroundView.isHidden = true
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
-        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(whenCategoryMovePopupDismiss), name: .init("categoryPopup"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromCateToEditCate), name: .init("popupFromAddCateToEditCate"), object: nil)
+    }
+    
+    @objc func sendDataFromCateToEditCate(_ notification: Notification) {
+        animatePopupBackground(false)
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let name = info["categoryName"] as? String else { return }
+        if name != "none" {
+            let idx: Int = -1
+            categories.append(CategoryInfo(categoryIdx: idx, name: name))
+            categoryCollectionView.reloadData()
+        }
     }
     
     func animatePopupBackground(_ direction: Bool) {
@@ -112,28 +105,12 @@ class IvRecordCategoryEditVC: UIViewController {
         }
     }
     
-    @objc func whenCategoryMovePopupDismiss(_ notification: Notification) {
-        animatePopupBackground(false)
-        //        guard let info = notification.userInfo as? [String: Any] else { return }
-        //        guard let name = info["categoryName"] as? String else { return }
-        //        categoryEditTableView.reloadData()
-    }
-    
-    @objc func didDisappearPopup(_ notification: Notification) {
-        animatePopupBackground(false)
-        //        guard let info = notification.userInfo as? [String: Any] else { return }
-        //        guard let name = info["categoryName"] as? String else { return }
-        //        print(name)
-        
-    }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func deleteInventoryBtnPressed(_ sender: Any) {
         // 선택된 재료 삭제하기 서버 반영 버튼
-        
         var idxList: [Int] = []
         for i in 0..<checkboxSelections.count {
             idxList.append(inventoryEditArray[i].itemIdx)
@@ -157,12 +134,10 @@ class IvRecordCategoryEditVC: UIViewController {
     }
     
     @IBAction func addCategoryBtnPressed(_ sender: Any) {
-        
         animatePopupBackground(true)
-        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryPopupVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
+        self.present(vc, animated: false)
     }
     
     @IBAction func moveCategoryBtnPressed(_ sender: Any) {
@@ -175,15 +150,14 @@ class IvRecordCategoryEditVC: UIViewController {
     
     @IBAction func deleteCategoryBtnPressed(_ sender: Any) {
         animatePopupBackground(true)
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "") else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DeleteCategoryPopVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
-        
+        NotificationCenter.default.post(name: .init("sendDataFromEditCateToHome"), object: nil)
         self.dismiss(animated: false, completion: nil)
-        
     }
     
 }
@@ -243,25 +217,19 @@ extension IvRecordCategoryEditVC: UITableViewDelegate {
 
 extension IvRecordCategoryEditVC: CellButtonDelegate {
     func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int) {
-        
-        print("allTap")
         for i in 0..<inventoryFilteredArray.count {
             if isClicked {
                 if self.checkboxSelections.contains(i) {
                     guard let index = self.checkboxSelections.firstIndex(of: i) else { return }
                     self.checkboxSelections.remove(at: index)
-                    
                 } else {
                     checkboxSelections.append(i)
                 }
-                
             } else {
                 checkboxSelections = []
             }
-            
         }
         categoryEditTableView.reloadData()
-        
     }
     
     func didClickCheckButton(isClicked: Bool, indexPath: Int) {

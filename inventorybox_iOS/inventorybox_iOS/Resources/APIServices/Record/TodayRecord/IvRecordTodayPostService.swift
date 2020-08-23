@@ -78,16 +78,11 @@ struct IvRecordTodayPostService {
     private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
-        
-        // 성공 메시지
-        print(decodedData.message)
-        
         if decodedData.success {
-            return .success(data)
+            return .success(decodedData.message)
         } else {
             return .requestErr(decodedData.message)
-        }
-        
+        } 
     }
     
 }

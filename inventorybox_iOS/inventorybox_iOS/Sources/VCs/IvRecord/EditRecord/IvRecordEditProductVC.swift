@@ -151,7 +151,7 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        NotificationCenter.default.post(name: .init("sendDataFromEditToHome"), object: nil, userInfo: ["editInventoryArray": inventoryEditProductArray])
+        NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": inventoryEditProductArray])
         self.dismiss(animated: false, completion: nil)
     }
 }

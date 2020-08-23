@@ -19,58 +19,46 @@ class AddCategoryPopupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setBtnCustom()
-        setViewCustom()
-        
-    }
-    
-    private func setViewCustom() {
-        
-        titleLabel.backgroundColor = UIColor.yellow
-        popupView.layer.cornerRadius = 9
-        
-    }
-    private func setBtnCustom() {
-        
-        cancelBtn.layer.cornerRadius = 17
-        addBtn.layer.cornerRadius = 17
+        cancelBtn.layer.cornerRadius = 15
+        addBtn.layer.cornerRadius = 15
         cancelBtn.tintColor = UIColor.black
         addBtn.tintColor = UIColor.white
+        popupView.layer.cornerRadius = 9
         
     }
 
     @IBAction func cancel(_ sender: Any) {
-        
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": "none"])
-        self.dismiss(animated: true)
+        NotificationCenter.default.post(name: .init("popupFromAddCateToEditCate"), object: nil, userInfo: ["categoryName": "none"])
+        self.dismiss(animated: false)
     }
+    
     @IBAction func addCategory(_ sender: Any) {
         
-        guard let name = categoryTextField.text else {
-            
-            return
-        }
-        
-        IvRecordAddCateService.shared.getRecordAddCate(name: name) { (networkResult) in
-            switch networkResult {
-            case .success(let data):
-                print(data)
-                
-            case .requestErr(let message):
-                guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
-                
-            case .pathErr: print("path")
-            case .serverErr: print("serverErr")
-            case .networkFail: print("networkFail")
+        guard let name = categoryTextField.text else { return }
+        if name == "" {
+            categoryTextField.placeholder = "카테고리를 입력해주세요!!"
+            print("no Category Name")
+        } else {
+            IvRecordAddCateService.shared.getRecordAddCate(name: name) { (networkResult) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+                    
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                    
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
             }
+            NotificationCenter.default.post(name: .init("popupFromAddCateToEditCate"), object: nil, userInfo: ["categoryName": name])
+            self.dismiss(animated: false)
         }
         
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": name])
-        
-        self.dismiss(animated: true)
     }
 }

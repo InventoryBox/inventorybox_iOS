@@ -10,12 +10,12 @@ import UIKit
 
 protocol CategoryButtonDelegate {
     func didSelectCategory(categoryName: String ,indexPath: Int)
-    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int)
+    func didDeleteCategoryBtnPressed(categoryName: String ,indexPath: Int)
 }
 
 extension CategoryButtonDelegate {
     func didSelectCategory(categoryName: String ,indexPath: Int) { }
-    func didDeleteCategoryBtnPrssed(categoryName: String ,indexPath: Int) {}
+    func didDeleteCategoryBtnPressed(categoryName: String ,indexPath: Int) {}
 }
 
 class MoveCategoryCell: UITableViewCell {

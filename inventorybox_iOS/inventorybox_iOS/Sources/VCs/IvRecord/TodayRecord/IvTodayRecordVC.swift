@@ -171,7 +171,8 @@ class IvTodayRecordVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-//        self.dismiss(animated: true)
+        NotificationCenter.default.post(name: .init("sendDataFromTodayRecordToHome"), object: nil)
+        self.dismiss(animated: true)
     }
 }
 

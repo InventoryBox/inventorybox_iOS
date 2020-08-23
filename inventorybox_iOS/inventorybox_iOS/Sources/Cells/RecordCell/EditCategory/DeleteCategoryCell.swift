@@ -51,6 +51,6 @@ class DeleteCategoryCell: UITableViewCell {
     }
     @IBAction func deleteCategoryBtn(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-        delegate?.didDeleteCategoryBtnPrssed(categoryName: name, indexPath: indexpath!)
+        delegate?.didDeleteCategoryBtnPressed(categoryName: name, indexPath: indexpath!)
     }
 }
