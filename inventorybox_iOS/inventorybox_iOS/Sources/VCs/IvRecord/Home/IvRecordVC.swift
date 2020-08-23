@@ -193,7 +193,15 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
      @objc func sendDataFromEditToHome(_ notification: Notification) {
           guard let info = notification.userInfo as? [String: Any] else { return }
           guard let editInventoryArray = info["editInventoryArray"] as? [EditItemInfo] else { return }
-          
+          for item in 0..<inventoryArray.count {
+               for i in 0..<editInventoryArray.count {
+                    if inventoryArray[item].itemIdx == editInventoryArray[i].itemIdx {
+                         inventoryArray[item].stocksCnt = editInventoryArray[i].stocksCnt
+                    }
+               }
+          }
+          inventoryFilteredArray = inventoryArray
+          inventoryTableView.reloadData()
      }
      
      // 카테고리 편집하기
