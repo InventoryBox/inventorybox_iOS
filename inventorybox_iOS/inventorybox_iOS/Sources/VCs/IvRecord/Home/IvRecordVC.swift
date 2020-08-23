@@ -24,9 +24,10 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
      @IBOutlet weak var popupBackgroundView: UIView!
      
      // 서버에 보낼 현재 날짜 데이터, 쿼리로 전송
+     // 2020-08-18 Date 형식으로 저장되어있다.
      var dateToSend: String?
      // datePicker에 현재 날짜가 나오게 하기 위해서 저장한 값
-     // 2020-08-18 Date 형식으로 저장되어있다.
+     // Date 형식으로 저장되어있다.
      var memorizeDate: Date?
      var categories: [CategoryInfo] = []
      private var inventoryFilteredArray: [HomeItemInfo] = []
@@ -48,6 +49,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           super.viewWillAppear(animated)
           
           navigationController?.navigationBar.isHidden = true
+          
           if let date = dateToSend {
                getDataFromServer(date)
           } else {
@@ -67,10 +69,9 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           navigationController?.navigationBar.isHidden = false
           
           // 재고기록 홈을 나가더라도 다시 돌아올 때 방금 검색한 값이 나오게 하기 위해 날짜 저장
-          //let dateFormatter = DateFormatter()
-          //dateFormatter.dateFormat = "yyyy-MM-dd"
-          //dateFormatter.timeZone = NSTimeZone(name: "ko") as TimeZone?
-          //dateToSend = dateFormatter.string(from: memorizeDate!)
+          if let date = memorizeDate {
+               dateToSend = date.toString()
+          }
           
      }
      
@@ -183,7 +184,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           let IvRecordEditProductST = UIStoryboard.init(name: "IvRecordEditProduct", bundle: nil)
           guard let editProductVC = IvRecordEditProductST.instantiateViewController(identifier: "IvRecordEditProductVC") as? IvRecordEditProductVC else { return }
           editProductVC.dateToSend = memorizeDate?.toString()
-          editProductVC.editDate = memorizeDate?.toString(withFormat: "yyyy-MM-dd eeee")
+          editProductVC.editDate = memorizeDate?.toString(withFormat: "yyyy.MM.dd eeee")
           editProductVC.modalPresentationStyle = .fullScreen
           editProductVC.modalTransitionStyle = .crossDissolve
           NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditToHome), name: .init("sendDataFromEditToHome"), object: nil)
