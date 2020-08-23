@@ -212,7 +212,7 @@ extension IvTodayRecordVC: UITableViewDataSource {
             inventoryTodayRecordCell.indexPath = indexPath.row - 1 // headerCell 인덱스값 빼줍니다
             inventoryTodayRecordCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name)
             if textFieldBoxSelections.contains(indexPath.row - 1) {
-                inventoryTodayRecordCell.ivCnt = inventoryTodayArray[indexPath.row - 1].presentCnt
+                inventoryTodayRecordCell.ivCnt = inventoryFilteredArray[indexPath.row - 1].presentCnt
                 inventoryTodayRecordCell.isTyped = true
             }
             return inventoryTodayRecordCell
@@ -247,7 +247,6 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
                 textFieldBoxSelections.remove(at: i)
             }
         }
-        print(inventoryTodayArray)
     }
 }
 

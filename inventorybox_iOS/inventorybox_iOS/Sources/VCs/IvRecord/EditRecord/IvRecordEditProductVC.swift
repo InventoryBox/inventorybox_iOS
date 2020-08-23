@@ -33,11 +33,7 @@ class IvRecordEditProductVC: UIViewController {
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
             // 날짜 설정
             todayDateLabel.text = editDate!
-            for i in 0..<inventoryEditProductArray.count {
-                if inventoryEditProductArray[i].stocksCnt != -1 {
-                    textFieldBoxSelections.append(i)
-                }
-            }
+            
         }
     }
     
@@ -53,18 +49,6 @@ class IvRecordEditProductVC: UIViewController {
         getDataFromServer(dateToSend!)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setInventoryFilteredData()
-        customCompleteBtn()
-        setinventoryEditPrdoctTableViewTableView()
-        makeShadowUnderOutView()
-    }
     
     @objc func keyboardWillShow(_ sender: Notification) {
         let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
@@ -79,8 +63,34 @@ class IvRecordEditProductVC: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    private func setInventoryFilteredData() {
-        inventoryFilteredArray = inventoryEditProductArray
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        completeBtn.layer.cornerRadius = 25
+        completeBtn.backgroundColor = UIColor.yellow
+        completeBtn.tintColor = UIColor.white
+        completeBtn.isEnabled = true
+        inventoryEditPrdoctTableView.delegate = self
+        inventoryEditPrdoctTableView.dataSource = self
+        inventoryEditPrdoctTableView.allowsSelection = false
+        inventoryEditPrdoctTableView.separatorStyle = .none
+        outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        outView.layer.shadowOpacity = 0.05
+        outView.layer.shadowRadius = 2
+    }
+    
+    private func filteredArraySelections(with array: [EditItemInfo] = []) {
+        inventoryFilteredArray = array
+        for i in 0..<inventoryFilteredArray.count {
+            if inventoryFilteredArray[i].stocksCnt != -1 {
+                textFieldBoxSelections.append(i)
+            }
+        }
+        inventoryEditPrdoctTableView.reloadData()
     }
     
     private func getDataFromServer(_ date: String) {
@@ -89,13 +99,11 @@ class IvRecordEditProductVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 guard let dt = data as? IvRecordEditIvClass else { return }
-                
                 if let itemInfo = dt.itemInfo {
                     self.inventoryEditProductArray = itemInfo
                 }
                 if let itemArray = dt.itemInfo {
                     self.inventoryEditProductArray = itemArray
-//                    print(self.inventoryEditProductArray)
                 }
                 self.categories = dt.categoryInfo
             case .requestErr(let message):
@@ -110,34 +118,6 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         }
-        
-    }
-    
-    private func customCompleteBtn() {
-        
-        completeBtn.layer.cornerRadius = 25
-        completeBtn.backgroundColor = UIColor.yellow
-        completeBtn.tintColor = UIColor.white
-        completeBtn.isEnabled = true
-        
-    }
-    
-    private func setinventoryEditPrdoctTableViewTableView() {
-        
-        inventoryEditPrdoctTableView.delegate = self
-        inventoryEditPrdoctTableView.dataSource = self
-        
-        inventoryEditPrdoctTableView.allowsSelection = false
-        inventoryEditPrdoctTableView.separatorStyle = .none
-        
-    }
-    
-    private func makeShadowUnderOutView() {
-        
-        self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        self.outView.layer.shadowOpacity = 0.05
-        self.outView.layer.shadowRadius = 2
-        
     }
     
     @IBAction func goToAddProductVC(_ sender: Any) {
@@ -164,7 +144,6 @@ class IvRecordEditProductVC: UIViewController {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-                
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
@@ -192,7 +171,7 @@ extension IvRecordEditProductVC: UITableViewDataSource {
             inventoryEditProductCell.delegate = self
             inventoryEditProductCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name)
             if textFieldBoxSelections.contains(indexPath.row - 1) {
-                inventoryEditProductCell.ivCnt = inventoryEditProductArray[indexPath.row - 1].stocksCnt
+                inventoryEditProductCell.ivCnt = inventoryFilteredArray[indexPath.row - 1].stocksCnt
                 inventoryEditProductCell.isTyped = true
             }
             return inventoryEditProductCell
@@ -221,7 +200,15 @@ extension IvRecordEditProductVC: FilledTextFieldDelegate {
     func isTextFieldFilled(count: Int, indexPath: Int) {
         // 기록을 입력하지 않은 재고는 -1 로 저장해준다.
         // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
-        inventoryEditProductArray[indexPath].stocksCnt = count
+        inventoryFilteredArray[indexPath].stocksCnt = count
+        for i in 0..<inventoryEditProductArray.count {
+            if inventoryFilteredArray[indexPath].name == inventoryEditProductArray[i].name {
+                inventoryEditProductArray[i].stocksCnt = inventoryFilteredArray[indexPath].stocksCnt
+                print(inventoryEditProductArray[i].stocksCnt)
+                print(inventoryFilteredArray[indexPath].stocksCnt)
+                break
+            }
+        }
         if (count > 0) {
             if !textFieldBoxSelections.contains(indexPath) {
                 textFieldBoxSelections.append(indexPath)
@@ -232,6 +219,7 @@ extension IvRecordEditProductVC: FilledTextFieldDelegate {
                 textFieldBoxSelections.remove(at: i)
             }
         }
+        print(inventoryEditProductArray)
     }
     
 }
@@ -239,15 +227,14 @@ extension IvRecordEditProductVC: FilledTextFieldDelegate {
 //MARK: - CollectionView
 
 extension IvRecordEditProductVC: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-        
         categoryCell.setTag(tagName: categories[indexPath.row].name)
-        
         return categoryCell
     }
     
@@ -256,39 +243,24 @@ extension IvRecordEditProductVC: UICollectionViewDataSource {
 
 extension IvRecordEditProductVC: UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
-        
         if categories[indexPath.row].name  == "전체" {
             allCategoryCheck = true
-            inventoryFilteredArray = inventoryEditProductArray
-            inventoryEditPrdoctTableView.reloadData()
+            filteredArraySelections(with: inventoryEditProductArray)
         }
-        
-        
         if !allCategoryCheck {
             
-            inventoryFilteredArray = []
             let filtered = inventoryEditProductArray.filter { (inventory) -> Bool in
                 return inventory.categoryIdx == categories[indexPath.row].categoryIdx
             }
-            
-            for data in filtered {
-                inventoryFilteredArray.append(data)
-            }
-            
-            inventoryEditPrdoctTableView.reloadData()
-            
+            filteredArraySelections(with: filtered)
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

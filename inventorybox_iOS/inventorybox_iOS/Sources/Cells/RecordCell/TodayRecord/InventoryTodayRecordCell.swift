@@ -9,11 +9,15 @@
 import UIKit
 
 protocol FilledTextFieldDelegate {
+    // indexPath를 넘겨주면 카테고리로 필터링을 했을 경우 indexPath에 따라 값이 변경되는 이슈발생
+    // 이를 해결하기위해서는 inventory이름을 보내줘서 그에 맞는 재고량을 변경해주어야 한다.
     func isTextFieldFilled(count: Int, indexPath: Int)
+    func isTextFieldFilledPass(_ count: Int, _ name: String)
 }
 
 extension FilledTextFieldDelegate {
     func isTextFieldFilled(count: Int, indexPath: Int) { }
+    func isTextFieldFilledPass(_ count: Int, _ name: String) { }
 }
 
 class InventoryTodayRecordCell: UITableViewCell {
