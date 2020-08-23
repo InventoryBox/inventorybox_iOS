@@ -28,6 +28,7 @@
 		0E4A830124BD7C41001E38B7 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A830024BD7C40001E38B7 /* SideMenuVC.swift */; };
 		0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */; };
 		0E6BE5E924EBD97600D4723D /* HomeNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BE5E824EBD97600D4723D /* HomeNewVC.swift */; };
+		0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */; };
 		0EB0CF3124B0FC09009B089A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF3024B0FC09009B089A /* HomeVC.swift */; };
 		0EB0CF4124B199F0009B089A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF4024B199F0009B089A /* Font.swift */; };
 		3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */; };
@@ -73,7 +74,6 @@
 		339C89B324BB7A4C00B86BAF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B224BB7A4C00B86BAF /* SignUpVC.swift */; };
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
-		4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
 		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
@@ -170,9 +170,11 @@
 		D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */; };
 		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
 		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
+		EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInformation.swift; sourceTree = "<group>"; };
 		0E0568EE24C0F28E00853DD0 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMemoModifyPostService.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		0E4A830024BD7C40001E38B7 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoModifyVC.swift; sourceTree = "<group>"; };
 		0E6BE5E824EBD97600D4723D /* HomeNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewVC.swift; sourceTree = "<group>"; };
+		0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewCVCell.swift; sourceTree = "<group>"; };
 		0EB0CF3024B0FC09009B089A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
@@ -247,9 +250,8 @@
 		339C89B224BB7A4C00B86BAF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
-		9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
 		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
 		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
@@ -355,7 +357,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F1E57091145CF75A5279049 /* Pods_inventorybox_iOS.framework in Frameworks */,
+				EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +396,7 @@
 		0EB0CF7824B1D40F009B089A /* HomeCell */ = {
 			isa = PBXGroup;
 			children = (
+				0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */,
 				0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */,
 				0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */,
 				0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */,
@@ -440,16 +443,16 @@
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */,
-				9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */,
+				A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */,
+				A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B43624F6BF6E3C2F2E4B3198 /* Frameworks */ = {
+		B9BD6A55318AA3C8FD7FD0DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3B143DAA4F4EF2FD8498BC7 /* Pods_inventorybox_iOS.framework */,
+				0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -697,8 +700,8 @@
 				D48417AA24AC55EB0064EE64 /* inventorybox_iOS */,
 				D48417A924AC55EB0064EE64 /* Products */,
 				4426A8487749DF3A2003ABA2 /* Pods */,
-				B43624F6BF6E3C2F2E4B3198 /* Frameworks */,
 				0E66A4B724B4447C00E76683 /* Recovered References */,
+				B9BD6A55318AA3C8FD7FD0DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -934,11 +937,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "inventorybox_iOS" */;
 			buildPhases = (
-				42004675835A41669558C0BD /* [CP] Check Pods Manifest.lock */,
+				C6CD84A8F3C2B69BC3D339BD /* [CP] Check Pods Manifest.lock */,
 				D48417A424AC55EB0064EE64 /* Sources */,
 				D48417A524AC55EB0064EE64 /* Frameworks */,
 				D48417A624AC55EB0064EE64 /* Resources */,
-				7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */,
+				083B9827F0B08465AD79DCAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1017,7 +1020,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		42004675835A41669558C0BD /* [CP] Check Pods Manifest.lock */ = {
+		083B9827F0B08465AD79DCAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6CD84A8F3C2B69BC3D339BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1039,23 +1059,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7DBF17CB2A9DCB18EFC8EE20 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1063,6 +1066,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */,
 				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
 				0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */,
@@ -1348,7 +1352,7 @@
 		};
 		D48417BD24AC55EC0064EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD0A01E84FE76BF5C094B12F /* Pods-inventorybox_iOS.debug.xcconfig */;
+			baseConfigurationReference = A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1368,7 +1372,7 @@
 		};
 		D48417BE24AC55EC0064EE64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DE71C92D21A310256C09EAD /* Pods-inventorybox_iOS.release.xcconfig */;
+			baseConfigurationReference = A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
