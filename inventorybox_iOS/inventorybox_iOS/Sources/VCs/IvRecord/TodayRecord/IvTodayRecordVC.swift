@@ -27,12 +27,12 @@ class IvTodayRecordVC: UIViewController {
             categoryCollectionView.dataSource = self
             categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+            print(inventoryTodayArray)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         getDataFromServer()
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
@@ -51,13 +51,6 @@ class IvTodayRecordVC: UIViewController {
     @objc func keyboardWillHide(_ sender: Notification) {
         self.inventoryTodayRecordTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -83,11 +76,9 @@ class IvTodayRecordVC: UIViewController {
     }
     
     private func makeShadowUnderOutView() {
-        
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         self.outView.layer.shadowOpacity = 0.05
         self.outView.layer.shadowRadius = 2
-        
     }
     
     private func setInventoryTodayRecordTableView() {
@@ -132,25 +123,18 @@ class IvTodayRecordVC: UIViewController {
                case .networkFail: print("networkFail")
                }
            }
-           
        }
     
     @IBAction func goToAddProductVC(_ sender: Any) {
         let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
         guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
-            as? IvRecordNaviVC  else {
-                return
-        }
-        
+            as? IvRecordNaviVC else { return }
         addProductVC.modalPresentationStyle = .fullScreen
-        
         self.present(addProductVC, animated: true, completion: nil)
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func saveTodayDatas(_ sender: Any) {
@@ -219,7 +203,7 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
         // 또한 입력을 하지 않았으므로 boxSelections에서 제외시켜준다.
         inventoryFilteredArray[indexPath].presentCnt = count
         for i in 0..<inventoryTodayArray.count {
-            if inventoryFilteredArray[indexPath].name == inventoryTodayArray[i].name {
+            if inventoryFilteredArray[indexPath].itemIdx == inventoryTodayArray[i].itemIdx {
                 inventoryTodayArray[i].presentCnt = inventoryFilteredArray[indexPath].presentCnt
                 break
             }

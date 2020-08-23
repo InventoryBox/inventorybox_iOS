@@ -37,7 +37,7 @@ class InventoryTodayRecordCell: UITableViewCell {
         didSet {
             if isTyped {
                 if let cnt = ivCnt {
-                    inventoryCountTextField.text = "\(cnt)"
+                    inventoryCountTextField.text = cnt == -1 ? "" : "\(cnt)"
                 }
             } else {
                 inventoryCountTextField.text = ""
