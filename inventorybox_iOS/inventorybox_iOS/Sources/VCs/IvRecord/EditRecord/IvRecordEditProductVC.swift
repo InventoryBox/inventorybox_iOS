@@ -42,7 +42,6 @@ class IvRecordEditProductVC: UIViewController {
         self.getDataFromServer(dateToSend!)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("update"), object: nil)
     }
     
     @objc private func update() {
@@ -94,7 +93,6 @@ class IvRecordEditProductVC: UIViewController {
     }
     
     private func getDataFromServer(_ date: String) {
-        
         IvRecordEditIvService.shared.getRecordEditIv(whichDate: date) { (networkResult) in
             switch networkResult {
             case .success(let data):
@@ -127,12 +125,16 @@ class IvRecordEditProductVC: UIViewController {
                 return
         }
         addProductVC.modalPresentationStyle = .fullScreen
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromAddIvToEdit), name: .init("sendDataFromAddIvToEdit"), object: nil)
         self.present(addProductVC, animated: true, completion: nil)
     }
     
-    @IBAction func completeBtnPressed(_ sender: Any) {
+    @objc func sendDataFromAddIvToEdit(_ notification: Notification) {
+        guard let info = notification.userInfo as? [String: Any] else { return }
         
+    }
+    
+    @IBAction func completeBtnPressed(_ sender: Any) {
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
             switch networkResult {
@@ -149,8 +151,7 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        
-        NotificationCenter.default.post(name: .init("update"), object: nil)
+        NotificationCenter.default.post(name: .init("sendDataFromEditToHome"), object: nil, userInfo: ["editInventoryArray": inventoryEditProductArray])
         self.dismiss(animated: false, completion: nil)
     }
 }

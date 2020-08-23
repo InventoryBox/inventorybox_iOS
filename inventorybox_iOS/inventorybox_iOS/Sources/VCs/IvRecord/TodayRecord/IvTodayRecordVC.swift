@@ -18,9 +18,9 @@ class IvTodayRecordVC: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     var textFieldBoxSelections: [Int] = []
-    
     var dateToSend: String?
-    
+    var inventoryTodayArray: [TodayItemInfo] = []
+    private var inventoryFilteredArray: [TodayItemInfo] = []
     var categories: [CategoryInfo] = [] {
         didSet {
             categoryCollectionView.delegate = self
@@ -30,9 +30,6 @@ class IvTodayRecordVC: UIViewController {
         }
     }
     
-    var inventoryTodayArray: [TodayItemInfo] = []
-    private var selections = [String]()
-    private var inventoryFilteredArray: [TodayItemInfo] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -282,23 +279,3 @@ extension IvTodayRecordVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.view.frame.width, height: 24)
     }
 }
-
-
-////MARK: - CellButtonDelegate
-//extension IvTodayRecordVC: CellButtonDelegate {
-//    func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int) {
-//
-//    }
-//
-//    func didClickCheckButton(isClicked: Bool, indexPath: Int) {
-//
-//        if self.selections.contains(indexPath) {
-//            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
-//            self.checkboxSelections.remove(at: i)
-//        } else {
-//            checkboxSelections.append(indexPath)
-//        }
-//
-//
-//    }
-//}

@@ -42,7 +42,7 @@
                                     <constraint firstItem="XbO-KP-AhP" firstAttribute="centerY" secondItem="17J-ZR-7DX" secondAttribute="centerY" id="g9d-ne-A8x"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-L0-xh6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toy-L0-xh6">
                                 <rect key="frame" x="0.0" y="91" width="375" height="576"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-Qc-fLj">
@@ -367,6 +367,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="CgJ-Qc-fLj" secondAttribute="trailing" id="L3K-Ey-rkt"/>
                                     <constraint firstItem="CgJ-Qc-fLj" firstAttribute="leading" secondItem="Toy-L0-xh6" secondAttribute="leading" id="QAH-bV-o0p"/>

@@ -176,67 +176,52 @@ class IvRecordAddProductVC: UIViewController {
     @objc private func getIconIdx(_ notification: Notification) {
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let iconId = info["iconIdx"] as? Int else { return }
-        
         for i in 0..<iconArray.count {
             if iconArray[i].iconIdx == iconId {
                 iconIdx = i
                 break
             }
         }
-        
         let url = URL(string: iconArray[iconIdx].img)
         self.iconImageView.kf.setImage(with: url)
         
     }
     @IBAction func selectCategory(_ sender: Any) {
         animatePopupBackground(true)
-
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
     
     @IBAction func minimumCountMinusBtnPressed(_ sender: Any) {
-        
         if let count = minimumCountLabel.text {
             let num: Int = Int(count)!
-            
             minimumCountLabel.text = (num - 1) >= 0 ? "\(num - 1)": "0"
-            
         }
-        
     }
     
     @IBAction func minimumCountPlusBtnPressed(_ sender: Any) {
-        
         if let count = minimumCountLabel.text {
             let num: Int = Int(count)!
-            
             minimumCountLabel.text = (num + 1) >= 0 ? "\(num + 1)": "0"
-            
         }
     }
+    
     @IBAction func inventoryToBuyMinusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
             let num: Int = Int(count)!
-            
             inventoryToBuyLabel.text = (num - 1) >= 0 ? "\(num - 1)": "0"
-            
         }
     }
     
     @IBAction func dismissBtnPressed(_ sender: Any) {
-        // 재료 추가 서버 통신
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func inventoryToBuyPlusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
             let num: Int = Int(count)!
-            
             inventoryToBuyLabel.text = (num + 1) >= 0 ? "\(num + 1)": "0"
-            
         }
     }
     
@@ -244,7 +229,6 @@ class IvRecordAddProductVC: UIViewController {
         guard let ivName = inventoryNameTextField.text else {
             print("이름 입력 오류")
             return
-            
         }
         guard let ivUnit = unitTextField.text else {
             print("단위 입력 오류")
@@ -271,6 +255,7 @@ class IvRecordAddProductVC: UIViewController {
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):
+                // 성공메세지
                 print(data)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
