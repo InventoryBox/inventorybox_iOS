@@ -41,6 +41,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
                }
                inventoryFilteredArray = inventoryArray
+               inventoryTableView.reloadData()
           }
      }
      
@@ -53,7 +54,9 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           
           super.viewWillDisappear(animated)
           navigationController?.navigationBar.isHidden = false
-          
+//          NotificationCenter.default.removeObserver(self, name: .init("sendDataFromEditRecordToHome"), object: nil)
+//          NotificationCenter.default.removeObserver(self, name: .init("sendDataFromEditCateToHome"), object: nil)
+//          NotificationCenter.default.removeObserver(self, name: .init("sendDataFromTodayRecordToHome"), object: nil)
           // 재고기록 홈을 나가더라도 다시 돌아올 때 방금 검색한 값이 나오게 하기 위해 날짜 저장
           if let date = memorizeDate {
                dateToSend = date.toString()
@@ -72,16 +75,19 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           outView.layer.shadowOpacity = 0.05
           outView.layer.shadowRadius = 2
           setPopupBackgroundView()
-          if let date = dateToSend {
-               getDataFromServer(date)
+          setNotiCenter()
+          dateToSend = Date().toString()
+          if let data = dateToSend {
+               getDataFromServer(data)
           } else {
-               dateToSend = Date().toString()
-               if let data = dateToSend {
-                    getDataFromServer(data)
-               } else {
-                    print("Missing date which needs to send to server")
-               }
+               print("Missing date which needs to send to server")
           }
+     }
+     
+     private func setNotiCenter() {
+          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditRecordToHome), name: .init("sendDataFromEditRecordToHome"), object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditCateToHome), name: .init("sendDataFromEditCateToHome"), object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromTodayRecordToHome), name: .init("sendDataFromTodayRecordToHome"), object: nil)
      }
      
      private func setPopupBackgroundView() {
@@ -113,10 +119,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           } else {
                print("Missing date which needs to send to server")
           }
-     }
-     
-     deinit {
-          NotificationCenter.default.removeObserver(self)
      }
      
      private func getDataFromServer(_ date: String) {
@@ -181,22 +183,17 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           editProductVC.editDate = memorizeDate?.toString(withFormat: "yyyy.MM.dd eeee")
           editProductVC.modalPresentationStyle = .fullScreen
           editProductVC.modalTransitionStyle = .crossDissolve
-          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditRecordToHome), name: .init("sendDataFromEditRecordToHome"), object: nil)
           self.present(editProductVC, animated: true, completion: nil)
      }
      
      @objc func sendDataFromEditRecordToHome(_ notification: Notification) {
           guard let info = notification.userInfo as? [String: Any] else { return }
-          guard let editInventoryArray = info["editInventoryArray"] as? [EditItemInfo] else { return }
-          for item in 0..<inventoryArray.count {
-               for i in 0..<editInventoryArray.count {
-                    if inventoryArray[item].itemIdx == editInventoryArray[i].itemIdx {
-                         inventoryArray[item].stocksCnt = editInventoryArray[i].stocksCnt
-                    }
-               }
+          if let data = dateToSend {
+               print(data)
+               getDataFromServer(data)
+          } else {
+               print("Missing date which needs to send to server")
           }
-          inventoryFilteredArray = inventoryArray
-          inventoryTableView.reloadData()
      }
      
      // 카테고리 편집하기
@@ -205,7 +202,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           guard let categoryEditVC = IvRecordCategoryEditST.instantiateViewController(identifier: "IvRecordCategoryEditVC")
                as? IvRecordCategoryEditVC  else { return }
           categoryEditVC.modalPresentationStyle = .fullScreen
-          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditCateToHome), name: .init("sendDataFromEditCateToHome"), object: nil)
           if let date = memorizeDate {
                categoryEditVC.dateToSend = date.toString()
           }
@@ -225,7 +221,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
           let IvTodayRecord = UIStoryboard.init(name: "IvTodayRecord", bundle: nil)
           guard let IvTodayRecordVC = IvTodayRecord.instantiateViewController(identifier: "IvTodayRecordVC") as? IvTodayRecordVC else { return }
           IvTodayRecordVC.modalPresentationStyle = .fullScreen
-          NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromTodayRecordToHome), name: .init("sendDataFromTodayRecordToHome"), object: nil)
           self.present(IvTodayRecordVC, animated: true, completion: nil)
      }
      

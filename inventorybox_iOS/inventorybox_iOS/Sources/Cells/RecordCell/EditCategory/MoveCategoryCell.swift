@@ -9,12 +9,12 @@
 import UIKit
 
 protocol CategoryButtonDelegate {
-    func didSelectCategory(categoryName: String ,indexPath: Int)
+    func didSelectCategory(categoryName: String, idx: Int)
     func didDeleteCategoryBtnPressed(categoryName: String ,indexPath: Int)
 }
 
 extension CategoryButtonDelegate {
-    func didSelectCategory(categoryName: String ,indexPath: Int) { }
+    func didSelectCategory(categoryName: String, idx: Int) {}
     func didDeleteCategoryBtnPressed(categoryName: String ,indexPath: Int) {}
 }
 
@@ -25,7 +25,7 @@ class MoveCategoryCell: UITableViewCell {
     @IBOutlet weak var roundView: UIView!
     
     var delegate: CategoryButtonDelegate?
-    var indexpath: Int?
+    var categoryIdx: Int?
     
     @IBOutlet weak var selectBtn: UIButton!
     
@@ -44,27 +44,19 @@ class MoveCategoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setViewBorder()
-        
-    }
-    
-    private func setViewBorder() {
         self.roundView.layer.borderWidth = 1
         self.roundView.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
         self.roundView.layer.cornerRadius = 8
     }
     
-    func setCellInformation(categoryInfo: String) {
-        
+    func setCellInformation(categoryInfo: String, idx: Int) {
         categoryLabel.text = categoryInfo
-        
+        categoryIdx = idx
     }
     
     @IBAction func categorySelected(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-        delegate?.didSelectCategory(categoryName: name, indexPath: indexpath!)
-//        print("tap")
+        delegate?.didSelectCategory(categoryName: name, idx: categoryIdx!)
     }
     
 }

@@ -47,11 +47,12 @@ class IvRecordCategoryEditVC: UIViewController {
         categoryEditTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let date = dateToSend {
-            getDataFromServer(date)
-        }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .init("popupFromMoveCateToEditCate"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .init("popupFromAddCateToEditCate"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .init("popupFromDeleteCateToEditCate"), object: nil)
     }
     
     override func viewDidLoad() {
@@ -66,6 +67,16 @@ class IvRecordCategoryEditVC: UIViewController {
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         self.outView.layer.shadowOpacity = 0.05
         setPopupBackgroundView()
+        setNotificationCenter()
+        if let date = dateToSend {
+            getDataFromServer(date)
+        }
+    }
+    
+    private func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(popupFromMoveCateToEditCate), name: .init("popupFromMoveCateToEditCate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(popupFromAddCateToEditCate), name: .init("popupFromAddCateToEditCate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(popupFromDeleteCateToEditCate), name: .init("popupFromDeleteCateToEditCate"), object: nil)
     }
     
     private func getDataFromServer(_ date: String) {
@@ -95,18 +106,6 @@ class IvRecordCategoryEditVC: UIViewController {
         popupBackgroundView.isHidden = true
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
-        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromCateToEditCate), name: .init("popupFromAddCateToEditCate"), object: nil)
-    }
-    
-    @objc func sendDataFromCateToEditCate(_ notification: Notification) {
-        animatePopupBackground(false)
-        guard let info = notification.userInfo as? [String: Any] else { return }
-        guard let name = info["categoryName"] as? String else { return }
-        if name != "none" {
-            let idx: Int = -1
-            categories.append(CategoryInfo(categoryIdx: idx, name: name))
-            categoryCollectionView.reloadData()
-        }
     }
     
     func animatePopupBackground(_ direction: Bool) {
@@ -118,10 +117,6 @@ class IvRecordCategoryEditVC: UIViewController {
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     @IBAction func deleteInventoryBtnPressed(_ sender: Any) {
         // 선택된 재료 삭제하기 서버 반영 버튼
         var idxList: [Int] = []
@@ -130,9 +125,8 @@ class IvRecordCategoryEditVC: UIViewController {
                 idxList.append(inventoryEditArray[i].itemIdx)
             }
         }
-        print("idxList: \(idxList)")
         if idxList.isEmpty {
-            let alertViewController = UIAlertController(title: "재료삭제 실패", message: "삭제할 재료가 선택되지 않았습니다.", preferredStyle: .alert)
+            let alertViewController = UIAlertController(title: "재료삭제 실패", message: "삭제할 재료를 선택해주세요.", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alertViewController.addAction(action)
             self.present(alertViewController, animated: true, completion: nil)
@@ -141,7 +135,7 @@ class IvRecordCategoryEditVC: UIViewController {
                 switch networkResult {
                 case .success(let data):
                     print(data)
-
+                    
                 case .requestErr(let message):
                     guard let message = message as? String else { return }
                     let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
@@ -160,7 +154,6 @@ class IvRecordCategoryEditVC: UIViewController {
             // 바로 반영
             var tempArray: [EditCateInfo] = inventoryEditArray
             for i in 0..<inventoryEditArray.count {
-                print(inventoryEditArray[i].isSelected)
                 if inventoryEditArray[i].isSelected {
                     guard let index = tempArray.firstIndex(where: { (item) -> Bool in return inventoryEditArray[i].itemIdx == item.itemIdx }) else { return }
                     tempArray.remove(at: index)
@@ -181,12 +174,53 @@ class IvRecordCategoryEditVC: UIViewController {
         self.present(vc, animated: false)
     }
     
+    @objc func popupFromAddCateToEditCate(_ notification: Notification) {
+        animatePopupBackground(false)
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let name = info["categoryName"] as? String else { return }
+        if name != "none" {
+            let idx: Int = -1
+            categories.append(CategoryInfo(categoryIdx: idx, name: name))
+            categoryCollectionView.reloadData()
+        }
+    }
+    
     @IBAction func moveCategoryBtnPressed(_ sender: Any) {
-        animatePopupBackground(true)
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MoveCategoryPopupVC") else { return }
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
+        // 선택된 재료 삭제하기 서버 반영 버튼
+        var idxList: [Int] = []
+        for i in 0..<inventoryEditArray.count {
+            if inventoryEditArray[i].isSelected {
+                idxList.append(inventoryEditArray[i].itemIdx)
+            }
+        }
+        if idxList.isEmpty {
+            let alertViewController = UIAlertController(title: "폴더이동 실패", message: "이동할 재료를 선택해주세요.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alertViewController.addAction(action)
+            self.present(alertViewController, animated: true, completion: nil)
+        } else {
+            animatePopupBackground(true)
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "MoveCategoryPopupVC") else { return }
+            vc.modalPresentationStyle = .overCurrentContext
+            
+            self.present(vc, animated: true)
+        }
+    }
+    
+    @objc func popupFromMoveCateToEditCate(_ notification: Notification) {
+        animatePopupBackground(false)
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let moveCategoryIdx = info["moveCategoryIdx"] as? Int else { return }
+        for i in 0..<inventoryEditArray.count {
+            if inventoryEditArray[i].isSelected {
+                inventoryEditArray[i].categoryIdx = moveCategoryIdx
+                inventoryEditArray[i].isSelected = false
+            }
+        }
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         
+        filteredArraySelections(with: inventoryEditArray)
     }
     
     @IBAction func deleteCategoryBtnPressed(_ sender: Any) {
@@ -194,6 +228,12 @@ class IvRecordCategoryEditVC: UIViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DeleteCategoryPopVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
+    }
+    
+    @objc func popupFromDeleteCateToEditCate(_ notification: Notification) {
+        animatePopupBackground(false)
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -285,9 +325,6 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
         // 하나씩 전부 체크하고 전체선택을 눌렀을 때 문제 발생함
         allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
         categoryEditTableView.reloadData()
-        inventoryEditArray.forEach { (item) in
-            print("\(item.itemIdx): \(item.isSelected)")
-        }
     }
 }
 
@@ -318,7 +355,7 @@ extension IvRecordCategoryEditVC: UICollectionViewDelegateFlowLayout {
             let filtered = inventoryEditArray.filter { (inventory) -> Bool in
                 return inventory.categoryIdx == categories[indexPath.row].categoryIdx
             }
-           filteredArraySelections(with: filtered)
+            filteredArraySelections(with: filtered)
         }
     }
     

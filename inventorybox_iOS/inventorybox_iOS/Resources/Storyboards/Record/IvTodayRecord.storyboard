@@ -131,6 +131,7 @@
                                                 <constraint firstItem="o0p-lM-k1B" firstAttribute="height" secondItem="FjS-SL-xPk" secondAttribute="height" id="v2C-JM-Kuw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryTodayRecordCell" rowHeight="94" id="Dkc-Rb-2mT" customClass="InventoryTodayRecordCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
@@ -197,6 +198,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="gxF-N2-XF1" secondAttribute="trailing" constant="16" id="yw1-qr-s9B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="inventoryCountTextField" destination="rod-Ly-aVf" id="l2D-rB-c7w"/>
                                             <outlet property="inventoryImageView" destination="eDc-Yg-1Mk" id="Y3A-UP-Brt"/>
@@ -207,6 +209,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" id="evk-pG-pbt">
+                                <rect key="frame" x="0.0" y="81" width="375" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-jC-OQC">
                                 <rect key="frame" x="16" y="594" width="343" height="53"/>
                                 <constraints>
@@ -222,10 +229,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="evk-pG-pbt" firstAttribute="height" secondItem="fVT-Lm-3vM" secondAttribute="height" id="25Y-vn-QZn"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="top" secondItem="NOT-Tx-I2E" secondAttribute="bottom" id="6oT-lP-hKT"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="top" secondItem="RBp-7S-6cs" secondAttribute="top" id="K8r-ng-1fV"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="KRm-5G-WnS"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="trailing" secondItem="RBp-7S-6cs" secondAttribute="trailing" id="OYk-y7-xzq"/>
+                            <constraint firstItem="evk-pG-pbt" firstAttribute="width" secondItem="fVT-Lm-3vM" secondAttribute="width" id="UPZ-j3-Wfv"/>
                             <constraint firstItem="3eL-jC-OQC" firstAttribute="centerX" secondItem="RBD-wf-1Su" secondAttribute="centerX" id="Ua5-1z-LUS"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="gY3-E1-L9O"/>
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="fVT-Lm-3vM" secondAttribute="bottom" constant="75" id="omO-G3-q8t"/>
@@ -233,6 +242,11 @@
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="3eL-jC-OQC" secondAttribute="bottom" constant="20" id="zIr-WN-cew"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RBp-7S-6cs"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="evk-pG-pbt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="50R-dm-tse"/>
                     <connections>

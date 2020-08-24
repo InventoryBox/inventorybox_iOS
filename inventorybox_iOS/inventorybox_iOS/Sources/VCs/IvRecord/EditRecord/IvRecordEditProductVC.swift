@@ -33,30 +33,7 @@ class IvRecordEditProductVC: UIViewController {
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
             // 날짜 설정
             todayDateLabel.text = editDate!
-            
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.getDataFromServer(dateToSend!)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func update() {
-        getDataFromServer(dateToSend!)
-    }
-    
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-        
-    }
-    
-    @objc func keyboardWillHide(_ sender: Notification) {
-        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     deinit {
@@ -80,6 +57,24 @@ class IvRecordEditProductVC: UIViewController {
         outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         outView.layer.shadowOpacity = 0.05
         outView.layer.shadowRadius = 2
+        getDataFromServer(dateToSend!)
+        setNotiCenter()
+    }
+    
+    private func setNotiCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromAddIvToEdit), name: .init("sendDataFromAddIvToEdit"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     private func filteredArraySelections(with array: [EditItemInfo] = []) {
@@ -119,14 +114,21 @@ class IvRecordEditProductVC: UIViewController {
     }
     
     @IBAction func goToAddProductVC(_ sender: Any) {
-        let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
-        guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
-            as? IvRecordNaviVC  else {
-                return
+        guard let date = dateToSend else { return }
+        if date == Date().toString() {
+            let IvRecordAddProductST = UIStoryboard.init(name: "IvRecordAddProduct", bundle: nil)
+            guard let addProductVC = IvRecordAddProductST.instantiateViewController(identifier: "IvRecordNaviVC")
+                as? IvRecordNaviVC  else {
+                    return
+            }
+            addProductVC.modalPresentationStyle = .fullScreen
+            self.present(addProductVC, animated: true, completion: nil)
+        } else {
+            let alertViewController = UIAlertController(title: "오늘 날짜에서만 가능합니다.", message: "자세한 내용은 문의주세요.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alertViewController.addAction(action)
+            self.present(alertViewController, animated: true, completion: nil)
         }
-        addProductVC.modalPresentationStyle = .fullScreen
-        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromAddIvToEdit), name: .init("sendDataFromAddIvToEdit"), object: nil)
-        self.present(addProductVC, animated: true, completion: nil)
     }
     
     @objc func sendDataFromAddIvToEdit(_ notification: Notification) {
@@ -151,8 +153,12 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": inventoryEditProductArray])
-        self.dismiss(animated: false, completion: nil)
+        let seconds = 0.2
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
+            self.dismiss(animated: false, completion: nil)
+        }
+        
     }
 }
 

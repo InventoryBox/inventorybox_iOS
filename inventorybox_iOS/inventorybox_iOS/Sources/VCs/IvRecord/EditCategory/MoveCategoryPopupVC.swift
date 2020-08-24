@@ -19,8 +19,12 @@ class MoveCategoryPopupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getDataFromServer()
-        setCategoryTableView()
-        addObserver()
+        categoryTableView.delegate = self
+        categoryTableView.dataSource = self
+        
+        categoryTableView.allowsSelection = false
+        categoryTableView.separatorStyle = .none
+        
     }
     
     private func getDataFromServer() {
@@ -29,8 +33,6 @@ class MoveCategoryPopupVC: UIViewController {
             switch networkResult {
             case .success(let data):
                 guard let dt = data as? CategoryClass else { return }
-                print(dt)
-
                 self.categories = dt.categoryInfo
                 self.categoryTableView.reloadData()
                 
@@ -49,42 +51,10 @@ class MoveCategoryPopupVC: UIViewController {
         
     }
     
-    func addObserver() {
-        
-        let notiName = Notification.Name(rawValue: "name")
-        NotificationCenter.default.addObserver(self, selector: #selector(dismissVC), name: notiName, object: nil)
-        
-    }
-    
     @IBAction func backBtn(_ sender: Any) {
-        NotificationCenter.default.post(name: .init("categoryPopup"), object: nil)
+        NotificationCenter.default.post(name: .init("popupFromMoveCateToEditCate"), object: nil)
         self.dismiss(animated: false, completion: nil)
     }
-    
-    @objc func dismissVC() {
-        
-        NotificationCenter.default.post(name: .init("categoryPopup"), object: nil)
-        self.dismiss(animated: false, completion: nil)
-        
-    }
-    
-    @IBAction func goToDeletePopVC(_ sender: UIButton) {
-        
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeleteCategoryPopVC") else { return }
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false, completion: nil)
-        
-        removeFromParent()
-    }
-    private func setCategoryTableView() {
-        categoryTableView.delegate = self
-        categoryTableView.dataSource = self
-        
-        categoryTableView.allowsSelection = false
-        categoryTableView.separatorStyle = .none
-    }
-    
-    
 }
 
 extension MoveCategoryPopupVC: UITableViewDataSource {
@@ -96,9 +66,8 @@ extension MoveCategoryPopupVC: UITableViewDataSource {
         guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: MoveCategoryCell.identifier, for: indexPath) as? MoveCategoryCell else { return UITableViewCell() }
         
         categoryCell.delegate = self
-        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name)
+        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name, idx: categories[indexPath.row].categoryIdx)
         categoryCell.isWhole = self.whichCategorySelected.contains(indexPath.row)
-        categoryCell.indexpath = indexPath.row
         
         return categoryCell
         
@@ -108,21 +77,14 @@ extension MoveCategoryPopupVC: UITableViewDataSource {
 }
 extension MoveCategoryPopupVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 55
-        
     }
-    
-    
 }
 
 extension MoveCategoryPopupVC: CategoryButtonDelegate {
-    func didSelectCategory(categoryName: String, indexPath: Int) {
-        print("Tap")
-        print(categoryName)
-        NotificationCenter.default.post(name: .init("categoryPopup"), object: nil, userInfo: ["categoryName": categoryName])
+    func didSelectCategory(categoryName: String, idx: Int) {
+        print("\(categoryName) \(idx)" )
+        NotificationCenter.default.post(name: .init("popupFromMoveCateToEditCate"), object: nil, userInfo: ["moveCategoryIdx": idx])
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }

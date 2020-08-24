@@ -12,12 +12,11 @@ class DeleteCategoryPopVC: UIViewController {
     
     @IBOutlet weak var categoryTableView: UITableView!
     
-    let whichCategorySelected: [Int] = [0]
-    
     var categories = [CategoryInfo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDataFromServer()
         categoryTableView.delegate = self
         categoryTableView.dataSource = self
         categoryTableView.allowsSelection = false
@@ -25,7 +24,6 @@ class DeleteCategoryPopVC: UIViewController {
     }
     
     private func getDataFromServer() {
-        
         CategoryService.shared.getCategory() { (networkResult) in
             switch networkResult {
             case .success(let data):
@@ -38,7 +36,6 @@ class DeleteCategoryPopVC: UIViewController {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
@@ -47,6 +44,7 @@ class DeleteCategoryPopVC: UIViewController {
     }
     
     @IBAction func backBtn(_ sender: Any) {
+        NotificationCenter.default.post(name: .init("popupFromDeleteCateToEditCate"), object: self)
         self.dismiss(animated: false, completion: nil)
     }
 
@@ -59,8 +57,8 @@ extension DeleteCategoryPopVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: DeleteCategoryCell.identifier, for: indexPath) as? DeleteCategoryCell else { return UITableViewCell() }
         categoryCell.delegate = self
-        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name)
-        categoryCell.isWhole = self.whichCategorySelected.contains(indexPath.row)
+        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name, idx: categories[indexPath.row].categoryIdx)
+        categoryCell.isWhole = 0 == indexPath.row
         categoryCell.indexpath = indexPath.row
         return categoryCell
     }
