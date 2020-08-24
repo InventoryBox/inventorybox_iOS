@@ -18,21 +18,21 @@ class SelectHeaderCell: UITableViewCell {
             
         }
     }
-    var indexPath: Int?
+     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     @IBAction func allSelectBtnPressed(_ sender: Any) {
-        
+//        print(isClicked)
         if !isClicked {
             isClicked = true
         } else {
             isClicked = false
         }
         
-        delegate?.didAllBtnClickedCheckButton(isClicked: isClicked, indexPath: indexPath!)
+        delegate?.didAllBtnClickedCheckButton(isClicked: isClicked)
         
     }
     

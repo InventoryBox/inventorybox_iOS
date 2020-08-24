@@ -21,6 +21,7 @@ class IvRecordCategoryEditVC: UIViewController {
     
     private var checkboxSelections = [Int]()
     var dateToSend: String?
+    var allSelectedBtnPresseed: Bool = false
     var inventoryEditArray: [EditCateInfo] = []
     private var inventoryFilteredArray: [EditCateInfo] = []
     var categories: [CategoryInfo] = [] {
@@ -29,8 +30,20 @@ class IvRecordCategoryEditVC: UIViewController {
             categoryCollectionView.dataSource = self
             categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-            inventoryFilteredArray = inventoryEditArray
+            filteredArraySelections(with: inventoryEditArray)
         }
+    }
+    
+    private func filteredArraySelections(with array: [EditCateInfo] = []) {
+        inventoryFilteredArray = array
+        checkboxSelections = []
+        for i in 0..<inventoryFilteredArray.count {
+            if inventoryFilteredArray[i].isSelected {
+                checkboxSelections.append(i)
+            }
+        }
+        allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
+        categoryEditTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,74 +187,86 @@ extension IvRecordCategoryEditVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let headerCell = tableView.dequeueReusableCell(withIdentifier: SelectHeaderCell.identifier, for: indexPath) as? SelectHeaderCell else { return UITableViewCell() }
-            
             headerCell.delegate = self
-            headerCell.indexPath = indexPath.row
-            
+            headerCell.isClicked = allSelectedBtnPresseed
             return headerCell
-            
         } else {
             guard let inventoryCell = tableView.dequeueReusableCell(withIdentifier: InventoryCategoryEditCell.identifier, for: indexPath) as? InventoryCategoryEditCell else { return UITableViewCell() }
-            
             inventoryCell.delegate = self
             inventoryCell.indexPath = indexPath.row - 1
             inventoryCell.isSelectBtn = self.checkboxSelections.contains(indexPath.row - 1)
-            
             inventoryCell.setInventoryData(inventoryFilteredArray[indexPath.row - 1].img, inventoryFilteredArray[indexPath.row - 1].name, inventoryFilteredArray[indexPath.row - 1].unit, inventoryFilteredArray[indexPath.row - 1].alarmCnt)
             return inventoryCell
-            
         }
-        
-        
     }
-    
-    
 }
 
 extension IvRecordCategoryEditVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if indexPath.row == 0 {
-            
             return 35
-            
         } else {
-            
             return 102
-            
         }
     }
-    
 }
-//MARK: - CellButtonDelegate
 
+//MARK: - CellButtonDelegate
 extension IvRecordCategoryEditVC: CellButtonDelegate {
-    func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int) {
-        for i in 0..<inventoryFilteredArray.count {
-            if isClicked {
-                if self.checkboxSelections.contains(i) {
-                    guard let index = self.checkboxSelections.firstIndex(of: i) else { return }
-                    self.checkboxSelections.remove(at: index)
-                } else {
+    func didAllBtnClickedCheckButton(isClicked: Bool) {
+//        print(isClicked)
+        if isClicked {
+            for i in 0..<inventoryFilteredArray.count {
+                inventoryFilteredArray[i].isSelected = true
+                for j in 0..<inventoryEditArray.count {
+                    if inventoryEditArray[j].itemIdx == inventoryFilteredArray[i].itemIdx {
+                        inventoryEditArray[j].isSelected = inventoryFilteredArray[i].isSelected
+                    }
+                }
+                if !checkboxSelections.contains(i) {
                     checkboxSelections.append(i)
                 }
-            } else {
+            }
+        } else {
+            for i in 0..<inventoryFilteredArray.count {
+                inventoryFilteredArray[i].isSelected = false
+                for j in 0..<inventoryEditArray.count {
+                    if inventoryEditArray[j].itemIdx == inventoryFilteredArray[i].itemIdx {
+                        inventoryEditArray[j].isSelected = inventoryFilteredArray[i].isSelected
+                    }
+                }
                 checkboxSelections = []
             }
         }
+        allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
         categoryEditTableView.reloadData()
+        print("------------------------------------")
+        inventoryEditArray.forEach { (item) in
+            print(item.isSelected)
+        }
     }
     
     func didClickCheckButton(isClicked: Bool, indexPath: Int) {
-        
-        //        if self.checkboxSelections.contains(indexPath) {
-        //            guard let i = self.checkboxSelections.firstIndex(of: indexPath) else { return }
-        //            self.checkboxSelections.remove(at: i)
-        //        } else {
-        //            checkboxSelections.append(indexPath)
-        //        }
-        
-        
+        inventoryFilteredArray[indexPath].isSelected = isClicked
+        for i in 0..<inventoryEditArray.count {
+            if inventoryEditArray[i].itemIdx == inventoryFilteredArray[indexPath].itemIdx {
+                inventoryEditArray[i].isSelected = inventoryFilteredArray[indexPath].isSelected
+            }
+        }
+        if checkboxSelections.contains(indexPath) {
+            guard let i = checkboxSelections.firstIndex(of: indexPath) else { return }
+            self.checkboxSelections.remove(at: i)
+        } else {
+            checkboxSelections.append(indexPath)
+        }
+        // 하나씩 전부 체크하고 전체선택을 눌렀을 때 문제 발생함
+        allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
+        print(allSelectedBtnPresseed)
+        categoryEditTableView.reloadData()
+//        print("------------------------------------")
+//        inventoryEditArray.forEach { (item) in
+//            print(item.isSelected)
+//        }
     }
 }
 
@@ -254,43 +279,26 @@ extension IvRecordCategoryEditVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else { return UICollectionViewCell() }
-        
         categoryCell.setTag(tagName: categories[indexPath.row].name)
-        
         return categoryCell
     }
-    
-    
 }
 
 extension IvRecordCategoryEditVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 카테고리 필터링 코드
         var allCategoryCheck: Bool = false
-        
         if categories[indexPath.row].name  == "전체" {
             allCategoryCheck = true
-            inventoryFilteredArray = inventoryEditArray
-            categoryEditTableView.reloadData()
+            filteredArraySelections(with: inventoryEditArray)
         }
-        
-        
         if !allCategoryCheck {
-            
             inventoryFilteredArray = []
             let filtered = inventoryEditArray.filter { (inventory) -> Bool in
                 return inventory.categoryIdx == categories[indexPath.row].categoryIdx
             }
-            
-            for data in filtered {
-                inventoryFilteredArray.append(data)
-            }
-            
-            categoryEditTableView.reloadData()
-            
+           filteredArraySelections(with: filtered)
         }
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

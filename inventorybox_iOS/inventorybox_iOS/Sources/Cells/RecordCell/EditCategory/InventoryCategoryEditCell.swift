@@ -12,7 +12,7 @@ import BEMCheckBox
 
 @objc protocol CellButtonDelegate {
     @objc func didClickCheckButton(isClicked: Bool, indexPath: Int)
-    @objc func didAllBtnClickedCheckButton(isClicked: Bool, indexPath: Int)
+    @objc func didAllBtnClickedCheckButton(isClicked: Bool)
 }
 
 extension CellButtonDelegate {
