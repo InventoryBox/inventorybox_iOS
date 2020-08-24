@@ -44,6 +44,7 @@ class IvRecordCategoryEditVC: UIViewController {
         }
         allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
         categoryEditTableView.reloadData()
+        categoryEditTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +66,6 @@ class IvRecordCategoryEditVC: UIViewController {
         self.outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         self.outView.layer.shadowOpacity = 0.05
         setPopupBackgroundView()
-        
     }
     
     private func getDataFromServer(_ date: String) {
@@ -125,25 +125,53 @@ class IvRecordCategoryEditVC: UIViewController {
     @IBAction func deleteInventoryBtnPressed(_ sender: Any) {
         // 선택된 재료 삭제하기 서버 반영 버튼
         var idxList: [Int] = []
-        for i in 0..<checkboxSelections.count {
-            idxList.append(inventoryEditArray[i].itemIdx)
-        }
-        IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
-            switch networkResult {
-            case .success(let data):
-                print(data)
-                
-            case .requestErr(let message):
-                guard let message = message as? String else { return }
-                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                alertViewController.addAction(action)
-                self.present(alertViewController, animated: true, completion: nil)
-            case .pathErr: print("path")
-            case .serverErr: print("serverErr")
-            case .networkFail: print("networkFail")
+        for i in 0..<inventoryEditArray.count {
+            if inventoryEditArray[i].isSelected {
+                idxList.append(inventoryEditArray[i].itemIdx)
             }
         }
+        print("idxList: \(idxList)")
+        if idxList.isEmpty {
+            let alertViewController = UIAlertController(title: "재료삭제 실패", message: "삭제할 재료가 선택되지 않았습니다.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alertViewController.addAction(action)
+            self.present(alertViewController, animated: true, completion: nil)
+        } else {
+            IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+            let alertViewController = UIAlertController(title: "재료삭제 성공", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            alertViewController.addAction(action)
+            self.present(alertViewController, animated: true, completion: nil)
+            // 바로 반영
+            var tempArray: [EditCateInfo] = inventoryEditArray
+            for i in 0..<inventoryEditArray.count {
+                print(inventoryEditArray[i].isSelected)
+                if inventoryEditArray[i].isSelected {
+                    guard let index = tempArray.firstIndex(where: { (item) -> Bool in return inventoryEditArray[i].itemIdx == item.itemIdx }) else { return }
+                    tempArray.remove(at: index)
+                }
+            }
+            inventoryEditArray = tempArray
+            categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+            filteredArraySelections(with: inventoryEditArray)
+        }
+        
     }
     
     @IBAction func addCategoryBtnPressed(_ sender: Any) {
@@ -214,7 +242,6 @@ extension IvRecordCategoryEditVC: UITableViewDelegate {
 //MARK: - CellButtonDelegate
 extension IvRecordCategoryEditVC: CellButtonDelegate {
     func didAllBtnClickedCheckButton(isClicked: Bool) {
-//        print(isClicked)
         if isClicked {
             for i in 0..<inventoryFilteredArray.count {
                 inventoryFilteredArray[i].isSelected = true
@@ -240,10 +267,6 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
         }
         allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
         categoryEditTableView.reloadData()
-        print("------------------------------------")
-        inventoryEditArray.forEach { (item) in
-            print(item.isSelected)
-        }
     }
     
     func didClickCheckButton(isClicked: Bool, indexPath: Int) {
@@ -261,12 +284,10 @@ extension IvRecordCategoryEditVC: CellButtonDelegate {
         }
         // 하나씩 전부 체크하고 전체선택을 눌렀을 때 문제 발생함
         allSelectedBtnPresseed = checkboxSelections.count == inventoryFilteredArray.count ? true : false
-        print(allSelectedBtnPresseed)
         categoryEditTableView.reloadData()
-//        print("------------------------------------")
-//        inventoryEditArray.forEach { (item) in
-//            print(item.isSelected)
-//        }
+        inventoryEditArray.forEach { (item) in
+            print("\(item.itemIdx): \(item.isSelected)")
+        }
     }
 }
 

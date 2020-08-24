@@ -25,15 +25,12 @@ class SelectHeaderCell: UITableViewCell {
     }
     
     @IBAction func allSelectBtnPressed(_ sender: Any) {
-//        print(isClicked)
         if !isClicked {
             isClicked = true
         } else {
             isClicked = false
         }
-        
         delegate?.didAllBtnClickedCheckButton(isClicked: isClicked)
-        
     }
     
 }
