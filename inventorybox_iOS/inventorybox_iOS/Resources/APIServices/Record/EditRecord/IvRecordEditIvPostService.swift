@@ -19,23 +19,16 @@ import Alamofire
 struct IvRecordEditIvPostService {
     static let shared = IvRecordEditIvPostService()
     
-    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters{
-//        print(data)
+    private func makeParameter(data: [EditItemInfo], date: String) -> Parameters {
         var parsingParameter: [[String: Int]] = []
-        
         for d in data {
             let item = [
                 "itemIdx" : d.itemIdx,
                 "presentCnt": d.stocksCnt
             ]
             parsingParameter.append(item)
-            //            print(item)
         }
-        
-//        print(parsingParameter)
-        
         return ["itemInfo": parsingParameter, "date": date]
-        
     }
     
     func getRecordEditIvPost(data: [EditItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -50,12 +43,8 @@ struct IvRecordEditIvPostService {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
-                
-
                 completion(networkResult)
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)
@@ -79,8 +68,6 @@ struct IvRecordEditIvPostService {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
-        // 성공 메시지
-        print(decodedData.message)
         if decodedData.success {
             return .success(decodedData.message)
         } else {

@@ -45,35 +45,25 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
     @IBOutlet weak var popupBackgroundView: UIView!
+    
     var iconIdx: Int = 0
     var categoryIdx: Int = 0
-    var iconArray: [IconInfo] = [] {
-        didSet {
-            
-        }
-    }
-    var categories: [CategoryInfo] = [] {
-        didSet {
-            
-        }
-    }
+    var iconArray: [IconInfo] = []
+    var categories: [CategoryInfo] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         getDataFromServer()
         navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         navigationController?.navigationBar.isHidden = false
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setViewCustom()
         setLabelCustom()
         setButtonCustom()
@@ -81,101 +71,71 @@ class IvRecordAddProductVC: UIViewController {
         inventoryNameTextField.delegate = self
         unitTextField.delegate = self
     }
+    
     private func getDataFromServer() {
-        
         IvRecordAddIvService.shared.getRecordAddIv() { (networkResult) in
             switch networkResult {
             case .success(let data):
                 guard let dt = data as? AddIvClass else { return }
-                
                 self.iconArray = dt.iconInfo
                 self.categories = dt.categoryInfo
-                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-                
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
         }
-        
     }
     
     @objc private func disappearIconIdx(_ notification: Notification) {
-        
-        guard let info = notification.userInfo as? [String: Any] else {
-            return
-        }
+        guard let info = notification.userInfo as? [String: Any] else { return }
         guard let ivIconIdx = info["selectedIdx"] as? Int else { return }
         print(ivIconIdx)
         self.iconIdx = ivIconIdx
     }
     
-    
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    
     private func setViewCustom() {
-        
-        topView.layer.shadowOffset = CGSize(width: 0, height: 1)
-        topView.layer.shadowRadius = 2
-        topView.layer.shadowOpacity = 0.16
-        
         middleView.layer.shadowOffset = CGSize(width: 0, height: 3)
         middleView.layer.shadowRadius = 15
         middleView.layer.shadowOpacity = 0.1
-        
         lineUnderNameTextFieldView.backgroundColor = UIColor.yellow
         lineUnderUnitTextFieldView.backgroundColor = UIColor.yellow
-        
     }
     
     private func setButtonCustom() {
-        
-        addIconBtn.layer.shadowOffset = CGSize(width: 0, height: 3)
-        addIconBtn.layer.shadowRadius = 15
-        addIconBtn.layer.shadowOpacity = 0.1
-        
         registerInventoryBtn.backgroundColor = UIColor.yellow
         registerInventoryBtn.layer.cornerRadius = 25
         registerInventoryBtn.tintColor = UIColor.white
-        
+        addIconBtn.layer.shadowOffset = CGSize(width: 0, height: 3)
+        addIconBtn.layer.shadowRadius = 15
+        addIconBtn.layer.shadowOpacity = 0.1
         minimumCountMinusBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
         minimumCountMinusBtn.layer.shadowRadius = 2
         minimumCountMinusBtn.layer.shadowOpacity = 0.1
-        
         minimumCountPlusBtn.layer.shadowOffset = CGSize(width: 0, height: 2)
         minimumCountPlusBtn.layer.shadowRadius = 2
         minimumCountPlusBtn.layer.shadowOpacity = 0.1
     }
     
     private func setLabelCustom() {
-        
-        self.titleViewLabel.text = "발주 확인"
+        self.titleViewLabel.text = "재료 추가"
         self.titleViewLabel.tintColor = UIColor.charcoal
-        
         self.iconSelectTitleLabel.textColor = UIColor.greyishBrown
         self.iconSelectDetailLabel.textColor = UIColor.greyishBrown
-        
         self.unitSelectTitleLabel.textColor = UIColor.greyishBrown
-        
         self.categorySelectTitleLabel.textColor = UIColor.greyishBrown
         self.categorySelectDetailLabel.textColor = UIColor.greyishBrown
-        
         self.inventoryMinimumCountTitleLabel.textColor = UIColor.greyishBrown
         self.inventoryMinimumCountDetailLabel.textColor = UIColor.greyishBrown
-        
-        
-        
-        
     }
     
     private func setPopupBackgroundView() {
@@ -216,72 +176,59 @@ class IvRecordAddProductVC: UIViewController {
     @objc private func getIconIdx(_ notification: Notification) {
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let iconId = info["iconIdx"] as? Int else { return }
-        
         for i in 0..<iconArray.count {
             if iconArray[i].iconIdx == iconId {
                 iconIdx = i
                 break
             }
         }
-        
         let url = URL(string: iconArray[iconIdx].img)
         self.iconImageView.kf.setImage(with: url)
         
     }
     @IBAction func selectCategory(_ sender: Any) {
         animatePopupBackground(true)
-
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
     
     @IBAction func minimumCountMinusBtnPressed(_ sender: Any) {
-        
         if let count = minimumCountLabel.text {
             let num: Int = Int(count)!
-            
             minimumCountLabel.text = (num - 1) >= 0 ? "\(num - 1)": "0"
-            
         }
-        
     }
     
     @IBAction func minimumCountPlusBtnPressed(_ sender: Any) {
-        
         if let count = minimumCountLabel.text {
             let num: Int = Int(count)!
-            
             minimumCountLabel.text = (num + 1) >= 0 ? "\(num + 1)": "0"
-            
         }
     }
+    
     @IBAction func inventoryToBuyMinusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
             let num: Int = Int(count)!
-            
             inventoryToBuyLabel.text = (num - 1) >= 0 ? "\(num - 1)": "0"
-            
         }
     }
+    
     @IBAction func dismissBtnPressed(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
+    
     @IBAction func inventoryToBuyPlusBtnPressed(_ sender: Any) {
         if let count = inventoryToBuyLabel.text {
             let num: Int = Int(count)!
-            
             inventoryToBuyLabel.text = (num + 1) >= 0 ? "\(num + 1)": "0"
-            
         }
     }
+    
     @IBAction func registerInventoryBtnPressed(_ sender: Any) {
         guard let ivName = inventoryNameTextField.text else {
             print("이름 입력 오류")
             return
-            
         }
         guard let ivUnit = unitTextField.text else {
             print("단위 입력 오류")
@@ -308,7 +255,7 @@ class IvRecordAddProductVC: UIViewController {
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):
-                print("이건 vc")
+                // 성공메세지
                 print(data)
             case .requestErr(let message):
                 guard let message = message as? String else { return }
@@ -322,13 +269,13 @@ class IvRecordAddProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         }
-        
         NotificationCenter.default.post(name: .init("update"), object: nil)
         self.dismiss(animated: true, completion: nil)
         
     }
     
 }
+
 extension IvRecordAddProductVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.unitTextField.endEditing(true)

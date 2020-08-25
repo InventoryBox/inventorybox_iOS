@@ -49,7 +49,7 @@ class SelectCategoryCell: UITableViewCell {
     
     @IBAction func categorySelected(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-        delegate?.didSelectCategory(categoryName: name, indexPath: indexpath!)
+//        delegate?.didSelectCategory(categoryName: name, idx: categoryIdx!)
         //        print("tap")
     }
 }

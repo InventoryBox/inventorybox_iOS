@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "categoryeditBtnFolderdelete.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "categoryeditBtnFolderdelete@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "categoryeditBtnFolderdelete@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

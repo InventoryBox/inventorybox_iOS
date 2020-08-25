@@ -26,7 +26,6 @@ class IconCell: UICollectionViewCell {
         imageName = iconImageName
     }
     @IBAction func iconSelectBtnPressed(_ sender: Any) {
-        print("tap")
         delegate?.didSelectIcon(indexPath: indexPath!, iconImageName: imageName!)
     
     }

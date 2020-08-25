@@ -18,25 +18,27 @@ import Alamofire
 
 struct IvRecordTodayPostService {
     static let shared = IvRecordTodayPostService()
+
+    // MARK: - EditItemInfo
+//    struct EditItemInfo: Codable {
+//        let itemIdx: Int
+//        let name: String
+//        var categoryIdx: Int
+//        var stocksCnt: Int
+//        let img: String
+//    }
     
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
-        
-        var parsingParameter: [[String: Int?]] = []
-        
-        
+        var parsingParameter: [[String: Int]] = []
         for d in data {
-            
             let item = [
                 "itemIdx" : d.itemIdx,
                 "presentCnt": d.presentCnt
             ]
-            
             parsingParameter.append(item)
             
         }
-        
-        return ["itemInfo": parsingParameter,
-        "date": date]
+        return ["itemInfo": parsingParameter, "date": date]
     }
     
     func getRecordTodayIvPost(data: [TodayItemInfo], date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -51,11 +53,9 @@ struct IvRecordTodayPostService {
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
-                print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
                 completion(networkResult)
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)
@@ -78,16 +78,11 @@ struct IvRecordTodayPostService {
     private func getRecordTodayIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
-        
-        // 성공 메시지
-        print(decodedData.message)
-        
         if decodedData.success {
-            return .success(data)
+            return .success(decodedData.message)
         } else {
             return .requestErr(decodedData.message)
-        }
-        
+        } 
     }
     
 }

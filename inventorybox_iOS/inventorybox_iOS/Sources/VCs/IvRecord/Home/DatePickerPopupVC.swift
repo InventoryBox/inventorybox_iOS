@@ -15,14 +15,6 @@ class DatePickerPopupVC: UIViewController {
     
     var dateMemorized: Date?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setDatePicker()
-        setButtonCustom()
-        
-    }
-
     private func setButtonCustom() {
         completeBtn.layer.cornerRadius = 25
         completeBtn.backgroundColor = UIColor.yellow
@@ -30,35 +22,31 @@ class DatePickerPopupVC: UIViewController {
     }
     
     private func setDatePicker() {
-        
         datePicker.datePickerMode = .date
         datePicker.locale = Locale(identifier: "ko")
         datePicker.backgroundColor = UIColor.white
-        
+        // 초기 날짜 설정
         guard let date = dateMemorized else { return }
         datePicker.date = date
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setDatePicker()
+        setButtonCustom()
         
     }
+    
     @IBAction func dismissView(_ sender: Any) {
         NotificationCenter.default.post(name: .init("popup"), object: nil)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func selectDate(_ sender: Any) {
         let date = datePicker.date
-        let formatter = DateFormatter()
-        
-        formatter.locale = Locale(identifier: "ko")
-        formatter.dateFormat = "yyyy.MM.dd eeee"
-        let showDate = formatter.string(from: date)
-        
-        formatter.dateFormat = "yyyy-MM-dd"
-        let sendDate = formatter.string(from: date)
-        
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["showDate": showDate, "dateMemorize": date, "sendDate": sendDate])
-        
-        
+        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["selectedDate": date])
         self.dismiss(animated: true)
     }
+    
 }

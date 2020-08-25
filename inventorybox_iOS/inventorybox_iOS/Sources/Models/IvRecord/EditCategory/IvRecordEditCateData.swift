@@ -55,6 +55,30 @@ struct EditCateInfo: Codable {
     let stocksCnt: Int
     var categoryIdx: Int
     let img: String
-//    var isSelected: Bool = false
+    var isSelected: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case itemIdx
+        case name
+        case alarmCnt
+        case unit
+        case stocksCnt
+        case categoryIdx
+        case img
+        case isSelected
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        itemIdx = (try? values.decode(Int.self, forKey: .itemIdx)) ?? -1
+        name = (try? values.decode(String.self, forKey: .name)) ?? ""
+        alarmCnt = (try? values.decode(Int.self, forKey: .alarmCnt)) ?? -1
+        unit = (try? values.decode(String.self, forKey: .unit)) ?? ""
+        stocksCnt = (try? values.decode(Int.self, forKey: .stocksCnt)) ?? -1
+        categoryIdx = (try? values.decode(Int.self, forKey: .categoryIdx)) ?? -1
+        img = (try? values.decode(String.self, forKey: .img)) ?? ""
+        isSelected = (try? values.decode(Bool.self, forKey: .isSelected)) ?? false
+    }
+    
 }
 

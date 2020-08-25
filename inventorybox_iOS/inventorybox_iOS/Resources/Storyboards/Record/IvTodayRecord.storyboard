@@ -29,8 +29,8 @@
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.06.27 토요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-fK-2iz">
-                                                <rect key="frame" x="119.5" y="12" width="136" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-fK-2iz">
+                                                <rect key="frame" x="187.5" y="12" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-Lm-3vM">
-                                <rect key="frame" x="0.0" y="95" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="87" width="375" height="505"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddIvHeaderCell" rowHeight="35" id="cdr-7s-Yws" customClass="AddIvHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
@@ -106,7 +106,32 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cdr-7s-Yws" id="Kfy-Mm-kix">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todayrecordBtnAdd" translatesAutoresizingMaskIntoConstraints="NO" id="FjS-SL-xPk">
+                                                    <rect key="frame" x="12" y="2.5" width="90" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="FjS-SL-xPk" secondAttribute="height" multiplier="3:1" id="4UP-tp-Qk8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0p-lM-k1B">
+                                                    <rect key="frame" x="12" y="2.5" width="90" height="30"/>
+                                                    <connections>
+                                                        <action selector="goToAddProductVC:" destination="5z3-bU-8VT" eventType="touchUpInside" id="g65-uc-f9U"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="o0p-lM-k1B" firstAttribute="centerX" secondItem="FjS-SL-xPk" secondAttribute="centerX" id="MQN-QZ-OCG"/>
+                                                <constraint firstItem="FjS-SL-xPk" firstAttribute="centerY" secondItem="Kfy-Mm-kix" secondAttribute="centerY" id="ZYf-Bg-L1F"/>
+                                                <constraint firstItem="o0p-lM-k1B" firstAttribute="width" secondItem="FjS-SL-xPk" secondAttribute="width" id="cFz-aG-obh"/>
+                                                <constraint firstItem="o0p-lM-k1B" firstAttribute="centerY" secondItem="FjS-SL-xPk" secondAttribute="centerY" id="fIS-n9-Afu"/>
+                                                <constraint firstItem="FjS-SL-xPk" firstAttribute="leading" secondItem="Kfy-Mm-kix" secondAttribute="leading" constant="12" id="fTV-rm-mW3"/>
+                                                <constraint firstItem="FjS-SL-xPk" firstAttribute="width" secondItem="FjS-SL-xPk" secondAttribute="height" multiplier="3:1" id="hil-Vu-Smr"/>
+                                                <constraint firstItem="o0p-lM-k1B" firstAttribute="height" secondItem="FjS-SL-xPk" secondAttribute="height" id="v2C-JM-Kuw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryTodayRecordCell" rowHeight="94" id="Dkc-Rb-2mT" customClass="InventoryTodayRecordCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="375" height="94"/>
@@ -165,7 +190,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="gxF-N2-XF1" secondAttribute="bottom" constant="4" id="Gsr-dv-ddn"/>
                                                 <constraint firstItem="gxF-N2-XF1" firstAttribute="top" secondItem="0ZH-SS-9sb" secondAttribute="top" constant="4" id="OzM-Ug-va9"/>
@@ -173,6 +198,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="gxF-N2-XF1" secondAttribute="trailing" constant="16" id="yw1-qr-s9B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="inventoryCountTextField" destination="rod-Ly-aVf" id="l2D-rB-c7w"/>
                                             <outlet property="inventoryImageView" destination="eDc-Yg-1Mk" id="Y3A-UP-Brt"/>
@@ -183,6 +209,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" id="evk-pG-pbt">
+                                <rect key="frame" x="0.0" y="81" width="375" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-jC-OQC">
                                 <rect key="frame" x="16" y="594" width="343" height="53"/>
                                 <constraints>
@@ -198,10 +229,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fVT-Lm-3vM" firstAttribute="top" secondItem="NOT-Tx-I2E" secondAttribute="bottom" constant="8" id="6oT-lP-hKT"/>
+                            <constraint firstItem="evk-pG-pbt" firstAttribute="height" secondItem="fVT-Lm-3vM" secondAttribute="height" id="25Y-vn-QZn"/>
+                            <constraint firstItem="fVT-Lm-3vM" firstAttribute="top" secondItem="NOT-Tx-I2E" secondAttribute="bottom" id="6oT-lP-hKT"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="top" secondItem="RBp-7S-6cs" secondAttribute="top" id="K8r-ng-1fV"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="KRm-5G-WnS"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="trailing" secondItem="RBp-7S-6cs" secondAttribute="trailing" id="OYk-y7-xzq"/>
+                            <constraint firstItem="evk-pG-pbt" firstAttribute="width" secondItem="fVT-Lm-3vM" secondAttribute="width" id="UPZ-j3-Wfv"/>
                             <constraint firstItem="3eL-jC-OQC" firstAttribute="centerX" secondItem="RBD-wf-1Su" secondAttribute="centerX" id="Ua5-1z-LUS"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="gY3-E1-L9O"/>
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="fVT-Lm-3vM" secondAttribute="bottom" constant="75" id="omO-G3-q8t"/>
@@ -209,6 +242,11 @@
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="3eL-jC-OQC" secondAttribute="bottom" constant="20" id="zIr-WN-cew"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RBp-7S-6cs"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="evk-pG-pbt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="50R-dm-tse"/>
                     <connections>
@@ -229,5 +267,6 @@
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
         <image name="postBtnBack" width="40" height="44"/>
+        <image name="todayrecordBtnAdd" width="84" height="28"/>
     </resources>
 </document>

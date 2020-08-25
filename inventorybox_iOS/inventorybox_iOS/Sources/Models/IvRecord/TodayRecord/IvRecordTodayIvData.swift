@@ -49,6 +49,24 @@ struct TodayItemInfo: Codable {
     let itemIdx: Int
     let name: String
     let categoryIdx: Int
-    var presentCnt: Int?
+    var presentCnt: Int
     let img: String
+    
+    enum CodingKeys: String, CodingKey {
+        case itemIdx
+        case name
+        case categoryIdx
+        case presentCnt
+        case img
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        itemIdx = (try? values.decode(Int.self, forKey: .itemIdx)) ?? -1
+        name = (try? values.decode(String.self, forKey: .name)) ?? ""
+        categoryIdx = (try? values.decode(Int.self, forKey: .categoryIdx)) ?? -1
+        presentCnt = (try? values.decode(Int.self, forKey: .presentCnt)) ?? -1
+        img = (try? values.decode(String.self, forKey: .img)) ?? ""
+    }
+    
 }
