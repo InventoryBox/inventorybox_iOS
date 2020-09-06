@@ -17,11 +17,29 @@ class HomeNewCVCell: UICollectionViewCell {
     @IBOutlet var leftStackImage: [UIImageView]! // left image stackview
     @IBOutlet var leftStackview: [UILabel]! // left label stackview
   
-    
+    var names : String?
+    var bountys : Int?
     
     override func awakeFromNib() {
         makeShadowUnderView()
+        
+        
     }
+    
+//    // 왼쪽 관련 Staack
+//    func leftSet(image: [String], name: [String]){
+//        let setimage : [String] = image
+//        let setname : [String] = name
+//        
+//        if setimage == image || setname == name{
+//            for i in 0... < image.count{
+//                
+//            }
+//        }
+//        
+//    }
+//    
+    
     
     
   // 그림자주는 코드
@@ -32,4 +50,6 @@ class HomeNewCVCell: UICollectionViewCell {
                 viewRadious.layer.shadowRadius = 8// 퍼지는 정도
                 viewRadious.layer.cornerRadius = 10
    }
+
 }
+
