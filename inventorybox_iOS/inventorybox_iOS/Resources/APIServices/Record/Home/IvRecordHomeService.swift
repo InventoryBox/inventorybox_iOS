@@ -50,7 +50,6 @@ struct IvRecordHomeService {
         guard let data = decodedData.data else { return .pathErr }
         // 성공 메시지
         print(decodedData.message)
-        
         if decodedData.success {
             return .success(data)
         } else {

@@ -17,7 +17,7 @@ class DeleteCategoryCell: UITableViewCell {
     
     var delegate: CategoryButtonDelegate?
     var indexpath: Int?
-    
+    var categoryIdx: Int?
     var isWhole: Bool = false {
         didSet {
             if isWhole {
@@ -31,14 +31,9 @@ class DeleteCategoryCell: UITableViewCell {
             
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        setViewBorder()
-        
-    }
-    
-    private func setViewBorder() {
         self.roundView.layer.borderWidth = 1
         self.roundView.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
         self.roundView.layer.cornerRadius = 8
@@ -47,10 +42,11 @@ class DeleteCategoryCell: UITableViewCell {
     func setCellInformation(categoryInfo: String) {
         
         categoryLabel.text = categoryInfo
-        
     }
+    
     @IBAction func deleteCategoryBtn(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-        delegate?.didDeleteCategoryBtnPrssed(categoryName: name, indexPath: indexpath!)
+        delegate?.didDeleteCategoryBtnPressed(categoryName: name, indexPath: indexpath!, idx: categoryIdx!)
     }
+    
 }

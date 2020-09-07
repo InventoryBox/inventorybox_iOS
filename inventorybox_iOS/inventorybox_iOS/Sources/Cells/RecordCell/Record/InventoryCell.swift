@@ -58,13 +58,11 @@ class InventoryCell: UITableViewCell {
     }
     
     private func setLabelColors() {
-        
         inventoryNameLabel.textColor = UIColor.charcoal
         minimumInventoryCountLabel.textColor = UIColor.greyishBrown
         inventoryUnitLabel.textColor = UIColor.charcoal
-        inventoryCountLabel.textColor = UIColor.pinkishGrey
         inventoryAmountLabel.textColor = UIColor.yellow
-        
+        inventoryCountLabel.font = UIFont(name: "NanumSquareEB", size: 16)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -74,19 +72,20 @@ class InventoryCell: UITableViewCell {
     }
     
     
-    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: Int, _ unit: String, _ inventoryCount: Int?) {
-//        print(inventoryImageName)
+    func setInventoryData(_ inventoryImageName: String, _ inventoryName: String, _ minimumInventoryCount: Int, _ unit: String, _ inventoryCount: Int) {
         let url = URL(string: inventoryImageName)
         self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
         minimumInventoryCountLabel.text = "\(minimumInventoryCount)"
         inventoryUnitLabel.text = unit
-        inventoryCountLabel.text = "미입력"
-        if let cnt = inventoryCount {
-//            inventoryCountLabel.textColor = .black
-            inventoryCountLabel.text = "\(cnt)"
+        if inventoryCount == -1 {
+            inventoryCountLabel.text = "미입력"
+            inventoryCountLabel.textColor = .pinkishGrey
+            inventoryCountLabel.font = inventoryCountLabel.font.withSize(15)
+        } else {
+            inventoryCountLabel.text = "\(inventoryCount)"
+            inventoryCountLabel.textColor = .mediumGrey
         }
-        
     }
     
 

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IconSeletDelegate {
-    func didSelectIcon(indexPath: Int, iconImageName: String)
+    func didSelectIcon(indexPath: Int, iconImageName: String, idx: Int)
 }
 
 class IconCell: UICollectionViewCell {
@@ -18,6 +18,7 @@ class IconCell: UICollectionViewCell {
     var delegate: IconSeletDelegate?
     var indexPath: Int?
     var imageName: String?
+    var iconIdx: Int?
     @IBOutlet weak var iconImageView: UIImageView!
     
     func setIcon(_ iconImageName: String) {
@@ -26,8 +27,7 @@ class IconCell: UICollectionViewCell {
         imageName = iconImageName
     }
     @IBAction func iconSelectBtnPressed(_ sender: Any) {
-        print("tap")
-        delegate?.didSelectIcon(indexPath: indexPath!, iconImageName: imageName!)
+        delegate?.didSelectIcon(indexPath: indexPath!, iconImageName: imageName!, idx: iconIdx!)
     
     }
 }

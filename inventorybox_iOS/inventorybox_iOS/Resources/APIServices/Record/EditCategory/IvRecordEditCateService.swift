@@ -17,7 +17,6 @@ struct IvRecordEditCateService {
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.ivRecordHomeURL + whichDate
-//        print(url)
         let dataRequest = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
@@ -26,8 +25,7 @@ struct IvRecordEditCateService {
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.judge(by: statusCode, value)
-                
-                print(statusCode)
+        
                 completion(networkResult)
             case .failure(let err):
                 print(err.localizedDescription)
@@ -49,7 +47,6 @@ struct IvRecordEditCateService {
     
     private func getRecordEditCateData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        
         guard let decodedData = try? decoder.decode(IvRecordEditCateData.self, from: data) else { return .pathErr }
         guard let data = decodedData.data else { return .pathErr }
         // 성공 메시지

@@ -69,9 +69,6 @@
 		3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */; };
 		3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */; };
 		33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */; };
-		33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */; };
-		33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */; };
-		33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF624E41265003F07A7 /* NanumSquareBold.ttf */; };
 		339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */; };
 		339C89AD24BB010E00B86BAF /* DetailCompareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89AC24BB010E00B86BAF /* DetailCompareInfo.swift */; };
 		339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339C89AE24BB21C700B86BAF /* Login.storyboard */; };
@@ -109,6 +106,8 @@
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
 		D4558A8D24C166E600A1ACB5 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4558A8C24C166E500A1ACB5 /* logo.json */; };
+		D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */; };
+		D457F170250610EC008D60FE /* IvRecordDeleteCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */; };
 		D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */; };
 		D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
@@ -172,7 +171,6 @@
 		D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */; };
 		D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */; };
 		D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */; };
-		D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */; };
 		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
 		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
 		EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */; };
@@ -250,9 +248,6 @@
 		3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphData.swift; sourceTree = "<group>"; };
 		3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphService.swift; sourceTree = "<group>"; };
 		33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpVC.swift; sourceTree = "<group>"; };
-		33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
-		33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
-		33700DF624E41265003F07A7 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		339C897D24B75D1000B86BAF /* DetailGraphWeekInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGraphWeekInfo.swift; sourceTree = "<group>"; };
 		339C89AC24BB010E00B86BAF /* DetailCompareInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCompareInfo.swift; sourceTree = "<group>"; };
 		339C89AE24BB21C700B86BAF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -291,9 +286,14 @@
 		D4311FF424BB2111000C9B8B /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvPostService.swift; sourceTree = "<group>"; };
+		D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
+		D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
+		D44FDA6824F1632500D3E868 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeData.swift; sourceTree = "<group>"; };
 		D4558A8C24C166E500A1ACB5 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordMoveCateService.swift; sourceTree = "<group>"; };
+		D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteCateService.swift; sourceTree = "<group>"; };
 		D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailData.swift; sourceTree = "<group>"; };
 		D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailService.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
@@ -357,7 +357,6 @@
 		D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordAddProductVC.swift; sourceTree = "<group>"; };
 		D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCategoryPopupVC.swift; sourceTree = "<group>"; };
-		D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,9 +391,9 @@
 		0EB0CF4224B19FA8009B089A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				33700DF624E41265003F07A7 /* NanumSquareBold.ttf */,
-				33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */,
-				33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */,
+				D44FDA6824F1632500D3E868 /* NanumSquareB.ttf */,
+				D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */,
+				D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */,
 				D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */,
 				D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */,
 				D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */,
@@ -613,7 +612,6 @@
 			isa = PBXGroup;
 			children = (
 				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
-				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
 				D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */,
 				D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */,
 				D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */,
@@ -680,6 +678,8 @@
 			children = (
 				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
+				D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */,
+				D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */,
 				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 			);
 			path = EditCategory;
@@ -838,6 +838,7 @@
 				D46C957424B7141E004D1B38 /* ExchangeCell */,
 				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332406524B651F300C3B59C /* GraphDetailCell */,
+				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
 				D4DFE3C424B6599900D8795E /* RecordCell */,
 				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,
@@ -1021,11 +1022,8 @@
 				D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */,
 				D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */,
 				33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */,
-				33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */,
 				D40D75D024B323F500534230 /* IvRecordCategoryEdit.storyboard in Resources */,
-				33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */,
 				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
-				33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */,
 				D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
 				D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */,
@@ -1081,6 +1079,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */,
 				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
@@ -1102,12 +1101,14 @@
 				0E4A82F924BD7B77001E38B7 /* HomeHeader1TVCell.swift in Sources */,
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
+				D457F170250610EC008D60FE /* IvRecordDeleteCateService.swift in Sources */,
 				0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
 				D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */,
 				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				0E1EE8D92505175000859E68 /* HomeSideMyInfoVC.swift in Sources */,
+				D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,

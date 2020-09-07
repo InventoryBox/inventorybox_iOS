@@ -26,12 +26,6 @@ class SelectIconVC: UIViewController {
         getDataFromServer()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        
-    }
-    
     
     @IBOutlet weak var iconCollectionView: UICollectionView!
     
@@ -40,8 +34,9 @@ class SelectIconVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setIconCollectionView()
-        setShadow()
+        iconCollectionView.delegate = self
+        iconCollectionView.dataSource = self
+        iconCollectionView.allowsSelection = true
     }
     
     private func getDataFromServer() {
@@ -68,25 +63,7 @@ class SelectIconVC: UIViewController {
         }
         
     }
-    private func setShadow() {
-        
-    }
     
-    private func setIconCollectionView() {
-        iconCollectionView.delegate = self
-        iconCollectionView.dataSource = self
-        
-        iconCollectionView.allowsSelection = false
-
-    }
-    
-    @IBAction func sendIdx(_ sender: UIButton) {
-        guard let idx = sender.currentTitle else {
-            return
-        }
-        NotificationCenter.default.post(name: .init("iconIdx"), object: nil, userInfo: ["selectedIdx": idx])
-        self.dismiss(animated: true)
-    }
 }
 
 extension SelectIconVC: UICollectionViewDataSource {
@@ -100,6 +77,7 @@ extension SelectIconVC: UICollectionViewDataSource {
         
         iconCell.delegate = self
         iconCell.indexPath = indexPath.row
+        iconCell.iconIdx = iconArray[indexPath.row].iconIdx
         iconCell.setIcon(iconArray[indexPath.row].img)
         
         return iconCell
@@ -135,9 +113,9 @@ extension SelectIconVC: UICollectionViewDelegateFlowLayout {
 }
 
 extension SelectIconVC: IconSeletDelegate {
-    func didSelectIcon(indexPath: Int, iconImageName: String) {
+    func didSelectIcon(indexPath: Int, iconImageName: String, idx: Int) {
         
-        NotificationCenter.default.post(name: .init("iconidx"), object: nil, userInfo: ["iconIdx": iconArray[indexPath].iconIdx])
+        NotificationCenter.default.post(name: .init("iconidx"), object: nil, userInfo: ["iconIdx": idx])
         self.navigationController?.popViewController(animated: true)
     }
 }

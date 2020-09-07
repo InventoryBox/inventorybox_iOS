@@ -77,6 +77,7 @@ extension SelectCategoryVC: UITableViewDataSource {
         guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: SelectCategoryCell.identifier, for: indexPath) as? SelectCategoryCell else { return UITableViewCell() }
         categoryCell.delegate = self
         categoryCell.indexpath = indexPath.row
+        categoryCell.categoryIdx = categories[indexPath.row].categoryIdx
         categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name)
         categoryCell.isWhole = whichCategorySelected.contains(indexPath.row)
         
@@ -99,10 +100,9 @@ extension SelectCategoryVC: UITableViewDelegate {
 
 extension SelectCategoryVC: CategoryButtonDelegate {
     
-    func didSelectCategory(categoryName: String, indexPath: Int) {
+    func didSelectCategory(categoryName: String, idx: Int) {
         
-        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": categoryName])
-        
+        NotificationCenter.default.post(name: .init("popup"), object: nil, userInfo: ["categoryName": categoryName, "categoryIdx": idx])
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -8,21 +8,6 @@
 
 import Foundation
 import Alamofire
-// ⭐️⭐️
-// MARK: - DataClass
-//struct AddIvClass: Codable {
-//    let iconInfo: [IconInfo]
-//    let categoryInfo: [CategoryInfo]
-//}
-
-// ⭐️⭐️⭐️
-// MARK: - IconInfo
-//struct IconInfo: Codable {
-//    let iconIdx: Int
-//    let img: String
-//    let name: String
-//}
-
 
 struct IvRecordAddIvPostService {
     static let shared = IvRecordAddIvPostService()
@@ -35,8 +20,7 @@ struct IvRecordAddIvPostService {
              "alarmCnt": alarmCnt,
              "memoCnt": memoCnt,
              "iconIdx": iconIdx,
-             "categoryIdx": categoryIdx
-            ]
+             "categoryIdx": categoryIdx]
     }
     
     func getRecordAddIvPost(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -44,7 +28,6 @@ struct IvRecordAddIvPostService {
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let dataRequest = Alamofire.request(APIConstants.inventortRecordAddURL, method: .post, parameters: makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
-//        print(makeParameter(name: name, unit: unit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -53,9 +36,7 @@ struct IvRecordAddIvPostService {
                 print(statusCode)
                 let networkResult = self.judge(by: statusCode, value)
                 
-                print("통신은 성공했으나")
                 completion(networkResult)
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)
@@ -77,11 +58,8 @@ struct IvRecordAddIvPostService {
     
     private func getRecordAddIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        print("hi")
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
-        // 성공 메시지
-        print(decodedData.message)
         if decodedData.success {
             return .success(decodedData.message)
         } else {
