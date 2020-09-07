@@ -83,7 +83,6 @@ extension MoveCategoryPopupVC: UITableViewDelegate {
 
 extension MoveCategoryPopupVC: CategoryButtonDelegate {
     func didSelectCategory(categoryName: String, idx: Int) {
-        print("\(categoryName) \(idx)" )
         NotificationCenter.default.post(name: .init("popupFromMoveCateToEditCate"), object: nil, userInfo: ["moveCategoryIdx": idx])
         self.dismiss(animated: true, completion: nil)
     }

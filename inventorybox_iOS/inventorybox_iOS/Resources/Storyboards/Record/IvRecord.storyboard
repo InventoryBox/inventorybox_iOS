@@ -418,11 +418,6 @@
                             <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" id="wRg-y0-FVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fMU-Z6-8Ja"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="yEl-so-lwF"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>

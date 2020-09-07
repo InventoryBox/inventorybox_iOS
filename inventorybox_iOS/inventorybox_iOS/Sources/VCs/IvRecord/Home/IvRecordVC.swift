@@ -206,19 +206,28 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
             print("Missing date which needs to send to server")
         }
     }
-    
-    // 카테고리 편집하기
-    @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
-        let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
-        guard let categoryEditVC = IvRecordCategoryEditST.instantiateViewController(identifier: "IvRecordCategoryEditVC")
-            as? IvRecordCategoryEditVC  else { return }
-        categoryEditVC.modalPresentationStyle = .fullScreen
-        if let date = memorizeDate {
-            categoryEditVC.dateToSend = date.toString()
-        }
-        self.present(categoryEditVC, animated: false, completion: nil)
-    }
-    
+     
+     // 카테고리 편집하기
+     @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
+          let IvRecordCategoryEditST = UIStoryboard.init(name: "IvRecordCategoryEdit", bundle: nil)
+          guard let categoryEditVC = IvRecordCategoryEditST.instantiateViewController(identifier: "IvRecordCategoryEditVC")
+               as? IvRecordCategoryEditVC  else { return }
+          categoryEditVC.modalPresentationStyle = .fullScreen
+          categoryEditVC.modalTransitionStyle = .coverVertical
+          if let date = memorizeDate {
+               categoryEditVC.dateToSend = date.toString()
+          }
+          
+//          let transition = CATransition()
+//          transition.duration = 0.5
+//          transition.type = CATransitionType.push
+//          transition.subtype = CATransitionSubtype.fromRight
+//          transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+//          view.window!.layer.add(transition, forKey: kCATransition)
+          
+          self.present(categoryEditVC, animated: true, completion: nil)
+     }
+     
     @objc func sendDataFromEditCateToHome(_ notification: Notification) {
         if let data = dateToSend {
             getDataFromServer(data)

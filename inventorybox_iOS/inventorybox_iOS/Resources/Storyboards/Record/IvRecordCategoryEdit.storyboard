@@ -375,11 +375,6 @@
                             <constraint firstItem="0Rd-ik-DZm" firstAttribute="leading" secondItem="9XY-Rk-Boi" secondAttribute="leading" id="xtR-lR-6Ex"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9XY-Rk-Boi"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="aV3-0H-DuD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="QGP-pg-8ch"/>
                     <connections>
@@ -739,7 +734,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-kK-Mk7">
-                                        <rect key="frame" x="144" y="15" width="87" height="20"/>
+                                        <rect key="frame" x="144" y="15" width="87" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -803,11 +798,17 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqj-Oo-iEc">
-                                        <rect key="frame" x="329" y="9" width="30" height="32"/>
+                                        <rect key="frame" x="330" y="0.0" width="40" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="SzC-dM-VkN"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <state key="normal" title="완료">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backBtn:" destination="xZh-Ky-Ufn" eventType="touchUpInside" id="ZXe-0b-Nm8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -819,10 +820,12 @@
                                     <constraint firstAttribute="trailing" secondItem="6Ry-Ok-6M9" secondAttribute="trailing" id="KFs-Ay-AsC"/>
                                     <constraint firstItem="McU-tU-N7Z" firstAttribute="leading" secondItem="88l-Tr-tQr" secondAttribute="leading" id="Okj-09-dtD"/>
                                     <constraint firstAttribute="bottom" secondItem="McU-tU-N7Z" secondAttribute="bottom" id="TMg-5R-2Ng"/>
-                                    <constraint firstAttribute="trailing" secondItem="tqj-Oo-iEc" secondAttribute="trailing" constant="16" id="UCA-oY-rYN"/>
+                                    <constraint firstAttribute="trailing" secondItem="tqj-Oo-iEc" secondAttribute="trailing" constant="5" id="UCA-oY-rYN"/>
                                     <constraint firstItem="fhh-kK-Mk7" firstAttribute="centerX" secondItem="88l-Tr-tQr" secondAttribute="centerX" id="VRx-cm-vNB"/>
+                                    <constraint firstItem="tqj-Oo-iEc" firstAttribute="top" secondItem="88l-Tr-tQr" secondAttribute="top" id="f7k-va-0iF"/>
                                     <constraint firstAttribute="trailing" secondItem="kCU-sz-AOn" secondAttribute="trailing" id="frw-Kl-alG"/>
                                     <constraint firstItem="tqj-Oo-iEc" firstAttribute="centerY" secondItem="fhh-kK-Mk7" secondAttribute="centerY" id="jnK-rT-tjI"/>
+                                    <constraint firstItem="McU-tU-N7Z" firstAttribute="top" secondItem="tqj-Oo-iEc" secondAttribute="bottom" id="krj-Nj-LfR"/>
                                     <constraint firstAttribute="height" constant="324" id="n9A-q8-vQB"/>
                                     <constraint firstAttribute="bottom" secondItem="kCU-sz-AOn" secondAttribute="bottom" constant="-30" id="s32-Wi-5iD"/>
                                     <constraint firstItem="McU-tU-N7Z" firstAttribute="top" secondItem="6Ry-Ok-6M9" secondAttribute="bottom" id="t24-AP-zAI"/>

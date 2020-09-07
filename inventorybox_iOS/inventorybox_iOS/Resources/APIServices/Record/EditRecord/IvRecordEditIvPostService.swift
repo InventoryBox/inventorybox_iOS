@@ -28,7 +28,6 @@ struct IvRecordEditIvPostService {
             ]
             parsingParameter.append(item)
         }
-        print(parsingParameter)
         return ["itemInfo": parsingParameter, "date": date]
     }
     

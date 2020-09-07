@@ -1,22 +1,23 @@
 //
-//  IvRecordDeleteIvService.swift
+//  IvRecordDeleteCateService.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/17.
+//  Created by 이재용 on 2020/09/07.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-struct IvRecordDeleteIvService {
-    static let shared = IvRecordDeleteIvService()
+struct IvRecordDeleteCateService {
+    static let shared = IvRecordDeleteCateService()
     
-    func deleteIv(idxList: [Int], completion: @escaping (NetworkResult<Any>) -> Void) {
+    func deleteCate(idx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.inventoryRecordItemDeleteURL + "\(idxList)".replacingOccurrences(of: " ", with: "")
+        let url = APIConstants.inventoryRecordCategoryDeleteURL + "\(idx)"
+        
         let dataRequest = Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
@@ -54,6 +55,7 @@ struct IvRecordDeleteIvService {
     }
     
 }
+
 
 
 

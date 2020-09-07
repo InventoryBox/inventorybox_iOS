@@ -1,23 +1,35 @@
 //
-//  IvRecordDeleteIvService.swift
+//  IvRecordMoveCateService.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/17.
+//  Created by 이재용 on 2020/09/07.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-struct IvRecordDeleteIvService {
-    static let shared = IvRecordDeleteIvService()
+struct IvRecordMoveCateService {
+    static let shared = IvRecordMoveCateService()
     
-    func deleteIv(idxList: [Int], completion: @escaping (NetworkResult<Any>) -> Void) {
+    private func makeParameter(itemIdx: [Int], cateIdx: Int) -> Parameters {
+        var parsingParameter: [[String: Int]] = []
+        for idx in itemIdx {
+            let item = [
+                "itemIdx" : idx,
+                "categoryIdx": cateIdx
+            ]
+            parsingParameter.append(item)
+        }
+        
+        return ["itemInfo": parsingParameter]
+    }
+    
+    func getRecordEditIvPost(selectedIdx: [Int], categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.inventoryRecordItemDeleteURL + "\(idxList)".replacingOccurrences(of: " ", with: "")
-        let dataRequest = Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(APIConstants.inventoryRecordCategoryMoveURL, method: .put, parameters: makeParameter(itemIdx: selectedIdx, cateIdx: categoryIdx), encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
@@ -25,23 +37,27 @@ struct IvRecordDeleteIvService {
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.judge(by: statusCode, value)
-                
                 completion(networkResult)
-            case .failure: completion(.networkFail)
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(.networkFail)
+                
             }
+            
         }
     }
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return deleteIvData(by: data)
+        case 200: return getRecordEditIvPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
+            
         }
     }
     
-    private func deleteIvData(by data: Data) -> NetworkResult<Any> {
+    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
@@ -54,8 +70,4 @@ struct IvRecordDeleteIvService {
     }
     
 }
-
-
-
-
 

@@ -131,22 +131,23 @@ class IvRecordCategoryEditVC: UIViewController {
             alertViewController.addAction(action)
             self.present(alertViewController, animated: true, completion: nil)
         } else {
-//            IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
-//                switch networkResult {
-//                case .success(let data):
-//                    print(data)
-//                    
-//                case .requestErr(let message):
-//                    guard let message = message as? String else { return }
-//                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-//                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                    alertViewController.addAction(action)
-//                    self.present(alertViewController, animated: true, completion: nil)
-//                case .pathErr: print("path")
-//                case .serverErr: print("serverErr")
-//                case .networkFail: print("networkFail")
-//                }
-//            }
+            IvRecordDeleteIvService.shared.deleteIv(idxList: idxList) { (networkResult) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+                    
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+            
             let alertViewController = UIAlertController(title: "재료삭제 성공", message: "", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alertViewController.addAction(action)
@@ -183,10 +184,13 @@ class IvRecordCategoryEditVC: UIViewController {
             categories.append(CategoryInfo(categoryIdx: idx, name: name))
             categoryCollectionView.reloadData()
         }
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        filteredArraySelections(with: inventoryEditArray)
     }
     
     @IBAction func moveCategoryBtnPressed(_ sender: Any) {
-        // 선택된 재료 삭제하기 서버 반영 버튼
+        
         var idxList: [Int] = []
         for i in 0..<inventoryEditArray.count {
             if inventoryEditArray[i].isSelected {
@@ -211,16 +215,33 @@ class IvRecordCategoryEditVC: UIViewController {
         animatePopupBackground(false)
         guard let info = notification.userInfo as? [String: Any] else { return }
         guard let moveCategoryIdx = info["moveCategoryIdx"] as? Int else { return }
+        var selected: [Int] = []
         for i in 0..<inventoryEditArray.count {
             if inventoryEditArray[i].isSelected {
+                selected.append(inventoryEditArray[i].itemIdx)
                 inventoryEditArray[i].categoryIdx = moveCategoryIdx
                 inventoryEditArray[i].isSelected = false
             }
         }
         categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
         collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-        
         filteredArraySelections(with: inventoryEditArray)
+        
+        IvRecordMoveCateService.shared.getRecordEditIvPost(selectedIdx: selected, categoryIdx: moveCategoryIdx) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
     }
     
     @IBAction func deleteCategoryBtnPressed(_ sender: Any) {
@@ -233,6 +254,20 @@ class IvRecordCategoryEditVC: UIViewController {
     @objc func popupFromDeleteCateToEditCate(_ notification: Notification) {
         animatePopupBackground(false)
         guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let categoryToDelete = info["categoryToDelete"] as? [Int] else { return }
+        
+        for i in 0..<categoryToDelete.count {
+            let index = categories.firstIndex(where: { (category) -> Bool in
+                return categoryToDelete[i] == category.categoryIdx
+            })
+            if let i = index {
+                categories.remove(at: i)
+            }
+        }
+        categoryCollectionView.reloadData()
+        categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+        collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        filteredArraySelections(with: inventoryEditArray)
         
     }
     

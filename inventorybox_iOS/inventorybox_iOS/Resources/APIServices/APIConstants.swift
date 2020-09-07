@@ -44,6 +44,10 @@ struct APIConstants {
     static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete/"
     //재고기록 (카테고리 추가)
     static let inventoryRecordCategoryAddURL = baseURL + "record/category-add"
+    //재고기록 (카테고리 이동)
+    static let inventoryRecordCategoryMoveURL = baseURL + "record/category-move"
+    //재고기록 (카테고리 삭제)
+    static let inventoryRecordCategoryDeleteURL = baseURL + "record/category-delete/"
     //재고량 추이 홈 
     static let inventoryGraphHomeURL = baseURL + "dashboard"
     //재고량 추이 선택적 그래프

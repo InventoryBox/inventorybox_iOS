@@ -100,6 +100,8 @@
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
 		D4558A8D24C166E600A1ACB5 /* logo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4558A8C24C166E500A1ACB5 /* logo.json */; };
+		D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */; };
+		D457F170250610EC008D60FE /* IvRecordDeleteCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */; };
 		D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */; };
 		D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
@@ -276,6 +278,8 @@
 		D4535A3624B2F78B000A67EF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeHomeData.swift; sourceTree = "<group>"; };
 		D4558A8C24C166E500A1ACB5 /* logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordMoveCateService.swift; sourceTree = "<group>"; };
+		D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteCateService.swift; sourceTree = "<group>"; };
 		D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailData.swift; sourceTree = "<group>"; };
 		D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailService.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
@@ -652,6 +656,8 @@
 			children = (
 				D4A05D3724C0F0F400F038FA /* IvRecordDeleteIvService.swift */,
 				D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */,
+				D457F16D250610DF008D60FE /* IvRecordMoveCateService.swift */,
+				D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */,
 				D4A05D3B24C1015600F038FA /* IvRecordAddCateService.swift */,
 			);
 			path = EditCategory;
@@ -1070,11 +1076,13 @@
 				0E4A82F924BD7B77001E38B7 /* HomeHeader1TVCell.swift in Sources */,
 				3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */,
 				D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */,
+				D457F170250610EC008D60FE /* IvRecordDeleteCateService.swift in Sources */,
 				0E0568F524C18A7A00853DD0 /* IvHomeFlagPostService.swift in Sources */,
 				335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */,
 				D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */,
 				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
+				D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
