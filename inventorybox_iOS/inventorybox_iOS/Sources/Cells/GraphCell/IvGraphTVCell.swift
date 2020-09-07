@@ -18,7 +18,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var roundView: UIView!
     var accessCell:ItemInfo?
     
-    private var stockArray:[Int] = []
+    private var stockArray:[Int] = [1,1,1,1,1,1,1]
     private var limitLine: ChartLimitLine?
     private var limitCount:Int?
     
@@ -62,9 +62,17 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         var dataEntries : [BarChartDataEntry] = []
         
         for i in 0...6 {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.stocks[i]))
+            
+            stockArray[i] = model.stocks[i]
+            //print(stockArray[i])
+            
+            if stockArray[i] < 0 {
+                stockArray[i] = 0
+            }
+            //print(stockArray[i])
+            
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(stockArray[i]))
             dataEntries.append(dataEntry)
-            //print(model.stocks[i])
         }
         
         
@@ -83,14 +91,12 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         //그래프 색 변경 부분
         
-        print(model.stocks[1])
+        //print(model.stocks[1])
         
         for i in 0..<model.stocks.count {
             chartDataSet.colors = [setColor(value: Double(model.stocks[i]))]
         }
         
-//        chartDataSet.colors = [setColor(value: Double(model.stocks[0])),setColor(value: Double(model.stocks[1])),setColor(value: Double(model.stocks[2])),setColor(value: Double(model.stocks[3])),setColor(value: Double(model.stocks[4])),setColor(value: Double(model.stocks[5])),setColor(value: Double(model.stocks[6]))]
-//
         
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
@@ -106,11 +112,16 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.leftAxis.drawGridLinesEnabled = false
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
+        let  xAxis : XAxis = self.ivChartView.xAxis
+        xAxis.labelFont = UIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
+        xAxis.axisLineWidth = 0.5
+        xAxis.axisLineColor = .pinkishGrey
+        
         
         //밑에 데이터셋 제거
         ivChartView.legend.enabled = false
         
-        chartData.barWidth = 0.2
+        chartData.barWidth = 0.3
         
         let ll = ChartLimitLine(limit: Double(model.alarmCnt), label: "")
         limitLine = ll

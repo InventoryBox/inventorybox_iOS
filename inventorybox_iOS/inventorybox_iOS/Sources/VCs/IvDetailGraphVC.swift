@@ -92,17 +92,17 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //        print(row)
 //        print(status)
         clickBtnWeek = row
-        print("notiLoading")
-        print("dd\(status)")
+       // print("notiLoading")
+        // print("dd\(status)")
         
         // 초기 상태값으로 움직임
         if status == false {
              for i in 0...weekArray.count - 1{
                  if clickBtnWeek == i  {
                      reloadArray.remove(at: i)
-                     print(reloadArray)
+                     //print(reloadArray)
                      self.reloadArray.sort{$0.itemIndex! < $1.itemIndex!}
-                     print(reloadArray)
+                     //print(reloadArray)
                      ivDetilTV.reloadData()
                  }
              }
@@ -112,9 +112,9 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
              for i in 0...weekArray.count - 1{
                  if clickBtnWeek == i {
                      reloadArray.append(weekArray[i])
-                     print(reloadArray)
+                     //print(reloadArray)
                      self.reloadArray.sort{$0.itemIndex! < $1.itemIndex!}
-                     print(reloadArray)
+                     //print(reloadArray)
                      ivDetilTV.reloadData()
                  }
              }
@@ -176,7 +176,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         selectedFirstWeekTextField = week
         
         
-        print(selectedFirstMonthTextField)
+        //print(selectedFirstMonthTextField)
         ivDetilTV.reloadData()
         
     }
@@ -195,7 +195,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             selectedSecondWeekTextField = secondWeek
           
 
-            print(selectedSecondMonthTextField)
+            //print(selectedSecondMonthTextField)
             
             ivDetilTV.reloadData()
     }
@@ -217,7 +217,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         selectedMonthTextField = firstMonth
         
-        print(selectedYearTextField)
+        //print(selectedYearTextField)
         
         //선택적 그래프 통신 시작
         SingleGraphLoadService.shared.loadCompareGraph(itemIdx!, Int(selectedYearTextField)!, Int(selectedMonthTextField)!, completion:  { networkResult in
@@ -227,7 +227,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                            return }
                        
                        self.itemWeekData = [singleGraphData]
-                       print("+++" + "\(self.itemWeekData)")
+                       //print("+++" + "\(self.itemWeekData)")
                        
                        DispatchQueue.main.async {
                            //self.reloadArray = self.itemWeekData
@@ -236,7 +236,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                            self.ivDetilTV.reloadData()
                        }
                        
-                       print(12345)
+                       //print(12345)
                     
                    case .requestErr(let message):
                        guard let message = message as? String else {return}
@@ -294,14 +294,14 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             case .success(let data):
                 guard let compareData = data as? CompareWeekData else {
                     return}
-                print(compareData.week1)
+               // print(compareData.week1)
                 self.compareGraphWeek1Array = compareData.week1
                 self.compareGraphWeek2Array = compareData.week2
-                print(self.compareGraphWeek1Array)
-                print(self.compareGraphWeek2Array)
+               // print(self.compareGraphWeek1Array)
+               // print(self.compareGraphWeek2Array)
                 DispatchQueue.main.async {
                     self.ivDetilTV.reloadData()
-                    print(self.compareGraphWeek1Array)
+                   // print(self.compareGraphWeek1Array)
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -413,7 +413,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         else if indexPath.section == 1 {
             let IvWeekCompareGraphTVCell = tableView.dequeueReusableCell(withIdentifier: "IvWeekCompareGraphTVCell") as! IvWeekCompareGraphTVCell
             
-            print(selectedSecondWeekTextField)
+            //print(selectedSecondWeekTextField)
             
             let valFormatter = NumberFormatter()
             valFormatter.numberStyle = .currency

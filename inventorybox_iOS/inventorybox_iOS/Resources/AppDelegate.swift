@@ -11,6 +11,16 @@ import RxKakaoSDKCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var email:String?
+    var password:String?
+    var nickName:String?
+    var repName:String?
+    var coName:String?
+    var imgName:String?
+    var img:UIImage?
+    var phoneNumber:String?
+    var pushAlarm:Int?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

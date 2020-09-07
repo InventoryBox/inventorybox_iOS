@@ -197,6 +197,8 @@ class IvProductRegistVC: UIViewController,UIImagePickerControllerDelegate, UINav
             return}
         print("hello")
         
+        print(productImg)
+        
         IvExchangePostService.shared.uploadIvExchangePost(productImageName, productImage!, productName, isFood, price, quantity, expDateMemorize, textDesctiption, coverPrice, unit, completion: { networkResult in
             switch networkResult{
             case .success(let token):
