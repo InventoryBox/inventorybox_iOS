@@ -163,7 +163,6 @@
 		D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */; };
 		D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */; };
 		D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */; };
-		D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */; };
 		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
 		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
 /* End PBXBuildFile section */
@@ -340,7 +339,6 @@
 		D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordAddProductVC.swift; sourceTree = "<group>"; };
 		D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCategoryPopupVC.swift; sourceTree = "<group>"; };
-		D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -588,7 +586,6 @@
 			isa = PBXGroup;
 			children = (
 				D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */,
-				D4EC097524B6774D0063C05B /* DeleteCategoryPopupVC.swift */,
 				D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */,
 				D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */,
 				D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */,
@@ -1054,7 +1051,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
 				0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
