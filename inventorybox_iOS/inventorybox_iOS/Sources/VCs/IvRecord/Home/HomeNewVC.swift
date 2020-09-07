@@ -63,7 +63,11 @@ class HomeNewVC: UIViewController {
             self.present(profileVC, animated: true, completion: nil)
             
         case .myInfo:
-            print("sss")
+            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+            
+            myInfoVC.modalPresentationStyle = .fullScreen
+            self.present(myInfoVC, animated: true, completion: nil)
+            
         case .post:
             print("")
         case .change:

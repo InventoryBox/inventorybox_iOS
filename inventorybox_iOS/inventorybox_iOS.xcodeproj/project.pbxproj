@@ -22,6 +22,7 @@
 		0E1EE8D3250378CE00859E68 /* SideMenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8D2250378CE00859E68 /* SideMenuTVCell.swift */; };
 		0E1EE8D5250496AD00859E68 /* HomeSlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8D4250496AD00859E68 /* HomeSlideTransition.swift */; };
 		0E1EE8D72504C23E00859E68 /* HomeSideProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8D62504C23E00859E68 /* HomeSideProfileVC.swift */; };
+		0E1EE8D92505175000859E68 /* HomeSideMyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8D82505175000859E68 /* HomeSideMyInfoVC.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -194,6 +195,7 @@
 		0E1EE8D2250378CE00859E68 /* SideMenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVCell.swift; sourceTree = "<group>"; };
 		0E1EE8D4250496AD00859E68 /* HomeSlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSlideTransition.swift; sourceTree = "<group>"; };
 		0E1EE8D62504C23E00859E68 /* HomeSideProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideProfileVC.swift; sourceTree = "<group>"; };
+		0E1EE8D82505175000859E68 /* HomeSideMyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSideMyInfoVC.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				0E6BE5E824EBD97600D4723D /* HomeNewVC.swift */,
 				0E1EE8D02500F3CF00859E68 /* HomeNewSideMenuVC.swift */,
 				0E1EE8D62504C23E00859E68 /* HomeSideProfileVC.swift */,
+				0E1EE8D82505175000859E68 /* HomeSideMyInfoVC.swift */,
 				0EB0CF3024B0FC09009B089A /* HomeVC.swift */,
 				0E4A830024BD7C40001E38B7 /* SideMenuVC.swift */,
 			);
@@ -1104,6 +1107,7 @@
 				D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */,
 				0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */,
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
+				0E1EE8D92505175000859E68 /* HomeSideMyInfoVC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
