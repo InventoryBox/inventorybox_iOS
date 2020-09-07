@@ -13,6 +13,7 @@ class DeleteCategoryPopVC: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     var categories = [CategoryInfo]()
+    var categoryToDelete = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +45,10 @@ class DeleteCategoryPopVC: UIViewController {
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        NotificationCenter.default.post(name: .init("popupFromDeleteCateToEditCate"), object: self)
+        NotificationCenter.default.post(name: .init("popupFromDeleteCateToEditCate"),  object: self, userInfo: ["categoryToDelete": categoryToDelete])
         self.dismiss(animated: false, completion: nil)
     }
-
+    
 }
 
 extension DeleteCategoryPopVC: UITableViewDataSource {
@@ -57,9 +58,10 @@ extension DeleteCategoryPopVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let categoryCell = tableView.dequeueReusableCell(withIdentifier: DeleteCategoryCell.identifier, for: indexPath) as? DeleteCategoryCell else { return UITableViewCell() }
         categoryCell.delegate = self
-        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name, idx: categories[indexPath.row].categoryIdx)
+        categoryCell.setCellInformation(categoryInfo: categories[indexPath.row].name)
         categoryCell.isWhole = 0 == indexPath.row
         categoryCell.indexpath = indexPath.row
+        categoryCell.categoryIdx = categories[indexPath.row].categoryIdx
         return categoryCell
     }
     
@@ -72,11 +74,35 @@ extension DeleteCategoryPopVC: UITableViewDelegate {
 }
 
 extension DeleteCategoryPopVC: CategoryButtonDelegate {
-    func didDeleteCategoryBtnPressed(categoryName: String, indexPath: Int) {
-//        if self.categories.contains(categoryName) {
-//            guard let i = self.categories.firstIndex(of: categoryName) else { return }
-//            self.categories.remove(at: i)
-//        }
+    func didDeleteCategoryBtnPressed(categoryName: String, indexPath: Int, idx: Int) {
+        
+        IvRecordDeleteCateService.shared.deleteCate(idx: idx) { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                print(data)
+            case .requestErr(let message):
+                guard let message = message as? String else { return }
+                let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                alertViewController.addAction(action)
+                self.present(alertViewController, animated: true, completion: nil)
+
+            case .pathErr: print("path")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+        categoryToDelete.append(idx)
+        if categories.contains(where: { (category) -> Bool in
+            return category.categoryIdx == idx
+        }) {
+            let index = categories.firstIndex { (category) -> Bool in
+                return category.categoryIdx == idx
+            }
+            if let i = index {
+                categories.remove(at: i)
+            }
+        }
         categoryTableView.reloadData()
     }
 }

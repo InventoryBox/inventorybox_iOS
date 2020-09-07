@@ -15,9 +15,11 @@ struct APIConstants {
     //로그인
     static let loginURL = baseURL + "auth/signin"
     // 회원가입 이메일 인증
-    static let emailURL = baseURL + "auth/email"
+    static let emailURL = baseURL + "auth/email/signup"
     // 회원가입
-    static let signinURL = baseURL + "auth/signup"
+    static let signupURL = baseURL + "auth/signup"
+    // 닉네임 중복 체크
+    static let nicknameCheckURL = baseURL + "auth/nickname"
     
     // Home
      static let ivHomeURL = baseURL + "item/order" //
@@ -41,9 +43,13 @@ struct APIConstants {
     //재고기록 (기록수정 & 오늘 재고 기록_완료)
     static let inventoryRecordModifyURL = baseURL + "record/modify" // ⭕️ -> 오늘 재고 기록 완료는 테스트 불가여서 오류처리 아직 안함
     //재고기록 (재료 삭제)
-    static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete"
+    static let inventoryRecordItemDeleteURL = baseURL + "record/item-delete/"
     //재고기록 (카테고리 추가)
     static let inventoryRecordCategoryAddURL = baseURL + "record/category-add"
+    //재고기록 (카테고리 이동)
+    static let inventoryRecordCategoryMoveURL = baseURL + "record/category-move"
+    //재고기록 (카테고리 삭제)
+    static let inventoryRecordCategoryDeleteURL = baseURL + "record/category-delete/"
     //재고량 추이 홈 
     static let inventoryGraphHomeURL = baseURL + "dashboard"
     //재고량 추이 선택적 그래프

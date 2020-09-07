@@ -36,32 +36,4 @@ class CalendarCVCell: UICollectionViewCell {
             dayLabel.textColor = .charcoal
         }
     }
-    
-    
-//    func bind (model: [String]){
-//        //  guard let nameURL = URL(string: model) else { return }
-//        let calendar = Calendar.current
-//        let day = calendar.component(.day, from: date)
-//
-//        for i in 0...model.count - 1 {
-//          //  print(day)
-//
-//
-//            if (model[i] == "\(day)"){
-//                print(model[i])
-//                selectImg.image = UIImage(named: "dataShapeDateYellow")
-//                print("dataShapeDateYellow")
-//                dayOfWeekLabel.textColor = .white
-//                dayLabel.textColor = .white
-//            }
-//            else{
-//                print(model[i])
-//                selectImg.image = UIImage(named: "dataShapeDateWhite")
-//                print("dataShapeDateWhite")
-//                dayOfWeekLabel.textColor = .noname
-//                dayLabel.textColor = .charcoal
-//            }
-//        }
-//    }
-//
 }

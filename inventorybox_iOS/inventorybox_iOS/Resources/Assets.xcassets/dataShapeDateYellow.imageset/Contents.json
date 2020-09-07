@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "dataShapeDateYellow.png"
-    },
-    {
-      "filename" : "dataShapeDateYellow@2x.png",
-      "scale" : "2x",
+      "filename" : "dataShapeDateYellow.png",
       "idiom" : "universal"
     },
     {
-      "scale" : "3x",
+      "filename" : "dataShapeDateYellow@2x.png",
       "idiom" : "universal",
-      "filename" : "dataShapeDateYellow@3x.png"
+      "scale" : "2x"
+    },
+    {
+      "filename" : "dataShapeDateYellow@3x.png",
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {

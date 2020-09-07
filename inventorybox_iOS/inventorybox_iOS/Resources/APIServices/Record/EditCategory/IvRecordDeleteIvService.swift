@@ -11,18 +11,13 @@ import Alamofire
 
 struct IvRecordDeleteIvService {
     static let shared = IvRecordDeleteIvService()
-    private func makeParameter(idxList: [Int]) -> Parameters{
-        
-        return ["itemIdxList": idxList]
-        
-    }
+    
     func deleteIv(idxList: [Int], completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.inventoryRecordItemDeleteURL
-        
-        let dataRequest = Alamofire.request(url, method: .delete, parameters: makeParameter(idxList: idxList), encoding: JSONEncoding.default, headers: header)
+        let url = APIConstants.inventoryRecordItemDeleteURL + "\(idxList)".replacingOccurrences(of: " ", with: "")
+        let dataRequest = Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {

@@ -37,10 +37,26 @@ class IvTodayRecordVC: UIViewController {
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
         }
+        
+    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        makeShadowUnderOutView()
+        setInventoryTodayRecordTableView()
+        customCompleteBtn()
+        NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromAddIvToToday), name: .init("sendDataFromAddIvToToday"), object: nil)
         // 키보드 올리는 함수
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+    }
+    
+    @objc func sendDataFromAddIvToToday(_ sender: Notification) {
+        self.getDataFromServer()
     }
     
     @objc func keyboardWillShow(_ sender: Notification) {
@@ -55,16 +71,6 @@ class IvTodayRecordVC: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        makeShadowUnderOutView()
-        setInventoryTodayRecordTableView()
-        customCompleteBtn()
-        
-    }
-    
     private func filteredArraySelections(with array: [TodayItemInfo] = []) {
         inventoryFilteredArray = array
         for i in 0..<inventoryFilteredArray.count {
@@ -156,7 +162,7 @@ class IvTodayRecordVC: UIViewController {
             }
         })
         
-        let seconds = 0.2
+        let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             NotificationCenter.default.post(name: .init("sendDataFromTodayRecordToHome"), object: nil)
             self.dismiss(animated: true)

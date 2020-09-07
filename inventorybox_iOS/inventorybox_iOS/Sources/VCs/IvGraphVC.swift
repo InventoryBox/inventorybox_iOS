@@ -9,7 +9,6 @@
 import UIKit
 import Charts
 import Kingfisher
-//import TTGTagCollectionView
 
 
 
@@ -20,6 +19,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet var calendarCollectionView: UICollectionView!
     @IBOutlet var ivDataTableView: UITableView!
     @IBOutlet var tagCollectionView: UICollectionView!
+    @IBOutlet var thisMonthLabel: UILabel!
+    @IBOutlet var thisWeekLabel: UILabel!
     
     
     private var dayList: [String] = []
@@ -31,7 +32,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             tagCollectionView.reloadData()
             tagCollectionView.delegate = self
             tagCollectionView.dataSource = self
-//            tagCollectionView.reloadData()
             tagCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
 
             collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
@@ -63,17 +63,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         //collectionView 정의
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-        calendarCollectionView.layer.cornerRadius = 10
-//        calendarCollectionView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0) as! CGColor
-        calendarCollectionView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        calendarCollectionView.layer.shadowOpacity = 0.1
-        calendarCollectionView.layer.shadowRadius = 3
         calendarCollectionView.clipsToBounds = false
         calendarCollectionView.layer.masksToBounds = false
-       
-        //day 데이터 setting
-        
-        
         
         //tableView
         ivDataTableView.delegate = self
@@ -95,7 +86,10 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         getDataFromServer()
         print(dayList.count)
         print(itemList.count)
+        
+        setWeekInfo()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -110,14 +104,11 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 print(token)
                 guard let data = token as? ThisWeekData else {return}
                 self.dayList = data.thisWeekDates
-                print(self.dayList)
                 self.itemList = data.itemInfo
                 self.tagArray = data.categoryInfo
-                print(self.tagArray.count)
-                print(self.tagArray)
                 DispatchQueue.main.async {
                     self.calendarCollectionView.reloadData()
-//                    self.tagCollectionView.reloadData()
+                    print("여기 dayList",self.dayList)
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -131,10 +122,45 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         }
     }
    
+    //달력 왼쪽 month정보, week정보를 set해주는 함수
+    func setWeekInfo(){
+        let date = Date()
+        let calendar = Calendar.current
+        let weekOfMonth = calendar.component(.weekOfMonth, from: date)
+        let month = calendar.component(.month, from: date)
+        print(weekOfMonth)
+        print(month)
+        
+        if month < 10 {
+            thisMonthLabel.text = "\(0)"+"\(month)"
+        }
+        else {
+            thisMonthLabel.text = "\(month)"
+        }
+        
+        if weekOfMonth == 1 {
+            thisWeekLabel.text = "첫째주"
+        }
+        else if weekOfMonth == 2 {
+            thisWeekLabel.text = "둘째주"
+        }
+        else if weekOfMonth == 3 {
+            thisWeekLabel.text = "셋째주"
+        }
+        else if weekOfMonth == 4 {
+            thisWeekLabel.text = "넷째주"
+        }
+        else {
+            thisWeekLabel.text = "다섯째주"
+        }
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
+            print(dayList.count)
+            print("여기댜!!!!!!")
             return dayList.count
         }
         
@@ -229,7 +255,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
            return 60
         }
         else {
-            return 142
+            return 194
         }
         
     }

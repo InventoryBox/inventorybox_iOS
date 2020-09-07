@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LBG-tb-cMY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LBG-tb-cMY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -831,7 +831,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv7-g5-g1D">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="7" height="47"/>
                                         <state key="normal" backgroundImage="postBtnBack"/>
                                         <connections>
                                             <action selector="backBtnPressed:" destination="QD1-7F-WQs" eventType="touchUpInside" id="7rI-g8-Jb4"/>
@@ -984,7 +984,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-tg-On0">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="7" height="47"/>
                                         <state key="normal" backgroundImage="postBtnBack"/>
                                         <connections>
                                             <action selector="backBtnPressed:" destination="QD1-7F-WQs" eventType="touchUpInside" id="Vk0-OC-5XU"/>
@@ -2015,7 +2015,7 @@
         <image name="imgName" width="62" height="14"/>
         <image name="imgShop" width="62" height="14"/>
         <image name="locationsetIcLocation" width="20" height="20"/>
-        <image name="postBtnBack" width="40" height="44"/>
+        <image name="postBtnBack" width="7" height="12"/>
         <image name="postShape" width="8" height="16"/>
         <image name="postingBtnPlus" width="32" height="32"/>
         <namedColor name="brownGrey">

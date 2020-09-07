@@ -39,13 +39,14 @@ class DeleteCategoryCell: UITableViewCell {
         self.roundView.layer.cornerRadius = 8
     }
     
-    func setCellInformation(categoryInfo: String, idx: Int) {
+    func setCellInformation(categoryInfo: String) {
         
         categoryLabel.text = categoryInfo
-        categoryIdx = idx
     }
+    
     @IBAction func deleteCategoryBtn(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-        delegate?.didDeleteCategoryBtnPressed(categoryName: name, indexPath: indexpath!)
+        delegate?.didDeleteCategoryBtnPressed(categoryName: name, indexPath: indexpath!, idx: categoryIdx!)
     }
+    
 }

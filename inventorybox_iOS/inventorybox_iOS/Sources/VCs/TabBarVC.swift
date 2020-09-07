@@ -24,8 +24,8 @@ class TabBarVC: UITabBarController {
         
         // 1
         let Homes = UIStoryboard.init(name: "Homes", bundle: nil)
-        guard let firstTab = Homes.instantiateViewController(identifier: "HomeVC")
-            as? HomeVC  else {
+        guard let firstTab = Homes.instantiateViewController(identifier: "HomeNewVC")
+            as? HomeNewVC  else {
                 return
         }
         firstTab.tabBarItem.title = "홈"

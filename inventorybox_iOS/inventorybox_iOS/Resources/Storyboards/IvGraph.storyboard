@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ty-Ls-bmu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ty-Ls-bmu">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NanumSquareBold.ttf">
+            <string>NanumSquareB</string>
+        </array>
+        <array key="NanumSquareExtraBold.ttf">
+            <string>NanumSquareEB</string>
+        </array>
         <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
@@ -16,24 +23,24 @@
         <!--Iv GraphVC-->
         <scene sceneID="d6p-76-N2U">
             <objects>
-                <viewController storyboardIdentifier="IvGraphVC" id="dCX-bC-nvi" customClass="IvGraphVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvGraphVC" id="dCX-bC-nvi" customClass="IvGraphVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFR-Bs-FZK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Uh-Xs-MSh">
                                 <rect key="frame" x="0.0" y="183" width="375" height="484"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemDataCell" rowHeight="142" id="2se-z0-BJF" customClass="IvGraphTVCell" customModule="재고창고" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="142"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemDataCell" rowHeight="194" id="2se-z0-BJF" customClass="IvGraphTVCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2se-z0-BJF" id="Nj0-8G-G8J">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ug8-Q1-XKx">
-                                                    <rect key="frame" x="16" y="4" width="343" height="134"/>
+                                                    <rect key="frame" x="16" y="12" width="343" height="170"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataIcMilk" translatesAutoresizingMaskIntoConstraints="NO" id="IrE-8U-bGf">
                                                             <rect key="frame" x="12" y="12" width="24" height="24"/>
@@ -44,74 +51,83 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-Qg-rFb">
-                                                            <rect key="frame" x="38" y="16" width="24.5" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="38" y="16" width="28" height="19"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="16"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vck-K9-IX3">
-                                                            <rect key="frame" x="235.5" y="18" width="95.5" height="20"/>
+                                                            <rect key="frame" x="234" y="18" width="97" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 알림 개수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJN-Pm-5Os">
-                                                                    <rect key="frame" x="2.5" y="4" width="58" height="12"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="4PG-Kz-og1"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="10"/>
+                                                                    <color key="textColor" red="0.50588235294117645" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataShapeNumber01" translatesAutoresizingMaskIntoConstraints="NO" id="1PH-fm-fQ2">
-                                                                    <rect key="frame" x="65.5" y="0.0" width="30" height="20"/>
-                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKF-NU-Psx">
-                                                                    <rect key="frame" x="76.5" y="3" width="8" height="13"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="9.5" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="9.5" id="NHR-07-GB9"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="15"/>
+                                                                    <color key="textColor" red="0.50588235290000005" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataShapeNumber01" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-q2-yCb">
+                                                                    <rect key="frame" x="77" y="0.0" width="20" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="vUn-wl-Phz"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="MJN-Pm-5Os" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" constant="4" id="09k-Vk-RJn"/>
-                                                                <constraint firstAttribute="bottom" secondItem="1PH-fm-fQ2" secondAttribute="bottom" id="3Ao-VB-Akc"/>
-                                                                <constraint firstAttribute="bottom" secondItem="MJN-Pm-5Os" secondAttribute="bottom" constant="4" id="XpI-zs-RZy"/>
-                                                                <constraint firstItem="oKF-NU-Psx" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" constant="3" id="aAk-Xj-0Ps"/>
-                                                                <constraint firstAttribute="trailing" secondItem="1PH-fm-fQ2" secondAttribute="trailing" id="een-sW-rHK"/>
-                                                                <constraint firstAttribute="bottom" secondItem="oKF-NU-Psx" secondAttribute="bottom" constant="4" id="gOO-Xs-397"/>
-                                                                <constraint firstItem="oKF-NU-Psx" firstAttribute="leading" secondItem="MJN-Pm-5Os" secondAttribute="trailing" constant="16" id="ngh-lk-yys"/>
-                                                                <constraint firstItem="1PH-fm-fQ2" firstAttribute="leading" secondItem="MJN-Pm-5Os" secondAttribute="trailing" constant="5" id="qXn-bd-nfX"/>
-                                                                <constraint firstItem="1PH-fm-fQ2" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" id="s6v-JQ-PJI"/>
-                                                                <constraint firstAttribute="trailing" secondItem="oKF-NU-Psx" secondAttribute="trailing" constant="11" id="sH5-Nv-11p"/>
+                                                                <constraint firstItem="MJN-Pm-5Os" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" id="09k-Vk-RJn"/>
+                                                                <constraint firstAttribute="bottom" secondItem="EG0-q2-yCb" secondAttribute="bottom" id="6jG-SC-pUk"/>
+                                                                <constraint firstItem="EG0-q2-yCb" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" id="PH9-ZW-bwY"/>
+                                                                <constraint firstItem="MJN-Pm-5Os" firstAttribute="leading" secondItem="vck-K9-IX3" secondAttribute="leading" id="QUS-Ml-0tY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="EG0-q2-yCb" secondAttribute="trailing" id="RIo-TR-MOp"/>
+                                                                <constraint firstAttribute="bottom" secondItem="MJN-Pm-5Os" secondAttribute="bottom" id="XpI-zs-RZy"/>
+                                                                <constraint firstItem="oKF-NU-Psx" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="top" id="aAk-Xj-0Ps"/>
+                                                                <constraint firstItem="EG0-q2-yCb" firstAttribute="leading" secondItem="oKF-NU-Psx" secondAttribute="trailing" constant="3.5" id="drJ-p1-aF7"/>
+                                                                <constraint firstAttribute="bottom" secondItem="oKF-NU-Psx" secondAttribute="bottom" id="gOO-Xs-397"/>
+                                                                <constraint firstItem="oKF-NU-Psx" firstAttribute="leading" secondItem="MJN-Pm-5Os" secondAttribute="trailing" constant="4" id="ngh-lk-yys"/>
+                                                                <constraint firstAttribute="trailing" secondItem="EG0-q2-yCb" secondAttribute="trailing" id="w3d-K0-wzA"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd1-fp-zOc" customClass="BarChartView" customModule="Charts">
-                                                            <rect key="frame" x="12" y="48" width="319" height="74"/>
+                                                            <rect key="frame" x="12" y="64" width="319" height="86"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="pd1-fp-zOc" firstAttribute="trailing" secondItem="vck-K9-IX3" secondAttribute="trailing" id="4Fb-xN-D1f"/>
+                                                        <constraint firstItem="pd1-fp-zOc" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="bottom" constant="26" id="4Gp-cy-sP4"/>
                                                         <constraint firstAttribute="trailing" secondItem="vck-K9-IX3" secondAttribute="trailing" constant="12" id="And-zN-3Ak"/>
                                                         <constraint firstItem="vck-K9-IX3" firstAttribute="top" secondItem="Ug8-Q1-XKx" secondAttribute="top" constant="18" id="VDS-bK-Awb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="pd1-fp-zOc" secondAttribute="bottom" constant="20" id="WHg-Gt-BZT"/>
                                                         <constraint firstItem="IrE-8U-bGf" firstAttribute="leading" secondItem="Ug8-Q1-XKx" secondAttribute="leading" constant="12" id="YDK-4v-cEY"/>
                                                         <constraint firstItem="IrE-8U-bGf" firstAttribute="top" secondItem="Ug8-Q1-XKx" secondAttribute="top" constant="12" id="a8L-To-sLH"/>
-                                                        <constraint firstItem="pd1-fp-zOc" firstAttribute="top" secondItem="IrE-8U-bGf" secondAttribute="bottom" constant="12" id="bOD-0d-PXX"/>
                                                         <constraint firstItem="6Qf-Qg-rFb" firstAttribute="leading" secondItem="IrE-8U-bGf" secondAttribute="trailing" constant="2" id="bYX-cR-wE0"/>
                                                         <constraint firstItem="pd1-fp-zOc" firstAttribute="leading" secondItem="Ug8-Q1-XKx" secondAttribute="leading" constant="12" id="ePB-gh-agI"/>
-                                                        <constraint firstAttribute="bottom" secondItem="pd1-fp-zOc" secondAttribute="bottom" constant="12" id="ePi-g4-0I2"/>
                                                         <constraint firstAttribute="trailing" secondItem="pd1-fp-zOc" secondAttribute="trailing" constant="12" id="eZ2-B1-FBF"/>
                                                         <constraint firstItem="6Qf-Qg-rFb" firstAttribute="top" secondItem="Ug8-Q1-XKx" secondAttribute="top" constant="16" id="hqm-Lg-8Tr"/>
-                                                        <constraint firstItem="vck-K9-IX3" firstAttribute="leading" secondItem="6Qf-Qg-rFb" secondAttribute="trailing" constant="173" id="kav-Fq-1Zz"/>
-                                                        <constraint firstItem="pd1-fp-zOc" firstAttribute="top" secondItem="6Qf-Qg-rFb" secondAttribute="bottom" constant="12" id="nug-LC-IC9"/>
-                                                        <constraint firstItem="pd1-fp-zOc" firstAttribute="top" secondItem="vck-K9-IX3" secondAttribute="bottom" constant="10" id="qc2-kT-gvX"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Ug8-Q1-XKx" secondAttribute="bottom" constant="4" id="07f-rA-c5g"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ug8-Q1-XKx" secondAttribute="bottom" constant="12" id="07f-rA-c5g"/>
                                                 <constraint firstItem="Ug8-Q1-XKx" firstAttribute="leading" secondItem="Nj0-8G-G8J" secondAttribute="leading" constant="16" id="2eL-jG-tOd"/>
-                                                <constraint firstItem="Ug8-Q1-XKx" firstAttribute="top" secondItem="Nj0-8G-G8J" secondAttribute="top" constant="4" id="8Pu-7e-hAv"/>
+                                                <constraint firstItem="Ug8-Q1-XKx" firstAttribute="top" secondItem="Nj0-8G-G8J" secondAttribute="top" constant="12" id="8Pu-7e-hAv"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ug8-Q1-XKx" secondAttribute="trailing" constant="16" id="hBW-QN-DOY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="itemAlarmCountLabel" destination="oKF-NU-Psx" id="xOB-1v-8vZ"/>
                                             <outlet property="itemImg" destination="IrE-8U-bGf" id="Wdj-gI-llc"/>
@@ -120,27 +136,27 @@
                                             <outlet property="roundView" destination="Ug8-Q1-XKx" id="OFn-cg-SLr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="headerCell" rowHeight="60" id="OzM-li-HRg" customClass="IvTVHeaderCell" customModule="재고창고" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="170" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="headerCell" rowHeight="60" id="OzM-li-HRg" customClass="IvTVHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="222" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OzM-li-HRg" id="34H-i2-QS3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 하단의 그래프는 주문알림 개수 이하일 때를 표시한 것이며,     노란색 그래프 간의 간격을 통해 발주일 파악이 용이합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcU-gK-rIj">
-                                                    <rect key="frame" x="23" y="16" width="244" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 하단 그래프의 노란색 가로선은 '발주 알림 개수'를 표시한 것이며,     노란색 막대 그래프의 간격을 통해 '발주일 간격 파악'이 용이합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcU-gK-rIj">
+                                                    <rect key="frame" x="23" y="16" width="303" height="28"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="11"/>
+                                                    <color key="textColor" name="greyisbrown"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="AcU-gK-rIj" secondAttribute="bottom" constant="16" id="4jY-Tg-BdH"/>
-                                                <constraint firstAttribute="trailing" secondItem="AcU-gK-rIj" secondAttribute="trailing" constant="108" id="6DX-dm-1hz"/>
                                                 <constraint firstItem="AcU-gK-rIj" firstAttribute="top" secondItem="34H-i2-QS3" secondAttribute="top" constant="16" id="9w7-m0-c3z"/>
                                                 <constraint firstItem="AcU-gK-rIj" firstAttribute="leading" secondItem="34H-i2-QS3" secondAttribute="leading" constant="23" id="oo4-R6-t2T"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="ivItemTVheaderLabel" destination="AcU-gK-rIj" id="HKU-ZW-YXl"/>
                                         </connections>
@@ -151,17 +167,17 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="139"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-CG-wb2">
-                                        <rect key="frame" x="23" y="27" width="42.5" height="37"/>
+                                        <rect key="frame" x="23" y="27" width="42" height="37"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                         <color key="textColor" red="0.25490196078431371" green="0.27843137254901962" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="dataShapeDivide01" translatesAutoresizingMaskIntoConstraints="NO" id="aRw-oI-xtg">
-                                        <rect key="frame" x="79.5" y="42" width="2" height="25"/>
+                                        <rect key="frame" x="79" y="42" width="2" height="25"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첫째주" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb1-5c-0sK">
-                                        <rect key="frame" x="22" y="65" width="44.5" height="20"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                        <rect key="frame" x="22" y="65" width="44" height="15.5"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="13"/>
                                         <color key="textColor" red="0.25490196078431371" green="0.27843137254901962" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -172,21 +188,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aPX-LX-B8J">
-                                        <rect key="frame" x="95.5" y="33" width="263.5" height="52"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aPX-LX-B8J">
+                                        <rect key="frame" x="95" y="33" width="264" height="52"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="Oca-bK-VcA"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="6" id="3bQ-aO-5Pb">
-                                            <size key="itemSize" width="34" height="42"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="4" minimumInteritemSpacing="4" id="3bQ-aO-5Pb">
+                                            <size key="itemSize" width="35" height="43"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="4" maxX="1" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="UEM-fC-U5j" customClass="CalendarCVCell" customModule="재고창고" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="4" width="34" height="42"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="UEM-fC-U5j" customClass="CalendarCVCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="7" width="34" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Cw3-8E-gJ8">
                                                     <rect key="frame" x="0.0" y="0.0" width="34" height="42"/>
@@ -196,15 +212,15 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="34" height="42"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpT-zK-nMn">
-                                                            <rect key="frame" x="13" y="6" width="9" height="9"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="13" y="6" width="9" height="10"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="10"/>
+                                                            <color key="textColor" red="0.50588235290000005" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc3-3v-9wh">
-                                                            <rect key="frame" x="10" y="21" width="15" height="15"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc3-3v-9wh">
+                                                            <rect key="frame" x="10" y="22" width="15" height="14"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -235,7 +251,7 @@
                                         </cells>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QM6-fj-Rpg">
-                                        <rect key="frame" x="8" y="102" width="351" height="23"/>
+                                        <rect key="frame" x="23" y="97.5" width="349" height="31.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nKJ-3H-afv">
                                             <size key="itemSize" width="63" height="19"/>
@@ -244,17 +260,17 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCollectionCell" id="tp5-N3-keC" customClass="TagCollectionViewCell" customModule="재고창고" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="2" width="63" height="19"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCollectionCell" id="tp5-N3-keC" customClass="TagCollectionViewCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="3.5" width="64" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zQw-9r-xBz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-UP-mAb">
-                                                            <rect key="frame" x="17" y="5" width="29" height="9"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-UP-mAb">
+                                                            <rect key="frame" x="17" y="5" width="30" height="15"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
+                                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -265,7 +281,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="hVY-UP-mAb" secondAttribute="bottom" constant="5" id="mrO-fD-Jjt"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="63" height="19"/>
+                                                <size key="customSize" width="64" height="25"/>
                                                 <connections>
                                                     <outlet property="tagNameLabel" destination="hVY-UP-mAb" id="3Ci-Mi-J5l"/>
                                                 </connections>
@@ -277,26 +293,27 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sb1-5c-0sK" firstAttribute="top" secondItem="2wm-yf-XfT" secondAttribute="top" constant="65" id="97O-zM-bGv"/>
                                     <constraint firstItem="aRw-oI-xtg" firstAttribute="top" secondItem="2wm-yf-XfT" secondAttribute="top" constant="42" id="ClL-WS-IOc"/>
-                                    <constraint firstAttribute="bottom" secondItem="QM6-fj-Rpg" secondAttribute="bottom" constant="14" id="HS1-QT-FAG"/>
-                                    <constraint firstAttribute="trailing" secondItem="QM6-fj-Rpg" secondAttribute="trailing" constant="16" id="NmT-BX-qCV"/>
-                                    <constraint firstAttribute="trailing" secondItem="aPX-LX-B8J" secondAttribute="trailing" constant="16" id="Ou5-O2-OSq"/>
+                                    <constraint firstAttribute="bottom" secondItem="QM6-fj-Rpg" secondAttribute="bottom" constant="10" id="HS1-QT-FAG"/>
+                                    <constraint firstAttribute="trailing" secondItem="QM6-fj-Rpg" secondAttribute="trailing" constant="3" id="NmT-BX-qCV"/>
                                     <constraint firstItem="sb1-5c-0sK" firstAttribute="top" secondItem="nMA-CG-wb2" secondAttribute="bottom" constant="1" id="PQp-Cb-63S"/>
                                     <constraint firstAttribute="bottom" secondItem="aRw-oI-xtg" secondAttribute="bottom" constant="72" id="QDn-od-1Qt"/>
                                     <constraint firstItem="nMA-CG-wb2" firstAttribute="leading" secondItem="2wm-yf-XfT" secondAttribute="leading" constant="23" id="S9T-YN-qMt"/>
                                     <constraint firstItem="aPX-LX-B8J" firstAttribute="leading" secondItem="aRw-oI-xtg" secondAttribute="trailing" constant="14" id="STU-YP-sNi"/>
+                                    <constraint firstAttribute="trailing" secondItem="aPX-LX-B8J" secondAttribute="trailing" constant="16" id="hLD-zg-HqC"/>
+                                    <constraint firstItem="QM6-fj-Rpg" firstAttribute="leading" secondItem="nMA-CG-wb2" secondAttribute="leading" id="nP7-Ft-pgz"/>
                                     <constraint firstItem="sb1-5c-0sK" firstAttribute="leading" secondItem="2wm-yf-XfT" secondAttribute="leading" constant="22" id="o8X-al-KbI"/>
                                     <constraint firstItem="aRw-oI-xtg" firstAttribute="leading" secondItem="nMA-CG-wb2" secondAttribute="trailing" constant="14" id="oT8-pD-K5p"/>
-                                    <constraint firstItem="QM6-fj-Rpg" firstAttribute="leading" secondItem="2wm-yf-XfT" secondAttribute="leading" constant="8" id="tkS-hf-Gwo"/>
                                     <constraint firstItem="QM6-fj-Rpg" firstAttribute="top" secondItem="sb1-5c-0sK" secondAttribute="bottom" constant="17" id="u8L-vQ-0Ya"/>
                                     <constraint firstItem="sb1-5c-0sK" firstAttribute="centerX" secondItem="nMA-CG-wb2" secondAttribute="centerX" id="u8P-lP-mA6"/>
                                     <constraint firstItem="aPX-LX-B8J" firstAttribute="top" secondItem="2wm-yf-XfT" secondAttribute="top" constant="33" id="wiT-pq-V0x"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Uh-Xs-MSh" firstAttribute="top" secondItem="2wm-yf-XfT" secondAttribute="bottom" id="179-hi-iac"/>
                             <constraint firstItem="2wm-yf-XfT" firstAttribute="top" secondItem="8kP-j3-m7d" secondAttribute="top" id="F38-yz-KDb"/>
@@ -316,6 +333,8 @@
                         <outlet property="headerView" destination="2wm-yf-XfT" id="4HM-Yx-82N"/>
                         <outlet property="ivDataTableView" destination="8Uh-Xs-MSh" id="VOV-ox-7Y6"/>
                         <outlet property="tagCollectionView" destination="QM6-fj-Rpg" id="tCP-Nn-7b8"/>
+                        <outlet property="thisMonthLabel" destination="nMA-CG-wb2" id="2Jb-0I-vjB"/>
+                        <outlet property="thisWeekLabel" destination="sb1-5c-0sK" id="CRj-j7-8SJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7w-To-yHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -325,7 +344,7 @@
         <!--Iv Detail GraphVC-->
         <scene sceneID="cOX-pA-0g1">
             <objects>
-                <viewController storyboardIdentifier="IvDetailGraphVC" id="pEf-dG-piS" customClass="IvDetailGraphVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvDetailGraphVC" id="pEf-dG-piS" customClass="IvDetailGraphVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oV5-AH-6Fl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,7 +358,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvDetailGraphTVHeaderCell" rowHeight="125" id="LGy-xh-88I" customClass="IvDetailGraphTVHeaderCell" customModule="재고창고" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvDetailGraphTVHeaderCell" rowHeight="125" id="LGy-xh-88I" customClass="IvDetailGraphTVHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGy-xh-88I" id="a7l-Xa-gVf">
@@ -416,7 +435,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeekInThisMonthCVCell" id="Jhl-nc-i34" customClass="WeekInThisMonthCVCell" customModule="재고창고" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeekInThisMonthCVCell" id="Jhl-nc-i34" customClass="WeekInThisMonthCVCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="2.5" width="72" height="45"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="j71-ms-h36">
@@ -486,7 +505,7 @@
                                             <outlet property="yearLabel" destination="A1O-Q9-u9S" id="cvJ-Ry-wJz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvDetailWeekGraphTVCell" rowHeight="185" id="Qif-t8-bZ1" customClass="IvDetailWeekGraphTVCell" customModule="재고창고" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvDetailWeekGraphTVCell" rowHeight="185" id="Qif-t8-bZ1" customClass="IvDetailWeekGraphTVCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="375" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qif-t8-bZ1" id="DNH-Y3-zJh">
@@ -665,7 +684,7 @@
                                             <outlet property="weekInfoLabel" destination="5ty-Ra-0oF" id="Dgg-Lt-mSD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IvWeekCompareGraphTVCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvWeekCompareGraphTVCell" rowHeight="319" id="JKa-Nw-Ddd" customClass="IvWeekCompareGraphTVCell" customModule="재고창고" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IvWeekCompareGraphTVCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvWeekCompareGraphTVCell" rowHeight="319" id="JKa-Nw-Ddd" customClass="IvWeekCompareGraphTVCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="338" width="375" height="319"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JKa-Nw-Ddd" id="rXZ-Eu-eU2">
@@ -944,7 +963,7 @@
                                             <outlet property="yearTextField" destination="9rh-nd-5Zo" id="U8B-5v-tbw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvEditTVCell" rowHeight="148" id="AMM-4v-E8t" customClass="IvEditTVCell" customModule="재고창고" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IvEditTVCell" rowHeight="148" id="AMM-4v-E8t" customClass="IvEditTVCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="657" width="375" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AMM-4v-E8t" id="fda-lz-uXR">
@@ -1095,7 +1114,7 @@
         <!--Iv GraphNC-->
         <scene sceneID="eYl-s5-2lv">
             <objects>
-                <navigationController storyboardIdentifier="IvGraphNC" automaticallyAdjustsScrollViewInsets="NO" id="2Ty-Ls-bmu" customClass="IvGraphNC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="IvGraphNC" automaticallyAdjustsScrollViewInsets="NO" id="2Ty-Ls-bmu" customClass="IvGraphNC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I7I-lS-lV2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1113,7 +1132,7 @@
         <!--Iv Compare GraphVC-->
         <scene sceneID="d3K-hY-7bw">
             <objects>
-                <viewController storyboardIdentifier="IvCompareGraphVC" id="PRf-Dp-KqX" customClass="IvCompareGraphVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvCompareGraphVC" id="PRf-Dp-KqX" customClass="IvCompareGraphVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wtP-sD-gKn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1187,7 +1206,7 @@
         <!--Iv Detail Graph Second CompareVC-->
         <scene sceneID="ijl-Im-T2L">
             <objects>
-                <viewController storyboardIdentifier="IvDetailGraphSecondCompareVC" id="2K1-dr-xoR" customClass="IvDetailGraphSecondCompareVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvDetailGraphSecondCompareVC" id="2K1-dr-xoR" customClass="IvDetailGraphSecondCompareVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MFe-PX-9KS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1258,7 +1277,7 @@
         <!--Iv Graph Detail PicekrVC-->
         <scene sceneID="8yx-4H-a9r">
             <objects>
-                <viewController storyboardIdentifier="IvGraphDetailPicekrVC" id="Io3-Od-ItR" customClass="IvGraphDetailPicekrVC" customModule="재고창고" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IvGraphDetailPicekrVC" id="Io3-Od-ItR" customClass="IvGraphDetailPicekrVC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t0E-oj-qxK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1333,6 +1352,9 @@
         <image name="dataFilterShapeDivide02" width="2" height="15"/>
         <image name="dataIcMilk" width="24" height="24"/>
         <image name="dataShapeDivide01" width="2" height="25"/>
-        <image name="dataShapeNumber01" width="30" height="20"/>
+        <image name="dataShapeNumber01" width="20" height="20"/>
+        <namedColor name="greyisbrown">
+            <color red="0.27799999713897705" green="0.27099999785423279" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -11,12 +11,21 @@ import RxKakaoSDKCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var email:String?
+    var password:String?
+    var nickName:String?
+    var repName:String?
+    var coName:String?
+    var imgName:String?
+    var img:UIImage?
+    var phoneNumber:String?
+    var pushAlarm:Int?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // 카카오 SDK 등록
         KakaoSDKCommon.shared.initSDK(appKey: "325b1b7f9db181c6401ad1a61a767c53")
-        Thread.sleep(forTimeInterval: 2.0)
         // Override point for customization after application launch.
         return true
     }
