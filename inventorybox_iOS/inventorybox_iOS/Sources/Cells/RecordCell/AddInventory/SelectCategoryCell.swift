@@ -17,6 +17,7 @@ class SelectCategoryCell: UITableViewCell {
     
     var delegate: CategoryButtonDelegate?
     var indexpath: Int?
+    var categoryIdx: Int?
     
     var isWhole: Bool = false {
         didSet {
@@ -49,7 +50,7 @@ class SelectCategoryCell: UITableViewCell {
     
     @IBAction func categorySelected(_ sender: Any) {
         guard let name = categoryLabel.text else { return }
-//        delegate?.didSelectCategory(categoryName: name, idx: categoryIdx!)
-        //        print("tap")
+        delegate?.didSelectCategory(categoryName: name, idx: categoryIdx!)
+        print("tap")
     }
 }

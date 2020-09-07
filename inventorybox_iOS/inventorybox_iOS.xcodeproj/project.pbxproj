@@ -402,7 +402,6 @@
 		3332402324B4A6D800C3B59C /* GraphCell */ = {
 			isa = PBXGroup;
 			children = (
-				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */,
 				3332402724B4A6D800C3B59C /* CalendarCVCell.swift */,
 				3332403024B4DCFD00C3B59C /* IvTVHeaderCell.swift */,
@@ -815,6 +814,7 @@
 			children = (
 				D46C957424B7141E004D1B38 /* ExchangeCell */,
 				3332406524B651F300C3B59C /* GraphDetailCell */,
+				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
 				D4DFE3C424B6599900D8795E /* RecordCell */,
 				D4933EFD24BD67E900FCB789 /* CategoryCell.swift */,

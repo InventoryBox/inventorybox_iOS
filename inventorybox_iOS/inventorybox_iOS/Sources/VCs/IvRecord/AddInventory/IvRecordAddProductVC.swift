@@ -16,6 +16,8 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var inventoryNameTextField: UITextField!
     @IBOutlet weak var lineUnderNameTextFieldView: UIView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var grayView: UIView!
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
     
@@ -35,12 +37,12 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var inventoryMinimumCountDetailLabel: UILabel!
     @IBOutlet weak var minimumCountMinusBtn: UIButton!
     @IBOutlet weak var minimumCountPlusBtn: UIButton!
-    @IBOutlet weak var minimumCountLabel: UILabel!
+    @IBOutlet weak var minimumCountLabel: UITextField!
     
     
     @IBOutlet weak var inventoryToBuyMinusBtn: UIButton!
     @IBOutlet weak var inventoryToBuyPlusBtn: UIButton!
-    @IBOutlet weak var inventoryToBuyLabel: UILabel!
+    @IBOutlet weak var inventoryToBuyLabel: UITextField!
     
     @IBOutlet weak var registerInventoryBtn: UIButton!
     
@@ -70,8 +72,28 @@ class IvRecordAddProductVC: UIViewController {
         setPopupBackgroundView()
         inventoryNameTextField.delegate = self
         unitTextField.delegate = self
+        minimumCountLabel.delegate = self
+        inventoryToBuyLabel.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(myTapMethod))
+        self.scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
+    @objc func keyboardWillShow(_ sender: Notification) {
+        let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    @objc func myTapMethod(sender: UITapGestureRecognizer) {
+            self.view.endEditing(true)
+    }
+
     private func getDataFromServer() {
         IvRecordAddIvService.shared.getRecordAddIv() { (networkResult) in
             switch networkResult {
@@ -144,6 +166,36 @@ class IvRecordAddProductVC: UIViewController {
         popupBackgroundView.alpha = 0
         self.view.bringSubviewToFront(popupBackgroundView)
         NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getIconIdx), name: .init("iconidx"), object: nil)
+        
+    }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+        
+        animatePopupBackground(false)
+        
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let name = info["categoryName"] as? String else { return }
+        guard let idx = info["categoryIdx"] as? Int else { return }
+        categoryLabel.text = name
+        categoryIdx = idx
+        
+    }
+    
+    @objc private func getIconIdx(_ notification: Notification) {
+        guard let info = notification.userInfo as? [String: Any] else { return }
+        guard let idx = info["iconIdx"] as? Int else { return }
+        iconIdx = idx
+        var temp: Int = 0
+        for i in 0..<iconArray.count {
+            if iconArray[i].iconIdx == idx {
+                temp = i
+                break
+            }
+        }
+        addIconBtn.setTitle("", for: .normal)
+        let url = URL(string: iconArray[temp].img)
+        self.iconImageView.kf.setImage(with: url)
         
     }
     
@@ -158,34 +210,6 @@ class IvRecordAddProductVC: UIViewController {
         
     }
     
-    @objc func didDisappearPopup(_ notification: Notification) {
-        
-        animatePopupBackground(false)
-        
-        guard let info = notification.userInfo as? [String: Any] else { return }
-        guard let name = info["categoryName"] as? String else { return }
-        categoryLabel.text = name
-        
-    }
-    @IBAction func addIconBtnPressed(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectIconVC")  else { return }
-        NotificationCenter.default.addObserver(self, selector: #selector(getIconIdx), name: .init("iconidx"), object: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func getIconIdx(_ notification: Notification) {
-        guard let info = notification.userInfo as? [String: Any] else { return }
-        guard let iconId = info["iconIdx"] as? Int else { return }
-        for i in 0..<iconArray.count {
-            if iconArray[i].iconIdx == iconId {
-                iconIdx = i
-                break
-            }
-        }
-        let url = URL(string: iconArray[iconIdx].img)
-        self.iconImageView.kf.setImage(with: url)
-        
-    }
     @IBAction func selectCategory(_ sender: Any) {
         animatePopupBackground(true)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") else { return }
@@ -230,28 +254,30 @@ class IvRecordAddProductVC: UIViewController {
             print("이름 입력 오류")
             return
         }
+        
         guard let ivUnit = unitTextField.text else {
             print("단위 입력 오류")
             return
         }
+        
         guard let ivMinimum = minimumCountLabel.text else {
             print("발주 알림 개수 입력 오류")
             return
         }
         let alarmCnt = Int(ivMinimum)!
+        
         guard let ivOrder = inventoryToBuyLabel.text else {
             print("발주할 수량 메모 입력 오류")
             return
         }
-        
         let memoCnt = Int(ivOrder)!
         
-        for i in 0..<categories.count {
-            if categoryLabel.text! ==  categories[i].name {
-                categoryIdx = categories[i].categoryIdx
-                break
-            }
-        }
+        print(ivName)
+        print(ivUnit)
+        print(alarmCnt)
+        print(memoCnt)
+        print(categoryIdx)
+        print(iconIdx)
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):
@@ -263,14 +289,17 @@ class IvRecordAddProductVC: UIViewController {
                 let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                 alertViewController.addAction(action)
                 self.present(alertViewController, animated: true, completion: nil)
-                
+
             case .pathErr: print("path")
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
         }
-        NotificationCenter.default.post(name: .init("update"), object: nil)
-        self.dismiss(animated: true, completion: nil)
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            NotificationCenter.default.post(name: .init("sendDataFromAddIvToEdit"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
         
     }
     
@@ -280,6 +309,8 @@ extension IvRecordAddProductVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.unitTextField.endEditing(true)
         self.inventoryNameTextField.endEditing(true)
+        self.minimumCountLabel.endEditing(true)
+        self.inventoryToBuyLabel.endEditing(true)
         return true
     }
 }

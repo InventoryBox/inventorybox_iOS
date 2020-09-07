@@ -81,3 +81,4 @@ extension InventoryEditProductCell: UITextFieldDelegate {
         }
     }
 }
+

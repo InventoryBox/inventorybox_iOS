@@ -67,6 +67,12 @@ class IvRecordEditProductVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @objc func sendDataFromAddIvToEdit(_ notification: Notification) {
+        
+        getDataFromServer(dateToSend!)
+        
+    }
+    
     @objc func keyboardWillShow(_ sender: Notification) {
         let keyboardHeight = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
         self.inventoryEditPrdoctTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
@@ -131,11 +137,6 @@ class IvRecordEditProductVC: UIViewController {
         }
     }
     
-    @objc func sendDataFromAddIvToEdit(_ notification: Notification) {
-        guard let info = notification.userInfo as? [String: Any] else { return }
-        
-    }
-    
     @IBAction func completeBtnPressed(_ sender: Any) {
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
@@ -153,7 +154,7 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        let seconds = 0.2
+        let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
             self.dismiss(animated: false, completion: nil)
