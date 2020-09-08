@@ -2352,7 +2352,7 @@
         <image name="imgeTextlogo" width="86.5" height="25"/>
         <image name="logo" width="72" height="72.5"/>
         <image name="nicknameschangeSave-1" width="375" height="580"/>
-        <image name="postBtnBack" width="40" height="44"/>
+        <image name="postBtnBack" width="7" height="12"/>
         <namedColor name="brownGrey">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
