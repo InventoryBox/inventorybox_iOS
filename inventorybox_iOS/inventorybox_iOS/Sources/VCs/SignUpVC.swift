@@ -219,7 +219,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             emailCheckLabel.alpha = 1
             emailCheckLabel.text = "인증번호를 전송했습니다."
             emailCheckLabel.textColor = .yellow
-            isComplete += 1
+            //isComplete += 1
             print(isComplete)
         }
             
@@ -283,7 +283,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             verifyCodeCheckLabel.alpha = 1
             verifyCodeCheckLabel.text = "이메일 인증이 완료되었습니다."
             verifyCodeCheckLabel.textColor = .yellow
-            isComplete += 1
+            //isComplete += 1
             print(isComplete)
         }
         else if(verifiCodeTextField.text == ""){
@@ -344,10 +344,10 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         else {
             pwCheckAgainLabel.alpha = 0
             pwCheckTabImageView.image = UIImage(named: "loginEmailTextfield")
-            isComplete += 1
-            if isComplete == 3 {
+            //isComplete += 1
+            
                 goToNextViewBtn.isEnabled = true
-            }
+            
         }
         
     }

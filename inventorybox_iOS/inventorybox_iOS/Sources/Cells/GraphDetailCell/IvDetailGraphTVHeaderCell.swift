@@ -47,7 +47,6 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
         let case3 = WeekInformation(btnText:"3주차", btnIsSelected: true)
         let case4 = WeekInformation(btnText:"4주차", btnIsSelected: true)
         let case5 = WeekInformation(btnText:"5주차", btnIsSelected: true)
-    //    let case7 = WeekInformation(btnText:"7주차", btnIsSelected: true)
 
         weekArray = [case1,case2,case3,case4,case5]
         

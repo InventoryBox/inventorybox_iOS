@@ -70,9 +70,6 @@
 		3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */; };
 		3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */; };
 		33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */; };
-		33700DF324E4124E003F07A7 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */; };
-		33700DF524E4125C003F07A7 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */; };
-		33700DF724E41265003F07A7 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33700DF624E41265003F07A7 /* NanumSquareBold.ttf */; };
 		33875C512503DFE6002D9DA0 /* NicknameOverlapCheckData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33875C502503DFE6002D9DA0 /* NicknameOverlapCheckData.swift */; };
 		33875C532503E094002D9DA0 /* NicknameOverlapCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33875C522503E094002D9DA0 /* NicknameOverlapCheckService.swift */; };
 		33875C55250419C9002D9DA0 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33875C54250419C9002D9DA0 /* SignUpService.swift */; };
@@ -83,6 +80,8 @@
 		339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B024BB21FC00B86BAF /* LoginVC.swift */; };
 		339C89B324BB7A4C00B86BAF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B224BB7A4C00B86BAF /* SignUpVC.swift */; };
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
+		33AB8D6B2509596200D0C602 /* HomeNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AB8D6A2509596200D0C602 /* HomeNew.storyboard */; };
+		33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */; };
 		33D946ED24AC607400B6AF18 /* IvGraph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D946EC24AC607400B6AF18 /* IvGraph.storyboard */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
@@ -257,9 +256,6 @@
 		3365E4F224C0336C00E6AE8D /* InventoryCompareGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphData.swift; sourceTree = "<group>"; };
 		3365E4F424C03E4D00E6AE8D /* InventoryCompareGraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCompareGraphService.swift; sourceTree = "<group>"; };
 		33700DE324E40CD2003F07A7 /* ProfileSetUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpVC.swift; sourceTree = "<group>"; };
-		33700DF224E4124E003F07A7 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
-		33700DF424E4125B003F07A7 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
-		33700DF624E41265003F07A7 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		33875C502503DFE6002D9DA0 /* NicknameOverlapCheckData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameOverlapCheckData.swift; sourceTree = "<group>"; };
 		33875C522503E094002D9DA0 /* NicknameOverlapCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameOverlapCheckService.swift; sourceTree = "<group>"; };
 		33875C54250419C9002D9DA0 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
@@ -270,6 +266,8 @@
 		339C89B024BB21FC00B86BAF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		339C89B224BB7A4C00B86BAF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
+		33AB8D6A2509596200D0C602 /* HomeNew.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeNew.storyboard; sourceTree = "<group>"; };
+		33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJieunVC.swift; sourceTree = "<group>"; };
 		33D946EC24AC607400B6AF18 /* IvGraph.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraph.storyboard; sourceTree = "<group>"; };
 		A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -473,6 +471,14 @@
 				33875C5625041B02002D9DA0 /* SignupData.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		33AB8D6C25095B5400D0C602 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
@@ -788,6 +794,7 @@
 				0EB0CF8B24B32647009B089A /* Homes.storyboard */,
 				33D946EC24AC607400B6AF18 /* IvGraph.storyboard */,
 				339C89AE24BB21C700B86BAF /* Login.storyboard */,
+				33AB8D6A2509596200D0C602 /* HomeNew.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -836,6 +843,7 @@
 		D48417C324AC568A0064EE64 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				33AB8D6C25095B5400D0C602 /* Home */,
 				3340BC9724E28CBB00D41F9F /* SignProgress */,
 				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D46A015B24B6C9780055814E /* IvExchange */,
@@ -864,7 +872,6 @@
 			isa = PBXGroup;
 			children = (
 				D46C957424B7141E004D1B38 /* ExchangeCell */,
-				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332406524B651F300C3B59C /* GraphDetailCell */,
 				0EB0CF7824B1D40F009B089A /* HomeCell */,
 				3332402324B4A6D800C3B59C /* GraphCell */,
@@ -1043,6 +1050,7 @@
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
 				D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
+				33AB8D6B2509596200D0C602 /* HomeNew.storyboard in Resources */,
 				D4558A8D24C166E600A1ACB5 /* logo.json in Resources */,
 				D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
@@ -1108,14 +1116,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */,
-				D4EC097624B6774D0063C05B /* DeleteCategoryPopupVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
 				0E0568FB24C2190300853DD0 /* SideBarMenuAlramVC.swift in Sources */,
 				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
 				D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */,
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
+				33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */,
 				0E4A830124BD7C41001E38B7 /* SideMenuVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
 				D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */,
@@ -1164,14 +1171,11 @@
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,
 				D4A05D3824C0F0F400F038FA /* IvRecordDeleteIvService.swift in Sources */,
 				3332406F24B65A4700C3B59C /* WeekInThisMonthCVCell.swift in Sources */,
-				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
-				D4311FF124BB04CB000C9B8B /* InventoryEditProductInformation.swift in Sources */,
 				335B828B24E43B72000C05CD /* AgreementVC.swift in Sources */,
 				D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */,
 				D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */,
 				0E1EE8D3250378CE00859E68 /* SideMenuTVCell.swift in Sources */,
 				334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */,
-				D4E7A3F224B45070001C015A /* InventoryInformation.swift in Sources */,
 				33875C5725041B02002D9DA0 /* SignupData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */,
