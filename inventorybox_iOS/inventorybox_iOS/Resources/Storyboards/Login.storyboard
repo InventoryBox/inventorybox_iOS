@@ -210,7 +210,7 @@
                                             <constraint firstAttribute="height" constant="40" id="pUh-kI-Uil"/>
                                             <constraint firstAttribute="width" secondItem="GQa-Gc-zks" secondAttribute="height" multiplier="1:1" id="wXh-Fk-gfQ"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonDidTap:" destination="8ON-4c-sZv" eventType="touchUpInside" id="ggh-u6-CiN"/>
                                         </connections>
@@ -545,7 +545,7 @@
                                             <constraint firstAttribute="width" secondItem="iiJ-4o-B2U" secondAttribute="height" multiplier="1:1" id="4ZW-fg-oq1"/>
                                             <constraint firstAttribute="height" constant="40" id="JtB-W8-jZC"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonDidTap:" destination="rNC-Ue-Zss" eventType="touchUpInside" id="AXQ-cK-HZV"/>
                                         </connections>
@@ -721,7 +721,7 @@
                                             <constraint firstAttribute="width" secondItem="XMY-SR-WUz" secondAttribute="height" multiplier="1:1" id="4cc-I5-wf5"/>
                                             <constraint firstAttribute="height" constant="44" id="k8w-wd-UQF"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="2Xg-sd-7jO" eventType="touchUpInside" id="5IF-RM-g9h"/>
                                         </connections>
@@ -966,7 +966,7 @@
                                             <constraint firstAttribute="width" secondItem="dYo-Zt-tPc" secondAttribute="height" multiplier="1:1" id="08U-NA-HL9"/>
                                             <constraint firstAttribute="height" constant="44" id="1Ii-3J-l1o"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="rLo-rZ-sCa" eventType="touchUpInside" id="kvG-P5-xIx"/>
                                         </connections>
@@ -1301,7 +1301,7 @@
         <image name="loginBox" width="343" height="53"/>
         <image name="loginEmailTextfield" width="266" height="2"/>
         <image name="logo-1" width="78" height="78"/>
-        <image name="postBtnBack" width="7" height="12"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="shapePasssendBox" width="281" height="157.5"/>
         <image name="signinBtn" width="311" height="65"/>
         <image name="textfield" width="343" height="52"/>
