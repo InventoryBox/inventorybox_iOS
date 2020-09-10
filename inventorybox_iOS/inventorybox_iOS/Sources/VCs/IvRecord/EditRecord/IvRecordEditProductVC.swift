@@ -136,7 +136,12 @@ class IvRecordEditProductVC: UIViewController {
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
-    
+//    let spinner: UIActivityIndicatorView! = {
+//       let spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+//        spinner.hidesWhenStopped = true
+//        
+//        return spinner
+//    }()
     @IBAction func completeBtnPressed(_ sender: Any) {
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
@@ -154,12 +159,15 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        let seconds = 1.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//            self.view.addSubview(self.spinner)
+//            self.spinner.center = self.view.center
+//            self.view.bringSubviewToFront(self.spinner)
+//            self.spinner.startAnimating()
             NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
             self.dismiss(animated: false, completion: nil)
+            
         }
-        
     }
 }
 
