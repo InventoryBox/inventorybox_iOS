@@ -210,7 +210,7 @@
                                             <constraint firstAttribute="height" constant="40" id="pUh-kI-Uil"/>
                                             <constraint firstAttribute="width" secondItem="GQa-Gc-zks" secondAttribute="height" multiplier="1:1" id="wXh-Fk-gfQ"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonDidTap:" destination="8ON-4c-sZv" eventType="touchUpInside" id="ggh-u6-CiN"/>
                                         </connections>
@@ -545,7 +545,7 @@
                                             <constraint firstAttribute="width" secondItem="iiJ-4o-B2U" secondAttribute="height" multiplier="1:1" id="4ZW-fg-oq1"/>
                                             <constraint firstAttribute="height" constant="40" id="JtB-W8-jZC"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonDidTap:" destination="rNC-Ue-Zss" eventType="touchUpInside" id="AXQ-cK-HZV"/>
                                         </connections>
@@ -614,7 +614,7 @@
                                     <outlet property="delegate" destination="rNC-Ue-Zss" id="QJR-qN-uAK"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010.1234.1234" textAlignment="center" minimumFontSize="17" background="btnName" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-M2-naF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="010-1234-1234" textAlignment="center" minimumFontSize="17" background="btnName" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-M2-naF">
                                 <rect key="frame" x="82" y="376.5" width="276.5" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K7H-M2-naF" secondAttribute="height" multiplier="278:51" id="T2R-hd-MeX"/>
@@ -721,7 +721,7 @@
                                             <constraint firstAttribute="width" secondItem="XMY-SR-WUz" secondAttribute="height" multiplier="1:1" id="4cc-I5-wf5"/>
                                             <constraint firstAttribute="height" constant="44" id="k8w-wd-UQF"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="2Xg-sd-7jO" eventType="touchUpInside" id="5IF-RM-g9h"/>
                                         </connections>
@@ -749,34 +749,17 @@
                                             <constraint firstAttribute="width" secondItem="gJh-7l-S9K" secondAttribute="height" multiplier="1:1" id="6PL-X9-l4i"/>
                                             <constraint firstAttribute="width" constant="233" id="Wyd-Xh-XeK"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="shapePrhfile"/>
+                                        <state key="normal" backgroundImage="icProfile"/>
                                         <connections>
                                             <action selector="setMyProfile" destination="2Xg-sd-7jO" eventType="touchUpInside" id="uwt-bB-0Q6"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCamera" translatesAutoresizingMaskIntoConstraints="NO" id="eRK-cq-pCu">
-                                        <rect key="frame" x="89" y="72" width="55" height="42.5"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icProfile" translatesAutoresizingMaskIntoConstraints="NO" id="3jg-mk-rxJ">
-                                        <rect key="frame" x="60" y="131" width="113.5" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="2fH-sj-iGE"/>
-                                            <constraint firstAttribute="width" constant="113.5" id="rY6-SB-aOz"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="gJh-7l-S9K" firstAttribute="centerY" secondItem="X6t-Jr-9aA" secondAttribute="centerY" id="2M8-hR-wPH"/>
-                                    <constraint firstItem="3jg-mk-rxJ" firstAttribute="leading" secondItem="X6t-Jr-9aA" secondAttribute="leading" constant="60" id="2sq-sO-DId"/>
-                                    <constraint firstItem="gJh-7l-S9K" firstAttribute="centerY" secondItem="eRK-cq-pCu" secondAttribute="centerY" constant="23.25" id="6DZ-bi-KIT"/>
-                                    <constraint firstAttribute="trailing" secondItem="3jg-mk-rxJ" secondAttribute="trailing" constant="59.5" id="A8x-fH-jhD"/>
-                                    <constraint firstItem="gJh-7l-S9K" firstAttribute="centerX" secondItem="eRK-cq-pCu" secondAttribute="centerX" id="CNk-Rf-1h5"/>
-                                    <constraint firstItem="eRK-cq-pCu" firstAttribute="top" secondItem="X6t-Jr-9aA" secondAttribute="top" constant="72" id="ROe-ea-7Gg"/>
                                     <constraint firstAttribute="width" secondItem="X6t-Jr-9aA" secondAttribute="height" multiplier="1:1" id="YqI-uH-yaM"/>
                                     <constraint firstAttribute="height" constant="233" id="cka-xf-8W1"/>
-                                    <constraint firstItem="3jg-mk-rxJ" firstAttribute="top" secondItem="eRK-cq-pCu" secondAttribute="bottom" constant="16.5" id="oRb-gi-eFv"/>
-                                    <constraint firstAttribute="bottom" secondItem="3jg-mk-rxJ" secondAttribute="bottom" constant="86" id="vKQ-zx-seh"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPK-ft-1Od">
@@ -791,7 +774,7 @@
                                     <constraint firstAttribute="height" constant="52" id="pJf-6C-n3a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXy-4h-q9b">
                                 <rect key="frame" x="16" y="594" width="343" height="53"/>
@@ -983,7 +966,7 @@
                                             <constraint firstAttribute="width" secondItem="dYo-Zt-tPc" secondAttribute="height" multiplier="1:1" id="08U-NA-HL9"/>
                                             <constraint firstAttribute="height" constant="44" id="1Ii-3J-l1o"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="postBtnBack"/>
+                                        <state key="normal" title="Button" image="mypostIcBack"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="rLo-rZ-sCa" eventType="touchUpInside" id="kvG-P5-xIx"/>
                                         </connections>
@@ -1314,14 +1297,12 @@
     <resources>
         <image name="btnName" width="276" height="51"/>
         <image name="btnNext" width="343" height="53"/>
-        <image name="icCamera" width="55" height="42.5"/>
-        <image name="icProfile" width="116" height="16"/>
+        <image name="icProfile" width="233" height="233"/>
         <image name="loginBox" width="343" height="53"/>
         <image name="loginEmailTextfield" width="266" height="2"/>
         <image name="logo-1" width="78" height="78"/>
-        <image name="postBtnBack" width="7" height="12"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="shapePasssendBox" width="281" height="157.5"/>
-        <image name="shapePrhfile" width="233" height="233"/>
         <image name="signinBtn" width="311" height="65"/>
         <image name="textfield" width="343" height="52"/>
         <namedColor name="brownGrey">

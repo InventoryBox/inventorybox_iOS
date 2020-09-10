@@ -177,15 +177,6 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
         secondYearTextField.layer.cornerRadius = 9
         secondMonthTextField.layer.cornerRadius = 9
         secondWeekTextField.layer.cornerRadius = 9
-        
-        yearTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        monthTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        weekTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        secondYearTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        secondMonthTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        secondWeekTextField.layer.backgroundColor = CGColor(srgbRed: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        
-        
         yearTextField.addLeftPadding()
         monthTextField.addLeftPadding()
         weekTextField.addLeftPadding()

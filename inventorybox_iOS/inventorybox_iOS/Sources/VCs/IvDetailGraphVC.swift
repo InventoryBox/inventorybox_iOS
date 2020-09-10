@@ -39,9 +39,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.ivDetilTV.reloadData()
         }
     }
-   
-
-    
+  
     // 이 값 순서대로 그래프가 그려짐
     // 서버통신 시 inventory별 정보 배열이 들어갈 곳
     let singleGraphUniteSold = [2.0,11.0,9.0,10.0,3.0,4.0,2.0]
@@ -80,9 +78,15 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ivDetilTV.separatorStyle = .none
         
         reloadArray = weekArray
+        let formatter_year = DateFormatter()
+        formatter_year.dateFormat = "yyyy"
+        let current_year_string = formatter_year.string(from: Date())
+        selectedYearTextField = "\(current_year_string)"
+        let formatter_month = DateFormatter()
+        formatter_month.dateFormat = "MM"
+        let current_month_string = formatter_month.string(from: Date())
+        plusZeroMonthTextField = "\(current_month_string)"
         
-        
-       
         NotificationCenter.default.addObserver(self, selector: #selector(setWeeks(_:)), name: .clickWeek, object: nil)
     }
     
@@ -570,7 +574,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                return 125
+                return 79
             }
             else {
                 return 185
