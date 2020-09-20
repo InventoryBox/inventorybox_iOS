@@ -17,7 +17,7 @@ class SettingDetailVC: UIViewController {
     @IBOutlet weak var userTermScrollView: UIScrollView!
     @IBOutlet weak var privacyPolicyScrollView: UIScrollView!
     @IBOutlet weak var locationTermScrollView: UIScrollView!
-    
+    @IBOutlet weak var inventoryBoxInstructionScrollView: UIScrollView!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = navigationTitle
@@ -35,6 +35,7 @@ class SettingDetailVC: UIViewController {
         userTermScrollView.isHidden = indexPath == 0 ? false : true
         privacyPolicyScrollView.isHidden = indexPath == 1 ? false : true
         locationTermScrollView.isHidden = indexPath == 2 ? false : true
+        inventoryBoxInstructionScrollView.isHidden = indexPath == 3 ? false : true
     }
      
     override func viewDidLoad() {
