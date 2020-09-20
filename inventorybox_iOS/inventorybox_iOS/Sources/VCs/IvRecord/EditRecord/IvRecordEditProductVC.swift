@@ -136,12 +136,6 @@ class IvRecordEditProductVC: UIViewController {
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
-//    let spinner: UIActivityIndicatorView! = {
-//       let spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-//        spinner.hidesWhenStopped = true
-//        
-//        return spinner
-//    }()
     @IBAction func completeBtnPressed(_ sender: Any) {
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in

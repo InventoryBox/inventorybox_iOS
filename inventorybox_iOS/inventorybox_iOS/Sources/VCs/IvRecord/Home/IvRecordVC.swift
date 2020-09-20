@@ -11,6 +11,15 @@ import TTGTagCollectionView
 
 class IvRecordVC: UIViewController, UICollectionViewDelegate {
     
+     let activityIndicator: UIActivityIndicatorView = {
+          let activityIndicator = UIActivityIndicatorView()
+          activityIndicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+          activityIndicator.color = .black
+          activityIndicator.hidesWhenStopped = true
+          
+          return activityIndicator
+     }()
+     
     @IBOutlet weak var outView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
@@ -66,26 +75,29 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
         }
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        inventoryTableView.delegate = self
-        inventoryTableView.dataSource = self
-        inventoryTableView.allowsSelection = false
-        inventoryTableView.separatorStyle = .none
-        // 카테고리 밑 그림자
-        outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        outView.layer.shadowOpacity = 0.05
-        outView.layer.shadowRadius = 2
-        setPopupBackgroundView()
-        setNotiCenter()
-        dateToSend = Date().toString()
-        if let data = dateToSend {
-            getDataFromServer(data)
-        } else {
-            print("Missing date which needs to send to server")
-        }
-    }
+     
+     override func viewDidLoad() {
+          super.viewDidLoad()
+          inventoryTableView.delegate = self
+          inventoryTableView.dataSource = self
+          inventoryTableView.allowsSelection = false
+          inventoryTableView.separatorStyle = .none
+          // 카테고리 밑 그림자
+          outView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+          outView.layer.shadowOpacity = 0.05
+          outView.layer.shadowRadius = 2
+          setPopupBackgroundView()
+          setNotiCenter()
+          self.view.addSubview(activityIndicator)
+          activityIndicator.center = self.view.center
+          self.view.bringSubviewToFront(self.activityIndicator)
+          dateToSend = Date().toString()
+          if let data = dateToSend {
+               getDataFromServer(data)
+          } else {
+               print("Missing date which needs to send to server")
+          }
+     }
     
     private func setNotiCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(sendDataFromEditRecordToHome), name: .init("sendDataFromEditRecordToHome"), object: nil)
@@ -198,14 +210,29 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
         editProductVC.modalTransitionStyle = .crossDissolve
         self.present(editProductVC, animated: true, completion: nil)
     }
-    
-    @objc func sendDataFromEditRecordToHome(_ notification: Notification) {
-        if let data = dateToSend {
-            getDataFromServer(data)
-        } else {
-            print("Missing date which needs to send to server")
-        }
-    }
+     
+//     private func setLoadingView(_ direction: Bool) {
+//          let duration: TimeInterval = direction ? 0.35 : 0.15
+//          let alpha: CGFloat = direction ? 0.54 : 0.0
+//          self.view.isHidden = !direction
+//          UIView.animate(withDuration: duration) {
+//              self.popupBackgroundView.alpha = alpha
+//          }
+//     }
+     
+     @objc func sendDataFromEditRecordToHome(_ notification: Notification) {
+//          activityIndicator.startAnimating()
+//          animatePopupBackground(true)
+          if let data = dateToSend {
+               self.getDataFromServer(data)
+//               DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                    self.animatePopupBackground(false)
+//               }
+//               self.activityIndicator.stopAnimating()
+          } else {
+               print("Missing date which needs to send to server")
+          }
+     }
      
      // 카테고리 편집하기
      @IBAction func goToIvRecordCategoryEdit(_ sender: Any) {
