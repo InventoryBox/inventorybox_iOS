@@ -124,6 +124,7 @@
 		D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B124AC55EB0064EE64 /* Main.storyboard */; };
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
+		D487B46E25187220000AD844 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487B46D25187220000AD844 /* MenuCell.swift */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
 		D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B863F24C26485003785FE /* AddressUpdateService.swift */; };
 		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
@@ -321,6 +322,7 @@
 		D48417B424AC55EC0064EE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D487B46D25187220000AD844 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		D49B863F24C26485003785FE /* AddressUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUpdateService.swift; sourceTree = "<group>"; };
 		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 				D4CEEFD125178B440099A33E /* HomeSettingNC.swift */,
 				D4CEEFCC25178AFD0099A33E /* HomeSettingVC.swift */,
 				D4CEEFD7251794420099A33E /* SettingDetailVC.swift */,
+				D487B46D25187220000AD844 /* MenuCell.swift */,
 				D4CEEFD425178D940099A33E /* SettingCell.swift */,
 			);
 			path = Settings;
@@ -1178,6 +1181,7 @@
 				0E1EE8E32508A48200859E68 /* HomeSideMyInfoVC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
+				D487B46E25187220000AD844 /* MenuCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
 				3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */,

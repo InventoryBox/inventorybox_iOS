@@ -420,6 +420,11 @@
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" id="jhp-E1-29h"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" id="wRg-y0-FVb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yEl-so-lwF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <connections>
