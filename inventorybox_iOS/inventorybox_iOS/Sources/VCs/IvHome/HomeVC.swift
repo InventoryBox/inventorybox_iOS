@@ -76,6 +76,7 @@ class HomeVC: UIViewController {
         formater_month.dateFormat = "MM"
         formater_day.dateFormat = "dd"
         formater_date.dateFormat = "eeee"
+        
         let current_day_String = formater_day.string(from: Date())
         let current_month_String = formater_month.string(from: Date())
         let current_year_String = formater_year.string(from: Date())
@@ -87,33 +88,33 @@ class HomeVC: UIViewController {
     }
     
     
-     //MARK: Home 데이터 받아오기
-     func getDataFromServer(){
-         
-         HomeService.shared.getHome { networkResult in
-             switch networkResult{
-             case .success(let data):
-                 guard let dt = data as? HomeItemclass else {
-
+    //MARK: Home 데이터 받아오기
+    func getDataFromServer(){
+        
+        HomeService.shared.getHome { networkResult in
+            switch networkResult{
+            case .success(let data):
+                guard let dt = data as? HomeItemclass else {
+                    
                     return }
-                 self.orderCheckInformations = dt.result
-                 
-                 
-                 self.homehome = dt.result
-                 DispatchQueue.main.async {
-                   self.tableview.reloadData()
-                 }
-             case .requestErr(let message):
-                 guard let message = message as? String else {return}
-                 print(message)
-             case .serverErr: print("serverErr")
-             case .pathErr:
-                 print("pathErr")
-             case .networkFail:
-                 print("networkFail")
-             }
-         }
-     }
+                self.orderCheckInformations = dt.result
+                
+                
+                self.homehome = dt.result
+                DispatchQueue.main.async {
+                    self.tableview.reloadData()
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
     
     
     

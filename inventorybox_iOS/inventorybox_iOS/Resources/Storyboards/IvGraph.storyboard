@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NanumSquareBold.ttf">
+        <array key="NanumSquareB.ttf">
             <string>NanumSquareB</string>
         </array>
-        <array key="NanumSquareExtraBold.ttf">
+        <array key="NanumSquareEB.ttf">
             <string>NanumSquareEB</string>
         </array>
         <array key="Roboto-Bold.ttf">
