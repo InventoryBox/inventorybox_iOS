@@ -25,8 +25,8 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
-                                                <rect key="frame" x="0.0" y="13" width="7" height="18"/>
-                                                <state key="normal" backgroundImage="postBtnBack"/>
+                                                <rect key="frame" x="0.0" y="2" width="40" height="40"/>
+                                                <state key="normal" backgroundImage="mypostIcBack"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
                                                 </connections>
@@ -177,6 +177,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="AbG-Da-iaO"/>
                                                             </constraints>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
@@ -217,7 +218,7 @@
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-jC-OQC">
-                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <rect key="frame" x="16" y="603" width="343" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="glK-M6-ofK"/>
                                     <constraint firstAttribute="height" constant="53" id="sqa-DI-AVc"/>
@@ -234,6 +235,7 @@
                         <constraints>
                             <constraint firstItem="evk-pG-pbt" firstAttribute="height" secondItem="fVT-Lm-3vM" secondAttribute="height" id="25Y-vn-QZn"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="top" secondItem="NOT-Tx-I2E" secondAttribute="bottom" id="6oT-lP-hKT"/>
+                            <constraint firstItem="3eL-jC-OQC" firstAttribute="top" secondItem="fVT-Lm-3vM" secondAttribute="bottom" constant="11" id="BJ4-ej-hgm"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="top" secondItem="RBp-7S-6cs" secondAttribute="top" id="K8r-ng-1fV"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="KRm-5G-WnS"/>
                             <constraint firstItem="fVT-Lm-3vM" firstAttribute="trailing" secondItem="RBp-7S-6cs" secondAttribute="trailing" id="OYk-y7-xzq"/>
@@ -242,7 +244,6 @@
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="gY3-E1-L9O"/>
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="fVT-Lm-3vM" secondAttribute="bottom" constant="75" id="omO-G3-q8t"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="width" secondItem="RBD-wf-1Su" secondAttribute="width" id="xgW-cc-f0m"/>
-                            <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="3eL-jC-OQC" secondAttribute="bottom" constant="20" id="zIr-WN-cew"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -268,7 +269,7 @@
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
-        <image name="postBtnBack" width="7" height="12"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="todayrecordBtnAdd" width="84" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
