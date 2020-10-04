@@ -161,7 +161,7 @@
                                                                 <constraint firstItem="HMo-aC-ppp" firstAttribute="centerX" secondItem="ExB-9Z-r8m" secondAttribute="centerX" id="ip9-KG-NHn"/>
                                                             </constraints>
                                                         </view>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="lastrecordingTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-dZ-o8l">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-dZ-o8l">
                                                             <rect key="frame" x="108" y="18.5" width="215" height="49"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="cZz-tz-wiN"/>
@@ -201,7 +201,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-f8-UvP">
-                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <rect key="frame" x="16" y="603" width="343" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="dUv-na-5OS"/>
                                     <constraint firstAttribute="height" constant="53" id="p28-uT-hLj"/>
@@ -217,6 +217,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="eck-MF-vzA" secondAttribute="bottom" constant="75" id="7cG-Jb-qe3"/>
+                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="11" id="7cL-J9-Gnf"/>
                             <constraint firstItem="gP6-MH-dby" firstAttribute="width" secondItem="UEi-x2-T6I" secondAttribute="width" id="9F5-XA-vdz"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="trailing" secondItem="83s-pt-GT0" secondAttribute="trailing" id="Dq7-d5-DUf"/>
                             <constraint firstItem="ZY3-f8-UvP" firstAttribute="centerX" secondItem="UEi-x2-T6I" secondAttribute="centerX" id="SNu-aM-Aqd"/>
@@ -224,7 +225,6 @@
                             <constraint firstItem="gP6-MH-dby" firstAttribute="top" secondItem="83s-pt-GT0" secondAttribute="top" id="dr0-za-i7R"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="bottom" id="f4N-wz-biv"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="rjf-dD-lgt"/>
-                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="20" id="yh7-EB-153"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="19b-h7-HfG"/>
@@ -244,7 +244,6 @@
     </scenes>
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="lastrecordingTextfield" width="206" height="49"/>
         <image name="todayrecordBtnAdd" width="84" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

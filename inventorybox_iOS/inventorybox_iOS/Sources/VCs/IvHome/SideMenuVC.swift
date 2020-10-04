@@ -72,5 +72,4 @@ class SideMenuVC: UIViewController {
         // 화면을 보여주겠다
         
     }
-    
 }

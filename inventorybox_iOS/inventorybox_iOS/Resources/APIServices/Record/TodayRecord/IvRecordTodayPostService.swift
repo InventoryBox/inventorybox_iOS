@@ -9,25 +9,9 @@
 import Foundation
 import Alamofire
 
-//struct TodayItemInfo: Codable {
-//    let itemIdx: Int
-//    let name: String
-//    let categoryIdx: Int
-//    var presentCnt: Int?
-//}
-
 struct IvRecordTodayPostService {
     static let shared = IvRecordTodayPostService()
 
-    // MARK: - EditItemInfo
-//    struct EditItemInfo: Codable {
-//        let itemIdx: Int
-//        let name: String
-//        var categoryIdx: Int
-//        var stocksCnt: Int
-//        let img: String
-//    }
-    
     private func makeParameter(data: [TodayItemInfo], date: String) -> Parameters{
         var parsingParameter: [[String: Int]] = []
         for d in data {
@@ -38,7 +22,6 @@ struct IvRecordTodayPostService {
             parsingParameter.append(item)
             
         }
-        print(parsingParameter)
         return ["itemInfo": parsingParameter, "date": date]
     }
     
@@ -48,7 +31,6 @@ struct IvRecordTodayPostService {
         
         let dataRequest = Alamofire.request(APIConstants.inventoryRecordModifyURL, method: .put, parameters: makeParameter(data: data, date: date), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:

@@ -46,6 +46,10 @@ class InventoryEditProductCell: UITableViewCell {
     }
     
     private func setTextFieldCustommed() {
+        
+        inventoryCountTextField.layer.borderWidth = 1
+        inventoryCountTextField.layer.borderColor = UIColor.yellow.cgColor
+        inventoryCountTextField.layer.cornerRadius = 15
         inventoryCountTextField.placeholder = "재고량 입력"
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none

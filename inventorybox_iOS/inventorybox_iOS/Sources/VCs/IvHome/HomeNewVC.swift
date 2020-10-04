@@ -63,17 +63,27 @@ class HomeNewVC: UIViewController {
             self.present(profileVC, animated: true, completion: nil)
             
         case .myInfo:
-            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+            //            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+            guard let myInfoNaviVC = self.storyboard?.instantiateViewController(identifier: "IvHomeProfileInfoNaviVC") as? IvHomeProfileInfoNaviVC else { return }
             
-            myInfoVC.modalPresentationStyle = .fullScreen
-            self.present(myInfoVC, animated: true, completion: nil)
+            myInfoNaviVC.modalPresentationStyle = .fullScreen
+            self.present(myInfoNaviVC, animated: true, completion: nil)
             
         case .post:
-            print("")
+            guard let userPostVC = self.storyboard?.instantiateViewController(identifier: "IvHomeSideUserPostVC") as? IvHomeSideUserPostVC else { return }
+            
+            userPostVC.modalPresentationStyle = .fullScreen
+            self.present(userPostVC, animated: true, completion: nil)
+
         case .change:
             print("aa")
         case .setting:
-            print("sa")
+            let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+            
+            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeSettingNC else { return  }
+            settingVC.modalPresentationStyle = .fullScreen
+            
+            self.present(settingVC, animated: true, completion: nil)
         }
         
     }
@@ -161,5 +171,6 @@ extension HomeNewVC : UIViewControllerTransitioningDelegate{
         transition.isPresenting = false
         return transition
     }
+    
 }
 

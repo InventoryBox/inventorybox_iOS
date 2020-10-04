@@ -27,7 +27,6 @@ class IvTodayRecordVC: UIViewController {
             categoryCollectionView.dataSource = self
             categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
             collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-            print(inventoryTodayArray)
         }
     }
     

@@ -131,7 +131,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
         dateToSend = selectedDate.toString()
      
         if let data = dateToSend {
-            getDataFromServer(data)
+          getDataFromServer(data)
             
         } else {
             print("Missing date which needs to send to server")
@@ -176,6 +176,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     self.noDataView.isHidden = true
                     self.inventoryTableView.isHidden = false
                 }
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
