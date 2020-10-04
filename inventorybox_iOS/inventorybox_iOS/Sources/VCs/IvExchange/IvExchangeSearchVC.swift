@@ -97,7 +97,7 @@ extension IvExchangeSearchVC: UITextFieldDelegate {
                     }
                     
                 }
-                
+                print(self.allArray)
                 self.searchResultTableView.reloadData()
 
             case .requestErr(let message):
