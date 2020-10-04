@@ -138,10 +138,6 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
         }
     }
     
-     enum GetData<T> {
-          case success(T)
-          case fail
-     }
     private func getDataFromServer(_ date: String) {
         IvRecordHomeService.shared.getRecordHome(whichDate: date) { (networkResult) in
             switch networkResult {
@@ -180,6 +176,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     self.noDataView.isHidden = true
                     self.inventoryTableView.isHidden = false
                 }
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)

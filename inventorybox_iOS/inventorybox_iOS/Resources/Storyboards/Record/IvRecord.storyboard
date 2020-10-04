@@ -45,13 +45,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
-                                                <rect key="frame" x="172.5" y="6" width="30" height="32"/>
+                                                <rect key="frame" x="172.5" y="5.5" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
-                                                <rect key="frame" x="172.5" y="12" width="30" height="32"/>
+                                                <rect key="frame" x="172.5" y="12" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -326,7 +326,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rym-Z9-uEf">
-                                                                    <rect key="frame" x="9.5" y="15" width="29.5" height="18"/>
+                                                                    <rect key="frame" x="10.5" y="14.5" width="27" height="19"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
