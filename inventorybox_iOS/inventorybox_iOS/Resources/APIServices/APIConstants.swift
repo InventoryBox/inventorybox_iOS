@@ -9,8 +9,7 @@
 import Foundation
 
 struct APIConstants {
-    static let baseURL = "http://ec2-13-209-128-238.ap-northeast-2.compute.amazonaws.com:3000/"
-    
+    static let baseURL = "http://ec2-3-35-39-236.ap-northeast-2.compute.amazonaws.com:3000/"
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
     //로그인
     static let loginURL = baseURL + "auth/signin"
@@ -27,6 +26,11 @@ struct APIConstants {
     static let ivHomeCheckBoxURL = baseURL + "item/flag/" //
     // Home + MemoModify
     static let ivHomeMemoModifyURL = baseURL + "item/order/memo/ios"  //
+  
+    // Home + Sidbar
+    static let ivHomeUserProfileURL = baseURL + "auth/user/profile"
+    // 홈 + 햄버거바 (내가 쓴 게시글)
+    static let ivHomeUserPostURL = baseURL + "auth/user/post/ios"
     
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
