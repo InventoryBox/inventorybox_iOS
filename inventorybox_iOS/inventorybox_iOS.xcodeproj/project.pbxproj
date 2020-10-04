@@ -31,6 +31,7 @@
 		0E1EE8F5251B2ED400859E68 /* IvHomeSideUserPostCompleteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8F4251B2ED400859E68 /* IvHomeSideUserPostCompleteTVCell.swift */; };
 		0E1EE8F7251EFCA600859E68 /* IvHomeUserPostInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8F6251EFCA600859E68 /* IvHomeUserPostInformation.swift */; };
 		0E1EE8F92520997400859E68 /* IvHomeSideUserPostCompleteHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE8F82520997400859E68 /* IvHomeSideUserPostCompleteHeaderTVCell.swift */; };
+		0E1EE903252847D800859E68 /* IvHomeHamburgerUserPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EE902252847D700859E68 /* IvHomeHamburgerUserPostService.swift */; };
 		0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */; };
 		0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */; };
 		0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */; };
@@ -226,6 +227,7 @@
 		0E1EE8F4251B2ED400859E68 /* IvHomeSideUserPostCompleteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostCompleteTVCell.swift; sourceTree = "<group>"; };
 		0E1EE8F6251EFCA600859E68 /* IvHomeUserPostInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeUserPostInformation.swift; sourceTree = "<group>"; };
 		0E1EE8F82520997400859E68 /* IvHomeSideUserPostCompleteHeaderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostCompleteHeaderTVCell.swift; sourceTree = "<group>"; };
+		0E1EE902252847D700859E68 /* IvHomeHamburgerUserPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerUserPostService.swift; sourceTree = "<group>"; };
 		0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1CVCell.swift; sourceTree = "<group>"; };
 		0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home1TVCell.swift; sourceTree = "<group>"; };
 		0E4A82F224BD7B64001E38B7 /* Home2TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home2TVCell.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				0E1EE8DF2508A48200859E68 /* HomeSideProfileVC.swift */,
 				0E1EE8E02508A48200859E68 /* HomeNewVC.swift */,
 				0E1EE8ED2508BF6F00859E68 /* IvHomeProfileInfoNaviVC.swift */,
+				0E1EE8EF251B2DA600859E68 /* IvHomeSideUserPostVC.swift */,
 			);
 			path = IvHome;
 			sourceTree = "<group>";
@@ -829,7 +832,6 @@
 				D48417AB24AC55EB0064EE64 /* AppDelegate.swift */,
 				D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */,
 				D48417B424AC55EC0064EE64 /* Assets.xcassets */,
-				0E1EE8EF251B2DA600859E68 /* IvHomeSideUserPostVC.swift */,
 				D48417C124AC56780064EE64 /* APIServices */,
 				D48417C024AC565D0064EE64 /* Storyboards */,
 			);
@@ -864,6 +866,7 @@
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E1EE8EB2508ACBA00859E68 /* HomeHamburgerBarUserProfileService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
+				0E1EE902252847D700859E68 /* IvHomeHamburgerUserPostService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
@@ -1218,6 +1221,7 @@
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
 				33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */,
 				3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */,
+				0E1EE903252847D800859E68 /* IvHomeHamburgerUserPostService.swift in Sources */,
 				D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */,
 				3365E4F524C03E4D00E6AE8D /* InventoryCompareGraphService.swift in Sources */,
 				3340BE5F24C1B42B00CA8103 /* IvDetailGraphSecondCompareVC.swift in Sources */,
