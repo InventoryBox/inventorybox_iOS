@@ -52,7 +52,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZw-bC-gUr">
                                                     <rect key="frame" x="0.0" y="85" width="414" height="1"/>
-                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="G33-Ak-Vmc"/>
                                                     </constraints>
@@ -84,7 +84,16 @@
                             <constraint firstItem="SWW-Ds-t6z" firstAttribute="leading" secondItem="ALn-az-AUs" secondAttribute="leading" id="wyy-zR-2oO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="서비스 정보" id="sqo-ut-x8i"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="서비스 정보" id="sqo-ut-x8i">
+                        <barButtonItem key="rightBarButtonItem" image="btnClose" id="VV5-6P-9l2">
+                            <color key="tintColor" white="0.0" alpha="0.80808540240000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="82L-h9-uL1" id="tMi-RR-xE8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="settingTableView" destination="SWW-Ds-t6z" id="SDb-8J-d6d"/>
                     </connections>
@@ -147,31 +156,31 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재고창고란?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkY-3A-N3e">
-                                        <rect key="frame" x="16" y="46" width="92" height="20"/>
+                                        <rect key="frame" x="16" y="46" width="88" height="21"/>
                                         <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인 외식사업자를 위한 ‘재고관리’ 어플리케이션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uik-Zx-2uP">
-                                        <rect key="frame" x="16" y="96" width="235.5" height="14"/>
+                                        <rect key="frame" x="16" y="97" width="228" height="14"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나만의 다이어리를 써가듯 매일매일 쉽게 기록하고 관리해보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldA-jG-ZgN">
-                                        <rect key="frame" x="16" y="115" width="316.5" height="14"/>
+                                        <rect key="frame" x="16" y="116" width="303.5" height="14"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최초 사용시, 어떻게 사용하나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-DQ-m6o">
-                                        <rect key="frame" x="16" y="159" width="188" height="15.5"/>
+                                        <rect key="frame" x="16" y="160" width="181" height="16.5"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ1-Hf-yvl">
-                                        <rect key="frame" x="30" y="196.5" width="354" height="103.5"/>
+                                        <rect key="frame" x="30" y="198.5" width="354" height="109.5"/>
                                         <color key="tintColor" name="mediumGrey"/>
                                         <attributedString key="attributedText">
                                             <fragment>
@@ -267,7 +276,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feq-Zp-qPe">
-                                                            <rect key="frame" x="20" y="29" width="359.5" height="14.5"/>
+                                                            <rect key="frame" x="20" y="28.5" width="359.5" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -588,7 +597,7 @@
         <!--Home SettingNC-->
         <scene sceneID="8LB-Au-hYS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nOy-3c-J47" customClass="HomeSettingNC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeSettingNC" automaticallyAdjustsScrollViewInsets="NO" id="nOy-3c-J47" customClass="HomeSettingNC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ta7-eY-9XA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -627,21 +636,28 @@
         <image name="UserTerm7" width="340" height="257"/>
         <image name="UserTerm8" width="330" height="136"/>
         <image name="UserTerm9" width="341" height="216"/>
+        <image name="btnClose" width="44" height="44"/>
         <image name="postDownBtnBack" width="12.5" height="7.5"/>
+        <namedColor name="greyisbrown">
+            <color red="0.27799999713897705" green="0.27099999785423279" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="greyisbrown">
             <color red="0.27799999713897705" green="0.27099999785423279" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mediumGrey">
             <color red="0.50599998235702515" green="0.50599998235702515" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="mediumGrey">
+            <color red="0.50599998235702515" green="0.50599998235702515" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

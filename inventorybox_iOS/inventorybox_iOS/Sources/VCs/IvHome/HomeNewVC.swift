@@ -78,7 +78,12 @@ class HomeNewVC: UIViewController {
         case .change:
             print("aa")
         case .setting:
-            print("sa")
+            let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+            
+            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeSettingNC else { return  }
+            settingVC.modalPresentationStyle = .fullScreen
+            
+            self.present(settingVC, animated: true, completion: nil)
         }
         
     }

@@ -25,6 +25,9 @@ class HomeSettingVC: UIViewController {
         settingTableView.delegate = self
         settingTableView.dataSource = self
     }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 

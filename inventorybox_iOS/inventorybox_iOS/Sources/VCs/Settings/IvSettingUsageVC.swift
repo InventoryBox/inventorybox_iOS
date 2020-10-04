@@ -78,8 +78,8 @@ class IvSettingUsageVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = navigationTitle
-        self.navigationController?.navigationBar.tintColor = .yellow
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .black
         basicView.isHidden = false
         questionView.isHidden = true
         tableViewArray = ivRecordQuestionArray
