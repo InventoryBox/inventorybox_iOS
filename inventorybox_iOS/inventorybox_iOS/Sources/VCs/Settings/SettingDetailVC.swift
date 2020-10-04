@@ -29,6 +29,7 @@ class SettingDetailVC: UIViewController {
         
         if let indexPath = whichInformation {
             showInformation(by: indexPath)
+            menuCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
         }
         
     }
@@ -37,7 +38,8 @@ class SettingDetailVC: UIViewController {
         userTermScrollView.isHidden = indexPath == 0 ? false : true
         privacyPolicyScrollView.isHidden = indexPath == 1 ? false : true
         locationTermScrollView.isHidden = indexPath == 2 ? false : true
-        inventoryBoxInstructionScrollView.isHidden = indexPath == 3 ? false : true
+        menuCollectionView.isHidden = indexPath == 3 ? false : true
+//        inventoryBoxInstructionScrollView.isHidden = indexPath == 3 ? false : true
     }
      
     override func viewDidLoad() {

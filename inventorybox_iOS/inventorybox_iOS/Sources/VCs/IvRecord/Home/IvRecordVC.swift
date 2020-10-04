@@ -131,13 +131,17 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
         dateToSend = selectedDate.toString()
      
         if let data = dateToSend {
-            getDataFromServer(data)
+          getDataFromServer(data)
             
         } else {
             print("Missing date which needs to send to server")
         }
     }
     
+     enum GetData<T> {
+          case success(T)
+          case fail
+     }
     private func getDataFromServer(_ date: String) {
         IvRecordHomeService.shared.getRecordHome(whichDate: date) { (networkResult) in
             switch networkResult {

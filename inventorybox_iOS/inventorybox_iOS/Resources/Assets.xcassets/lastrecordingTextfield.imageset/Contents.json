@@ -1,23 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "lastrecordingTextfield.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "lastrecordingTextfield@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "lastrecordingTextfield@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "lastrecordingTextfield.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

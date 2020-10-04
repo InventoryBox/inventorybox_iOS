@@ -10,7 +10,6 @@ import Foundation
 
 struct APIConstants {
     static let baseURL = "http://ec2-3-35-39-236.ap-northeast-2.compute.amazonaws.com:3000/"
-                                
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
     //로그인
     static let loginURL = baseURL + "auth/signin"
