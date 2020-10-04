@@ -26,8 +26,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbO-KP-AhP">
-                                        <rect key="frame" x="0.0" y="4.5" width="40" height="44"/>
-                                        <state key="normal" backgroundImage="postBtnBack"/>
+                                        <rect key="frame" x="0.0" y="6.5" width="40" height="40"/>
+                                        <state key="normal" backgroundImage="mypostIcBack"/>
                                         <connections>
                                             <action selector="dismissBtnPressed:" destination="t76-8q-5Aw" eventType="touchUpInside" id="LTu-pv-Pcq"/>
                                         </connections>
@@ -674,7 +674,7 @@
         <image name="addproductTextfield" width="65" height="27"/>
         <image name="btnWhole" width="327" height="27"/>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="postBtnBack" width="40" height="44"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="yellowBox" width="375" height="47"/>
     </resources>
 </document>

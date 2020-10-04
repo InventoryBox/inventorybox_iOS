@@ -23,8 +23,8 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-E9-rMT">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
-                                                <state key="normal" backgroundImage="postBtnBack"/>
+                                                <rect key="frame" x="0.0" y="2" width="40" height="40"/>
+                                                <state key="normal" backgroundImage="mypostIcBack"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="5z3-bU-8VT" eventType="touchUpInside" id="n8E-3t-K5g"/>
                                                 </connections>
@@ -266,7 +266,7 @@
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingTextfield" width="206" height="49"/>
-        <image name="postBtnBack" width="40" height="44"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="todayrecordBtnAdd" width="84" height="28"/>
     </resources>
 </document>

@@ -28,6 +28,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
         // Initialization code
         setTextFieldAttribute()
 //        setTextField()
+        compareBtn.layer.cornerRadius = 10.0
         
         
     }

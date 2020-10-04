@@ -42,11 +42,11 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
     }
     
     func setWeek(){
-        let case1 = WeekInformation(btnText:"1주차", btnIsSelected: true)
-        let case2 = WeekInformation(btnText:"2주차", btnIsSelected: true)
-        let case3 = WeekInformation(btnText:"3주차", btnIsSelected: true)
-        let case4 = WeekInformation(btnText:"4주차", btnIsSelected: true)
-        let case5 = WeekInformation(btnText:"5주차", btnIsSelected: true)
+        let case1 = WeekInformation(btnText:"첫째주", btnIsSelected: true)
+        let case2 = WeekInformation(btnText:"둘째주", btnIsSelected: true)
+        let case3 = WeekInformation(btnText:"셋째주", btnIsSelected: true)
+        let case4 = WeekInformation(btnText:"넷째주", btnIsSelected: true)
+        let case5 = WeekInformation(btnText:"다섯째주", btnIsSelected: true)
 
         weekArray = [case1,case2,case3,case4,case5]
         
