@@ -35,10 +35,18 @@ extension HomeSettingVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let detailVC = self.storyboard?.instantiateViewController(identifier: SettingDetailVC.identifier) as? SettingDetailVC else { return }
-        detailVC.navigationTitle = settingTitle[indexPath.row]
-        detailVC.whichInformation = indexPath.row
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+        if (indexPath.row == 3) {
+            guard let detailVC = self.storyboard?.instantiateViewController(identifier: IvSettingUsageVC.identifier) as? IvSettingUsageVC else { return }
+            detailVC.navigationTitle = settingTitle[indexPath.row]
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        } else {
+            guard let detailVC = self.storyboard?.instantiateViewController(identifier: SettingDetailVC.identifier) as? SettingDetailVC else { return }
+            detailVC.navigationTitle = settingTitle[indexPath.row]
+            detailVC.whichInformation = indexPath.row
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
     }
 }
 

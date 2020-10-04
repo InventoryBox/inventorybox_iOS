@@ -13,12 +13,10 @@ class SettingDetailVC: UIViewController {
     
     var navigationTitle: String?
     var whichInformation: Int?
-    let menuArray: [String] = ["기본", "재고기록", "발주 알림", "재고량 추이", "재고교환"]
+    
     @IBOutlet weak var userTermScrollView: UIScrollView!
     @IBOutlet weak var privacyPolicyScrollView: UIScrollView!
     @IBOutlet weak var locationTermScrollView: UIScrollView!
-    @IBOutlet weak var inventoryBoxInstructionScrollView: UIScrollView!
-    @IBOutlet weak var menuCollectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,7 +27,6 @@ class SettingDetailVC: UIViewController {
         
         if let indexPath = whichInformation {
             showInformation(by: indexPath)
-            menuCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
         }
         
     }
@@ -38,39 +35,11 @@ class SettingDetailVC: UIViewController {
         userTermScrollView.isHidden = indexPath == 0 ? false : true
         privacyPolicyScrollView.isHidden = indexPath == 1 ? false : true
         locationTermScrollView.isHidden = indexPath == 2 ? false : true
-        menuCollectionView.isHidden = indexPath == 3 ? false : true
-//        inventoryBoxInstructionScrollView.isHidden = indexPath == 3 ? false : true
+
     }
      
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        menuCollectionView.delegate = self
-        menuCollectionView.dataSource = self
-        
-    }
-    
-}
-
-extension SettingDetailVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-    }
-}
-
-extension SettingDetailVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menuArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let menuCell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.identifier, for: indexPath) as? MenuCell else { return UICollectionViewCell() }
-        menuCell.set(title: menuArray[indexPath.row])
-        return menuCell
     }
     
 }
