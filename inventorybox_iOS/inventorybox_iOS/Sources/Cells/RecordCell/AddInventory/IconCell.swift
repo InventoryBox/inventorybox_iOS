@@ -21,6 +21,14 @@ class IconCell: UICollectionViewCell {
     var iconIdx: Int?
     @IBOutlet weak var iconImageView: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.brownGrey.cgColor
+        self.layer.cornerRadius = 10
+        
+    }
+    
     func setIcon(_ iconImageName: String) {
         let url = URL(string: iconImageName)
         self.iconImageView.kf.setImage(with: url)

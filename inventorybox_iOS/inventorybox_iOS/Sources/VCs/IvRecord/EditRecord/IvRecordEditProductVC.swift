@@ -154,8 +154,7 @@ class IvRecordEditProductVC: UIViewController {
             case .networkFail: print("networkFail")
             }
         })
-        let seconds = 1.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
             self.dismiss(animated: false, completion: nil)
         }
