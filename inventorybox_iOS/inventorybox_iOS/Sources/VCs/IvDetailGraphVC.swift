@@ -299,14 +299,13 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             case .success(let data):
                 guard let compareData = data as? CompareWeekData else {
                     return}
-               // print(compareData.week1)
+                
                 self.compareGraphWeek1Array = compareData.week1
                 self.compareGraphWeek2Array = compareData.week2
-               // print(self.compareGraphWeek1Array)
-               // print(self.compareGraphWeek2Array)
+                
                 DispatchQueue.main.async {
                     self.ivDetilTV.reloadData()
-                   // print(self.compareGraphWeek1Array)
+                    
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -434,18 +433,29 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             var dataEntries: [BarChartDataEntry] = []
             var dataEntries2: [BarChartDataEntry] = []
             
+            print("dddd",dataEntries.isEmpty)
+            
+            if dataEntries.isEmpty == true {
+                IvWeekCompareGraphTVCell.compareChartView.tintColor = .black
+                IvWeekCompareGraphTVCell.compareChartView.barData?.setValue(0, forKey: "")
+                print("아아아아아")
+            }
+            
             
             for i in 0...6 {
                 let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek1Array[i]))
                 dataEntries.append(dataEntry)
-                //print(model.stocks[i])
+                
             }
             
             for i in 0...6 {
                 let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek2Array[i]))
                 dataEntries2.append(dataEntry)
-                //print(model.stocks[i])
             }
+            
+            
+            
+            
             
             
             
@@ -478,6 +488,9 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            IvWeekCompareGraphTVCell.compareChartView.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
             
             data.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+            
+            
+            
             
             IvWeekCompareGraphTVCell.compareChartView.data = data
             
