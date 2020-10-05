@@ -409,7 +409,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shapePasssendBox" translatesAutoresizingMaskIntoConstraints="NO" id="f3W-De-Wca">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="172"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="카테고리 이름을 입력해주세요." textAlignment="center" minimumFontSize="17" background="categoryeditMoveTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="HjG-dd-96P">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="카테고리 이름을 입력해주세요." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HjG-dd-96P">
                                         <rect key="frame" x="17.5" y="61.5" width="246" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="BMh-Hw-9YB"/>
@@ -877,7 +877,6 @@
         <image name="categoryeditBtnFolderadd" width="38" height="45"/>
         <image name="categoryeditBtnFolderdelete" width="38" height="45"/>
         <image name="categoryeditBtnFoldermove" width="38" height="45"/>
-        <image name="categoryeditMoveTextfield" width="246" height="43"/>
         <image name="homeIcMilk" width="51" height="51"/>
         <image name="lastrecordingTitleShape" width="84" height="13"/>
         <image name="mypostIcBack" width="40" height="40"/>

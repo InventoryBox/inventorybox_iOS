@@ -24,7 +24,9 @@ class AddCategoryPopupVC: UIViewController {
         cancelBtn.tintColor = UIColor.black
         addBtn.tintColor = UIColor.white
         popupView.layer.cornerRadius = 9
-        
+        categoryTextField.layer.cornerRadius = 8
+        categoryTextField.layer.borderColor = UIColor.yellow.cgColor
+        categoryTextField.layer.borderWidth = 1
     }
 
     @IBAction func cancel(_ sender: Any) {
