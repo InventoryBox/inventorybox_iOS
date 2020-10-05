@@ -437,7 +437,6 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
             if dataEntries.isEmpty == true {
                 IvWeekCompareGraphTVCell.compareChartView.tintColor = .black
-                IvWeekCompareGraphTVCell.compareChartView.barData?.setValue(0, forKey: "")
                 print("아아아아아")
             }
             
