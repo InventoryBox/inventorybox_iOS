@@ -201,7 +201,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-f8-UvP">
-                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <rect key="frame" x="16" y="603" width="343" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="dUv-na-5OS"/>
                                     <constraint firstAttribute="height" constant="53" id="p28-uT-hLj"/>
@@ -224,7 +224,7 @@
                             <constraint firstItem="gP6-MH-dby" firstAttribute="top" secondItem="83s-pt-GT0" secondAttribute="top" id="dr0-za-i7R"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="top" secondItem="gP6-MH-dby" secondAttribute="bottom" id="f4N-wz-biv"/>
                             <constraint firstItem="eck-MF-vzA" firstAttribute="leading" secondItem="83s-pt-GT0" secondAttribute="leading" id="rjf-dD-lgt"/>
-                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="20" id="yh7-EB-153"/>
+                            <constraint firstItem="83s-pt-GT0" firstAttribute="bottom" secondItem="ZY3-f8-UvP" secondAttribute="bottom" constant="11" id="yh7-EB-153"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="19b-h7-HfG"/>

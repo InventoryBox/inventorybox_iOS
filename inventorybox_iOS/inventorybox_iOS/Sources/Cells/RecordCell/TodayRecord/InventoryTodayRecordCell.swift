@@ -80,7 +80,10 @@ class InventoryTodayRecordCell: UITableViewCell {
     
     private func setTextFieldCustommed() {
         
-        inventoryCountTextField.layer.cornerRadius = 9
+        inventoryCountTextField.layer.cornerRadius = 10
+        inventoryCountTextField.layer.borderColor = UIColor.yellow.cgColor
+        inventoryCountTextField.layer.borderWidth = 1
+        
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
         inventoryCountTextField.tintColor = UIColor.greyishBrown

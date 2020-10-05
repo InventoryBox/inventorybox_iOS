@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOy-3c-J47">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -493,7 +494,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-mX-m8M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2068"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2110"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrivacyPolicy1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qsk-yD-6gg">
                                                 <rect key="frame" x="16" y="28" width="338" height="433"/>
@@ -520,10 +521,10 @@
                                                 <rect key="frame" x="16" y="1672" width="201" height="76"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrivacyPolicy9" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-gi-syb">
-                                                <rect key="frame" x="16" y="1793" width="340" height="116"/>
+                                                <rect key="frame" x="16" y="1793" width="201" height="76"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrivacyPolicy10" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Erb-Lz-ZT5">
-                                                <rect key="frame" x="16" y="1954" width="156" height="34"/>
+                                                <rect key="frame" x="16" y="1914" width="340" height="116"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -615,7 +616,7 @@
     <resources>
         <image name="LocationTerm" width="347" height="3195"/>
         <image name="PrivacyPolicy1" width="338" height="433"/>
-        <image name="PrivacyPolicy10" width="156" height="34"/>
+        <image name="PrivacyPolicy10" width="340" height="116"/>
         <image name="PrivacyPolicy2" width="327" height="216"/>
         <image name="PrivacyPolicy3" width="325" height="176"/>
         <image name="PrivacyPolicy4" width="321" height="236"/>
@@ -623,7 +624,7 @@
         <image name="PrivacyPolicy6" width="349" height="56"/>
         <image name="PrivacyPolicy7" width="335" height="116"/>
         <image name="PrivacyPolicy8" width="201" height="76"/>
-        <image name="PrivacyPolicy9" width="340" height="116"/>
+        <image name="PrivacyPolicy9" width="201" height="76"/>
         <image name="UserTerm1" width="319" height="96"/>
         <image name="UserTerm10" width="338" height="336"/>
         <image name="UserTerm11" width="156" height="34"/>

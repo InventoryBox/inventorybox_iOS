@@ -100,9 +100,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-Lm-3vM">
                                 <rect key="frame" x="0.0" y="87" width="375" height="505"/>
-
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddIvHeaderCell" rowHeight="35" id="cdr-7s-Yws" customClass="AddIvHeaderCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="35"/>
@@ -174,7 +172,7 @@
                                                                 <constraint firstItem="Sd4-Z5-rek" firstAttribute="centerX" secondItem="xqi-Gd-f5B" secondAttribute="centerX" id="yud-pi-aYA"/>
                                                             </constraints>
                                                         </view>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="lastrecordingTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="rod-Ly-aVf">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rod-Ly-aVf">
                                                             <rect key="frame" x="108" y="18.5" width="215" height="49"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="AbG-Da-iaO"/>
@@ -219,7 +217,7 @@
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eL-jC-OQC">
-                                <rect key="frame" x="16" y="594" width="343" height="53"/>
+                                <rect key="frame" x="16" y="603" width="343" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="glK-M6-ofK"/>
                                     <constraint firstAttribute="height" constant="53" id="sqa-DI-AVc"/>
@@ -244,7 +242,7 @@
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="leading" secondItem="RBp-7S-6cs" secondAttribute="leading" id="gY3-E1-L9O"/>
                             <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="fVT-Lm-3vM" secondAttribute="bottom" constant="75" id="omO-G3-q8t"/>
                             <constraint firstItem="NOT-Tx-I2E" firstAttribute="width" secondItem="RBD-wf-1Su" secondAttribute="width" id="xgW-cc-f0m"/>
-                            <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="3eL-jC-OQC" secondAttribute="bottom" constant="20" id="zIr-WN-cew"/>
+                            <constraint firstItem="RBp-7S-6cs" firstAttribute="bottom" secondItem="3eL-jC-OQC" secondAttribute="bottom" constant="11" id="zIr-WN-cew"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -269,7 +267,6 @@
     </scenes>
     <resources>
         <image name="homeIcMilk" width="51" height="51"/>
-        <image name="lastrecordingTextfield" width="206" height="49"/>
         <image name="mypostIcBack" width="40" height="40"/>
         <image name="todayrecordBtnAdd" width="84" height="28"/>
         <systemColor name="systemBackgroundColor">
