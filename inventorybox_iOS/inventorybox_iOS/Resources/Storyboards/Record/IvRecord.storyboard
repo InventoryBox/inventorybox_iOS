@@ -465,7 +465,7 @@
                                             <action selector="selectDate:" destination="dmv-3A-jmW" eventType="touchUpInside" id="llV-w4-vGA"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Jz-tSR">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Jz-tSR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
                                         <date key="date" timeIntervalSinceReferenceDate="615842529.50444996">
                                             <!--2020-07-07 19:22:09 +0000-->
