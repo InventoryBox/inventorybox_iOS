@@ -83,7 +83,7 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         case .setting:
             let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
 
-            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeNewNC else { return  }
+            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeSettingNC else { return  }
             settingVC.modalPresentationStyle = .fullScreen
 
             self.present(settingVC, animated: true, completion: nil)
