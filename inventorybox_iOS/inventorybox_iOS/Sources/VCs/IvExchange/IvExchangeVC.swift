@@ -53,9 +53,8 @@ class IvExchangeVC: UIViewController {
     @IBOutlet weak var productIvCollectionView: UICollectionView!
     
     let productExchangeArray: [PostInfo] = []
-    
-    @IBOutlet weak var recentInventoryLabel: UILabel!
-    @IBOutlet weak var recentInventoryBottomView: UIView!
+
+
     
     
     override func viewDidLoad() {
@@ -190,12 +189,10 @@ class IvExchangeVC: UIViewController {
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.gray
-        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = false
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = true
-        recentInventoryBottomView.isHidden = true
         
         self.filteredExchangeArray = self.allExchangeArray
         allIvCollectionView.reloadData()
@@ -206,13 +203,11 @@ class IvExchangeVC: UIViewController {
         allInventoryLabel.textColor = UIColor.gray
         foodInventoryLabel.textColor = UIColor.black
         productInventoryLabel.textColor = UIColor.gray
-        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = true
         foodInventoryBottomView.isHidden = false
         productInventoryBottomView.isHidden = true
-        recentInventoryBottomView.isHidden = true
-        
+
         
         self.filteredExchangeArray = allExchangeArray.filter({ (postInfo) -> Bool in
             return postInfo.isFood == 1
@@ -226,12 +221,10 @@ class IvExchangeVC: UIViewController {
         allInventoryLabel.textColor = UIColor.gray
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.black
-        recentInventoryLabel.textColor = UIColor.gray
         
         allInventoryBottomView.isHidden = true
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = false
-        recentInventoryBottomView.isHidden = true
         
         self.filteredExchangeArray = allExchangeArray.filter({ (postInfo) -> Bool in
             return postInfo.isFood == 0
@@ -241,29 +234,16 @@ class IvExchangeVC: UIViewController {
         
     }
     
-    @IBAction func recentIvBtnPressed(_ sender: Any) {
-        allInventoryLabel.textColor = UIColor.gray
-        foodInventoryLabel.textColor = UIColor.gray
-        productInventoryLabel.textColor = UIColor.gray
-        recentInventoryLabel.textColor = UIColor.black
-        
-        allInventoryBottomView.isHidden = true
-        foodInventoryBottomView.isHidden = true
-        productInventoryBottomView.isHidden = true
-        recentInventoryBottomView.isHidden = false
-        
-        
-    }
+
     private func setLabelCustom() {
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray
         productInventoryLabel.textColor = UIColor.gray
-        recentInventoryLabel.textColor = UIColor.gray
+
         
         allInventoryBottomView.isHidden = false
         foodInventoryBottomView.isHidden = true
         productInventoryBottomView.isHidden = true
-        recentInventoryBottomView.isHidden = true
     }
     
     private func setTabBottomViewCustom() {

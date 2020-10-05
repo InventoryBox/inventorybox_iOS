@@ -164,6 +164,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     self.noDataView.isHidden = true
                     self.inventoryTableView.isHidden = false
                 }
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)

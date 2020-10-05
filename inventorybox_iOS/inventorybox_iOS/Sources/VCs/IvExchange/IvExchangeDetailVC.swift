@@ -106,9 +106,9 @@ class IvExchangeDetailVC: UIViewController {
                     let url = URL(string: img)
                     self.inventoryImageView.kf.setImage(with: url)
                 }
-                self.inventoryPriceLabel.text = "\(dt.itemInfo.price)"
-                self.inventoryListPriceLabel.text = "\(dt.itemInfo.coverPrice)"
-                self.inventoryCountToSellLabel.text = "\(dt.itemInfo.quantity)"
+                self.inventoryPriceLabel.text = "\(dt.itemInfo.price)원"
+                self.inventoryListPriceLabel.text = "\(dt.itemInfo.coverPrice)원"
+                self.inventoryCountToSellLabel.text = "\(dt.itemInfo.quantity)개"
                 self.inventoryLifeLabel.text = dt.itemInfo.expDate
                 self.inventoryDetailLabel.text = dt.itemInfo.itemInfoDescription
                 
@@ -148,10 +148,11 @@ class IvExchangeDetailVC: UIViewController {
         distanceLabel.titleLabel?.textColor = .white
         distanceLabel.titleLabel?.font = UIFont(name: "NanumSquareB", size: 13)
         distanceLabel.backgroundColor = .yellow
-        
+        inventoryPriceInfoLabel.font = UIFont(name: "NanumSquareEB", size: 12)
         inventoryInfoLabel.font = UIFont(name: "NanumSquareEB", size: 14)
         inventoryPriceLabel.font = UIFont(name: "NanumSquareEB", size: 22)
         inventoryListPriceInfo.font = UIFont(name: "NanumSquareB", size: 12)
+        inventoryLifeInfo.font = UIFont(name: "NanumSquareEB", size: 12)
         inventoryListPriceLabel.font = UIFont(name: "NanumSquareB", size: 12)
         inventoryCountToSellInfo.font = UIFont(name: "NanumSquareEB", size: 12)
         inventoryDetailInfo.font = UIFont(name: "NanumSquareEB", size: 12)
