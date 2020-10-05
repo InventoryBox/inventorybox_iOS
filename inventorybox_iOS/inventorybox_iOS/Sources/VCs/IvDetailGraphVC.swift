@@ -88,6 +88,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         plusZeroMonthTextField = "\(current_month_string)"
         
         NotificationCenter.default.addObserver(self, selector: #selector(setWeeks(_:)), name: .clickWeek, object: nil)
+        
     }
     
     @objc func setWeeks(_ notification: NSNotification) {
@@ -131,11 +132,11 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
           days = ["일","월","화","수","목","금","토"]
              
           
-          let firstWeek = DetailGraphWeekInfo(weekLabel: "1주차", firstMonth: "6", firstDay: "29", secondMonth: "7", secondDay: "05", itemAlarmCount: 5.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 0)
-          let secondWeek = DetailGraphWeekInfo(weekLabel: "2주차", firstMonth: "7", firstDay: "06", secondMonth: "7", secondDay: "12", itemAlarmCount: 1.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 1)
-          let thirdWeek = DetailGraphWeekInfo(weekLabel: "3주차", firstMonth: "7", firstDay: "13", secondMonth: "7", secondDay: "19", itemAlarmCount: 3.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 2)
-          let fourthWeek = DetailGraphWeekInfo(weekLabel: "4주차", firstMonth: "7", firstDay: "20", secondMonth: "7", secondDay: "26", itemAlarmCount: 10.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 3)
-          let fifthWeek = DetailGraphWeekInfo(weekLabel: "5주차", firstMonth: "7", firstDay: "27", secondMonth: "8", secondDay: "2", itemAlarmCount: 4.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 4)
+          let firstWeek = DetailGraphWeekInfo(weekLabel: "첫째주", firstMonth: "6", firstDay: "29", secondMonth: "7", secondDay: "05", itemAlarmCount: 5.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 0)
+          let secondWeek = DetailGraphWeekInfo(weekLabel: "둘째주", firstMonth: "7", firstDay: "06", secondMonth: "7", secondDay: "12", itemAlarmCount: 1.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 1)
+          let thirdWeek = DetailGraphWeekInfo(weekLabel: "셋째주", firstMonth: "7", firstDay: "13", secondMonth: "7", secondDay: "19", itemAlarmCount: 3.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 2)
+          let fourthWeek = DetailGraphWeekInfo(weekLabel: "넷째주", firstMonth: "7", firstDay: "20", secondMonth: "7", secondDay: "26", itemAlarmCount: 10.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 3)
+          let fifthWeek = DetailGraphWeekInfo(weekLabel: "다섯째주", firstMonth: "7", firstDay: "27", secondMonth: "8", secondDay: "2", itemAlarmCount: 4.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 4)
           
           
           weekArray = [firstWeek,secondWeek,thirdWeek,fourthWeek,fifthWeek]
@@ -298,14 +299,13 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             case .success(let data):
                 guard let compareData = data as? CompareWeekData else {
                     return}
-               // print(compareData.week1)
+                
                 self.compareGraphWeek1Array = compareData.week1
                 self.compareGraphWeek2Array = compareData.week2
-               // print(self.compareGraphWeek1Array)
-               // print(self.compareGraphWeek2Array)
+                
                 DispatchQueue.main.async {
                     self.ivDetilTV.reloadData()
-                   // print(self.compareGraphWeek1Array)
+                    
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -433,18 +433,28 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             var dataEntries: [BarChartDataEntry] = []
             var dataEntries2: [BarChartDataEntry] = []
             
+            print("dddd",dataEntries.isEmpty)
+            
+            if dataEntries.isEmpty == true {
+                IvWeekCompareGraphTVCell.compareChartView.tintColor = .black
+                print("아아아아아")
+            }
+            
             
             for i in 0...6 {
                 let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek1Array[i]))
                 dataEntries.append(dataEntry)
-                //print(model.stocks[i])
+                
             }
             
             for i in 0...6 {
                 let dataEntry = BarChartDataEntry(x: Double(i), y: Double(compareGraphWeek2Array[i]))
                 dataEntries2.append(dataEntry)
-                //print(model.stocks[i])
             }
+            
+            
+            
+            
             
             
             
@@ -477,6 +487,9 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            IvWeekCompareGraphTVCell.compareChartView.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
             
             data.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+            
+            
+            
             
             IvWeekCompareGraphTVCell.compareChartView.data = data
             

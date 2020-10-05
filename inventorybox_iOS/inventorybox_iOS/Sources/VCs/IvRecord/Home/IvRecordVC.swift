@@ -137,6 +137,7 @@ class IvRecordVC: UIViewController, UICollectionViewDelegate {
                     self.dateLabel.text = dt.date
                     // "2020-08-18" String에서 Date 형태로 바꾸는 함수
                     self.memorizeDate = dt.date.components(separatedBy: " ")[0].toDate(withFormat: "yyyy.MM.dd")
+
                     if date == Date().toString() {
                          self.goTocategoryBtn.isHidden = false
                          self.categoryButtonImageView.isHidden = false

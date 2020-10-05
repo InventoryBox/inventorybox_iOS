@@ -20,7 +20,7 @@ class HomeNewVC: UIViewController {
     let setInformations : [Int] = [1,2,3,4,5,6,7,2,13,5,2,1,2,3,15,2,23,1,2,2,3,1,2,5,2,1,2,3,51,2,5,2,1,5,2,1,2,3,4,1,25,2]
     
     // Side Bar Menu 만든거 사용
-    let transition = HomeSlideTransition()
+//    let transition = HomeSlideTransition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,62 +36,57 @@ class HomeNewVC: UIViewController {
 
     // MARK: sideMenuBar 눌렀을 떄 행동
     @IBAction func sideMenuBarAction(_ sender: Any) {
-        guard let sideMenuBarVC = storyboard?.instantiateViewController(withIdentifier: "HomeNewSideMenuVC") as? HomeNewSideMenuVC else {return }
-        
-        sideMenuBarVC.didTapMenuType = {menuType in
-            self.transtionToNew(menuType)
-            // print(menuType)
-        }
-        sideMenuBarVC.modalPresentationStyle = .overCurrentContext
-        sideMenuBarVC.transitioningDelegate = self
-        
-        present(sideMenuBarVC, animated: true)
-        
-        // MARK: 회색 처리된 배경 누르면 dismiss 되게 만들기
-        let tap = UITapGestureRecognizer(target: self, action:    #selector(self.handleTap(_:)))
-        // dimingView(gray 배경)에 (tap)제스쳐를 입히겠다
-        transition.dimingView.addGestureRecognizer(tap)
+//        guard let sideMenuBarVC = storyboard?.instantiateViewController(withIdentifier: "HomeNewSideMenuVC") as? HomeNewSideMenuVC else {return }
+//
+//        sideMenuBarVC.didTapMenuType = {menuType in
+//            self.transtionToNew(menuType)
+//            // print(menuType)
+//        }
+//        sideMenuBarVC.modalPresentationStyle = .overCurrentContext
+//        sideMenuBarVC.transitioningDelegate = self
+//
+//        present(sideMenuBarVC, animated: true)
+//
+//        // MARK: 회색 처리된 배경 누르면 dismiss 되게 만들기
+//        let tap = UITapGestureRecognizer(target: self, action:    #selector(self.handleTap(_:)))
+//        // dimingView(gray 배경)에 (tap)제스쳐를 입히겠다
+//        transition.dimingView.addGestureRecognizer(tap)
     }
     
-    func transtionToNew(_ menuType : MenuType){
-        
-        switch menuType{
-        case .profile:
-            guard let profileVC = self.storyboard?.instantiateViewController(identifier: "HomeSideProfileVC") as? HomeSideProfileVC else {return}
-            
-            profileVC.modalPresentationStyle = .fullScreen
-            self.present(profileVC, animated: true, completion: nil)
-            
-        case .myInfo:
-            //            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
-            guard let myInfoNaviVC = self.storyboard?.instantiateViewController(identifier: "IvHomeProfileInfoNaviVC") as? IvHomeProfileInfoNaviVC else { return }
-            
-            myInfoNaviVC.modalPresentationStyle = .fullScreen
-            self.present(myInfoNaviVC, animated: true, completion: nil)
-            
-        case .post:
-            guard let userPostVC = self.storyboard?.instantiateViewController(identifier: "IvHomeSideUserPostVC") as? IvHomeSideUserPostVC else { return }
-            
-            userPostVC.modalPresentationStyle = .fullScreen
-            self.present(userPostVC, animated: true, completion: nil)
-
-        case .change:
-            print("aa")
-        case .setting:
-            let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
-            
-            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeSettingNC else { return  }
-            settingVC.modalPresentationStyle = .fullScreen
-            
-            self.present(settingVC, animated: true, completion: nil)
-        }
-        
-    }
-    
-    // objc 함수를 통해 행동을 정의
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        dismiss(animated: true, completion: nil)
-    }
+//    func transtionToNew(_ menuType : MenuType){
+//
+//        switch menuType{
+//        case .profile:
+//            guard let profileVC = self.storyboard?.instantiateViewController(identifier: "HomeSideProfileVC") as? HomeSideProfileVC else {return}
+//
+//            profileVC.modalPresentationStyle = .fullScreen
+//            self.present(profileVC, animated: true, completion: nil)
+//
+//        case .myInfo:
+//            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+//
+//            myInfoVC.modalPresentationStyle = .fullScreen
+//            self.present(myInfoVC, animated: true, completion: nil)
+//
+//        case .post:
+//            print("")
+//        case .change:
+//            print("aa")
+//        case .setting:
+//            let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+//
+//            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeNewNC else { return  }
+//            settingVC.modalPresentationStyle = .fullScreen
+//
+//            self.present(settingVC, animated: true, completion: nil)
+//        }
+//
+//    }
+//    
+//    // objc 함수를 통해 행동을 정의
+//    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+//        dismiss(animated: true, completion: nil)
+//    }
     
     
     // page controller 개수
@@ -162,15 +157,14 @@ extension HomeNewVC: UICollectionViewDelegate{
 //  MARK: sideMenu 만든 Delegate
 extension HomeNewVC : UIViewControllerTransitioningDelegate{
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = true
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = false
-        return transition
-    }
-    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.isPresenting = true
+//        return transition
+//    }
+//    
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.isPresenting = false
+//        return transition
+//    }
 }
 

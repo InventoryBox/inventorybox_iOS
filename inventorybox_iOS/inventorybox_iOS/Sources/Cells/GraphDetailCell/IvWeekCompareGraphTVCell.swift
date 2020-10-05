@@ -28,6 +28,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
         // Initialization code
         setTextFieldAttribute()
 //        setTextField()
+        compareBtn.layer.cornerRadius = 10.0
         
         
     }
@@ -38,80 +39,80 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
-    func bind (model:CompareWeekData){
-        //  guard let nameURL = URL(string: model) else { return }
-        
-        
-        let valFormatter = NumberFormatter()
-        valFormatter.numberStyle = .currency
-        valFormatter.maximumFractionDigits = 2
-        valFormatter.currencySymbol = "$"
-        
-        
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        
-        var dataPoints: [String] = ["일","월","화","수","목","금","토"]
-        var dataEntries: [BarChartDataEntry] = []
-        var dataEntries2: [BarChartDataEntry] = []
-        
-        
-        for i in 0...6 {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week1[i]))
-            dataEntries.append(dataEntry)
-            //print(model.stocks[i])
-        }
-        
-        for i in 0...6 {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week2[i]))
-            dataEntries2.append(dataEntry)
-            //print(model.stocks[i])
-        }
-        
-        
-        
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: " ")
-        let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: " ")
-        
-        chartDataSet2.colors =  [UIColor(red: 255/255, green: 70/255, blue: 108/255, alpha: 1)]
-        
-        chartDataSet.colors =  [UIColor(red: 49/255, green: 27/255, blue: 146/255, alpha: 1)]
-        
-        
-        let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet2]
-        let data = BarChartData(dataSets: dataSets)
-        data.setValueFormatter(formatter)
-        
-        compareChartView.data = data
-        
-        
-        compareChartView.rightAxis.drawGridLinesEnabled = false
-        compareChartView.rightAxis.drawAxisLineEnabled = false
-        compareChartView.rightAxis.drawLabelsEnabled = false
-        compareChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
-        
-       
-       
-        compareChartView.xAxis.labelPosition = .bottom
-        compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-        compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-        //compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        compareChartView.xAxis.drawGridLinesEnabled = false
-        compareChartView.leftAxis.drawLabelsEnabled = false
-        compareChartView.rightAxis.drawGridLinesEnabled = false
-        compareChartView.rightAxis.drawLabelsEnabled = false
-        compareChartView.leftAxis.drawAxisLineEnabled = false
-        compareChartView.rightAxis.drawAxisLineEnabled = false
-        compareChartView.leftAxis.drawGridLinesEnabled = false
-        compareChartView.drawGridBackgroundEnabled = false
-        compareChartView.drawBordersEnabled = false
-        //    ivChartView.barData?.yMi
-        
-        //밑에 데이터셋 제거
-        compareChartView.legend.enabled = false
-        
-        data.barWidth = 0.2
+//    func bind (model:CompareWeekData){
+//        //  guard let nameURL = URL(string: model) else { return }
+//
+//
+//        let valFormatter = NumberFormatter()
+//        valFormatter.numberStyle = .currency
+//        valFormatter.maximumFractionDigits = 2
+//        valFormatter.currencySymbol = "$"
+//
+//
+//        let format = NumberFormatter()
+//        format.numberStyle = .none
+//        let formatter = DefaultValueFormatter(formatter: format)
+//
+//        var dataPoints: [String] = ["일","월","화","수","목","금","토"]
+//        var dataEntries: [BarChartDataEntry] = []
+//        var dataEntries2: [BarChartDataEntry] = []
+//
+//
+//        for i in 0...6 {
+//            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week1[i]))
+//            dataEntries.append(dataEntry)
+//            //print(model.stocks[i])
+//        }
+//
+//        for i in 0...6 {
+//            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(model.week2[i]))
+//            dataEntries2.append(dataEntry)
+//            //print(model.stocks[i])
+//        }
+//
+//
+//
+//        let chartDataSet = BarChartDataSet(entries: dataEntries, label: " ")
+//        let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: " ")
+//
+//        chartDataSet2.colors =  [UIColor(red: 255/255, green: 70/255, blue: 108/255, alpha: 1)]
+//
+//        chartDataSet.colors =  [UIColor(red: 49/255, green: 27/255, blue: 146/255, alpha: 1)]
+//
+//
+//        let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet2]
+//        let data = BarChartData(dataSets: dataSets)
+//        data.setValueFormatter(formatter)
+//
+//        compareChartView.data = data
+//
+//
+//        compareChartView.rightAxis.drawGridLinesEnabled = false
+//        compareChartView.rightAxis.drawAxisLineEnabled = false
+//        compareChartView.rightAxis.drawLabelsEnabled = false
+//        compareChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
+//
+//
+//
+//        compareChartView.xAxis.labelPosition = .bottom
+//        compareChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+//        compareChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+//        //compareChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+//        compareChartView.xAxis.drawGridLinesEnabled = false
+//        compareChartView.leftAxis.drawLabelsEnabled = false
+//        compareChartView.rightAxis.drawGridLinesEnabled = false
+//        compareChartView.rightAxis.drawLabelsEnabled = false
+//        compareChartView.leftAxis.drawAxisLineEnabled = false
+//        compareChartView.rightAxis.drawAxisLineEnabled = false
+//        compareChartView.leftAxis.drawGridLinesEnabled = false
+//        compareChartView.drawGridBackgroundEnabled = false
+//        compareChartView.drawBordersEnabled = false
+//        //    ivChartView.barData?.yMi
+//
+//        //밑에 데이터셋 제거
+//        compareChartView.legend.enabled = false
+//
+//        data.barWidth = 0.2
         
         
 //
@@ -121,7 +122,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
 //        ivChartView.rightAxis.addLimitLine(ll)
 //        ll.lineWidth = 0.3
         
-    }
+ //   }
     
 //    func setTextField(){
 //
@@ -147,7 +148,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
 //            compareBtn.isEnabled = true
 //        }
         
-  //  }
+// }
     
     
    
@@ -166,7 +167,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
 //
 //        return UIColor(white: 206.0 / 255.0, alpha: 1.0)
 //
-//    }
+//   }
 //
     
     func setTextFieldAttribute(){

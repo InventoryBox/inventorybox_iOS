@@ -41,9 +41,6 @@ class InventoryTodayRecordCell: UITableViewCell {
                 }
             } else {
                 inventoryCountTextField.text = ""
-                if(indexPath! == 0) {
-                    inventoryCountTextField.placeholder = "재고량 입력"
-                }
             }
             
         }
@@ -83,10 +80,8 @@ class InventoryTodayRecordCell: UITableViewCell {
     
     private func setTextFieldCustommed() {
         
-        inventoryCountTextField.layer.borderWidth = 1
-        inventoryCountTextField.layer.borderColor = UIColor.yellow.cgColor
-        inventoryCountTextField.layer.cornerRadius = 15
-        
+        inventoryCountTextField.layer.cornerRadius = 9
+        inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         inventoryCountTextField.delegate = self
@@ -105,7 +100,6 @@ class InventoryTodayRecordCell: UITableViewCell {
         self.inventoryImageView.kf.setImage(with: url)
         inventoryNameLabel.text = inventoryName
         isTyped = false
-        
     }
 
 }

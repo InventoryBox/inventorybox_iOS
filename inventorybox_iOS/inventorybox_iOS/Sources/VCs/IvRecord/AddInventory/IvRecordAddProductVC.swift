@@ -271,12 +271,13 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         let memoCnt = Int(ivOrder)!
-//        print(ivName)
-//        print(ivUnit)
-//        print(alarmCnt)
-//        print(memoCnt)
-//        print(categoryIdx)
-//        print(iconIdx)
+        
+        print(ivName)
+        print(ivUnit)
+        print(alarmCnt)
+        print(memoCnt)
+        print(categoryIdx)
+        print(iconIdx)
         IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
             switch networkResult {
             case .success(let data):

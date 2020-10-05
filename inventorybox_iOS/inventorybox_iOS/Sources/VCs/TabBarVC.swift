@@ -23,9 +23,9 @@ class TabBarVC: UITabBarController {
         self.tabBar.tintColor = UIColor.yellow
         
         // 1
-        let Homes = UIStoryboard.init(name: "Homes", bundle: nil)
-        guard let firstTab = Homes.instantiateViewController(identifier: "HomeNewVC")
-            as? HomeNewVC  else {
+        let Homes = UIStoryboard.init(name: "IvHome", bundle: nil)
+        guard let firstTab = Homes.instantiateViewController(identifier: "HomeNewNC")
+            as? HomeNewNC  else {
                 return
         }
         firstTab.tabBarItem.title = "홈"
@@ -43,7 +43,7 @@ class TabBarVC: UITabBarController {
         secondTab.tabBarItem.selectedImage = UIImage(named: "tabbarIcRecordSelected")
         
         //3
-        let IvGraph = UIStoryboard.init(name: "IvGraph", bundle: nil)
+        let IvGraph = UIStoryboard.init(name: "IvGraphNew", bundle: nil)
         guard let thirdTab = IvGraph.instantiateViewController(identifier: "IvGraphNC")
             as? IvGraphNC  else {
                 return

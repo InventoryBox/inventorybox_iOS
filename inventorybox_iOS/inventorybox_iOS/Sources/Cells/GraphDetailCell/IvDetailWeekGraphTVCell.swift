@@ -67,6 +67,20 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
           //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
           let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
           
+        
+        
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 2
+        valFormatter.currencySymbol = "$"
+        
+        
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        
+        ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
+       
           
           //그래프 색 변경 부분
           
@@ -75,6 +89,9 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
           
           
           let chartData = BarChartData(dataSet: chartDataSet)
+          chartData.setValueFormatter(formatter)
+          chartData.setValueFont(NSUIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12))
+        chartData.setValueTextColor(.charcoal)
           ivChartView.data = chartData
           ivChartView.xAxis.labelPosition = .bottom
           ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
@@ -89,11 +106,13 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
           ivChartView.leftAxis.drawGridLinesEnabled = false
           ivChartView.drawGridBackgroundEnabled = false
           ivChartView.drawBordersEnabled = false
+          ivChartView.xAxis.labelFont = UIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
+        ivChartView.xAxis.labelTextColor = .charcoal
           
           //밑에 데이터셋 제거
           ivChartView.legend.enabled = false
           
-          chartData.barWidth = 0.2
+          chartData.barWidth = 0.3
         
       }
       
@@ -141,6 +160,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
                ivChartView.xAxis.labelPosition = .bottom
                ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
                ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+        
                ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
                ivChartView.xAxis.drawGridLinesEnabled = false
                ivChartView.leftAxis.drawLabelsEnabled = false

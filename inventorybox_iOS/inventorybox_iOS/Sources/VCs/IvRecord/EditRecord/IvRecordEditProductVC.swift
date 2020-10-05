@@ -157,8 +157,8 @@ class IvRecordEditProductVC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
             self.dismiss(animated: false, completion: nil)
-            
         }
+        
     }
 }
 
