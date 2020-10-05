@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,HomePageControlDelegate {
+class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,HomePageControlDelegate, UIViewControllerTransitioningDelegate {
     
     var whatPageIsIt: Int = 0
     
@@ -27,6 +27,7 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     private var customLeftData : [DataModel] = []
     private var customRightData : [DataModel] = []
     
+    let transition = HomeSlideTransition()
     
     @IBOutlet var ingredientListView: UIView!
     @IBOutlet var bigCV: UICollectionView!
@@ -40,6 +41,59 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         bigCV.dataSource = self
         homeDetailBtn.layer.cornerRadius = 15.0
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    @IBAction func hamburgerClickAction(_ sender: Any) {
+        guard let sideMenuBarVC = storyboard?.instantiateViewController(withIdentifier: "HomeNewSideMenuVC") as? HomeNewSideMenuVC else {return }
+             
+             sideMenuBarVC.didTapMenuType = {menuType in
+                 self.transtionToNew(menuType)
+                 // print(menuType)
+             }
+             sideMenuBarVC.modalPresentationStyle = .overCurrentContext
+             sideMenuBarVC.transitioningDelegate = self
+             
+             present(sideMenuBarVC, animated: true)
+             
+             // MARK: 회색 처리된 배경 누르면 dismiss 되게 만들기
+             let tap = UITapGestureRecognizer(target: self, action:    #selector(self.handleTap(_:)))
+             // dimingView(gray 배경)에 (tap)제스쳐를 입히겠다
+             transition.dimingView.addGestureRecognizer(tap)
+    }
+    
+    func transtionToNew(_ menuType : MenuType){
+
+        switch menuType{
+        case .profile:
+            guard let profileVC = self.storyboard?.instantiateViewController(identifier: "HomeSideProfileVC") as? HomeSideProfileVC else {return}
+
+            profileVC.modalPresentationStyle = .fullScreen
+            self.present(profileVC, animated: true, completion: nil)
+
+        case .myInfo:
+            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+
+            myInfoVC.modalPresentationStyle = .fullScreen
+            self.present(myInfoVC, animated: true, completion: nil)
+
+        case .post:
+            print("")
+        case .change:
+            print("aa")
+        case .setting:
+            let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+
+            guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeNewNC else { return  }
+            settingVC.modalPresentationStyle = .fullScreen
+
+            self.present(settingVC, animated: true, completion: nil)
+        }
+
+    }
+    
+    // objc 함수를 통해 행동을 정의
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,5 +220,15 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         return bigCVCell
     }
     
-
+    // 햄버거바 관련 controller
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
+    }
 }
+
