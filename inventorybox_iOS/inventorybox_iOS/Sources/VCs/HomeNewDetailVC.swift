@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -15,10 +16,6 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet var homeDetailTV: UITableView!
     private var orderCheckInformations : [HomeItem] = []
     var isOpen:[HomeDetailInfoData] = []
-    
-    var indexSet: IndexSet = []
-    var selectedIndex = -1
-    var isCollapse = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +28,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Do any additional setup after loading the view.
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-            
-        return .default
-        
-    }
-
-
+    
   
     func getDataFromServer(){
         
@@ -56,6 +47,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 DispatchQueue.main.async {
                     self.homeDetailTV.reloadData()
+                    print(self.orderCheckInformations)
                 }
             case .requestErr(let message):
                 guard let message = message as? String else {return}
@@ -104,6 +96,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.itemImg.image = UIImage(data: data!)
             cell.itemNameLabel.text = orderCheckInformations[indexPath.section].itemName
             cell.itemMemoCountLabel.text = String(orderCheckInformations[indexPath.section].memoCnt)
+            cell.itemUnitLabel.text = orderCheckInformations[indexPath.section].unit
             
             if orderCheckInformations[indexPath.section].flag == 1 {
                 cell.itemFlagBtn.setImage(UIImage(named: "homeBtnCheckUnselect"), for: .normal)
@@ -116,9 +109,9 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else {
             let cell:HomeNewDetailContentTVCell = tableView.dequeueReusableCell(withIdentifier: "HomeNewDetailContentTVCell", for: indexPath) as! HomeNewDetailContentTVCell
             
-            cell.testLabel.text = orderCheckInformations[indexPath.section].itemName
-            
-           
+            cell.removeLimitLine()
+            cell.alarmCntLabel.text = "\(orderCheckInformations[indexPath.section].alarmCnt)"
+            cell.bind(model: orderCheckInformations[indexPath.section])
             
             return cell
         }

@@ -742,28 +742,6 @@
                                     <constraint firstItem="l5h-TP-tZW" firstAttribute="width" secondItem="Qwe-3Z-3ir" secondAttribute="width" id="hzZ-fk-0ND"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6t-Jr-9aA">
-                                <rect key="frame" x="71" y="192" width="233" height="233"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-7l-S9K">
-                                        <rect key="frame" x="0.0" y="0.0" width="233" height="233"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="gJh-7l-S9K" secondAttribute="height" multiplier="1:1" id="6PL-X9-l4i"/>
-                                            <constraint firstAttribute="width" constant="233" id="Wyd-Xh-XeK"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="icProfile"/>
-                                        <connections>
-                                            <action selector="setMyProfile" destination="2Xg-sd-7jO" eventType="touchUpInside" id="uwt-bB-0Q6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="gJh-7l-S9K" firstAttribute="centerY" secondItem="X6t-Jr-9aA" secondAttribute="centerY" id="2M8-hR-wPH"/>
-                                    <constraint firstAttribute="width" secondItem="X6t-Jr-9aA" secondAttribute="height" multiplier="1:1" id="YqI-uH-yaM"/>
-                                    <constraint firstAttribute="height" constant="233" id="cka-xf-8W1"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPK-ft-1Od">
                                 <rect key="frame" x="26" y="466" width="67.5" height="16"/>
                                 <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="14"/>
@@ -796,6 +774,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-7l-S9K">
+                                <rect key="frame" x="71" y="181" width="233" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gJh-7l-S9K" secondAttribute="height" multiplier="1:1" id="6PL-X9-l4i"/>
+                                    <constraint firstAttribute="width" constant="233" id="Wyd-Xh-XeK"/>
+                                </constraints>
+                                <state key="normal" image="icProfile"/>
+                                <connections>
+                                    <action selector="setMyProfile" destination="2Xg-sd-7jO" eventType="touchUpInside" id="uwt-bB-0Q6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VbD-Lp-1cx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -804,15 +793,14 @@
                             <constraint firstItem="l5h-TP-tZW" firstAttribute="leading" secondItem="VbD-Lp-1cx" secondAttribute="leading" id="2ep-9j-cgX"/>
                             <constraint firstItem="fXy-4h-q9b" firstAttribute="centerX" secondItem="VbD-Lp-1cx" secondAttribute="centerX" id="3rX-jf-6jQ"/>
                             <constraint firstItem="0IH-mu-8wa" firstAttribute="trailing" secondItem="IDN-Vj-9L6" secondAttribute="trailing" id="AFl-6l-IyO"/>
-                            <constraint firstItem="gJh-7l-S9K" firstAttribute="centerX" secondItem="VbD-Lp-1cx" secondAttribute="centerX" id="J3j-St-950"/>
+                            <constraint firstItem="kPK-ft-1Od" firstAttribute="top" secondItem="gJh-7l-S9K" secondAttribute="bottom" constant="52" id="M7m-s2-C4r"/>
                             <constraint firstItem="fXy-4h-q9b" firstAttribute="leading" secondItem="VbD-Lp-1cx" secondAttribute="leading" constant="16" id="O47-Op-4Ik"/>
-                            <constraint firstItem="X6t-Jr-9aA" firstAttribute="centerX" secondItem="VbD-Lp-1cx" secondAttribute="centerX" id="Piu-h8-MRf"/>
                             <constraint firstItem="kPK-ft-1Od" firstAttribute="leading" secondItem="VbD-Lp-1cx" secondAttribute="leading" constant="26" id="Q5h-DB-MFV"/>
                             <constraint firstItem="0IH-mu-8wa" firstAttribute="top" secondItem="IDN-Vj-9L6" secondAttribute="bottom" constant="4" id="VPA-8x-Xx4"/>
                             <constraint firstItem="IDN-Vj-9L6" firstAttribute="top" secondItem="kPK-ft-1Od" secondAttribute="bottom" constant="8" id="aPp-6G-edl"/>
                             <constraint firstItem="0IH-mu-8wa" firstAttribute="leading" secondItem="VbD-Lp-1cx" secondAttribute="leading" constant="32" id="bQW-DI-mRc"/>
-                            <constraint firstItem="X6t-Jr-9aA" firstAttribute="top" secondItem="Qwe-3Z-3ir" secondAttribute="bottom" constant="104" id="dAV-RO-IWN"/>
-                            <constraint firstItem="kPK-ft-1Od" firstAttribute="top" secondItem="X6t-Jr-9aA" secondAttribute="bottom" constant="41" id="dcb-nP-THc"/>
+                            <constraint firstItem="gJh-7l-S9K" firstAttribute="centerX" secondItem="VbD-Lp-1cx" secondAttribute="centerX" id="dbP-Ru-KfI"/>
+                            <constraint firstItem="gJh-7l-S9K" firstAttribute="top" secondItem="Qwe-3Z-3ir" secondAttribute="bottom" constant="93" id="f5H-dw-e7c"/>
                             <constraint firstItem="Qwe-3Z-3ir" firstAttribute="top" secondItem="VbD-Lp-1cx" secondAttribute="top" id="ljE-pO-XVU"/>
                             <constraint firstAttribute="trailing" secondItem="fXy-4h-q9b" secondAttribute="trailing" constant="16" id="rpU-ib-iUL"/>
                             <constraint firstItem="Qwe-3Z-3ir" firstAttribute="centerX" secondItem="cOy-PB-z5O" secondAttribute="centerX" id="sXS-Ft-L3q"/>
@@ -1296,23 +1284,6 @@
             <point key="canvasLocation" x="6714" y="167"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5mr-fB-FHy">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="EfI-vL-Zm0">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="HK9-DP-0nq">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="fLZ-aH-w3B">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="xt3-gM-T8P">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-    </designables>
     <resources>
         <image name="btnName" width="276" height="51"/>
         <image name="btnNext" width="343" height="53"/>
