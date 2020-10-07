@@ -178,11 +178,8 @@
 		D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */; };
 		D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */; };
 		D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */; };
-		D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */; };
 		D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3BE24B649A500D8795E /* 26594-add-text.json */; };
 		D4DFE3C124B649C800D8795E /* hamburger.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3C024B649C800D8795E /* hamburger.json */; };
-		D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3C624B665ED00D8795E /* OnboardingOneVC.swift */; };
-		D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */; };
 		D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */; };
 		D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */; };
 		D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */; };
@@ -398,11 +395,8 @@
 		D4DCC9272529D9F5004F6D40 /* SettingIvRecordTtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingIvRecordTtitleCell.swift; sourceTree = "<group>"; };
 		D4DCC92B2529DB94004F6D40 /* SettingIvRecordQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingIvRecordQuestionCell.swift; sourceTree = "<group>"; };
 		D4DFE3BA24B6414700D8795E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		D4DFE3BE24B649A500D8795E /* 26594-add-text.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "26594-add-text.json"; sourceTree = "<group>"; };
 		D4DFE3C024B649C800D8795E /* hamburger.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamburger.json; sourceTree = "<group>"; };
-		D4DFE3C624B665ED00D8795E /* OnboardingOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOneVC.swift; sourceTree = "<group>"; };
-		D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwoVC.swift; sourceTree = "<group>"; };
 		D4DFE3CC24B6668600D8795E /* IvRecordCategoryEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryEditVC.swift; sourceTree = "<group>"; };
 		D4DFE3CE24B6682500D8795E /* 26540-blogging-writing-typing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "26540-blogging-writing-typing.json"; sourceTree = "<group>"; };
 		D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecordEditProduct.storyboard; sourceTree = "<group>"; };
@@ -1072,9 +1066,6 @@
 		D4DFE3CA24B6661400D8795E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				D4DFE3C624B665ED00D8795E /* OnboardingOneVC.swift */,
-				D4DFE3BC24B6415C00D8795E /* OnboardingVC.swift */,
-				D4DFE3C824B6660F00D8795E /* OnboardingTwoVC.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1229,7 +1220,6 @@
 				0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */,
 				0E1EE8E42508A48200859E68 /* HomeVC.swift in Sources */,
 				D409DF0E24BC3B4C009AC0B6 /* APIConstants.swift in Sources */,
-				D4DFE3C724B665ED00D8795E /* OnboardingOneVC.swift in Sources */,
 				D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */,
 				339C89B124BB21FC00B86BAF /* LoginVC.swift in Sources */,
 				33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */,
@@ -1295,8 +1285,6 @@
 				334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */,
 				33875C5725041B02002D9DA0 /* SignupData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
-				D4DFE3C924B6660F00D8795E /* OnboardingTwoVC.swift in Sources */,
-				D4DFE3BD24B6415C00D8795E /* OnboardingVC.swift in Sources */,
 				0E4A82FD24BD7B89001E38B7 /* MemoTVCell.swift in Sources */,
 				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
 				3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */,
