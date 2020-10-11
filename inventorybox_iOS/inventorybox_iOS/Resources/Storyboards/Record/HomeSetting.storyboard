@@ -31,11 +31,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="86" id="8Aa-Uu-u6K" customClass="SettingCell" customModule="inventorybox_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="86" id="8Aa-Uu-u6K" customClass="SettingCell" customModule="inventorybox_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Aa-Uu-u6K" id="eu8-oW-zNH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCE-SR-4bA">
@@ -44,14 +44,8 @@
                                                     <color key="textColor" name="mediumGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ4-Ct-eld">
-                                                    <rect key="frame" x="375" y="32" width="11" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" name="mediumGrey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZw-bC-gUr">
-                                                    <rect key="frame" x="0.0" y="85" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="85" width="383" height="1"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="G33-Ak-Vmc"/>
@@ -62,10 +56,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="zZw-bC-gUr" secondAttribute="trailing" id="6nm-7X-np3"/>
                                                 <constraint firstItem="FCE-SR-4bA" firstAttribute="leading" secondItem="eu8-oW-zNH" secondAttribute="leadingMargin" constant="16" id="BwF-YV-Aqr"/>
                                                 <constraint firstItem="FCE-SR-4bA" firstAttribute="centerY" secondItem="eu8-oW-zNH" secondAttribute="centerY" id="TsJ-aQ-j0S"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="dQ4-Ct-eld" secondAttribute="trailing" constant="8" id="cir-U4-wcX"/>
                                                 <constraint firstAttribute="bottom" secondItem="zZw-bC-gUr" secondAttribute="bottom" id="ja6-pX-1gD"/>
                                                 <constraint firstItem="zZw-bC-gUr" firstAttribute="leading" secondItem="eu8-oW-zNH" secondAttribute="leading" id="pX8-x9-h3H"/>
-                                                <constraint firstItem="dQ4-Ct-eld" firstAttribute="centerY" secondItem="eu8-oW-zNH" secondAttribute="centerY" id="tPQ-3H-YgI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -156,31 +148,31 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재고창고란?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkY-3A-N3e">
-                                        <rect key="frame" x="16" y="46" width="88" height="21"/>
+                                        <rect key="frame" x="16" y="46" width="92" height="20"/>
                                         <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인 외식사업자를 위한 ‘재고관리’ 어플리케이션" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uik-Zx-2uP">
-                                        <rect key="frame" x="16" y="97" width="228" height="14"/>
+                                        <rect key="frame" x="16" y="96" width="235.5" height="14"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나만의 다이어리를 써가듯 매일매일 쉽게 기록하고 관리해보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldA-jG-ZgN">
-                                        <rect key="frame" x="16" y="116" width="303.5" height="14"/>
+                                        <rect key="frame" x="16" y="115" width="316.5" height="14"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최초 사용시, 어떻게 사용하나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybg-DQ-m6o">
-                                        <rect key="frame" x="16" y="160" width="181" height="16.5"/>
+                                        <rect key="frame" x="16" y="159" width="188" height="15.5"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ1-Hf-yvl">
-                                        <rect key="frame" x="30" y="198.5" width="354" height="109.5"/>
+                                        <rect key="frame" x="30" y="196.5" width="354" height="103.5"/>
                                         <color key="tintColor" name="mediumGrey"/>
                                         <attributedString key="attributedText">
                                             <fragment>
@@ -276,7 +268,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feq-Zp-qPe">
-                                                            <rect key="frame" x="20" y="28.5" width="359.5" height="15.5"/>
+                                                            <rect key="frame" x="20" y="29" width="359.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
