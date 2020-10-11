@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D48417A724AC55EB0064EE64"
-               BuildableName = "inventorybox-iOS.app"
+               BuildableName = "inventorybox_iOS.app"
                BlueprintName = "inventorybox_iOS"
                ReferencedContainer = "container:inventorybox_iOS.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D48417A724AC55EB0064EE64"
-            BuildableName = "inventorybox-iOS.app"
+            BuildableName = "inventorybox_iOS.app"
             BlueprintName = "inventorybox_iOS"
             ReferencedContainer = "container:inventorybox_iOS.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D48417A724AC55EB0064EE64"
-            BuildableName = "inventorybox-iOS.app"
+            BuildableName = "inventorybox_iOS.app"
             BlueprintName = "inventorybox_iOS"
             ReferencedContainer = "container:inventorybox_iOS.xcodeproj">
          </BuildableReference>

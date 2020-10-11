@@ -46,16 +46,15 @@ class InventoryEditProductCell: UITableViewCell {
     }
     
     private func setTextFieldCustommed() {
-        
-        inventoryCountTextField.layer.borderWidth = 1
-        inventoryCountTextField.layer.borderColor = UIColor.yellow.cgColor
-        inventoryCountTextField.layer.cornerRadius = 15
         inventoryCountTextField.placeholder = "재고량 입력"
         inventoryCountTextField.layer.cornerRadius = 9
         inventoryCountTextField.borderStyle = .none
         inventoryCountTextField.textAlignment = .center
         inventoryCountTextField.tintColor = UIColor.greyishBrown
         inventoryCountTextField.keyboardType = .numberPad
+        inventoryCountTextField.layer.cornerRadius = 10
+        inventoryCountTextField.layer.borderColor = UIColor.yellow.cgColor
+        inventoryCountTextField.layer.borderWidth = 1
         inventoryCountTextField.addInputAccessoryView(title: "완료", target: self, selector: #selector(donePressed))
         inventoryCountTextField.delegate = self
     }
@@ -70,7 +69,7 @@ class InventoryEditProductCell: UITableViewCell {
         inventoryNameLabel.text = inventoryName
         isTyped = false
     }
-
+    
 }
 
 extension InventoryEditProductCell: UITextFieldDelegate {

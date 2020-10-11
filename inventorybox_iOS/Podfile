@@ -13,4 +13,4 @@ target 'inventorybox_iOS' do
   pod "TTGTagCollectionView", '~> 1.11.1'
   pod 'BEMCheckBox'
   pod 'RxKakaoSDKCommon', '~> 2.0.0-beta.2'
-end
+end 

@@ -35,6 +35,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func doLogin(_ sender: UIButton) {
         //로그인하기
+        
         LoginService.shared.login(id: self.emailTextField.text!, pw: self.passwordTextField.text!) { result in
             switch result {
             case .success(let jwt):

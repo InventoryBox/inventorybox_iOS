@@ -24,7 +24,6 @@ class IvCompareGraphVC: UIViewController {
           confirmBtn.layer.cornerRadius = 25
           confirmBtn.backgroundColor = UIColor.yellow
           confirmBtn.tintColor = UIColor.white
-          
       }
       
       @IBAction func dismissDatePicker(_ sender: UIButton) {

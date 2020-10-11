@@ -10,7 +10,6 @@ import UIKit
 
 class HomeSideMyInfoVC: UIViewController {
 
- 
     override func viewDidLoad() {
         super.viewDidLoad()
 

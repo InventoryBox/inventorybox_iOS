@@ -50,5 +50,5 @@ struct ItemInfo: Codable {
     let name: String
     let categoryIdx, alarmCnt: Int
     let iconImg: String
-    let stocks: [Int]
+    var stocks: [Int]
 }

@@ -264,9 +264,6 @@ class IvRecordCategoryEditVC: UIViewController {
                 categories.remove(at: i)
             }
         }
-        if let date = dateToSend {
-            getDataFromServer(date)
-        }
         categoryCollectionView.reloadData()
         categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
         collectionView(self.categoryCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))

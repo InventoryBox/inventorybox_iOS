@@ -1,15 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "UserTerm10.pdf",
-      "idiom" : "universal"
+      "filename" : "UserTerm10.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "UserTerm10@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "UserTerm10@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

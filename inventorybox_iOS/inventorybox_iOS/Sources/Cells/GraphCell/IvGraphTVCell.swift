@@ -80,8 +80,12 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.setValueFormatter(formatter)
-
+        chartData.setValueFont(NSUIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12))
+        chartData.setValueTextColor(.charcoal)
+        
+       
         ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
+       
         
         let url = URL(string: model.iconImg)
         itemImg.kf.setImage(with: url)
@@ -97,7 +101,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
             chartDataSet.colors = [setColor(value: Double(model.stocks[i]))]
         }
         
-        
+       
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
         ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
@@ -113,7 +117,9 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
         let  xAxis : XAxis = self.ivChartView.xAxis
-        xAxis.labelFont = UIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
+        xAxis.labelFont = UIFont(name: "NanumSquare-ExtraBold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
+        xAxis.labelTextColor = .charcoal
+        
         xAxis.axisLineWidth = 0.5
         xAxis.axisLineColor = .pinkishGrey
         
@@ -124,10 +130,11 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         chartData.barWidth = 0.3
         
         let ll = ChartLimitLine(limit: Double(model.alarmCnt), label: "")
+        ll.lineColor = UIColor(red: 250/255, green: 221/255, blue: 155/255, alpha: 1.0)
         limitLine = ll
         ivChartView.rightAxis.removeLimitLine(ll)
         ivChartView.rightAxis.addLimitLine(ll)
-        ll.lineWidth = 0.3
+        ll.lineWidth = 1.0
         
     }
         

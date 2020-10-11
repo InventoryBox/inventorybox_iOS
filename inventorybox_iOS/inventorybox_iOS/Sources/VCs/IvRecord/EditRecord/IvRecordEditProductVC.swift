@@ -136,6 +136,7 @@ class IvRecordEditProductVC: UIViewController {
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
+    
     @IBAction func completeBtnPressed(_ sender: Any) {
         // 서버 통신 코드
         IvRecordEditIvPostService.shared.getRecordEditIvPost(data: inventoryEditProductArray, date: dateToSend!, completion: { networkResult in
@@ -154,14 +155,10 @@ class IvRecordEditProductVC: UIViewController {
             }
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//            self.view.addSubview(self.spinner)
-//            self.spinner.center = self.view.center
-//            self.view.bringSubviewToFront(self.spinner)
-//            self.spinner.startAnimating()
             NotificationCenter.default.post(name: .init("sendDataFromEditRecordToHome"), object: nil, userInfo: ["editInventoryArray": self.inventoryEditProductArray])
             self.dismiss(animated: false, completion: nil)
-            
         }
+        
     }
 }
 

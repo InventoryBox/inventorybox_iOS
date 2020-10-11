@@ -16,13 +16,13 @@ struct HomeInformation: Codable {
     let data: HomeItemclass?
     
     //값이 없을 경우 nil값 집어넣기?
-      init(from decoder: Decoder) throws {
-          let values = try decoder.container(keyedBy: CodingKeys.self)
-          status = (try? values.decode(Int.self, forKey: .status)) ?? -1
-          success = (try? values.decode(Bool.self, forKey: .success)) ?? false
-          message = (try? values.decode(String.self, forKey: .message)) ?? ""
-          data = (try? values.decode(HomeItemclass.self, forKey: .data)) ?? nil
-      }
+//      init(from decoder: Decoder) throws {
+//          let values = try decoder.container(keyedBy: CodingKeys.self)
+//          status = (try? values.decode(Int.self, forKey: .status)) ?? -1
+//          success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+//          message = (try? values.decode(String.self, forKey: .message)) ?? ""
+//          data = (try? values.decode(HomeItemclass.self, forKey: .data)) ?? nil
+//      }
 }
 
 // MARK: - DataClass
@@ -41,3 +41,4 @@ struct HomeItem: Codable {
     let iconName: String
     let stocksInfo: [Int]
 }
+
