@@ -155,10 +155,12 @@
 		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
-		D49670402533404E00E0A635 /* OnboardingNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D496703F2533404E00E0A635 /* OnboardingNC.swift */; };
-		D49670432533444700E0A635 /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49670422533444700E0A635 /* OnboardingTwoVC.swift */; };
-		D49670462533445200E0A635 /* OnboardingThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49670452533445200E0A635 /* OnboardingThreeVC.swift */; };
-		D49670492533445E00E0A635 /* OnboardingFourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49670482533445E00E0A635 /* OnboardingFourVC.swift */; };
+		D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB325334E460006D6DC /* OnboardingTwoVC.swift */; };
+		D494DEB825334E460006D6DC /* OnboardingNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB425334E460006D6DC /* OnboardingNC.swift */; };
+		D494DEB925334E460006D6DC /* OnboardingFourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB525334E460006D6DC /* OnboardingFourVC.swift */; };
+		D494DEBA25334E460006D6DC /* OnboardingThreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB625334E460006D6DC /* OnboardingThreeVC.swift */; };
+		D494DEBD25334EBA0006D6DC /* LoginNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEBC25334EBA0006D6DC /* LoginNC.swift */; };
+		D494DEC0253352830006D6DC /* OnboardingOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEBF253352830006D6DC /* OnboardingOneVC.swift */; };
 		D49B864024C26485003785FE /* AddressUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B863F24C26485003785FE /* AddressUpdateService.swift */; };
 		D4A05D3424C0AE9300F038FA /* IvRecordEditCateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */; };
 		D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */; };
@@ -381,10 +383,12 @@
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48417B924AC55EC0064EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4933EFD24BD67E900FCB789 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
-		D496703F2533404E00E0A635 /* OnboardingNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingNC.swift; path = inventorybox_iOS/Resources/Assets.xcassets/greyisbrown.colorset/OnboardingNC.swift; sourceTree = SOURCE_ROOT; };
-		D49670422533444700E0A635 /* OnboardingTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingTwoVC.swift; path = inventorybox_iOS/Resources/Storyboards/OnboardingTwoVC.swift; sourceTree = SOURCE_ROOT; };
-		D49670452533445200E0A635 /* OnboardingThreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingThreeVC.swift; path = inventorybox_iOS/Resources/Storyboards/OnboardingThreeVC.swift; sourceTree = SOURCE_ROOT; };
-		D49670482533445E00E0A635 /* OnboardingFourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingFourVC.swift; path = inventorybox_iOS/Resources/Storyboards/OnboardingFourVC.swift; sourceTree = SOURCE_ROOT; };
+		D494DEB325334E460006D6DC /* OnboardingTwoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTwoVC.swift; sourceTree = "<group>"; };
+		D494DEB425334E460006D6DC /* OnboardingNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNC.swift; sourceTree = "<group>"; };
+		D494DEB525334E460006D6DC /* OnboardingFourVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFourVC.swift; sourceTree = "<group>"; };
+		D494DEB625334E460006D6DC /* OnboardingThreeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingThreeVC.swift; sourceTree = "<group>"; };
+		D494DEBC25334EBA0006D6DC /* LoginNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNC.swift; sourceTree = "<group>"; };
+		D494DEBF253352830006D6DC /* OnboardingOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOneVC.swift; sourceTree = "<group>"; };
 		D49B863F24C26485003785FE /* AddressUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUpdateService.swift; sourceTree = "<group>"; };
 		D4A05D3324C0AE9300F038FA /* IvRecordEditCateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateData.swift; sourceTree = "<group>"; };
 		D4A05D3524C0D0C500F038FA /* IvRecordEditCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditCateService.swift; sourceTree = "<group>"; };
@@ -977,13 +981,13 @@
 			isa = PBXGroup;
 			children = (
 				D41D535F252B6A5B00673978 /* Settings */,
+				D494DEB225334E460006D6DC /* Onboarding */,
 				33AB8D6C25095B5400D0C602 /* Home */,
 				0E1EE8DA2508A48200859E68 /* IvHome */,
 				3340BC9724E28CBB00D41F9F /* SignProgress */,
 				D4DFE3CB24B6662A00D8795E /* IvRecord */,
 				D46A015B24B6C9780055814E /* IvExchange */,
 				3332405D24B5B17800C3B59C /* IvGraphNC.swift */,
-				D4DFE3CA24B6661400D8795E /* Onboarding */,
 				D4535A3624B2F78B000A67EF /* TabBarVC.swift */,
 				0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */,
 				3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */,
@@ -1066,6 +1070,19 @@
 			path = Designs;
 			sourceTree = "<group>";
 		};
+		D494DEB225334E460006D6DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D494DEB325334E460006D6DC /* OnboardingTwoVC.swift */,
+				D494DEB425334E460006D6DC /* OnboardingNC.swift */,
+				D494DEB525334E460006D6DC /* OnboardingFourVC.swift */,
+				D494DEB625334E460006D6DC /* OnboardingThreeVC.swift */,
+				D494DEBC25334EBA0006D6DC /* LoginNC.swift */,
+				D494DEBF253352830006D6DC /* OnboardingOneVC.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		D4B45F4B24B56BCC00888DC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,17 +1115,6 @@
 				D40372BC24E5762200AFD2E5 /* Record */,
 			);
 			path = RecordCell;
-			sourceTree = "<group>";
-		};
-		D4DFE3CA24B6661400D8795E /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				D496703F2533404E00E0A635 /* OnboardingNC.swift */,
-				D49670422533444700E0A635 /* OnboardingTwoVC.swift */,
-				D49670452533445200E0A635 /* OnboardingThreeVC.swift */,
-				D49670482533445E00E0A635 /* OnboardingFourVC.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		D4DFE3CB24B6662A00D8795E /* IvRecord */ = {
@@ -1294,7 +1300,6 @@
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
-				D49670492533445E00E0A635 /* OnboardingFourVC.swift in Sources */,
 				D41D5374252B6A5B00673978 /* IvSettingUsageVC.swift in Sources */,
 				3340BC9924E28CFC00D41F9F /* PersonalInfoChangeVC.swift in Sources */,
 				D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */,
@@ -1305,6 +1310,7 @@
 				D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */,
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
 				D4A2875E24B8452900A60C08 /* SelectHeaderCell.swift in Sources */,
+				D494DEBD25334EBA0006D6DC /* LoginNC.swift in Sources */,
 				D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */,
 				33700DE424E40CD2003F07A7 /* ProfileSetUpVC.swift in Sources */,
 				D4E7A41024B4EB0D001C015A /* IvRecordEditProductVC.swift in Sources */,
@@ -1332,6 +1338,7 @@
 				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
 				3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */,
 				D41D5376252B6A5B00673978 /* MenuCell.swift in Sources */,
+				D494DEC0253352830006D6DC /* OnboardingOneVC.swift in Sources */,
 				33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */,
 				D41D5372252B6A5B00673978 /* SettingIvRecordAnswerTableViewCell.swift in Sources */,
 				D41D5373252B6A5B00673978 /* SettingIvRecordTtitleCell.swift in Sources */,
@@ -1340,11 +1347,11 @@
 				33C2DD712528E90900E02891 /* HomeNewDetailContentTVCell.swift in Sources */,
 				D410992C24B08375007CAAB9 /* UIColorExtension.swift in Sources */,
 				D4E7A40B24B4EAD5001C015A /* orderCheckTVCInfo.swift in Sources */,
-				D49670402533404E00E0A635 /* OnboardingNC.swift in Sources */,
 				D415024D24C05E8C00183004 /* IvRecordTodayPostService.swift in Sources */,
 				D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */,
 				D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */,
 				3365E4F124BDDD3400E6AE8D /* InventoryGraphHomeService.swift in Sources */,
+				D494DEB925334E460006D6DC /* OnboardingFourVC.swift in Sources */,
 				D41D536C252B6A5B00673978 /* HomeSettingVC.swift in Sources */,
 				33875C532503E094002D9DA0 /* NicknameOverlapCheckService.swift in Sources */,
 				0E4A82F424BD7B64001E38B7 /* Home1TVCell.swift in Sources */,
@@ -1386,6 +1393,7 @@
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */,
+				D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
@@ -1403,7 +1411,6 @@
 				D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */,
 				D418CE7324BDFA2E00EE7672 /* IvRecordTodayIvData.swift in Sources */,
 				D4E7A40C24B4EAD5001C015A /* orderCheckCVCInfo.swift in Sources */,
-				D49670432533444700E0A635 /* OnboardingTwoVC.swift in Sources */,
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
 				3344F906250A5EAC00787DFC /* HomeMainRigntCVCell.swift in Sources */,
 				335E55DB24C231C200E306E9 /* SingleGraphData.swift in Sources */,
@@ -1426,14 +1433,15 @@
 				D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */,
 				3332406724B6522800C3B59C /* IvDetailGraphTVHeaderCell.swift in Sources */,
 				0E4A82F524BD7B64001E38B7 /* Home2TVCell.swift in Sources */,
+				D494DEB825334E460006D6DC /* OnboardingNC.swift in Sources */,
 				3332407324B6609000C3B59C /* WeekInformation.swift in Sources */,
 				D4A05D3A24C0F18000F038FA /* IvRecordSuccessData.swift in Sources */,
 				D41D5375252B6A5B00673978 /* SettingCell.swift in Sources */,
 				3365E4ED24BDC39300E6AE8D /* LoginData.swift in Sources */,
+				D494DEBA25334E460006D6DC /* OnboardingThreeVC.swift in Sources */,
 				D415024B24C0546B00183004 /* IvRecordTodayService.swift in Sources */,
 				D479508824BEF31F00588979 /* IvRecordEditIvService.swift in Sources */,
 				D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */,
-				D49670462533445200E0A635 /* OnboardingThreeVC.swift in Sources */,
 				0E1EE8D5250496AD00859E68 /* HomeSlideTransition.swift in Sources */,
 				D4A2875C24B809E400A60C08 /* IvProductExchangeCell.swift in Sources */,
 				D4E96EAC24B8868400BD3419 /* DatePickerPopupVC.swift in Sources */,

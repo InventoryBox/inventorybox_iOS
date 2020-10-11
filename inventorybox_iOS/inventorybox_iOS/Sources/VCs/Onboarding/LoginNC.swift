@@ -1,5 +1,5 @@
 //
-//  OnboardingFourVC.swift
+//  LoginNC.swift
 //  inventorybox_iOS
 //
 //  Created by 이재용 on 2020/10/11.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class OnboardingFourVC: UIViewController {
+class LoginNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = ""
+        // Do any additional setup after loading the view.
     }
     
 

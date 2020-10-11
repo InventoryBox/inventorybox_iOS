@@ -121,7 +121,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0bk-AM-S9K" secondAttribute="height" multiplier="343:53" id="KBa-0V-SXo"/>
                                 </constraints>
-                                <state key="normal" title="다음" backgroundImage="onboardingBtnNext">
+                                <state key="normal" backgroundImage="onboardingBtnNext">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -205,14 +205,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XG1-7f-HBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="-297"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="OZg-1K-L6N">
-            <objects>
-                <viewControllerPlaceholder id="pU5-DV-M3D" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vgU-0C-4Jn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3159" y="-104"/>
         </scene>
         <!--OnboardingNC-->
         <scene sceneID="Hxc-GJ-mt1">
