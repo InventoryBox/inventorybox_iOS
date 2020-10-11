@@ -16,6 +16,7 @@ class HomeNewDetailTVCell: UITableViewCell {
     @IBOutlet var itemFlagBtn: UIButton!
     @IBOutlet var homeMoreBtnImg: UIImageView!
     @IBOutlet var itemRoundView: UIView!
+    @IBOutlet var itemUnitLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

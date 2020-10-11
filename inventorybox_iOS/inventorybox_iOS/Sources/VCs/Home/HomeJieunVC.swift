@@ -64,22 +64,33 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     func transtionToNew(_ menuType : MenuType){
 
         switch menuType{
+        
+        // 프로필 변경
         case .profile:
             guard let profileVC = self.storyboard?.instantiateViewController(identifier: "HomeSideProfileVC") as? HomeSideProfileVC else {return}
 
             profileVC.modalPresentationStyle = .fullScreen
             self.present(profileVC, animated: true, completion: nil)
 
+        // 개인 정보 변경
         case .myInfo:
             guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
 
             myInfoVC.modalPresentationStyle = .fullScreen
             self.present(myInfoVC, animated: true, completion: nil)
-
+          
+        // 내가 쓴 게시글
         case .post:
-            print("")
+            guard let userPostVC = self.storyboard?.instantiateViewController(identifier: "IvHomeSideUserPostVC") as? IvHomeSideUserPostVC else { return }
+            
+            userPostVC.modalPresentationStyle = .fullScreen
+            self.present(userPostVC, animated: true, completion: nil)
+            
+        // 내가 쓴 게시글
         case .change:
             print("aa")
+        
+        // 설정
         case .setting:
             let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
 

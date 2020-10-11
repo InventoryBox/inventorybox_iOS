@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E00871A252BA319004689C7 /* IvHomeSideUserPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008719252BA319004689C7 /* IvHomeSideUserPostVC.swift */; };
+		0E00871D252BA3B0004689C7 /* IvHomeUserPostInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E00871C252BA3B0004689C7 /* IvHomeUserPostInformation.swift */; };
+		0E008722252BA476004689C7 /* IvHomeSideUserPostTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008721252BA476004689C7 /* IvHomeSideUserPostTVCell.swift */; };
+		0E008726252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008725252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift */; };
+		0E008729252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008728252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift */; };
+		0E00872C252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E00872B252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift */; };
 		0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */; };
 		0E0568EF24C0F28E00853DD0 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568EE24C0F28E00853DD0 /* HomeService.swift */; };
 		0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */; };
@@ -84,6 +90,7 @@
 		339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */; };
 		33A6A47C252B2E3F000B1D35 /* IvHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A6A47B252B2E3F000B1D35 /* IvHome.storyboard */; };
 		33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A6A47F252B2F48000B1D35 /* IvGraphNew.storyboard */; };
+		33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6A4F5252D1F3E000B1D35 /* IvHomeEditVC.swift */; };
 		33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */; };
 		33C2DD672528DFDF00E02891 /* HomeNewNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD662528DFDF00E02891 /* HomeNewNC.swift */; };
 		33C2DD6A2528E82F00E02891 /* HomeNewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD692528E82F00E02891 /* HomeNewDetailVC.swift */; };
@@ -201,6 +208,12 @@
 
 /* Begin PBXFileReference section */
 		0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E008719252BA319004689C7 /* IvHomeSideUserPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IvHomeSideUserPostVC.swift; path = inventorybox_iOS/Sources/VCs/IvHome/IvHomeSideUserPostVC.swift; sourceTree = SOURCE_ROOT; };
+		0E00871C252BA3B0004689C7 /* IvHomeUserPostInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeUserPostInformation.swift; sourceTree = "<group>"; };
+		0E008721252BA476004689C7 /* IvHomeSideUserPostTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostTVCell.swift; sourceTree = "<group>"; };
+		0E008725252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostCompleteTVCell.swift; sourceTree = "<group>"; };
+		0E008728252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostCompleteHeaderTVCell.swift; sourceTree = "<group>"; };
+		0E00872B252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerUserPostService.swift; sourceTree = "<group>"; };
 		0E0568EC24C0F0B900853DD0 /* HomeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInformation.swift; sourceTree = "<group>"; };
 		0E0568EE24C0F28E00853DD0 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMemoModifyPostService.swift; sourceTree = "<group>"; };
@@ -286,6 +299,7 @@
 		339C89B424BB83C700B86BAF /* SignUpPrivateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPrivateInfo.swift; sourceTree = "<group>"; };
 		33A6A47B252B2E3F000B1D35 /* IvHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvHome.storyboard; sourceTree = "<group>"; };
 		33A6A47F252B2F48000B1D35 /* IvGraphNew.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvGraphNew.storyboard; sourceTree = "<group>"; };
+		33A6A4F5252D1F3E000B1D35 /* IvHomeEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeEditVC.swift; sourceTree = "<group>"; };
 		33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJieunVC.swift; sourceTree = "<group>"; };
 		33C2DD662528DFDF00E02891 /* HomeNewNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewNC.swift; sourceTree = "<group>"; };
 		33C2DD692528E82F00E02891 /* HomeNewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewDetailVC.swift; sourceTree = "<group>"; };
@@ -425,9 +439,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E008720252BA439004689C7 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0E008721252BA476004689C7 /* IvHomeSideUserPostTVCell.swift */,
+				0E008725252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift */,
+				0E008728252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		0E1EE8DA2508A48200859E68 /* IvHome */ = {
 			isa = PBXGroup;
 			children = (
+				0E008719252BA319004689C7 /* IvHomeSideUserPostVC.swift */,
 				0E1EE8DB2508A48200859E68 /* SideMenuVC.swift */,
 				0E1EE8DC2508A48200859E68 /* HomeNewSideMenuVC.swift */,
 				0E1EE8DD2508A48200859E68 /* HomeSideMyInfoVC.swift */,
@@ -476,6 +501,7 @@
 		0EB0CF7824B1D40F009B089A /* HomeCell */ = {
 			isa = PBXGroup;
 			children = (
+				0E008720252BA439004689C7 /* SideMenu */,
 				0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */,
 				0E4A82F024BD7B64001E38B7 /* Home1CVCell.swift */,
 				0E4A82F124BD7B64001E38B7 /* Home1TVCell.swift */,
@@ -544,6 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */,
+				33A6A4F5252D1F3E000B1D35 /* IvHomeEditVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -906,6 +933,7 @@
 				D474DD0824E56875000F04AE /* Record */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
+				0E00872B252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
@@ -985,6 +1013,7 @@
 		D48417C524AC56920064EE64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0E00871C252BA3B0004689C7 /* IvHomeUserPostInformation.swift */,
 				33875C4F2503DFA6002D9DA0 /* SignUp */,
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
 				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
@@ -1286,9 +1315,11 @@
 				33875C5725041B02002D9DA0 /* SignupData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
 				0E4A82FD24BD7B89001E38B7 /* MemoTVCell.swift in Sources */,
+				0E00871D252BA3B0004689C7 /* IvHomeUserPostInformation.swift in Sources */,
 				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
 				3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */,
 				D41D5376252B6A5B00673978 /* MenuCell.swift in Sources */,
+				33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */,
 				D41D5372252B6A5B00673978 /* SettingIvRecordAnswerTableViewCell.swift in Sources */,
 				D41D5373252B6A5B00673978 /* SettingIvRecordTtitleCell.swift in Sources */,
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,
@@ -1312,10 +1343,12 @@
 				D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */,
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
+				0E008729252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift in Sources */,
 				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
 				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
 				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
+				0E00872C252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift in Sources */,
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
@@ -1328,6 +1361,7 @@
 				335E55DF24C28B7B00E306E9 /* HomePostService.swift in Sources */,
 				D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */,
 				335E55DD24C2320F00E306E9 /* SingleGraphLoadService.swift in Sources */,
+				0E008726252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift in Sources */,
 				0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */,
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				335889C624BCF3D300DB2533 /* TagModel.swift in Sources */,
@@ -1342,9 +1376,11 @@
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
+				0E00871A252BA319004689C7 /* IvHomeSideUserPostVC.swift in Sources */,
 				3344F908250AA17600787DFC /* DataModel.swift in Sources */,
 				3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */,
 				0E1EE8E62508A48200859E68 /* HomeNewVC.swift in Sources */,
+				0E008722252BA476004689C7 /* IvHomeSideUserPostTVCell.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */,
 				D41D536E252B6A5B00673978 /* TitleData.swift in Sources */,

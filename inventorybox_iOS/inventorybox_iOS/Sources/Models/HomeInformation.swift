@@ -40,6 +40,5 @@ struct HomeItem: Codable {
     let img: String
     let iconName: String
     let stocksInfo: [Int]
-   // var open = false
 }
 
