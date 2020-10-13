@@ -71,4 +71,28 @@ class AgreementVC: UIViewController {
             })
             
     }
+    @IBAction func openService(_ sender: UIButton) {
+        
+        let Settings = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+        guard let serviceVC = Settings.instantiateViewController(identifier: "SettingDetailVC") as? SettingDetailVC else { return }
+        serviceVC.navigationTitle = "재고창고 이용약관"
+        serviceVC.whichInformation = 0
+        self.navigationController?.pushViewController(serviceVC, animated: true)
+    }
+    
+    @IBAction func openPrivacySetting(_ sender: UIButton) {
+        
+        let Settings = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+        guard let serviceVC = Settings.instantiateViewController(identifier: "SettingDetailVC") as? SettingDetailVC else { return }
+        serviceVC.navigationTitle = "재고창고 개인정보처리방침"
+        serviceVC.whichInformation = 1
+        self.navigationController?.pushViewController(serviceVC, animated: true)
+    }
+    @IBAction func openLocationSetting(_ sender: UIButton) {
+        let Settings = UIStoryboard.init(name: "HomeSetting", bundle: nil)
+        guard let serviceVC = Settings.instantiateViewController(identifier: "SettingDetailVC") as? SettingDetailVC else { return }
+        serviceVC.navigationTitle = "재고창고 위치기반서비스"
+        serviceVC.whichInformation = 2
+        self.navigationController?.pushViewController(serviceVC, animated: true)
+    }
 }

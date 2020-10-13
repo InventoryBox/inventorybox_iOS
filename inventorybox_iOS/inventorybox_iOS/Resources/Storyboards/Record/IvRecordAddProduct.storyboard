@@ -431,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD3-Jx-EdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="226.23688155922042"/>
+            <point key="canvasLocation" x="977" y="226"/>
         </scene>
         <!--아이콘 선택-->
         <scene sceneID="4De-gc-Q7x">
@@ -551,7 +551,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2A-Qc-MoD">
                                 <rect key="frame" x="0.0" y="343" width="375" height="324"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBox" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-eD-6p3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowBox" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-eD-6p3">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="Qvh-xe-vK8"/>
@@ -667,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GjN-U9-AHm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="931"/>
+            <point key="canvasLocation" x="977" y="929"/>
         </scene>
     </scenes>
     <resources>

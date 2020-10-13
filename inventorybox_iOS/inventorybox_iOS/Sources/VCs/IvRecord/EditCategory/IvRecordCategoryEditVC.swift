@@ -73,6 +73,10 @@ class IvRecordCategoryEditVC: UIViewController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private func setNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(popupFromMoveCateToEditCate), name: .init("popupFromMoveCateToEditCate"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(popupFromAddCateToEditCate), name: .init("popupFromAddCateToEditCate"), object: nil)

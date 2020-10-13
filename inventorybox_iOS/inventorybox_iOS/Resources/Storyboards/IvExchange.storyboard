@@ -831,8 +831,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv7-g5-g1D">
-                                        <rect key="frame" x="0.0" y="0.0" width="7" height="47"/>
-                                        <state key="normal" backgroundImage="postBtnBack"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="47"/>
+                                        <state key="normal" backgroundImage="mypostIcBack"/>
                                         <connections>
                                             <action selector="backBtnPressed:" destination="QD1-7F-WQs" eventType="touchUpInside" id="7rI-g8-Jb4"/>
                                             <action selector="backBtnPressed:" destination="jYP-KU-Nz6" eventType="touchUpInside" id="Itn-Gf-pkE"/>
@@ -853,8 +853,8 @@
                                     <constraint firstItem="mv7-g5-g1D" firstAttribute="leading" secondItem="DB4-fO-OPC" secondAttribute="leading" id="nxm-89-kU2"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k68-Dl-XaG">
-                                <rect key="frame" x="0.0" y="169" width="375" height="498"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k68-Dl-XaG">
+                                <rect key="frame" x="0.0" y="181" width="375" height="486"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="83" id="0gN-8P-rdP" customClass="SearchResultCell" customModule="inventorybox_iOS" customModuleProvider="target">
@@ -916,16 +916,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="btnSearchLocation" translatesAutoresizingMaskIntoConstraints="NO" id="yQa-Hb-boR" customClass="FormTextField" customModule="inventorybox_iOS" customModuleProvider="target">
-                                <rect key="frame" x="16" y="115" width="343" height="39"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="searchTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="yQa-Hb-boR" customClass="FormTextField" customModule="inventorybox_iOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="115" width="343" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="0cR-Zt-u0g"/>
+                                    <constraint firstAttribute="height" constant="51" id="0m0-nv-QqT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="inset">
-                                        <real key="value" value="20"/>
+                                        <real key="value" value="45"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -984,12 +984,8 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-tg-On0">
-                                        <rect key="frame" x="17.5" y="17" width="6.5" height="13"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="6.5" id="KBG-Tl-9wV"/>
-                                            <constraint firstAttribute="height" constant="13" id="qpE-PY-e9U"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="postBtnBack"/>
+                                        <rect key="frame" x="0.0" y="3.5" width="40" height="40"/>
+                                        <state key="normal" backgroundImage="mypostIcBack"/>
                                         <connections>
                                             <action selector="backBtnPressed:" destination="QD1-7F-WQs" eventType="touchUpInside" id="Vk0-OC-5XU"/>
                                         </connections>
@@ -1004,7 +1000,7 @@
                                     <constraint firstAttribute="bottom" secondItem="W85-o5-SBs" secondAttribute="bottom" id="bST-fP-7ow"/>
                                     <constraint firstItem="W85-o5-SBs" firstAttribute="leading" secondItem="leS-AX-83i" secondAttribute="leading" constant="84" id="gzd-1W-SE8"/>
                                     <constraint firstItem="W85-o5-SBs" firstAttribute="centerX" secondItem="leS-AX-83i" secondAttribute="centerX" id="qYW-ru-1v1"/>
-                                    <constraint firstItem="WCB-tg-On0" firstAttribute="leading" secondItem="leS-AX-83i" secondAttribute="leading" constant="17.5" id="rRd-SY-UoB"/>
+                                    <constraint firstItem="WCB-tg-On0" firstAttribute="leading" secondItem="leS-AX-83i" secondAttribute="leading" id="rRd-SY-UoB"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ok1-CY-zN4">
@@ -1961,7 +1957,7 @@
                                             <action selector="dismissDatePicker:" destination="0qE-XH-Wkc" eventType="touchUpInside" id="sER-C2-1yM"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1j-5b-JIG">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1j-5b-JIG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
                                         <date key="date" timeIntervalSinceReferenceDate="615842529.50444996">
                                             <!--2020-07-07 19:22:09 +0000-->
@@ -2020,7 +2016,7 @@
             <size key="intrinsicContentSize" width="24.5" height="18.5"/>
         </designable>
         <designable name="yQa-Hb-boR">
-            <size key="intrinsicContentSize" width="4" height="18.5"/>
+            <size key="intrinsicContentSize" width="94" height="18.5"/>
         </designable>
     </designables>
     <resources>
@@ -2029,7 +2025,6 @@
         <image name="btnImg" width="99" height="98"/>
         <image name="btnLocation" width="24" height="24"/>
         <image name="btnNodata" width="92" height="29"/>
-        <image name="btnSearchLocation" width="343" height="39"/>
         <image name="exchangemainBtnFilterPrice" width="187" height="26.5"/>
         <image name="exchangemainBtnHeart" width="32" height="44"/>
         <image name="exchangemainBtnHeart2" width="37.5" height="37.5"/>
@@ -2041,9 +2036,10 @@
         <image name="imgName" width="62" height="14"/>
         <image name="imgShop" width="62" height="14"/>
         <image name="locationsetIcLocation" width="20" height="20"/>
-        <image name="postBtnBack" width="7" height="12"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="postShape" width="8" height="16"/>
         <image name="postingBtnPlus" width="32" height="32"/>
+        <image name="searchTextfield" width="355" height="51"/>
         <namedColor name="brownGrey">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
