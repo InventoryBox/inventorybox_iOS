@@ -116,6 +116,9 @@
 		D418CE7424BDFA2E00EE7672 /* IvRecordHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */; };
 		D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */; };
 		D418CE7724BDFB4700EE7672 /* IvRecordHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */; };
+		D41D0D002535DD36006C112E /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0CFF2535DD36006C112E /* QuestionVC.swift */; };
+		D41D0D032535E9E4006C112E /* LogOutPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0D022535E9E4006C112E /* LogOutPopUpVC.swift */; };
+		D41D0D062535EA14006C112E /* UserOutPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0D052535EA14006C112E /* UserOutPopUpVC.swift */; };
 		D41D536C252B6A5B00673978 /* HomeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5360252B6A5B00673978 /* HomeSettingVC.swift */; };
 		D41D536D252B6A5B00673978 /* HomeSettingNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5361252B6A5B00673978 /* HomeSettingNC.swift */; };
 		D41D536E252B6A5B00673978 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5362252B6A5B00673978 /* TitleData.swift */; };
@@ -339,6 +342,9 @@
 		D418CE7024BDFA2E00EE7672 /* IvRecordHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordHomeData.swift; sourceTree = "<group>"; };
 		D418CE7124BDFA2E00EE7672 /* IvRecordEditIvData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvData.swift; sourceTree = "<group>"; };
 		D418CE7624BDFB4700EE7672 /* IvRecordHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordHomeService.swift; sourceTree = "<group>"; };
+		D41D0CFF2535DD36006C112E /* QuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
+		D41D0D022535E9E4006C112E /* LogOutPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutPopUpVC.swift; sourceTree = "<group>"; };
+		D41D0D052535EA14006C112E /* UserOutPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOutPopUpVC.swift; sourceTree = "<group>"; };
 		D41D5360252B6A5B00673978 /* HomeSettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingVC.swift; sourceTree = "<group>"; };
 		D41D5361252B6A5B00673978 /* HomeSettingNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingNC.swift; sourceTree = "<group>"; };
 		D41D5362252B6A5B00673978 /* TitleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
@@ -706,6 +712,9 @@
 				D41D5369252B6A5B00673978 /* IvSettingUsageVC.swift */,
 				D41D536A252B6A5B00673978 /* SettingCell.swift */,
 				D41D536B252B6A5B00673978 /* MenuCell.swift */,
+				D41D0CFF2535DD36006C112E /* QuestionVC.swift */,
+				D41D0D022535E9E4006C112E /* LogOutPopUpVC.swift */,
+				D41D0D052535EA14006C112E /* UserOutPopUpVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1386,6 +1395,7 @@
 				339C897E24B75D1100B86BAF /* DetailGraphWeekInfo.swift in Sources */,
 				D4E7A40E24B4EAEA001C015A /* TTGTextTagCollectionViewExtension.swift in Sources */,
 				0E008729252BA48B004689C7 /* IvHomeSideUserPostCompleteHeaderTVCell.swift in Sources */,
+				D41D0D032535E9E4006C112E /* LogOutPopUpVC.swift in Sources */,
 				3365E4F324C0336C00E6AE8D /* InventoryCompareGraphData.swift in Sources */,
 				D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */,
 				D4A05D3C24C1015600F038FA /* IvRecordAddCateService.swift in Sources */,
@@ -1420,6 +1430,7 @@
 				D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				D41D0D002535DD36006C112E /* QuestionVC.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
 				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0E00871A252BA319004689C7 /* IvHomeSideUserPostVC.swift in Sources */,
@@ -1427,6 +1438,7 @@
 				3340BE5D24C1B15A00CA8103 /* IvCompareGraphSecondVC.swift in Sources */,
 				0E1EE8E62508A48200859E68 /* HomeNewVC.swift in Sources */,
 				0E008722252BA476004689C7 /* IvHomeSideUserPostTVCell.swift in Sources */,
+				D41D0D062535EA14006C112E /* UserOutPopUpVC.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */,
 				D41D536E252B6A5B00673978 /* TitleData.swift in Sources */,

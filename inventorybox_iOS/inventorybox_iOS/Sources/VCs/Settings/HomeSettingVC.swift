@@ -11,13 +11,15 @@ import UIKit
 class HomeSettingVC: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
+    @IBOutlet weak var popupBackgroundView: UIView!
     
-    let settingTitle = ["재고창고 이용약관", "개인정보처리방침", "위치기반서비스 이용약관", "재고창고 사용법"]
+    let settingTitle = ["자주 묻는 질문", "서비스 정보", "로그아웃"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "서비스 정보"
-        
+        self.navigationItem.title = "설정"
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
     }
     
     override func viewDidLoad() {
@@ -25,7 +27,34 @@ class HomeSettingVC: UIViewController {
     
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        setPopupBackgroundView()
+        
     }
+    
+    private func setPopupBackgroundView() {
+        
+        popupBackgroundView.isHidden = true
+        popupBackgroundView.alpha = 0
+        self.view.bringSubviewToFront(popupBackgroundView)
+        NotificationCenter.default.addObserver(self, selector: #selector(didDisappearPopup), name: .init("popup"), object: nil)
+    }
+    
+    @objc func didDisappearPopup(_ notification: Notification) {
+        
+        animatePopupBackground(false)
+    }
+    
+    
+    func animatePopupBackground(_ direction: Bool) {
+        let duration: TimeInterval = direction ? 0.35 : 0.15
+        let alpha: CGFloat = direction ? 0.54 : 0.0
+        self.popupBackgroundView.isHidden = !direction
+        UIView.animate(withDuration: duration) {
+            self.popupBackgroundView.alpha = alpha
+        }
+    }
+    
+    
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -41,15 +70,16 @@ extension HomeSettingVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (indexPath.row == 3) {
+        if (indexPath.row == 0) {
             guard let detailVC = self.storyboard?.instantiateViewController(identifier: IvSettingUsageVC.identifier) as? IvSettingUsageVC else { return }
             detailVC.navigationTitle = settingTitle[indexPath.row]
             self.navigationController?.pushViewController(detailVC, animated: true)
-        } else {
-            guard let detailVC = self.storyboard?.instantiateViewController(identifier: SettingDetailVC.identifier) as? SettingDetailVC else { return }
-            detailVC.navigationTitle = settingTitle[indexPath.row]
-            detailVC.whichInformation = indexPath.row
+        } else if indexPath.row == 1 {
+            
+            guard let detailVC = self.storyboard?.instantiateViewController(identifier: "QuestionVC") as? QuestionVC else { return }
             self.navigationController?.pushViewController(detailVC, animated: true)
+        } else {                
+            
         }
         
     }
