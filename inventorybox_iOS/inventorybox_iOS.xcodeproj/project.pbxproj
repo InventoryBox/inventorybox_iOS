@@ -135,6 +135,9 @@
 		D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF424BB2111000C9B8B /* IconCell.swift */; };
 		D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */; };
 		D445335D2535901800F6D0A1 /* UserArticleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445335C2535901800F6D0A1 /* UserArticleInformation.swift */; };
+		D445336025359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */; };
+		D445336325359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */; };
+		D445336625359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445336525359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift */; };
 		D44EB37D24C00C60006CFC5E /* IvRecordEditIvPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */; };
 		D4535A3724B2F78B000A67EF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4535A3624B2F78B000A67EF /* TabBarVC.swift */; };
 		D4558A8B24C1391600A1ACB5 /* IvExchangeHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4558A8A24C1391600A1ACB5 /* IvExchangeHomeData.swift */; };
@@ -357,6 +360,9 @@
 		D4399EB12529AA520021D4B3 /* IvSettingUsageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvSettingUsageVC.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
 		D445335C2535901800F6D0A1 /* UserArticleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticleInformation.swift; sourceTree = "<group>"; };
+		D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerPrivateInformationService.swift; sourceTree = "<group>"; };
+		D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerPrivateInformationPutServcie.swift; sourceTree = "<group>"; };
+		D445336525359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerPrivateInformation.swift; sourceTree = "<group>"; };
 		D44EB37C24C00C60006CFC5E /* IvRecordEditIvPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordEditIvPostService.swift; sourceTree = "<group>"; };
 		D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
@@ -943,6 +949,8 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */,
+				D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
 				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
@@ -1031,6 +1039,7 @@
 			isa = PBXGroup;
 			children = (
 				D445335C2535901800F6D0A1 /* UserArticleInformation.swift */,
+				D445336525359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift */,
 				D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */,
 				33875C4F2503DFA6002D9DA0 /* SignUp */,
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
@@ -1366,6 +1375,7 @@
 				D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */,
 				3332406B24B653ED00C3B59C /* IvWeekCompareGraphTVCell.swift in Sources */,
 				D41D5371252B6A5B00673978 /* SettingIvRecordQuestionCell.swift in Sources */,
+				D445336625359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift in Sources */,
 				339340CC2528F25B009FBD76 /* HomeDetailInfoData.swift in Sources */,
 				D4A2875A24B809D400A60C08 /* IvFoodExchangeCell.swift in Sources */,
 				D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */,
@@ -1378,6 +1388,7 @@
 				D415024F24C06D6500183004 /* IvRecordAddIvService.swift in Sources */,
 				0E00872C252BAA6F004689C7 /* IvHomeHamburgerUserArticleService.swift in Sources */,
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
+				D445336325359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4ED3EAD2535818B00C39EED /* ProfilePutInformation.swift in Sources */,
@@ -1398,6 +1409,7 @@
 				0E1EE8E22508A48200859E68 /* HomeNewSideMenuVC.swift in Sources */,
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */,
+				D445336025359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */,

@@ -10,7 +10,6 @@ import Foundation
 
 import Alamofire
 
-// MARK: post service생성 했습니다.
 struct IvHomeHamburgerUserArticleService {
     static let shared = IvHomeHamburgerUserArticleService()
 

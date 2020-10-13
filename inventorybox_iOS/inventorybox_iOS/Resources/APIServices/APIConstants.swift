@@ -32,6 +32,9 @@ struct APIConstants {
     static let ivHomeUserProfileURL = baseURL + "auth/user/profile"
     // 홈 + 햄버거바 (내가 쓴 게시글)
     static let ivHomeUserPostURL = baseURL + "auth/user/post/ios"
+    // 홈 + 햄버거바 (개인 정보 변경하기 Get / Put)
+    static let ivHomePrivateInforamtionURL = baseURL + "auth/user/personal"
+    
     
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️

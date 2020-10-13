@@ -23,12 +23,12 @@ struct UserArticleInformation: Codable {
     }
     
     init(from decoder: Decoder) throws {
-           let values = try decoder.container(keyedBy: CodingKeys.self)
-           status = (try? values.decode(Int.self, forKey: .status)) ?? -1
-           success = (try? values.decode(Bool.self, forKey: .success)) ?? false
-           message = (try? values.decode(String.self, forKey: .message)) ?? ""
-           data = (try? values.decode(UserArticleData.self, forKey: .data)) ?? nil
-       }
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = (try? values.decode(Int.self, forKey: .status)) ?? -1
+        success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+        message = (try? values.decode(String.self, forKey: .message)) ?? ""
+        data = (try? values.decode(UserArticleData.self, forKey: .data)) ?? nil
+    }
 }
 
 // MARK: - UserArticleData
