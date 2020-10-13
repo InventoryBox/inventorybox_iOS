@@ -46,6 +46,7 @@ struct IvHomeHamburgerPrivateInformationService {
         let decoder = JSONDecoder()
     
         guard let decodedData = try? decoder.decode(IvHomeHamburgerPrivateInformation.self, from: data) else { return .pathErr }
+        print(decodedData.message)
         guard let data = decodedData.data else { return .pathErr }
         
         if decodedData.success {

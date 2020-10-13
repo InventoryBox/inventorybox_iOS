@@ -134,6 +134,7 @@
 		D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */; };
 		D4311FF524BB2111000C9B8B /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF424BB2111000C9B8B /* IconCell.swift */; };
 		D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */; };
+		D4435F262535C10E003A02B6 /* MyInfoNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4435F252535C10E003A02B6 /* MyInfoNC.swift */; };
 		D445335D2535901800F6D0A1 /* UserArticleInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445335C2535901800F6D0A1 /* UserArticleInformation.swift */; };
 		D445336025359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */; };
 		D445336325359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */; };
@@ -359,6 +360,7 @@
 		D4311FF424BB2111000C9B8B /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		D4399EB12529AA520021D4B3 /* IvSettingUsageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvSettingUsageVC.swift; sourceTree = "<group>"; };
 		D4417A9B24B35C72003E72EC /* InventoryCategoryEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCategoryEditCell.swift; sourceTree = "<group>"; };
+		D4435F252535C10E003A02B6 /* MyInfoNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoNC.swift; sourceTree = "<group>"; };
 		D445335C2535901800F6D0A1 /* UserArticleInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticleInformation.swift; sourceTree = "<group>"; };
 		D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerPrivateInformationService.swift; sourceTree = "<group>"; };
 		D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerPrivateInformationPutServcie.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				0E1EE8DE2508A48200859E68 /* HomeVC.swift */,
 				0E1EE8DF2508A48200859E68 /* HomeSideProfileVC.swift */,
 				0E1EE8E02508A48200859E68 /* HomeNewVC.swift */,
+				D4435F252535C10E003A02B6 /* MyInfoNC.swift */,
 			);
 			path = IvHome;
 			sourceTree = "<group>";
@@ -952,8 +955,8 @@
 				D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */,
 				D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
-				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
 				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
+				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
 				D474DD0824E56875000F04AE /* Record */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
@@ -1323,6 +1326,7 @@
 				D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */,
 				0E0568ED24C0F0B900853DD0 /* HomeInformation.swift in Sources */,
 				D4A2875824B8083C00A60C08 /* ProductExchangeInformation.swift in Sources */,
+				D4435F262535C10E003A02B6 /* MyInfoNC.swift in Sources */,
 				33C2DD672528DFDF00E02891 /* HomeNewNC.swift in Sources */,
 				D4E7A3F524B450E8001C015A /* AddIvHeaderCell.swift in Sources */,
 				D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */,
