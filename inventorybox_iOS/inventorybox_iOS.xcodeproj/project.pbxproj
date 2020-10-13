@@ -119,6 +119,7 @@
 		D41D0D002535DD36006C112E /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0CFF2535DD36006C112E /* QuestionVC.swift */; };
 		D41D0D032535E9E4006C112E /* LogOutPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0D022535E9E4006C112E /* LogOutPopUpVC.swift */; };
 		D41D0D062535EA14006C112E /* UserOutPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0D052535EA14006C112E /* UserOutPopUpVC.swift */; };
+		D41D0D0925360295006C112E /* UserDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D0D0825360295006C112E /* UserDeleteService.swift */; };
 		D41D536C252B6A5B00673978 /* HomeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5360252B6A5B00673978 /* HomeSettingVC.swift */; };
 		D41D536D252B6A5B00673978 /* HomeSettingNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5361252B6A5B00673978 /* HomeSettingNC.swift */; };
 		D41D536E252B6A5B00673978 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D5362252B6A5B00673978 /* TitleData.swift */; };
@@ -345,6 +346,7 @@
 		D41D0CFF2535DD36006C112E /* QuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		D41D0D022535E9E4006C112E /* LogOutPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutPopUpVC.swift; sourceTree = "<group>"; };
 		D41D0D052535EA14006C112E /* UserOutPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOutPopUpVC.swift; sourceTree = "<group>"; };
+		D41D0D0825360295006C112E /* UserDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteService.swift; sourceTree = "<group>"; };
 		D41D5360252B6A5B00673978 /* HomeSettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingVC.swift; sourceTree = "<group>"; };
 		D41D5361252B6A5B00673978 /* HomeSettingNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingNC.swift; sourceTree = "<group>"; };
 		D41D5362252B6A5B00673978 /* TitleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
@@ -961,6 +963,7 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D41D0D0825360295006C112E /* UserDeleteService.swift */,
 				D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */,
 				D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
@@ -1369,6 +1372,7 @@
 				D41D5376252B6A5B00673978 /* MenuCell.swift in Sources */,
 				D494DEC0253352830006D6DC /* OnboardingOneVC.swift in Sources */,
 				33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */,
+				D41D0D0925360295006C112E /* UserDeleteService.swift in Sources */,
 				D41D5372252B6A5B00673978 /* SettingIvRecordAnswerTableViewCell.swift in Sources */,
 				D41D5373252B6A5B00673978 /* SettingIvRecordTtitleCell.swift in Sources */,
 				D4A2875224B7DCA900A60C08 /* AllExchangeInformation.swift in Sources */,

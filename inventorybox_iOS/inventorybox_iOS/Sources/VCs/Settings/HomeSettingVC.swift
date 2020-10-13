@@ -31,6 +31,10 @@ class HomeSettingVC: UIViewController {
         
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private func setPopupBackgroundView() {
         
         popupBackgroundView.isHidden = true
@@ -49,11 +53,20 @@ class HomeSettingVC: UIViewController {
         let duration: TimeInterval = direction ? 0.35 : 0.15
         let alpha: CGFloat = direction ? 0.54 : 0.0
         self.popupBackgroundView.isHidden = !direction
+        self.navigationController?.navigationBar.isHidden = direction
         UIView.animate(withDuration: duration) {
             self.popupBackgroundView.alpha = alpha
         }
     }
     
+    @IBAction func userOutPopUP(_ sender: UIButton) {
+        
+        animatePopupBackground(true)
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "UserOutPopUpVC") else { return }
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
+    }
     
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -78,8 +91,11 @@ extension HomeSettingVC: UITableViewDelegate {
             
             guard let detailVC = self.storyboard?.instantiateViewController(identifier: "QuestionVC") as? QuestionVC else { return }
             self.navigationController?.pushViewController(detailVC, animated: true)
-        } else {                
-            
+        } else {
+            animatePopupBackground(true)
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "LogOutPopUpVC") else { return }
+            vc.modalPresentationStyle = .overCurrentContext
+            self.present(vc, animated: false)
         }
         
     }

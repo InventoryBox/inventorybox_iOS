@@ -18,13 +18,16 @@ class LogOutPopUpVC: UIViewController {
 
         lineView.backgroundColor = .veryLightPinkTwo
         
-        logoutButton.layer.cornerRadius = 25
-        cancelButton.layer.cornerRadius = 25
+        logoutButton.layer.cornerRadius = logoutButton.frame.height / 2
+        cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
     }
     
     @IBAction func cancel(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: .init("popup"), object: nil)
+        
+        self.dismiss(animated: false, completion: nil)
     }
+    
     @IBAction func loggingOut(_ sender: UIButton) {
         
         NotificationCenter.default.post(name: .init("logout"), object: nil)
