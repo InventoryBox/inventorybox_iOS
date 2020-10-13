@@ -207,6 +207,8 @@
 		D4E96EAE24B8868E00BD3419 /* IvRecordAddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */; };
 		D4E96EB024B8869400BD3419 /* AddCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */; };
 		D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */; };
+		D4ED3EA925357F6200C39EED /* IvHomeHamburgerProfilePutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ED3EA825357F6200C39EED /* IvHomeHamburgerProfilePutService.swift */; };
+		D4ED3EAD2535818B00C39EED /* ProfilePutInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */; };
 		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
 		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
 		EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */; };
@@ -435,6 +437,8 @@
 		D4E96EAD24B8868E00BD3419 /* IvRecordAddProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvRecordAddProductVC.swift; sourceTree = "<group>"; };
 		D4E96EAF24B8869400BD3419 /* AddCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryPopupVC.swift; sourceTree = "<group>"; };
 		D4E96EB124B886A400BD3419 /* MoveCategoryPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCategoryPopupVC.swift; sourceTree = "<group>"; };
+		D4ED3EA825357F6200C39EED /* IvHomeHamburgerProfilePutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerProfilePutService.swift; sourceTree = "<group>"; };
+		D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePutInformation.swift; sourceTree = "<group>"; };
 		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -946,6 +950,7 @@
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
 				0E0568F024C10FCB00853DD0 /* HomeMemoModifyPostService.swift */,
 				0E00872B252BAA6F004689C7 /* IvHomeHamburgerUserPostService.swift */,
+				D4ED3EA825357F6200C39EED /* IvHomeHamburgerProfilePutService.swift */,
 				D4A05D3D24C11CF400F038FA /* IvExchangeHomeService.swift */,
 				D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */,
 				D418CE6024BDDBFE00EE7672 /* LoginService.swift */,
@@ -1026,6 +1031,7 @@
 			isa = PBXGroup;
 			children = (
 				0E00871C252BA3B0004689C7 /* IvHomeUserPostInformation.swift */,
+				D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */,
 				33875C4F2503DFA6002D9DA0 /* SignUp */,
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
 				D4BE8D3124B8E7D900AFB1B8 /* IvRecord */,
@@ -1295,6 +1301,7 @@
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */,
 				3344F904250A3F5200787DFC /* HomeMainLeftCVCell.swift in Sources */,
+				D4ED3EA925357F6200C39EED /* IvHomeHamburgerProfilePutService.swift in Sources */,
 				0E1EE8E32508A48200859E68 /* HomeSideMyInfoVC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
@@ -1373,6 +1380,7 @@
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
 				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
+				D4ED3EAD2535818B00C39EED /* ProfilePutInformation.swift in Sources */,
 				335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
