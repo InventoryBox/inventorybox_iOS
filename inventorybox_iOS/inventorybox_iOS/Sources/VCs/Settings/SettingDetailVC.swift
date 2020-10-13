@@ -25,10 +25,17 @@ class SettingDetailVC: UIViewController {
         self.navigationController?.navigationBar.tintColor = .black
         //출처: https://zeddios.tistory.com/29 [ZeddiOS]
         
+        self.navigationController?.navigationBar.isHidden = false
         if let indexPath = whichInformation {
             showInformation(by: indexPath)
         }
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func showInformation(by indexPath: Int) {

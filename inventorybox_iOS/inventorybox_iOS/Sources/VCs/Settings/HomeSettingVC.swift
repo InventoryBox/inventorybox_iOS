@@ -17,6 +17,7 @@ class HomeSettingVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "서비스 정보"
+        
     }
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class HomeSettingVC: UIViewController {
         settingTableView.delegate = self
         settingTableView.dataSource = self
     }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
