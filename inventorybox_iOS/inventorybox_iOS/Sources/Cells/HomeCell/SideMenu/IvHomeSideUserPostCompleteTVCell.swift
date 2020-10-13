@@ -41,10 +41,11 @@ class IvHomeSideUserPostCompleteTVCell: UITableViewCell {
     }
     
     // MARK: setInformation
-    func setInformation(upload: String, Image: String, Name: String, exep: String, sold: Int , Price: Int){
+    func setInformation(upload: String, imageName: String, Name: String, exep: String, sold: Int , Price: Int){
         
         stuffUpload.text = "\(date(upload))"            // 올린 날짜
-        stuffImage.image = UIImage(named: Image)        // 이미지 이름
+        let url = URL(string: imageName)
+        stuffImage.kf.setImage(with: url)
         stuffName.text = Name                           // 물건 이름
         stuffExep.text = exep                           // 유통기한
         isSolded = sold                                 // 팔렸는지 안팔렸는지
