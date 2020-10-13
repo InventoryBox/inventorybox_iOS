@@ -19,6 +19,10 @@ class HomeSideMyInfoVC: UIViewController {
     
     @IBOutlet weak var bottomLineView: UIView!
     
+    var name: String?
+    var storeName: String?
+    var phone: String?
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.nameTextField.endEditing(true)
@@ -30,7 +34,6 @@ class HomeSideMyInfoVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        saveButton.isEnabled = false
         getDataFromServer()
     }
     
@@ -55,6 +58,7 @@ class HomeSideMyInfoVC: UIViewController {
         
         bottomLineView.backgroundColor = .veryLightPinkThree
         
+        saveButton.isEnabled = false
         
         nameTextField.makeBorder(color: .pinkishGrey)
         storeNameTextField.makeBorder(color: .pinkishGrey)
@@ -82,10 +86,25 @@ class HomeSideMyInfoVC: UIViewController {
                                                                                     switch networkResult {
                                                                                     case .success(let data):
                                                                                         guard let dt = data as? PrivateInformationData else { return }
+                                                                                       
+                                                                                        if let n = self.name {
+                                                                                            self.nameTextField.text = n
+                                                                                        } else {
+                                                                                            self.nameTextField.text = dt.result[0].repName
+                                                                                        }
                                                                                         
-                                                                                        self.nameTextField.text = dt.result[0].repName
-                                                                                        self.storeNameTextField.text = dt.result[0].coName
-                                                                                        self.phoneTextField.text = dt.result[0].phoneNumber
+                                                                                        if let s = self.storeName {
+                                                                                            self.storeNameTextField.text = s
+                                                                                        } else {
+                                                                                            self.storeNameTextField.text = dt.result[0].coName
+                                                                                        }
+                                                                                  
+                                                                                        if let p = self.phone {
+                                                                                            self.phoneTextField.text = p
+                                                                                        } else {
+                                                                                            self.phoneTextField.text = dt.result[0].phoneNumber
+                                                                                        }
+                                                                                        
                                                                                         if let location = dt.result[0].location {
                                                                                             self.locationTextField.text = location
                                                                                         } else {
@@ -129,7 +148,9 @@ class HomeSideMyInfoVC: UIViewController {
     }
     
     @IBAction func changeMyInfo(_ sender: UIButton) {
+        
         if let name = nameTextField.text, let storeName = storeNameTextField.text, let phone = phoneTextField.text {
+            
             IvHomeHamburgerPrivateInformationPutServcie.shared.putPrivateInformation(name: name, storeName: storeName, phone: phone, location: locationTextField.text ?? "") { networkResult in
                 switch networkResult {
                 case .success(let data):
@@ -180,8 +201,23 @@ extension HomeSideMyInfoVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-            saveButton.setImage(UIImage.init(named: "btnChangeSaveAfter"), for: .normal)
-            saveButton.isEnabled = true
+    
+        saveButton.setImage(UIImage.init(named: "btnChangeSaveAfter"), for: .normal)
+        saveButton.isEnabled = true
+        
+        if textField == phoneTextField {
+            if let phoneNumber = phoneTextField.text {
+                phone = phoneNumber
+            }
+        } else if textField == nameTextField {
+            if let name = nameTextField.text {
+                self.name = name
+            }
+        } else if textField == storeNameTextField {
+            if let store = storeNameTextField.text {
+                storeName = store
+            }
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
