@@ -26,7 +26,7 @@ struct IvHomeHamburgerProfilePutService {
             }
             let imageData = img.jpegData(compressionQuality:1.0)!
             multipartFormData.append(imageData,withName:"img", fileName:imgName, mimeType:"image/jpeg")
-        }, usingThreshold:UInt64.init(), to: APIConstants.signupURL,method:.put, headers:header,encodingCompletion:{(result) in
+        }, usingThreshold:UInt64.init(), to: APIConstants.ivHomeUserProfileURL, method:.put, headers:header,encodingCompletion:{(result) in
             switch result {
             case .success(let upload, _, _):
                 upload.uploadProgress(closure: { (progress) in

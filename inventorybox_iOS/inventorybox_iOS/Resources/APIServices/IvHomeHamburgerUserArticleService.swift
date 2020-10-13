@@ -1,18 +1,18 @@
+////
+////  IvHomeHamburgerUserPostService.swift
+////  inventorybox_iOS
+////
+////  Created by 송황호 on 2020/10/06.
+////  Copyright © 2020 jaeyong Lee. All rights reserved.
+////
 //
-//  IvHomeHamburgerUserPostService.swift
-//  inventorybox_iOS
+//import Foundation
 //
-//  Created by 송황호 on 2020/10/06.
-//  Copyright © 2020 jaeyong Lee. All rights reserved.
+//import Alamofire
 //
-
-import Foundation
-
-import Alamofire
-
-// MARK: post service생성 했습니다.
-struct IvHomeHamburgerUserPostService {
-    static let shared = IvHomeHamburgerUserPostService()
+//// MARK: post service생성 했습니다.
+//struct IvHomeHamburgerUserArticleService {
+//    static let shared = IvHomeHamburgerUserArticleService()
 //
 //    func getHomeUserPost(completion: @escaping (NetworkResult<Any>) -> Void) {
 //        let token = UserDefaults.standard.string(forKey: "token") ?? ""
@@ -20,7 +20,6 @@ struct IvHomeHamburgerUserPostService {
 //        
 //        let dataRequest = Alamofire.request(APIConstants.ivHomeUserPostURL, method: .get, encoding: JSONEncoding.default, headers: header)
 //        
-////        print(makeParameter(data: data))
 //        dataRequest.responseData { (dataResponse) in
 //            switch dataResponse.result {
 //            case .success:
@@ -63,4 +62,4 @@ struct IvHomeHamburgerUserPostService {
 //        
 //    }
 //    
-}
+//}
