@@ -63,6 +63,10 @@ class HomeSidePasswordChangeVC: UIViewController {
         passwordCheckTextField.addTarget(self, action: #selector(passwordCheckTextFieldDidChange), for: .editingChanged)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+    }
+    
     @objc private func passwordCheckTextFieldDidChange() {
 
         if let pw = password, let t = passwordCheckTextField.text {

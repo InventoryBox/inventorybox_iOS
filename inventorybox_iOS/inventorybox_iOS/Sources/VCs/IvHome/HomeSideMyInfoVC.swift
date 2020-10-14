@@ -25,9 +25,7 @@ class HomeSideMyInfoVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.nameTextField.endEditing(true)
-        self.storeNameTextField.endEditing(true)
-        self.phoneTextField.endEditing(true)
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
