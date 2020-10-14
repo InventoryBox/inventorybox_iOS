@@ -13,11 +13,38 @@ class HomeSideProfileVC: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nickNameTextField: UITextField!
-    @IBOutlet weak var changeButton: UIButton!
     
     var nickName: String? = nil
     var profileImage: UIImage? = UIImage.init(named: "imgProfile")
-    var profileImageName: String? = nil
+    var profileImageName: String? = "imgProfile"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        IvHomeHamburgerProfileService.shared.getProfile { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? ProfileData else { return }
+                self.nickNameTextField.text = dt.nickname
+                self.nickName = dt.nickname
+                let url = URL(string: dt.img)
+                self.profileImageView.kf.setImage(with: url)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +58,7 @@ class HomeSideProfileVC: UIViewController, UIImagePickerControllerDelegate, UINa
         }
         
     }
+    
     
     @IBAction func changeProfileImage(_ sender: UIButton) {
         
@@ -62,8 +90,11 @@ class HomeSideProfileVC: UIViewController, UIImagePickerControllerDelegate, UINa
         guard let nickName = nickNameTextField.text else {
             return
         }
-        guard let profileImg = profileImage else { return }
+        
+        guard let profileImg = profileImageView.image else { return }
+        
         guard let imgName = profileImageName else { return }
+        
         IvHomeHamburgerProfilePutService.shared.changeProfile(nickname: nickName, img: profileImg, imgName: imgName) { networkResult in
             switch networkResult{
             case .success:

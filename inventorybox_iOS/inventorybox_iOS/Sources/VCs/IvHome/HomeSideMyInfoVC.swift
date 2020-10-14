@@ -25,9 +25,7 @@ class HomeSideMyInfoVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.nameTextField.endEditing(true)
-        self.storeNameTextField.endEditing(true)
-        self.phoneTextField.endEditing(true)
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,47 +79,47 @@ class HomeSideMyInfoVC: UIViewController {
     
     func getDataFromServer(){
         
-        IvHomeHamburgerPrivateInformationService.shared.getprivateInformation(completion:
-                                                                                { networkResult in
-                                                                                    switch networkResult {
-                                                                                    case .success(let data):
-                                                                                        guard let dt = data as? PrivateInformationData else { return }
-                                                                                       
-                                                                                        if let n = self.name {
-                                                                                            self.nameTextField.text = n
-                                                                                        } else {
-                                                                                            self.nameTextField.text = dt.result[0].repName
-                                                                                        }
-                                                                                        
-                                                                                        if let s = self.storeName {
-                                                                                            self.storeNameTextField.text = s
-                                                                                        } else {
-                                                                                            self.storeNameTextField.text = dt.result[0].coName
-                                                                                        }
-                                                                                  
-                                                                                        if let p = self.phone {
-                                                                                            self.phoneTextField.text = p
-                                                                                        } else {
-                                                                                            self.phoneTextField.text = dt.result[0].phoneNumber
-                                                                                        }
-                                                                                        
-                                                                                        if let location = dt.result[0].location {
-                                                                                            self.locationTextField.text = location
-                                                                                        } else {
-                                                                                            self.locationTextField.text = "위치를 설정해주세요"
-                                                                                        }
-                                                                                    case .requestErr(let message):
-                                                                                        guard let message = message as? String else {return}
-                                                                                        print(message)
-                                                                                    case .serverErr: print("serverErr")
-                                                                                    case .pathErr:
-                                                                                        print("pathErr")
-                                                                                    case .networkFail:
-                                                                                        print("networkFail")
-                                                                                    }
-                                                                                    
-                                                                                }
-        )
+        IvHomeHamburgerPrivateInformationService.shared.getprivateInformation
+        { networkResult in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? PrivateInformationData else { return }
+                
+                if let n = self.name {
+                    self.nameTextField.text = n
+                } else {
+                    self.nameTextField.text = dt.result[0].repName
+                }
+                
+                if let s = self.storeName {
+                    self.storeNameTextField.text = s
+                } else {
+                    self.storeNameTextField.text = dt.result[0].coName
+                }
+                
+                if let p = self.phone {
+                    self.phoneTextField.text = p
+                } else {
+                    self.phoneTextField.text = dt.result[0].phoneNumber
+                }
+                
+                if let location = dt.result[0].location {
+                    self.locationTextField.text = location
+                } else {
+                    self.locationTextField.text = "위치를 설정해주세요"
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        }
+        
     }
     
     
@@ -201,7 +199,7 @@ extension HomeSideMyInfoVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-    
+        
         saveButton.setImage(UIImage.init(named: "btnChangeSaveAfter"), for: .normal)
         saveButton.isEnabled = true
         

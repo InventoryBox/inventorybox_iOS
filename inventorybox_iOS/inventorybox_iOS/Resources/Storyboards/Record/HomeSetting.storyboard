@@ -312,6 +312,8 @@
                                                             <rect key="frame" x="345.5" y="32.5" width="12.5" height="7.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="12.5" id="JU1-Y4-Dj2"/>
+                                                                <constraint firstAttribute="height" constant="7.5" id="RpG-4t-nKT"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12.5" id="e7c-5h-c4A"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lG-cp-iMQ">

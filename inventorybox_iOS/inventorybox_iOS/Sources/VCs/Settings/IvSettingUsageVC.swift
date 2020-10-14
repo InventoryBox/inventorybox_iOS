@@ -210,13 +210,13 @@ extension IvSettingUsageVC: UITableViewDelegate, UITableViewDataSource {
                 if index.row == 0 {
                     if tableViewArray[indexPath.section].open == true {
                         tableViewArray[indexPath.section].open = false
-                        cell.arrowImageView.image = UIImage(named: "postDownBtnBack")
+                        cell.arrowImageView.image = UIImage(named: "postUpBtnBack")
                         let section = IndexSet.init(integer: indexPath.section)
                         tableView.reloadSections(section, with: .fade)
                         tableView.scrollToRow(at: IndexPath(item: 0, section: indexPath.section), at: .bottom, animated: true)
                     } else {
                         tableViewArray[indexPath.section].open = true
-                        cell.arrowImageView.image = UIImage(named: "postUpBtnBack")
+                        cell.arrowImageView.image = UIImage(named: "postDownBtnBack")
                         let section = IndexSet.init(integer: indexPath.section)
                         tableView.reloadSections(section, with: .fade)
                         tableView.scrollToRow(at: IndexPath(item: 1, section: indexPath.section), at: .bottom, animated: true)
