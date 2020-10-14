@@ -86,9 +86,12 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             userPostVC.modalPresentationStyle = .fullScreen
             self.present(userPostVC, animated: true, completion: nil)
             
-        // 내가 쓴 게시글
+        // 비밀번호 변경
         case .change:
-            print("aa")
+            guard let passwordChangeVC = self.storyboard?.instantiateViewController(identifier: "HomeSidePasswordChangeVC") as? HomeSidePasswordChangeVC else { return }
+            
+            passwordChangeVC.modalPresentationStyle = .fullScreen
+            self.present(passwordChangeVC, animated: true, completion: nil)
         
         // 설정
         case .setting:
