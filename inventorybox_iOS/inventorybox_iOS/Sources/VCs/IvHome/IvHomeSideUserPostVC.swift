@@ -12,6 +12,7 @@ class IvHomeSideUserPostVC: UIViewController {
     
     @IBOutlet weak var userPostTableView: UITableView!
     
+    @IBOutlet weak var noView: UIView!
     var postInformations : [UserArticle] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,9 @@ class IvHomeSideUserPostVC: UIViewController {
                 guard let dt = data as? UserArticleData else { return }
                 
                 self.postInformations = dt.result
+                
+                self.noView.isHidden = self.postInformations.count == 0 ? false : true
+                
                 self.userPostTableView.reloadData()
             case .requestErr(let message):
                 guard let message = message as? String else {return}

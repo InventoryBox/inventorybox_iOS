@@ -26,6 +26,7 @@ class HomeSideProfileVC: UIViewController, UIImagePickerControllerDelegate, UINa
             case .success(let data):
                 guard let dt = data as? ProfileData else { return }
                 self.nickNameTextField.text = dt.nickname
+                self.nickName = dt.nickname
                 let url = URL(string: dt.img)
                 self.profileImageView.kf.setImage(with: url)
                 
@@ -88,9 +89,6 @@ class HomeSideProfileVC: UIViewController, UIImagePickerControllerDelegate, UINa
         
         guard let imgName = profileImageName else { return }
         
-        print(nickName)
-        print(profileImg)
-        print(imgName)
         IvHomeHamburgerProfilePutService.shared.changeProfile(nickname: nickName, img: profileImg, imgName: imgName) { networkResult in
             switch networkResult{
             case .success:
