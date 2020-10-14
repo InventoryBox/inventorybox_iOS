@@ -20,12 +20,40 @@ enum MenuType: Int{
 // 애초에 tableview로 만들기
 class HomeNewSideMenuVC: UITableViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var storeNameLabel: UILabel!
+    
     var didTapMenuType : ((MenuType) -> Void)?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        IvHomeHamburgerProfileService.shared.getProfile { (networkResult) in
+            switch networkResult {
+            case .success(let data):
+                guard let dt = data as? ProfileData else { return }
+                self.nameLabel.text = dt.nickname
+                self.storeNameLabel.text = dt.coName
+                let url = URL(string: dt.img)
+                self.profileImageView.kf.setImage(with: url)
+
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
     }
     
  

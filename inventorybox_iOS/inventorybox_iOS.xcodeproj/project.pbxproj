@@ -153,6 +153,9 @@
 		D457F170250610EC008D60FE /* IvRecordDeleteCateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */; };
 		D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */; };
 		D45EE3F824C215FE00B3FE3B /* IvExchangeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */; };
+		D45F40E42536F9740057D049 /* PasswordChangePutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F40E32536F9740057D049 /* PasswordChangePutService.swift */; };
+		D45F40E7253747320057D049 /* IvHomeHamburgerProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F40E6253747320057D049 /* IvHomeHamburgerProfileService.swift */; };
+		D45F40EA2537479C0057D049 /* IvHomeHamburgerProfileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F40E92537479C0057D049 /* IvHomeHamburgerProfileInformation.swift */; };
 		D46236C624ADBC950005A277 /* IvRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46236C524ADBC950005A277 /* IvRecordVC.swift */; };
 		D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46A015724B6C93C0055814E /* IvExchange.storyboard */; };
 		D46A015A24B6C9570055814E /* IvExchangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A015924B6C9570055814E /* IvExchangeVC.swift */; };
@@ -387,6 +390,9 @@
 		D457F16F250610EC008D60FE /* IvRecordDeleteCateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordDeleteCateService.swift; sourceTree = "<group>"; };
 		D45EE3F524C2158500B3FE3B /* IvExchangeDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailData.swift; sourceTree = "<group>"; };
 		D45EE3F724C215FE00B3FE3B /* IvExchangeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailService.swift; sourceTree = "<group>"; };
+		D45F40E32536F9740057D049 /* PasswordChangePutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangePutService.swift; sourceTree = "<group>"; };
+		D45F40E6253747320057D049 /* IvHomeHamburgerProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerProfileService.swift; sourceTree = "<group>"; };
+		D45F40E92537479C0057D049 /* IvHomeHamburgerProfileInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeHamburgerProfileInformation.swift; sourceTree = "<group>"; };
 		D46236C524ADBC950005A277 /* IvRecordVC.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = IvRecordVC.swift; sourceTree = "<group>"; };
 		D46A015724B6C93C0055814E /* IvExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = IvExchange.storyboard; path = inventorybox_iOS/Resources/Storyboards/IvExchange.storyboard; sourceTree = SOURCE_ROOT; };
 		D46A015924B6C9570055814E /* IvExchangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeVC.swift; sourceTree = "<group>"; };
@@ -966,8 +972,10 @@
 			isa = PBXGroup;
 			children = (
 				D409DF0D24BC3B4C009AC0B6 /* APIConstants.swift */,
+				D45F40E32536F9740057D049 /* PasswordChangePutService.swift */,
 				D41D0D0825360295006C112E /* UserDeleteService.swift */,
 				D445335F25359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift */,
+				D45F40E6253747320057D049 /* IvHomeHamburgerProfileService.swift */,
 				D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
@@ -1058,6 +1066,7 @@
 			children = (
 				D445335C2535901800F6D0A1 /* UserArticleInformation.swift */,
 				D445336525359D9000F6D0A1 /* IvHomeHamburgerPrivateInformation.swift */,
+				D45F40E92537479C0057D049 /* IvHomeHamburgerProfileInformation.swift */,
 				D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */,
 				33875C4F2503DFA6002D9DA0 /* SignUp */,
 				D4311FEF24BB03E6000C9B8B /* IvExchange */,
@@ -1332,6 +1341,7 @@
 				D4ED3EA925357F6200C39EED /* IvHomeHamburgerProfilePutService.swift in Sources */,
 				0E1EE8E32508A48200859E68 /* HomeSideMyInfoVC.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
+				D45F40EA2537479C0057D049 /* IvHomeHamburgerProfileInformation.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
 				0E0568F124C10FCB00853DD0 /* HomeMemoModifyPostService.swift in Sources */,
 				D4E96EB224B886A400BD3419 /* MoveCategoryPopupVC.swift in Sources */,
@@ -1418,6 +1428,7 @@
 				335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
 				3340BE5B24C195A300CA8103 /* IvCompareGraphVC.swift in Sources */,
+				D45F40E7253747320057D049 /* IvHomeHamburgerProfileService.swift in Sources */,
 				D418CE6124BDDBFE00EE7672 /* LoginService.swift in Sources */,
 				D45EE3F624C2158500B3FE3B /* IvExchangeDetailData.swift in Sources */,
 				0E4A82F824BD7B77001E38B7 /* HomeHeader2TVCell.swift in Sources */,
@@ -1433,6 +1444,7 @@
 				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */,
 				D445336025359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift in Sources */,
+				D45F40E42536F9740057D049 /* PasswordChangePutService.swift in Sources */,
 				D4417A9C24B35C72003E72EC /* InventoryCategoryEditCell.swift in Sources */,
 				3332406024B5C6E000C3B59C /* IvDetailGraphVC.swift in Sources */,
 				0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */,

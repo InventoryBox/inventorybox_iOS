@@ -36,7 +36,9 @@ struct APIConstants {
     static let ivHomePrivateInforamtionURL = baseURL + "auth/user/personal"
     // 회원 탈퇴
     static let userOutURL = baseURL + "auth/user"
-    
+    // 비밀번호 변경
+    static let passwordChangeURL = baseURL + "auth/user/pw"
+
     //재고기록 (홈)
     static let ivRecordHomeURL = baseURL + "record/home/" // ⭕️
     //재고기록 (재료추가_홈)
