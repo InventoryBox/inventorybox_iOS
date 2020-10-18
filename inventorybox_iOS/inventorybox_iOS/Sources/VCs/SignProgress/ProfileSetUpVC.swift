@@ -22,11 +22,14 @@ class ProfileSetUpVC: UIViewController,UIImagePickerControllerDelegate, UINaviga
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlets()
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
     }
     
     func setOutlets(){
         nickNameTextField.addLeftPadding2()
         nicknameCheckLabel.text = ""
+      
     }
     
     
@@ -35,15 +38,17 @@ class ProfileSetUpVC: UIViewController,UIImagePickerControllerDelegate, UINaviga
         myPicker.delegate = self
         myPicker.sourceType = .photoLibrary
         self.present(myPicker, animated: true, completion: nil)
+        
     }
     
     func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
             profileImgName = url.lastPathComponent
             profileImg = image
-            self.profileImage.setBackgroundImage(profileImg, for: .normal)
+            self.profileImage.setImage(profileImg, for: .normal)
         }
-        self.dismiss(animated: true, completion: nil) }
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func imagePickerControllerDidCancel (_ picker: UIImagePickerController) { self.dismiss(animated: true, completion: nil)
     }

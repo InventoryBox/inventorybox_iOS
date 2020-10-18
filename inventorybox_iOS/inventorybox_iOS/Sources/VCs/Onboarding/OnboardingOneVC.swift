@@ -2,47 +2,34 @@
 //  OnboardingOneVC.swift
 //  inventorybox_iOS
 //
-//  Created by 이재용 on 2020/07/09.
+//  Created by 이재용 on 2020/10/11.
 //  Copyright © 2020 jaeyong Lee. All rights reserved.
 //
 
 import UIKit
-import Lottie
+
 class OnboardingOneVC: UIViewController {
 
-    @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var loadingView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setAnimationView()
-        setBtnCustom()
+
+        let isUser = UserDefaults.standard.bool(forKey: "onboarding")
+        loadingView.isHidden = isUser ? false : true
+       
     }
     
-    @IBAction func goToNextOnboarding(_ sender: Any) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        guard let nextOnboardingVC = self.storyboard?.instantiateViewController(identifier: "OnboardingTwoVC")
-            as? OnboardingTwoVC  else {
-                return
+        let isUser = UserDefaults.standard.bool(forKey: "onboarding")
+        print(isUser)
+        if isUser {
+            if let dvc = self.storyboard?.instantiateViewController(identifier: "LoginNC") {
+ 
+                self.view.window?.rootViewController?.present(dvc, animated: false, completion: nil)
+            }
         }
-        nextOnboardingVC.modalPresentationStyle = .fullScreen
-        
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        present(nextOnboardingVC, animated: false, completion: nil)
-    }
-    private func setAnimationView() {
-        animationView.animation = Animation.named("logo")
-        animationView.loopMode = .loop
-        animationView.play()
     }
     
-    private func setBtnCustom() {
-        nextBtn.layer.cornerRadius = 20
-        nextBtn.backgroundColor = .yellow
-        nextBtn.tintColor = .white
-    }
 }

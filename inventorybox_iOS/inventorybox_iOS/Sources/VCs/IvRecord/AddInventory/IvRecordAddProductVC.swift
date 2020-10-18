@@ -272,13 +272,6 @@ class IvRecordAddProductVC: UIViewController {
         }
         let memoCnt = Int(ivOrder)!
         
-        print(ivName)
-        print(ivUnit)
-        print(alarmCnt)
-        print(memoCnt)
-        print(categoryIdx)
-        print(iconIdx)
-        
         if ivName == "" || ivUnit == "" {
             let alertViewController = UIAlertController(title: "재료추가 실패", message: "값들을 전부 적어주세요!", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)

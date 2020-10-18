@@ -144,7 +144,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 하단 그래프의 노란색 가로선은 '발주 알림 개수'를 표시한 것이며,    노란색 막대 그래프의 간격을 통해 '발주일 간격 파악'이 용이합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOH-UK-ZRM">
-                                                    <rect key="frame" x="23" y="16" width="303" height="28"/>
+                                                    <rect key="frame" x="23" y="16" width="593.5" height="28"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="11"/>
                                                     <color key="textColor" name="greyisbrown"/>
                                                     <nil key="highlightedColor"/>
