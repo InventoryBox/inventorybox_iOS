@@ -979,19 +979,19 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일회용 샐러드 팩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-xs-x3O">
-                                                        <rect key="frame" x="16" y="16" width="106" height="19"/>
+                                                        <rect key="frame" x="16" y="16" width="110" height="18"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                                         <color key="textColor" name="greyisbrown"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020년 07월 17일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-Xf-Trv">
-                                                        <rect key="frame" x="16" y="41" width="94.5" height="14.5"/>
+                                                        <rect key="frame" x="16" y="40" width="94.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" name="brownGrey"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공산품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-k5-Zlv">
-                                                        <rect key="frame" x="130" y="21.5" width="29" height="13.5"/>
+                                                        <rect key="frame" x="134" y="20.5" width="29" height="13.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" name="brownGrey"/>
                                                         <nil key="highlightedColor"/>
@@ -1046,7 +1046,7 @@
                                                 <rect key="frame" x="16" y="325" width="8" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제품정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4m-7e-61B">
-                                                <rect key="frame" x="28" y="325" width="48.5" height="16.5"/>
+                                                <rect key="frame" x="28" y="325.5" width="51" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                 <color key="textColor" name="greyisbrown"/>
                                                 <nil key="highlightedColor"/>
@@ -2384,17 +2384,6 @@
             <point key="canvasLocation" x="2677.5999999999999" y="-550.07496251874068"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="1Gn-Nt-bIS">
-            <size key="intrinsicContentSize" width="24.5" height="18.5"/>
-        </designable>
-        <designable name="KgF-fQ-r52">
-            <size key="intrinsicContentSize" width="24.5" height="18.5"/>
-        </designable>
-        <designable name="yQa-Hb-boR">
-            <size key="intrinsicContentSize" width="94" height="18.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="addproductBtnMinus" width="32" height="32"/>
         <image name="btnFood" width="168" height="43"/>
@@ -2413,6 +2402,7 @@
         <image name="imgShop" width="62" height="14"/>
         <image name="locationsetIcLocation" width="20" height="20"/>
         <image name="mypostIcBack" width="40" height="40"/>
+        <image name="postBtnBack" width="7" height="12"/>
         <image name="postShape" width="8" height="16"/>
         <image name="postingBtnPlus" width="32" height="32"/>
         <image name="searchTextfield" width="355" height="51"/>
