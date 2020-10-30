@@ -65,9 +65,6 @@ class IvHomeFindEmailVC: UIViewController {
 }
 
 
-
-
-
 // MARK: 이메일 찾기 관련 VC
 class FindEmailVC : UIViewController, UITextFieldDelegate{
     
@@ -75,6 +72,7 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
     @IBOutlet weak var coNameTx: UITextField!       // 가게명
     @IBOutlet weak var phoneNumberTx: UITextField!  // 연락처
     @IBOutlet weak var profileChangeBtn: UIButton!  // 비밀번호 재설정 하기 버튼
+    @IBOutlet weak var useEmailLabel: UILabel!
     var appdelegate = UIApplication.shared.delegate as? AppDelegate
   
     var repname: String?
@@ -91,10 +89,16 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
         phoneNumberTx.delegate = self
     }
     
+    // 사업자명, 가게명, 연락처를 맞췄을 때
     @IBAction func profileChangePressBtn(_ sender: Any) {
-        appdelegate?.repName = repNameTx.text!
-        appdelegate?.coName = coNameTx.text!
-        appdelegate?.phoneNumber = phoneNumberTx.text!
+        
+        if repNameTx.text == appdelegate?.repName || coNameTx.text == appdelegate?.coName || phoneNumberTx.text == appdelegate?.phoneNumber{
+            useEmailLabel.textColor = .yellow
+            useEmailLabel.text = appdelegate?.email
+        }else{
+            useEmailLabel.textColor = .red
+            useEmailLabel.text = "다시 입력해 주세요"
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -156,27 +160,329 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
 
 
 
-
 // MARK: 비밀번조 재설정 관련 VC
-class FindPasswordVC : UIViewController{
+class FindPasswordVC : UIViewController, UITextFieldDelegate{
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var verifiCodeTextField: UITextField!
     @IBOutlet var pwTextField: UITextField!
     @IBOutlet var pwConfirmTextField: UITextField!
     @IBOutlet var verifyBtn: UIButton!
+    @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet var emailCheckLabel: UILabel!
     @IBOutlet var verifyCodeCheckLabel: UILabel!
     @IBOutlet var pwCheckLabel: UILabel!
     @IBOutlet var pwCheckAgainLabel: UILabel!
-    @IBOutlet var emailTabView: UIView!
-    @IBOutlet var verifyCodeTabView: UIView!
-    @IBOutlet var pwTabView: UIView!
-    @IBOutlet var pwCheckTabView: UIView!
+    @IBOutlet weak var emailTabImageView: UIImageView!
+    @IBOutlet weak var verifyCodeTabImageView: UIImageView!
+    @IBOutlet weak var pwTabImageView: UIImageView!
+    @IBOutlet weak var pwCheckTabImageView: UIImageView!
     @IBOutlet var goToFinishBtn: UIButton!
+    @IBOutlet weak var paswordView: UIView!
+    @IBOutlet weak var savePasswordBtn: UIButton!
     
+    var verifyCode:Int?
+    var isVerify:Bool = false
+    var appdelegate = UIApplication.shared.delegate as? AppDelegate
+    var password: String?
+    
+//    var verifyNumber: Int?
+//    var isChecked: Bool = false
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBtnOutlets()
+        check()
+        setviewLooklike()
+        paswordView.isHidden = true
+        emailTextField.delegate = self
+        verifiCodeTextField.delegate = self
+        pwTextField.delegate = self
+        pwConfirmTextField.delegate = self
+    }
+    
+
+    // 인증하기 버튼
+    @IBAction func certifyPressBtn(_ sender: Any) {
+        // 서버 통신 코드
+        emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
+            
+        case .success(let verify):
+            guard let data = verify as? reciveData else {return}
+            self.verifyCode = data.number
+            print(self.verifyCode!)
+            self.emailCheckLabel.text = "인증번호를 전송했습니다."
+            self.emailCheckLabel.textColor = .yellow
+            
+        case .requestErr(let message):
+            guard let message = message as? String else { return }
+            print(message)
+            
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+            }
+        }
+        )
+    }
+    
+    // 인증번호 확인하기 버튼
+    @IBAction func compareBtn(_ sender: Any) {
+        
+        if Int(verifiCodeTextField.text!) == verifyCode {
+            print("인증이 완료되었습니다.")
+            print(isVerify)
+            paswordView.isHidden = false
+            isVerify = true
+        }
+        else {
+            print("인증번호가 일치하지 않습니다.")
+        }
+        
+    }
+    
+    // 비밀번호 변경
+    @IBAction func changePasswordButtonPressed(_ sender: Any) {
+        if let pw = password {
+            PasswordChangePutService.shared.changePassword(password: pw) { (networkResult) in
+                switch networkResult {
+                case .success(let data):
+                    print(data)
+                    
+                    print("비밀번호가 재설정 되었습니다.")
+                    // Alert 만들기
+                    let alert = UIAlertController(title: "비밀번호 재설정", message: "비밀번호가 재설정 되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                    let yes = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
+                    alert.addAction(yes)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.emailTextField.text = ""
+                    self.verifiCodeTextField.text = ""
+                    self.pwTextField.text = ""
+                    self.pwConfirmTextField.text = ""
+                    self.paswordView.isHidden = true
+                    
+                    self.dismiss(animated: true, completion: nil)
+    
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    print(message)
+                    
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    func setBtnOutlets(){
+        verifyBtn.backgroundColor = .veryLightPinkTwo
+        verifyBtn.layer.cornerRadius = 10
+        confirmBtn.backgroundColor = .veryLightPinkTwo
+        confirmBtn.layer.cornerRadius = 10
+        verifyCodeCheckLabel.alpha = 0
+        emailCheckLabel.alpha = 0
+        pwCheckAgainLabel.alpha = 0
+        verifyBtn.isEnabled = false
+        confirmBtn.isEnabled = false
+        savePasswordBtn.imageView?.image = UIImage(named: "btnChangeSaveBefore")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.emailTextField {
+            textField.resignFirstResponder()
+            self.verifiCodeTextField.becomeFirstResponder()
+        }
+        else if textField == self.verifiCodeTextField {
+            textField.resignFirstResponder()
+            self.pwTextField.becomeFirstResponder()
+        }
+        else if textField == self.pwTextField {
+            textField.resignFirstResponder()
+            self.pwConfirmTextField.becomeFirstResponder()
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    // email형식 확인
+    @objc private func emailTextChecked(_ TextLabel: UILabel) {
+        
+        verifyBtn.backgroundColor = .charcoal
+        verifyBtn.isEnabled = true
+    }
+    
+    // 이메일 입력 텍스트 필드가 선택되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func emailTextFieldTapped(_ TextField : UITextField) {
+        
+        emailTabImageView.image = UIImage(named: "loginPwTextfield")
+        emailCheckLabel.alpha = 0
+        
+    }
+    
+    // 이메일 입력 텍스트 필드가 선택 취소되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func emailTextFieldUnTapped(_ TextField : UITextField) {
+
+        if (isValidEmail(id: emailTextField.text)){
+            emailTabImageView.image = UIImage(named: "loginEmailTextfield")
+        }
+        else if(emailTextField.text == ""){
+            emailTabImageView.image = UIImage(named: "loginEmailTextfield")
+        }
+        else {
+            emailTabImageView.image = UIImage(named: "mypostShape")
+        }
+    }
+    
+    // 이메일 인증하기 코드가 보내졌을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func emailVerifyCodeSended(_ Button : UIButton) {
+        
+        if isValidEmail(id: emailTextField.text){
+            emailTabImageView.image = UIImage(named: "loginEmailTextfield")
+            emailCheckLabel.alpha = 1
+            emailCheckLabel.text = "인증번호를 전송했습니다."
+            emailCheckLabel.textColor = .yellow
+
+        }
+            
+        else if (emailTextField.text == ""){
+            emailCheckLabel.alpha = 0
+        }
+        else
+        {
+            emailCheckLabel.text = "☒올바른 이메일을 입력해주세요."
+            emailTabImageView.image = UIImage(named: "mypostShape")
+            emailCheckLabel.textColor = .red
+            emailCheckLabel.alpha = 1
+        }
+    }
+    
+    // 인증번호 입력 텍스트 필드가 선택되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func verifyCodeTextFieldTapped(_ TextField : UITextField) {
+        
+        verifyCodeTabImageView.image = UIImage(named: "loginPwTextfield")
+        verifyCodeCheckLabel.alpha = 0
+        
+    }
+    
+    // 이메일 입력 텍스트 필드가 선택 취소되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func verifyCodeTextFieldUnTapped(_ TextField : UITextField) {
+        
+        guard verifiCodeTextField.text != nil else { return }
+        
+        if (Int(verifiCodeTextField.text!) == verifyCode){
+            verifyCodeTabImageView.image = UIImage(named: "loginEmailTextfield")
+        }
+        else if(verifiCodeTextField.text == ""){
+            verifyCodeTabImageView.image = UIImage(named: "loginEmailTextfield")
+        }
+        else {
+            verifyCodeTabImageView.image = UIImage(named: "mypostShape")
+        }
+        
+    }
+    
+    //인증번호 입력 텍스트 필드가 수정될 때 스타일 변경해준다.
+    @objc private func verifyCodeIsEntering(_ TextField: UITextField) {
+        
+        if (verifiCodeTextField.text == "") {
+            confirmBtn.isEnabled = false
+        }
+        else {
+            confirmBtn.isEnabled = true
+            confirmBtn.backgroundColor = .charcoal
+        }
+    }
+    
+    
+    // 인증번호 코드 확인을 눌렀을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func verifyCodeCorrectCheck(_ Button : UIButton) {
+        
+        guard verifiCodeTextField.text != nil else { return }
+        
+        if (Int(verifiCodeTextField.text!) == verifyCode){
+            verifyCodeTabImageView.image = UIImage(named: "loginEmailTextfield")
+            verifyCodeCheckLabel.alpha = 1
+            verifyCodeCheckLabel.text = "이메일 인증이 완료되었습니다."
+            verifyCodeCheckLabel.textColor = .yellow
+        }
+        else if(verifiCodeTextField.text == ""){
+            verifyCodeTabImageView.image = UIImage(named: "loginEmailTextfield")
+        }
+        else {
+            verifyCodeTabImageView.image = UIImage(named: "mypostShape")
+            verifyCodeCheckLabel.alpha = 1
+            verifyCodeCheckLabel.text = "☒인증번호가 일치하지 않습니다."
+            verifyCodeCheckLabel.textColor = .red
+        }
+    }
+    
+    
+    // 비밀번호 입력 텍스트 필드가 선택되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func pwTextFieldTapped(_ TextField : UITextField) {
+        
+        pwCheckLabel.text = "8~12자 이내의 문자,숫자,특수문자를 조합하여 입력해주세요."
+        pwCheckLabel.textColor = .brownGrey
+        pwTabImageView.image = UIImage(named: "loginPwTextfield")
+    }
+    
+    // 비밀번호 입력 텍스트 필드가 선택 취소되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func pwTextFieldUnTapped(_ TextField : UITextField) {
+        
+        pwTabImageView.image = UIImage(named: "loginEmailTextfield")
+        
+    }
+    
+    
+    // 비밀번호 확인 입력 텍스트 필드가 선택되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func pwCheckTextFieldTapped(_ TextField : UITextField) {
+        
+        
+        if !isValidPw(pw: pwTextField.text){
+            pwCheckLabel.text = "☒8~12자 이내의 문자,숫자,특수문자를 조합하여 입력해주세요."
+            pwTabImageView.image = UIImage(named: "mypostShape")
+            pwCheckLabel.textColor = .red
+            pwCheckLabel.alpha = 1
+        }
+            
+        else
+        {
+            pwCheckTabImageView.image = UIImage(named: "loginPwTextfield")
+            pwCheckLabel.alpha = 0
+            pwCheckAgainLabel.alpha = 0
+        }
+    }
+    
+    @objc private func pwCheckTextFieldEditing(_ TextField : UITextField) {
+        
+        if (pwTextField.text != pwConfirmTextField.text) {
+            pwCheckAgainLabel.alpha = 1
+            pwCheckAgainLabel.text = "☒입력하신 비밀번호와 일치하지 않습니다."
+            pwCheckTabImageView.image = UIImage(named: "mypostShape")
+            pwCheckAgainLabel.textColor = .red
+        }
+        else {
+            pwCheckAgainLabel.alpha = 0
+            pwCheckTabImageView.image = UIImage(named: "loginEmailTextfield")
+      
+            savePasswordBtn.imageView?.image = UIImage(named: "btnChangeSaveAfter")
+        }
+        
+    }
+    
+    // 비밀번호 확인 입력 텍스트 필드가 선택 취소되었을 때 텍스트 필드의 스타일을 변경시켜준다.
+    @objc private func pwCheckTextFieldUnTapped(_ TextField : UITextField) {
+        
+        pwCheckTabImageView.image = UIImage(named: "loginEmailTextfield")
+        
+        
     }
     
     func isValidEmail(id: String?) -> Bool {
@@ -209,7 +515,50 @@ class FindPasswordVC : UIViewController{
         // 결과값이 true false로 나옴
     }
     
+}
+
+extension FindPasswordVC {
+    
+    private func setviewLooklike(){
+        /* 선택했을때 텍스트 필드 디자인을 바꿔주는 역할을 하는 코드.
+         textFieldTapped(_:) 라는 함수를 class 안에 선언해줘야 동작을 한다.
+         .editingDidBegin 는 텍스트 필드가 선택되었을 때 실행한다는 것 */
+        
+        emailTextField.addTarget(self, action: #selector(emailTextFieldTapped(_:)), for: .editingDidBegin)
+        
+        /* 선택을 풀었을때 텍스트 필드 디자인을 바꿔주는 역할을 하는 코드.
+         textFieldTapped(_:) 라는 함수를 class 안에 선언해줘야 동작을 한다.
+         .editingDidBegin 는 텍스트 필드가 선택되었을 때 실행한다는 것*/
+        emailTextField.addTarget(self, action: #selector(emailTextFieldUnTapped(_:)), for: .editingDidEnd)
+        
+        verifyBtn.addTarget(self, action: #selector(emailVerifyCodeSended(_:)), for: .touchUpInside)
+        
+        verifiCodeTextField.addTarget(self, action: #selector(verifyCodeTextFieldTapped), for: .editingDidBegin)
+        
+        verifiCodeTextField.addTarget(self, action: #selector(verifyCodeTextFieldUnTapped), for: .editingDidEnd)
+        
+        confirmBtn.addTarget(self, action: #selector(verifyCodeCorrectCheck(_:)), for: .touchUpInside)
+        
+        pwTextField.addTarget(self, action:
+            #selector(pwTextFieldTapped(_:)), for: .editingDidBegin)
+        
+        pwTextField.addTarget(self, action: #selector(pwTextFieldUnTapped(_:)), for: .editingDidEnd)
+        
+        pwConfirmTextField.addTarget(self, action:
+            #selector(pwCheckTextFieldTapped(_:)), for: .editingDidBegin)
+        
+        pwConfirmTextField.addTarget(self, action: #selector(pwCheckTextFieldUnTapped(_:)), for: .editingDidEnd)
+    }
+    
+    private func check(){
+        emailTextField.addTarget(self, action: #selector(emailTextChecked(_:)), for: .editingChanged)
+        
+        verifiCodeTextField.addTarget(self, action: #selector(verifyCodeIsEntering(_:)), for: .editingChanged)
+        
+        pwConfirmTextField.addTarget(self, action: #selector(pwCheckTextFieldEditing(_:)), for: .editingChanged)
+    }
     
 }
+
 
 
