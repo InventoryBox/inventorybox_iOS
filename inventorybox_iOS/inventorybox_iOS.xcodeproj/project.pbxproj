@@ -41,6 +41,8 @@
 		0E4A82FF24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A82FE24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift */; };
 		0E4A830324BD7D4B001E38B7 /* MemoModifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */; };
 		0E6BE5F324EFDA3E00D4723D /* HomeNewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */; };
+		0E7AE801254EA6FA004CA839 /* FindEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AE800254EA6FA004CA839 /* FindEmailService.swift */; };
+		0E7AE804254EBED0004CA839 /* FindEmailInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AE803254EBED0004CA839 /* FindEmailInformation.swift */; };
 		0EB0CF4124B199F0009B089A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF4024B199F0009B089A /* Font.swift */; };
 		3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */; };
 		3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */; };
@@ -266,6 +268,8 @@
 		0E4A82FE24BD7BF3001E38B7 /* orderCheckMemoTVCImfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderCheckMemoTVCImfo.swift; sourceTree = "<group>"; };
 		0E4A830224BD7D4B001E38B7 /* MemoModifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoModifyVC.swift; sourceTree = "<group>"; };
 		0E6BE5F224EFDA3E00D4723D /* HomeNewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewCVCell.swift; sourceTree = "<group>"; };
+		0E7AE800254EA6FA004CA839 /* FindEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmailService.swift; sourceTree = "<group>"; };
+		0E7AE803254EBED0004CA839 /* FindEmailInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmailInformation.swift; sourceTree = "<group>"; };
 		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
 		3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvGraphTVCell.swift; sourceTree = "<group>"; };
@@ -613,6 +617,7 @@
 			children = (
 				33875C502503DFE6002D9DA0 /* NicknameOverlapCheckData.swift */,
 				33875C5625041B02002D9DA0 /* SignupData.swift */,
+				0E7AE803254EBED0004CA839 /* FindEmailInformation.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -991,6 +996,7 @@
 				D445336225359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift */,
 				D409DF0B24BC3B20009AC0B6 /* NetworkResult.swift */,
 				0E0568F624C1C6AE00853DD0 /* emailAuthService.swift */,
+				0E7AE800254EA6FA004CA839 /* FindEmailService.swift */,
 				D4FBA31C24C0741800B939E0 /* CategoryService.swift */,
 				D474DD0824E56875000F04AE /* Record */,
 				0E0568EE24C0F28E00853DD0 /* HomeService.swift */,
@@ -1354,6 +1360,7 @@
 				3344F904250A3F5200787DFC /* HomeMainLeftCVCell.swift in Sources */,
 				D4ED3EA925357F6200C39EED /* IvHomeHamburgerProfilePutService.swift in Sources */,
 				0E1EE8E32508A48200859E68 /* HomeSideMyInfoVC.swift in Sources */,
+				0E7AE804254EBED0004CA839 /* FindEmailInformation.swift in Sources */,
 				D418CE7524BDFA2E00EE7672 /* IvRecordEditIvData.swift in Sources */,
 				D45F40EA2537479C0057D049 /* IvHomeHamburgerProfileInformation.swift in Sources */,
 				D4A2875424B7EE3500A60C08 /* IvAllExchangeCell.swift in Sources */,
@@ -1381,6 +1388,7 @@
 				D4E7A40824B4EA9C001C015A /* IvTodayRecordVC.swift in Sources */,
 				D4A05D3624C0D0C500F038FA /* IvRecordEditCateService.swift in Sources */,
 				D41D0D1E2536B034006C112E /* HomeSidePasswordChangeVC.swift in Sources */,
+				0E7AE801254EA6FA004CA839 /* FindEmailService.swift in Sources */,
 				0E05690124C25FD900853DD0 /* signinService.swift in Sources */,
 				0E1EE8E52508A48200859E68 /* HomeSideProfileVC.swift in Sources */,
 				339C89B524BB83C700B86BAF /* SignUpPrivateInfo.swift in Sources */,

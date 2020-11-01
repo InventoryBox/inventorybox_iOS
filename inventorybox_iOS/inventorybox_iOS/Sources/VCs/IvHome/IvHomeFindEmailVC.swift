@@ -78,6 +78,7 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
     var repname: String?
     var coname : String?
     var phonenumber : String?
+    var reciveEmail : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,13 +93,24 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
     // 사업자명, 가게명, 연락처를 맞췄을 때
     @IBAction func profileChangePressBtn(_ sender: Any) {
         
-        if repNameTx.text == appdelegate?.repName || coNameTx.text == appdelegate?.coName || phoneNumberTx.text == appdelegate?.phoneNumber{
-            useEmailLabel.textColor = .yellow
-            useEmailLabel.text = appdelegate?.email
-        }else{
-            useEmailLabel.textColor = .red
-            useEmailLabel.text = "다시 입력해 주세요"
-        }
+        FindEmailService.shared.findEmailPost(repName: repNameTx.text!, coName: coNameTx.text!, phone: phoneNumberTx.text!, completion: { networkResult in switch networkResult {
+        
+        case .success(let verify):
+            
+            guard let data = verify as? reciveEmailData else {return}
+            self.reciveEmail = data.email
+            self.useEmailLabel.text = self.reciveEmail
+            self.useEmailLabel.textColor = .yellow
+            print(self.reciveEmail!)
+            
+        case .requestErr(let message):
+            guard let message = message as? String else { return }
+            print(message)
+            
+        case .pathErr: print("path")
+        case .serverErr: print("serverErr")
+        case .networkFail: print("networkFail")
+        }})
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -106,7 +118,6 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
             textField.resignFirstResponder()
             self.coNameTx.becomeFirstResponder()
         }
-            
         else if textField == self.coNameTx {
             textField.resignFirstResponder()
             self.phoneNumberTx.becomeFirstResponder()

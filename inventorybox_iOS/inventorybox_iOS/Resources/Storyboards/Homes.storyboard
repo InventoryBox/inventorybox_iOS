@@ -2473,7 +2473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAa-ke-5i2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5100" y="-2212"/>
+            <point key="canvasLocation" x="5100" y="-2532"/>
         </scene>
         <!--IvHomeFindEmailVC-->
         <scene sceneID="o5r-he-Sw6">
@@ -2961,9 +2961,9 @@
                                         <color key="textColor" name="brownGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BD-42-ekU">
+                                    <button opaque="NO" contentMode="scaleAspectFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BD-42-ekU">
                                         <rect key="frame" x="15" y="594" width="345" height="53"/>
-                                        <state key="normal" image="btnChangeSaveBefore">
+                                        <state key="normal" image="btnChangeSaveAfter">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -3130,6 +3130,7 @@
         <image name="btnCall" width="25" height="25"/>
         <image name="btnCamera" width="60" height="60"/>
         <image name="btnChange" width="25" height="25"/>
+        <image name="btnChangeSaveAfter" width="343" height="53"/>
         <image name="btnChangeSaveBefore" width="343" height="53"/>
         <image name="btnLocation" width="24" height="24"/>
         <image name="btnMy" width="25" height="25"/>
