@@ -21,6 +21,8 @@ struct APIConstants {
     static let signupURL = baseURL + "auth/signup"
     // 닉네임 중복 체크
     static let nicknameCheckURL = baseURL + "auth/nickname"
+    // 이메일 찾기 이메일 인증
+    static let emailChecklURL = baseURL + "auth/email/setpw"
     // 이메일 찾기
     static let findEmailURL = baseURL + "auth/find-email"
     

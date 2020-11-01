@@ -48,6 +48,10 @@ class IvHomeFindEmailVC: UIViewController {
          self.scrollView.addSubview(rightVCView)
          rightVC.didMove(toParent: self)
     }
+    // 뒤로가기 버튼
+    @IBAction func backNavigationPressBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: 이메일 찾기 View 버튼
     @IBAction func findEmailPressBtn(_ sender: Any) {
@@ -107,7 +111,10 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
             guard let message = message as? String else { return }
             print(message)
             
-        case .pathErr: print("path")
+        case .pathErr:
+            self.useEmailLabel.text = "잘못 입력하셨습니다"
+            self.useEmailLabel.textColor = .red
+            print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
         }})
@@ -212,13 +219,34 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
         verifiCodeTextField.delegate = self
         pwTextField.delegate = self
         pwConfirmTextField.delegate = self
+        
+        pwTextField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        pwConfirmTextField.addTarget(self, action: #selector(passwordCheckTextFieldDidChange), for: .editingChanged)
+    }
+    // 비밀번호 변경
+    @objc private func passwordTextFieldDidChange() {
+        if let t = pwTextField.text {
+            if isValidPw(pw: t) {
+                password = t
+            } else {
+            }
+        }
+    }
+    // 비밀번호 변경 재입력
+    @objc private func passwordCheckTextFieldDidChange() {
+        if let pw = password, let t = pwConfirmTextField.text {
+            if pw == t {
+            } else {
+            }
+        }
     }
     
-
+ 
+    
     // 인증하기 버튼
     @IBAction func certifyPressBtn(_ sender: Any) {
         // 서버 통신 코드
-        emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
+        FindEmailCheckService.shared.emailCheckPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
             
         case .success(let verify):
             guard let data = verify as? reciveData else {return}
@@ -244,7 +272,7 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
         
         if Int(verifiCodeTextField.text!) == verifyCode {
             print("인증이 완료되었습니다.")
-            print(isVerify)
+            // print(isVerify)
             paswordView.isHidden = false
             isVerify = true
         }
@@ -263,6 +291,7 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
                     print(data)
                     
                     print("비밀번호가 재설정 되었습니다.")
+                  
                     // Alert 만들기
                     let alert = UIAlertController(title: "비밀번호 재설정", message: "비밀번호가 재설정 되었습니다.", preferredStyle: UIAlertController.Style.alert)
                     let yes = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
@@ -275,7 +304,7 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
                     self.pwConfirmTextField.text = ""
                     self.paswordView.isHidden = true
                     
-                    self.dismiss(animated: true, completion: nil)
+                    print()
     
                 case .requestErr(let message):
                     guard let message = message as? String else { return }
