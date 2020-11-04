@@ -808,7 +808,6 @@
         <!--LoginNC-->
         <scene sceneID="8OD-8P-HFU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Z3-KG-9io" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="LoginNC" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="EXk-09-Lyn" customClass="LoginNC" customModule="inventorybox_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="feN-6v-tcG">
@@ -820,6 +819,7 @@
                         <segue destination="FfL-xI-qTb" kind="relationship" relationship="rootViewController" id="2hV-VC-fGg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Z3-KG-9io" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2929" y="167"/>
         </scene>
@@ -2218,23 +2218,6 @@
             <point key="canvasLocation" x="5190" y="958"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5mr-fB-FHy">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="EfI-vL-Zm0">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="HK9-DP-0nq">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="fLZ-aH-w3B">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="xt3-gM-T8P">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-    </designables>
     <resources>
         <image name="btnChangeSaveAfter" width="343" height="53"/>
         <image name="btnChangeSaveBefore" width="343" height="53"/>

@@ -14,22 +14,33 @@ class HomeNewVC: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var detailButton: UIView!
  
-    var page : Int = 2      // page 개수 관련 변수
+    var page : Int = 0      // page 개수 관련 변수
     var curentpage : Int = 0
-       
-    let setInformations : [Int] = [1,2,3,4,5,6,7,2,13,5,2,1,2,3,15,2,23,1,2,2,3,1,2,5,2,1,2,3,51,2,5,2,1,5,2,1,2,3,4,1,25,2]
+    
+    var leftValue : Int?        // 몫 값
+    var leftRemainder : Int?    // 나머지 값
+    var rigntValue : Int?        // 몫 값
+    var rigntRemainder : Int?    // 나머지 값
+    
+    //test를 위한 더미 데이터 배열
+    private var customData: [DataModel] = []
+    private var customLeftData : [DataModel] = []
+    private var customRightData : [DataModel] = []
+ 
     
     // Side Bar Menu 만든거 사용
 //    let transition = HomeSlideTransition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setData()
         homeListCollectionView.dataSource = self
         homeListCollectionView.delegate = self
         
+        
         pages()
-        configureScrollView()   //
+//        configureScrollView()   //
         makeShadowUnderView()   // 그림자 & Radious
        
     }
@@ -89,9 +100,65 @@ class HomeNewVC: UIViewController {
 //    }
     
     
+    func setData(){
+        
+        let cell1 = DataModel(salesName: "응")
+        let cell2 = DataModel(salesName: "g")
+        let cell3 = DataModel(salesName: "f")
+        let cell4 = DataModel(salesName: "ff")
+        let cell5 = DataModel(salesName: "ss")
+        let cell6 = DataModel(salesName: "고기")
+        let cell7 = DataModel(salesName: "고기")
+        let cell8 = DataModel(salesName: "우유")
+        let cell9 = DataModel(salesName: "빵")
+        let cell10 = DataModel(salesName: "맘마")
+        let cell11 = DataModel(salesName: "녹차")
+        let cell12 = DataModel(salesName: "크림")
+        let cell13 = DataModel(salesName: "파스타")
+        let cell14 = DataModel(salesName: "kk")
+        let cell15 = DataModel(salesName: "멍멍이")
+        let cell16 = DataModel(salesName: "pp")
+        let cell17 = DataModel(salesName: "바보")
+        let cell18 = DataModel(salesName: "oo")
+        let cell19 = DataModel(salesName: "강아지")
+        let cell20 = DataModel(salesName: "kk")
+        let cell21 = DataModel(salesName: "헤헤")
+        let cell22 = DataModel(salesName: "kk")
+        let cell23 = DataModel(salesName: "호호")
+        let cell24 = DataModel(salesName: "kk")
+        let cell25 = DataModel(salesName: "히히")
+        let cell26 = DataModel(salesName: "kk")
+        let cell27 = DataModel(salesName: "kk")
+        let cell28 = DataModel(salesName: "kk")
+        let cell29 = DataModel(salesName: "kk")
+   
+        
+        customData = [cell1,cell2,cell3,cell4,cell5,cell6,cell7,cell8,cell9,cell10,cell11,cell12,cell13,cell14,cell15,cell16,cell17,cell18,cell19,cell20,cell21,cell22,cell23,cell24,cell25,cell26,cell27,cell28,cell29]
+        
+        for i in 0...self.customData.count - 1 {
+            if i % 2 == 0 {
+                //checkOrderInfo배열 중 인덱스가 짝수인 배열을 leftCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[0],checkOrderInfo[2],checkOrderInfo[4],checkOrderInfo[6] ... 번째 인덱스 즉 왼쪽 CV에 나타날 정보들
+                self.customLeftData.append(self.customData[i])
+            }
+            else {
+                //checkOrderInfo배열 중 인덱스가 홀수인 배열을 rightCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[1],checkOrderInfo[3],checkOrderInfo[5],checkOrderInfo[7] ... 번째 인덱스 즉 오른쪽 CV에 나타날 정보들
+                self.customRightData.append(self.customData[i])
+            }
+        }
+        
+        leftValue = customLeftData.count/7      // 7로 나눴을때 몫
+        leftRemainder = customLeftData.count%7  // 7로 나눴을때 나머지
+        rigntValue = customRightData.count/7    //
+        rigntValue = customRightData.count%7    //
+        
+   }
+    
     // page controller 개수
     func pages() {
-        page = 1 + setInformations.count / 15         // 15로 나눴을 때
+        homeListCollectionView?.isPagingEnabled = true
+        
+        page = 1 + customData.count / 14         // 14로 나눴을 때
+//        print(customData.count)
         print("현제 페이지의 개수는 --> \(page)")
         pageControl.numberOfPages = page    // pagecontrol의 점 개수
     }
@@ -110,12 +177,12 @@ class HomeNewVC: UIViewController {
      }
     
     
-    // page 형태를 주기 위해
-    private func configureScrollView(){
-        homeListCollectionView.contentSize = CGSize(width: view.frame.size.width*CGFloat(page), height: homeListCollectionView.frame.size.height)
-        
-        homeListCollectionView.isPagingEnabled = true
-    }
+//    // page 형태를 주기 위해
+//    private func configureScrollView(){
+//        homeListCollectionView.contentSize = CGSize(width: view.frame.size.width*CGFloat(page), height: homeListCollectionView.frame.size.height)
+//
+//        homeListCollectionView.isPagingEnabled = true
+//    }
 }
 
 
@@ -125,17 +192,77 @@ extension HomeNewVC: UICollectionViewDataSource{
         return page
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeNewCVCell", for: indexPath)
-   
-        print("indexpath값은? -> \(indexPath.row)")
+        guard let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeNewCVCell", for: indexPath) as? HomeNewCVCell else {return UICollectionViewCell() }
+        
+        // 우선 페이지 수 전에 맞춰서 값을 넣음
+        for i in 0..<leftValue!{
+            if indexPath.item == i{
+                switch i{
+                case 0:
+                    for j in 0..<7{
+                        if listCell.leftStackview[j].tag == j+1{
+                            listCell.leftStackview[j].text = "\(String(describing: self.customLeftData[j].names!))"
+                            
+                        }
+                    }
+                case 1:
+                    for j in 0..<7{
+                        if listCell.leftStackview[j].tag == j+1{
+                            listCell.leftStackview[j].text = "\(String(describing: self.customLeftData[j+7].names!))"
+                        }
+                    }
+                case 2:
+                    for j in 0..<7{
+                        if listCell.leftStackview[j].tag == j+1{
+                            listCell.leftStackview[j].text = "\(String(describing: self.customLeftData[j+14].names!))"
+                        }
+                    }
+                case 3:
+                    for j in 0..<7{
+                        if listCell.leftStackview[j].tag == j+1{
+                            listCell.leftStackview[j].text = "\(String(describing: self.customLeftData[j+21].names!))"
+                        }
+                    }
+                case 4:
+                    for j in 0..<7{
+                        if listCell.leftStackview[j].tag == j+1{
+                            listCell.leftStackview[j].text = "\(String(describing: self.customLeftData[j+28].names!))"
+                        }
+                    }
+                default: break
+                }
+            }
+        }
+        
+        // 나머지에 관하여
+        if indexPath.item == leftValue!{
+            // 나머지 값에 관해서
+            for i in 0..<leftRemainder!{
+                if listCell.leftStackview[i].tag == i+1 {
+                    listCell.leftStackview[i].text = "\(String(describing: self.customLeftData[i+(leftValue!*7)].names!))"
+                    
+                }
+            }
+            
+            for i in leftRemainder!..<7 {
+                if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                    listCell.leftStackview[i].text = " "
+                    listCell.leftStackImage[i].image = UIImage(named: "homeIcUnable")
+                }
+            }
+        }
+        
+        print("indexpath.item값은? -> \(indexPath.item)")
         
         return listCell
+        
     }
 }
-
-
-// MARK: UICollectionView Delegate
+    
+    
+    // MARK: UICollectionView Delegate
 extension HomeNewVC: UICollectionViewDelegate{
     
 //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -148,7 +275,6 @@ extension HomeNewVC: UICollectionViewDelegate{
         curentpage =  Int(floorf(Float(homeListCollectionView.contentOffset.x)/Float(homeListCollectionView.frame.size.width)))
 
         pageControl.currentPage = curentpage
-        print("\(curentpage)")
 
     }
     
@@ -167,4 +293,5 @@ extension HomeNewVC : UIViewControllerTransitioningDelegate{
 //        return transition
 //    }
 }
+
 

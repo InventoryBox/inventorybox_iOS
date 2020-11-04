@@ -12,13 +12,10 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     var whatPageIsIt: Int = 0
     
-    @IBOutlet var homeLeftCV: UICollectionView!
-    @IBOutlet var homeRightCV: UICollectionView!
     @IBOutlet var homePageControl: UIPageControl!
     private var checkOrderInfo : [HomeItem] = []
     private var leftCheckOrderInfo : [HomeItem] = []
     private var rightCheckOrderInfo : [HomeItem] = []
-    @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var homeDetailBtn: UIButton!
     
     

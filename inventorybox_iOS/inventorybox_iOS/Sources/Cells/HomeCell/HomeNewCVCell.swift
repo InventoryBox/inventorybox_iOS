@@ -14,31 +14,21 @@ class HomeNewCVCell: UICollectionViewCell {
     
     let identifier : String = "HomeNewCVCell"
     
+    @IBOutlet weak var view: UIView!
     @IBOutlet var leftStackImage: [UIImageView]! // left image stackview
     @IBOutlet var leftStackview: [UILabel]! // left label stackview
-  
+    @IBOutlet var rigntStackImage: [UIImageView]!
+    @IBOutlet var rigntStackView: [UILabel]!
+    
+    
+    
     var names : String?
     var bountys : Int?
     
     override func awakeFromNib() {
         makeShadowUnderView()
         
-        
     }
-    
-//    // 왼쪽 관련 Staack
-//    func leftSet(image: [String], name: [String]){
-//        let setimage : [String] = image
-//        let setname : [String] = name
-//        
-//        if setimage == image || setname == name{
-//            for i in 0... < image.count{
-//                
-//            }
-//        }
-//        
-//    }
-//    
     
     
     
@@ -53,3 +43,6 @@ class HomeNewCVCell: UICollectionViewCell {
 
 }
 
+class MyViewController {
+
+}
