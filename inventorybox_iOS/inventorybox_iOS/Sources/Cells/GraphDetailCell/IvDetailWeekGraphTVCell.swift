@@ -33,6 +33,9 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         roundView.layer.cornerRadius = 9
         roundView.layer.shadowRadius = 9
         roundView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        firstMonthInfoLabel.sizeToFit()
+        firstDayLabel.sizeToFit()
+        secondDayInfoLabel.sizeToFit()
         
     }
 
@@ -42,82 +45,12 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         // Configure the view for the selected state
     }
     
-    func setIvGraphTV(weekLabel:String,firstMonth:String,firstDay:String,secondMonth:String,secondDay:String,itemAlarmCount:Double,dataPoints: [String],values: [Double], itemIndex:Int){
-          
-          
-          var dataEntries : [BarChartDataEntry] = []
-          
-          weekInfoLabel.text = weekLabel
-          firstMonthInfoLabel.text = firstMonth
-          firstDayLabel.text = firstDay
-          secondMonthLabel.text = secondDay
-          secondDayInfoLabel.text = secondMonth
-          //secondDayLabel.text = secondDay
-          itemIdx = itemIndex
-
-        
-          //dataPoint.count (배열의 값만큼 막대가 생긴다)
-          for i in 0..<dataPoints.count {
-              let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
-              dataEntries.append(dataEntry)
-             // print(Int(values[i]))
-          }
-          
-          
-          //chartDataSet의 label은 그래프 하단 데이터셋의 네이밍을 의미한다.
-          let chartDataSet = BarChartDataSet(entries:dataEntries, label: "그래프 값 명칭")
-          
-        
-        
-        let valFormatter = NumberFormatter()
-        valFormatter.numberStyle = .currency
-        valFormatter.maximumFractionDigits = 2
-        valFormatter.currencySymbol = "$"
-        
-        
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        
-        ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
-       
-          
-          //그래프 색 변경 부분
-          
-        //  print(values[1])
-          chartDataSet.colors = [setColor(value: values[0]),setColor(value: values[1]),setColor(value: values[2]),setColor(value: values[3]),setColor(value: values[4]),setColor(value: values[5]),setColor(value: values[6])]
-          
-          
-          let chartData = BarChartData(dataSet: chartDataSet)
-          chartData.setValueFormatter(formatter)
-          chartData.setValueFont(NSUIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12))
-        chartData.setValueTextColor(.charcoal)
-          ivChartView.data = chartData
-          ivChartView.xAxis.labelPosition = .bottom
-          ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
-          ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-          ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-          ivChartView.xAxis.drawGridLinesEnabled = false
-          ivChartView.leftAxis.drawLabelsEnabled = false
-          ivChartView.rightAxis.drawGridLinesEnabled = false
-          ivChartView.rightAxis.drawLabelsEnabled = false
-          ivChartView.leftAxis.drawAxisLineEnabled = false
-          ivChartView.rightAxis.drawAxisLineEnabled = false
-          ivChartView.leftAxis.drawGridLinesEnabled = false
-          ivChartView.drawGridBackgroundEnabled = false
-          ivChartView.drawBordersEnabled = false
-          ivChartView.xAxis.labelFont = UIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
-        ivChartView.xAxis.labelTextColor = .charcoal
-          
-          //밑에 데이터셋 제거
-          ivChartView.legend.enabled = false
-          
-          chartData.barWidth = 0.3
-        
-      }
-      
+   
     
-    func bindGraph(model:GraphInfo, model2:SingleGraphWeekInfo, weekLabel:String, itemIndex:Int){
+    func bindGraph(model:GraphInfo,alarmCount:Int, weekLabel:String, itemIndex:Int, monthInfo:String){
+        
+        
+        
         
         let valFormatter = NumberFormatter()
         valFormatter.numberStyle = .currency
@@ -129,10 +62,13 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         format.numberStyle = .none
         let formatter = DefaultValueFormatter(formatter: format)
         
-       // firstDayInfoLabel.text = model.startDay
-        secondDayInfoLabel.text = model.endDay
+        firstDayLabel.text = model.startDay
+        secondMonthLabel.text = model.endDay
+    
+  
         itemIdx = itemIndex
         weekInfoLabel.text = weekLabel
+        
         var dataPoints: [String] = ["일","월","화","수","목","금","토"]
         var dataEntries : [BarChartDataEntry] = []
         
@@ -177,7 +113,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
                
                chartData.barWidth = 0.2
         
-               let ll = ChartLimitLine(limit: Double(model2.alarmCnt), label: "")
+               let ll = ChartLimitLine(limit: Double(alarmCount), label: "")
                limitLine = ll
                ivChartView.rightAxis.removeLimitLine(ll)
                ivChartView.rightAxis.addLimitLine(ll)

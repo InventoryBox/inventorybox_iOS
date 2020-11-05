@@ -14,19 +14,17 @@ struct IvHomeFlagPostService {
     
     private func makeParameter(itemIdx: Int, flag: Int) -> Parameters{
         
-        return ["flag": flag]
+        return [ "itemIdx" : itemIdx, "flag" : flag]
     }
     
-    func getRecordEditIvPost(itemIdx: Int, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getHomeFlagPost(itemIdx: Int, flag: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.ivHomeCheckBoxURL + "\(itemIdx)"
-        print(url)
-//        print(makeParameter(itemIdx: itemIdx, flag: flag))
+        let url = APIConstants.ivHomeCheckBoxURL + String(itemIdx) + "/" + String(flag)
+        
         let dataRequest = Alamofire.request(url, method: .put, parameters: makeParameter(itemIdx: itemIdx, flag: flag), encoding: JSONEncoding.default, headers: header)
         
-        //        print(makeParameter(data: data, date: date))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -48,7 +46,7 @@ struct IvHomeFlagPostService {
     
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
-        case 200: return getRecordEditIvPostData(by: data)
+        case 200: return getHomeFlagPostData(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -56,12 +54,10 @@ struct IvHomeFlagPostService {
         }
     }
     
-    private func getRecordEditIvPostData(by data: Data) -> NetworkResult<Any> {
+    private func getHomeFlagPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
         
-        // 성공 메시지
-//        print(decodedData.message)
         
         if decodedData.success {
             return .success(decodedData.message)

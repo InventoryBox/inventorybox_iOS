@@ -14,9 +14,13 @@ class HomeNewDetailTVCell: UITableViewCell {
     @IBOutlet var itemNameLabel: UILabel!
     @IBOutlet var itemMemoCountLabel: UILabel!
     @IBOutlet var itemFlagBtn: UIButton!
-    @IBOutlet var homeMoreBtnImg: UIImageView!
+    @IBOutlet var homeMoreBtnImg: UIButton!
     @IBOutlet var itemRoundView: UIView!
     @IBOutlet var itemUnitLabel: UILabel!
+    var orderCheckInformations:[HomeItem] = []
+    var flagInt:[HomeDetailInfoData] = []
+    var itemIndex:Int = 0
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +28,71 @@ class HomeNewDetailTVCell: UITableViewCell {
         itemRoundView.layer.cornerRadius = 10
         itemRoundView.layer.shadowRadius = 10
         itemRoundView.layer.shadowOpacity = 0.1
+        
+        
+        HomeService.shared.getHome { [self] networkResult in
+            switch networkResult{
+            case .success(let data):
+                guard let dt = data as? HomeItemclass else {
+                    
+                    return }
+                self.orderCheckInformations = dt.result
+                print(self.orderCheckInformations)
+                
+                for i in 0...self.orderCheckInformations.count - 1 {
+                    self.flagInt.append(HomeDetailInfoData(open: false, flagInt: orderCheckInformations[i].flag))
+                }
+                
+               
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+        
     }
-
+    
+    
+    @IBAction func flagBtnTouchUp(_ sender: UIButton) {
+       
+        if flagInt[cellIndexPath!.section].flagInt == 1{
+            print(flagInt[cellIndexPath!.section].flagInt)
+            itemFlagBtn.setImage(UIImage(named: "homeBtnCheckUnselect"), for: .normal)
+            flagInt[cellIndexPath!.section].flagInt = 0
+           
+            
+            
+        }else {
+            print(flagInt[cellIndexPath!.section].flagInt)
+            itemFlagBtn.setImage(UIImage(named: "homeBtnCheckSelect"), for: .normal)
+            flagInt[cellIndexPath!.section].flagInt = 1
+        }
+        
+        
+        IvHomeFlagPostService.shared.getHomeFlagPost(itemIdx: itemIndex, flag: flagInt[cellIndexPath!.section].flagInt, completion: { networkResult in
+            switch networkResult{
+            case .success(let data): print(data)
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+            
+        })
+        print(flagInt)
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

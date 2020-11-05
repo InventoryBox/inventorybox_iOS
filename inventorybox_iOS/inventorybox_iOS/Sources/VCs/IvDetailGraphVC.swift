@@ -14,14 +14,30 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet var backgroundPopupView: UIView!
     @IBOutlet var popupBackgroundView: UIView!
+    var toggleBtnClickCount:Int = 0
+    var alarmCnt:Int?
     var isClickedBtn:Bool?
-    var weekArray:[DetailGraphWeekInfo] = []
+    var alarmUnit:String?
+    var originalMemoCnt:Int?
+
     var btnArray:[String] = []
-    var reloadArray:[DetailGraphWeekInfo] = []
-    var itemWeekData:[SingleGraphWeekInfo] = []
+    var reloadArray:[WeekInformation] = []
+    var itemWeekData:[SingleGraphWeekInfo] = [] {
+        didSet {
+            self.ivDetilTV.reloadSections(IndexSet(integer: 0), with: .none)
+        }
+    }
+    var itemWeekDataClone:[SingleGraphWeekInfo] = []
+    
+    var newnewData:[SingleGraphData] = []
+    
+    var itemGraphData:[GraphInfo] = []
+    var itemGraphDataClone:[GraphInfo] = []
     var doubleGraphArray:[DetailCompareGraphInfo] = []
     var itemName:String?
     var isSelected:[Bool] = []
+    let date = Date()
+    let calendar = Calendar.current
     var selectedFirstYearTextField:String = ""
     var selectedFirstMonthTextField:String = ""
     var selectedFirstWeekTextField:String = ""
@@ -39,6 +55,11 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.ivDetilTV.reloadData()
         }
     }
+    
+    var graphCount:Int = 0
+    var getWeekCount:Int = 0
+    var weekBtnText:String = ""
+    var weekInfoArray:[WeekInformation] = []
   
     // 이 값 순서대로 그래프가 그려짐
     // 서버통신 시 inventory별 정보 배열이 들어갈 곳
@@ -46,10 +67,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     let doubleGraphUniteSold1 = [2.0,11.0,9.0,10.0,3.0,4.0,2.0]
     let doubleGraphUniteSold2 = [2.0,11.0,9.0,10.0,3.0,4.0,2.0]
-//
-//    var numbers:[Double] = []
-//    var graph2Numbers:[Double] = []
-    
+
     var days: [String]!
     var graph2Days:[String]!
     
@@ -62,13 +80,13 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        currentSingleGraphNetworking()
         
         //네비게이션 바 나타나게 하는 코드
         self.navigationController?.navigationBar.isHidden = false
         ivDetilTV.delegate = self
         ivDetilTV.dataSource = self
-        setWeek()
+        
         self.navigationItem.title = itemName
         ivDetilTV.allowsSelection = false
         ivDetilTV.separatorStyle = .none
@@ -77,7 +95,8 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ivDetilTV.allowsSelection = false
         ivDetilTV.separatorStyle = .none
         
-        reloadArray = weekArray
+       
+        
         let formatter_year = DateFormatter()
         formatter_year.dateFormat = "yyyy"
         let current_year_string = formatter_year.string(from: Date())
@@ -91,58 +110,122 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    func currentSingleGraphNetworking(){
+        self.reloadArray = []
+        print("몇벙림?",itemIdx!)
+        SingleGraphLoadService.shared.loadCompareGraph(itemIdx!, (calendar.component(.year, from: date)), (calendar.component(.month, from: date)), completion:  { networkResult in
+                   switch networkResult{
+                   case .success(let data):
+                    
+                    guard let newData = data as? SingleGraphData else{
+                        return
+                    }
+                    self.newnewData.append(newData)
+                    print(self.newnewData)
+                    
+                       guard let singleGraphData = data as? SingleGraphWeekInfo else {
+                           return }
+                       
+                       self.itemWeekData = [singleGraphData]
+                       self.getWeekCount = singleGraphData.weeksCnt
+                       self.itemGraphData = singleGraphData.graphInfo
+                    self.alarmCnt = singleGraphData.alarmCnt
+                    self.originalMemoCnt = singleGraphData.memoCnt
+                     //  self.itemWeekDataClone = self.itemWeekData
+                    print(self.getWeekCount)
+                    self.weekInfoArray = []
+                    self.graphCount = 0
+                    
+                    for i in 0...self.getWeekCount - 1 {
+                        
+                        print("안녕안녕",i)
+                        print("여긴테이블뷰",self.getWeekCount)
+                        
+                        if i == 0 {
+                            self.weekBtnText = "첫째주"
+                        } else if i == 1 {
+                            self.weekBtnText = "둘째주"
+                        } else if i == 2 {
+                            self.weekBtnText = "셋째주"
+                        } else if i == 3 {
+                            self.weekBtnText = "넷째주"
+                        } else if i == 4 {
+                            self.weekBtnText = "다섯째주"
+                        } else if i == 5 {
+                            self.weekBtnText = "여섯째주"
+                        } else {
+                            self.weekBtnText = "일곱째주"
+                        }
+                       
+                        if self.graphCount < self.getWeekCount {
+                            self.weekInfoArray.append(WeekInformation(btnText: self.weekBtnText, btnIsSelected: true))
+
+                            self.graphCount += 1
+                        }
+                        
+                    }
+                        
+                  
+                   case .requestErr(let message):
+                       guard let message = message as? String else {return}
+                       print(message)
+
+                   case .serverErr: print("serverErr")
+                   case .pathErr:
+                       print("pathErr")
+                   case .networkFail:
+                       print("networkFail")
+                   }
+               })
+        
+        self.ivDetilTV.reloadSections(IndexSet(integer: 0), with: .none)
+        
+       
+    }
+    
     @objc func setWeeks(_ notification: NSNotification) {
         guard let row = notification.userInfo?["week"] as? Int else { return }
         guard let status = notification.userInfo?["status"] as? Bool else { return }
-//        print(row)
-//        print(status)
-        clickBtnWeek = row
-       // print("notiLoading")
-        // print("dd\(status)")
         
+        clickBtnWeek = row
+        reloadArray = weekInfoArray
+        itemGraphDataClone = itemGraphData
+      
+       
+        print("dmlmlml",itemGraphDataClone)
+       print(status)
         // 초기 상태값으로 움직임
         if status == false {
-             for i in 0...weekArray.count - 1{
-                 if clickBtnWeek == i  {
-                     reloadArray.remove(at: i)
+            print("안뇽? 클레오파트라?",weekInfoArray.count)
+             for i in 0...weekInfoArray.count - 1{
+                 if clickBtnWeek! == i  {
+                    print("행복해~~~~~~~",clickBtnWeek!)
+                    print(reloadArray)
+                    reloadArray.remove(at: i)
+                    itemGraphDataClone.remove(at: i)
+                    
+                     print(reloadArray)
+                    print(itemGraphDataClone)
+                    //self.graphArray.sort{$0.startDay! < $1.itemIndex!}
                      //print(reloadArray)
-                     self.reloadArray.sort{$0.itemIndex! < $1.itemIndex!}
-                     //print(reloadArray)
-                     ivDetilTV.reloadData()
+                     ivDetilTV.reloadSections(IndexSet(integer: 0), with: .none)
                  }
              }
          }
         
          else {
-             for i in 0...weekArray.count - 1{
+             for i in 0...weekInfoArray.count - 1{
                  if clickBtnWeek == i {
-                     reloadArray.append(weekArray[i])
+                     reloadArray.append(weekInfoArray[i])
                      //print(reloadArray)
-                     self.reloadArray.sort{$0.itemIndex! < $1.itemIndex!}
+//                     self.reloadArray.sort{$0.itemIndex! < $1.itemIndex!}
                      //print(reloadArray)
-                     ivDetilTV.reloadData()
+                    ivDetilTV.reloadSections(IndexSet(integer: 0), with: .none)
                  }
              }
         }
         
     }
-    
-    func setWeek(){
-          
-          days = ["일","월","화","수","목","금","토"]
-             
-          
-          let firstWeek = DetailGraphWeekInfo(weekLabel: "첫째주", firstMonth: "6", firstDay: "29", secondMonth: "7", secondDay: "05", itemAlarmCount: 5.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 0)
-          let secondWeek = DetailGraphWeekInfo(weekLabel: "둘째주", firstMonth: "7", firstDay: "06", secondMonth: "7", secondDay: "12", itemAlarmCount: 1.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 1)
-          let thirdWeek = DetailGraphWeekInfo(weekLabel: "셋째주", firstMonth: "7", firstDay: "13", secondMonth: "7", secondDay: "19", itemAlarmCount: 3.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 2)
-          let fourthWeek = DetailGraphWeekInfo(weekLabel: "넷째주", firstMonth: "7", firstDay: "20", secondMonth: "7", secondDay: "26", itemAlarmCount: 10.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 3)
-          let fifthWeek = DetailGraphWeekInfo(weekLabel: "다섯째주", firstMonth: "7", firstDay: "27", secondMonth: "8", secondDay: "2", itemAlarmCount: 4.0, dataPoints: days, values: singleGraphUniteSold,itemIndex: 4)
-          
-          
-          weekArray = [firstWeek,secondWeek,thirdWeek,fourthWeek,fifthWeek]
-          
-         }
-    
 
 
        private func setPopupBackgroundView() {
@@ -180,10 +263,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         selectedFirstMonthTextField = month
         selectedFirstWeekTextField = week
         
-        
-        //print(selectedFirstMonthTextField)
-        ivDetilTV.reloadData()
-        
+        ivDetilTV.reloadSections(IndexSet(integer: 1), with: .none)
     }
     
      @objc func didSecondDisappearPopup(_ notification: Notification) {
@@ -200,12 +280,13 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             selectedSecondWeekTextField = secondWeek
           
 
-            //print(selectedSecondMonthTextField)
             
-            ivDetilTV.reloadData()
+        ivDetilTV.reloadSections(IndexSet(integer: 1), with: .none)
     }
     
     @objc func didFirstDisappearPopup(_ notification: Notification) {
+        //첫번째 datePicker
+       
         animatePopupBackground(false)
         guard let info = notification.userInfo as? [String: Any] else { return }
         
@@ -220,29 +301,75 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         else {
             plusZeroMonthTextField = firstMonth
         }
+        
         selectedMonthTextField = firstMonth
         
-        //print(selectedYearTextField)
+        print(selectedYearTextField)
+        print(plusZeroMonthTextField)
         
-        //선택적 그래프 통신 시작
-        SingleGraphLoadService.shared.loadCompareGraph(itemIdx!, Int(selectedYearTextField)!, Int(selectedMonthTextField)!, completion:  { networkResult in
+        
+       
+        SingleGraphLoadService.shared.loadCompareGraph(itemIdx!, selectedYearTextField.toInt()!, selectedMonthTextField.toInt()!, completion:  { networkResult in
                    switch networkResult{
                    case .success(let data):
                        guard let singleGraphData = data as? SingleGraphWeekInfo else {
                            return }
-                       
+                       self.reloadArray = []
                        self.itemWeekData = [singleGraphData]
-                       //print("+++" + "\(self.itemWeekData)")
-                       
-                       DispatchQueue.main.async {
-                           //self.reloadArray = self.itemWeekData
-                          // self.graphArray = singleGraphData.graphInfo
-                           print("++" + "\(self.compareGraphWeek1Array)")
-                           self.ivDetilTV.reloadData()
-                       }
-                       
-                       //print(12345)
+                       self.getWeekCount = singleGraphData.weeksCnt
+                       self.itemGraphData = singleGraphData.graphInfo
+                       self.alarmCnt = singleGraphData.alarmCnt
+                      // self.reloadArray = self.itemWeekData
+                    print(self.getWeekCount)
+                    self.weekInfoArray = []
+                    self.graphCount = 0
+                    for i in 0...self.getWeekCount - 1 {
+                        
+                        print("안녕안녕",i)
+                        print("여긴테이블뷰",self.getWeekCount)
+                        
+                        if i == 0 {
+                            self.weekBtnText = "첫째주"
+                            print(self.weekBtnText)
+                        } else if i == 1 {
+                            self.weekBtnText = "둘째주"
+                        } else if i == 2 {
+                            self.weekBtnText = "셋째주"
+                            print(self.weekBtnText)
+                        } else if i == 3 {
+                            self.weekBtnText = "넷째주"
+                            print(self.weekBtnText)
+                        } else if i == 4 {
+                            self.weekBtnText = "다섯째주"
+                            print(self.weekBtnText)
+                        } else if i == 5 {
+                            self.weekBtnText = "여섯째주"
+                            print(self.weekBtnText)
+                        } else {
+                            self.weekBtnText = "일곱째주"
+                            print(self.weekBtnText)
+                        }
+                        
+                        
+                        print(self.graphCount)
+                        print(self.getWeekCount)
+                        if self.graphCount < self.getWeekCount {
+                            self.weekInfoArray.append(WeekInformation(btnText: self.weekBtnText, btnIsSelected: true))
+                            self.graphCount += 1
+                        }
+                        
+                    }
                     
+                       DispatchQueue.main.async {
+                        
+                        //첫번째 섹션만 reload하게.
+
+                        self.ivDetilTV.reloadSections(IndexSet(integer: 0), with: .none)
+                        
+                        print("귀여운",self.reloadArray)
+                       }
+
+                  
                    case .requestErr(let message):
                        guard let message = message as? String else {return}
                        print(message)
@@ -254,9 +381,10 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                        print("networkFail")
                    }
                })
-        
-        ivDetilTV.reloadData()
+        //선택적 그래프 통신 시작
+//        self.ivDetilTV.reloadData()
     }
+      
     
 
     
@@ -279,6 +407,9 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func firstDayPickerBtn(_ sender: UIButton) {
+        
+        toggleBtnClickCount += 1
+        print(toggleBtnClickCount)
         animatePopupBackground(true)
                
                guard let vc = storyboard?.instantiateViewController(withIdentifier: "IvGraphDetailPicekrVC") as? IvGraphDetailPicekrVC else { return }
@@ -288,11 +419,14 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     
-    @IBAction func postMemo(_ sender: UIButton) {
-        
-    }
+ 
     
     @IBAction func compareBtn(_ sender: UIButton) {
+        
+        let contentView = sender.superview
+        let cell = contentView?.superview as! UITableViewCell
+        let cellIndexPath = ivDetilTV.indexPath(for: cell)
+        print(cellIndexPath)
         
         InventoryCompareGraphService.shared.loadCompareGraph(itemIdx!, Int(selectedFirstYearTextField)!, Int(selectedFirstMonthTextField)!, Int(selectedFirstWeekTextField)!, Int(selectedSecondYearTextField)!, Int(selectedSecondMonthTextField)!, Int(selectedSecondWeekTextField)!, completion: { networkResult in
             switch networkResult{
@@ -304,7 +438,8 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.compareGraphWeek2Array = compareData.week2
                 
                 DispatchQueue.main.async {
-                    self.ivDetilTV.reloadData()
+                    self.ivDetilTV.reloadRows(at: [[0,1] as IndexPath], with: .automatic)
+                    //self.ivDetilTV.reloadData()
                     
                 }
             case .requestErr(let message):
@@ -346,8 +481,8 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                               else if clickBtnWeek == 5 {
                                   return reloadArray.count + 1
                               }
-                              else {
-                                  return weekArray.count + 1
+                              else  {
+                                  return reloadArray.count + 1
                               }
                        
         }
@@ -357,7 +492,6 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         
             return 1
-        
         
     }
     
@@ -370,10 +504,17 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 let headerCell = tableView.dequeueReusableCell(withIdentifier: "IvDetailGraphTVHeaderCell") as! IvDetailGraphTVHeaderCell
                 
+               
                 headerCell.yearLabel.text = selectedYearTextField
                 headerCell.monthLabel.text = plusZeroMonthTextField
-                headerCell.weekBtnArray = btnArray
-                
+                headerCell.itemIdx = itemIdx!
+                headerCell.weekArray = itemWeekData
+                if toggleBtnClickCount > 0 {
+                    print("toggle",toggleBtnClickCount)
+                    headerCell.collectionArray = weekInfoArray
+                }
+                print("미안한데 여기니..?",headerCell.weekArray)
+                print("미안한데 여기니..?",headerCell.collectionArray)
                 
                 return headerCell
             }
@@ -383,31 +524,36 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                         
                         
                         if clickBtnWeek == 0 {
-                            weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!, itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                            
+                            weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                    
                                }
                                else if clickBtnWeek == 1 {
-                            weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!,itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                                weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt! , weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                   
                                }
                                else if clickBtnWeek == 2 {
-                            weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!, itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                                weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                   
                                }
                                else if clickBtnWeek == 3 {
-                          weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!, itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                                weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                    
                                }
                                else if clickBtnWeek == 4 {
-                          weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!, itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                                weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                    
                                }
                                else if clickBtnWeek == 5 {
-                            weekGraphCell.setIvGraphTV(weekLabel: reloadArray[indexPath.row - 1].weekLabel!, firstMonth: reloadArray[indexPath.row - 1].firstMonth!, firstDay: reloadArray[indexPath.row - 1].firstDay!, secondMonth: reloadArray[indexPath.row - 1].secondMonth!, secondDay: reloadArray[indexPath.row - 1].secondDay!, itemAlarmCount: reloadArray[indexPath.row - 1].itemAlarmCount!, dataPoints: reloadArray[indexPath.row - 1].dataPoints!, values: reloadArray[indexPath.row - 1].values!, itemIndex: reloadArray[indexPath.row - 1].itemIndex!)
+                                weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                                   
                                }
-                        else {
-                            weekGraphCell.setIvGraphTV(weekLabel: weekArray[indexPath.row - 1].weekLabel!, firstMonth: weekArray[indexPath.row - 1].firstMonth!, firstDay: weekArray[indexPath.row - 1].firstDay!, secondMonth: weekArray[indexPath.row - 1].secondMonth!, secondDay: weekArray[indexPath.row - 1].secondDay!, itemAlarmCount: weekArray[indexPath.row - 1].itemAlarmCount!, dataPoints: weekArray[indexPath.row - 1].dataPoints!, values: weekArray[indexPath.row - 1].values!,itemIndex: weekArray[indexPath.row - 1].itemIndex!)
+                        else if clickBtnWeek == 6{
+                            weekGraphCell.bindGraph(model: itemGraphDataClone[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
+                        }
+                        else if clickBtnWeek == nil {
+                            print("여기는 왜 출력이 안돼..?")
+                            weekGraphCell.bindGraph(model: itemGraphData[indexPath.row - 1], alarmCount: alarmCnt!, weekLabel: weekInfoArray[indexPath.row - 1].btnText, itemIndex: itemIdx!, monthInfo: selectedMonthTextField)
                         }
                         return weekGraphCell
                     }
@@ -453,11 +599,6 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             
             
-            
-            
-            
-            
-            
             let chartDataSet = BarChartDataSet(entries: dataEntries, label: " ")
             let chartDataSet2 = BarChartDataSet(entries: dataEntries2, label: " ")
             
@@ -487,8 +628,6 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            IvWeekCompareGraphTVCell.compareChartView.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
             
             data.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
-            
-            
             
             
             IvWeekCompareGraphTVCell.compareChartView.data = data
@@ -562,15 +701,15 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 
             
-            
-         
-            
             return IvWeekCompareGraphTVCell
             
         }
             
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "IvEditTVCell") as! IvEditTVCell
+            cell.itemIdx = itemIdx
+            cell.alarmCnt = alarmCnt
+            cell.memoCnt = originalMemoCnt
             
             return cell
         }
