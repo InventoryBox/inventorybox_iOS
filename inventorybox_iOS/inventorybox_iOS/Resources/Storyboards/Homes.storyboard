@@ -10,6 +10,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareR.ttf">
+            <string>NanumSquareR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--HomeVC-->
         <scene sceneID="dIU-jS-ETI">
@@ -2764,7 +2769,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="8~12자 이내의 문자, 숫자, 특수문자를 조합하여 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-Z2-bEG">
-                                                <rect key="frame" x="32" y="62" width="247" height="12"/>
+                                                <rect key="frame" x="32" y="62" width="256" height="11.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                                 <color key="textColor" name="brownGrey"/>
                                                 <nil key="highlightedColor"/>
@@ -3146,6 +3151,7 @@
         <image name="btnCall" width="25" height="25"/>
         <image name="btnCamera" width="60" height="60"/>
         <image name="btnChange" width="25" height="25"/>
+        <image name="btnChangeSaveBefore" width="343" height="53"/>
         <image name="btnLocation" width="24" height="24"/>
         <image name="btnMy" width="25" height="25"/>
         <image name="btnProfile" width="25" height="25"/>
@@ -3167,10 +3173,17 @@
         <image name="homeMemoShape-1" width="44" height="1"/>
         <image name="imgeTextlogo" width="86.5" height="25"/>
         <image name="logo" width="72" height="72.5"/>
+        <image name="mypostIcBack" width="40" height="40"/>
         <image name="nicknameschangeSave-1" width="375" height="580"/>
         <image name="postBtnBack" width="7" height="12"/>
         <namedColor name="brownGrey">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greyisbrown">
+            <color red="0.27799999713897705" green="0.27099999785423279" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellow">
+            <color red="0.9649999737739563" green="0.73299998044967651" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3189,6 +3202,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
