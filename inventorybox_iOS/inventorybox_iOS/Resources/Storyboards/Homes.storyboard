@@ -2769,7 +2769,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="8~12자 이내의 문자, 숫자, 특수문자를 조합하여 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-Z2-bEG">
-                                                <rect key="frame" x="32" y="62" width="256" height="11.5"/>
+                                                <rect key="frame" x="32" y="62" width="247" height="12"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                                 <color key="textColor" name="brownGrey"/>
                                                 <nil key="highlightedColor"/>
