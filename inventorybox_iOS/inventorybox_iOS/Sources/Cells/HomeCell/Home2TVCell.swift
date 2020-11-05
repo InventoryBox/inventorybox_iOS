@@ -61,7 +61,7 @@ class Home2TVCell: UITableViewCell {
         
         NotificationCenter.default.post(name: .init("tablevalue"), object: nil, userInfo: ["bool": checkBoxBtn.on, "name": productNameText.text!, "indexPath": indexPath!, "isSelect": isSelect])
         
-        IvHomeFlagPostService.shared.getRecordEditIvPost(itemIdx: itemIdx!, flag: isSelect) { networkResult in
+        IvHomeFlagPostService.shared.getHomeFlagPost(itemIdx: itemIdx!, flag: isSelect) { networkResult in
             switch networkResult {
             case .success(let data):
                 guard let graphData = data as? HomeItem else {return}

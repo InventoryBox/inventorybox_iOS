@@ -266,7 +266,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
             "IvDetailGraphVC") as? IvDetailGraphVC else { return }
         
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        
+           self.navigationController?.pushViewController(detailViewController, animated: true)
         
         //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
         detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].name
@@ -278,6 +279,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         guard let cell = tableView.cellForRow(at: indexPath) as? IvGraphTVCell else { return }
         cell.removeLimitLine()
     }
+    
     
 }
 

@@ -23,6 +23,7 @@ struct HomeMemoModifyPostService {
                 "memoCnt": d.memoCnt
             ]
             parsingParameter.append(item)
+            print(parsingParameter)
 
         }
         
@@ -38,7 +39,6 @@ struct HomeMemoModifyPostService {
         
         let dataRequest = Alamofire.request(APIConstants.ivHomeMemoModifyURL, method: .put, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
         
-//        print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
             case .success:
@@ -68,7 +68,7 @@ struct HomeMemoModifyPostService {
     
     private func getHomeMemoPostData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(IvRecordSuccessData.self, from: data) else { return .pathErr }
+        guard let decodedData = try? decoder.decode(BasicModel.self, from: data) else { return .pathErr }
         
         // 성공 메시지
 //        print(decodedData.message)

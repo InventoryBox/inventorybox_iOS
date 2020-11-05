@@ -12,6 +12,7 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     var whatPageIsIt: Int = 0
     
+    @IBOutlet var todayDateLabel: UILabel!
     @IBOutlet var homeLeftCV: UICollectionView!
     @IBOutlet var homeRightCV: UICollectionView!
     @IBOutlet var homePageControl: UIPageControl!
@@ -40,6 +41,7 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         bigCV.delegate = self
         bigCV.dataSource = self
         homeDetailBtn.layer.cornerRadius = 15.0
+        todayDateLabel.sizeToFit()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -212,10 +214,11 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
 //        self.homePageControl.currentPage = page
 //    }
     
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return outerCount
-//    }
-//    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
      return outerCount

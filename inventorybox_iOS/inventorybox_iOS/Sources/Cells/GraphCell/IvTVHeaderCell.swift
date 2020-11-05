@@ -15,6 +15,8 @@ class IvTVHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        ivItemTVheaderLabel.text = "※ 하단 그래프의 노란색 가로선은 '발주 알림 개수'를 표시한 것이며, \n 노란색 막대 그래프의 간격을 통해 '발주일 간격 파악'이 용이합니다."
+        ivItemTVheaderLabel.sizeToFit()
         
     }
 

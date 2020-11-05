@@ -48,6 +48,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 mainTabVC.modalPresentationStyle = .fullScreen
                 self.present(mainTabVC, animated: true, completion: nil)
                 print("성공")
+                print(token)
             case .requestErr(let msg):
                 let alert = UIAlertController(title: "로그인 실패", message: msg as! String, preferredStyle: UIAlertController.Style.alert)
                 let Action = UIAlertAction(title: "OK", style: .default, handler : nil)

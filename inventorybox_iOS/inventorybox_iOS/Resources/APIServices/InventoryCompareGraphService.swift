@@ -34,12 +34,14 @@ struct InventoryCompareGraphService {
                 guard let statusCode = response.response?.statusCode else {return}
                 guard let value = response.result.value else {return}
                 let networkResult = self.judge(by: statusCode, value)
-               // print(statusCode)
+               print(statusCode)
                // print
                 completion(networkResult)
             case .failure(let error):
+                guard let statusCode = response.response?.statusCode else {return}
                 print(error.localizedDescription)
-//                print(APIConstants.baseURL + "dashboard/:item/double?week[0]=" + String(year1) + "," + String(month1) + "," + String(week1) + "&week[1]=" + String(year2) + "," + String(month2) + "," + String(week2))
+                print(statusCode)
+
                 completion(.networkFail)
                 
             }
