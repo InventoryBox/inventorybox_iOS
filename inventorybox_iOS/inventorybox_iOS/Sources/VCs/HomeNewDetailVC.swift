@@ -28,6 +28,9 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func backNaviPressBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
   
     func getDataFromServer(){

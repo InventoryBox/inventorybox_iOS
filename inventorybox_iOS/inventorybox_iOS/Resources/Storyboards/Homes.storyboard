@@ -1207,6 +1207,14 @@
                                     <constraint firstItem="Oyl-Oe-EVs" firstAttribute="top" secondItem="sXR-1z-GrB" secondAttribute="top" constant="49" id="uLm-dX-Sp5"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyr-YX-q2Z">
+                                <rect key="frame" x="16" y="163" width="343" height="296"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="XGZ-bq-gGB"/>
+                                    <constraint firstAttribute="height" constant="296" id="Xxs-g1-3we"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.08.09 일요일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZw-Gs-do2">
                                 <rect key="frame" x="123" y="127" width="129" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1249,7 +1257,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-x4-Ns2">
                                                                     <rect key="frame" x="0.0" y="0.0" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="Zcf-YO-W0v">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="Zcf-YO-W0v" userLabel="1">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="18" id="UFW-6j-sQI"/>
@@ -1267,7 +1275,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b5O-9U-eos">
                                                                     <rect key="frame" x="0.0" y="31" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="hcF-gk-nzR">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="hcF-gk-nzR" userLabel="2">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="18" id="JCv-Tk-fVl"/>
@@ -1285,7 +1293,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mbf-i8-mA8">
                                                                     <rect key="frame" x="0.0" y="62" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="HUM-iw-dG2">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="HUM-iw-dG2" userLabel="3">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="18" id="ISt-oa-v0a"/>
@@ -1303,7 +1311,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-MS-9PN">
                                                                     <rect key="frame" x="0.0" y="93" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="g1Z-El-sf1">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="g1Z-El-sf1" userLabel="4">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="18" id="NMi-iA-ezH"/>
@@ -1321,7 +1329,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IXg-dl-0tk">
                                                                     <rect key="frame" x="0.0" y="124" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-F2-y2r">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-F2-y2r" userLabel="5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="18" id="GoT-fd-cIm"/>
@@ -1339,7 +1347,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XFw-0Y-ZcF">
                                                                     <rect key="frame" x="0.0" y="155" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="RTR-Dt-tOd">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="RTR-Dt-tOd" userLabel="6">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="18" id="P2U-Al-qw1"/>
@@ -1357,7 +1365,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="A6i-Cs-q5C">
                                                                     <rect key="frame" x="0.0" y="186" width="73" height="18"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-G3-meM">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcAble" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-G3-meM" userLabel="7">
                                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="18" id="9UA-RK-8ze"/>
@@ -1518,11 +1526,11 @@
                                                         <constraint firstAttribute="bottom" secondItem="Btb-cP-6iT" secondAttribute="bottom" constant="16" id="3uO-zS-aMs"/>
                                                         <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hk2-ah-Bof" secondAttribute="trailing" constant="108.5" id="6fh-am-FWV"/>
                                                         <constraint firstItem="55N-rb-ZcV" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Btb-cP-6iT" secondAttribute="trailing" constant="107.5" id="7vz-4J-IcA"/>
+                                                        <constraint firstItem="55N-rb-ZcV" firstAttribute="top" secondItem="pve-cQ-6fv" secondAttribute="top" constant="74.5" id="HFW-G3-SjE"/>
                                                         <constraint firstItem="55N-rb-ZcV" firstAttribute="centerX" secondItem="pve-cQ-6fv" secondAttribute="centerX" id="Pnw-34-zaM"/>
                                                         <constraint firstItem="hk2-ah-Bof" firstAttribute="top" secondItem="pve-cQ-6fv" secondAttribute="top" constant="72" id="Xrk-ze-uYG"/>
                                                         <constraint firstItem="Btb-cP-6iT" firstAttribute="leading" secondItem="pve-cQ-6fv" secondAttribute="leading" constant="21" id="ZeH-uo-ESA"/>
                                                         <constraint firstItem="aWh-rG-YFm" firstAttribute="top" secondItem="pve-cQ-6fv" secondAttribute="top" constant="25" id="dSU-oW-Xvg"/>
-                                                        <constraint firstItem="55N-rb-ZcV" firstAttribute="top" secondItem="aWh-rG-YFm" secondAttribute="bottom" constant="28" id="hKk-Dk-HTn"/>
                                                         <constraint firstItem="hk2-ah-Bof" firstAttribute="leading" secondItem="55N-rb-ZcV" secondAttribute="trailing" constant="20" id="kc3-O7-zgG"/>
                                                         <constraint firstAttribute="bottom" secondItem="hk2-ah-Bof" secondAttribute="bottom" constant="16" id="kxd-HP-wep"/>
                                                         <constraint firstItem="aWh-rG-YFm" firstAttribute="leading" secondItem="pve-cQ-6fv" secondAttribute="leading" constant="26" id="t4u-WW-HA0"/>
@@ -1541,13 +1549,6 @@
                                         <connections>
                                             <outlet property="view" destination="pve-cQ-6fv" id="jOJ-Ud-kLa"/>
                                             <outlet property="viewRadious" destination="pve-cQ-6fv" id="caH-Ti-Dv7"/>
-                                            <outletCollection property="leftStackImage" destination="xJl-G3-meM" collectionClass="NSMutableArray" id="UT7-Rv-nYw"/>
-                                            <outletCollection property="leftStackImage" destination="RTR-Dt-tOd" collectionClass="NSMutableArray" id="xO1-S7-rdy"/>
-                                            <outletCollection property="leftStackImage" destination="g1Z-El-sf1" collectionClass="NSMutableArray" id="PWU-cl-2Dp"/>
-                                            <outletCollection property="leftStackImage" destination="WOu-F2-y2r" collectionClass="NSMutableArray" id="ZT6-6E-8X6"/>
-                                            <outletCollection property="leftStackImage" destination="HUM-iw-dG2" collectionClass="NSMutableArray" id="RIn-I9-mBb"/>
-                                            <outletCollection property="leftStackImage" destination="Zcf-YO-W0v" collectionClass="NSMutableArray" id="fAu-28-oin"/>
-                                            <outletCollection property="leftStackImage" destination="hcF-gk-nzR" collectionClass="NSMutableArray" id="bpI-gR-bSd"/>
                                             <outletCollection property="leftStackview" destination="GLP-ch-aoa" collectionClass="NSMutableArray" id="t2d-Vc-RTn"/>
                                             <outletCollection property="leftStackview" destination="krC-J8-NOo" collectionClass="NSMutableArray" id="F9j-9a-RWJ"/>
                                             <outletCollection property="leftStackview" destination="PTl-5F-qgV" collectionClass="NSMutableArray" id="hKh-CB-0Vg"/>
@@ -1569,6 +1570,13 @@
                                             <outletCollection property="rigntStackView" destination="lIg-Uh-0Yg" collectionClass="NSMutableArray" id="OO8-cj-sw9"/>
                                             <outletCollection property="rigntStackView" destination="poF-9m-bt1" collectionClass="NSMutableArray" id="baX-TG-gmX"/>
                                             <outletCollection property="rigntStackView" destination="StX-uJ-emY" collectionClass="NSMutableArray" id="ITi-PC-Hsp"/>
+                                            <outletCollection property="leftStackImage" destination="Zcf-YO-W0v" collectionClass="NSMutableArray" id="vpf-MV-NFW"/>
+                                            <outletCollection property="leftStackImage" destination="hcF-gk-nzR" collectionClass="NSMutableArray" id="QUQ-9H-WjE"/>
+                                            <outletCollection property="leftStackImage" destination="HUM-iw-dG2" collectionClass="NSMutableArray" id="hLr-bu-6Hy"/>
+                                            <outletCollection property="leftStackImage" destination="g1Z-El-sf1" collectionClass="NSMutableArray" id="x6l-5l-N0F"/>
+                                            <outletCollection property="leftStackImage" destination="WOu-F2-y2r" collectionClass="NSMutableArray" id="CXl-Pt-ySC"/>
+                                            <outletCollection property="leftStackImage" destination="RTR-Dt-tOd" collectionClass="NSMutableArray" id="pN5-HB-omQ"/>
+                                            <outletCollection property="leftStackImage" destination="xJl-G3-meM" collectionClass="NSMutableArray" id="cbo-4G-eDI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1611,9 +1619,12 @@
                         <viewLayoutGuide key="safeArea" id="2TG-mh-fAe"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="uyr-YX-q2Z" firstAttribute="top" secondItem="RZw-Gs-do2" secondAttribute="bottom" constant="18" id="1VA-3P-e8B"/>
                             <constraint firstItem="538-Pq-XOT" firstAttribute="top" secondItem="OKN-hf-xbF" secondAttribute="bottom" id="2Dt-Az-WpD"/>
+                            <constraint firstItem="uyr-YX-q2Z" firstAttribute="centerX" secondItem="vJy-TM-Mit" secondAttribute="centerX" id="4dj-xe-9yn"/>
                             <constraint firstItem="sXR-1z-GrB" firstAttribute="leading" secondItem="2TG-mh-fAe" secondAttribute="leading" id="74l-FO-gr2"/>
                             <constraint firstItem="OKN-hf-xbF" firstAttribute="top" secondItem="RZw-Gs-do2" secondAttribute="bottom" constant="18" id="Lf2-TW-rY7"/>
+                            <constraint firstItem="5X7-zV-d3n" firstAttribute="top" secondItem="uyr-YX-q2Z" secondAttribute="bottom" constant="57" id="M7g-rt-QuQ"/>
                             <constraint firstItem="5X7-zV-d3n" firstAttribute="centerX" secondItem="vJy-TM-Mit" secondAttribute="centerX" id="M9J-xo-j6e"/>
                             <constraint firstItem="538-Pq-XOT" firstAttribute="centerX" secondItem="vJy-TM-Mit" secondAttribute="centerX" id="UgS-9B-H6f"/>
                             <constraint firstItem="sXR-1z-GrB" firstAttribute="top" secondItem="vJy-TM-Mit" secondAttribute="top" id="gDK-Ga-GJb"/>
