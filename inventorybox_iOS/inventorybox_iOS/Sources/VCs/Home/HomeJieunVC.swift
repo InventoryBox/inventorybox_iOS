@@ -19,7 +19,6 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     private var checkOrderInfo : [HomeItem] = []
     private var leftCheckOrderInfo : [HomeItem] = []
     private var rightCheckOrderInfo : [HomeItem] = []
-    @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var homeDetailBtn: UIButton!
     
     
@@ -76,7 +75,7 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
 
         // 개인 정보 변경
         case .myInfo:
-            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "HomeSideMyInfoVC") as? HomeSideMyInfoVC else {return}
+            guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "MyInfoNC") as? MyInfoNC else {return}
 
             myInfoVC.modalPresentationStyle = .fullScreen
             self.present(myInfoVC, animated: true, completion: nil)
@@ -88,9 +87,12 @@ class HomeJieunVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             userPostVC.modalPresentationStyle = .fullScreen
             self.present(userPostVC, animated: true, completion: nil)
             
-        // 내가 쓴 게시글
+        // 비밀번호 변경
         case .change:
-            print("aa")
+            guard let passwordChangeVC = self.storyboard?.instantiateViewController(identifier: "HomeSidePasswordChangeVC") as? HomeSidePasswordChangeVC else { return }
+            
+            passwordChangeVC.modalPresentationStyle = .fullScreen
+            self.present(passwordChangeVC, animated: true, completion: nil)
         
         // 설정
         case .setting:

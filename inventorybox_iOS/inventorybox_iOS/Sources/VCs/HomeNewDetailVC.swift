@@ -33,6 +33,10 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         getDataFromServerLater()
     }
+
+    @IBAction func backNaviPressBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
   
     func getDataFromServer(){

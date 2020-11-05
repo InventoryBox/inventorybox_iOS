@@ -233,8 +233,22 @@ class IvExchangeVC: UIViewController {
         allIvCollectionView.reloadData()
         
     }
+    @IBAction func favoriteIvBtnPressed(_ sender: Any) {
+        guard let favoriteViewcontroller = self.storyboard?.instantiateViewController(identifier: "IvExchangeFavoriteVC") else {return }
+        
+        favoriteViewcontroller.modalPresentationStyle = .fullScreen
+        
+        self.present(favoriteViewcontroller, animated: true, completion: nil)
+    }
     
-
+    @IBAction func myPostIvBtnPressed(_ sender: Any) {
+        guard let userPostViewController =
+                self.storyboard?.instantiateViewController(identifier: "IvHomeSideUserPostVC") else{return }
+        userPostViewController.modalPresentationStyle = .fullScreen
+        self.present(userPostViewController, animated: true, completion: nil)
+        
+    }
+    
     private func setLabelCustom() {
         allInventoryLabel.textColor = UIColor.black
         foodInventoryLabel.textColor = UIColor.gray

@@ -29,6 +29,7 @@ class IvExchangeSearchVC: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,13 +49,15 @@ class IvExchangeSearchVC: UIViewController {
         searchResultTableView.dataSource = self
         
         searchResultTableView.allowsSelection = false
-        searchResultTableView.separatorStyle = .none
+        searchResultTableView.separatorStyle = .singleLine
     }
     
     private func setSearchTextFieldCustom() {
         
         searchTextField.delegate = self
         
+        searchTextField.background = UIImage.init(named: "searchTextfield")
+        searchTextField.borderStyle = .none
         searchTextField.layer.shadowOffset = CGSize(width: 0, height: 1)
         searchTextField.layer.shadowRadius = 2
         searchTextField.layer.shadowOpacity = 0.16
@@ -156,6 +159,7 @@ extension IvExchangeSearchVC: UITableViewDelegate {
 
 //MARK: - 내 주소 변경하기
 extension IvExchangeSearchVC: AddressClickDelegate {
+    
     func setAddress(addressName: String) {
         print("tap")
         
