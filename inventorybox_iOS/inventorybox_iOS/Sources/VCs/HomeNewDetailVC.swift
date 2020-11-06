@@ -17,6 +17,8 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     private var orderCheckInformations : [HomeItem] = []
     var isOpen:[HomeDetailInfoData] = []
     var flagInt:[HomeDetailInfoData] = []
+    let homeVC = HomeNewVC()
+    var allfalgInt : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +34,34 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewWillAppear(_ animated: Bool) {
         getDataFromServerLater()
+        // 체크박스 관련 노티피
+        NotificationCenter.default.addObserver(self, selector: #selector(selectCheckBox), name: .init("checkBox"), object: nil)
     }
 
-    @IBAction func backNaviPressBtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    override func viewWillDisappear(_ animated: Bool) {
+        getDataFromServerLater()
     }
     
-  
+    // 체크박스 관련 objc
+        @objc func selectCheckBox(_ notification: Notification){
+            guard let userInfo = notification.userInfo as? [String: Any] else { return }
+            guard let flagNum = userInfo["flagNum"] as? Int else { return }
+            guard let num = userInfo["where"] as? Int else { return }
+            
+            allfalgInt[num] = flagNum
+            print ("진짜 잘받아 왔으면 좋겠다야\(allfalgInt)")
+        }
+    
+    @IBAction func backNaviPressBtn(_ sender: Any) {
+//        guard let HomeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeNewVC") as? HomeNewVC else {return }
+//        HomeVC.flagInt = self.allfalgInt
+//        print ("진짜 잘 갔으면 좋겠다야\(HomeVC.flagInt)")
+//         알리자
+        NotificationCenter.default.post(name: .init("allflage"), object: nil, userInfo: ["all" : self.allfalgInt])
+        
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
     func getDataFromServer(){
         
         HomeService.shared.getHome { [self] networkResult in
@@ -52,9 +75,10 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                 for i in 0...self.orderCheckInformations.count - 1 {
                     self.isOpen.append(HomeDetailInfoData(open: false, flagInt: orderCheckInformations[i].flag))
-                    
                 }
-                
+                for i in 0..<self.orderCheckInformations.count{
+                    allfalgInt.append(self.orderCheckInformations[i].flag)
+                }
                 DispatchQueue.main.async {
                     self.homeDetailTV.reloadData()
                 }
@@ -105,9 +129,6 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.navigationController?.pushViewController(dvc, animated: false)
     }
     
-    @IBAction func memoBackBtn(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,7 +159,6 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewDetailTVCell", for: indexPath) as! HomeNewDetailTVCell
-            
             let url = URL(string: orderCheckInformations[indexPath.section].img)
             let data = try? Data(contentsOf: url!)
             cell.itemImg.image = UIImage(data: data!)
@@ -211,5 +231,10 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 20
     }
+    
+}
+
+
+class DetailNVC : UINavigationController{
     
 }

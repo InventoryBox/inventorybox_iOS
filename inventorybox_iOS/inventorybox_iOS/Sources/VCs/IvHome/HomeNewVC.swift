@@ -17,6 +17,10 @@ class HomeNewVC: UIViewController {
     var page : Int = 0      // page 개수 관련 변수
     var curentpage : Int = 0
     
+    var flagInt:[Int] = []
+    var leftFlagInt:[Int] = []   // flag값
+    var rightFlagInt:[Int] = []   // flag값
+    
     var leftValue = 1        // 몫 값
     var leftRemainder = 0    // 나머지 값
     var rigntValue = 0        // 몫 값
@@ -31,25 +35,71 @@ class HomeNewVC: UIViewController {
     private var rightCheckOrderInfo : [HomeItem] = []
     
     //test를 위한 더미 데이터 배열
-    private var customData: [DataModel] = []
-    private var customLeftData : [DataModel] = []
-    private var customRightData : [DataModel] = []
+//    private var customData: [DataModel] = []
+//    private var customLeftData : [DataModel] = []
+//    private var customRightData : [DataModel] = []
 
     override func viewWillAppear(_ animated: Bool) {
-        
+        getDataFromServer()
+        setimage()
+        self.homeListCollectionView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
     }
     
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
-        //        setData()
-        getDataFromServer()
         homeListCollectionView.dataSource = self
         homeListCollectionView.delegate = self
         
         pages()
         makeShadowUnderView()   // 그림자 & Radious
         self.navigationController?.navigationBar.isHidden = true
+        
+
+    }
+
+    // 체크박스 관련 objc
+        @objc func allflag(_ notification: Notification){
+            guard let userInfo = notification.userInfo as? [String: Any] else { return }
+            guard let allflage = userInfo["all"] as? Array<Int> else { return }
+            
+            self.flagInt = allflage
+            print ("진짜 잘받아 왔으면 좋겠다야\(self.flagInt)")
+        }
+
+    
+    func setimage(){
+            leftFlagInt = []   // flag값
+            rightFlagInt = []   // flag값
+            for i in 0..<self.flagInt.count {
+                if i%2 == 0{
+                    self.leftFlagInt.append(self.flagInt[i])
+                }else{
+                    self.rightFlagInt.append(self.flagInt[i])
+                }
+            }
+            print("값 들어온거 맞냐?\(self.leftFlagInt)")
+    }
+    
+    func onOff(flagInt : Int) -> String{
+        if flagInt == 1{
+            let on : String = "homeIcAble"
+            return on
+        }else if flagInt == 0{
+            let off : String = "homeIcUnable"
+            return off
+        }else{
+            let aaa : String = "24"
+            return aaa
+        }
+    }
+    
+    @IBAction func detailPressBtn(_ sender: Any) {
+        guard let detailNVC = storyboard?.instantiateViewController(identifier: "DetailNVC") as? DetailNVC else {return}
+        
+        detailNVC.modalPresentationStyle = .fullScreen
+        present(detailNVC, animated: true, completion: nil)
     }
     
     // MARK: sideMenuBar 눌렀을 떄 행동
@@ -130,16 +180,24 @@ class HomeNewVC: UIViewController {
                 guard let dt = data as? HomeItemclass else {
                     return }
                 self.checkOrderInfo = dt.result
-                
-                
-                for i in 0...self.checkOrderInfo.count - 1 {
+                self.leftCheckOrderInfo = []
+                self.rightCheckOrderInfo = []
+                for i in 0..<self.checkOrderInfo.count {
+                    // flag값 받아오기
+                    self.flagInt.append(self.checkOrderInfo[i].flag)
+                    print("지금 \(i)번째 값은\(self.flagInt[i])")
+                }
+                for i in 0..<self.checkOrderInfo.count {
                     if i % 2 == 0 {
                         //checkOrderInfo배열 중 인덱스가 짝수인 배열을 leftCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[0],checkOrderInfo[2],checkOrderInfo[4],checkOrderInfo[6] ... 번째 인덱스 즉 왼쪽 CV에 나타날 정보들
                         self.leftCheckOrderInfo.append(self.checkOrderInfo[i])
+                        self.leftFlagInt.append(self.flagInt[i])
                     }
-                    else {
+                    else if i % 2 == 1 {
                         //checkOrderInfo배열 중 인덱스가 홀수인 배열을 rightCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[1],checkOrderInfo[3],checkOrderInfo[5],checkOrderInfo[7] ... 번째 인덱스 즉 오른쪽 CV에 나타날 정보들
                         self.rightCheckOrderInfo.append(self.checkOrderInfo[i])
+                        self.rightFlagInt.append(self.flagInt[i])
+                    }else{
                     }
                 }
                 self.leftValue = Int(self.leftCheckOrderInfo.count/7)      // 7로 나눴을때 몫
@@ -247,23 +305,23 @@ extension HomeNewVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeNewCVCell", for: indexPath) as? HomeNewCVCell else {return UICollectionViewCell() }
         
-        
         // 왼쪽 값 , 페이지가 하나일 떄
         if leftValue == 0{
             // 나머지에 관하여 왼쪽 값
             if indexPath.item == leftValue{
                 // 나머지 값에 관해서
                 for i in 0..<leftRemainder{
-                    if listCell.leftStackview[i].tag == i+1 {
+                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
                         listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
-                        listCell.leftStackImage[i].image = UIImage(named: "homeIcAble")
+                        listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
+                        
                     }
                 }
                 // 그 이후 나오지 말아야 하는 값들
                 for i in leftRemainder..<7 {
                     if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
                         listCell.leftStackview[i].text = " "
-                        listCell.leftStackImage[i].image = UIImage(named: "homeIcUnable")
+
                     }
                 }
             }else{
@@ -275,30 +333,35 @@ extension HomeNewVC: UICollectionViewDataSource{
                             for j in 0..<7{
                                 if listCell.leftStackview[j].tag == j+1{
                                     listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j].itemName))"
+                                    listCell.leftStackImage[j].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j]))")
                                 }
                             }
                         case 1:
                             for j in 0..<7{
                                 if listCell.leftStackview[j].tag == j+1{
                                     listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+7].itemName))"
+                                    listCell.leftStackImage[j+7].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+7]))")
                                 }
                             }
                         case 2:
                             for j in 0..<7{
                                 if listCell.leftStackview[j].tag == j+1{
                                     listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+14].itemName))"
+                                    listCell.leftStackImage[j+14].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+14]))")
                                 }
                             }
                         case 3:
                             for j in 0..<7{
                                 if listCell.leftStackview[j].tag == j+1{
                                     listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+21].itemName))"
+                                    listCell.leftStackImage[j+21].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+21]))")
                                 }
                             }
                         case 4:
                             for j in 0..<7{
                                 if listCell.leftStackview[j].tag == j+1{
                                     listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+28].itemName))"
+                                    listCell.leftStackImage[j+28].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+28]))")
                                 }
                             }
                         default: break
@@ -312,7 +375,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                 for i in 0..<leftRemainder{
                     if listCell.leftStackview[i].tag == i+1 {
                         listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i+(rigntValue*7)].itemName)"
-                        listCell.leftStackImage[i].image = UIImage(named: "homeIcAble")
+                        listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
                         
                     }
                 }
@@ -334,8 +397,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                 for i in 0..<rigntRemainder{
                     if listCell.rigntStackView[i].tag == i+1 {
                         listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
-                        listCell.rigntStackImage[i].image = UIImage(named: "homeIcAble")
-                        
+                        listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
                     }
                 }
                 
@@ -354,30 +416,35 @@ extension HomeNewVC: UICollectionViewDataSource{
                             for j in 0..<7{
                                 if listCell.rigntStackView[j].tag == j+1{
                                     listCell.rigntStackView[j].text = "\(rightCheckOrderInfo[j].itemName)"
+                                    listCell.rigntStackImage[j].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[j]))")
                                 }
                             }
                         case 1:
                             for j in 0..<7{
                                 if listCell.rigntStackView[j].tag == j+1{
                                     listCell.rigntStackView[j].text = "\(self.rightCheckOrderInfo[j+7].itemName)"
+                                    listCell.rigntStackImage[j+7].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[j+7]))")
                                 }
                             }
                         case 2:
                             for j in 0..<7{
                                 if listCell.rigntStackView[j].tag == j+1{
                                     listCell.rigntStackView[j].text = "\(self.rightCheckOrderInfo[j+14].itemName)"
+                                    listCell.rigntStackImage[j+14].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[j+14]))")
                                 }
                             }
                         case 3:
                             for j in 0..<7{
                                 if listCell.rigntStackView[j].tag == j+1{
                                     listCell.rigntStackView[j].text = "\(self.rightCheckOrderInfo[j+21].itemName)"
+                                    listCell.rigntStackImage[j+21].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[j+21]))")
                                 }
                             }
                         case 4:
                             for j in 0..<7{
                                 if listCell.rigntStackView[j].tag == j+1{
                                     listCell.rigntStackView[j].text = "\(self.rightCheckOrderInfo[j+28].itemName)"
+                                    listCell.rigntStackImage[j+28].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[j+28]))")
                                 }
                             }
                             
@@ -392,7 +459,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                 for i in 0..<rigntRemainder{
                     if listCell.rigntStackView[i].tag == i+1 {
                         listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue*7)].itemName)"
-                        listCell.rigntStackImage[i].image = UIImage(named: "homeIcAble")
+                        listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
                     }
                 }
                 for i in rigntRemainder..<7 {

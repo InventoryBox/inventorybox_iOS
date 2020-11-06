@@ -3142,11 +3142,6 @@
             <point key="canvasLocation" x="5964" y="-1625"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="DAv-vr-O9f">
-            <size key="intrinsicContentSize" width="22" height="22"/>
-        </designable>
-    </designables>
     <resources>
         <image name="24" width="162" height="162"/>
         <image name="addproductBtnMinus" width="32" height="32"/>

@@ -20,6 +20,7 @@ class HomeNewDetailTVCell: UITableViewCell {
     var orderCheckInformations:[HomeItem] = []
     var flagInt:[HomeDetailInfoData] = []
     var itemIndex:Int = 0
+    var allfalgInt : [Int] = []
    
     
     override func awakeFromNib() {
@@ -29,21 +30,21 @@ class HomeNewDetailTVCell: UITableViewCell {
         itemRoundView.layer.shadowRadius = 10
         itemRoundView.layer.shadowOpacity = 0.1
         
-        
         HomeService.shared.getHome { [self] networkResult in
             switch networkResult{
             case .success(let data):
-                guard let dt = data as? HomeItemclass else {
-                    
-                    return }
+                guard let dt = data as? HomeItemclass else {return }
                 self.orderCheckInformations = dt.result
-                print(self.orderCheckInformations)
+//                print(self.orderCheckInformations)
                 
                 for i in 0...self.orderCheckInformations.count - 1 {
                     self.flagInt.append(HomeDetailInfoData(open: false, flagInt: orderCheckInformations[i].flag))
                 }
                 
-               
+                for i in 0..<orderCheckInformations.count{
+                    allfalgInt.append(flagInt[i].flagInt)
+                }
+                
             case .requestErr(let message):
                 guard let message = message as? String else {return}
                 print(message)
@@ -54,30 +55,30 @@ class HomeNewDetailTVCell: UITableViewCell {
                 print("networkFail")
             }
         }
-        
-        
     }
     
     
     @IBAction func flagBtnTouchUp(_ sender: UIButton) {
        
         if flagInt[cellIndexPath!.section].flagInt == 1{
-            print(flagInt[cellIndexPath!.section].flagInt)
+//            print(flagInt[cellIndexPath!.section].flagInt)
             itemFlagBtn.setImage(UIImage(named: "homeBtnCheckUnselect"), for: .normal)
             flagInt[cellIndexPath!.section].flagInt = 0
-           
-            
-            
         }else {
-            print(flagInt[cellIndexPath!.section].flagInt)
+//            print(flagInt[cellIndexPath!.section].flagInt)
             itemFlagBtn.setImage(UIImage(named: "homeBtnCheckSelect"), for: .normal)
             flagInt[cellIndexPath!.section].flagInt = 1
         }
+       
+        // 노티피로 눌렸을때 그 위치랑 값 알리기
+        NotificationCenter.default.post(name: .init("checkBox"), object: nil, userInfo: ["flagNum": flagInt[cellIndexPath!.section].flagInt, "where": cellIndexPath!.section])
+        
         
         
         IvHomeFlagPostService.shared.getHomeFlagPost(itemIdx: itemIndex, flag: flagInt[cellIndexPath!.section].flagInt, completion: { networkResult in
             switch networkResult{
-            case .success(let data): print(data)
+            case .success(let data):
+                print(data)
             case .requestErr(let message):
                 guard let message = message as? String else {return}
                 print(message)
