@@ -159,8 +159,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
-            print(dayList.count)
-            print("여기댜!!!!!!")
+            
             return dayList.count
         }
         
@@ -223,12 +222,13 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        //셀 재사용 문제 해결하기
     
         if indexPath.row == 0 {
             
             guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "headerCell",for: indexPath) as? IvTVHeaderCell else {return UITableViewCell()}
             cell2.ivItemTVheaderLabel.textColor = .noname
+            cell2.selectionStyle = .none
+            cell2.isUserInteractionEnabled = false
             
             return cell2
         }
@@ -237,11 +237,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             cell.removeLimitLine()
             cell.bind(model: itemFilteredArray[indexPath.row - 1])
-//            if((cell.accessCell?.stocks[indexPath.row])! < 1){
-//                cell.accessCell?.stocks[indexPath.row] = 0
-//            }
-            
-                  
+
             return cell
         }
       }
@@ -261,7 +257,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         
         guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
             "IvDetailGraphVC") as? IvDetailGraphVC else { return }
@@ -317,14 +312,7 @@ extension IvGraphVC: UICollectionViewDelegateFlowLayout {
         
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: self.view.frame.width, height: 24)
-//    }
+
 }
 
     

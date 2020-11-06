@@ -8,8 +8,11 @@
 
 import UIKit
 
+
 class IvEditTVCell: UITableViewCell {
     
+    var delegate: UIViewController?
+    var alert:UIAlertController!
     var itemIdx:Int?
 
     @IBOutlet var alarmCntTextField: UITextField!
@@ -36,10 +39,15 @@ class IvEditTVCell: UITableViewCell {
         alarmCnt = alarmCntTextField.text?.toInt()
         memoCnt = memoCntTextField.text?.toInt()
         
+        
+        //옵셔널 해결하기
+        
         IvGraphMemoModifyService.shared.postGraphModify(itemIdx: itemIdx!, alarmCnt: alarmCnt!, memoCnt: memoCnt!, completion: { networkResult in
             switch networkResult{
             case .success(let data):
                 print(data)
+                
+                self.showAlert()
               
            
             case .requestErr(let message):
@@ -55,4 +63,17 @@ class IvEditTVCell: UITableViewCell {
         })
         
     }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "메모수정", message: "성공", preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                    
+                }
+        alert.addAction(okAction)
+        delegate!.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
 }

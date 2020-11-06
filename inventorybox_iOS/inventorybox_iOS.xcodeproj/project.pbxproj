@@ -98,6 +98,7 @@
 		339E18CA252F502F00508A04 /* HomeEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18C9252F502F00508A04 /* HomeEditTVCell.swift */; };
 		339E18CD252F509700508A04 /* HomeEditContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18CC252F509700508A04 /* HomeEditContentTVCell.swift */; };
 		339E18D0252F6C7900508A04 /* BasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18CF252F6C7900508A04 /* BasicModel.swift */; };
+		33A64B20255578BD00722FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A6A47F252B2F48000B1D35 /* IvGraphNew.storyboard */; };
 		33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6A4F5252D1F3E000B1D35 /* IvHomeEditVC.swift */; };
 		33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */; };
@@ -175,7 +176,6 @@
 		D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AB24AC55EB0064EE64 /* AppDelegate.swift */; };
 		D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */; };
 		D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B124AC55EB0064EE64 /* Main.storyboard */; };
-		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
 		D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB325334E460006D6DC /* OnboardingTwoVC.swift */; };
@@ -1268,6 +1268,7 @@
 				339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */,
 				D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */,
 				D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */,
+				33A64B20255578BD00722FD1 /* Assets.xcassets in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */,
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
@@ -1275,7 +1276,6 @@
 				33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */,
 				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D4558A8D24C166E600A1ACB5 /* logo.json in Resources */,
-				D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
 				D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */,
@@ -1694,7 +1694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1714,7 +1714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (

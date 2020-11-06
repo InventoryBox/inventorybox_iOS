@@ -85,7 +85,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         
        
         ivChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
-       
+        
         
         let url = URL(string: model.iconImg)
         itemImg.kf.setImage(with: url)
