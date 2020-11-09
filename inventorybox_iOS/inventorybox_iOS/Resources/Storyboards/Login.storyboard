@@ -491,6 +491,10 @@
                         <outlet property="emailTabImageView" destination="c8S-Qe-32a" id="hoY-S1-Mt4"/>
                         <outlet property="emailTextField" destination="DTE-Sf-g96" id="oNF-r7-sKV"/>
                         <outlet property="goToNextViewBtn" destination="XaQ-U4-5Qc" id="2x2-Et-ddP"/>
+                        <outlet property="passwordDoubleCheckImageView" destination="rjg-wy-IRf" id="4uw-b2-R6w"/>
+                        <outlet property="passwordDoubleCheckView" destination="4ee-oi-IFL" id="6mV-Pe-wGu"/>
+                        <outlet property="passwordImageVIew" destination="jAX-Mo-tak" id="0gY-dB-XTg"/>
+                        <outlet property="passwordView" destination="X46-Uo-Viy" id="9dc-l2-HsG"/>
                         <outlet property="pwCheckAgainLabel" destination="KvU-7L-Dh2" id="7tm-ff-xpX"/>
                         <outlet property="pwCheckLabel" destination="LN4-Rh-jbf" id="S2O-cm-7wY"/>
                         <outlet property="pwCheckTabImageView" destination="rjg-wy-IRf" id="PLc-fU-uq0"/>
@@ -732,8 +736,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Vj-9L6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Vj-9L6">
                                 <rect key="frame" x="16" y="490" width="343" height="52"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="pJf-6C-n3a"/>
                                 </constraints>
@@ -748,6 +753,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="18"/>
                                 <state key="normal" title="다음" backgroundImage="loginBox"/>
+                                <state key="disabled" backgroundImage="btnNext"/>
                                 <connections>
                                     <action selector="saveData" destination="2Xg-sd-7jO" eventType="touchUpInside" id="cdO-uo-hcI"/>
                                 </connections>
@@ -1759,7 +1765,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lr1-S5-gBg">
                                                 <rect key="frame" x="16" y="106" width="343" height="35"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-LR-Q2g">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 한번 더 확인해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-LR-Q2g">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
@@ -1806,7 +1812,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Udj-Xi-cOI">
                                                 <rect key="frame" x="16" y="23" width="343" height="35"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-UA-Kp3">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-UA-Kp3">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
@@ -1930,7 +1936,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8tB-jP-ed6">
                                                 <rect key="frame" x="0.0" y="0.0" width="258" height="36"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-Qe-oG9">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fv-Qe-oG9">
                                                         <rect key="frame" x="0.0" y="0.0" width="258" height="35"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
@@ -2218,6 +2224,23 @@
             <point key="canvasLocation" x="5190" y="958"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5mr-fB-FHy">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+        <designable name="EfI-vL-Zm0">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+        <designable name="HK9-DP-0nq">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+        <designable name="fLZ-aH-w3B">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+        <designable name="xt3-gM-T8P">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="btnChangeSaveAfter" width="343" height="53"/>
         <image name="btnChangeSaveBefore" width="343" height="53"/>
@@ -2237,7 +2260,6 @@
         <image name="onboardingImgRecord" width="343" height="382"/>
         <image name="shapePasssendBox" width="281" height="157.5"/>
         <image name="signinBtn" width="311" height="65"/>
-        <image name="textfield" width="343" height="52"/>
         <namedColor name="brownGrey">
             <color red="0.58799999952316284" green="0.58799999952316284" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

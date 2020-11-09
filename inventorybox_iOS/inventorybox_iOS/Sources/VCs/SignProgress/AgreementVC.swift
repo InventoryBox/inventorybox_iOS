@@ -18,6 +18,11 @@ class AgreementVC: UIViewController {
     @IBOutlet var marketingAgreeCheckBox: BEMCheckBox!
     var appdelegate = UIApplication.shared.delegate as? AppDelegate
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlets()
