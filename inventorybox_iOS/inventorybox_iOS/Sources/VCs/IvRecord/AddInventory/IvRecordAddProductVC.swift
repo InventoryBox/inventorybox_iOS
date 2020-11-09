@@ -49,7 +49,7 @@ class IvRecordAddProductVC: UIViewController {
     @IBOutlet weak var popupBackgroundView: UIView!
     
     var iconIdx: Int = 0
-    var categoryIdx: Int = 0
+    var categoryIdx: Int?
     var iconArray: [IconInfo] = []
     var categories: [CategoryInfo] = []
     
@@ -101,6 +101,14 @@ class IvRecordAddProductVC: UIViewController {
                 guard let dt = data as? AddIvClass else { return }
                 self.iconArray = dt.iconInfo
                 self.categories = dt.categoryInfo
+                print(self.categories)
+                for category in self.categories {
+                    if category.name == "전체" {
+                        self.categoryIdx = category.categoryIdx
+                        break
+                    }
+                }
+                
             case .requestErr(let message):
                 guard let message = message as? String else { return }
                 let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
@@ -271,7 +279,7 @@ class IvRecordAddProductVC: UIViewController {
             return
         }
         let memoCnt = Int(ivOrder)!
-        
+        print(categoryIdx)
         if ivName == "" || ivUnit == "" {
             let alertViewController = UIAlertController(title: "재료추가 실패", message: "값들을 전부 적어주세요!", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
@@ -287,36 +295,37 @@ class IvRecordAddProductVC: UIViewController {
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alertViewController.addAction(action)
             self.present(alertViewController, animated: true, completion: nil)
-        }
-        
-        else if iconIdx == 0 {
+        } else if iconIdx == 0 {
             let alertViewController = UIAlertController(title: "재료추가 실패", message: "아이콘을 선택해주세요!", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alertViewController.addAction(action)
             self.present(alertViewController, animated: true, completion: nil)
         } else {
-            IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: categoryIdx) { (networkResult) in
-                switch networkResult {
-                case .success(let data):
-                    // 성공메세지
-                    print(data)
-                case .requestErr(let message):
-                    guard let message = message as? String else { return }
-                    let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
-                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-                    alertViewController.addAction(action)
-                    self.present(alertViewController, animated: true, completion: nil)
+            if let idx = categoryIdx {
+                IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: idx) { (networkResult) in
+                    switch networkResult {
+                    case .success(let data):
+                        // 성공메세지
+                        print(data)
+                    case .requestErr(let message):
+                        guard let message = message as? String else { return }
+                        let alertViewController = UIAlertController(title: "통신 실패", message: message, preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
 
-                case .pathErr: print("path")
-                case .serverErr: print("serverErr")
-                case .networkFail: print("networkFail")
+                    case .pathErr: print("path")
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                    }
+                }
+                let seconds = 1.0
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    NotificationCenter.default.post(name: .init("sendDataFromAddIvToEdit"), object: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
-            let seconds = 1.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-                NotificationCenter.default.post(name: .init("sendDataFromAddIvToEdit"), object: nil)
-                self.dismiss(animated: true, completion: nil)
-            }
+            
             
         }
         
