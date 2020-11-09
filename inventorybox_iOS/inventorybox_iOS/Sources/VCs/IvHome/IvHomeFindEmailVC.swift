@@ -24,6 +24,10 @@ class IvHomeFindEmailVC: UIViewController {
         viewcontrollerSetting()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     // MARK: 탭바를 통한 화면 전환하기
      func viewcontrollerSetting(){
         self.scrollView.contentSize.width = self.view.frame.width * 2
@@ -101,16 +105,16 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
         print(repNameTx.text!)
         print(coNameTx.text!)
         
-        var phoneNum = "";
-        if let phoneNumber = phoneNumberTx.text {
-            let phoneArray = phoneNumber.components(separatedBy: "-")
-            
-            for i in phoneArray {
-                phoneNum += i
-            }
-        }
-        print(phoneNum)
-        FindEmailService.shared.findEmailPost(repName: repNameTx.text!, coName: coNameTx.text!, phone: phoneNum, completion: { networkResult in switch networkResult {
+//        var phoneNum = "";
+//        if let phoneNumber = phoneNumberTx.text {
+//            let phoneArray = phoneNumber.components(separatedBy: "-")
+//
+//            for i in phoneArray {
+//                phoneNum += i
+//            }
+//        }
+//        print(phoneNum)
+        FindEmailService.shared.findEmailPost(repName: repNameTx.text!, coName: coNameTx.text!, phone: phoneNumberTx.text!, completion: { networkResult in switch networkResult {
         
         case .success(let verify):
             

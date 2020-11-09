@@ -524,7 +524,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 등록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sql-kv-0OL">
-                                        <rect key="frame" x="127.5" y="13" width="120.5" height="18"/>
+                                        <rect key="frame" x="130" y="12.5" width="115.5" height="19"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2226,23 +2226,6 @@
             <point key="canvasLocation" x="5190" y="958"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5mr-fB-FHy">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="EfI-vL-Zm0">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="HK9-DP-0nq">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="fLZ-aH-w3B">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-        <designable name="xt3-gM-T8P">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-    </designables>
     <resources>
         <image name="btnClause" width="13" height="13"/>
         <image name="btnName" width="276" height="51"/>
