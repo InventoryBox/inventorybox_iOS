@@ -12,10 +12,18 @@ import Charts
 class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
     
     @IBOutlet var weekInfoLabel: UILabel!
-    @IBOutlet var firstMonthInfoLabel: UILabel!
-    @IBOutlet var firstDayLabel:UILabel!
-    @IBOutlet var secondDayInfoLabel: UILabel!
-    @IBOutlet var secondMonthLabel: UILabel!
+
+    @IBOutlet var firstDayLabel:UILabel!{
+        didSet{
+           
+        }
+    }
+
+    @IBOutlet var secondMonthLabel: UILabel!{
+        didSet{
+            
+        }
+    }
     @IBOutlet var ivChartView: BarChartView!
     @IBOutlet var roundView: UIView!
     private var limitLine: ChartLimitLine?
@@ -34,9 +42,9 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         roundView.layer.cornerRadius = 9
         roundView.layer.shadowRadius = 9
         roundView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        firstMonthInfoLabel.sizeToFit()
+       // firstMonthInfoLabel.sizeToFit()
         firstDayLabel.sizeToFit()
-        secondDayInfoLabel.sizeToFit()
+        secondMonthLabel.sizeToFit()
         
     }
     
@@ -61,8 +69,9 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         let formatter = DefaultValueFormatter(formatter: format)
         
         firstDayLabel.text = model.startDay
+        print(model.startDay)
         secondMonthLabel.text = model.endDay
-        
+    
         
         itemIdx = itemIndex
         weekInfoLabel.text = weekLabel
@@ -97,9 +106,17 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         chartData.setValueFont(NSUIFont(name: "NanumSquare-Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12))
         chartData.setValueTextColor(.charcoal)
         ivChartView.data = chartData
+        ivChartView.extraTopOffset = 20.0
+        ivChartView.extraBottomOffset = 0.0
+        ivChartView.leftAxis.spaceBottom = 0.0
         ivChartView.xAxis.labelPosition = .bottom
         ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
+        
+        //zoom되는 확대를 막는 코드
+        ivChartView.scaleXEnabled = false
+        ivChartView.scaleYEnabled = false
+        ivChartView.isUserInteractionEnabled = false
         
         ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         ivChartView.xAxis.drawGridLinesEnabled = false
@@ -112,6 +129,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         ivChartView.drawGridBackgroundEnabled = false
         ivChartView.drawBordersEnabled = false
         
+        
         let  xAxis : XAxis = self.ivChartView.xAxis
         xAxis.labelFont = UIFont(name: "NanumSquare-ExtraBold", size: 12.0) ?? UIFont.systemFont(ofSize: 12)
         xAxis.labelTextColor = .charcoal
@@ -122,7 +140,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         //밑에 데이터셋 제거
         ivChartView.legend.enabled = false
         
-        chartData.barWidth = 0.2
+        chartData.barWidth = 0.25
         
         let ll = ChartLimitLine(limit: Double(alarmCount), label: "")
         limitLine = ll

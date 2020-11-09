@@ -26,8 +26,8 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgeTextlogo" translatesAutoresizingMaskIntoConstraints="NO" id="eXV-Vh-xBB">
                                         <rect key="frame" x="144.5" y="321" width="86" height="25"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="iZY-PE-8Sz">
-                                        <rect key="frame" x="151.5" y="238.5" width="72.5" height="72.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iZY-PE-8Sz">
+                                        <rect key="frame" x="148.5" y="233" width="78" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iZY-PE-8Sz" secondAttribute="height" multiplier="1:1" id="a8R-4K-YLt"/>
                                         </constraints>
@@ -63,8 +63,8 @@
     </scenes>
     <resources>
         <image name="imgeTextlogo" width="86.5" height="25"/>
-        <image name="logo" width="72" height="72.5"/>
         <image name="splashImage" width="375" height="812"/>
+        <image name="splashLogo" width="78" height="78"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

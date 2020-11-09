@@ -29,6 +29,7 @@ class IvWeekCompareGraphTVCell: UITableViewCell,UITextFieldDelegate {
         setTextFieldAttribute()
 //        setTextField()
         compareBtn.layer.cornerRadius = 10.0
+        compareChartView.layer.cornerRadius = 30.0
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

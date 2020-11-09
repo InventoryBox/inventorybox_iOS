@@ -100,13 +100,19 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         for i in 0..<model.stocks.count {
             chartDataSet.colors = [setColor(value: Double(model.stocks[i]))]
         }
-        
-       
+        ivChartView.extraTopOffset = 10.0
+        ivChartView.extraBottomOffset = 3.0
+        ivChartView.leftAxis.spaceBottom = 0.0
         ivChartView.data = chartData
         ivChartView.xAxis.labelPosition = .bottom
         ivChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         ivChartView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
         ivChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+        //zoom되는 확대를 막는 코드
+        ivChartView.scaleXEnabled = false
+        ivChartView.scaleYEnabled = false
+        ivChartView.isUserInteractionEnabled = false
         ivChartView.xAxis.drawGridLinesEnabled = false
         ivChartView.leftAxis.drawLabelsEnabled = false
         ivChartView.rightAxis.drawGridLinesEnabled = false
@@ -126,6 +132,7 @@ class IvGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         //밑에 데이터셋 제거
         ivChartView.legend.enabled = false
+        
         
         chartData.barWidth = 0.3
         

@@ -15,16 +15,20 @@ class WeekInThisMonthCVCell: UICollectionViewCell {
     
     //버튼을 클릭했을 때 몆주차에 해당하는 버튼인지 저장하는 변수
     var clickWeekInfo:String = ""
-    
     var week: Int?
-    
-    var status: Bool = false {
-        didSet {
-            if status {
+    var status: Bool? {
+        didSet{
+            print("디드셋",status)
+            if status == true {
+                //status가 true면 weekBtn이 선택된 상태.
+                print("truetruetruetrue")
+                print("select",weekBtn.isSelected)
                 self.weekBtn.backgroundColor = .yellow
                 self.weekBtn.setTitleColor(.white, for: .normal)
                 weekBtn.isSelected = true
             } else {
+                print("falsefalsefalsefalse")
+                print("deselect",weekBtn.isSelected)
                 self.weekBtn.backgroundColor = .white
                 self.weekBtn.setTitleColor(.charcoal, for: .normal)
                 weekBtn.isSelected = false
@@ -43,26 +47,24 @@ class WeekInThisMonthCVCell: UICollectionViewCell {
         if self.weekBtn.isSelected {
             print("버튼 선택됨",weekBtn.isSelected)
             // set deselected
-            status = false
-            self.weekBtn.backgroundColor = .white
-            self.weekBtn.setTitleColor(.charcoal, for: .normal)
-            weekBtn.isSelected = false
+          status = false
+//            self.weekBtn.backgroundColor = .white
+//            self.weekBtn.setTitleColor(.charcoal, for: .normal)
+           weekBtn.isSelected = false
             print("버튼 해제됨",weekBtn.isSelected)
         } else {
             print("버튼 해제됨",weekBtn.isSelected)
             // set selected
-            status = true
-            self.weekBtn.backgroundColor = .yellow
-            self.weekBtn.setTitleColor(.white, for: .normal)
-            weekBtn.isSelected = true
+           status = true
+//            self.weekBtn.backgroundColor = .yellow
+//            self.weekBtn.setTitleColor(.white, for: .normal)
+          weekBtn.isSelected = true
         }
         
-        NotificationCenter.default.post(name: .clickWeek, object: nil, userInfo: ["week": week, "status": status])
+        NotificationCenter.default.post(name: .clickWeek, object: nil, userInfo: ["week": week!, "status": status])
         
         print("clickWeeks")
         
     }
-    
-    
 }
 

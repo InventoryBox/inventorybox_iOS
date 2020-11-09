@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "filename" : "splashLogo.png",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "splashLogo@2x.png",
-      "scale" : "2x",
+      "scale" : "1x",
       "idiom" : "universal"
     },
     {
       "idiom" : "universal",
+      "filename" : "splashLogo@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "scale" : "3x",
       "filename" : "splashLogo@3x.png",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

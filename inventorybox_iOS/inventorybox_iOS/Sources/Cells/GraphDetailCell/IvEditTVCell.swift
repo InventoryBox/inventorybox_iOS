@@ -19,13 +19,19 @@ class IvEditTVCell: UITableViewCell {
     @IBOutlet var memoCntTextField: UITextField!
     @IBOutlet var alarmUnitLabel: UILabel!
     @IBOutlet var memoUnitLabel: UILabel!
-    var alarmCnt:Int?
-    var memoCnt:Int?
+    var alarmCnt:Int? = nil
+    var memoCnt:Int? = nil
+    
+    
     
     
     override func prepareForReuse() {
-        alarmCntTextField.text = "\(alarmCnt)"
-        memoCntTextField.text = "\(memoCnt)"
+        
+        guard let alarmCount = alarmCnt else {return}
+        guard let memoCount = memoCnt else {return}
+        
+        alarmCntTextField.text = "\(alarmCount)"
+        memoCntTextField.text = "\(memoCount)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
