@@ -185,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-9L-khj">
-                                        <rect key="frame" x="160" y="12.5" width="55.5" height="19"/>
+                                        <rect key="frame" x="158.5" y="13" width="58.5" height="18"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.2784313725" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -213,13 +213,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="안녕하세요:)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHa-72-NAS">
-                                <rect key="frame" x="16" y="176" width="88" height="21"/>
+                                <rect key="frame" x="16" y="176" width="96" height="20"/>
                                 <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgo-Qe-TzD">
-                                <rect key="frame" x="16" y="226.5" width="266" height="35"/>
+                                <rect key="frame" x="16" y="225.5" width="266" height="35"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-Sf-g96">
                                         <rect key="frame" x="0.0" y="0.0" width="266" height="35"/>
@@ -250,7 +250,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginEmailTextfield" translatesAutoresizingMaskIntoConstraints="NO" id="c8S-Qe-32a">
-                                <rect key="frame" x="16" y="261.5" width="266" height="2"/>
+                                <rect key="frame" x="16" y="260.5" width="266" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c8S-Qe-32a" secondAttribute="height" multiplier="133:1" id="jlT-sC-F6W"/>
                                     <constraint firstAttribute="height" constant="2" id="kml-eB-0vh"/>
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WdS-uV-giF">
-                                <rect key="frame" x="16" y="288.5" width="266" height="35"/>
+                                <rect key="frame" x="16" y="287.5" width="266" height="35"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="인증번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j82-MD-ZR4">
                                         <rect key="frame" x="0.0" y="0.0" width="266" height="35"/>
@@ -341,7 +341,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호가 전송되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwZ-va-aIS">
-                                <rect key="frame" x="16" y="267.5" width="109.5" height="12"/>
+                                <rect key="frame" x="16" y="266.5" width="114.5" height="12"/>
                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -410,19 +410,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호가 전송되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNR-Zx-ArP">
-                                <rect key="frame" x="16" y="330" width="109.5" height="12"/>
+                                <rect key="frame" x="16" y="330" width="114.5" height="12"/>
                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="8~12자 이내의 문자, 숫자, 특수문자를 조합하여 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN4-Rh-jbf">
-                                <rect key="frame" x="16" y="392" width="247" height="12"/>
+                                <rect key="frame" x="16" y="392" width="256" height="12"/>
                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                 <color key="textColor" name="brownGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호가 전송되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvU-7L-Dh2">
-                                <rect key="frame" x="16" y="454" width="109.5" height="12"/>
+                                <rect key="frame" x="16" y="454" width="114.5" height="12"/>
                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -524,7 +524,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 등록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sql-kv-0OL">
-                                        <rect key="frame" x="130" y="12.5" width="115.5" height="19"/>
+                                        <rect key="frame" x="127.5" y="13" width="120.5" height="18"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1752,9 +1752,10 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-hp-76I">
                                         <rect key="frame" x="15" y="594" width="345" height="53"/>
-                                        <state key="normal" image="btnChangeSaveBefore">
+                                        <state key="normal" title="완료" backgroundImage="loginBox">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="disabled" backgroundImage="btnNext"/>
                                         <connections>
                                             <action selector="changePasswordButtonPressed:" destination="NNb-PA-zwc" eventType="touchUpInside" id="kzG-ho-rdK"/>
                                         </connections>
@@ -1768,7 +1769,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 한번 더 확인해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6x-LR-Q2g">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="inset">
                                                                 <real key="value" value="20"/>
@@ -1815,7 +1816,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-UA-Kp3">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="inset">
                                                                 <real key="value" value="20"/>
@@ -1851,7 +1852,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="8~12자 이내의 문자, 숫자, 특수문자를 조합하여 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3l-XS-dV3">
-                                                <rect key="frame" x="32" y="62" width="247" height="12"/>
+                                                <rect key="frame" x="32" y="62" width="256" height="11.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                                 <color key="textColor" name="brownGrey"/>
                                                 <nil key="highlightedColor"/>
@@ -2071,9 +2072,10 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-Rq-rqu">
                                         <rect key="frame" x="15" y="594" width="345" height="53"/>
-                                        <state key="normal" image="btnChangeSaveAfter">
+                                        <state key="normal" title="완료" backgroundImage="loginBox">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="disabled" backgroundImage="btnNext"/>
                                         <connections>
                                             <action selector="profileChangePressBtn:" destination="gLB-cm-zrA" eventType="touchUpInside" id="3bg-tg-afO"/>
                                         </connections>
@@ -2242,8 +2244,6 @@
         </designable>
     </designables>
     <resources>
-        <image name="btnChangeSaveAfter" width="343" height="53"/>
-        <image name="btnChangeSaveBefore" width="343" height="53"/>
         <image name="btnClause" width="13" height="13"/>
         <image name="btnName" width="276" height="51"/>
         <image name="btnNext" width="343" height="53"/>
