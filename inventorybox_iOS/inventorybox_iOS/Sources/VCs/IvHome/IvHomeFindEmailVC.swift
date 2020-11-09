@@ -24,6 +24,10 @@ class IvHomeFindEmailVC: UIViewController {
         viewcontrollerSetting()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     // MARK: 탭바를 통한 화면 전환하기
      func viewcontrollerSetting(){
         self.scrollView.contentSize.width = self.view.frame.width * 2
@@ -87,6 +91,7 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlets()
+        profileChangeBtn.isEnabled = false
     }
     func setOutlets(){
         repNameTx.delegate = self
@@ -97,6 +102,18 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
     // 사업자명, 가게명, 연락처를 맞췄을 때
     @IBAction func profileChangePressBtn(_ sender: Any) {
         
+        print(repNameTx.text!)
+        print(coNameTx.text!)
+        
+//        var phoneNum = "";
+//        if let phoneNumber = phoneNumberTx.text {
+//            let phoneArray = phoneNumber.components(separatedBy: "-")
+//
+//            for i in phoneArray {
+//                phoneNum += i
+//            }
+//        }
+//        print(phoneNum)
         FindEmailService.shared.findEmailPost(repName: repNameTx.text!, coName: coNameTx.text!, phone: phoneNumberTx.text!, completion: { networkResult in switch networkResult {
         
         case .success(let verify):
@@ -112,7 +129,7 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
             print(message)
             
         case .pathErr:
-            self.useEmailLabel.text = "잘못 입력하셨습니다"
+            self.useEmailLabel.text = "없는 사용자입니다."
             self.useEmailLabel.textColor = .red
             print("path")
         case .serverErr: print("serverErr")
@@ -172,6 +189,14 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
        return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (repNameTx.text != "") && (coNameTx.text != "") && (phoneNumberTx.text != ""){
+            profileChangeBtn.isEnabled = true
+        } else {
+            profileChangeBtn.isEnabled = false
+        }
+    }
+    
     
 }
 
@@ -219,6 +244,7 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
         verifiCodeTextField.delegate = self
         pwTextField.delegate = self
         pwConfirmTextField.delegate = self
+        goToFinishBtn.isEnabled = false
         
         pwTextField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
         pwConfirmTextField.addTarget(self, action: #selector(passwordCheckTextFieldDidChange), for: .editingChanged)
@@ -298,6 +324,7 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
                     alert.addAction(yes)
                     self.present(alert, animated: true, completion: nil)
                     
+                    self.navigationController?.popViewController(animated: true)
                     self.emailTextField.text = ""
                     self.verifiCodeTextField.text = ""
                     self.pwTextField.text = ""
@@ -512,6 +539,8 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
             pwCheckAgainLabel.alpha = 0
             pwCheckTabImageView.image = UIImage(named: "loginEmailTextfield")
       
+            goToFinishBtn.isEnabled = true
+            
             savePasswordBtn.imageView?.image = UIImage(named: "btnChangeSaveAfter")
         }
         

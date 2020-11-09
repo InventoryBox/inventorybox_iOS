@@ -20,6 +20,20 @@ class PersonalInfoChangeVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlets()
+        
+        repNameTextField.layer.borderWidth = 1
+        repNameTextField.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
+        repNameTextField.layer.cornerRadius = 10
+        coNameTextField.layer.borderWidth = 1
+        coNameTextField.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
+        coNameTextField.layer.cornerRadius = 10
+        phoneNumberTextField.layer.borderWidth = 1
+        phoneNumberTextField.layer.borderColor = UIColor.veryLightPinkTwo.cgColor
+        phoneNumberTextField.layer.cornerRadius = 10
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     @IBAction func backButtonDidTap(_ sender: UIButton) {
@@ -35,7 +49,7 @@ class PersonalInfoChangeVC: UIViewController,UITextFieldDelegate {
         repNameTextField.delegate = self
         coNameTextField.delegate = self
         phoneNumberTextField.delegate = self
-//        goToProfileBtn.isEnabled = false
+        goToProfileBtn.isEnabled = false
     }
     
     
@@ -88,13 +102,20 @@ class PersonalInfoChangeVC: UIViewController,UITextFieldDelegate {
                    textField.text = format(with: "XXX-XXXX-XXXX", phone: newString)
                    return false
         }
-        if (repNameTextField.text != "") && (coNameTextField.text != "") && (phoneNumberTextField.text != ""){
+        if (repNameTextField.text != "") && (coNameTextField.text != "") && (phoneNumberTextField.text != "") {
                   goToProfileBtn.isEnabled = true
               }
        return true
     }
     
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (repNameTextField.text != "") && (coNameTextField.text != "") && (phoneNumberTextField.text != "") {
+            
+                  goToProfileBtn.isEnabled = true
+        } else {
+            goToProfileBtn.isEnabled = false
+        }
+    }
     
     /*
      // MARK: - Navigation

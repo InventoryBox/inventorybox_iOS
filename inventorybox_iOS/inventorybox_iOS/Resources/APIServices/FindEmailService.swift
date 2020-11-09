@@ -17,7 +17,7 @@ struct FindEmailService {
     private func makeParameter(repName: String, coName: String, phone: String) -> Parameters{
 //        print(data)
         return
-            [ "repName": repName, "coName":coName, "phone": phone]
+            [ "repName": repName, "coName":coName, "phoneNumber": phone]
     }
     
     func findEmailPost(repName: String, coName: String, phone: String, completion: @escaping (NetworkResult<Any>) -> Void) {

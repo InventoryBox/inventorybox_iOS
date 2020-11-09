@@ -21,7 +21,7 @@ class HomeNewVC: UIViewController {
     var leftFlagInt:[Int] = []   // flag값
     var rightFlagInt:[Int] = []   // flag값
     
-    var leftValue = 1        // 몫 값
+    var leftValue = 0        // 몫 값
     var leftRemainder = 0    // 나머지 값
     var rigntValue = 0        // 몫 값
     var rigntRemainder = 0    // 나머지 값
@@ -42,18 +42,18 @@ class HomeNewVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getDataFromServer()
         setimage()
+        pages()
+        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
         self.homeListCollectionView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
     }
     
         override func viewDidLoad() {
         super.viewDidLoad()
         homeListCollectionView.dataSource = self
         homeListCollectionView.delegate = self
-        
-        pages()
         makeShadowUnderView()   // 그림자 & Radious
+
         self.navigationController?.navigationBar.isHidden = true
         
 
@@ -192,6 +192,7 @@ class HomeNewVC: UIViewController {
                         //checkOrderInfo배열 중 인덱스가 짝수인 배열을 leftCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[0],checkOrderInfo[2],checkOrderInfo[4],checkOrderInfo[6] ... 번째 인덱스 즉 왼쪽 CV에 나타날 정보들
                         self.leftCheckOrderInfo.append(self.checkOrderInfo[i])
                         self.leftFlagInt.append(self.flagInt[i])
+                        
                     }
                     else if i % 2 == 1 {
                         //checkOrderInfo배열 중 인덱스가 홀수인 배열을 rightCheckOrderInfo배열에 따로 저장 == > checkOrderInfo[1],checkOrderInfo[3],checkOrderInfo[5],checkOrderInfo[7] ... 번째 인덱스 즉 오른쪽 CV에 나타날 정보들
@@ -200,10 +201,14 @@ class HomeNewVC: UIViewController {
                     }else{
                     }
                 }
-                self.leftValue = Int(self.leftCheckOrderInfo.count/7)      // 7로 나눴을때 몫
-                self.leftRemainder = self.leftCheckOrderInfo.count%7  // 7로 나눴을때 나머지
-                self.rigntValue = self.rightCheckOrderInfo.count/7    //
-                self.rigntRemainder = self.rightCheckOrderInfo.count%7    //
+                for i in 0..<self.leftCheckOrderInfo.count{
+                    print("값은 받아옴?\(self.leftCheckOrderInfo[i].itemName)")
+                }
+                
+                self.leftValue = self.leftCheckOrderInfo.count/8      // 8로 나눴을때 몫
+                self.leftRemainder = self.leftCheckOrderInfo.count%8  // 8로 나눴을때 나머지
+                self.rigntValue = self.rightCheckOrderInfo.count/8    //
+                self.rigntRemainder = self.rightCheckOrderInfo.count%8    //
                 
                 // 리로드 해줘야 된다!! 꼮 명심하자!!
                 DispatchQueue.main.async {
@@ -280,7 +285,7 @@ class HomeNewVC: UIViewController {
     func pages() {
         homeListCollectionView?.isPagingEnabled = true
         
-        page = 1 + checkOrderInfo.count / 14         // 14로 나눴을 때
+        page = 1 + checkOrderInfo.count / 15         // 14로 나눴을 때
         pageControl.numberOfPages = page    // pagecontrol의 점 개수
     }
     
@@ -309,81 +314,108 @@ extension HomeNewVC: UICollectionViewDataSource{
         if leftValue == 0{
             // 나머지에 관하여 왼쪽 값
             if indexPath.item == leftValue{
-                // 나머지 값에 관해서
-                for i in 0..<leftRemainder{
-                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
-                        listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
-                        listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
-                        
+                // leftRemainder가 0일경우 " " c처리
+                if leftRemainder == 0{
+                    // 그 이후 나오지 말아야 하는 값들
+                    for i in leftRemainder..<7 {
+                        if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                            listCell.leftStackview[i].text = " "
+                        }
                     }
-                }
-                // 그 이후 나오지 말아야 하는 값들
-                for i in leftRemainder..<7 {
-                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
-                        listCell.leftStackview[i].text = " "
-
+                }else if leftRemainder == 7{
+                    for i in 0..<leftRemainder{
+                        if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                            listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
+                            listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
+                        }
                     }
-                }
-            }else{
-                // 왼쪽 페이지 수 맞춰서 값을 넣음
-                for i in 0..<leftValue{
-                    if indexPath.item == i{
-                        switch i{
-                        case 0:
-                            for j in 0..<7{
-                                if listCell.leftStackview[j].tag == j+1{
-                                    listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j].itemName))"
-                                    listCell.leftStackImage[j].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j]))")
-                                }
-                            }
-                        case 1:
-                            for j in 0..<7{
-                                if listCell.leftStackview[j].tag == j+1{
-                                    listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+7].itemName))"
-                                    listCell.leftStackImage[j+7].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+7]))")
-                                }
-                            }
-                        case 2:
-                            for j in 0..<7{
-                                if listCell.leftStackview[j].tag == j+1{
-                                    listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+14].itemName))"
-                                    listCell.leftStackImage[j+14].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+14]))")
-                                }
-                            }
-                        case 3:
-                            for j in 0..<7{
-                                if listCell.leftStackview[j].tag == j+1{
-                                    listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+21].itemName))"
-                                    listCell.leftStackImage[j+21].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+21]))")
-                                }
-                            }
-                        case 4:
-                            for j in 0..<7{
-                                if listCell.leftStackview[j].tag == j+1{
-                                    listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+28].itemName))"
-                                    listCell.leftStackImage[j+28].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+28]))")
-                                }
-                            }
-                        default: break
+                }else{
+                    for i in 0..<leftRemainder{
+                        if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                            listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
+                            listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
+                        }
+                    }
+                    // 그 이후 나오지 말아야 하는 값들
+                    for i in leftRemainder..<7 {
+                        if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                            listCell.leftStackview[i].text = " "
                         }
                     }
                 }
             }
-            // 나머지에 관하여 왼쪽 값
-            if indexPath.item == leftValue{
-                // 나머지 값에 관해서
+        }else{
+            // 왼쪽 페이지 수 맞춰서 값을 넣음
+            for i in 0...leftValue{
+                if indexPath.item == i{
+                    switch i{
+                    case 0:
+                        for j in 0..<7{
+                            if listCell.leftStackview[j].tag == j+1{
+                                listCell.leftStackview[j].text = "\(self.leftCheckOrderInfo[j].itemName)"
+                                listCell.leftStackImage[j].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j]))")
+                            }
+                        }
+                    case 1:
+                        for j in 0..<7{
+                            if listCell.leftStackview[j].tag == j+1{
+                                listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+7].itemName))"
+                                listCell.leftStackImage[j+7].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+7]))")
+                            }
+                        }
+                    case 2:
+                        for j in 0..<7{
+                            if listCell.leftStackview[j].tag == j+1{
+                                listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+14].itemName))"
+                                listCell.leftStackImage[j+14].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+14]))")
+                            }
+                        }
+                    case 3:
+                        for j in 0..<7{
+                            if listCell.leftStackview[j].tag == j+1{
+                                listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+21].itemName))"
+                                listCell.leftStackImage[j+21].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+21]))")
+                            }
+                        }
+                    case 4:
+                        for j in 0..<7{
+                            if listCell.leftStackview[j].tag == j+1{
+                                listCell.leftStackview[j].text = "\(String(describing: self.leftCheckOrderInfo[j+28].itemName))"
+                                listCell.leftStackImage[j+28].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[j+28]))")
+                            }
+                        }
+                    default: break
+                    }
+                }
+            }
+        }
+        if indexPath.item == leftValue{
+            // leftRemainder가 0일경우 " " c처리
+            if leftRemainder == 0{
+                // 그 이후 나오지 말아야 하는 값들
+                for i in leftRemainder..<7 {
+                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                        listCell.leftStackview[i].text = " "
+                    }
+                }
+            }else if leftRemainder == 7{
                 for i in 0..<leftRemainder{
-                    if listCell.leftStackview[i].tag == i+1 {
-                        listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i+(rigntValue*7)].itemName)"
+                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                        listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
                         listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
-                        
+                    }
+                }
+            }else{
+                for i in 0..<leftRemainder{
+                    if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
+                        listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
+                        listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
                     }
                 }
                 // 그 이후 나오지 말아야 하는 값들
                 for i in leftRemainder..<7 {
                     if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
                         listCell.leftStackview[i].text = " "
-                        listCell.leftStackImage[i].image = UIImage(named: "homeIcUnable")
                     }
                 }
             }
@@ -393,21 +425,38 @@ extension HomeNewVC: UICollectionViewDataSource{
         if rigntValue == 0 {
             // 나머지에 관하여 오른쪽 값
             if indexPath.item == rigntValue{
-                // 나머지 값에 관해서
-                for i in 0..<rigntRemainder{
-                    if listCell.rigntStackView[i].tag == i+1 {
-                        listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
-                        listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
+                // rightReminder가 0일경우
+                if rigntRemainder == 0 {
+                    for i in rigntRemainder..<7 {
+                        if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
+                            listCell.rigntStackView[i].text = " "
+                        }
+                    }
+                }else if rigntRemainder == 7{
+                    for i in 0..<rigntRemainder{
+                        if listCell.rigntStackView[i].tag == i+1 {
+                            listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
+                            listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
+                        }
+                    }
+                }else{
+                    // 나머지 값에 관해서
+                    for i in 0..<rigntRemainder{
+                        if listCell.rigntStackView[i].tag == i+1 {
+                            listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
+                            listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
+                        }
+                    }
+                    
+                    for i in rigntRemainder..<7 {
+                        if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
+                            listCell.rigntStackView[i].text = " "
+                            listCell.rigntStackImage[i].image = UIImage(named: "homeIcUnable")
+                        }
                     }
                 }
-                
-                for i in rigntRemainder..<7 {
-                    if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
-                        listCell.rigntStackView[i].text = " "
-                        listCell.rigntStackImage[i].image = UIImage(named: "homeIcUnable")
-                    }
-                }
-            }else{
+            }
+        }else{
                 // 오른쪽 Stack관련
                 for i in 0..<rigntValue{
                     if indexPath.item == i{
@@ -452,16 +501,32 @@ extension HomeNewVC: UICollectionViewDataSource{
                         }
                     }
                 }
-            }
-            // 나머지에 관하여 오른쪽 값
-            if indexPath.item == rigntValue{
-                // 나머지 값에 관해서
+        }
+        // 나머지에 관하여 오른쪽 값
+        if indexPath.item == rigntValue{
+            // rightReminder가 0일경우
+            if rigntRemainder == 0 {
+                for i in rigntRemainder..<7 {
+                    if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
+                        listCell.rigntStackView[i].text = " "
+                    }
+                }
+            }else if rigntRemainder == 7{
                 for i in 0..<rigntRemainder{
                     if listCell.rigntStackView[i].tag == i+1 {
-                        listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue*7)].itemName)"
+                        listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
                         listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
                     }
                 }
+            }else{
+                // 나머지 값에 관해서
+                for i in 0..<rigntRemainder{
+                    if listCell.rigntStackView[i].tag == i+1 {
+                        listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i+(rigntValue)].itemName)"
+                        listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
+                    }
+                }
+                
                 for i in rigntRemainder..<7 {
                     if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
                         listCell.rigntStackView[i].text = " "

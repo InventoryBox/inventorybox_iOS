@@ -27,6 +27,10 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBOutlet var pwTabImageView: UIImageView!
     @IBOutlet var pwCheckTabImageView: UIImageView!
     @IBOutlet var goToNextViewBtn: UIButton!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var passwordDoubleCheckView: UIView!
+    @IBOutlet weak var passwordImageVIew: UIImageView!
+    @IBOutlet weak var passwordDoubleCheckImageView: UIImageView!
     
     var verifyCode:Int?
     var isVerify:Bool = false
@@ -46,17 +50,29 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         pwTextField.delegate = self
         pwConfirmTextField.delegate = self
         //        pwConfirmTextField.isSecureTextEntry = true
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        passwordView.isHidden = true
+        passwordDoubleCheckView.isHidden = true
+        goToNextViewBtn.isHidden = true
+        passwordImageVIew.isHidden = true
+        passwordDoubleCheckImageView.isHidden = true
+        pwCheckLabel.isHidden = true
+        pwCheckAgainLabel.isHidden = true
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
     
     
     func isValidEmail(id: String?) -> Bool {
@@ -95,7 +111,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         
         // 서버 통신 코드
         emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
-            
+        
         case .success(let verify):
             guard let data = verify as? reciveData else {return}
             self.verifyCode = data.number
@@ -110,7 +126,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
         case .pathErr: print("path")
         case .serverErr: print("serverErr")
         case .networkFail: print("networkFail")
-            }
+        }
         }
         )
     }
@@ -222,7 +238,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             //isComplete += 1
             print(isComplete)
         }
-            
+        
         else if (emailTextField.text == ""){
             emailCheckLabel.alpha = 0
         }
@@ -284,6 +300,13 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             verifyCodeCheckLabel.text = "이메일 인증이 완료되었습니다."
             verifyCodeCheckLabel.textColor = .yellow
             //isComplete += 1
+            passwordView.isHidden = false
+            passwordDoubleCheckView.isHidden = false
+            goToNextViewBtn.isHidden = false
+            passwordImageVIew.isHidden = false
+            passwordDoubleCheckImageView.isHidden = false
+            passwordImageVIew.isHidden = false
+            passwordDoubleCheckImageView.isHidden = false
             print(isComplete)
         }
         else if(verifiCodeTextField.text == ""){
@@ -324,7 +347,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             pwCheckLabel.textColor = .red
             pwCheckLabel.alpha = 1
         }
-            
+        
         else
         {
             pwCheckTabImageView.image = UIImage(named: "loginPwTextfield")
@@ -346,7 +369,9 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
             pwCheckTabImageView.image = UIImage(named: "loginEmailTextfield")
             //isComplete += 1
             
+            
                 goToNextViewBtn.isEnabled = true
+            
             
         }
         
@@ -385,12 +410,12 @@ extension SignUpVC {
         confirmBtn.addTarget(self, action: #selector(verifyCodeCorrectCheck(_:)), for: .touchUpInside)
         
         pwTextField.addTarget(self, action:
-            #selector(pwTextFieldTapped(_:)), for: .editingDidBegin)
+                                #selector(pwTextFieldTapped(_:)), for: .editingDidBegin)
         
         pwTextField.addTarget(self, action: #selector(pwTextFieldUnTapped(_:)), for: .editingDidEnd)
         
         pwConfirmTextField.addTarget(self, action:
-            #selector(pwCheckTextFieldTapped(_:)), for: .editingDidBegin)
+                                        #selector(pwCheckTextFieldTapped(_:)), for: .editingDidBegin)
         
         pwConfirmTextField.addTarget(self, action: #selector(pwCheckTextFieldUnTapped(_:)), for: .editingDidEnd)
     }
