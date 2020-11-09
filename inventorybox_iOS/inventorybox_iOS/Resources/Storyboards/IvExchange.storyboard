@@ -704,6 +704,16 @@
                                     <constraint firstItem="HGr-ZI-UjF" firstAttribute="top" secondItem="Vfi-jy-d4z" secondAttribute="top" id="qJ0-9K-KxM"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoC-46-nTo">
+                                <rect key="frame" x="305" y="605" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zoC-46-nTo" secondAttribute="height" multiplier="1:1" id="3nd-Oc-UUB"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="exchangemainBtnPlus"/>
+                                <connections>
+                                    <segue destination="LBG-tb-cMY" kind="show" id="0z6-cM-VKK"/>
+                                </connections>
+                            </button>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLU-tu-cnW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -733,16 +743,6 @@
                                     <constraint firstItem="Tph-BC-Kje" firstAttribute="top" secondItem="pBu-Yv-I6D" secondAttribute="bottom" constant="50" id="swl-hE-4r5"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoC-46-nTo">
-                                <rect key="frame" x="305" y="605" width="54" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="zoC-46-nTo" secondAttribute="height" multiplier="1:1" id="3nd-Oc-UUB"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="exchangemainBtnPlus"/>
-                                <connections>
-                                    <segue destination="LBG-tb-cMY" kind="show" id="0z6-cM-VKK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ih8-zE-wbW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
