@@ -9,7 +9,7 @@
 import UIKit
 
 
-class IvEditTVCell: UITableViewCell {
+class IvEditTVCell: UITableViewCell, UITextFieldDelegate {
     
     var delegate: UIViewController?
     var alert:UIAlertController!
@@ -27,6 +27,9 @@ class IvEditTVCell: UITableViewCell {
     
     override func prepareForReuse() {
         
+        alarmCntTextField.delegate = self
+        memoCntTextField.delegate = self
+        
         guard let alarmCount = alarmCnt else {return}
         guard let memoCount = memoCnt else {return}
         
@@ -40,6 +43,8 @@ class IvEditTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    
     @IBAction func memoPost(_ sender: UIButton) {
         
         alarmCnt = alarmCntTextField.text?.toInt()
@@ -80,6 +85,6 @@ class IvEditTVCell: UITableViewCell {
         delegate!.present(alert, animated: true, completion: nil)
     }
     
-    
+  
     
 }

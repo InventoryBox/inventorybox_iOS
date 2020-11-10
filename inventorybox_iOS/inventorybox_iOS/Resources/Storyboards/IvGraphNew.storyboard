@@ -343,7 +343,7 @@
                         <outlet property="calendarCollectionView" destination="9Hv-10-xef" id="WoO-RS-bQJ"/>
                         <outlet property="headerView" destination="1S3-rW-AYd" id="hrj-c3-L9p"/>
                         <outlet property="ivDataTableView" destination="8Uh-Xs-MSh" id="7DH-gL-IsS"/>
-                        <outlet property="tagCollectionView" destination="aON-1K-9WN" id="gbR-MQ-eQE"/>
+                        <outlet property="tagCollectionView" destination="aON-1K-9WN" id="HZZ-En-DXL"/>
                         <outlet property="thisMonthLabel" destination="QCN-Qx-kTH" id="L1G-lH-24j"/>
                         <outlet property="thisWeekLabel" destination="WhU-r3-x0q" id="QFw-Dm-uag"/>
                     </connections>
@@ -987,7 +987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkU-zO-wC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="-611"/>
+            <point key="canvasLocation" x="2341.5999999999999" y="-611.24437781109452"/>
         </scene>
         <!--Iv GraphNC-->
         <scene sceneID="pqk-Bh-7FD">

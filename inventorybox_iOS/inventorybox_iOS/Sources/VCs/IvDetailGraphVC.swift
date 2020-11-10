@@ -92,7 +92,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         currentSingleGraphNetworking()
         print("current",itemGraphData)
         
-        
+        self.hideKeyboard()
         
         //네비게이션 바 나타나게 하는 코드
         self.navigationController?.navigationBar.isHidden = false
@@ -109,7 +109,7 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         ivDetilTV.allowsSelection = false
         ivDetilTV.separatorStyle = .none
         
-        
+       
         
         let formatter_year = DateFormatter()
         formatter_year.dateFormat = "yyyy"
@@ -127,6 +127,12 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //네비게이션 바 나타나게 하는 코드
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "mypostIcBack"), style: .plain, target: nil, action: nil)
+    }
+    
    
     
     func setBackBtn(){
@@ -135,6 +141,12 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
        
     
+    //화면 터치해서 키보드 내리게 하는 코드
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+
+         self.view.endEditing(true)
+
+   }
     
     func currentSingleGraphNetworking(){
         self.reloadArray = []
@@ -226,6 +238,18 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         //roxaneamethy@gmail.com
         
     }
+    
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        return true
+        
+    }
+    
+    
     
     @objc func setWeeks(_ notification: NSNotification) {
         // 아 여긴... click 후 발생하는 이벤트여서 click 이후의 시점으로 생각해야함!
@@ -1039,4 +1063,19 @@ class IvDetailGraphVC: UIViewController, UITableViewDelegate, UITableViewDataSou
      }
      */
     
+}
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }

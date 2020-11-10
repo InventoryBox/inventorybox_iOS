@@ -13,7 +13,7 @@ import Kingfisher
 
 
 class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
-
+    
     
     @IBOutlet var headerView: UIView!
     @IBOutlet var calendarCollectionView: UICollectionView!
@@ -29,37 +29,37 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     private var tagArray:[CategoryInfo] = [] {
         didSet {
+            print(tagArray)
             tagCollectionView.reloadData()
             tagCollectionView.delegate = self
             tagCollectionView.dataSource = self
             tagCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
-
             collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         }
     }
     private var itemFilteredArray: [ItemInfo] = []
     private var selections = [String]()
-   
+    
     
     var numbers:[Double] = []
     var days: [String] = ["일","월","화","수","목","금","토"]
     
-       
+    
     
     // 이 값 순서대로 그래프가 그려짐
     // 서버통신 시 inventory별 정보 배열이 들어갈 곳
     let uniteSold = [2.0,11.0,9.0,10.0,3.0,4.0,2.0]
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         //view에 shadow
         headerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         headerView.layer.shadowOpacity = 0.08
         
-    
+        
         //collectionView 정의
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
@@ -78,7 +78,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         ivDataTableView.separatorStyle = .none
         self.navigationController?.navigationBar.isHidden = true
         
-      
+        
         //categoryTabView.selectionLimit = 1
         itemFilteredArray = itemList
         
@@ -86,6 +86,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         getDataFromServer()
         print(dayList.count)
         print(itemList.count)
+        print(tagArray.count)
         
         setWeekInfo()
     }
@@ -93,6 +94,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        getDataFromServer()
     }
     
     
@@ -101,13 +103,15 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         InventoryGraphHomeService.shared.loadHome { networkResult in
             switch networkResult{
             case .success(let token):
-                print(token)
+                print("너는성공")
+                print("yaya",token)
                 guard let data = token as? ThisWeekData else {return}
                 self.dayList = data.thisWeekDates
                 self.itemList = data.itemInfo
                 self.tagArray = data.categoryInfo
                 DispatchQueue.main.async {
                     self.calendarCollectionView.reloadData()
+                    print("tagtag",self.tagArray)
                     print("여기 dayList",self.dayList)
                 }
             case .requestErr(let message):
@@ -121,7 +125,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             }
         }
     }
-   
+    
     //달력 왼쪽 month정보, week정보를 set해주는 함수
     func setWeekInfo(){
         let date = Date()
@@ -159,11 +163,10 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
-            
             return dayList.count
         }
         
-       else if collectionView == tagCollectionView {
+        else if collectionView == tagCollectionView {
             return tagArray.count
         }
         
@@ -197,16 +200,21 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return cell
         }
-            
+        
         else if collectionView == tagCollectionView {
+            print("hihihi")
             let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
+            print(tagArray,"ffff")
             tagCell.bind(model: tagArray[indexPath.row])
+            
             tagCell.layer.cornerRadius = 11
             tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
             tagCell.layer.borderWidth = 0.5
             
             return tagCell
         }
+        
+        
         return UICollectionViewCell()
     }
     
@@ -222,7 +230,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-    
+        
         if indexPath.row == 0 {
             
             guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "headerCell",for: indexPath) as? IvTVHeaderCell else {return UITableViewCell()}
@@ -232,23 +240,23 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return cell2
         }
-            
+        
         else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             cell.removeLimitLine()
             cell.bind(model: itemFilteredArray[indexPath.row - 1])
-
+            
             return cell
         }
-      }
+    }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       
+        
         //기기 사이즈 맞춰서 142 생각하기
         
         if indexPath.row == 0 {
-           return 60
+            return 60
         }
         else {
             return 194
@@ -259,10 +267,10 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
-            "IvDetailGraphVC") as? IvDetailGraphVC else { return }
+                                                                                        "IvDetailGraphVC") as? IvDetailGraphVC else { return }
         
         
-           self.navigationController?.pushViewController(detailViewController, animated: true)
+        self.navigationController?.pushViewController(detailViewController, animated: true)
         
         //이 때, "현재 기준"으로 indexPath.row에 해당하는 데이터를 받아와야함
         detailViewController.itemName = self.itemFilteredArray[indexPath.row - 1].name
@@ -306,16 +314,26 @@ extension IvGraphVC: UICollectionViewDelegateFlowLayout {
                 }
                 
                 ivDataTableView.reloadData()
-                
             }
         }
-        
     }
     
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 24)
+    }
+    
+    
 }
 
-    
-    
-   
+
+
+
+
+
+
 

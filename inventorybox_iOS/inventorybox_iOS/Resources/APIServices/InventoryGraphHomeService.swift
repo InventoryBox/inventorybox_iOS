@@ -11,9 +11,10 @@ import Alamofire
 
 struct InventoryGraphHomeService {
      static let shared = InventoryGraphHomeService()
+    
         func loadHome(completion: @escaping (NetworkResult<Any>)-> Void){
             let token = UserDefaults.standard.string(forKey: "token") ?? ""
-            print(token)
+            print("yayaya",token)
             let header: HTTPHeaders = ["Content-Type":"application/json","token":token]
             let dataRequest = Alamofire.request(APIConstants.inventoryGraphHomeURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseData{
                 response in
@@ -21,9 +22,10 @@ struct InventoryGraphHomeService {
                 case .success:
                     guard let statusCode = response.response?.statusCode else {return}
                     guard let value = response.result.value else {return}
+                
                     let networkResult = self.judge(by: statusCode, value)
-                    
                     completion(networkResult)
+                    
                 case .failure: completion(.networkFail)
                 }
             }
@@ -41,13 +43,14 @@ struct InventoryGraphHomeService {
             default: return .networkFail
             }
         }
+    
         private func decodingHome(by data:Data) -> NetworkResult<Any> {
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(InventoryGraphHomeData.self, from: data) else
-            {return .pathErr}
+            guard let decodedData = try? decoder.decode(InventoryGraphHomeData.self, from: data) else {return .pathErr}
+    
             guard let homegraphInfo = decodedData.data else {
-                //print("여기")
                 return .requestErr(decodedData.message)}
+    
             return .success(homegraphInfo)
         }
     }
