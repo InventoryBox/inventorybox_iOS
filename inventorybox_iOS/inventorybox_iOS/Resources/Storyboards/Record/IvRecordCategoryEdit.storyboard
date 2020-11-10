@@ -13,6 +13,9 @@
         <array key="NanumSquareB.ttf">
             <string>NanumSquareB</string>
         </array>
+        <array key="NanumSquareEB.ttf">
+            <string>NanumSquareEB</string>
+        </array>
         <array key="NanumSquareR.ttf">
             <string>NanumSquareR</string>
         </array>
@@ -34,7 +37,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재료 및 카테고리 편집" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgj-MV-eKP">
                                                 <rect key="frame" x="116" y="15" width="143.5" height="18"/>
-                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -75,7 +78,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-A7-TFU">
                                                             <rect key="frame" x="20" y="5" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="11"/>
                                                             <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

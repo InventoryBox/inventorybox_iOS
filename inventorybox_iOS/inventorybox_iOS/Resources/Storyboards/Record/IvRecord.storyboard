@@ -111,7 +111,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYb-kj-a6L">
                                                             <rect key="frame" x="20" y="5" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="11"/>
                                                             <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -421,6 +421,11 @@
                             <constraint firstItem="OEj-wo-URV" firstAttribute="top" secondItem="qIa-5D-Vbp" secondAttribute="bottom" id="jhp-E1-29h"/>
                             <constraint firstItem="yEl-so-lwF" firstAttribute="trailing" secondItem="qsm-xl-jtl" secondAttribute="trailing" id="wRg-y0-FVb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yEl-so-lwF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wo0-hw-DuY"/>
                     <size key="freeformSize" width="428" height="926"/>
