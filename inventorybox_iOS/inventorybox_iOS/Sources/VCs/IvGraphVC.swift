@@ -83,32 +83,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         setWeekInfo()
         
-        InventoryGraphHomeService.shared.loadHome { networkResult in
-            switch networkResult{
-            case .success(let token):
-                print("너는성공")
-                print("yaya",token)
-                guard let data = token as? ThisWeekData else {return}
-                self.tagArray = data.categoryInfo
-                self.tagCollectionView.reloadData()
-                self.dayList = data.thisWeekDates
-                self.itemList = data.itemInfo
-                
-                DispatchQueue.main.async {
-                    self.calendarCollectionView.reloadData()
-                    print("tagtag",self.tagArray)
-                    print("여기 dayList",self.dayList)
-                }
-            case .requestErr(let message):
-                guard let message = message as? String else {return}
-                print(message)
-            case .serverErr: print("serverErr")
-            case .pathErr:
-                print("pathErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
         
         print("Dddddddd")
         
