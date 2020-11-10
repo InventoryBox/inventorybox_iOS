@@ -93,6 +93,12 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
         setOutlets()
         profileChangeBtn.isEnabled = false
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     func setOutlets(){
         repNameTx.delegate = self
         coNameTx.delegate = self
@@ -321,14 +327,14 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
                     print(data)
                     
                     print("비밀번호가 재설정 되었습니다.")
-                  
+                    
+                    self.navigationController?.popViewController(animated: true)
                     // Alert 만들기
                     let alert = UIAlertController(title: "비밀번호 재설정", message: "비밀번호가 재설정 되었습니다.", preferredStyle: UIAlertController.Style.alert)
                     let yes = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil)
                     alert.addAction(yes)
                     self.present(alert, animated: true, completion: nil)
                     
-                    self.navigationController?.popViewController(animated: true)
                     self.emailTextField.text = ""
                     self.verifiCodeTextField.text = ""
                     self.pwTextField.text = ""
