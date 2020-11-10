@@ -295,11 +295,6 @@ class IvRecordAddProductVC: UIViewController {
             let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
             alertViewController.addAction(action)
             self.present(alertViewController, animated: true, completion: nil)
-        } else if iconIdx == 0 {
-            let alertViewController = UIAlertController(title: "재료추가 실패", message: "아이콘을 선택해주세요!", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-            alertViewController.addAction(action)
-            self.present(alertViewController, animated: true, completion: nil)
         } else {
             if let idx = categoryIdx {
                 IvRecordAddIvPostService.shared.getRecordAddIvPost(name: ivName, unit: ivUnit, alarmCnt: alarmCnt, memoCnt: memoCnt, iconIdx: iconIdx, categoryIdx: idx) { (networkResult) in
