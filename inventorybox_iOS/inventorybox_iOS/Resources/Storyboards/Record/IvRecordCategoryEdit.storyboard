@@ -3,12 +3,20 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareB.ttf">
+            <string>NanumSquareB</string>
+        </array>
+        <array key="NanumSquareR.ttf">
+            <string>NanumSquareR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Iv Record Category EditVC-->
         <scene sceneID="3Ys-Lg-aHy">
@@ -25,8 +33,8 @@
                                         <rect key="frame" x="0.0" y="3" width="375" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재료 및 카테고리 편집" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgj-MV-eKP">
-                                                <rect key="frame" x="119" y="15" width="137.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <rect key="frame" x="116" y="15" width="143.5" height="18"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -67,7 +75,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-A7-TFU">
                                                             <rect key="frame" x="20" y="5" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                             <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -150,8 +158,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKH-sH-h11">
-                                                                    <rect key="frame" x="30.5" y="63" width="21" height="14.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="30" y="63" width="22" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -182,14 +190,14 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fr-un-6jk">
-                                                            <rect key="frame" x="156" y="54" width="17.5" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <rect key="frame" x="156" y="54" width="18.5" height="11.5"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fm-ip-jYH">
-                                                            <rect key="frame" x="121.5" y="50.5" width="21" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <rect key="frame" x="121" y="51.5" width="22" height="13.5"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -410,16 +418,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="172"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="카테고리 이름을 입력해주세요." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HjG-dd-96P">
-                                        <rect key="frame" x="17.5" y="61.5" width="246" height="43"/>
+                                        <rect key="frame" x="17.5" y="60" width="246" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="BMh-Hw-9YB"/>
                                             <constraint firstAttribute="width" constant="246" id="eJF-df-tUN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="70o-Ad-22b">
-                                        <rect key="frame" x="31.5" y="123.5" width="218" height="32"/>
+                                        <rect key="frame" x="31.5" y="122" width="218" height="32"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ua-YU-TIW">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="32"/>
@@ -428,7 +436,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="IyN-MG-ytq"/>
                                                     <constraint firstAttribute="height" constant="32" id="rhV-yY-wAd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                 <state key="normal" title="취소">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -443,7 +451,7 @@
                                                     <constraint firstAttribute="height" constant="32" id="3ca-wz-3yx"/>
                                                     <constraint firstAttribute="width" constant="100" id="E76-Pa-9Sb"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                 <state key="normal" title="추가">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -454,8 +462,8 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6z-Ee-g0k">
-                                        <rect key="frame" x="97" y="12" width="87" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <rect key="frame" x="95" y="12" width="91.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -511,7 +519,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="172"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-eb-D3o">
-                                        <rect key="frame" x="31.5" y="122.5" width="218" height="32"/>
+                                        <rect key="frame" x="31.5" y="119" width="218" height="32"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-l8-Csk">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="32"/>
@@ -520,7 +528,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="DbK-ed-GkL"/>
                                                     <constraint firstAttribute="height" constant="32" id="MfN-Gv-KMc"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                 <state key="normal" title="취소">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -535,7 +543,7 @@
                                                     <constraint firstAttribute="height" constant="32" id="Cox-kM-Qxc"/>
                                                     <constraint firstAttribute="width" constant="100" id="Znb-Lv-93f"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                 <state key="normal" title="삭제">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -546,16 +554,16 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-EN-2C6">
-                                        <rect key="frame" x="97" y="12" width="87" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <rect key="frame" x="95" y="12" width="91.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-P3-s0p">
-                                        <rect key="frame" x="45.5" y="69.5" width="190" height="29"/>
+                                        <rect key="frame" x="41.5" y="68" width="198" height="27"/>
                                         <string key="text">해당 카테고리에 속해있는 내부 재료들은
 '전체'에서 확인하실 수 있습니다.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -607,8 +615,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 이동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37P-qb-tAL">
-                                        <rect key="frame" x="144" y="15" width="87" height="20"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <rect key="frame" x="142" y="15" width="91.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -627,8 +635,8 @@
                                                             <rect key="frame" x="16" y="6" width="343" height="43"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id2-ff-tHM">
-                                                                    <rect key="frame" x="16" y="13" width="48.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="16" y="14" width="51" height="15.5"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -736,8 +744,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-kK-Mk7">
-                                        <rect key="frame" x="144" y="15" width="87" height="17"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <rect key="frame" x="142" y="15" width="91.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -756,8 +764,8 @@
                                                             <rect key="frame" x="16" y="6" width="343" height="43"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBC-Uu-enz">
-                                                                    <rect key="frame" x="16" y="13" width="48.5" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="16" y="14" width="51" height="15.5"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -804,7 +812,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="SzC-dM-VkN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
                                         <state key="normal" title="완료">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>

@@ -16,7 +16,7 @@ struct IvRecordTodayService {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.inventoryTodayRecordURL
+        let url = APIConstants.inventoryTodayRecordURL 
 
         let dataRequest = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: header)
         

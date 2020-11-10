@@ -10,6 +10,7 @@ import UIKit
 
 extension NSNotification.Name {
     static let clickWeek = NSNotification.Name("clickWeek")
+    static let setWeek = NSNotification.Name("setWeek")
 }
 
 class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -17,6 +18,7 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
     @IBOutlet var thisMonthWeekInfoCV: UICollectionView!
     @IBOutlet var monthLabel: UILabel!
     @IBOutlet var yearLabel: UILabel!
+    
     var itemGraphData:[GraphInfo] = []
     var weekBtnArray:[String] = []
     var getWeekCount:Int = 0
@@ -24,7 +26,11 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
     var weekBtnText:String?
     let date = Date()
     let calendar = Calendar.current
-    var collectionArray:[WeekInformation] = []
+    var collectionArray:[WeekInformation] = [] {
+        willSet {
+            print("왜ㅗ애",collectionArray)
+        }
+    }
     var weekArray:[SingleGraphWeekInfo] = []
     var itemIdx:Int = 0
     //버튼의 진짜 초기값. 이 상태대로 첫 noti가 실행됨. Noti 실행-> tableviewcell 바뀜
@@ -32,60 +38,15 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
    
     
     override func awakeFromNib() {
-        self.thisMonthWeekInfoCV.reloadData()
-        
+       
         thisMonthWeekInfoCV.delegate = self
         thisMonthWeekInfoCV.dataSource = self
-        
-        var month = calendar.component(.month, from: date)
-        var thisYear = calendar.component(.year, from: date)
-        
-        let dateComponents = DateComponents.init(year: thisYear, month: month)
-        let monthCurrentDayFirst = Calendar.current.date(from: dateComponents)!
-        let monthNextDayFirst = Calendar.current.date(byAdding: .month, value: 1, to: monthCurrentDayFirst)!
-        let monthCurrentDayLast = Calendar.current.date(byAdding: .day, value: -1, to: monthNextDayFirst)!
-        
-        let numberOfWeeks = Calendar.current.component(.weekOfMonth, from: monthCurrentDayLast)
-        
-        
-        for i in 0...numberOfWeeks - 1 {
-            
-            print("안녕안녕",i)
-            print("여긴테이블뷰",numberOfWeeks)
-            
-            if i == 0 {
-                self.weekBtnText = "첫째주"
-            } else if i == 1 {
-                self.weekBtnText = "둘째주"
-            } else if i == 2 {
-                self.weekBtnText = "셋째주"
-            } else if i == 3 {
-                self.weekBtnText = "넷째주"
-            } else if i == 4 {
-                self.weekBtnText = "다섯째주"
-            } else if i == 5 {
-                self.weekBtnText = "여섯째주"
-            } else {
-                self.weekBtnText = "일곱째주"
-            }
-            
-            if self.graphCount < numberOfWeeks {
-                self.collectionArray.append(WeekInformation(btnText: self.weekBtnText!, btnIsSelected: true))
-                
-                self.graphCount += 1
-            }
-        }
-        
-        print(numberOfWeeks)
-        print(collectionArray)
-        print("여기 실행 됩니까")
-        
         NotificationCenter.default.addObserver(self, selector: #selector(setStatus(_:)), name: .clickWeek, object: nil)
+
     }
     
     override func prepareForReuse(){
-        self.thisMonthWeekInfoCV.reloadData()
-
+        thisMonthWeekInfoCV.reloadData()
         thisMonthWeekInfoCV.delegate = self
         thisMonthWeekInfoCV.dataSource = self
 
@@ -94,20 +55,29 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
 
     
     @objc func setStatus(_ notification: NSNotification) {
+        //cell 안의 버튼이 눌리면 cell status를 반대로 바꿔주는 함수
+        //status가 반대로 되어있음
+        
         guard let row = notification.userInfo?["week"] as? Int else { return }
         var status = notification.userInfo?["status"] as? Bool
-        
+        print("status",status)
         print("setStatusFromNoti")
         
         if status == true {
+            print("너 이자식???")
             collectionArray[row].btnIsSelected = status!
-            print(collectionArray)
+            print("true로 바뀌어라",collectionArray)
+            thisMonthWeekInfoCV.reloadData()
         }
         else {
+            print("너 이자식???")
+            print("statusttjflalkjd",status)
             collectionArray[row].btnIsSelected = status!
-            print(collectionArray)
+            print("false로 바뀌어라",collectionArray)
+            thisMonthWeekInfoCV.reloadData()
         }
     }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,9 +95,10 @@ class IvDetailGraphTVHeaderCell: UITableViewCell, UICollectionViewDelegate, UICo
         
         //제일 먼저 실행됨
         cell.status = collectionArray[indexPath.row].btnIsSelected
-        print(collectionArray[indexPath.row].btnIsSelected)
+        print("나는 셀 스테이터스다.",collectionArray[indexPath.row].btnIsSelected)
+        print("전체보여주라",collectionArray)
         cell.week = indexPath.row
-        print(cell.status)
+        print("예예에에에ㅔㅇ",cell.week!)
         return cell
     }
     
