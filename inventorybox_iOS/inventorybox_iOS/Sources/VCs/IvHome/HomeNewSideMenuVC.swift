@@ -25,9 +25,12 @@ class HomeNewSideMenuVC: UITableViewController {
     @IBOutlet weak var storeNameLabel: UILabel!
     
     var didTapMenuType : ((MenuType) -> Void)?
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+            
+        
         
         IvHomeHamburgerProfileService.shared.getProfile { (networkResult) in
             switch networkResult {
@@ -49,6 +52,12 @@ class HomeNewSideMenuVC: UITableViewController {
             }
         }
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tabBarController?.tabBar.isTranslucent = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
