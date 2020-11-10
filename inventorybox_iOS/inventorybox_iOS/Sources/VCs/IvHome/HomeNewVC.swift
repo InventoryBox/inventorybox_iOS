@@ -18,13 +18,13 @@ class HomeNewVC: UIViewController {
     var page : Int = 0 {didSet{}}     // page 개수 관련 변수
     var curentpage : Int = 0
     
-    var flagInt:[Int] = [] {didSet{}}
-    var leftFlagInt:[Int] = [] {didSet{}}  // flag값
-    var rightFlagInt:[Int] = [] {didSet{}}  // flag값
+    var flagInt:[Int] = [] {didSet{print("flagInt잘 들어갔나?\(flagInt)")}}
+    var leftFlagInt:[Int] = [] {didSet{print("왼쪽 flagInt잘 들어갔나?\(leftFlagInt)")}}  // flag값
+    var rightFlagInt:[Int] = [] {didSet{print("오른쪽 flagInt잘 들어갔나?\(rightFlagInt)")}}  // flag값
     
     var leftValue = 0 {didSet{print("왼쪽 \(leftValue)")}}        // 몫 값
     var leftRemainder = 0 {didSet{}}    // 나머지 값
-    var rigntValue = 0 {didSet{}}        // 몫 값
+    var rigntValue = 0 {didSet{print("오른쪽 \(rigntValue)")}}        // 몫 값
     var rigntRemainder = 0 {didSet{}}    // 나머지 값
     
     // 사이드바 만든거 사용하기 위해
@@ -42,11 +42,11 @@ class HomeNewVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         getDataFromServer()
-        setimage()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
         homeListCollectionView.dataSource = self
         homeListCollectionView.delegate = self
+        setimage()
+        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
+        
         self.homeListCollectionView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -94,8 +94,7 @@ class HomeNewVC: UIViewController {
 
     
     func setimage(){
-            leftFlagInt = []   // flag값
-            rightFlagInt = []   // flag값
+
             for i in 0..<self.flagInt.count {
                 if i%2 == 0{
                     self.leftFlagInt.append(self.flagInt[i])
@@ -103,15 +102,17 @@ class HomeNewVC: UIViewController {
                     self.rightFlagInt.append(self.flagInt[i])
                 }
             }
-            print("값 들어온거 맞냐?\(self.leftFlagInt)")
     }
     
     func onOff(flagInt : Int) -> String{
+        
         if flagInt == 1{
             let on : String = "homeIcAble"
+            print("on 됐어")
             return on
         }else if flagInt == 0{
             let off : String = "homeIcUnable"
+            print("off 됐어")
             return off
         }else{
             let aaa : String = "24"
@@ -204,6 +205,9 @@ class HomeNewVC: UIViewController {
                 guard let dt = data as? HomeItemclass else {
                     return }
                 self.checkOrderInfo = dt.result
+                self.flagInt = []
+                self.leftFlagInt = []   // flag값
+                self.rightFlagInt = []   // flag값
                 self.leftCheckOrderInfo = []
                 self.rightCheckOrderInfo = []
                 for i in 0..<self.checkOrderInfo.count {
@@ -316,6 +320,7 @@ class HomeNewVC: UIViewController {
     private func makeShadowUnderView() {
         
         detailButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        detailButton.layer.cornerRadius = 10
         detailButton.layer.shadowOpacity = 0.1
         detailButton.layer.shadowRadius = 8// 퍼지는 정도
         detailButton.layer.cornerRadius = 14
@@ -347,7 +352,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                             listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
                         }
                     }
-                }else if leftRemainder == 6{
+                }else if leftRemainder == 0 && leftValue == 0{
                     print("잘 진짜 들어 왔어?\(leftRemainder)")
                     for i in 0..<leftRemainder+1{
                         if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
@@ -455,6 +460,7 @@ extension HomeNewVC: UICollectionViewDataSource{
         
         // 오른쪽 값, page가 하나일 때
         if rigntValue == 0 {
+            
             // 나머지에 관하여 오른쪽 값
             if indexPath.item == rigntValue{
                 // rightReminder가 0일경우
@@ -465,7 +471,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                             listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
                         }
                     }
-                }else if rigntRemainder == 6{
+                }else if rigntRemainder == 0 && rigntValue == 0{
                     for i in 0..<rigntRemainder+1{
                         if listCell.rigntStackView[i].tag == i+1 {
                             listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i].itemName)"
@@ -486,6 +492,14 @@ extension HomeNewVC: UICollectionViewDataSource{
                             listCell.rigntStackView[i].text = " "
                             listCell.rigntStackImage[i].image = UIImage(named: "homeIcCheck")
                         }
+                    }
+                }
+            }else{
+                // 문제의 구간이 여기다!!!
+                for i in rigntRemainder..<7 {
+                    if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
+                        listCell.rigntStackView[i].text = " "
+                        listCell.rigntStackImage[i].image = UIImage(named: "homeIcCheck")
                     }
                 }
             }
@@ -536,8 +550,10 @@ extension HomeNewVC: UICollectionViewDataSource{
                 }
             // 나머지에 관하여 오른쪽 값
             if indexPath.item == rigntValue{
+                print("오른쪽 나머지 갑 \(rigntRemainder)")
                 // rightReminder가 0일경우
                 if rigntRemainder == 0 {
+                    print("여기서 오류났니?")
                     for i in rigntRemainder..<7 {
                         if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
                             listCell.rigntStackView[i].text = " "
@@ -568,7 +584,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                     }
                 }
             }else{
-                
+                print("오른쪽 나머지 값 else구문 \(rigntRemainder)")
             }
         }
 
