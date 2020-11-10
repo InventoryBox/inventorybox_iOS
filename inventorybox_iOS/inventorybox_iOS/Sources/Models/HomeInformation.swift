@@ -32,7 +32,9 @@ struct HomeItemclass: Codable {
 
 // MARK: - Result
 struct HomeItem: Codable {
+    let categoryIdx : Int
     let itemIdx : Int
+    var categoryName : String
     var flag: Int
     let itemName, unit: String
     var alarmCnt: Int
@@ -42,3 +44,22 @@ struct HomeItem: Codable {
     let stocksInfo: [Int]
 }
 
+//"categoryIdx": 64,
+//            "itemIdx": 117,
+//            "categoryName": "채소",
+//            "flag": 1,
+//            "itemName": "당근",
+//            "unit": "캐럿",
+//            "alarmCnt": 5,
+//            "memoCnt": 7,
+//            "presentCnt": 1,
+//            "img": "https://inventorybox.s3.ap-northeast-2.amazonaws.com/icon/ic_carrot.png",
+//            "iconName": "carrot",
+//            "lastDay": 2,
+//            "stocksInfo": [
+//                1,
+//                12,
+//                -1,
+//                -1,
+//                -1
+//            ]
