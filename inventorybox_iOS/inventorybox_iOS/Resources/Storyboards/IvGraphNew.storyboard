@@ -57,13 +57,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHa-sR-PDg">
-                                                            <rect key="frame" x="38" y="16" width="29.5" height="18"/>
+                                                            <rect key="frame" x="38" y="16" width="28" height="19"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="16"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ac-ut-9rN">
-                                                            <rect key="frame" x="224.5" y="18" width="106.5" height="20"/>
+                                                            <rect key="frame" x="226.5" y="18" width="104.5" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발주 알림 개수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGM-q9-hw0">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="20"/>
@@ -75,13 +75,13 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d9-HP-QKH">
-                                                                    <rect key="frame" x="64" y="0.0" width="19" height="20"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="17" height="20"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="15"/>
                                                                     <color key="textColor" red="0.50588235290000005" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postBtnDetail" translatesAutoresizingMaskIntoConstraints="NO" id="8qg-yJ-JDe">
-                                                                    <rect key="frame" x="86.5" y="0.0" width="20" height="20"/>
+                                                                    <rect key="frame" x="84.5" y="0.0" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="dR3-KX-Feg"/>
                                                                     </constraints>
@@ -167,7 +167,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1S3-rW-AYd">
-                                <rect key="frame" x="0.0" y="44" width="375" height="139"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCN-Qx-kTH">
                                         <rect key="frame" x="23" y="27" width="42" height="37"/>
@@ -176,10 +176,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="dataShapeDivide01" translatesAutoresizingMaskIntoConstraints="NO" id="eBW-YQ-JD3">
-                                        <rect key="frame" x="79" y="42" width="2" height="25"/>
+                                        <rect key="frame" x="79" y="42" width="2" height="26"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첫째주" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhU-r3-x0q">
-                                        <rect key="frame" x="22" y="65" width="44" height="14.5"/>
+                                        <rect key="frame" x="22" y="65" width="44" height="15.5"/>
                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="13"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.2784313725" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -254,7 +254,7 @@
                                         </cells>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aON-1K-9WN">
-                                        <rect key="frame" x="23" y="96.5" width="349" height="42.5"/>
+                                        <rect key="frame" x="23" y="97.5" width="349" height="42.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42.5" id="Yv3-JE-F5g"/>
@@ -483,7 +483,7 @@
                                                     <rect key="frame" x="16" y="16" width="2" height="13"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rla-zd-u9r">
-                                                    <rect key="frame" x="24" y="36.5" width="15" height="14"/>
+                                                    <rect key="frame" x="24" y="36.5" width="13.5" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="585-r9-I5s"/>
                                                     </constraints>
@@ -514,7 +514,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUU-mu-HX4">
-                                                    <rect key="frame" x="39" y="36.5" width="11" height="14"/>
+                                                    <rect key="frame" x="37.5" y="36.5" width="11" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="bVx-Oz-ay1"/>
                                                     </constraints>
@@ -523,13 +523,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBG-Iy-Qk1">
-                                                    <rect key="frame" x="50" y="36.5" width="15" height="14"/>
+                                                    <rect key="frame" x="48.5" y="36.5" width="13.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                     <color key="textColor" name="mediumGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-qJ-EEY">
-                                                    <rect key="frame" x="76" y="36.5" width="8" height="14"/>
+                                                    <rect key="frame" x="73" y="36.5" width="8" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="m93-Rj-dj4"/>
                                                     </constraints>
@@ -538,7 +538,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CC-OS-SGK">
-                                                    <rect key="frame" x="125" y="36.5" width="11" height="14"/>
+                                                    <rect key="frame" x="119" y="36.5" width="11" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="8Ib-36-M23"/>
                                                     </constraints>
@@ -547,13 +547,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKU-tq-bHX">
-                                                    <rect key="frame" x="110" y="36.5" width="15" height="14"/>
+                                                    <rect key="frame" x="105.5" y="36.5" width="13.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                     <color key="textColor" name="mediumGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMs-GF-ipp">
-                                                    <rect key="frame" x="99" y="36.5" width="11" height="14"/>
+                                                    <rect key="frame" x="94.5" y="36.5" width="11" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="rvh-oE-vt7"/>
                                                     </constraints>
@@ -562,13 +562,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3II-fw-PbT">
-                                                    <rect key="frame" x="84" y="36.5" width="15" height="14"/>
+                                                    <rect key="frame" x="81" y="36.5" width="13.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                     <color key="textColor" name="mediumGrey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ko-OY-lyH">
-                                                    <rect key="frame" x="65" y="36.5" width="11" height="14"/>
+                                                    <rect key="frame" x="62" y="36.5" width="11" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="11" id="VSq-pz-CVZ"/>
                                                     </constraints>
@@ -641,7 +641,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주간별 재고량 비교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-a0-TUL">
-                                                    <rect key="frame" x="16" y="24" width="124.5" height="18"/>
+                                                    <rect key="frame" x="16" y="24" width="120" height="18"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="16"/>
                                                     <color key="textColor" name="greyisbrown"/>
                                                     <nil key="highlightedColor"/>
@@ -875,7 +875,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 계절 또는 분기에 따른 재고량 추이를 파악하는데 용이합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvM-jM-wT2">
-                                                    <rect key="frame" x="16" y="47" width="285.5" height="13"/>
+                                                    <rect key="frame" x="16" y="47" width="272" height="13"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="13" id="RQX-2o-3rv"/>
                                                     </constraints>
@@ -962,7 +962,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="993-kW-Ggt">
-                                                    <rect key="frame" x="315" y="16" width="44" height="26"/>
+                                                    <rect key="frame" x="317" y="16" width="42" height="26"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="12"/>
                                                     <state key="normal" title="메모수정">
                                                         <color key="titleColor" systemColor="viewFlipsideBackgroundColor"/>
@@ -984,7 +984,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="발주 수량 메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0Y-JD-uu2">
-                                                    <rect key="frame" x="219" y="57" width="72" height="16"/>
+                                                    <rect key="frame" x="219" y="57" width="69" height="16"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="12"/>
                                                     <color key="textColor" name="greyisbrown"/>
                                                     <nil key="highlightedColor"/>
@@ -1003,7 +1003,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="덩어리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M30-4B-eTK">
-                                                    <rect key="frame" x="292" y="91" width="30.5" height="13"/>
+                                                    <rect key="frame" x="292" y="91" width="29" height="13"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="11"/>
                                                     <color key="textColor" name="greyisbrown"/>
                                                     <nil key="highlightedColor"/>

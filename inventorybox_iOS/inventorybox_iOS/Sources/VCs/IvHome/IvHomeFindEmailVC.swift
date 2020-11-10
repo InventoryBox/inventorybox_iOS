@@ -119,10 +119,10 @@ class FindEmailVC : UIViewController, UITextFieldDelegate{
         case .success(let verify):
             
             guard let data = verify as? reciveEmailData else {return}
-            self.reciveEmail = data.email
+            self.reciveEmail = data.email[0].email
             self.useEmailLabel.text = self.reciveEmail
             self.useEmailLabel.textColor = .yellow
-            print(self.reciveEmail!)
+//            print(self.reciveEmail!)
             
         case .requestErr(let message):
             guard let message = message as? String else { return }
@@ -232,7 +232,11 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
 //    var verifyNumber: Int?
 //    var isChecked: Bool = false
 
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -310,8 +314,8 @@ class FindPasswordVC : UIViewController, UITextFieldDelegate{
     
     // 비밀번호 변경
     @IBAction func changePasswordButtonPressed(_ sender: Any) {
-        if let pw = password {
-            PasswordChangePutService.shared.changePassword(password: pw) { (networkResult) in
+        if let email = emailTextField.text, let pw = password {
+            PasswordChangePutService.shared.changePassword(email: email ,password: pw) { (networkResult) in
                 switch networkResult {
                 case .success(let data):
                     print(data)

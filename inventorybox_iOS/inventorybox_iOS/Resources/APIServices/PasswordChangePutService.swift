@@ -12,12 +12,12 @@ import Alamofire
 struct PasswordChangePutService {
     static let shared = PasswordChangePutService()
     
-    func changePassword(password: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func changePassword(email: String, password: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
         let url = APIConstants.passwordChangeURL
-        let dataRequest = Alamofire.request(url, method: .put, parameters: ["updatedPassword": password], encoding: JSONEncoding.default, headers: header)
+        let dataRequest = Alamofire.request(url, method: .put, parameters: ["email": email,"updatedPassword": password], encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
