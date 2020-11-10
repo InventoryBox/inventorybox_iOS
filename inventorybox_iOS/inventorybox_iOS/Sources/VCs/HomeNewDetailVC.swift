@@ -74,7 +74,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.orderCheckInformations = dt.result
                 print(self.orderCheckInformations.count)
                 
-                for i in 0...self.orderCheckInformations.count - 1 {
+                for i in 0..<self.orderCheckInformations.count {
                     self.isOpen.append(HomeDetailInfoData(open: false, flagInt: orderCheckInformations[i].flag))
                 }
                 for i in 0..<self.orderCheckInformations.count{
