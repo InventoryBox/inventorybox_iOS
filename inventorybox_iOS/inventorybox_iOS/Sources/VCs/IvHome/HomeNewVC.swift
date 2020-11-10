@@ -143,6 +143,8 @@ class HomeNewVC: UIViewController {
         sideMenuBarVC.modalPresentationStyle = .overCurrentContext
         sideMenuBarVC.transitioningDelegate = self
         
+        self.tabBarController?.tabBar.isHidden = true
+        
         present(sideMenuBarVC, animated: true)
         
         // MARK: 회색 처리된 배경 누르면 dismiss 되게 만들기
@@ -159,6 +161,7 @@ class HomeNewVC: UIViewController {
         case .profile:
             guard let profileVC = self.storyboard?.instantiateViewController(identifier: "HomeSideProfileVC") as? HomeSideProfileVC else {return}
             
+            self.tabBarController?.tabBar.isHidden = false
             profileVC.modalPresentationStyle = .fullScreen
             self.present(profileVC, animated: true, completion: nil)
             
@@ -166,6 +169,7 @@ class HomeNewVC: UIViewController {
         case .myInfo:
             guard let myInfoVC = self.storyboard?.instantiateViewController(identifier: "MyInfoNC") as? MyInfoNC else {return}
             
+            self.tabBarController?.tabBar.isHidden = false
             myInfoVC.modalPresentationStyle = .fullScreen
             self.present(myInfoVC, animated: true, completion: nil)
             
@@ -173,6 +177,7 @@ class HomeNewVC: UIViewController {
         case .post:
             guard let userPostVC = self.storyboard?.instantiateViewController(identifier: "IvHomeSideUserPostVC") as? IvHomeSideUserPostVC else { return }
             
+            self.tabBarController?.tabBar.isHidden = false
             userPostVC.modalPresentationStyle = .fullScreen
             self.present(userPostVC, animated: true, completion: nil)
             
@@ -180,6 +185,7 @@ class HomeNewVC: UIViewController {
         case .change:
             guard let passwordChangeVC = self.storyboard?.instantiateViewController(identifier: "HomeSidePasswordChangeVC") as? HomeSidePasswordChangeVC else { return }
             
+            self.tabBarController?.tabBar.isHidden = false
             passwordChangeVC.modalPresentationStyle = .fullScreen
             self.present(passwordChangeVC, animated: true, completion: nil)
             
@@ -188,8 +194,9 @@ class HomeNewVC: UIViewController {
             let settingStoryboard = UIStoryboard.init(name: "HomeSetting", bundle: nil)
             
             guard let settingVC = settingStoryboard.instantiateViewController(identifier: "HomeSettingNC") as? HomeSettingNC else { return  }
-            settingVC.modalPresentationStyle = .fullScreen
             
+            self.tabBarController?.tabBar.isHidden = false
+            settingVC.modalPresentationStyle = .fullScreen
             self.present(settingVC, animated: true, completion: nil)
         }
         
@@ -197,6 +204,7 @@ class HomeNewVC: UIViewController {
     
     // objc 함수를 통해 행동을 정의
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        self.tabBarController?.tabBar.isHidden = false
         dismiss(animated: true, completion: nil)
     }
     
