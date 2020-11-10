@@ -53,12 +53,11 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDataFromServer()
+        
         // Do any additional setup after loading the view.
         //view에 shadow
         headerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         headerView.layer.shadowOpacity = 0.08
-        
         
         
         //collectionView 정의
@@ -82,6 +81,36 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         ivDataTableView.separatorStyle = .none
         self.navigationController?.navigationBar.isHidden = true
         
+        setWeekInfo()
+        
+        InventoryGraphHomeService.shared.loadHome { networkResult in
+            switch networkResult{
+            case .success(let token):
+                print("너는성공")
+                print("yaya",token)
+                guard let data = token as? ThisWeekData else {return}
+                self.tagArray = data.categoryInfo
+                self.tagCollectionView.reloadData()
+                self.dayList = data.thisWeekDates
+                self.itemList = data.itemInfo
+                
+                DispatchQueue.main.async {
+                    self.calendarCollectionView.reloadData()
+                    print("tagtag",self.tagArray)
+                    print("여기 dayList",self.dayList)
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+        print("Dddddddd")
         
         //categoryTabView.selectionLimit = 1
         itemFilteredArray = itemList
@@ -91,7 +120,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         print(itemList.count)
         print(tagArray.count)
         
-        setWeekInfo()
+        
     }
     
     
@@ -102,7 +131,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     func getDataFromServer(){
-        
+        print("why/./.?")
         InventoryGraphHomeService.shared.loadHome { networkResult in
             switch networkResult{
             case .success(let token):
