@@ -27,13 +27,12 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     private var itemList:[ItemInfo] = [] {
         didSet {
-            if !tagArray.isEmpty {
-                
-                tagCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
-                
-                collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-                print("HEEEEEEEELLLLLLOOOOOO")
-            }
+            print(tagArray)
+            tagCollectionView.reloadData()
+            tagCollectionView.delegate = self
+            tagCollectionView.dataSource = self
+            tagCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+            collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         }
     }
     
@@ -82,30 +81,13 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         ivDataTableView.separatorStyle = .none
         self.navigationController?.navigationBar.isHidden = true
         
-        
-        //categoryTabView.selectionLimit = 1
-        itemFilteredArray = itemList
-        
-        
-        getDataFromServer()
-        print(dayList.count)
-        print(itemList.count)
-        
         setWeekInfo()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    
-    func getDataFromServer(){
         
         InventoryGraphHomeService.shared.loadHome { networkResult in
             switch networkResult{
             case .success(let token):
-                print(token)
+                print("너는성공")
+                print("yaya",token)
                 guard let data = token as? ThisWeekData else {return}
                 self.tagArray = data.categoryInfo
                 self.tagCollectionView.reloadData()
@@ -114,6 +96,56 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 
                 DispatchQueue.main.async {
                     self.calendarCollectionView.reloadData()
+                    print("tagtag",self.tagArray)
+                    print("여기 dayList",self.dayList)
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+        
+        print("Dddddddd")
+        
+        //categoryTabView.selectionLimit = 1
+        itemFilteredArray = itemList
+        
+        
+        print(dayList.count)
+        print(itemList.count)
+        print(tagArray.count)
+        
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        getDataFromServer()
+    }
+    
+    
+    func getDataFromServer(){
+        print("why/./.?")
+        InventoryGraphHomeService.shared.loadHome { networkResult in
+            switch networkResult{
+            case .success(let token):
+                print("너는성공")
+                print("yaya",token)
+                guard let data = token as? ThisWeekData else {return}
+                self.tagArray = data.categoryInfo
+                self.tagCollectionView.reloadData()
+                self.dayList = data.thisWeekDates
+                self.itemList = data.itemInfo
+                
+                DispatchQueue.main.async {
+                    self.calendarCollectionView.reloadData()
+                    print("tagtag",self.tagArray)
                     print("여기 dayList",self.dayList)
                 }
             case .requestErr(let message):
@@ -165,8 +197,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
-            print(dayList.count)
-            print("여기댜!!!!!!")
             return dayList.count
         }
         
@@ -216,8 +246,20 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return cell
         }
-        
-        
+
+        else if collectionView == tagCollectionView {
+            print("hihihi")
+            let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
+            print(tagArray,"ffff")
+            tagCell.bind(model: tagArray[indexPath.row])
+            
+            tagCell.layer.cornerRadius = 11
+            tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
+            tagCell.layer.borderWidth = 0.5
+            
+            return tagCell
+        }
+  
         return UICollectionViewCell()
     }
     
@@ -234,11 +276,12 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         
         //셀 재사용 문제 해결하기
-        
         if indexPath.row == 0 {
             
             guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "headerCell",for: indexPath) as? IvTVHeaderCell else {return UITableViewCell()}
             cell2.ivItemTVheaderLabel.textColor = .noname
+            cell2.selectionStyle = .none
+            cell2.isUserInteractionEnabled = false
             
             return cell2
         }
@@ -247,10 +290,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataCell", for:indexPath) as? IvGraphTVCell else {return UITableViewCell()}
             cell.removeLimitLine()
             cell.bind(model: itemFilteredArray[indexPath.row - 1])
-            //            if((cell.accessCell?.stocks[indexPath.row])! < 1){
-            //                cell.accessCell?.stocks[indexPath.row] = 0
-            //            }
-            
             
             return cell
         }
@@ -271,7 +310,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         
         guard let detailViewController = self.storyboard?.instantiateViewController(identifier:
                                                                                         "IvDetailGraphVC") as? IvDetailGraphVC else { return }
@@ -321,10 +359,8 @@ extension IvGraphVC: UICollectionViewDelegateFlowLayout {
                 }
                 
                 ivDataTableView.reloadData()
-                
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -335,8 +371,5 @@ extension IvGraphVC: UICollectionViewDelegateFlowLayout {
          return CGSize(width: self.view.frame.width, height: 24)
     }
 }
-
-
-
 
 

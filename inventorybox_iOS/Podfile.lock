@@ -5,10 +5,10 @@ PODS:
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
   - DynamicCodable (1.0)
-  - Kingfisher (5.14.1):
-    - Kingfisher/Core (= 5.14.1)
-  - Kingfisher/Core (5.14.1)
-  - lottie-ios (3.1.8)
+  - Kingfisher (5.15.7):
+    - Kingfisher/Core (= 5.15.7)
+  - Kingfisher/Core (5.15.7)
+  - lottie-ios (3.1.9)
   - RxAlamofire (5.1.0):
     - RxAlamofire/Core (= 5.1.0)
   - RxAlamofire/Core (5.1.0):
@@ -56,8 +56,8 @@ SPEC CHECKSUMS:
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
-  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxKakaoSDKCommon: 2e2b363607ea1fd3ab9955ed060b12c2195eb777
@@ -67,4 +67,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 863fa4b816cff58bf4aa52c7e530bebca5410e83
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

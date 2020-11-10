@@ -13,7 +13,6 @@ struct IvRecordAddIvPostService {
     static let shared = IvRecordAddIvPostService()
     
     private func makeParameter(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int) -> Parameters{
-        
         return
             ["name": name,
              "unit": unit,
@@ -21,6 +20,7 @@ struct IvRecordAddIvPostService {
              "memoCnt": memoCnt,
              "iconIdx": iconIdx,
              "categoryIdx": categoryIdx]
+        
     }
     
     func getRecordAddIvPost(name: String, unit: String, alarmCnt: Int, memoCnt: Int, iconIdx: Int, categoryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {

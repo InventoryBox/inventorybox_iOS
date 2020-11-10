@@ -14,8 +14,8 @@
         <array key="NanumSquareB.ttf">
             <string>NanumSquareB</string>
         </array>
-        <array key="NanumSquareR.ttf">
-            <string>NanumSquareR</string>
+        <array key="NanumSquareEB.ttf">
+            <string>NanumSquareEB</string>
         </array>
     </customFonts>
     <scenes>
@@ -46,13 +46,13 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-Va-xD1">
                                                 <rect key="frame" x="199" y="5.6666666666666643" width="30" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-Zq-xF1">
                                                 <rect key="frame" x="199" y="12" width="30" height="33"/>
-                                                <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="18"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -111,7 +111,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYb-kj-a6L">
                                                             <rect key="frame" x="20" y="5" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="11"/>
                                                             <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -238,6 +238,7 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJC-cB-hFm">
                                                     <rect key="frame" x="336.66666666666669" y="2.6666666666666679" width="79.333333333333314" height="30.000000000000004"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="15"/>
                                                     <connections>
                                                         <action selector="goToIvRecordEditProduct:" destination="Qte-JJ-zsG" eventType="touchUpInside" id="rUm-nD-1Ee"/>
                                                     </connections>
@@ -276,8 +277,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJY-1F-dpY">
-                                                                    <rect key="frame" x="30.666666666666664" y="63" width="21" height="15"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="30.666666666666664" y="63" width="21" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -308,14 +309,14 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcf-yZ-82f">
-                                                            <rect key="frame" x="156" y="54" width="18" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <rect key="frame" x="156" y="54" width="17.333333333333343" height="11.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pM7-Dw-tfc">
-                                                            <rect key="frame" x="121.66666666666666" y="50" width="21" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <rect key="frame" x="121.66666666666666" y="51" width="21" height="14"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -327,7 +328,7 @@
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rym-Z9-uEf">
                                                                     <rect key="frame" x="10.666666666666686" y="15" width="27" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -345,8 +346,8 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재고량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76T-CV-EZD">
-                                                            <rect key="frame" x="340" y="69" width="32" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <rect key="frame" x="340.33333333333331" y="69" width="31.333333333333314" height="14"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -459,6 +460,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="49" id="y5e-MT-etg"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="15"/>
                                         <state key="normal" title="선택">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -466,11 +468,8 @@
                                             <action selector="selectDate:" destination="dmv-3A-jmW" eventType="touchUpInside" id="llV-w4-vGA"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Jz-tSR">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Jz-tSR">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="228"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="615842529.50444996">
-                                            <!--2020-07-07 19:22:09 +0000-->
-                                        </date>
                                         <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
                                             <!--2037-12-31 11:00:00 +0000-->
                                         </date>
