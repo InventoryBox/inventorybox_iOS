@@ -28,7 +28,6 @@ class SelectCategoryCell: UITableViewCell {
                 roundView.backgroundColor = .white
                 selectBtn.isEnabled = true
             }
-            
         }
     }
     

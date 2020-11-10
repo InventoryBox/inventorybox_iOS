@@ -19,11 +19,11 @@ struct emailAuthService {
             [ "sendEmail": data ]
     }
     
-    func getRecordEditIvPost(data: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getRecordEditIvPost(from: String, data: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
         
-        let url = APIConstants.emailURL
+        let url = from == "signup" ? APIConstants.emailURL : APIConstants.emailChecklURL
         
         let dataRequest = Alamofire.request(url, method: .post, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
         

@@ -18,20 +18,26 @@ class ProfileSetUpVC: UIViewController,UIImagePickerControllerDelegate, UINaviga
     var profileImgName:String = ""
     var appdelegate = UIApplication.shared.delegate as? AppDelegate
     var nicknameCheck:Bool?
-    
+    var isImage: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setOutlets()
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        
+        nickNameTextField.delegate = self
+        
     }
     
     func setOutlets(){
         nickNameTextField.addLeftPadding2()
         nicknameCheckLabel.text = ""
-      
+        goToNextBtn.isEnabled = false
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
     
     @IBAction func setMyProfile() {
         let myPicker = UIImagePickerController()
@@ -46,6 +52,10 @@ class ProfileSetUpVC: UIViewController,UIImagePickerControllerDelegate, UINaviga
             profileImgName = url.lastPathComponent
             profileImg = image
             self.profileImage.setImage(profileImg, for: .normal)
+            isImage = true
+            if nickNameTextField.text != "" {
+                goToNextBtn.isEnabled = true
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -92,4 +102,15 @@ class ProfileSetUpVC: UIViewController,UIImagePickerControllerDelegate, UINaviga
     }
     
 
+}
+
+extension ProfileSetUpVC: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if nickNameTextField.text != "" && isImage == true {
+            goToNextBtn.isEnabled = true
+        } else {
+            goToNextBtn.isEnabled = false
+        }
+        
+    }
 }

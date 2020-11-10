@@ -9,7 +9,7 @@
 import Foundation
 
 struct APIConstants {
-    static let baseURL = "http://ec2-3-35-39-236.ap-northeast-2.compute.amazonaws.com:3000/"
+    static let baseURL = "https://ec2.inventoryboxserver.com/"
     
     
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
@@ -21,6 +21,10 @@ struct APIConstants {
     static let signupURL = baseURL + "auth/signup"
     // 닉네임 중복 체크
     static let nicknameCheckURL = baseURL + "auth/nickname"
+    // 이메일 찾기 이메일 인증
+    static let emailChecklURL = baseURL + "auth/email/setpw"
+    // 이메일 찾기
+    static let findEmailURL = baseURL + "auth/find-email"
     
     // Home
      static let ivHomeURL = baseURL + "item/order" //
@@ -78,5 +82,7 @@ struct APIConstants {
     static let ivExchangeSearchURL = baseURL + "exchange/search/"
     
     static let ivExchangeUpdateAddress = baseURL + "exchange/modifyLoc"
+    
+   
 }
 

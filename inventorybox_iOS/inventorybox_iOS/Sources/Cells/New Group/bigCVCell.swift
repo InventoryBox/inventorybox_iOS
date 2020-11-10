@@ -138,7 +138,10 @@ class bigCVCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionV
 //                return rightCheckOrderInfoInCell.count
 //            }
 //        }
-//        
+//
+        if section == 0{
+            
+        }
         if collectionView == homeLeftCV {
             if customLeftData.count < 7 {
                 print(customLeftData.count)
@@ -151,10 +154,6 @@ class bigCVCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionV
                 return customRightData.count
             }
         }
-        
-        
-        
-        
         return customRightData.count
     }
     

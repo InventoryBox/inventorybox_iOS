@@ -11,5 +11,6 @@ import Foundation
 struct HomeDetailInfoData: Codable {
 
     var open = false
+    var flagInt = 0
     
 }
