@@ -15,14 +15,35 @@ class IvEditTVCell: UITableViewCell, UITextFieldDelegate {
     var alert:UIAlertController!
     var itemIdx:Int?
 
-    @IBOutlet var alarmCntTextField: UITextField!
-    @IBOutlet var memoCntTextField: UITextField!
+    var alarmCnt:Int? = 0
+    var memoCnt:Int? = 0
+    
+    @IBOutlet var alarmCntTextField: UITextField!{
+        didSet{
+            alarmCntTextField.text = "\(alarmCnt)"
+        }
+    }
+    @IBOutlet var memoCntTextField: UITextField!{
+        didSet{
+            memoCntTextField.text = "\(memoCnt)"
+        }
+    }
+    
     @IBOutlet var alarmUnitLabel: UILabel!
     @IBOutlet var memoUnitLabel: UILabel!
-    var alarmCnt:Int? = nil
-    var memoCnt:Int? = nil
+   
     
-    
+
+    override func awakeFromNib() {
+        alarmCntTextField.delegate = self
+        memoCntTextField.delegate = self
+        
+        guard let alarmCount = alarmCnt else {return}
+        guard let memoCount = memoCnt else {return}
+        
+        alarmCntTextField.text = "\(alarmCount)"
+        memoCntTextField.text = "\(memoCount)"
+    }
     
     
     override func prepareForReuse() {

@@ -201,16 +201,16 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         if index!.row == index!.row {
             if index!.row == 0 {
-                 
+
                 if isOpen[index!.section].open == true {
-                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMore"), for: .normal)
-                    
+//                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMore"), for: .normal)
+
                     let section = IndexSet.init(integer: indexPath!.section)
                     homeDetailTV.reloadSections(section, with: .fade)
                     isOpen[index!.section].open = false
-                    
+
                 }else {
-                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMoreClose"), for: .normal)
+//                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMoreClose"), for: .normal)
                     let section = IndexSet.init(integer: indexPath!.section)
                     homeDetailTV.reloadSections(section, with: .fade)
                     isOpen[index!.section].open = true

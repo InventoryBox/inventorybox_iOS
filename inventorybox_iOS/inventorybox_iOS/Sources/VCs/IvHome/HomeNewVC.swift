@@ -18,7 +18,7 @@ class HomeNewVC: UIViewController {
     var page : Int = 0 {didSet{}}     // page 개수 관련 변수
     var curentpage : Int = 0
     
-    var flagInt:[Int] = [] {didSet{}}
+    var flagInt:[Int] = [] {didSet{print("flagInt잘 들어갔나?\(flagInt)")}}
     var leftFlagInt:[Int] = [] {didSet{}}  // flag값
     var rightFlagInt:[Int] = [] {didSet{}}  // flag값
     
@@ -42,11 +42,10 @@ class HomeNewVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         getDataFromServer()
-        setimage()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
         homeListCollectionView.dataSource = self
         homeListCollectionView.delegate = self
+        setimage()
+        NotificationCenter.default.addObserver(self, selector: #selector(allflag), name: .init("allflage"), object: nil)
         self.homeListCollectionView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -58,8 +57,6 @@ class HomeNewVC: UIViewController {
         pages()
 
         self.navigationController?.navigationBar.isHidden = true
-        
-
     }
 
     // 날짜정보 입력하기
@@ -107,6 +104,7 @@ class HomeNewVC: UIViewController {
     }
     
     func onOff(flagInt : Int) -> String{
+        print("onoff 됐니?? 확실히?")
         if flagInt == 1{
             let on : String = "homeIcAble"
             return on
@@ -347,7 +345,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                             listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
                         }
                     }
-                }else if leftRemainder == 6{
+                }else if leftRemainder == 0 && leftValue == 0{
                     print("잘 진짜 들어 왔어?\(leftRemainder)")
                     for i in 0..<leftRemainder+1{
                         if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
@@ -465,7 +463,7 @@ extension HomeNewVC: UICollectionViewDataSource{
                             listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
                         }
                     }
-                }else if rigntRemainder == 6{
+                }else if rigntRemainder == 0 && rigntValue == 0{
                     for i in 0..<rigntRemainder+1{
                         if listCell.rigntStackView[i].tag == i+1 {
                             listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i].itemName)"
@@ -608,5 +606,3 @@ extension HomeNewVC : UIViewControllerTransitioningDelegate{
         return transition
     }
 }
-
-
