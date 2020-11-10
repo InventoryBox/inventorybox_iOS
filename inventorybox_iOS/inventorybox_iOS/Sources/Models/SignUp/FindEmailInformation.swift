@@ -25,8 +25,12 @@ struct FindEmailInformation : Codable {
     }
 }
 
-
-// MARK: - DataClass
+// MARK: - reciveEmailData
 struct reciveEmailData: Codable {
+    let email: [Email]
+}
+
+// MARK: - Email
+struct Email: Codable {
     let email: String
 }

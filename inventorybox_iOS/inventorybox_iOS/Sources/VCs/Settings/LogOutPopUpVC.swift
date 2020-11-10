@@ -30,7 +30,11 @@ class LogOutPopUpVC: UIViewController {
     
     @IBAction func loggingOut(_ sender: UIButton) {
         
-        NotificationCenter.default.post(name: .init("logout"), object: nil)
+        UserDefaults.standard.removeObject(forKey: "id")
+        UserDefaults.standard.removeObject(forKey: "pw")
+        print("자동로그인 삭제")
         
+        NotificationCenter.default.post(name: .init("logout"), object: nil)
+       
     }
 }

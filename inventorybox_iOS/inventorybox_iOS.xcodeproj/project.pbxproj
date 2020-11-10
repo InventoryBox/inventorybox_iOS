@@ -109,6 +109,9 @@
 		33C2DD6E2528E88900E02891 /* HomeNewDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD6D2528E88900E02891 /* HomeNewDetailTVCell.swift */; };
 		33C2DD712528E90900E02891 /* HomeNewDetailContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD702528E90900E02891 /* HomeNewDetailContentTVCell.swift */; };
 		33D4146625597F30001A241A /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D4146525597F30001A241A /* IvRecord.storyboard */; };
+		33D41467255AA2D5001A241A /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */; };
+		33D41468255AA2D8001A241A /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */; };
+		33D41469255AA2DA001A241A /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6824F1632500D3E868 /* NanumSquareB.ttf */; };
 		33E4331F2520ACB800138E60 /* HomePageControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4331E2520ACB800138E60 /* HomePageControlDelegate.swift */; };
 		33FE72112534551300BD19EE /* IvGraphMemoModifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE72102534551300BD19EE /* IvGraphMemoModifyService.swift */; };
 		C4135CF8900284C56750FDDB /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F369465A0C8D0B4694130DA7 /* Pods_inventorybox_iOS.framework */; };
@@ -1266,6 +1269,7 @@
 			files = (
 				3343299025542005008F3C7D /* NewNewHome.storyboard in Resources */,
 				339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */,
+				33D41469255AA2DA001A241A /* NanumSquareB.ttf in Resources */,
 				33D4146625597F30001A241A /* IvRecord.storyboard in Resources */,
 				D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */,
 				D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */,
@@ -1276,6 +1280,7 @@
 				33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */,
 				D4558A8D24C166E600A1ACB5 /* logo.json in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
+				33D41468255AA2D8001A241A /* NanumSquareEB.ttf in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
 				D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */,
 				D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */,
@@ -1284,6 +1289,7 @@
 				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
 				D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
+				33D41467255AA2D5001A241A /* NanumSquareR.ttf in Resources */,
 				D41D5391252B6C0900673978 /* HomeSetting.storyboard in Resources */,
 				D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */,
 			);

@@ -112,8 +112,8 @@ class HomeSidePasswordChangeVC: UIViewController {
     }
     
     @IBAction func changePasswordButtonPressed(_ sender: UIButton) {
-        if let pw = password {
-            PasswordChangePutService.shared.changePassword(password: pw) { (networkResult) in
+        if let email = emailTextField.text, let pw = password {
+            PasswordChangePutService.shared.changePassword(email: email, password: pw) { (networkResult) in
                 switch networkResult {
                 case .success(let data):
                     print(data)
@@ -148,7 +148,7 @@ class HomeSidePasswordChangeVC: UIViewController {
             
             self.verifyStackView.isHidden = false
             
-            emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
+            emailAuthService.shared.getRecordEditIvPost(from: "change", data: emailTextField.text!, completion: { networkResult in switch networkResult {
             
             case .success(let verify):
                 guard let data = verify as? reciveData else {return}

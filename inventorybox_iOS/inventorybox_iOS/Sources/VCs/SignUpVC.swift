@@ -110,7 +110,7 @@ class SignUpVC: UIViewController,UITextFieldDelegate {
     @IBAction func certifyPressBtn(_ sender: Any) {
         
         // 서버 통신 코드
-        emailAuthService.shared.getRecordEditIvPost(data: emailTextField.text!, completion: { networkResult in switch networkResult {
+        emailAuthService.shared.getRecordEditIvPost(from: "signup", data: emailTextField.text!, completion: { networkResult in switch networkResult {
         
         case .success(let verify):
             guard let data = verify as? reciveData else {return}

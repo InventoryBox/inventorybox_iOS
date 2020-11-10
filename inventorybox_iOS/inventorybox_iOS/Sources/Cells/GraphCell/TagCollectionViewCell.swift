@@ -16,12 +16,12 @@ class TagCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected {
                 print("select")
-                backgroundColor = .gray
+                backgroundColor = .greyishBrown
                 tagNameLabel.textColor = .white
             } else {
                 print("unselect")
                 backgroundColor = .white
-                tagNameLabel.textColor = .gray
+                tagNameLabel.textColor = .greyishBrown
             }
         }
     }

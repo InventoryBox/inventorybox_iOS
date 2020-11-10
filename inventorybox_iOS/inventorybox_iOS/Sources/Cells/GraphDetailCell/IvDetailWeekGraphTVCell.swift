@@ -27,6 +27,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet var ivChartView: BarChartView!
     @IBOutlet var roundView: UIView!
     private var limitLine: ChartLimitLine?
+    private var itemLimitCount:Int = 0
     private var stockArray:[Int] = [1,1,1,1,1,1,1]
     var itemIdx:Int?
     
@@ -75,6 +76,8 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         
         itemIdx = itemIndex
         weekInfoLabel.text = weekLabel
+        itemLimitCount = alarmCount
+        print("리미트",itemLimitCount)
         
         var dataPoints: [String] = ["일","월","화","수","목","금","토"]
         var dataEntries : [BarChartDataEntry] = []
@@ -146,6 +149,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
         limitLine = ll
         ivChartView.rightAxis.removeLimitLine(ll)
         ivChartView.rightAxis.addLimitLine(ll)
+        ivChartView.rightAxis.spaceBottom = 0.0
         ll.lineWidth = 0.3
     }
  
@@ -158,7 +162,7 @@ class IvDetailWeekGraphTVCell: UITableViewCell, ChartViewDelegate {
     
     
     func setColor(value: Double) -> UIColor {
-        if (value <= 3.0) {
+        if (value <= Double(itemLimitCount)) {
             return UIColor(red: 246.0 / 255.0, green: 187.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         }
         return UIColor(white: 206.0 / 255.0, alpha: 1.0)

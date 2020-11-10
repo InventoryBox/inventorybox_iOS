@@ -43,7 +43,7 @@ class IvHomeSideUserPostVC: UIViewController {
                 
                 self.postInformations = dt.result
                 
-                self.noView.isHidden = self.postInformations.count == 0 ? false : true
+//                self.noView.isHidden = self.postInformations.count == 0 ? false : true
                 
                 self.userPostTableView.reloadData()
             case .requestErr(let message):

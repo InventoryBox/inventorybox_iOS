@@ -25,9 +25,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     private var dayList: [String] = []
     
-    private var itemList:[ItemInfo] = []
-    
-    private var tagArray:[CategoryInfo] = [] {
+    private var itemList:[ItemInfo] = [] {
         didSet {
             print(tagArray)
             tagCollectionView.reloadData()
@@ -37,6 +35,8 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             collectionView(self.tagCollectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
         }
     }
+    
+    private var tagArray:[CategoryInfo] = []
     private var itemFilteredArray: [ItemInfo] = []
     private var selections = [String]()
     
@@ -53,11 +53,12 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getDataFromServer()
         // Do any additional setup after loading the view.
         //view에 shadow
         headerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         headerView.layer.shadowOpacity = 0.08
+        
         
         
         //collectionView 정의
@@ -69,6 +70,9 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         //tableView
         ivDataTableView.delegate = self
         ivDataTableView.dataSource = self
+        
+        tagCollectionView.delegate = self
+        tagCollectionView.dataSource = self
         
         
         //item 데이터 setting
@@ -83,7 +87,6 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         itemFilteredArray = itemList
         
         
-        getDataFromServer()
         print(dayList.count)
         print(itemList.count)
         print(tagArray.count)
@@ -106,9 +109,11 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 print("너는성공")
                 print("yaya",token)
                 guard let data = token as? ThisWeekData else {return}
+                self.tagArray = data.categoryInfo
+                self.tagCollectionView.reloadData()
                 self.dayList = data.thisWeekDates
                 self.itemList = data.itemInfo
-                self.tagArray = data.categoryInfo
+                
                 DispatchQueue.main.async {
                     self.calendarCollectionView.reloadData()
                     print("tagtag",self.tagArray)
@@ -174,8 +179,20 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView === tagCollectionView {
+            print("tagCollectionViewtagCollectionViewtagCollectionView")
+            let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
+            
+            tagCell.bind(model: tagArray[indexPath.row])
+            tagCell.layer.cornerRadius = 11
+            tagCell.layer.borderColor = CGColor(srgbRed: 154/255, green: 154/255, blue: 154/255, alpha: 1.0)
+            tagCell.layer.borderWidth = 0.5
+            
+            return tagCell
+        }
         
         if collectionView == calendarCollectionView {
+            print("calendarCollectionViewcalendarCollectionViewcalendarCollectionView")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCVCell
             cell.dayLabel.text = dayList[indexPath.row]
             cell.dayOfWeekLabel.text = days[indexPath.row]
@@ -200,7 +217,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return cell
         }
-        
+
         else if collectionView == tagCollectionView {
             print("hihihi")
             let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionCell", for: indexPath) as! TagCollectionViewCell
@@ -213,8 +230,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             return tagCell
         }
-        
-        
+  
         return UICollectionViewCell()
     }
     
@@ -230,7 +246,7 @@ class IvGraphVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        
+        //셀 재사용 문제 해결하기
         if indexPath.row == 0 {
             
             guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "headerCell",for: indexPath) as? IvTVHeaderCell else {return UITableViewCell()}
@@ -318,22 +334,13 @@ extension IvGraphVC: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 24)
+         return CGSize(width: self.view.frame.width, height: 24)
     }
-    
-    
 }
-
-
-
-
-
-
 
 

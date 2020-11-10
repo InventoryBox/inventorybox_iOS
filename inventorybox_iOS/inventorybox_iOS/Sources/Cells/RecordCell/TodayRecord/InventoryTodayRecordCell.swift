@@ -42,7 +42,7 @@ class InventoryTodayRecordCell: UITableViewCell {
             } else {
                 inventoryCountTextField.text = ""
             }
-            
+            inventoryCountTextField.placeholder = "재고량 입력"
         }
     }
     
