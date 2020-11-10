@@ -38,9 +38,9 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.addObserver(self, selector: #selector(selectCheckBox), name: .init("checkBox"), object: nil)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        getDataFromServerLater()
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        getDataFromServerLater()
+//    }
     
     // 체크박스 관련 objc
         @objc func selectCheckBox(_ notification: Notification){
@@ -63,6 +63,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func getDataFromServer(){
+        
         
         HomeService.shared.getHome { [self] networkResult in
             switch networkResult{
@@ -138,6 +139,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        print(isOpen[section].open)
         if isOpen[section].open == true {
             return 1 + 1
         }else {
