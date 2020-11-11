@@ -55,7 +55,33 @@ class HomeEditTVCell: UITableViewCell {
             
         })
         
+        
+        HomeService.shared.getHome { [self] networkResult in
+            switch networkResult{
+            case .success(let data):
+                guard let dt = data as? HomeItemclass else {
+                    
+                    return }
+                self.orderCheckInformations = dt.result
+                print(self.orderCheckInformations.count)
+            
+                
+                DispatchQueue.main.async {
+                    print("잘오냐",self.orderCheckInformations)
+                }
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
+        
+
     
     @IBAction func clickPlusBtn(_ sender: UIButton) {
         plusInt = (itemCountTextField.text?.toInt()!)!
@@ -79,6 +105,28 @@ class HomeEditTVCell: UITableViewCell {
             }
             
         })
+        
+        HomeService.shared.getHome { [self] networkResult in
+            switch networkResult{
+            case .success(let data):
+                guard let dt = data as? HomeItemclass else {
+                    
+                    return }
+                self.orderCheckInformations = dt.result
+                print(self.orderCheckInformations.count)
+               
+                    print("잘오냐",self.orderCheckInformations)
+                
+            case .requestErr(let message):
+                guard let message = message as? String else {return}
+                print(message)
+            case .serverErr: print("serverErr")
+            case .pathErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
     
