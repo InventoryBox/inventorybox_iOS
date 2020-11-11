@@ -38,9 +38,9 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.addObserver(self, selector: #selector(selectCheckBox), name: .init("checkBox"), object: nil)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        getDataFromServerLater()
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        getDataFromServerLater()
+//    }
     
     // 체크박스 관련 objc
         @objc func selectCheckBox(_ notification: Notification){
@@ -64,6 +64,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func getDataFromServer(){
         
+        
         HomeService.shared.getHome { [self] networkResult in
             switch networkResult{
             case .success(let data):
@@ -73,7 +74,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.orderCheckInformations = dt.result
                 print(self.orderCheckInformations.count)
                 
-                for i in 0...self.orderCheckInformations.count - 1 {
+                for i in 0..<self.orderCheckInformations.count {
                     self.isOpen.append(HomeDetailInfoData(open: false, flagInt: orderCheckInformations[i].flag))
                 }
                 for i in 0..<self.orderCheckInformations.count{
@@ -138,6 +139,7 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        print(isOpen[section].open)
         if isOpen[section].open == true {
             return 1 + 1
         }else {
@@ -201,16 +203,16 @@ class HomeNewDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
         if index!.row == index!.row {
             if index!.row == 0 {
-                 
+
                 if isOpen[index!.section].open == true {
-                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMore"), for: .normal)
-                    
+//                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMore"), for: .normal)
+
                     let section = IndexSet.init(integer: indexPath!.section)
                     homeDetailTV.reloadSections(section, with: .fade)
                     isOpen[index!.section].open = false
-                    
+
                 }else {
-                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMoreClose"), for: .normal)
+//                    cell.homeMoreBtnImg.setImage(UIImage(named: "homeBtnMoreClose"), for: .normal)
                     let section = IndexSet.init(integer: indexPath!.section)
                     homeDetailTV.reloadSections(section, with: .fade)
                     isOpen[index!.section].open = true

@@ -32,8 +32,11 @@ class IvHomeEditVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     
+    
+    
     @IBAction func editCompleteBtn(_ sender: UIBarButtonItem) {
         
+      
         self.navigationController?.popViewController(animated: false)
     }
     
@@ -118,14 +121,9 @@ class IvHomeEditVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cell.removeLimitLine()
             cell.alarmCountLabel.text = "\(orderCheckInformations[indexPath.section].alarmCnt)"
             cell.bind(model: orderCheckInformations[indexPath.section])
-            
-           
-            
+               
             return cell
         }
-        
-        
-        
     }
     
  

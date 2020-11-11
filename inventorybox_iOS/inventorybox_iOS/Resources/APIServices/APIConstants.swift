@@ -11,7 +11,6 @@ import Foundation
 struct APIConstants {
     static let baseURL = "https://ec2.inventoryboxserver.com/"
     
-    
     static let kakaoURL = "https://dapi.kakao.com/v2/local/search/address.json"
     //로그인
     static let loginURL = baseURL + "auth/signin"

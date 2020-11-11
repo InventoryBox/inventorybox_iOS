@@ -8,21 +8,54 @@
 
 import UIKit
 
-class IvEditTVCell: UITableViewCell {
+
+class IvEditTVCell: UITableViewCell, UITextFieldDelegate {
     
+    var delegate: UIViewController?
+    var alert:UIAlertController!
     var itemIdx:Int?
 
-    @IBOutlet var alarmCntTextField: UITextField!
-    @IBOutlet var memoCntTextField: UITextField!
+    var alarmCnt:Int? = 0
+    var memoCnt:Int? = 0
+    
+    @IBOutlet var alarmCntTextField: UITextField!{
+        didSet{
+            alarmCntTextField.text = "\(alarmCnt)"
+        }
+    }
+    @IBOutlet var memoCntTextField: UITextField!{
+        didSet{
+            memoCntTextField.text = "\(memoCnt)"
+        }
+    }
+    
     @IBOutlet var alarmUnitLabel: UILabel!
     @IBOutlet var memoUnitLabel: UILabel!
-    var alarmCnt:Int?
-    var memoCnt:Int?
+   
+    
+
+    override func awakeFromNib() {
+        alarmCntTextField.delegate = self
+        memoCntTextField.delegate = self
+        
+        guard let alarmCount = alarmCnt else {return}
+        guard let memoCount = memoCnt else {return}
+        
+        alarmCntTextField.text = "\(alarmCount)"
+        memoCntTextField.text = "\(memoCount)"
+    }
     
     
     override func prepareForReuse() {
-        alarmCntTextField.text = "\(alarmCnt)"
-        memoCntTextField.text = "\(memoCnt)"
+        
+        alarmCntTextField.delegate = self
+        memoCntTextField.delegate = self
+        
+        guard let alarmCount = alarmCnt else {return}
+        guard let memoCount = memoCnt else {return}
+        
+        alarmCntTextField.text = "\(alarmCount)"
+        memoCntTextField.text = "\(memoCount)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,15 +64,22 @@ class IvEditTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    
     @IBAction func memoPost(_ sender: UIButton) {
         
         alarmCnt = alarmCntTextField.text?.toInt()
         memoCnt = memoCntTextField.text?.toInt()
         
+        
+        //옵셔널 해결하기
+        
         IvGraphMemoModifyService.shared.postGraphModify(itemIdx: itemIdx!, alarmCnt: alarmCnt!, memoCnt: memoCnt!, completion: { networkResult in
             switch networkResult{
             case .success(let data):
                 print(data)
+                
+                self.showAlert()
               
            
             case .requestErr(let message):
@@ -55,4 +95,17 @@ class IvEditTVCell: UITableViewCell {
         })
         
     }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "메모수정", message: "성공", preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+                    
+                }
+        alert.addAction(okAction)
+        delegate!.present(alert, animated: true, completion: nil)
+    }
+    
+  
+    
 }

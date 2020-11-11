@@ -9,6 +9,14 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareB.ttf">
+            <string>NanumSquareB</string>
+        </array>
+        <array key="NanumSquareR.ttf">
+            <string>NanumSquareR</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Iv Today RecordVC-->
         <scene sceneID="du3-CA-I13">
@@ -33,7 +41,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-fK-2iz">
                                                 <rect key="frame" x="187.5" y="12" width="0.0" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -48,7 +56,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-NB-xYb">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="24"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="26"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="7" id="JpG-QA-eg4">
                                             <size key="itemSize" width="66" height="23"/>
@@ -58,7 +66,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="Q8c-eZ-XgU" customClass="CategoryCell" customModule="inventorybox_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.5" width="66" height="23"/>
+                                                <rect key="frame" x="0.0" y="1.5" width="66" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9lL-bp-pD2">
                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="23"/>
@@ -66,7 +74,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tez-hq-5Qa">
                                                             <rect key="frame" x="20" y="5" width="27" height="12"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="10"/>
                                                             <color key="textColor" red="0.60392156860000001" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -91,7 +99,7 @@
                                     <constraint firstAttribute="trailing" secondItem="aoB-NB-xYb" secondAttribute="trailing" id="3Ga-eB-GHY"/>
                                     <constraint firstItem="C1w-Wr-Jgp" firstAttribute="leading" secondItem="NOT-Tx-I2E" secondAttribute="leading" id="8jg-Oh-IlY"/>
                                     <constraint firstAttribute="trailing" secondItem="C1w-Wr-Jgp" secondAttribute="trailing" id="IFr-Ka-qtk"/>
-                                    <constraint firstAttribute="bottom" secondItem="aoB-NB-xYb" secondAttribute="bottom" constant="8" id="IHg-cz-dOM"/>
+                                    <constraint firstAttribute="bottom" secondItem="aoB-NB-xYb" secondAttribute="bottom" constant="6" id="IHg-cz-dOM"/>
                                     <constraint firstItem="aoB-NB-xYb" firstAttribute="leading" secondItem="NOT-Tx-I2E" secondAttribute="leading" id="TWe-RC-KZs"/>
                                     <constraint firstItem="C1w-Wr-Jgp" firstAttribute="top" secondItem="NOT-Tx-I2E" secondAttribute="top" constant="3" id="aJg-5Y-HsW"/>
                                     <constraint firstAttribute="width" secondItem="NOT-Tx-I2E" secondAttribute="height" multiplier="375:87" id="rEg-dB-CtI"/>
@@ -156,8 +164,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-Z5-rek">
-                                                                    <rect key="frame" x="30.5" y="63" width="21" height="15"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <rect key="frame" x="30" y="63" width="22" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -177,7 +185,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="AbG-Da-iaO"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>

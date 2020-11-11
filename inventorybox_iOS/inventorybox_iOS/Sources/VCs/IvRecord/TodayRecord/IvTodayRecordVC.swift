@@ -218,7 +218,7 @@ extension IvTodayRecordVC: FilledTextFieldDelegate {
                 break
             }
         }
-        if (count > 0) {
+        if (count >= 0) {
             if !textFieldBoxSelections.contains(indexPath) {
                 textFieldBoxSelections.append(indexPath)
             }

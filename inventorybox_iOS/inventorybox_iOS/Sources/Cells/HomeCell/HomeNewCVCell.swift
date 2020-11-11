@@ -38,7 +38,7 @@ class HomeNewCVCell: UICollectionViewCell {
                 viewRadious.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                 viewRadious.layer.shadowOpacity = 0.1
                 viewRadious.layer.shadowRadius = 8// 퍼지는 정도
-                viewRadious.layer.cornerRadius = 10
+                viewRadious.layer.cornerRadius = 15
    }
 
 }

@@ -23,6 +23,9 @@ class SelectIconVC: UIViewController {
         naviBar?.layer.shadowRadius = 2
         naviBar?.layer.shadowOpacity = 0.16
         
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = ""
+        
         getDataFromServer()
     }
     

@@ -106,10 +106,12 @@ class HomeNewDetailContentTVCell: UITableViewCell {
         
         //print(model.stocks[1])
         
-        for i in 0..<model.stocksInfo.count {
-            chartDataSet.colors = [setColor(value: Double(model.stocksInfo[i]))]
-        }
-    
+        chartDataSet.colors = [setColor(value: Double(model.stocksInfo[0])),setColor(value: Double(model.stocksInfo[1])),setColor(value: Double(model.stocksInfo[2])),setColor(value: Double(model.stocksInfo[3])),setColor(value: Double(model.stocksInfo[4]))]
+        
+//        for i in 0..<model.stocksInfo.count {
+//            chartDataSet.colors = [setColor(value: Double(model.stocksInfo[i]))]
+//        }
+
     
         ivGraphView.data = chartData
         ivGraphView.xAxis.labelPosition = .bottom

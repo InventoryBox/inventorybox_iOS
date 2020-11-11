@@ -44,7 +44,6 @@
 		0E7AE804254EBED0004CA839 /* FindEmailInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AE803254EBED0004CA839 /* FindEmailInformation.swift */; };
 		0E7AE807254EEE7F004CA839 /* FindEmailNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AE806254EEE7F004CA839 /* FindEmailNVC.swift */; };
 		0E7AE80B254F07C7004CA839 /* FindEmailCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7AE80A254F07C7004CA839 /* FindEmailCheckService.swift */; };
-		0EB0CF4124B199F0009B089A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0CF4024B199F0009B089A /* Font.swift */; };
 		3332402124B4A61300C3B59C /* IvGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */; };
 		3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */; };
 		3332402B24B4A6D800C3B59C /* CalendarCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332402724B4A6D800C3B59C /* CalendarCVCell.swift */; };
@@ -70,6 +69,9 @@
 		3344F906250A5EAC00787DFC /* HomeMainRigntCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3344F905250A5EAC00787DFC /* HomeMainRigntCVCell.swift */; };
 		3344F908250AA17600787DFC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3344F907250AA17600787DFC /* DataModel.swift */; };
 		3344F90A250B54C400787DFC /* bigCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3344F909250B54C400787DFC /* bigCVCell.swift */; };
+		334C40722556476500F22CAC /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C40712556476500F22CAC /* InventoryCell.swift */; };
+		334C40742556477E00F22CAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C40732556477E00F22CAC /* SceneDelegate.swift */; };
+		334C40762556479100F22CAC /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C40752556479100F22CAC /* Font.swift */; };
 		334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F374C24C09877001D1B05 /* IvProductRegistVC.swift */; };
 		335889C424BCF38700DB2533 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C324BCF38700DB2533 /* TagCollectionViewCell.swift */; };
 		335889C624BCF3D300DB2533 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335889C524BCF3D300DB2533 /* TagModel.swift */; };
@@ -98,6 +100,7 @@
 		339E18CA252F502F00508A04 /* HomeEditTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18C9252F502F00508A04 /* HomeEditTVCell.swift */; };
 		339E18CD252F509700508A04 /* HomeEditContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18CC252F509700508A04 /* HomeEditContentTVCell.swift */; };
 		339E18D0252F6C7900508A04 /* BasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339E18CF252F6C7900508A04 /* BasicModel.swift */; };
+		33A64B20255578BD00722FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A6A47F252B2F48000B1D35 /* IvGraphNew.storyboard */; };
 		33A6A4F6252D1F3E000B1D35 /* IvHomeEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6A4F5252D1F3E000B1D35 /* IvHomeEditVC.swift */; };
 		33AB8D7025095BAF00D0C602 /* HomeJieunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB8D6F25095BAF00D0C602 /* HomeJieunVC.swift */; };
@@ -105,8 +108,13 @@
 		33C2DD6A2528E82F00E02891 /* HomeNewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD692528E82F00E02891 /* HomeNewDetailVC.swift */; };
 		33C2DD6E2528E88900E02891 /* HomeNewDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD6D2528E88900E02891 /* HomeNewDetailTVCell.swift */; };
 		33C2DD712528E90900E02891 /* HomeNewDetailContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2DD702528E90900E02891 /* HomeNewDetailContentTVCell.swift */; };
+		33D4146625597F30001A241A /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D4146525597F30001A241A /* IvRecord.storyboard */; };
+		33D41467255AA2D5001A241A /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */; };
+		33D41468255AA2D8001A241A /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */; };
+		33D41469255AA2DA001A241A /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D44FDA6824F1632500D3E868 /* NanumSquareB.ttf */; };
 		33E4331F2520ACB800138E60 /* HomePageControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E4331E2520ACB800138E60 /* HomePageControlDelegate.swift */; };
 		33FE72112534551300BD19EE /* IvGraphMemoModifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE72102534551300BD19EE /* IvGraphMemoModifyService.swift */; };
+		C4135CF8900284C56750FDDB /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F369465A0C8D0B4694130DA7 /* Pods_inventorybox_iOS.framework */; };
 		D409DF0524BC2972009AC0B6 /* IvExchangeSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */; };
 		D409DF0824BC30D6009AC0B6 /* KaKaoLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */; };
 		D409DF0A24BC3A6F009AC0B6 /* KaKaoLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */; };
@@ -145,7 +153,6 @@
 		D41D5375252B6A5B00673978 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D536A252B6A5B00673978 /* SettingCell.swift */; };
 		D41D5376252B6A5B00673978 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D536B252B6A5B00673978 /* MenuCell.swift */; };
 		D41D5391252B6C0900673978 /* HomeSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41D5390252B6C0900673978 /* HomeSetting.storyboard */; };
-		D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4260EF524B1744100CAA41B /* InventoryCell.swift */; };
 		D4311FEC24BAE791000C9B8B /* DeleteCategoryPopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */; };
 		D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FED24BAEFE4000C9B8B /* DeleteCategoryCell.swift */; };
 		D4311FF324BB12D5000C9B8B /* InventoryEditProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4311FF224BB12D5000C9B8B /* InventoryEditProductCell.swift */; };
@@ -173,9 +180,7 @@
 		D477F05F24B9D915003B7919 /* MoveCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477F05E24B9D915003B7919 /* MoveCategoryCell.swift */; };
 		D479508824BEF31F00588979 /* IvRecordEditIvService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D479508724BEF31F00588979 /* IvRecordEditIvService.swift */; };
 		D48417AC24AC55EB0064EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AB24AC55EB0064EE64 /* AppDelegate.swift */; };
-		D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */; };
 		D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B124AC55EB0064EE64 /* Main.storyboard */; };
-		D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48417B424AC55EC0064EE64 /* Assets.xcassets */; };
 		D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48417B624AC55EC0064EE64 /* LaunchScreen.storyboard */; };
 		D4933EFE24BD67E900FCB789 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4933EFD24BD67E900FCB789 /* CategoryCell.swift */; };
 		D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D494DEB325334E460006D6DC /* OnboardingTwoVC.swift */; };
@@ -209,7 +214,6 @@
 		D4B697BB24B3C4E7004DA305 /* IvTodayRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */; };
 		D4B697BF24B3C566004DA305 /* InventoryTodayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */; };
 		D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */; };
-		D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */; };
 		D4C6AB5B24BB8B79002C8F2D /* IvExchangeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */; };
 		D4D8F44824BB63D8008BF3AF /* IvRecordNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */; };
 		D4D8F44A24BB6A70008BF3AF /* IvExchangeNaviVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */; };
@@ -234,11 +238,9 @@
 		D4ED3EAD2535818B00C39EED /* ProfilePutInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */; };
 		D4FBA31D24C0741800B939E0 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31C24C0741800B939E0 /* CategoryService.swift */; };
 		D4FBA31F24C0749100B939E0 /* IvRecordCategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */; };
-		EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E008719252BA319004689C7 /* IvHomeSideUserPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IvHomeSideUserPostVC.swift; path = inventorybox_iOS/Sources/VCs/IvHome/IvHomeSideUserPostVC.swift; sourceTree = SOURCE_ROOT; };
 		0E008721252BA476004689C7 /* IvHomeSideUserPostTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostTVCell.swift; sourceTree = "<group>"; };
 		0E008725252BA481004689C7 /* IvHomeSideUserPostCompleteTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvHomeSideUserPostCompleteTVCell.swift; sourceTree = "<group>"; };
@@ -276,7 +278,6 @@
 		0E7AE803254EBED0004CA839 /* FindEmailInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmailInformation.swift; sourceTree = "<group>"; };
 		0E7AE806254EEE7F004CA839 /* FindEmailNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmailNVC.swift; sourceTree = "<group>"; };
 		0E7AE80A254F07C7004CA839 /* FindEmailCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindEmailCheckService.swift; sourceTree = "<group>"; };
-		0EB0CF4024B199F0009B089A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		0EB0CF8B24B32647009B089A /* Homes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homes.storyboard; sourceTree = "<group>"; };
 		3332402424B4A6D800C3B59C /* IvGraphTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IvGraphTVCell.swift; sourceTree = "<group>"; };
 		3332402524B4A6D800C3B59C /* ItemInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInformation.swift; sourceTree = "<group>"; };
@@ -305,6 +306,9 @@
 		3344F905250A5EAC00787DFC /* HomeMainRigntCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainRigntCVCell.swift; sourceTree = "<group>"; };
 		3344F907250AA17600787DFC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3344F909250B54C400787DFC /* bigCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bigCVCell.swift; sourceTree = "<group>"; };
+		334C40712556476500F22CAC /* InventoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
+		334C40732556477E00F22CAC /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		334C40752556479100F22CAC /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		334F374C24C09877001D1B05 /* IvProductRegistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvProductRegistVC.swift; sourceTree = "<group>"; };
 		3357D7A224B2CC2F002FF1EF /* IvGraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphVC.swift; sourceTree = "<group>"; };
 		3357D7A724B3251F002FF1EF /* CalendarCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCVCell.swift; sourceTree = "<group>"; };
@@ -345,10 +349,11 @@
 		33C2DD692528E82F00E02891 /* HomeNewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewDetailVC.swift; sourceTree = "<group>"; };
 		33C2DD6D2528E88900E02891 /* HomeNewDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewDetailTVCell.swift; sourceTree = "<group>"; };
 		33C2DD702528E90900E02891 /* HomeNewDetailContentTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewDetailContentTVCell.swift; sourceTree = "<group>"; };
+		33D4146525597F30001A241A /* IvRecord.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		33E4331E2520ACB800138E60 /* HomePageControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageControlDelegate.swift; sourceTree = "<group>"; };
 		33FE72102534551300BD19EE /* IvGraphMemoModifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvGraphMemoModifyService.swift; sourceTree = "<group>"; };
-		A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		883862831EC9A32488CD3913 /* Pods-inventorybox_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.debug.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C4E7678378F4795C59090D29 /* Pods-inventorybox_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventorybox_iOS.release.xcconfig"; path = "Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D409DF0424BC2971009AC0B6 /* IvExchangeSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchVC.swift; sourceTree = "<group>"; };
 		D409DF0724BC30D6009AC0B6 /* KaKaoLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalService.swift; sourceTree = "<group>"; };
 		D409DF0924BC3A6F009AC0B6 /* KaKaoLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoLocalData.swift; sourceTree = "<group>"; };
@@ -387,7 +392,6 @@
 		D41D536A252B6A5B00673978 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		D41D536B252B6A5B00673978 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D41D5390252B6C0900673978 /* HomeSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HomeSetting.storyboard; path = Record/HomeSetting.storyboard; sourceTree = "<group>"; };
-		D4260EF524B1744100CAA41B /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		D4260EF924B175BE00CAA41B /* InventoryInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryInformation.swift; sourceTree = "<group>"; };
 		D4260EFB24B17AB500CAA41B /* AddIvHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIvHeaderCell.swift; sourceTree = "<group>"; };
 		D4311FEB24BAE791000C9B8B /* DeleteCategoryPopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryPopVC.swift; sourceTree = "<group>"; };
@@ -425,7 +429,6 @@
 		D483F799252A09BE00271B4E /* TitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
 		D48417A824AC55EB0064EE64 /* inventorybox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inventorybox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48417AB24AC55EB0064EE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D48417B224AC55EB0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D48417B424AC55EC0064EE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D48417B724AC55EC0064EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -462,7 +465,6 @@
 		D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvTodayRecord.storyboard; sourceTree = "<group>"; };
 		D4B697BE24B3C566004DA305 /* InventoryTodayRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTodayRecordCell.swift; sourceTree = "<group>"; };
 		D4B6D8AB24C231C00060D634 /* IvExchangeSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeSearchService.swift; sourceTree = "<group>"; };
-		D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IvRecord.storyboard; sourceTree = "<group>"; };
 		D4C6AB5A24BB8B79002C8F2D /* IvExchangeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeDetailVC.swift; sourceTree = "<group>"; };
 		D4D8F44724BB63D8008BF3AF /* IvRecordNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordNaviVC.swift; sourceTree = "<group>"; };
 		D4D8F44924BB6A70008BF3AF /* IvExchangeNaviVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvExchangeNaviVC.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 		D4ED3EAC2535818B00C39EED /* ProfilePutInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePutInformation.swift; sourceTree = "<group>"; };
 		D4FBA31C24C0741800B939E0 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		D4FBA31E24C0749100B939E0 /* IvRecordCategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRecordCategoryData.swift; sourceTree = "<group>"; };
+		F369465A0C8D0B4694130DA7 /* Pods_inventorybox_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inventorybox_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,7 +497,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA91CE7A3B039A7CC888A7F3 /* Pods_inventorybox_iOS.framework in Frameworks */,
+				C4135CF8900284C56750FDDB /* Pods_inventorybox_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,13 +555,13 @@
 		0EB0CF4224B19FA8009B089A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				334C40752556479100F22CAC /* Font.swift */,
 				D44FDA6824F1632500D3E868 /* NanumSquareB.ttf */,
 				D44FDA6624F1632500D3E868 /* NanumSquareEB.ttf */,
 				D44FDA6724F1632500D3E868 /* NanumSquareR.ttf */,
 				D4AC98DC24B87DC100DBD099 /* 12롯데마트행복Bold.ttf */,
 				D4AC98D724B87DC000DBD099 /* 12롯데마트행복Medium.ttf */,
 				D4AC98D924B87DC100DBD099 /* Roboto-Bold.ttf */,
-				0EB0CF4024B199F0009B089A /* Font.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -655,18 +658,10 @@
 		4426A8487749DF3A2003ABA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */,
-				A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */,
+				883862831EC9A32488CD3913 /* Pods-inventorybox_iOS.debug.xcconfig */,
+				C4E7678378F4795C59090D29 /* Pods-inventorybox_iOS.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B9BD6A55318AA3C8FD7FD0DE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0AB9F9053B9B2EF640E12BF5 /* Pods_inventorybox_iOS.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D40372B924E56BCE00AFD2E5 /* EditCategory */ = {
@@ -696,7 +691,7 @@
 		D40372BC24E5762200AFD2E5 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				D4260EF524B1744100CAA41B /* InventoryCell.swift */,
+				334C40712556476500F22CAC /* InventoryCell.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -817,10 +812,10 @@
 		D474DD0324E5651A000F04AE /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				33D4146525597F30001A241A /* IvRecord.storyboard */,
 				D40D75D124B3244200534230 /* IvRecordAddProduct.storyboard */,
 				D40D75CF24B323F500534230 /* IvRecordCategoryEdit.storyboard */,
 				D4E7A3F924B4C9A5001C015A /* IvRecordEditProduct.storyboard */,
-				D4C4446E24AD9B2800CCF1C7 /* IvRecord.storyboard */,
 				D4B697BA24B3C4E7004DA305 /* IvTodayRecord.storyboard */,
 			);
 			path = Record;
@@ -946,7 +941,7 @@
 				D48417A924AC55EB0064EE64 /* Products */,
 				4426A8487749DF3A2003ABA2 /* Pods */,
 				0E66A4B724B4447C00E76683 /* Recovered References */,
-				B9BD6A55318AA3C8FD7FD0DE /* Frameworks */,
+				DFA15D1B58C48B3BBBE9510E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -971,8 +966,8 @@
 		D48417BF24AC56460064EE64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				334C40732556477E00F22CAC /* SceneDelegate.swift */,
 				D48417AB24AC55EB0064EE64 /* AppDelegate.swift */,
-				D48417AD24AC55EB0064EE64 /* SceneDelegate.swift */,
 				D48417B424AC55EC0064EE64 /* Assets.xcassets */,
 				D48417C124AC56780064EE64 /* APIServices */,
 				D48417C024AC565D0064EE64 /* Storyboards */,
@@ -1204,6 +1199,14 @@
 			path = IvRecord;
 			sourceTree = "<group>";
 		};
+		DFA15D1B58C48B3BBBE9510E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F369465A0C8D0B4694130DA7 /* Pods_inventorybox_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1211,11 +1214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D48417BC24AC55EC0064EE64 /* Build configuration list for PBXNativeTarget "inventorybox_iOS" */;
 			buildPhases = (
-				C6CD84A8F3C2B69BC3D339BD /* [CP] Check Pods Manifest.lock */,
+				ACF0C35F0BC5074D4F140CDB /* [CP] Check Pods Manifest.lock */,
 				D48417A424AC55EB0064EE64 /* Sources */,
 				D48417A524AC55EB0064EE64 /* Frameworks */,
 				D48417A624AC55EB0064EE64 /* Resources */,
-				083B9827F0B08465AD79DCAB /* [CP] Embed Pods Frameworks */,
+				7D064D4444E78ECCC8D45961 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1266,17 +1269,18 @@
 			files = (
 				3343299025542005008F3C7D /* NewNewHome.storyboard in Resources */,
 				339C89AF24BB21C700B86BAF /* Login.storyboard in Resources */,
+				33D41469255AA2DA001A241A /* NanumSquareB.ttf in Resources */,
+				33D4146625597F30001A241A /* IvRecord.storyboard in Resources */,
 				D4E7A3F824B452A0001C015A /* Homes.storyboard in Resources */,
 				D48417B824AC55EC0064EE64 /* LaunchScreen.storyboard in Resources */,
-				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
+				33A64B20255578BD00722FD1 /* Assets.xcassets in Resources */,
 				D4AC98E224B87E1F00DBD099 /* Roboto-Bold.ttf in Resources */,
 				D4DFE3C124B649C800D8795E /* hamburger.json in Resources */,
 				D4DFE3BB24B6414700D8795E /* Onboarding.storyboard in Resources */,
 				33A6A480252B2F48000B1D35 /* IvGraphNew.storyboard in Resources */,
-				D4C4446F24AD9B2800CCF1C7 /* IvRecord.storyboard in Resources */,
 				D4558A8D24C166E600A1ACB5 /* logo.json in Resources */,
-				D48417B524AC55EC0064EE64 /* Assets.xcassets in Resources */,
 				D40D75D224B3244200534230 /* IvRecordAddProduct.storyboard in Resources */,
+				33D41468255AA2D8001A241A /* NanumSquareEB.ttf in Resources */,
 				D4AC98DE24B87E1400DBD099 /* 12롯데마트행복Medium.ttf in Resources */,
 				D4DFE3BF24B649A500D8795E /* 26594-add-text.json in Resources */,
 				D4DFE3CF24B6682500D8795E /* 26540-blogging-writing-typing.json in Resources */,
@@ -1285,6 +1289,7 @@
 				D4E7A3FA24B4C9A5001C015A /* IvRecordEditProduct.storyboard in Resources */,
 				D46A015824B6C93C0055814E /* IvExchange.storyboard in Resources */,
 				D48417B324AC55EB0064EE64 /* Main.storyboard in Resources */,
+				33D41467255AA2D5001A241A /* NanumSquareR.ttf in Resources */,
 				D41D5391252B6C0900673978 /* HomeSetting.storyboard in Resources */,
 				D4AC98DD24B87E0F00DBD099 /* 12롯데마트행복Bold.ttf in Resources */,
 			);
@@ -1293,7 +1298,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		083B9827F0B08465AD79DCAB /* [CP] Embed Pods Frameworks */ = {
+		7D064D4444E78ECCC8D45961 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1310,7 +1315,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-inventorybox_iOS/Pods-inventorybox_iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6CD84A8F3C2B69BC3D339BD /* [CP] Check Pods Manifest.lock */ = {
+		ACF0C35F0BC5074D4F140CDB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1374,6 +1379,7 @@
 				3332405E24B5B17800C3B59C /* IvGraphNC.swift in Sources */,
 				D457F16E250610DF008D60FE /* IvRecordMoveCateService.swift in Sources */,
 				3344F904250A3F5200787DFC /* HomeMainLeftCVCell.swift in Sources */,
+				334C40742556477E00F22CAC /* SceneDelegate.swift in Sources */,
 				339E18CD252F509700508A04 /* HomeEditContentTVCell.swift in Sources */,
 				D4ED3EA925357F6200C39EED /* IvHomeHamburgerProfilePutService.swift in Sources */,
 				0E1EE8E32508A48200859E68 /* HomeSideMyInfoVC.swift in Sources */,
@@ -1420,6 +1426,7 @@
 				334F374D24C09877001D1B05 /* IvProductRegistVC.swift in Sources */,
 				33875C5725041B02002D9DA0 /* SignupData.swift in Sources */,
 				3332402824B4A6D800C3B59C /* IvGraphTVCell.swift in Sources */,
+				334C40762556479100F22CAC /* Font.swift in Sources */,
 				0E4A82FD24BD7B89001E38B7 /* MemoTVCell.swift in Sources */,
 				D415025324C06E0F00183004 /* IvRecordAddIvPostService.swift in Sources */,
 				3340BE5924C16E2400CA8103 /* IvExchangePostService.swift in Sources */,
@@ -1464,7 +1471,6 @@
 				D4A52A6724BCE7FE005B85DE /* SelectCategoryCell.swift in Sources */,
 				D445336325359CC300F6D0A1 /* IvHomeHamburgerPrivateInformationPutServcie.swift in Sources */,
 				0E4A82F324BD7B64001E38B7 /* Home1CVCell.swift in Sources */,
-				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D4ED3EAD2535818B00C39EED /* ProfilePutInformation.swift in Sources */,
 				335E55D924C224BC00E306E9 /* IvGraphDetailPicekrVC.swift in Sources */,
 				3340BE5524C156DA00CA8103 /* IvExchangeWritePopupVC.swift in Sources */,
@@ -1481,9 +1487,7 @@
 				D4DFE3CD24B6668600D8795E /* IvRecordCategoryEditVC.swift in Sources */,
 				335889C624BCF3D300DB2533 /* TagModel.swift in Sources */,
 				0E354568253D4FE9003B16E8 /* IvHomeFindEmailVC.swift in Sources */,
-				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0E1EE8E22508A48200859E68 /* HomeNewSideMenuVC.swift in Sources */,
-				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4311FEE24BAEFE4000C9B8B /* DeleteCategoryCell.swift in Sources */,
 				D445336025359CB500F6D0A1 /* IvHomeHamburgerPrivateInformationService.swift in Sources */,
 				D45F40E42536F9740057D049 /* PasswordChangePutService.swift in Sources */,
@@ -1492,10 +1496,8 @@
 				0E0568F724C1C6AE00853DD0 /* emailAuthService.swift in Sources */,
 				D494DEB725334E460006D6DC /* OnboardingTwoVC.swift in Sources */,
 				3332403124B4DCFD00C3B59C /* IvTVHeaderCell.swift in Sources */,
-				D48417AE24AC55EB0064EE64 /* SceneDelegate.swift in Sources */,
 				D41D0D002535DD36006C112E /* QuestionVC.swift in Sources */,
 				3332406924B6530500C3B59C /* IvDetailWeekGraphTVCell.swift in Sources */,
-				D4260EF624B1744100CAA41B /* InventoryCell.swift in Sources */,
 				0E00871A252BA319004689C7 /* IvHomeSideUserPostVC.swift in Sources */,
 				3344F908250AA17600787DFC /* DataModel.swift in Sources */,
 				0E00873A252C96F8004689C7 /* IvExchangeFavoriteInformation.swift in Sources */,
@@ -1503,7 +1505,6 @@
 				0E1EE8E62508A48200859E68 /* HomeNewVC.swift in Sources */,
 				0E008722252BA476004689C7 /* IvHomeSideUserPostTVCell.swift in Sources */,
 				D41D0D062535EA14006C112E /* UserOutPopUpVC.swift in Sources */,
-				0EB0CF4124B199F0009B089A /* Font.swift in Sources */,
 				D4B6D8AC24C231C00060D634 /* IvExchangeSearchService.swift in Sources */,
 				D41D536E252B6A5B00673978 /* TitleData.swift in Sources */,
 				0E1EE8E12508A48200859E68 /* SideMenuVC.swift in Sources */,
@@ -1514,6 +1515,7 @@
 				D4A2875624B8082D00A60C08 /* FoodExchangeInformation.swift in Sources */,
 				3344F906250A5EAC00787DFC /* HomeMainRigntCVCell.swift in Sources */,
 				335E55DB24C231C200E306E9 /* SingleGraphData.swift in Sources */,
+				334C40722556476500F22CAC /* InventoryCell.swift in Sources */,
 				D4A05D3E24C11CF400F038FA /* IvExchangeHomeService.swift in Sources */,
 				33C2DD6E2528E88900E02891 /* HomeNewDetailTVCell.swift in Sources */,
 				3344F90A250B54C400787DFC /* bigCVCell.swift in Sources */,
@@ -1690,18 +1692,18 @@
 		};
 		D48417BD24AC55EC0064EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A868FC7E4EE148A22883C686 /* Pods-inventorybox_iOS.debug.xcconfig */;
+			baseConfigurationReference = 883862831EC9A32488CD3913 /* Pods-inventorybox_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jaeyong.inventorybox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ayo.inventorybox-iOS";
 				PRODUCT_NAME = inventorybox_iOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1710,18 +1712,18 @@
 		};
 		D48417BE24AC55EC0064EE64 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A08F5B90DF13C63DC3604F7E /* Pods-inventorybox_iOS.release.xcconfig */;
+			baseConfigurationReference = C4E7678378F4795C59090D29 /* Pods-inventorybox_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZVHD77BLL;
+				DEVELOPMENT_TEAM = 2ZS26WP93H;
 				INFOPLIST_FILE = inventorybox_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jaeyong.inventorybox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ayo.inventorybox-iOS";
 				PRODUCT_NAME = inventorybox_iOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
