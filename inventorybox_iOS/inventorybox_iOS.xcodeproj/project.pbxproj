@@ -1703,7 +1703,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hwangji.inventorybox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ayo.inventorybox-iOS";
 				PRODUCT_NAME = inventorybox_iOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1723,7 +1723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hwangji.inventorybox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ayo.inventorybox-iOS";
 				PRODUCT_NAME = inventorybox_iOS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
