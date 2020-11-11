@@ -19,7 +19,7 @@ class HomeNewVC: UIViewController {
     var page : Int = 0 {didSet{}}     // page 개수 관련 변수
     var curentpage : Int = 0
     
-    var flagInt:[Int] = [] {didSet{print("flagInt잘 들어갔나?\(flagInt)")}}
+    var flagInt:[Int] = [] {didSet{print("flagInt잘 들어갔나?\(flagInt.count)")}}
 
     var leftFlagInt:[Int] = [] {didSet{print("왼쪽 flagInt잘 들어갔나?\(leftFlagInt)")}}  // flag값
     var rightFlagInt:[Int] = [] {didSet{print("오른쪽 flagInt잘 들어갔나?\(rightFlagInt)")}}  // flag값
@@ -366,8 +366,8 @@ extension HomeNewVC: UICollectionViewDataSource{
                     // 그 이후 나오지 말아야 하는 값들
                     for i in leftRemainder..<7 {
                         if listCell.leftStackview[i].tag == i+1 && listCell.leftStackImage[i].tag == i+1 {
-                            listCell.leftStackview[i].text = "\(self.leftCheckOrderInfo[i].itemName)"
-                            listCell.leftStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.leftFlagInt[i]))")
+                            listCell.leftStackview[i].text = " "
+                            listCell.leftStackImage[i].image = UIImage(named: "homeIcCheck")
                         }
                     }
                 }else if leftRemainder == 0 && leftValue == 0{
@@ -485,8 +485,8 @@ extension HomeNewVC: UICollectionViewDataSource{
                 if rigntRemainder == 0 {
                     for i in rigntRemainder..<7 {
                         if listCell.rigntStackView[i].tag == i+1 && listCell.rigntStackImage[i].tag == i+1 {
-                            listCell.rigntStackView[i].text = "\(self.rightCheckOrderInfo[i].itemName)"
-                            listCell.rigntStackImage[i].image = UIImage(named: "\(onOff(flagInt: self.rightFlagInt[i]))")
+                            listCell.rigntStackView[i].text = " "
+                            listCell.rigntStackImage[i].image = UIImage(named: "homeIcCheck")
                         }
                     }
                 }else if rigntRemainder == 0 && rigntValue == 0{
