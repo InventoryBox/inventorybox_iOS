@@ -37,9 +37,7 @@ struct IvHomeHamburgerPrivateInformationPutServcie {
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.networkFail)
-                
             }
-            
         }
     }
     
@@ -62,8 +60,6 @@ struct IvHomeHamburgerPrivateInformationPutServcie {
         } else {
             return .requestErr(decodedData.message)
         }
-        
     }
-    
 }
 

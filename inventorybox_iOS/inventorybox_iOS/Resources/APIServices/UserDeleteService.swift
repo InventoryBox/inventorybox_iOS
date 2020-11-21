@@ -29,7 +29,6 @@ struct UserDeleteService {
             case .failure: completion(.networkFail)
             
             }
-            
         }
     }
     
@@ -52,8 +51,6 @@ struct UserDeleteService {
         } else {
             return .requestErr(decodedData.message)
         }
-        
     }
-    
 }
 

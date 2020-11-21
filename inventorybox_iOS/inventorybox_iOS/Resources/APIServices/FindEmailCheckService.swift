@@ -14,19 +14,13 @@ struct FindEmailCheckService {
     static let shared = FindEmailCheckService()
     private func makeParameter(data: String) -> Parameters{
 //        print(data)
-        return
-            [ "sendEmail": data ]
-    }
+        return [ "sendEmail": data ] }
     
     func emailCheckPost(data: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         let header: HTTPHeaders = ["Content-Type":"application/json", "token":token]
-        
         let url = APIConstants.emailChecklURL
-        
         let dataRequest = Alamofire.request(url, method: .post, parameters: makeParameter(data: data), encoding: JSONEncoding.default, headers: header)
-        
-        
 //            print(makeParameter(data: data))
         dataRequest.responseData { (dataResponse) in
             switch dataResponse.result {
@@ -57,7 +51,6 @@ struct FindEmailCheckService {
     private func reciveData(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(EmailAuthInformation.self, from: data) else { return .pathErr }
-        
         // 성공 메시지
         print(decodedData.message)
         guard let data = decodedData.data else { return .pathErr }
@@ -67,8 +60,6 @@ struct FindEmailCheckService {
         } else {
             return .requestErr(decodedData.message)
         }
-        
     }
-    
 }
 

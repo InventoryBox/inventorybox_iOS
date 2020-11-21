@@ -16,7 +16,6 @@ struct EmailAuthInformation: Codable {
     let message: String
     let data: reciveData?
     
-    
     init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
         status = (try? values.decode(Int.self, forKey: .status)) ?? -1
@@ -25,7 +24,6 @@ struct EmailAuthInformation: Codable {
         data = (try? values.decode(reciveData.self, forKey: .data)) ?? nil
     }
 }
-
 
 // MARK: - DataClass
 struct reciveData: Codable {

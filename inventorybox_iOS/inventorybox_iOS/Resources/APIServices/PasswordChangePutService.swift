@@ -27,9 +27,7 @@ struct PasswordChangePutService {
                 let networkResult = self.judge(by: statusCode, value)
                 completion(networkResult)
             case .failure: completion(.networkFail)
-            
             }
-            
         }
     }
     
@@ -52,8 +50,6 @@ struct PasswordChangePutService {
         } else {
             return .requestErr(decodedData.message)
         }
-        
     }
-    
 }
 
